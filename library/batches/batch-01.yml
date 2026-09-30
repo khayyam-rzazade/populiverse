@@ -1,0 +1,127 @@
+# PopuliVerse Library: batch 01, 2026-10-01.
+#
+# One batch = one list of works to tag in the Zotero group.
+# The script scripts/tag_library.R reads this file and writes the tags.
+# After a run, each work below carries exactly the tags listed here.
+#
+# HOW TO READ AN ENTRY
+#   cite       short name, used in the script's messages
+#   title      the full title as published, used to recognise the work if Zotero
+#              did not keep its DOI
+#   year       year of publication
+#   doi        the DOI, checked online before it was written here
+#   fix_title  true = after import, make the title in Zotero equal to "title"
+#              (used when the DOI lookup brings the title without its subtitle)
+#   tags       only tags that exist in library/taxonomy.yml
+#
+# Tagging decisions confirmed by the editor on 2026-10-01:
+#   - a concept piece carries an approach tag only: no topic, no method (Weyland);
+#   - Turkey sits under Europe, so a study of Turkey and India is filed under
+#     Europe and Asia-Pacific.
+#
+# Left out by the editor on 2026-10-01: Eklundh (2019), Emotions, Protest,
+# Democracy (10.4324/9781351205719).
+
+batch: 1
+date: "2026-10-01"
+
+works:
+
+  - cite: "Mudde and Rovira Kaltwasser 2017"
+    title: "Populism: A Very Short Introduction"
+    year: 2017
+    doi: "10.1093/actrade/9780190234874.001.0001"
+    tags:
+      - "approach:ideational"
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "region:global"
+      - "type:book"
+
+  - cite: "Weyland 2001"
+    title: "Clarifying a Contested Concept: Populism in the Study of Latin American Politics"
+    year: 2001
+    doi: "10.2307/422412"
+    tags:
+      - "approach:political-strategic"
+      - "region:latin-america"
+      - "type:article"
+
+  - cite: "Moffitt 2016"
+    title: "The Global Rise of Populism: Performance, Political Style, and Representation"
+    year: 2016
+    doi: "10.1515/9780804799331"
+    fix_title: true
+    tags:
+      - "approach:performative"
+      - "topic:media-communication"
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "region:global"
+      - "method:qualitative"
+      - "type:book"
+
+  - cite: "Destradi, Cadier and Plagemann 2021"
+    title: "Populism and foreign policy: a research agenda (Introduction)"
+    year: 2021
+    doi: "10.1057/s41295-021-00255-4"
+    tags:
+      - "approach:other"
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Destradi and Plagemann 2019"
+    title: "Populism and International Relations: (Un)predictability, personalisation, and the reinforcement of existing trends in world politics"
+    year: 2019
+    doi: "10.1017/S0260210519000184"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:government"
+      - "region:global"
+      - "country:india"
+      - "country:turkey"
+      - "country:venezuela"
+      - "country:philippines"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Destradi and Plagemann 2024"
+    title: "Do populists escalate international disputes?"
+    year: 2024
+    doi: "10.1093/ia/iiae172"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:government"
+      - "region:latin-america"
+      - "region:asia-pacific"
+      - "country:bolivia"
+      - "country:india"
+      - "country:philippines"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Destradi, Plagemann and Taş 2022"
+    title: "Populism and the politicisation of foreign policy"
+    year: 2022
+    doi: "10.1177/13691481221075944"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:turkey"
+      - "country:india"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"

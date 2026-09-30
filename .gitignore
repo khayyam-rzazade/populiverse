@@ -14,3 +14,7 @@
 
 # macOS folder settings
 .DS_Store
+
+# Private settings such as the Zotero key never belong in this folder
+# (the key lives in the home folder, in ~/.Renviron)
+.Renviron
