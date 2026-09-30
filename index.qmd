@@ -60,7 +60,8 @@ A curated, filterable database of academic and policy literature on populism, bu
 - Foreign policy
 - Defence and security
 - The international sphere
-- The domestic sphere
+- Parties, leaders and movements
+- Voters and attitudes
 - Populists in government
 - Spatial populism
 - Economy and welfare

@@ -32,7 +32,8 @@ Every entry is tagged on two axes. The first says how the work defines populism.
 - Foreign policy
 - Defence and security
 - The international sphere: the EU, international organisations, multilateralism
-- The domestic sphere: parties, voters, elections
+- Parties, leaders and movements: the supply side
+- Voters and attitudes: the demand side
 - Populists in government
 - Spatial populism: geography, urban–rural divides, regions
 - Economy and welfare
