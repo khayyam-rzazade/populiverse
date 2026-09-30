@@ -1,1 +1,32 @@
-/* css styles */
+/* PopuliVerse: layout rules only.
+   Colours, typefaces and the wordmark arrive with the chosen look. */
+
+/* The two taxonomy lists on the Library page: side by side on wide screens, stacked on phones */
+.pv-axes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.pv-axis > h3 {
+  margin-top: 0;
+}
+
+/* A box that marks something not there yet */
+.pv-pending {
+  border: 1px dashed currentColor;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  opacity: 0.75;
+}
+
+.pv-pending > p:last-child {
+  margin-bottom: 0;
+}
+
+/* Once an issue list has something in it, the "first issue is planned" note after it disappears */
+.quarto-listing + .pv-pending {
+  display: none;
+}

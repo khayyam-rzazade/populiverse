@@ -1,0 +1,54 @@
+---
+title: "PopuliVerse Commentary"
+description: "Short scholarly commentary on populism, written by researchers."
+# This page is the archive, not a piece, so the piece settings are switched off here.
+google-scholar: false
+citation: false
+toc: true
+listing:
+  id: pieces
+  contents: "*/*.qmd"
+  sort: "date desc"
+  type: default
+  fields: [title, author, date, description]
+  date-format: "MMMM YYYY"
+---
+
+Commentary publishes short analytical pieces on populism and populist actors. They are written by scholars and reviewed by the editor. Commentary appears quarterly.
+
+## Issues
+
+::: {#pieces}
+:::
+
+::: {.pv-pending}
+The first issue, 2027/1, is planned for March 2027.
+:::
+
+## Call for commentary
+
+<!-- EDITOR: the plan says year one runs on invited pieces and the open call goes out from year two. Decide how much of that to say here, and whether unsolicited proposals are welcome before then. -->
+
+In its first year Commentary publishes invited pieces. An open call will follow.
+
+## Submission guidelines
+
+**Who can write.** PhD holders and doctoral candidates, with their affiliation stated. The decision to publish is the editor's.
+
+**Length.** 800 to 1,500 words, with references.
+
+**What Commentary publishes.** Analytical commentary on populism and populist actors. No partisan advocacy.
+
+**Review.** Pieces are editor-reviewed. Commentary is not peer-reviewed, and PopuliVerse does not describe it as such.
+
+**Originality and AI use.** Authors sign a declaration on originality and on any use of AI. Every piece goes through a similarity check and the editor's own read.
+
+**What authors provide.** An ORCID iD, a stated affiliation and a conflict-of-interest statement.
+
+**Copyright and licence.** Authors keep the copyright and grant a [CC BY 4.0 licence](../legal/licence.qmd). CC BY-ND 4.0 is available on request.
+
+**Cost.** None. There is no fee to submit or to publish.
+
+**How a piece is published.** As a web page and as a typeset PDF, with its own DOI and a "Cite this" box. It is also collected in the PDF of its issue.
+
+**After publication.** Corrections and the right of reply are set out in the [editorial policy](../about/editorial-policy.qmd).

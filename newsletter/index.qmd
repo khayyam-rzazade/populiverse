@@ -1,0 +1,14 @@
+---
+title: "Newsletter"
+description: "One email for each new issue."
+---
+
+Subscribers get one email when a new issue of the Monitor or of Commentary is out: a short summary and a link to the full issue on this site. Nothing else is sent.
+
+<!-- TODO(link): when the Substack list exists, replace the box below with a button to it. -->
+
+::: {.pv-pending}
+Sign-up opens with the launch.
+:::
+
+The list runs on Substack. Your email address is used only to send the newsletter, and you can unsubscribe from any email. See the [privacy policy](../legal/privacy.qmd).

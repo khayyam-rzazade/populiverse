@@ -1,0 +1,32 @@
+---
+title: "How to contribute"
+description: "Suggest a paper, join the Zotero group, write for Commentary or report an error."
+---
+
+## Suggest a paper for the Library
+
+Send the title or the DOI of a work on populism, and a line on why it belongs in the [Library](../library/index.qmd).
+
+<!-- TODO(link): when the "Suggest a paper" form exists, replace the box below with a button to it. -->
+
+::: {.pv-pending}
+The form opens with the launch.
+:::
+
+## Join the Zotero group
+
+The Library lives in a public Zotero group called "PopuliVerse Library". Scholars who suggest papers regularly are invited to join it as editors.
+
+## Write for Commentary
+
+Commentary publishes short pieces of 800 to 1,500 words by PhD holders and doctoral candidates. See the [call and the submission guidelines](../commentary/index.qmd#call-for-commentary).
+
+## Report an error or ask for a reply
+
+If something published here is wrong, write to the editor. Corrections are made in the open, never silently. A person or party discussed in an issue may also ask for a short reply. Both are described in the [editorial policy](editorial-policy.qmd).
+
+## Get in touch
+
+<hello@populiverse.com>
+
+<!-- TODO(link): when the contact form exists, add a button to it here. -->

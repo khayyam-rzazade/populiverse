@@ -1,21 +1,83 @@
+# PopuliVerse: settings for the whole site.
+# Lines that start with # are notes for people. Quarto ignores them.
+
 project:
   type: website
+  # Only .qmd files become pages. The drafts folder is never built.
+  render:
+    - "*.qmd"
+    - "!drafts/"
+
+lang: en-GB
 
 website:
-  title: "populiverse"
+  title: "PopuliVerse"
+  description: "A curated library of research on populism, a monthly monitor of populist actors worldwide, and short commentary by scholars."
+  site-url: "https://populiverse.com"
+  back-to-top-navigation: true
+  search:
+    location: navbar
+    type: overlay
+
+  # PRE-LAUNCH, part 1 of 2: the strip under the menu.
+  # Delete these six lines at the soft launch.
+  announcement:
+    content: "PopuliVerse is under construction. The pages are drafts."
+    type: secondary
+    dismissable: false
+    position: below-navbar
+
+  # The menu at the top of every page.
   navbar:
+    title: "PopuliVerse"
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "Library"
+        href: library/index.qmd
+      - text: "Monitor"
+        href: monitor/index.qmd
+      - text: "Commentary"
+        href: commentary/index.qmd
+      - text: "Resources"
+        href: resources/index.qmd
+      - text: "About"
+        menu:
+          - text: "About PopuliVerse"
+            href: about/about.qmd
+          - text: "How to contribute"
+            href: about/contribute.qmd
+          - text: "Editorial policy"
+            href: about/editorial-policy.qmd
+    right:
+      - text: "Newsletter"
+        href: newsletter/index.qmd
+
+  # The strip at the bottom of every page.
+  page-footer:
+    left: "Editor: Khayyam RZAZADE"
+    center:
+      - text: "Privacy"
+        href: legal/privacy.qmd
+      - text: "Legal notice"
+        href: legal/notice.qmd
+      - text: "Licence"
+        href: legal/licence.qmd
+    right:
+      - text: "Contact"
+        href: about/about.qmd#contact
 
 format:
   html:
+    # No outside fonts or scripts: every page is served from this site alone.
     theme:
-      - cosmo
+      - default
       - brand
     css: styles.css
-    toc: true
-
-
-
+    html-math-method: mathml
+    toc: false
+    link-external-newwindow: true
+    email-obfuscation: javascript
+    # PRE-LAUNCH, part 2 of 2: asks search engines not to list the site yet.
+    # Delete these three lines at the soft launch.
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex">

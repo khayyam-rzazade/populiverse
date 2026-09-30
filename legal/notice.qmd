@@ -1,0 +1,26 @@
+---
+title: "Legal notice"
+description: "Who publishes PopuliVerse and how to reach them."
+---
+
+<!-- EDITOR: draft wording, not legal advice. Open item in the plan: confirm that Italian rules on registering periodicals do not apply to a non-journalistic academic site. Decide whether a postal address is needed here. -->
+
+PopuliVerse is an independent, non-commercial academic website.
+
+**Publisher and editor.** Khayyam Rzazade
+
+**Contact.** <hello@populiverse.com>
+
+**Hosting.** GitHub Pages, a service of GitHub, Inc.
+
+## Responsibility for content
+
+Monitor issues are written and edited by the editor. Commentary pieces are the work of their authors and express their authors' views.
+
+## Links to other sites
+
+PopuliVerse links to papers, datasets and news sources on other sites. It is not responsible for their content.
+
+## Reuse
+
+See the [licence page](licence.qmd).

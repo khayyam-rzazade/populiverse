@@ -1,0 +1,77 @@
+---
+title: "Library"
+description: "A curated database of research on populism, built for literature reviews."
+---
+
+::: {#library-app .pv-pending}
+The Library is being built. The search, the filters and the first entries will appear here.
+:::
+
+## How it is organised
+
+Every entry is tagged on two axes. The first says how the work defines populism. The second says what populism is studied alongside.
+
+::: {.pv-axes}
+
+::: {.pv-axis}
+### Approaches to populism
+
+- Ideational: populism as a thin ideology (Mudde)
+- Discursive (Laclau, the Essex school)
+- Political-strategic (Weyland)
+- Performative or stylistic (Moffitt)
+- Socio-cultural (Ostiguy)
+- Economic or structural
+- Measurement and methods: how populism is measured
+- Other or multiple
+:::
+
+::: {.pv-axis}
+### Populism and…
+
+- Foreign policy
+- Defence and security
+- The international sphere: the EU, international organisations, multilateralism
+- The domestic sphere: parties, voters, elections
+- Populists in government
+- Spatial populism: geography, urban–rural divides, regions
+- Economy and welfare
+- Media and communication
+- Gender
+- Religion
+- Migration
+- Democracy and institutions
+- Other
+:::
+
+:::
+
+Entries can also be filtered by region, country, method, type of publication, year, journal and open access.
+
+## What goes in
+
+Peer-reviewed articles, books, book chapters, and selected policy and working papers on populism, in English. Inclusion is an editorial decision. It rests on two tests: relevance to populism as a concept or to populist actors, and scholarly standard.
+
+## What each entry gives you
+
+The full citation, the abstract as published, a link to the DOI or to an open-access copy, the tags on both axes, and a BibTeX reference in one click. PopuliVerse links to papers. It does not host them.
+
+## Suggest a paper
+
+Is something missing? Send the title or the DOI, and a line on why it belongs here.
+
+<!-- TODO(link): when the "Suggest a paper" form exists, replace the box below with a button to it. -->
+
+::: {.pv-pending}
+The form opens with the launch.
+:::
+
+## The Zotero group
+
+The Library lives in a public Zotero group called "PopuliVerse Library". Anyone can read it and use it in their own Zotero. Scholars who contribute regularly are invited to join it as editors.
+
+<!-- TODO(link): when the Zotero group is public, replace the box below with a link to it. -->
+
+::: {.pv-pending}
+The link to the group will be added when the group is public.
+:::

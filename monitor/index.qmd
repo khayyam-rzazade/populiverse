@@ -1,0 +1,44 @@
+---
+title: "PopuliVerse Monitor"
+description: "What populist actors did around the world, issue by issue."
+# This page is the archive, not an issue, so the issue settings are switched off here.
+google-scholar: false
+citation: false
+toc: false
+listing:
+  id: issues
+  contents: "*/*.qmd"
+  sort: "date desc"
+  type: default
+  fields: [title, date, description]
+  date-format: "MMMM YYYY"
+---
+
+The Monitor is a monthly issue on what populist actors did around the world. It is neutral, analytical and sourced. Populism is the object of study, never the target.
+
+## Issues
+
+::: {#issues}
+:::
+
+::: {.pv-pending}
+The first issue, 2027/1, is planned for January 2027.
+:::
+
+## What is in an issue
+
+1. **Editor's note.** The month's main story.
+2. **Around the world.** Six regional roundups: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa.
+3. **In focus.** One theme a month: an election, populists in government, a foreign or defence policy move.
+4. **New research.** Papers added to the [Library](../library/index.qmd) that month.
+5. **Coming up.** Elections, conferences and calls for papers in the next two months.
+
+## Web page and PDF
+
+Every issue is published twice from the same text: as a web page and as a typeset PDF. The PDF is the version of record. The web page shows the PDF's page numbers in the margin, so a passage can be cited by page from either one. Each issue has its own DOI.
+
+## How to cite
+
+Author (year), "Title", *PopuliVerse Monitor* 2027/1, pp. x–y, DOI.
+
+Issues are numbered by year: 2027/1, 2027/2 and so on. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).

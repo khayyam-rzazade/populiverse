@@ -1,7 +1,16 @@
+# R and RStudio working files
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
 
+# Quarto working files, and the built site (GitHub builds the site itself)
 /.quarto/
+/_site/
 **/*.quarto_ipynb
+
+# Drafts stay on this computer until publication day
+/drafts/
+
+# macOS folder settings
+.DS_Store

@@ -1,7 +1,58 @@
 ---
-title: "populiverse"
+title: "The universe of populism"
+description: "PopuliVerse is one place to study populism, follow what populist actors do around the world, and publish short scholarly commentary."
+body-classes: pv-home
+listing:
+  - id: latest-monitor
+    contents: "monitor/*/*.qmd"
+    sort: "date desc"
+    max-items: 1
+    type: default
+    fields: [title, date, description]
+    date-format: "MMMM YYYY"
+  - id: latest-commentary
+    contents: "commentary/*/*.qmd"
+    sort: "date desc"
+    max-items: 4
+    type: default
+    fields: [title, author, date]
+    date-format: "MMMM YYYY"
 ---
 
-This is a Quarto website.
+In English, global in scope, academic in standard and readable by anyone.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Library
+
+A curated, filterable database of academic and policy literature on populism, built for literature reviews. Filter by how populism is defined and by what it is studied alongside. Every entry links to its DOI or to an open-access copy.
+
+[Open the Library](library/index.qmd)
+
+## Monitor
+
+A monthly issue on what populist actors did around the world: six regional roundups, one theme in focus, new research and what is coming up. Every claim links to its source.
+
+::: {#latest-monitor}
+:::
+
+::: {.pv-pending}
+The first issue, 2027/1, is planned for January 2027.
+:::
+
+[All issues of the Monitor](monitor/index.qmd)
+
+## Commentary
+
+Short scholarly commentary on populism and populist actors, written by researchers and reviewed by the editor. Published quarterly.
+
+::: {#latest-commentary}
+:::
+
+::: {.pv-pending}
+The first issue, 2027/1, is planned for March 2027.
+:::
+
+[All issues, and how to write for Commentary](commentary/index.qmd)
+
+## Newsletter
+
+One email for each new issue: a short summary and a link. [About the newsletter](newsletter/index.qmd)

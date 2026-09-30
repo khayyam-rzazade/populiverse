@@ -1,0 +1,45 @@
+---
+title: "Editorial policy"
+description: "How PopuliVerse handles sources, review, originality, AI, corrections and the right of reply."
+toc: true
+---
+
+## Voice
+
+PopuliVerse is neutral, analytical and sourced. It does not advocate. Populism is the object of study, never the target.
+
+## Sources
+
+Every factual claim in the Monitor links to its source. Quotations are short. Long extracts from other publications are never reproduced.
+
+## Review
+
+Monitor issues are written and edited by the editor. Commentary pieces are editor-reviewed. PopuliVerse does not call anything peer-reviewed, and will not do so unless external peer review is introduced.
+
+## Originality
+
+Commentary authors sign a declaration of originality. Every piece goes through a similarity check and the editor's own read before it is published.
+
+## Use of AI
+
+PopuliVerse uses an AI assistant, Claude, to monitor sources and to draft, summarise and translate. The editor edits every published word and is responsible for it. No AI-written text is published unedited. Commentary authors declare any use of AI in their piece.
+
+## Version of record
+
+Every Monitor issue and every Commentary piece is published as a web page and as a typeset PDF. The PDF is the version of record. Citations use its page numbers, and the web page shows the same numbers in the margin. Each issue and each Commentary piece has its own DOI, registered through Zenodo.
+
+## Corrections
+
+A published PDF is never changed silently. A correction is published as a new version in Zenodo, with an erratum note on the web page.
+
+## Right of reply
+
+A person or party discussed in an issue may ask for a short reply. The editor decides. Accepted replies appear in the next issue.
+
+## Licence
+
+The Monitor and Commentary are published under CC BY 4.0. See the [licence page](../legal/licence.qmd).
+
+## What PopuliVerse does not do
+
+It has no comments section, no user accounts and no advertising. It does not host other people's papers: the Library links to them.

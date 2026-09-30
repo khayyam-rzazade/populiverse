@@ -1,0 +1,42 @@
+---
+title: "Resources"
+description: "Datasets, research hubs and teaching materials on populism."
+---
+
+A short, curated list. Each link goes to the project's own site.
+
+## Datasets
+
+[Global Populism Database](https://doi.org/10.7910/DVN/LFTQEZ)
+: How populist the speeches of presidents and prime ministers are, across countries and terms of office, coded by hand. Hosted on Harvard Dataverse.
+
+[The PopuList](https://popu-list.org)
+: Populist, far-left and far-right parties in Europe since 1989, classified with the help of country experts.
+
+[V-Party](https://www.v-dem.net/data/v-party-dataset/)
+: The V-Dem Institute's dataset on the policy positions and organisation of political parties across the world.
+
+[Chapel Hill Expert Survey (CHES)](https://www.chesdata.eu)
+: Expert estimates of where national parties in Europe stand on European integration, ideology and policy issues, in waves since 1999.
+
+## Other hubs
+
+[European Center for Populism Studies (ECPS)](https://www.populismstudies.org)
+: An independent centre in Brussels for research on and analysis of populism.
+
+[Illiberalism Studies Hub](https://hub.illiberalism.org/)
+: A database of academic articles on illiberalism, kept by the Illiberalism Studies Program at George Washington University.
+
+[Team Populism](https://populism.byu.edu)
+: A network of scholars who study the causes and consequences of populism. Its site hosts datasets and papers.
+
+[POPULISMUS](https://populismus.gr)
+: An observatory of populist discourse at the Aristotle University of Thessaloniki.
+
+## Syllabi
+
+<!-- EDITOR: the plan lists "key syllabi" here; none are named yet. -->
+
+::: {.pv-pending}
+Key syllabi on populism will be listed here.
+:::
