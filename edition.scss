@@ -1,0 +1,753 @@
+/*-- scss:defaults --*/
+
+// PopuliVerse: the Edition look (master plan, section 18).
+// Near-white paper, black text, Libre Baskerville throughout, a centred
+// masthead, and one muted cover colour for each periodical.
+// To change a colour, change it once here and every page follows.
+
+$pv-paper:      #FCFCFB;  // page background: near-white, not cream
+$pv-ink:        #111111;  // text and the strong rules
+$pv-muted:      #4A4A4A;  // secondary text
+$pv-hairline:   #D9D9D6;  // thin dividing lines
+$pv-monitor:    #4A5F66;  // Monitor cover: slate
+$pv-commentary: #6B5060;  // Commentary cover: plum-grey
+
+$pv-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
+$pv-page-width: 1280px;   // widest the masthead and the Home page get
+$pv-page-gutter: 6.25%;   // space left and right of them
+
+// What Quarto's own parts pick up
+$body-bg: $pv-paper;
+$body-color: $pv-ink;
+$font-family-sans-serif: $pv-serif;
+$font-size-root: 16px;
+$line-height-base: 1.7;
+$headings-font-weight: 400;
+$headings-line-height: 1.25;
+$link-color: $pv-ink;
+$primary: $pv-ink;
+$secondary: $pv-muted;
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+$navbar-bg: $pv-paper;
+$navbar-fg: $pv-ink;
+$navbar-hl: $pv-ink;
+$footer-bg: $pv-paper;
+$footer-fg: $pv-ink;
+
+/*-- scss:rules --*/
+
+// ---------------------------------------------------------------- Text basics
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: $pv-muted;
+}
+
+// A clear outline when moving through the page with the keyboard
+:focus-visible {
+  outline: 2px solid $pv-ink;
+  outline-offset: 3px;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  font-weight: 400;
+}
+
+main.content h2 {
+  font-size: 1.625rem;
+  margin-top: 2.75rem;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+main.content h3 {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+// Small upper-case label, used for the menu and for short headings above lists
+@mixin pv-label {
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+// ---------------------------------------------------------------- Masthead
+// Wordmark in the centre, Newsletter on the left, search on the right,
+// and the menu underneath between a double rule and a single rule.
+
+#quarto-header {
+  // The masthead sits at the top of the page and scrolls away with it
+  position: absolute;
+  transform: none !important;
+  background: $pv-paper;
+  border-bottom: 0;
+}
+
+#quarto-header .navbar {
+  padding: 0;
+  background: $pv-paper;
+}
+
+#quarto-header .navbar-container {
+  max-width: $pv-page-width;
+  margin: 0 auto;
+  padding: 0 $pv-page-gutter;
+  display: grid;
+  align-items: center;
+  // Phones and tablets: menu button, wordmark, search; the menu opens underneath
+  grid-template-columns: 2.75rem 1fr 2.75rem;
+  grid-template-areas:
+    "button brand tools"
+    "menu   menu  menu"
+    "rule   rule  rule";
+}
+
+// The double rule that closes the masthead on phones and tablets
+#quarto-header .navbar-container::after {
+  content: "";
+  grid-area: rule;
+  border-top: 3px double $pv-ink;
+}
+
+#quarto-header .navbar-brand-container {
+  grid-area: brand;
+  max-width: none;
+  margin: 0 !important;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+#quarto-header .navbar-brand {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: $pv-ink;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+// "Populi" upright, "Verse" italic
+#quarto-header .navbar-title em {
+  font-style: italic;
+}
+
+#quarto-header #quarto-search {
+  grid-area: tools;
+  justify-self: end;
+}
+
+#quarto-header .navbar-toggler {
+  grid-area: button;
+  justify-self: start;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  color: $pv-ink;
+}
+
+// No heavy ring after a tap; keyboard users still get the outline above
+#quarto-header .navbar-toggler:focus {
+  box-shadow: none;
+}
+
+#quarto-header .navbar-collapse {
+  grid-area: menu;
+  border-top: 1px solid $pv-hairline;
+  padding-bottom: 0.5rem;
+}
+
+#quarto-header .quarto-navbar-tools {
+  display: none;
+}
+
+#quarto-header .navbar-nav .nav-link {
+  @include pv-label;
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: 0;
+  color: $pv-ink;
+}
+
+#quarto-header .navbar-nav .nav-link:hover {
+  color: $pv-muted;
+}
+
+// The page you are on
+#quarto-header .navbar-nav .nav-link.active .menu-text {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.45em;
+}
+
+#quarto-header .dropdown-menu {
+  margin-top: 0;
+  padding: 0.25rem 0;
+  background: $pv-paper;
+  border: 1px solid $pv-ink;
+  box-shadow: none;
+}
+
+#quarto-header .dropdown-item {
+  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  color: $pv-ink;
+}
+
+#quarto-header .dropdown-item:hover,
+#quarto-header .dropdown-item:focus {
+  background: $pv-ink;
+  color: $pv-paper;
+}
+
+// Wide screens: the full two-row masthead
+@include media-breakpoint-up(lg) {
+  #quarto-header .navbar-container {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas:
+      "aside brand tools"
+      "menu  menu  menu";
+  }
+
+  #quarto-header .navbar-container::after {
+    display: none;
+  }
+
+  #quarto-header .navbar-nav .nav-link {
+    padding: 0 1rem;
+  }
+
+  #quarto-header .navbar-brand-container {
+    padding: 1.75rem 0 1.5rem;
+  }
+
+  #quarto-header .navbar-brand {
+    font-size: 3.5rem;
+  }
+
+  // Let the two halves of the menu be placed separately
+  #quarto-header .navbar-collapse {
+    display: contents !important;
+  }
+
+  #quarto-header .navbar-nav.me-auto {
+    grid-area: menu;
+    justify-content: center;
+    gap: 0 0.75rem;
+    margin: 0 !important;
+    max-height: none;
+    overflow: visible;
+    border-top: 3px double $pv-ink;
+    border-bottom: 1px solid $pv-ink;
+  }
+
+  #quarto-header .navbar-nav.ms-auto {
+    grid-area: aside;
+    justify-self: start;
+    margin: 0 0 0 -1rem !important;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+// The strip under the menu (used before launch)
+#quarto-announcement.alert {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background: $pv-paper;
+  border: 0;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+  font-style: italic;
+  text-align: center;
+}
+
+#quarto-announcement .quarto-announcement-content {
+  margin: 0 auto;
+}
+
+#quarto-announcement .quarto-announcement-content p {
+  margin: 0;
+}
+
+// ---------------------------------------------------------------- Page titles
+
+#title-block-header.quarto-title-block.default {
+  margin-block-end: 2rem;
+}
+
+#title-block-header .title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+#title-block-header.quarto-title-block.default .description {
+  margin-top: 0.75rem;
+  color: $pv-muted;
+  font-style: italic;
+  font-size: 1.0625rem;
+}
+
+// ---------------------------------------------------------------- Small parts
+
+// A link made to look like a button
+.pv-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.125rem;
+  padding: 0 1.75rem;
+  background: $pv-ink;
+  color: $pv-paper;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.pv-button:hover,
+.pv-button:focus {
+  background: $pv-muted;
+  color: $pv-paper;
+}
+
+// A box that marks something not there yet
+.pv-pending {
+  margin: 1.25rem 0 2rem;
+  padding: 0.75rem 1rem;
+  border: 1px dashed $pv-muted;
+  color: $pv-muted;
+  font-size: 0.9375rem;
+  font-style: italic;
+}
+
+.pv-pending > p:last-child {
+  margin-bottom: 0;
+}
+
+// An issue list with nothing in it yet takes no space...
+.quarto-listing:not(:has(.quarto-post)) {
+  display: none;
+}
+
+// ...and once it has an entry, the "first issue is planned" note after it disappears
+.quarto-listing:has(.quarto-post) + .pv-pending {
+  display: none;
+}
+
+// A list of issues or pieces: the title, what it is about, then the date and author;
+// thin rules between the entries
+div.quarto-post,
+div.quarto-post.image-right,
+div.quarto-post.image-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.875rem 0;
+  border-top: 1px solid $pv-hairline;
+  border-bottom: 0;
+}
+
+.list.quarto-listing-default > div.quarto-post:last-child {
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.quarto-listing {
+  margin: 1.25rem 0 2rem;
+}
+
+div.quarto-post .body,
+div.quarto-post .metadata {
+  flex: 0 0 auto;
+}
+
+div.quarto-post .body h3.listing-title {
+  font-size: 1.1875rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+div.quarto-post .body h3.listing-title a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+div.quarto-post .body .listing-description {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  color: $pv-muted;
+}
+
+div.quarto-post .metadata {
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+div.quarto-post .metadata a {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.75rem;
+  color: $pv-muted;
+}
+
+// The two taxonomy lists: side by side on wide screens, stacked on phones
+.pv-axes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem 3rem;
+  margin: 1.5rem 0;
+}
+
+main.content .pv-axis > h3 {
+  margin-top: 0;
+}
+
+// Definition lists (Resources, About): the term stands out, the text sits under it
+main.content dt {
+  font-weight: 400;
+  margin-top: 1.25rem;
+}
+
+main.content dd {
+  margin-left: 0;
+  color: $pv-muted;
+}
+
+// The "On this page" list in the margin of long pages: it follows the reader
+// near the top of the window once the masthead has scrolled away
+.sidebar.margin-sidebar {
+  top: 1.5rem !important;
+  max-height: calc(100vh - 3rem) !important;
+}
+
+// "Back to top": a small plain button in the bottom right corner
+#quarto-back-to-top {
+  left: auto;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  transform: none;
+  padding: 0.5rem 0.875rem;
+  background: $pv-paper;
+  border: 1px solid $pv-ink;
+  box-shadow: none;
+  color: $pv-ink;
+  font-size: 0.8125rem;
+}
+
+// ---------------------------------------------------------------- Footer
+// Double rule, the editor line, then the four links in one row.
+
+footer.footer .nav-footer {
+  max-width: $pv-page-width;
+  margin: 3rem auto 0;
+  padding: 0 $pv-page-gutter 4.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 1.75rem;
+  border-top: 0;
+  font-size: 0.875rem;
+  color: $pv-ink;
+}
+
+footer.footer .nav-footer::before {
+  content: "";
+  order: 0;
+  flex: 0 0 100%;
+  margin-bottom: 1.5rem;
+  border-top: 3px double $pv-ink;
+}
+
+.nav-footer .nav-footer-left {
+  order: 1;
+  flex: 0 0 100%;
+  margin: 0 0 0.25rem;
+  text-align: center;
+  font-size: 0.9375rem;
+}
+
+.nav-footer .nav-footer-center,
+.nav-footer .nav-footer-right {
+  flex: 0 0 auto;
+  min-height: 0;
+  margin: 0;
+  font-size: 1em;
+  text-align: center;
+}
+
+.nav-footer .nav-footer-center {
+  order: 2;
+}
+
+.nav-footer .nav-footer-right {
+  order: 3;
+}
+
+.nav-footer p {
+  margin: 0;
+}
+
+.nav-footer .footer-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1.75rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-footer .nav-link {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0;
+  color: $pv-ink;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.nav-footer .nav-link:hover {
+  color: $pv-muted;
+}
+
+// ---------------------------------------------------------------- Home page
+
+.pv-home #quarto-content.page-columns {
+  display: block;
+}
+
+.pv-home main.content {
+  max-width: $pv-page-width;
+  margin: 0 auto;
+  padding: 0 $pv-page-gutter;
+}
+
+// Headline, one sentence, button: all centred
+.pv-home #title-block-header.quarto-title-block.default {
+  margin: 0;
+  padding-top: 4.5rem;
+  text-align: center;
+}
+
+.pv-home #title-block-header .title {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.15;
+}
+
+.pv-home #title-block-header.quarto-title-block.default .description {
+  max-width: 40rem;
+  margin: 1.5rem auto 0;
+  color: $pv-ink;
+  font-style: normal;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+
+.pv-hero {
+  padding: 0.75rem 0 4.5rem;
+  text-align: center;
+}
+
+.pv-hero p {
+  max-width: 40rem;
+  margin: 0 auto 1.75rem;
+  color: $pv-muted;
+}
+
+.pv-hero p:last-child {
+  margin-bottom: 0;
+}
+
+// Each block of the Home page starts with a thin line
+.pv-section {
+  padding: 4rem 0;
+  border-top: 1px solid $pv-hairline;
+}
+
+.pv-home main.content .pv-section h2 {
+  margin-top: 0;
+  font-size: 1.875rem;
+}
+
+.pv-section-intro {
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+// The lists of the two axes: one line each, thin rules between
+.pv-home .pv-axes {
+  grid-template-columns: 1fr;
+  gap: 2.5rem 3rem;
+  margin: 0 0 1.5rem;
+}
+
+.pv-home .pv-axis ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-home .pv-axis li {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid $pv-hairline;
+  line-height: 1.45;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-home .pv-axes {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .pv-home .pv-axis-wide ul {
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+
+  .pv-home .pv-axis-wide li {
+    break-inside: avoid;
+  }
+
+  .pv-home .pv-axis-wide {
+    padding-left: 3rem;
+    border-left: 1px solid $pv-hairline;
+  }
+}
+
+// A periodical: its cover on the left, what it is on the right
+.pv-periodical {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem 3.5rem;
+  align-items: start;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-periodical {
+    grid-template-columns: 16.5rem 1fr;
+  }
+}
+
+// The cover: one muted colour with a thin frame set in from the edge
+.pv-cover {
+  width: 16.5rem;
+  max-width: 100%;
+  height: 22.5rem;
+  padding: 0.625rem;
+  display: flex;
+  color: #FFFFFF;
+}
+
+.pv-cover-monitor {
+  background: $pv-monitor;
+}
+
+.pv-cover-commentary {
+  background: $pv-commentary;
+}
+
+.pv-cover > p {
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 1.5rem 1.375rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.pv-cover-series {
+  @include pv-label;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+}
+
+.pv-cover-title {
+  margin-top: 0.625rem;
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+.pv-cover-number {
+  margin-top: auto;
+  font-size: 1.625rem;
+  line-height: 1.2;
+}
+
+.pv-cover-date {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.pv-periodical-body > :last-child {
+  margin-bottom: 0;
+}
+
+.pv-label {
+  @include pv-label;
+  margin: 2rem 0 0.5rem;
+  color: $pv-muted;
+}
+
+.pv-label p {
+  margin: 0;
+}
+
+// The six regions of the Monitor
+.pv-regions ul {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+  columns: 2;
+  column-gap: 2.5rem;
+}
+
+.pv-regions li {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid $pv-hairline;
+  font-style: italic;
+  line-height: 1.45;
+  break-inside: avoid;
+}
+
+@include media-breakpoint-down(sm) {
+  .pv-regions ul {
+    columns: 1;
+  }
+}
+
+.pv-newsletter {
+  text-align: center;
+}
+
+.pv-newsletter p {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pv-home main.content .pv-newsletter h2 {
+  font-style: italic;
+  font-size: 1.5rem;
+}

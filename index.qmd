@@ -2,6 +2,8 @@
 title: "The universe of populism"
 description: "PopuliVerse is one place to study populism, follow what populist actors do around the world, and publish short scholarly commentary."
 body-classes: pv-home
+page-layout: full
+anchor-sections: false
 listing:
   - id: latest-monitor
     contents: "monitor/*/*.qmd"
@@ -19,15 +21,77 @@ listing:
     date-format: "MMMM YYYY"
 ---
 
+<!-- The headline and the sentence under it come from "title" and "description" above. -->
+
+::: {.pv-hero}
 In English, global in scope, academic in standard and readable by anyone.
 
-## Library
+[Open the Library](library/index.qmd){.pv-button}
+:::
+
+<!-- ============================ The Library ============================ -->
+
+::: {.pv-section}
+
+::: {.pv-section-intro}
+## The Library
 
 A curated, filterable database of academic and policy literature on populism, built for literature reviews. Filter by how populism is defined and by what it is studied alongside. Every entry links to its DOI or to an open-access copy.
+:::
+
+::: {.pv-axes}
+
+::: {.pv-axis}
+### Approaches to populism
+
+- Ideational
+- Discursive
+- Political-strategic
+- Performative or stylistic
+- Socio-cultural
+- Economic or structural
+- Measurement and methods
+- Other or multiple
+:::
+
+::: {.pv-axis .pv-axis-wide}
+### Populism and…
+
+- Foreign policy
+- Defence and security
+- The international sphere
+- The domestic sphere
+- Populists in government
+- Spatial populism
+- Economy and welfare
+- Media and communication
+- Gender
+- Religion
+- Migration
+- Democracy and institutions
+- Other
+:::
+
+:::
 
 [Open the Library](library/index.qmd)
 
-## Monitor
+:::
+
+<!-- ============================ Monitor ============================ -->
+<!-- EVERY NEW ISSUE: change the number and the month on the cover (the two lines marked below). -->
+
+::: {.pv-section .pv-periodical}
+
+::: {.pv-cover .pv-cover-monitor}
+[PopuliVerse]{.pv-cover-series}
+[Monitor]{.pv-cover-title}
+[2027/1]{.pv-cover-number}
+[January 2027]{.pv-cover-date}
+:::
+
+::: {.pv-periodical-body}
+## PopuliVerse Monitor
 
 A monthly issue on what populist actors did around the world: six regional roundups, one theme in focus, new research and what is coming up. Every claim links to its source.
 
@@ -38,9 +102,40 @@ A monthly issue on what populist actors did around the world: six regional round
 The first issue, 2027/1, is planned for January 2027.
 :::
 
-[All issues of the Monitor](monitor/index.qmd)
+::: {.pv-regions}
 
-## Commentary
+::: {.pv-label}
+Around the world
+:::
+
+- Europe
+- North America
+- Latin America
+- Asia-Pacific
+- Middle East and North Africa
+- Sub-Saharan Africa
+
+:::
+
+[All issues of the Monitor](monitor/index.qmd)
+:::
+
+:::
+
+<!-- ============================ Commentary ============================ -->
+<!-- EVERY NEW ISSUE: change the number and the month on the cover (the two lines marked below). -->
+
+::: {.pv-section .pv-periodical}
+
+::: {.pv-cover .pv-cover-commentary}
+[PopuliVerse]{.pv-cover-series}
+[Commentary]{.pv-cover-title}
+[2027/1]{.pv-cover-number}
+[March 2027]{.pv-cover-date}
+:::
+
+::: {.pv-periodical-body}
+## PopuliVerse Commentary
 
 Short scholarly commentary on populism and populist actors, written by researchers and reviewed by the editor. Published quarterly.
 
@@ -52,7 +147,14 @@ The first issue, 2027/1, is planned for March 2027.
 :::
 
 [All issues, and how to write for Commentary](commentary/index.qmd)
+:::
 
+:::
+
+<!-- ============================ Newsletter ============================ -->
+
+::: {.pv-section .pv-newsletter}
 ## Newsletter
 
 One email for each new issue: a short summary and a link. [About the newsletter](newsletter/index.qmd)
+:::

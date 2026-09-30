@@ -7,6 +7,9 @@ project:
   render:
     - "*.qmd"
     - "!drafts/"
+  # The typeface files are copied into the built site as they are.
+  resources:
+    - "fonts/"
 
 lang: en-GB
 
@@ -29,7 +32,8 @@ website:
 
   # The menu at the top of every page.
   navbar:
-    title: "PopuliVerse"
+    # The wordmark: "Populi" upright, "Verse" italic (the stars make it italic).
+    title: "Populi*Verse*"
     left:
       - text: "Library"
         href: library/index.qmd
@@ -68,9 +72,11 @@ website:
 format:
   html:
     # No outside fonts or scripts: every page is served from this site alone.
+    # The look is "Edition": edition.scss holds the colours, sizes, masthead and covers;
+    # styles.css declares the typeface from the files in the fonts folder.
     theme:
       - default
-      - brand
+      - edition.scss
     css: styles.css
     html-math-method: mathml
     toc: false
