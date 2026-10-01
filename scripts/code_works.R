@@ -241,7 +241,9 @@ local({
     article <- article | (d$status != "found" & d$kind_guess == "article")
     doi_ok <- d$status == "found" & nzchar(d$doi) & d$type %in% c("journal-article", "article", "book", "monograph", "edited-book")
     d$doi[!doi_ok] <- ""
-    keep <- (in_title | in_abs) & (article | book)
+    # the Library is English only: a work whose catalogue record names another language stays out
+    other_language <- if ("language" %in% names(d)) nzchar(d$language) & d$language != "en" else rep(FALSE, nrow(d))
+    keep <- (in_title | in_abs) & (article | book) & !other_language
     s <- d[keep, ]
     s$kind <- ifelse(s$type %in% c("journal-article", "article") | (s$status != "found" & s$kind_guess == "article"), "article", "book")
     dup <- (nzchar(s$doi) & duplicated(tolower(s$doi))) |
@@ -250,7 +252,8 @@ local({
     say("  [ok] in scope: ", nrow(s), " works (", sum(s$kind == "article"), " articles, ", sum(s$kind == "book"), " books); ",
         sum(nzchar(s$doi)), " with a DOI, ", sum(nzchar(s$abstract)), " with an abstract")
     say("       left out: ", sum(!(in_title | in_abs)), " do not name populism; ",
-        sum((in_title | in_abs) & !(article | book)), " are neither journal article nor book; ", sum(dup), " repeats")
+        sum((in_title | in_abs) & !(article | book)), " are neither journal article nor book; ",
+        sum((in_title | in_abs) & (article | book) & other_language), " are not in English; ", sum(dup), " repeats")
     # works that an earlier batch already brought into the Library keep their tags
     earlier <- setdiff(list.files("library/batches", pattern = "^batch-[0-9]+\\.yml$", full.names = TRUE),
                        paste0("library/batches/batch-", nn, ".yml"))

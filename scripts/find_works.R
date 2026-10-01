@@ -11,6 +11,8 @@
 #   2. Asks the DOI registry (Crossref) for each reference. A DOI is accepted
 #      only when the title, the year and the first author all agree with the
 #      reference. If they do not, the reference gets no DOI. Nothing is guessed.
+#      A DOI that the source itself prints is checked at the registry first and
+#      accepted only if the record's title and year agree with the reference.
 #      A book is never matched to a journal article (a review of the book
 #      carries the same title), nor an article to a book or to a record in
 #      another journal.
@@ -30,7 +32,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01.3"
+  SCRIPT_VERSION <- "2026-10-01.4"
   MATCHING <- 2          # raised when the way of comparing changes: references not found before are asked again
   DRAFTS <- "drafts"
   TRIAL  <- 10
@@ -102,22 +104,28 @@ local({
 
   # Is this candidate the same work as the reference? Title, year and first
   # author must all agree.
-  same_work <- function(ref, cand) {
+  same_work <- function(ref, cand, need_author = TRUE) {
     t_ref <- fold(ref$title)
+    # what follows the year in the reference (title, then journal or publisher): the
+    # catalogue's title must stand at its very beginning
+    rest <- fold(paste(ref$title, ref$container %||% ""))
+    t_cand <- fold(cand$title); t_cand_full <- fold(paste(cand$title, cand$subtitle %||% ""))
+    starts <- function(x) nchar(x) >= 12 && (identical(rest, x) || startsWith(rest, paste0(x, " ")))
+    leads <- starts(t_cand) || starts(t_cand_full)
     # the part before a colon: catalogues often store a book without its subtitle
     main <- function(x) fold(sub("\\s*[:.?!]\\s.*$", "", x))
     m_ref <- main(ref$title); m_cand <- main(cand$title)
     title_ok <- close_enough(t_ref, fold(cand$title)) ||
       (nzchar(cand$subtitle %||% "") && close_enough(t_ref, fold(paste(cand$title, cand$subtitle)))) ||
       (nchar(m_ref) >= 8 && (identical(m_ref, fold(cand$title)) || identical(m_cand, t_ref) ||
-                               identical(gsub(" ", "", m_ref), gsub(" ", "", fold(cand$title)))))
+                               identical(gsub(" ", "", m_ref), gsub(" ", "", fold(cand$title))))) || leads
     year_ok <- !is.na(cand$year) && abs(as.integer(ref$year) - cand$year) <= 2
     fam <- gsub(" ", "", fold(ref$first_author))
     names <- gsub(" ", "", vapply(cand$families, fold, ""))
     author_ok <- nzchar(fam) && length(names) > 0 &&
       any(names == fam | (nchar(fam) >= 4 & grepl(fam, names, fixed = TRUE)) |
             (nchar(names) >= 4 & vapply(names, function(n) grepl(n, fam, fixed = TRUE), logical(1))))
-    title_ok && year_ok && author_ok
+    title_ok && year_ok && (author_ok || !need_author)
   }
 
   # A reference to a book is never matched to a journal article, and the other
@@ -185,6 +193,27 @@ local({
     list(ok = TRUE, items = items)
   }
 
+  crossref_item <- function(it) {
+    people <- it$author %||% it$editor %||% list()
+    list(doi = it$DOI %||% "",
+         title = (it$title %||% list(""))[[1]] %||% "",
+         subtitle = (it$subtitle %||% list(""))[[1]] %||% "",
+         year = suppressWarnings(as.integer((it$issued[["date-parts"]] %||% list(list(NA)))[[1]][[1]] %||% NA)),
+         families = vapply(people, function(p) p$family %||% p$name %||% "", ""),
+         container = (it[["container-title"]] %||% list(""))[[1]] %||% "",
+         publisher = it$publisher %||% "", type = it$type %||% "", abstract = it$abstract %||% "")
+  }
+
+  # The record of one DOI, straight from the registry. Used for a DOI that the
+  # source itself prints: it is accepted only if the record's title and year
+  # agree with the reference (a printed DOI can carry a slip).
+  crossref_by_doi <- function(doi, email) {
+    q <- if (nzchar(email)) list(mailto = email) else NULL
+    r <- get_json(paste0(CROSSREF, "/works/", utils::URLencode(doi)), q)
+    if (r$status == 200L && !is.null(r$body$message)) return(list(ok = TRUE, item = crossref_item(r$body$message)))
+    list(ok = r$status == 404L, item = NULL)
+  }
+
   # Second try at Crossref: the title and the author asked as separate fields.
   crossref_by_fields <- function(ref, email) {
     q <- list("query.title" = ref$title, "query.author" = ref$first_author, rows = 5,
@@ -206,7 +235,7 @@ local({
     list(ok = TRUE, items = items)
   }
 
-  OA_FIELDS <- "id,doi,display_name,publication_year,type,authorships,primary_location,open_access,abstract_inverted_index"
+  OA_FIELDS <- "id,doi,display_name,publication_year,type,language,authorships,primary_location,open_access,abstract_inverted_index"
 
   openalex_item <- function(w) {
     inv <- w$abstract_inverted_index
@@ -227,7 +256,7 @@ local({
          }, ""),
          container = src$display_name %||% "",
          source_type = src$type %||% "",
-         type = w$type %||% "",
+         type = w$type %||% "", language = w$language %||% "",
          is_oa = if (is.null(w$open_access$is_oa)) NA else isTRUE(w$open_access$is_oa),
          oa_status = w$open_access$oa_status %||% "",
          abstract = abstract)
@@ -271,11 +300,19 @@ local({
                 year_found = NA_integer_, journal_or_publisher = "", type = "", source_type = "",
                 open_access = NA, oa_status = "", abstract = "", abstract_from = "", openalex_id = "",
                 complete = TRUE, with_openalex = nzchar(key), matching = MATCHING,
-                near_doi = "", near_title = "", near_year = NA_integer_, near_authors = "")
-    cr <- crossref_candidates(ref, email)
+                near_doi = "", near_title = "", near_year = NA_integer_, near_authors = "", language = "")
+    hit <- NULL; printed <- FALSE
+    for (d in strsplit(trimws(ref$doi_printed %||% ""), "\\s+")[[1]]) {
+      if (!nzchar(d) || !is.null(hit)) next
+      one <- crossref_by_doi(d, email)
+      if (!one$ok) out$complete <- FALSE
+      if (!is.null(one$item) && same_work(ref, one$item, need_author = FALSE) && kind_ok(ref, one$item$type)) {
+        hit <- one$item; if (!nzchar(hit$doi)) hit$doi <- d; printed <- TRUE
+      }
+    }
+    cr <- if (is.null(hit)) crossref_candidates(ref, email) else list(ok = TRUE, items = list())
     if (!cr$ok) out$complete <- FALSE
-    hit <- NULL
-    for (cand in cr$items) if (nzchar(cand$doi) && same_work(ref, cand) && kind_ok(ref, cand$type) && journal_ok(ref, cand$container)) { hit <- cand; break }
+    if (is.null(hit)) for (cand in cr$items) if (nzchar(cand$doi) && same_work(ref, cand) && kind_ok(ref, cand$type) && journal_ok(ref, cand$container)) { hit <- cand; break }
     seen <- cr$items
     if (is.null(hit) && cr$ok) {
       cr2 <- crossref_by_fields(ref, email)
@@ -292,7 +329,7 @@ local({
       out$near_authors <- paste(utils::head(n$families, 3), collapse = "; ")
     }
     if (!is.null(hit)) {
-      out$status <- "found"; out$doi <- hit$doi; out$found_by <- "Crossref"
+      out$status <- "found"; out$doi <- hit$doi; out$found_by <- if (printed) "DOI printed in the source" else "Crossref"
       out$title_found <- trimws(paste0(hit$title, if (nzchar(hit$subtitle)) paste0(": ", hit$subtitle) else ""))
       out$year_found <- hit$year
       out$journal_or_publisher <- if (nzchar(hit$container)) hit$container else hit$publisher
@@ -316,7 +353,7 @@ local({
         }
       }
       if (!is.null(oa)) {
-        out$openalex_id <- oa$id; out$source_type <- oa$source_type
+        out$openalex_id <- oa$id; out$source_type <- oa$source_type; out$language <- oa$language %||% ""
         out$open_access <- oa$is_oa; out$oa_status <- oa$oa_status
         if (nzchar(oa$abstract) && nchar(oa$abstract) > nchar(out$abstract)) {
           out$abstract <- oa$abstract; out$abstract_from <- "OpenAlex"
@@ -485,9 +522,10 @@ local({
                       abstract_from = col("abstract_from", ""), openalex_id = col("openalex_id", ""),
                       near_doi = col("near_doi", ""), near_title = col("near_title", ""),
                       near_year = col("near_year", ""), near_authors = col("near_authors", ""),
+                      language = col("language", ""),
                       abstract = col("abstract", ""), stringsAsFactors = FALSE)
     out <- merge(refs[, intersect(c("ref_id", "first_author", "year", "title", "container", "kind_guess",
-                                    "chapters_citing", "authors", "reference"), names(refs))], out, by = "ref_id", all.x = TRUE)
+                                    "chapters_citing", "authors", "reference", "doi_printed"), names(refs))], out, by = "ref_id", all.x = TRUE)
     out$status[is.na(out$status)] <- "not looked up"
     out_file <- paste0(stem, "-found.csv")
     utils::write.csv(out, out_file, row.names = FALSE, na = "", fileEncoding = "UTF-8")
@@ -500,6 +538,8 @@ local({
         " | OpenAlex key: ", if (nzchar(set$key)) "yes" else "no")
     say("references ", n, " | found ", found, " | with a DOI ", with_doi, " | not found ", sum(out$status == "not found"),
         " | not looked up ", sum(out$status == "not looked up"))
+    if ("doi_printed" %in% names(out)) say("DOIs printed in the source ", sum(nzchar(out$doi_printed), na.rm = TRUE),
+        " | confirmed at the registry ", sum(out$found_by == "DOI printed in the source", na.rm = TRUE))
     say("found by Crossref ", sum(out$found_by == "Crossref", na.rm = TRUE), " | by OpenAlex ", sum(out$found_by == "OpenAlex", na.rm = TRUE),
         " | with an abstract ", with_abs, " (OpenAlex ", sum(out$abstract_from == "OpenAlex", na.rm = TRUE),
         ", Crossref ", sum(out$abstract_from == "Crossref", na.rm = TRUE), ")",
