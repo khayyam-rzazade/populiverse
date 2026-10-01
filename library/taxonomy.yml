@@ -1,5 +1,5 @@
 # PopuliVerse Library: the controlled vocabulary (the "codebook").
-# Version 1, 2026-09-30. Master plan, section 5.
+# Version 2, 2026-10-01 (version 1: 2026-09-30). Master plan, section 5.
 #
 # This file lists every tag the Library is allowed to use.
 # Lines that start with # are notes for people. The scripts ignore them.
@@ -17,31 +17,37 @@
 #      The label and the definition can be changed at any time.
 #   3. Tags are lowercase, with hyphens and no spaces.
 #
-# HOW ENTRIES ARE TAGGED (first draft, for the editor to confirm)
-#   Every entry needs at least one approach or topic tag, and a region tag.
+# HOW ENTRIES ARE TAGGED (rules of 2026-10-01)
+#   A tag is given only when the work's own record supports it: its title, its
+#   abstract, or the catalogue record (for type and open access). Nothing is
+#   guessed. The wordings that count as evidence are in phrases.yml and
+#   actors.yml, next to this file. A work can stay untagged on an axis.
+#   The only tag every entry must have is its type.
 #   approach  The way the work itself defines populism. Two approaches: both
 #             tags. Three or more: approach:other. None stated: no approach tag.
 #   topic     Every topic that is central to the work, usually one to three.
 #             Elections have no tag of their own: topic:parties if the work
 #             explains what the actors did, topic:voters if it explains how
 #             people voted, both if it does both.
-#   region    One or two regions: those tags. Three or more regions, or no
-#             regional focus (theory, concepts): region:global.
-#             A comparison inside one region gets that region.
-#   country   Each country the work studies as a case, up to five. The region
-#             tag is still needed. Works that compare more than five countries
-#             get the region only.
-#   method    The most specific tag that fits; more than one is allowed.
-#             Theory and concept work gets no method tag.
+#   region    One or two regions: those tags. Three or more regions:
+#             region:global. A comparison inside one region gets that region.
+#             A work whose text names no place gets no region tag.
+#   country   Each country the work studies as a case, up to five, together
+#             with its region. Works that name more than five countries get
+#             the regions only.
+#   method    Only when the work itself states its method; more than one is
+#             allowed. Not found: no method tag.
 #   type      Exactly one.
 #   oa        oa:yes when the work is free to read. Otherwise no oa tag.
+#   todo      Notes for the editor, to look at one day in Zotero. They are never
+#             shown on the site and never hold a work back.
 #   Year, journal and authors are not tags. They come from Zotero's own fields.
 #
 # The order of the tags below is the order in which they are shown on the
 # site. Countries are the exception: the site sorts them by name.
 
-version: 1
-date: "2026-09-30"
+version: 2
+date: "2026-10-01"
 
 facets:
 
@@ -447,3 +453,23 @@ facets:
       - tag: "oa:yes"
         label: "Open access"
         definition: "The work is free to read, at the publisher or as a legal copy in a repository."
+
+  # ------------------------------------------------------------------
+  # Notes for the editor: things to look at one day in Zotero.
+  # These tags are never shown on the site and never hold a work back.
+  # In the Zotero app, a click on one of them lists the works to look at.
+  # ------------------------------------------------------------------
+  todo:
+    label: "For the editor"
+    about: "Things the editor wants to look at in Zotero. Not shown on the site."
+    internal: true
+    tags:
+      - tag: "todo:check-outlet"
+        label: "Check the outlet"
+        definition: "The work is in an outlet that may not be peer-reviewed; the editor decides whether it stays."
+      - tag: "todo:check-tag"
+        label: "Check a tag"
+        definition: "One of the tags rests on thin evidence; the editor confirms or removes it."
+      - tag: "todo:check-record"
+        label: "Check the record"
+        definition: "The record has a gap or a slip, such as a missing DOI, a wrong page range or a glued publisher name; the editor corrects it in Zotero."

@@ -1,0 +1,128 @@
+# PopuliVerse Library: regions, countries, leaders and parties.
+# Version 1, 2026-10-01. It belongs with taxonomy.yml and phrases.yml.
+#
+# WHAT IT IS FOR
+#   scripts/code_works.R gives a region or a country tag only when the title or
+#   the abstract of a work names it. This file says which words name which country.
+#   Every country of taxonomy.yml is also found by its own name; the list below
+#   adds other names, adjectives, leaders and parties.
+#
+# HOW TO READ AN ENTRY
+#   names       other names of the country (capital letters and accents do not matter)
+#   exact       short forms that must be written exactly so ("US", not "us")
+#   adjectives  count only when a political word follows ("Italian government",
+#               not "Italian" alone); the political words are listed in "after_adjective"
+#   actors      leaders and parties, written exactly so (accents do not matter)
+#
+# HOW MUCH EVIDENCE IS NEEDED
+#   One mention in the title, or two in the abstract. A work that names more than
+#   five countries gets its regions only. Three or more regions become
+#   "Global or no regional focus"; so do the "global" wordings below.
+#   A work whose text names no place gets no region tag.
+#
+# The leaders and parties were entered by hand from common knowledge (Orbán is
+# Hungary, Podemos is Spain). The list can be extended or checked against PopuList.
+
+version: 1
+date: "2026-10-01"
+
+after_adjective: ["government*", "politic*", "part*", "election*", "elector*", "voter*", "populis*", "foreign polic*",
+                  "case", "president*", "prime minister*", "parliament*", "left", "right", "far right", "radical right",
+                  "societ*", "public", "democrac*", "state", "econom*", "military", "diplomac*", "media", "context",
+                  "leader*", "citizen*", "nationalis*", "administration*", "regime", "experience", "minist*",
+                  "polic*", "national*", "identity", "people", "campaign*", "movement*", "attitude*", "press"]
+
+# Wordings removed before anything is looked for, so they cannot mislead.
+ignore: ["latin american", "north american", "south american", "central american", "vox populi",
+         "new england", "georgia state", "american journal", "european journal", "british journal"]
+
+regions:
+  "region:europe": ["europe", "european", "western europe*", "eastern europe*", "central europe*",
+                    "southern europe*", "northern europe*", "nordic", "scandinavia*", "balkan*", "visegrad"]
+  "region:north-america": ["north america"]
+  "region:latin-america": ["latin america", "south america", "central america", "caribbean", "andes", "andean", "mercosur"]
+  "region:asia-pacific": ["asia", "asian", "asia pacific", "southeast asia*", "south asia*", "east asia*",
+                          "central asia*", "oceania", "asean"]
+  "region:mena": ["middle east*", "north africa*", "arab", "maghreb", "gulf states", "persian gulf"]
+  "region:sub-saharan-africa": ["sub saharan africa*", "africa", "african"]
+  "region:global": ["global south", "global north", "worldwide", "around the world", "across the world",
+                    "across the globe", "cross regional", "world regions", "global rise", "global populism*"]
+regions_exact:
+  "region:europe": ["EU"]
+  "region:mena": ["MENA"]
+
+countries:
+  "country:united-states": {exact: ["US", "USA", "U.S.", "U.S"], names: ["united states"], adjectives: ["american"],
+                            actors: ["Trump", "Trumpism", "Trumpian", "Bernie Sanders", "Sanders", "Tea Party", "MAGA", "America First", "Jacksonian", "Obama", "Biden"]}
+  "country:canada": {adjectives: ["canadian"]}
+  "country:mexico": {adjectives: ["mexican"], actors: ["López Obrador", "AMLO", "Morena"]}
+  "country:brazil": {adjectives: ["brazilian"], actors: ["Bolsonaro", "Bolsonarismo", "Lula", "Itamaraty"]}
+  "country:argentina": {adjectives: ["argentine", "argentinian", "argentinean"], actors: ["Kirchner", "Kirchnerism", "Perón", "Peronism", "Peronist", "Menem", "Milei", "Macri"]}
+  "country:venezuela": {adjectives: ["venezuelan"], actors: ["Chávez", "Chavismo", "Chavista", "Maduro", "Bolivarian"]}
+  "country:bolivia": {adjectives: ["bolivian"], actors: ["Evo Morales", "Morales"]}
+  "country:ecuador": {adjectives: ["ecuadorian", "ecuadorean"], actors: ["Correa"]}
+  "country:peru": {adjectives: ["peruvian"], actors: ["Fujimori", "Humala"]}
+  "country:colombia": {adjectives: ["colombian"], actors: ["Uribe", "Petro"]}
+  "country:chile": {adjectives: ["chilean"]}
+  "country:nicaragua": {adjectives: ["nicaraguan"], actors: ["Ortega"]}
+  "country:el-salvador": {adjectives: ["salvadoran"], actors: ["Bukele"]}
+  "country:united-kingdom": {exact: ["UK", "U.K."], names: ["britain", "great britain", "england", "scotland", "wales", "northern ireland"],
+                             adjectives: ["british", "scottish"], actors: ["Brexit", "UKIP", "Farage", "Corbyn", "Boris Johnson", "Brexit Party", "Reform UK"]}
+  "country:ireland": {adjectives: ["irish"], actors: ["Sinn Féin"]}
+  "country:france": {adjectives: ["french"], actors: ["Le Pen", "Front National", "Rassemblement National", "National Rally", "Mélenchon", "La France Insoumise", "Macron", "Zemmour"]}
+  "country:germany": {adjectives: ["german"], actors: ["AfD", "Alternative für Deutschland", "Alternative for Germany", "Die Linke", "Pegida", "Merkel", "Wagenknecht"]}
+  "country:italy": {adjectives: ["italian"], actors: ["Salvini", "Lega", "Lega Nord", "Northern League", "Five Star Movement", "Five Star", "M5S", "Movimento 5 Stelle", "Berlusconi", "Forza Italia", "Meloni", "Fratelli d'Italia", "Brothers of Italy", "Grillo", "Di Maio"]}
+  "country:spain": {adjectives: ["spanish"], names: ["catalonia"], actors: ["Podemos", "Vox", "Pablo Iglesias", "Indignados"]}
+  "country:portugal": {adjectives: ["portuguese"], actors: ["Chega"]}
+  "country:greece": {adjectives: ["greek"], actors: ["Syriza", "SYRIZA", "Tsipras", "ANEL", "Golden Dawn", "PASOK", "Varoufakis"]}
+  "country:netherlands": {names: ["holland"], adjectives: ["dutch"], actors: ["Wilders", "PVV", "Fortuyn", "Baudet", "Forum for Democracy", "Forum voor Democratie"]}
+  "country:belgium": {adjectives: ["belgian", "flemish"], names: ["flanders", "wallonia"], actors: ["Vlaams Belang", "Vlaams Blok"]}
+  "country:austria": {adjectives: ["austrian"], actors: ["FPÖ", "Haider", "Strache", "Kurz", "Freedom Party of Austria"]}
+  "country:switzerland": {adjectives: ["swiss"], actors: ["SVP", "Blocher", "Swiss People's Party"]}
+  "country:denmark": {adjectives: ["danish"], actors: ["Danish People's Party", "Dansk Folkeparti"]}
+  "country:sweden": {adjectives: ["swedish"], actors: ["Sweden Democrats", "Sverigedemokraterna"]}
+  "country:norway": {adjectives: ["norwegian"]}
+  "country:finland": {adjectives: ["finnish"], actors: ["Finns Party", "True Finns", "Perussuomalaiset"]}
+  "country:poland": {adjectives: ["polish"], actors: ["PiS", "Law and Justice", "Kaczyński", "Prawo i Sprawiedliwość", "Andrzej Duda"]}
+  "country:hungary": {adjectives: ["hungarian"], actors: ["Orbán", "Fidesz", "Jobbik"]}
+  "country:czech-republic": {names: ["czechia"], adjectives: ["czech"], actors: ["Babiš", "Zeman", "Okamura"]}
+  "country:slovakia": {adjectives: ["slovak", "slovakian"], actors: ["Fico", "Smer", "Mečiar"]}
+  "country:slovenia": {adjectives: ["slovenian", "slovene"], actors: ["Janša"]}
+  "country:croatia": {adjectives: ["croatian"]}
+  "country:serbia": {adjectives: ["serbian"], actors: ["Vučić", "Milošević"]}
+  "country:bulgaria": {adjectives: ["bulgarian"]}
+  "country:romania": {adjectives: ["romanian"]}
+  "country:estonia": {adjectives: ["estonian"], actors: ["EKRE"]}
+  "country:latvia": {adjectives: ["latvian"]}
+  "country:lithuania": {adjectives: ["lithuanian"]}
+  "country:ukraine": {adjectives: ["ukrainian"], actors: ["Zelensky", "Zelenskyy", "Zelenskiy", "Tymoshenko"]}
+  "country:russia": {adjectives: ["russian"], actors: ["Putin", "Kremlin", "Zhirinovsky"]}
+  "country:belarus": {adjectives: ["belarusian"], actors: ["Lukashenko"]}
+  "country:turkey": {names: ["türkiye"], adjectives: ["turkish"], actors: ["Erdoğan", "AKP", "Justice and Development Party"]}
+  "country:georgia": {adjectives: ["georgian"], actors: ["Georgian Dream"]}
+  "country:armenia": {adjectives: ["armenian"]}
+  "country:azerbaijan": {adjectives: ["azerbaijani"]}
+  "country:israel": {adjectives: ["israeli"], actors: ["Netanyahu", "Likud"]}
+  "country:iran": {adjectives: ["iranian"], actors: ["Ahmadinejad"]}
+  "country:egypt": {adjectives: ["egyptian"]}
+  "country:tunisia": {adjectives: ["tunisian"], actors: ["Kais Saied", "Saied"]}
+  "country:india": {adjectives: ["indian"], actors: ["Modi", "BJP", "Bharatiya Janata", "Hindutva", "Indira Gandhi"]}
+  "country:pakistan": {adjectives: ["pakistani"], actors: ["Imran Khan"]}
+  "country:sri-lanka": {adjectives: ["sri lankan"], actors: ["Rajapaksa"]}
+  "country:philippines": {adjectives: ["philippine", "filipino"], actors: ["Duterte", "Estrada"]}
+  "country:thailand": {adjectives: ["thai"], actors: ["Thaksin", "Shinawatra"]}
+  "country:indonesia": {adjectives: ["indonesian"], actors: ["Jokowi", "Widodo", "Prabowo"]}
+  "country:malaysia": {adjectives: ["malaysian"], actors: ["Mahathir"]}
+  "country:japan": {adjectives: ["japanese"], actors: ["Koizumi"]}
+  "country:south-korea": {names: ["korea"], adjectives: ["south korean", "korean"]}
+  "country:china": {adjectives: ["chinese"], actors: ["Xi Jinping"]}
+  "country:taiwan": {adjectives: ["taiwanese"]}
+  "country:australia": {adjectives: ["australian"], actors: ["Pauline Hanson", "One Nation"]}
+  "country:new-zealand": {actors: ["New Zealand First", "Winston Peters"]}
+  "country:south-africa": {adjectives: ["south african"], actors: ["Zuma", "Malema", "Economic Freedom Fighters"]}
+  "country:zambia": {adjectives: ["zambian"], actors: ["Sata"]}
+  "country:tanzania": {adjectives: ["tanzanian"], actors: ["Magufuli"]}
+  "country:zimbabwe": {adjectives: ["zimbabwean"], actors: ["Mugabe"]}
+  "country:nigeria": {adjectives: ["nigerian"]}
+  "country:kenya": {adjectives: ["kenyan"]}
+  "country:uganda": {adjectives: ["ugandan"], actors: ["Museveni"]}

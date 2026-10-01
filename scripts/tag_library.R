@@ -20,6 +20,12 @@
 # batch file. Works that are not in the batch are never touched. Running the
 # script twice is harmless: the second run finds nothing to change.
 #
+# If the lookup (scripts/find_works.R) found a whole abstract for a work whose
+# abstract is empty in Zotero, the script fills it in with the same step. An
+# abstract that is already in Zotero is never replaced.
+# A batch of more than 30 works is reported in short: counts, the first five
+# works, and every work that needs attention.
+#
 # THE ZOTERO KEY
 #   The script looks for the key in the private file ~/.Renviron in your home
 #   folder, which is outside the site folder. If the key is not there, a small
@@ -29,7 +35,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01"
+  SCRIPT_VERSION <- "2026-10-01.2"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
   BATCH_FILE     <- NULL        # NULL = the newest file in library/batches/
 
@@ -127,9 +133,7 @@ local({
       unknown <- setdiff(tags, tax$tags)
       if (length(unknown)) add(name, paste("these tags are not in taxonomy.yml:", paste(unknown, collapse = ", ")))
       prefix <- sub(":.*$", "", tags)
-      if (!any(prefix %in% c("approach", "topic"))) add(name, "needs at least one approach or topic tag")
       regions <- tags[prefix == "region"]
-      if (!length(regions)) add(name, "needs a region tag")
       if ("region:global" %in% regions && length(regions) > 1) add(name, "region:global cannot be combined with another region")
       if (length(setdiff(regions, "region:global")) > 2) add(name, "has more than two regions: use region:global instead")
       if (sum(prefix == "type") != 1) add(name, "needs exactly one type tag")
@@ -321,6 +325,8 @@ local({
         same   <- titles == wt
         prefix <- nchar(titles) >= 15 & startsWith(paste0(wt, " "), paste0(titles, " "))
         hit <- which(same | prefix)
+        # an item that carries a different DOI is a different work, whatever its title
+        if (nzchar(wd) && length(hit)) hit <- hit[!nzchar(dois[hit])]
         if (!is.null(w$year) && length(hit)) {
           years <- vapply(items[hit], function(it) grepl(as.character(w$year), it$data$date %||% "", fixed = TRUE), logical(1))
           if (any(years)) hit <- hit[years]
@@ -333,8 +339,21 @@ local({
     })
   }
 
+  # The abstracts found by scripts/find_works.R for this batch, by reference number.
+  # Only whole abstracts are used: one that ends cut off is left out.
+  load_abstracts <- function(batch_path) {
+    f <- file.path("drafts", sub("\\.yml$", "-found.csv", basename(batch_path)))
+    if (!file.exists(f)) return(list())
+    d <- utils::read.csv(f, stringsAsFactors = FALSE, encoding = "UTF-8", colClasses = "character", na.strings = character())
+    if (!all(c("ref_id", "abstract") %in% names(d))) return(list())
+    a <- trimws(gsub("\\s+", " ", d$abstract))
+    a <- sub("^(Abstract|ABSTRACT|Summary|SUMMARY)[:.]? +(?=[A-Z\u201c\u2018\"'(\\[])", "", a, perl = TRUE)
+    ok <- nchar(a) >= 200 & !grepl("(\\.\\.\\.|\u2026)$", a)
+    stats::setNames(as.list(a[ok]), d$ref_id[ok])
+  }
+
   # What has to change for one work.
-  plan_one <- function(w, it, tax) {
+  plan_one <- function(w, it, tax, abstracts = list()) {
     current <- item_tags(it)
     target  <- as.character(unlist(w$tags))
     auto    <- vapply(it$data$tags %||% list(), function(t) isTRUE(as.integer(t$type %||% 0) == 1L), logical(1))
@@ -345,12 +364,13 @@ local({
          remove = remove,
          remove_auto = sum(current %in% remove & auto),
          new_title = if (isTRUE(w$fix_title) && !identical(it$data$title %||% "", w$title)) w$title else NULL,
+         new_abstract = if (!nzchar(trimws(it$data$abstractNote %||% "")) && !is.null(w$ref) && !is.null(abstracts[[w$ref]])) abstracts[[w$ref]] else NULL,
          type_note = if (!is.null(expected) && !((it$data$itemType %||% "") %in% expected)) {
            paste0("note: tagged ", type_tag, " but Zotero has it as \"", it$data$itemType, "\"")
          } else NULL)
   }
 
-  has_change <- function(p) length(p$add) > 0 || length(p$remove) > 0 || !is.null(p$new_title)
+  has_change <- function(p) length(p$add) > 0 || length(p$remove) > 0 || !is.null(p$new_title) || !is.null(p$new_abstract)
 
   # ---- the run -------------------------------------------------------------
 
@@ -397,14 +417,18 @@ local({
     say("")
 
     # 3. the plan
+    abstracts <- load_abstracts(batch_path)
     matches <- match_works(works, items)
     plans   <- vector("list", length(works))
-    say("3. What would change")
+    big     <- length(works) > 30          # a large batch is reported in short
+    say("3. What would change", if (big) " (a large batch: only the first five works and every problem are listed)" else "")
+    shown <- 0; missing <- character()
     for (i in seq_along(works)) {
       w <- works[[i]]; m <- matches[[i]]
       head <- paste0("  ", i, ". ", w$cite %||% "?", " - ", short(w$title, 60))
       if (m$status == "not found") {
-        say(head); say("       NOT IN THE GROUP: add it in the Zotero app with the DOI ", w$doi %||% "(none)", ", sync, and run again")
+        missing <- c(missing, w$doi %||% "")
+        if (!big) { say(head); say("       NOT IN THE GROUP: add it in the Zotero app with the DOI ", w$doi %||% "(none)", ", sync, and run again") }
         next
       }
       if (m$status == "duplicate") {
@@ -412,7 +436,9 @@ local({
                        "): move the extra copy to the bin in the Zotero app, sync, and run again")
         next
       }
-      p <- plan_one(w, m$item, tax); plans[[i]] <- p
+      p <- plan_one(w, m$item, tax, abstracts); plans[[i]] <- p
+      if (big && shown >= 5 && is.null(p$type_note)) next
+      shown <- shown + 1
       say(head)
       if (m$how == "title") say("       found by its title (Zotero did not keep the DOI)")
       if (!has_change(p)) say("       already right, nothing to change")
@@ -423,12 +449,20 @@ local({
             ": ", short(paste(p$remove, collapse = "; "), 90))
       }
       if (!is.null(p$new_title)) say("       title:  \"", short(m$item$data$title, 50), "\" becomes \"", short(p$new_title, 80), "\"")
+      if (!is.null(p$new_abstract)) say("       abstract: empty in Zotero, filled with the one found by the lookup (", nchar(p$new_abstract), " characters)")
       if (!is.null(p$type_note)) say("       ", p$type_note)
+    }
+    if (big && length(missing)) {
+      say("  NOT IN THE GROUP: ", length(missing), " works. Add them in the Zotero app with their DOI, sync, and run again.")
+      say("  Their DOIs are in drafts/", sub("\\.yml$", "-missing-dois.txt", basename(batch_path)), " (one per line, ready to paste).")
+      dir.create("drafts", showWarnings = FALSE)
+      writeLines(missing[nzchar(missing)], file.path("drafts", sub("\\.yml$", "-missing-dois.txt", basename(batch_path))))
     }
     status     <- vapply(matches, function(m) m$status, "")
     to_change  <- which(vapply(plans, function(p) !is.null(p) && has_change(p), logical(1)))
+    n_abs      <- sum(vapply(plans[to_change], function(p) !is.null(p$new_abstract), logical(1)))
     say("")
-    say("  Summary: ", length(to_change), " to change, ",
+    say("  Summary: ", length(to_change), " to change (", n_abs, " of them also get their abstract), ",
         sum(status == "found") - length(to_change), " already right, ",
         sum(status == "not found"), " not in the group, ",
         sum(status == "duplicate"), " in the group more than once.")
@@ -449,13 +483,15 @@ local({
         w <- works[[i]]; it <- matches[[i]]$item; p <- plans[[i]]
         change <- list(tags = lapply(as.character(unlist(w$tags)), function(t) list(tag = t)))
         if (!is.null(p$new_title)) change$title <- p$new_title
+        if (!is.null(p$new_abstract)) change$abstractNote <- p$new_abstract
         body <- jsonlite::toJSON(change, auto_unbox = TRUE)
         resp <- zot("PATCH", paste0("/groups/", GROUP_ID, "/items/", it$key), key,
                     body = enc2utf8(as.character(body)), if_version = it$version, soft = TRUE)
         code <- if (is.null(resp)) NA_integer_ else httr::status_code(resp)
         if (identical(code, 204L)) {
           written <- c(written, i)
-          say("  [ok] ", i, ". ", w$cite)
+          if (!big) say("  [ok] ", i, ". ", w$cite)
+          else if (length(written) %% 50 == 0) say("  ", length(written), " of ", length(to_change), " written")
         } else {
           why <- if (is.na(code)) "no connection to Zotero"
                  else if (code == 412L) "the work was changed in Zotero in the meantime (sync the app and run again)"
@@ -492,9 +528,16 @@ local({
         " | not in group ", sum(status == "not found"), " | duplicates ", sum(status == "duplicate"),
         " | exact after run ", sum(exact), " | works in group ", length(items_after))
     for (f in failed) say("failed: ", f)
+    with_abs <- sum(vapply(matches_after, function(m) m$status == "found" && nzchar(trimws(m$item$data$abstractNote %||% "")), logical(1)))
+    say("abstracts filled by this run ", if (length(written)) sum(vapply(plans[written], function(p) !is.null(p$new_abstract), logical(1))) else 0,
+        " | works of the batch with an abstract now ", with_abs)
+    listed <- 0
     for (i in seq_along(works)) {
       w <- works[[i]]; m <- matches_after[[i]]
-      if (m$status != "found") { say(i, " | ", w$cite, " | ", toupper(m$status)); next }
+      if (big && m$status == "found" && exact[i]) next
+      listed <- listed + 1
+      if (big && listed > 40) { say("(more works not in order; the list stops at 40)"); break }
+      if (m$status != "found") { say(i, " | ", w$cite, " | ", toupper(m$status), " | ", w$doi %||% ""); next }
       d <- m$item$data
       say(i, " | ", w$cite, " | key ", m$item$key, " | ", d$itemType %||% "?",
           " | date ", d$date %||% "", " | DOI in ", item_doi(m$item)$where,

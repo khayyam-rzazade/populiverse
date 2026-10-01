@@ -68,7 +68,11 @@ Entries can also be filtered by region, country, method, type of publication, ye
 
 ## What goes in
 
-Peer-reviewed articles, books, book chapters, and selected policy and working papers on populism, in English. Inclusion is an editorial decision. It rests on two tests: relevance to populism as a concept or to populist actors, and scholarly standard.
+Works related to populism, in English: articles in peer-reviewed journals, and books. Chapters and other kinds of work enter only when they have proved significant over time. The rule that anyone can check: "populism" or "populist" is in the title, or in the abstract when there is one.
+
+## How the tags are given
+
+A tag is given only when the work's own title or abstract supports it. The wordings that count as evidence are public: the [phrases for approaches, topics and methods](https://github.com/khayyam-rzazade/populiverse/blob/main/library/phrases.yml) and the [names of countries, leaders and parties](https://github.com/khayyam-rzazade/populiverse/blob/main/library/actors.yml). Nothing is guessed, so a work stays untagged where its own text does not say. A missing tag means "not stated in the title or the abstract", not "does not apply".
 
 ## What each entry gives you
 

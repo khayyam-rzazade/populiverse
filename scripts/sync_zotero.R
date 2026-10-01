@@ -17,6 +17,12 @@
 #      vocabulary so that the file explains itself.
 #   4. Prints a report.
 #
+# WHICH RULES
+#   Every tag must be in taxonomy.yml; a work needs one type, at most two regions
+#   (or region:global alone) and at most five countries; no work twice. A work
+#   may stay untagged on approach, topic, region or method. The editor's notes
+#   (tags that begin with "todo:") are accepted and never published.
+#
 # WHAT HAPPENS TO A WORK THAT BREAKS A RULE
 #   It is held back: it does not go into library.json, and the report names it
 #   and says why. All other works go through. A work that has no Library tag
@@ -28,7 +34,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01"
+  SCRIPT_VERSION <- "2026-10-01.2"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
   GROUP_URL      <- "https://www.zotero.org/groups/6697881/populiverse_library"
   STYLE          <- "chicago-author-date"
@@ -115,7 +121,8 @@ local({
       if (length(hits) == 1) type_from_zotero[[z]] <- hits
     }
     # A copy of the vocabulary for library.json (lists stay lists in the file).
-    copy <- lapply(facets, function(f) {
+    # (the editor's own notes, the "todo" tags, are not copied: they are never shown)
+    copy <- lapply(Filter(function(f) !isTRUE(f$internal), facets), function(f) {
       list(label = f$label, about = f$about,
            tags = lapply(f$tags, function(t) {
              if (!is.null(t$zotero)) t$zotero <- as.list(as.character(unlist(t$zotero)))
@@ -339,7 +346,7 @@ local({
     approach <- of("approach"); topic <- of("topic"); region <- of("region")
     country  <- of("country");  method <- of("method"); type <- of("type")
 
-    if (!length(approach) && !length(topic)) problems <- c(problems, "needs at least one approach or topic tag")
+    # (rules of 2026-10-01: a work may stay untagged on any axis; only its type is required)
 
     if (length(country) > 5) problems <- c(problems, "has more than five country tags (use the region only)")
     if ("region:global" %in% region) {
@@ -351,7 +358,6 @@ local({
         region <- tax$tags[tax$tags %in% c(region, add)]
         notes  <- c(notes, paste0("region filled in from the country tags: ", paste(add, collapse = ", ")))
       }
-      if (!length(region)) problems <- c(problems, "needs a region tag")
       if (length(region) > 2) problems <- c(problems, "has more than two regions (use region:global instead)")
     }
 

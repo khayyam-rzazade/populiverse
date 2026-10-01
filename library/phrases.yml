@@ -1,0 +1,177 @@
+# PopuliVerse Library: the phrases that count as evidence for each tag.
+# Version 1, 2026-10-01. It belongs with taxonomy.yml (the tags) and actors.yml
+# (countries, leaders and parties).
+#
+# HOW IT WORKS
+#   scripts/code_works.R reads the title and the abstract of each work and gives
+#   a tag only when one of the phrases below is found. It records which phrase
+#   was found. Nothing else decides a tag.
+#
+# HOW TO READ A PHRASE
+#   - Capital letters, accents, hyphens and quotation marks do not matter:
+#     "thin-centred" also finds "Thin Centred".
+#   - A star stands for any ending: "populis*" finds populism, populist, populists.
+#   - "not:" lists wordings that are removed first, so they cannot trigger the tag
+#     (for example "cold war" before looking for "war").
+#
+# HOW MUCH EVIDENCE IS NEEDED
+#   approach  one phrase, in the title or in the abstract.
+#   topic     one phrase in the title, or two phrases in the abstract.
+#   method    one phrase in the title, or one in a sentence of the abstract that
+#             speaks about the study itself (it contains one of the "study words").
+#   Region and country are in actors.yml.
+#   Three or more approaches found in one work become "Other or multiple".
+#   A work found to use mixed methods gets "Mixed methods" only, not also
+#   "Qualitative" or "Quantitative".
+
+version: 1
+date: "2026-10-01"
+
+# Outlets that may not be peer-reviewed. A work in one of them stays in the
+# Library and gets the note "todo:check-outlet" for the editor (never shown on
+# the site). The name must be written as the catalogue writes it.
+outlets_to_check: ["Foreign Affairs", "Journal of Democracy", "The Brown Journal of World Affairs",
+                   "SAIS Review of International Affairs", "The Fletcher forum of world affairs",
+                   "The Fletcher Forum of World Affairs", "Survival"]
+
+# A sentence of the abstract counts for method only if it holds one of these.
+study_words: ["we", "our", "this article", "this paper", "this study", "this essay", "this book",
+              "the article", "the paper", "the study", "the analysis", "drawing on", "draws on",
+              "based on", "using", "uses", "use", "employ*", "conduct*", "rely*", "relies",
+              "analys*", "analyz*", "examin*", "test*", "evidence from", "data from"]
+
+approach:
+  "approach:ideational":
+    phrases: ["ideational approach*", "ideational definition*", "ideational perspective*", "ideational theor*",
+              "ideational framework", "ideational conception*", "ideational understanding", "ideational lens",
+              "thin centred", "thin centered", "thin ideology", "thin ideologies", "thick ideology", "thick ideologies",
+              "host ideology", "host ideologies", "populism as an ideology", "populism as a thin*",
+              "populism as a set of ideas"]
+  "approach:discursive":
+    phrases: ["discourse theor*", "discourse theoretical", "discursive approach*", "discursive perspective",
+              "discursive conception*", "discursive logic", "discursive construction*", "discursively construct*",
+              "populism as a discourse", "populism as discourse", "populism as a discursive*", "populism as a political logic", "populist logic",
+              "laclau*", "essex school", "empty signifier*", "chain of equivalence", "chains of equivalence",
+              "equivalential", "logic of equivalence", "post structuralis*", "poststructuralis*", "post foundational"]
+  "approach:political-strategic":
+    phrases: ["populism as a political strategy", "populism as a strategy", "populism as political strategy",
+              "political strategic", "politico strategic", "strategic approach*", "strategic definition",
+              "strategic conception", "plebiscitarian*", "populism is a strategy", "populism is an elite strategy",
+              "populism as an electoral strategy"]
+  "approach:performative":
+    phrases: ["political style", "populist style", "populism as a style", "populism as style", "stylistic approach",
+              "stylistic turn", "performative", "performativity", "performance of crisis", "performances of crisis",
+              "bad manners", "populist performance*", "politics as performance"]
+  "approach:socio-cultural":
+    phrases: ["socio cultural approach", "sociocultural approach", "socio cultural dimension", "high low axis",
+              "high low divide", "high low dimension", "flaunting of the low", "ostiguy*"]
+  "approach:economic":
+    phrases: ["macroeconomics of populism", "macroeconomic populism", "economic populism", "populist macroeconomic*"]
+  "approach:measurement":
+    phrases: ["measuring populis*", "measure populis*", "measures of populis*", "measurement of populis*",
+              "measure of populis*", "measuring populist*", "populist attitudes scale", "populism scale*",
+              "index of populis*", "populism index", "operationali* populis*", "operationali* of populis*",
+              "how to measure", "new measure*", "measurement invariance", "measurement validity"]
+  "approach:other":
+    phrases: ["approaches to populism", "definitions of populism", "conceptuali* of populism",
+              "conceptions of populism", "understandings of populism", "competing approaches",
+              "different approaches", "theories of populism", "conceptual approaches"]
+
+topic:
+  "topic:foreign-policy":
+    phrases: ["foreign polic*", "foreign relations", "external relations", "external action", "diplomacy",
+              "diplomatic", "diplomat", "diplomats", "foreign minist*", "international relations of"]
+  "topic:defence-security":
+    phrases: ["defence polic*", "defense polic*", "defence spending", "defense spending", "defence budget*",
+              "defense budget*", "security and defence", "security and defense", "defence cooperation",
+              "defense cooperation", "security polic*", "national security", "security narrative*", "military",
+              "militar*", "armed forces", "armed conflict*", "international conflict*", "international dispute*",
+              "use of force", "nato", "nuclear weapon*", "nuclear deterrence", "nuclear proliferation", "war", "wars",
+              "warfare", "terroris*", "peacekeeping", "peacemaking", "peace process*", "arms control", "arms export*",
+              "securiti*ation", "securiti*ing", "security threat*"]
+    not: ["cold war", "culture war*", "trade war*", "class war*", "post war", "postwar", "world war", "inter war", "interwar"]
+  "topic:international":
+    phrases: ["european union", "eu", "euroscepti*", "european integration", "brexit", "european parliament",
+              "international organi*ation*", "international institution*", "multilateral*", "global governance",
+              "international order", "world order", "liberal order", "global order", "united nations",
+              "world trade organi*ation", "wto", "international monetary fund", "imf", "international law",
+              "international court*", "international cooperation", "regional integration", "regional organi*ation*",
+              "regionalism", "transnational*", "international populism", "supranational*"]
+  "topic:parties":
+    phrases: ["party", "parties", "party system*", "party competition", "partisan*", "populist leader*",
+              "political leader*", "party leader*", "populist movement*", "social movement*", "populist actor*",
+              "populist politician*", "candidate*", "manifesto*", "radical right", "far right", "radical left",
+              "populist right", "populist left", "right wing populis*", "left wing populis*"]
+  "topic:voters":
+    phrases: ["voter*", "voting behavio*", "vote choice", "electorate*", "electoral support", "public opinion",
+              "populist attitudes", "attitudes", "citizens", "mass public", "demand side", "supporters",
+              "support for populis*", "public support", "respondents"]
+  "topic:government":
+    phrases: ["populists in government", "populists in power", "populists in office", "populist government*",
+              "populist rule", "populist incumbent*", "populist administration*", "populist president*",
+              "populist prime minister*", "populism in power", "populism in government", "populist governance",
+              "populist led government*", "ruling populis*", "governing populis*", "populist governing",
+              "populists govern", "in government", "in office", "in power", "came to power", "come to power",
+              "coming to power", "administration", "presidency", "incumbent*"]
+  "topic:spatial":
+    phrases: ["urban rural", "rural urban", "rural", "geography of", "geographies of", "geographical",
+              "spatial", "left behind places", "left behind regions", "left behind areas", "places that don t matter",
+              "centre periphery", "center periphery", "subnational", "territorial inequal*", "territorial divide*"]
+  "topic:economy-welfare":
+    phrases: ["economy", "economic", "economics", "welfare", "trade polic*", "trade agreement*", "trade war*",
+              "international trade", "free trade", "protectionis*", "globali*ation", "inequalit*", "redistribut*",
+              "austerity", "financial crisis", "economic crisis", "euro crisis", "eurozone crisis", "neoliberal*",
+              "unemployment", "fiscal", "tariff*", "labour market*", "labor market*", "social polic*",
+              "development aid", "development polic*", "foreign aid", "energy polic*", "energy transition"]
+  "topic:media-communication":
+    phrases: ["media", "communication*", "rhetoric*", "twitter", "tweet*", "facebook", "social network*",
+              "news coverage", "newspaper*", "journalis*", "disinformation", "misinformation", "fake news",
+              "propaganda", "television", "press coverage", "public diplomacy", "framing", "frames"]
+  "topic:gender":
+    phrases: ["gender*", "women", "feminis*", "masculin*", "lgbt*", "sexualit*", "family polic*", "anti gender",
+              "patriarch*", "misogyn*"]
+  "topic:religion":
+    phrases: ["religio*", "christian*", "islam", "islamic", "islamis*", "muslim*", "catholic*", "church*",
+              "evangelical*", "hindu*", "orthodox church", "secular*", "sacred"]
+  "topic:migration":
+    phrases: ["migra*", "immigra*", "refugee*", "asylum", "border control*", "border polic*", "border security",
+              "nativis*", "xenophob*", "anti immigr*", "diaspora*"]
+  "topic:democracy-institutions":
+    phrases: ["democratic backsliding", "democratic erosion", "democratic decline", "democratic quality",
+              "quality of democracy", "democratic institutions", "democratic norms", "democrati*ation",
+              "autocrati*ation", "liberal democracy", "liberal democracies", "illiberal*", "authoritarian*",
+              "rule of law", "judicia*", "constitution*", "courts", "court", "checks and balances",
+              "direct democracy", "referendum*", "referenda", "hybrid regime*", "populism and democracy",
+              "threat to democracy", "parliamentary oversight", "parliamentary control"]
+
+method:
+  "method:qualitative":
+    phrases: ["qualitative", "interview*", "semi structured", "ethnograph*", "fieldwork", "field research",
+              "process tracing", "focus group*", "discourse analysis", "critical discourse analysis",
+              "participant observation", "archival", "in depth case stud*", "comparative case stud*",
+              "within case", "narrative analysis", "interpretive analysis"]
+    not: ["qualitative comparative analysis"]
+  "method:quantitative":
+    phrases: ["regression*", "panel data", "time series", "statistical analys*", "quantitative analys*",
+              "quantitative evidence", "quantitative study", "quantitative data", "large n", "multilevel model*",
+              "logit", "probit", "difference in differences", "econometric*", "roll call*", "expert survey*",
+              "voting records", "event study", "structural equation"]
+  "method:qta":
+    phrases: ["text as data", "quantitative text analysis", "automated text analysis", "automated content analysis",
+              "computational text analysis", "topic model*", "word embedding*", "dictionary based",
+              "sentiment analysis", "wordscores", "wordfish", "natural language processing", "text mining",
+              "semantic text analysis", "supervised machine learning", "machine learning classif*"]
+  "method:survey":
+    phrases: ["survey data", "survey evidence", "survey respondents", "survey items", "survey research",
+              "original survey*", "online survey*", "national survey*", "representative survey*", "panel survey*",
+              "public opinion survey*", "cross national survey*", "nationally representative", "survey based",
+              "european social survey", "eurobarometer", "world values survey", "latinobarometro",
+              "american national election stud*", "opinion poll*", "polling data", "election stud*"]
+    not: ["expert survey*", "survey experiment*"]
+  "method:experiment":
+    phrases: ["survey experiment*", "conjoint", "vignette experiment*", "experimental design", "experimental evidence",
+              "experimental study", "experimental data", "experimental results", "field experiment*",
+              "laboratory experiment*", "lab experiment*", "online experiment*", "randomi*ed", "pre registered experiment*",
+              "conducted an experiment", "conduct an experiment", "two experiments", "three experiments"]
+  "method:mixed":
+    phrases: ["mixed method*", "multi method*", "multimethod", "qualitative and quantitative", "quantitative and qualitative"]

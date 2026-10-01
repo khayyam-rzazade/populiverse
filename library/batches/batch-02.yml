@@ -1,0 +1,4756 @@
+# Batch 02: works taken from a list of references, kept by the scope rule and
+# tagged from the words of their own title and abstract (scripts/code_works.R,
+# library/phrases.yml, library/actors.yml). The phrase behind every tag is in
+# batch-02-evidence.csv. Written by the script; do not edit by hand.
+
+batch: 2
+date: "2026-10-01"
+phrases_version: 1
+
+works:
+  - cite: "Abadi et al. 2024"
+    doi: "10.1177/00027642241240336"
+    title: "Populism Versus Nativism: Socio-Economic, Socio-Cultural, and Emotional Predictors"
+    year: 2024
+    ref: "H0001"
+    tags:
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "topic:migration"
+      - "method:quantitative"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Acemoglu et al. 2013"
+    doi: "10.1093/qje/qjs077"
+    title: "A Political Theory of Populism *"
+    year: 2013
+    ref: "H0006"
+    tags:
+      - "topic:voters"
+      - "topic:government"
+      - "type:article"
+
+  - cite: "Adler-Nissen et al. 2021"
+    doi: "10.1017/s0020818320000454"
+    title: "Struggles for Recognition: The Liberal International Order and the Merger of Its Discontents"
+    year: 2021
+    ref: "H0013"
+    tags:
+      - "topic:international"
+      - "topic:voters"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Agerberg 2017"
+    doi: "10.1111/1475-6765.12203"
+    title: "Failed expectations: Quality of government and support for populist parties in Europe"
+    year: 2017
+    ref: "H0014"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Agustín 2020"
+    doi: "10.1108/9781839092039"
+    title: "Left-Wing Populism: The Politics of the People"
+    year: 2020
+    ref: "H0016"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:france"
+      - "country:greece"
+      - "country:spain"
+      - "type:book"
+
+  - cite: "Aiolfi 2022"
+    doi: "10.1093/isagsq/ksac006"
+    title: "Populism as a Transgressive Style"
+    year: 2022
+    ref: "H0018"
+    tags:
+      - "approach:performative"
+      - "approach:socio-cultural"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Aiolfi 2025"
+    doi: "10.1515/9781399537438"
+    title: "The Populist Style: Trump, Le Pen and Performances of the Far Right"
+    year: 2025
+    ref: "H0019"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "region:europe"
+      - "region:north-america"
+      - "country:france"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:book"
+      - "oa:yes"
+
+  - cite: "Albertazzi et al. 2015"
+    doi: "10.4324/9781315725789"
+    title: "Populists in Power"
+    year: 2015
+    ref: "H0022"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "region:europe"
+      - "country:italy"
+      - "country:switzerland"
+      - "method:qualitative"
+      - "type:book"
+
+  - cite: "Albertazzi et al. 2018"
+    doi: "10.1080/13597566.2018.1512977"
+    title: "‘No regionalism please, we are Leghisti !’ The transformation of the Italian Lega Nord under the leadership of Matteo Salvini"
+    year: 2018
+    ref: "H0023"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Anastasiou 2019"
+    doi: "10.1080/13183222.2019.1606562"
+    title: "Of Nation and People: The Discursive Logic of Nationalist Populism"
+    year: 2019
+    ref: "H0030"
+    tags:
+      - "approach:discursive"
+      - "type:article"
+
+  - cite: "Anselmi 2017"
+    doi: "10.1007/s41111-017-0066-y"
+    title: "Post-populism in Latin America: On Venezuela after Chávez"
+    year: 2017
+    ref: "H0033"
+    tags:
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Appel 2019"
+    doi: "10.1080/08913811.2019.1647956"
+    title: "Can the EU Stop Eastern Europe's Illiberal Turn?"
+    year: 2019
+    ref: "H0034"
+    tags:
+      - "topic:international"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
+      - "type:article"
+
+  - cite: "Arkilic 2021"
+    doi: "10.1080/19448953.2021.1888599"
+    title: "Turkish Populist Nationalism in Transnational Space: Explaining Diaspora Voting Behaviour in Homeland Elections"
+    year: 2021
+    ref: "H0038"
+    tags:
+      - "topic:international"
+      - "topic:voters"
+      - "topic:migration"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Arzheimer 2015"
+    doi: "10.1080/01402382.2015.1004230"
+    title: "The AfD: Finally a Successful Right-Wing Populist Eurosceptic Party for Germany?"
+    year: 2015
+    ref: "H0040"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:germany"
+      - "type:article"
+
+  - cite: "Arısan 2022"
+    doi: "10.1080/14683849.2022.2106131"
+    title: "Populism, victimhood and Turkish foreign policy under AKP rule"
+    year: 2022
+    ref: "H0041"
+    tags:
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Aslanidis 2015"
+    doi: "10.1111/1467-9248.12224"
+    title: "Is Populism an Ideology? A Refutation and a New Perspective"
+    year: 2015
+    ref: "H0043"
+    tags:
+      - "approach:ideational"
+      - "approach:discursive"
+      - "type:article"
+
+  - cite: "Aslanidis 2018"
+    doi: "10.1007/s11135-017-0517-4"
+    title: "Measuring populist discourse with semantic text analysis: an application on grassroots populist mobilization"
+    year: 2018
+    ref: "H0045"
+    tags:
+      - "approach:measurement"
+      - "method:qta"
+      - "type:article"
+
+  - cite: "Aslanidis 2018"
+    doi: "10.1111/socf.12424"
+    title: "Populism as a Collective Action Master Frame for Transnational Mobilization"
+    year: 2018
+    ref: "H0046"
+    tags:
+      - "topic:international"
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Barr 2009"
+    doi: "10.1177/1354068808097890"
+    title: "Populists, Outsiders and Anti-Establishment Politics"
+    year: 2009
+    ref: "H0057"
+    tags:
+      - "type:article"
+
+  - cite: "Bartha et al. 2020"
+    doi: "10.17645/pag.v8i3.2922"
+    title: "When Populist Leaders Govern: Conceptualising Populism in Policy Making"
+    year: 2020
+    ref: "H0059"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "topic:economy-welfare"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Barthwal-Datta et al. 2024"
+    doi: "10.1093/ia/iiae173"
+    title: "Populism and foreign policy: India's refugee policy towards the Rohingya"
+    year: 2024
+    ref: "H0060"
+    tags:
+      - "approach:discursive"
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "topic:gender"
+      - "topic:religion"
+      - "topic:migration"
+      - "region:asia-pacific"
+      - "country:india"
+      - "type:article"
+
+  - cite: "Basile et al. 2020"
+    doi: "10.1080/23745118.2019.1632576"
+    title: "Sovereignist wine in populist bottles? An introduction"
+    year: 2020
+    ref: "H0064"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Batel et al. 2018"
+    doi: "10.1016/j.erss.2018.05.011"
+    title: "Populism, identities and responses to energy infrastructures at different scales in the United Kingdom: A post-Brexit reflection"
+    year: 2018
+    ref: "H0065"
+    tags:
+      - "topic:international"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Baykan et al. 2021"
+    doi: "10.1080/01436597.2020.1871329"
+    title: "Anti-populist coups d’état in the twenty-first century: reasons, dynamics and consequences"
+    year: 2021
+    ref: "H0066"
+    tags:
+      - "topic:defence-security"
+      - "topic:democracy-institutions"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Belém Lopes et al. 2022"
+    doi: "10.1093/isagsq/ksac078"
+    title: "Did the Far Right Breed a New Variety of Foreign Policy? The Case of Bolsonaro's “More-Bark-Than-Bite” Brazil"
+    year: 2022
+    ref: "H0072"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:latin-america"
+      - "country:brazil"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Berbuir et al. 2015"
+    doi: "10.1080/09644008.2014.982546"
+    title: "The AfD and its Sympathisers: Finally a Right-Wing Populist Movement in Germany?"
+    year: 2015
+    ref: "H0073"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:germany"
+      - "method:mixed"
+      - "type:article"
+
+  - cite: "Bergmann et al. 2021"
+    doi: "10.1111/jcms.13143"
+    title: "Populist Radical Right Parties in Europe: What Impact Do they Have on Development Policy?"
+    year: 2021
+    ref: "H0076"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Berman et al. 2019"
+    doi: "10.1353/jod.2019.0038"
+    title: "Populism and the Decline of Social Democracy"
+    year: 2019
+    ref: "H0080"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "type:article"
+      - "todo:check-outlet"
+
+  - cite: "Berman 2021"
+    doi: "10.1146/annurev-polisci-041719-102503"
+    title: "The Causes of Populism in the West"
+    year: 2021
+    ref: "H0081"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bernhard 2021"
+    doi: "10.1017/slr.2021.145"
+    title: "Democratic Backsliding in Poland and Hungary"
+    year: 2021
+    ref: "H0083"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Berti 2021"
+    doi: "10.1177/0163443720957564"
+    title: "Right-wing populism and the criminalization of sea-rescue NGOs: the ‘Sea-Watch 3’ case in Italy, and Matteo Salvini’s communication on Facebook"
+    year: 2021
+    ref: "H0084"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Biegon 2019"
+    doi: "10.1177/0047117819852399"
+    title: "A populist grand strategy? Trump and the framing of American decline"
+    year: 2019
+    ref: "H0089"
+    tags:
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Biegon et al. 2024"
+    doi: "10.1093/ia/iiae174"
+    title: "Anti-populism and the Trump trauma in US foreign policy"
+    year: 2024
+    ref: "H0090"
+    tags:
+      - "approach:discursive"
+      - "topic:foreign-policy"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bischof et al. 2018"
+    doi: "10.1111/1475-6765.12235"
+    title: "Simple politics for the people? Complexity in campaign messages and political knowledge"
+    year: 2018
+    ref: "H0092"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Blokker 2019"
+    doi: "10.1017/glj.2019.19"
+    title: "Varieties of populist constitutionalism: The transnational dimension"
+    year: 2019
+    ref: "H0094"
+    tags:
+      - "topic:international"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bonansinga 2022"
+    doi: "10.1080/13511610.2021.1964349"
+    title: "Insecurity narratives and implicit emotional appeals in French competing populisms"
+    year: 2022
+    ref: "H0098"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bonansinga 2022"
+    doi: "10.1177/13691481221078187"
+    title: "‘A threat to us’: The interplay of insecurity and enmity narratives in left-wing populism"
+    year: 2022
+    ref: "H0099"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:france"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bonikowski et al. 2016"
+    doi: "10.1093/sf/sov120"
+    title: "The Populist Style in American Politics: Presidential Campaign Discourse, 1952–1996"
+    year: 2016
+    ref: "H0100"
+    tags:
+      - "approach:discursive"
+      - "approach:performative"
+      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qta"
+      - "type:article"
+
+  - cite: "Bonikowski 2017"
+    doi: "10.1111/1468-4446.12325"
+    title: "Ethno‐nationalist populism and the mobilization of collective resentment"
+    year: 2017
+    ref: "H0102"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Boucher et al. 2019"
+    doi: "10.1086/702229"
+    title: "“I Am a Tariff Man”: The Power of Populist Foreign Policy Rhetoric under President Trump"
+    year: 2019
+    ref: "H0110"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Breeze 2019"
+    doi: "10.1177/0957926518801074"
+    title: "Emotion in politics: Affective-discursive practices in UKIP and Labour"
+    year: 2019
+    ref: "H0116"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "method:mixed"
+      - "type:article"
+
+  - cite: "Breeze 2019"
+    doi: "10.1080/13183222.2018.1531339"
+    title: "Positioning “the people” and Its Enemies: Populism and Nationalism in AfD and UKIP"
+    year: 2019
+    ref: "H0117"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:germany"
+      - "country:united-kingdom"
+      - "type:article"
+
+  - cite: "Brighi et al. 2023"
+    doi: "10.1080/23248823.2023.2195776"
+    title: "Italian diplomacy and the Ukrainian crisis: the challenges (and cost) of continuity"
+    year: 2023
+    ref: "H0121"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:international"
+      - "region:europe"
+      - "country:italy"
+      - "country:ukraine"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Brooke et al. 2023"
+    doi: "10.1111/ajps.12669"
+    title: "Religious Protection from Populist Violence: The Catholic Church and the Philippine Drug War"
+    year: 2023
+    ref: "H0122"
+    tags:
+      - "topic:defence-security"
+      - "topic:religion"
+      - "method:mixed"
+      - "type:article"
+
+  - cite: "Browning 2019"
+    doi: "10.1080/09557571.2019.1567461"
+    title: "Brexit populism and fantasies of fulfilment"
+    year: 2019
+    ref: "H0126"
+    tags:
+      - "topic:international"
+      - "topic:voters"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+
+  - cite: "Brubaker 2017"
+    doi: "10.1080/01419870.2017.1294700"
+    title: "Between nationalism and civilizationism: the European populist moment in comparative perspective"
+    year: 2017
+    ref: "H0129"
+    tags:
+      - "topic:religion"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Brubaker 2017"
+    doi: "10.1007/s11186-017-9301-7"
+    title: "Why populism?"
+    year: 2017
+    ref: "H0130"
+    tags:
+      - "type:article"
+
+  - cite: "Brubaker 2020"
+    doi: "10.1111/nana.12522"
+    title: "Populism and nationalism"
+    year: 2020
+    ref: "H0131"
+    tags:
+      - "topic:economy-welfare"
+      - "type:article"
+
+  - cite: "Brun et al. 2022"
+    doi: "10.4067/s0718-090x2022005000105"
+    title: "¿ Y América Latina? Una propuesta analítica sobre populismo y política exterior"
+    year: 2022
+    ref: "H0134"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Brusenbauch-Meislová et al. 2024"
+    doi: "10.1093/ia/iiad296"
+    title: "The ambiguous impact of populist trade discourses on the international economic order"
+    year: 2024
+    ref: "H0136"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bull 2016"
+    doi: "10.1080/0031322x.2016.1208863"
+    title: "The role of memory in populist discourse: the case of the Italian Second Republic"
+    year: 2016
+    ref: "H0138"
+    tags:
+      - "approach:discursive"
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bulut et al. 2021"
+    doi: "10.1080/13510347.2020.1865318"
+    title: "Religion, foreign policy and populism in Turkish politics: introducing a new framework"
+    year: 2021
+    ref: "H0139"
+    tags:
+      - "approach:measurement"
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:religion"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Béland 2020"
+    doi: "10.1177/1478929919865131"
+    title: "Right-Wing Populism and the Politics of Insecurity: How President Trump Frames Migrants as Collective Threats"
+    year: 2020
+    ref: "H0144"
+    tags:
+      - "approach:ideational"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Bélanger et al. 2022"
+    doi: "10.1111/jcms.13280"
+    title: "From Cohesion to Contagion? Populist Radical Right Contestation of EU Enlargement"
+    year: 2022
+    ref: "H0145"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Böcü et al. 2022"
+    doi: "10.1163/09763457-bja10013"
+    title: "Populist Diaspora Engagement: Party-led Outreach under Turkey’s AKP and India’s BJP"
+    year: 2022
+    ref: "H0146"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "topic:religion"
+      - "topic:migration"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:turkey"
+      - "country:india"
+      - "type:article"
+
+  - cite: "Böhmelt et al. 2023"
+    doi: "10.1080/13501763.2023.2255658"
+    title: "Policy issue salience and legislative output of populist governments: evidence from immigration policies"
+    year: 2023
+    ref: "H0147"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Böller 2022"
+    doi: "10.1080/09644008.2022.2072489"
+    title: "Fuelling Politicisation: The AfD and the Politics of Military Interventions in the German Parliament"
+    year: 2022
+    ref: "H0149"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
+      - "type:article"
+
+  - cite: "Cadier et al. 2020"
+    doi: "10.1057/s41311-020-00252-6"
+    title: "Populism, historical discourse and foreign policy: the case of Poland’s Law and Justice government"
+    year: 2020
+    ref: "H0154"
+    tags:
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cadier 2021"
+    doi: "10.1057/s41295-021-00257-2"
+    title: "Populist politics of representation and foreign policy: evidence from Poland"
+    year: 2021
+    ref: "H0155"
+    tags:
+      - "approach:discursive"
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cadier 2023"
+    doi: "10.1093/fpa/orad035"
+    title: "Foreign Policy as the Continuation of Domestic Politics by Other Means: Pathways and Patterns of Populist Politicization"
+    year: 2023
+    ref: "H0156"
+    tags:
+      - "topic:foreign-policy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Caiani et al. 2019"
+    doi: "10.1080/01402382.2019.1598062"
+    title: "Understanding varieties of populism in times of crises"
+    year: 2019
+    ref: "H0158"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Canovan 1984"
+    doi: "10.1111/j.1477-7053.1984.tb01048.x"
+    title: "‘People’, Politicians and Populism"
+    year: 1984
+    ref: "H0164"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Canovan 1999"
+    doi: "10.1111/1467-9248.00184"
+    title: "Trust the People! Populism and the Two Faces of Democracy"
+    year: 1999
+    ref: "H0165"
+    tags:
+      - "type:article"
+
+  - cite: "Caramani 2017"
+    doi: "10.1017/s0003055416000538"
+    title: "Will vs. Reason: The Populist and Technocratic Forms of Political Representation and Their Critique to Party Government"
+    year: 2017
+    ref: "H0170"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "type:article"
+
+  - cite: "Carnegie et al. 2023"
+    doi: "10.1086/727595"
+    title: "Private Participation: How Populists Engage with International Organizations"
+    year: 2023
+    ref: "H0171"
+    tags:
+      - "topic:international"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Carvalho 2013"
+    doi: "10.4324/9781315885162"
+    title: "Impact of Extreme Right Parties on Immigration Policy"
+    year: 2013
+    ref: "H0175"
+    tags:
+      - "topic:parties"
+      - "topic:migration"
+      - "region:europe"
+      - "country:france"
+      - "country:italy"
+      - "country:united-kingdom"
+      - "method:qualitative"
+      - "type:book"
+
+  - cite: "Casarões et al. 2022"
+    doi: "10.1080/09557571.2021.1981248"
+    title: "Brazilian foreign policy under Jair Bolsonaro: far-right populism and the rejection of the liberal international order"
+    year: 2022
+    ref: "H0176"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:parties"
+      - "topic:religion"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cassel 2021"
+    doi: "10.1177/19401612211055695"
+    title: "The Populist Communication Strategy in Comparative Perspective"
+    year: 2021
+    ref: "H0178"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Castanho Silva et al. 2017"
+    doi: "10.1111/spsr.12270"
+    title: "The Elite Is Up to Something: Exploring the Relation Between Populism and Belief in Conspiracy Theories"
+    year: 2017
+    ref: "H0179"
+    tags:
+      - "topic:voters"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ceccorulli et al. 2022"
+    doi: "10.1080/23248823.2022.2107136"
+    title: "The government of change? Migration and defence policy under Giuseppe Conte’s first cabinet"
+    year: 2022
+    ref: "H0181"
+    tags:
+      - "topic:defence-security"
+      - "topic:parties"
+      - "topic:government"
+      - "topic:migration"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Chacko 2018"
+    doi: "10.1080/00472336.2018.1446546"
+    title: "The Right Turn in India: Authoritarianism, Populism and Neoliberalisation"
+    year: 2018
+    ref: "H0184"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:india"
+      - "type:article"
+
+  - cite: "Chiru et al. 2023"
+    doi: "10.1080/13501763.2021.1984546"
+    title: "Democratic backsliding as a catalyst for polity-based contestation? Populist radical right cooperation in the European Parliament"
+    year: 2023
+    ref: "H0188"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Chryssogelos 2010"
+    doi: "10.1007/s12290-010-0135-1"
+    title: "Undermining the West from Within: European Populists, the Us and Russia"
+    year: 2010
+    ref: "H0193"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "country:russia"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Chryssogelos 2020"
+    doi: "10.1177/0263395718803830"
+    title: "State transformation and populism: From the internationalized to the neo-sovereign state?"
+    year: 2020
+    ref: "H0196"
+    tags:
+      - "approach:discursive"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Chryssogelos 2021"
+    doi: "10.1057/s41295-021-00258-1"
+    title: "The dog that barked but did not bite: Greek foreign policy under the populist coalition of SYRIZA-Independent Greeks, 2015–2019"
+    year: 2021
+    ref: "H0199"
+    tags:
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:greece"
+      - "type:article"
+
+  - cite: "Conrad 2021"
+    doi: "10.17645/pag.v9i3.3985"
+    title: "Post-Truth Politics, Digital Media, and the Politicization of the Global Compact for Migration"
+    year: 2021
+    ref: "H0215"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cooper 2019"
+    doi: "10.1163/1871191x-14101011"
+    title: "Adapting Public Diplomacy to the Populist Challenge"
+    year: 2019
+    ref: "H0220"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Cooper 2019"
+    doi: "10.1080/09592296.2019.1673556"
+    title: "The Disintermediation Dilemma and its Impact on Diplomacy: A Research Agenda for a Turbulent Time"
+    year: 2019
+    ref: "H0221"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:voters"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Copelovitch et al. 2019"
+    doi: "10.1007/s11558-019-09353-1"
+    title: "International organizations in a new era of populist nationalism"
+    year: 2019
+    ref: "H0222"
+    tags:
+      - "topic:international"
+      - "type:article"
+
+  - cite: "Coticchia et al. 2020"
+    doi: "10.1177/1369148120922808"
+    title: "Populist parties and foreign policy: The case of Italy’s Five Star Movement"
+    year: 2020
+    ref: "H0229"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Coticchia 2021"
+    doi: "10.1057/s41295-021-00259-0"
+    title: "A sovereignist revolution? Italy’s foreign policy under the “Yellow–Green” government"
+    year: 2021
+    ref: "H0230"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:voters"
+      - "region:europe"
+      - "country:italy"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Couperus et al. 2023"
+    doi: "10.1080/14782804.2023.2207480"
+    title: "Historical legacies and the political mobilization of national nostalgia: Understanding populism’s relationship to the past"
+    year: 2023
+    ref: "H0234"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Csehi 2019"
+    doi: "10.1080/13510347.2019.1590814"
+    title: "Neither episodic, nor destined to failure? The endurance of Hungarian populism after 2010"
+    year: 2019
+    ref: "H0238"
+    tags:
+      - "approach:ideational"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+
+  - cite: "Csehi et al. 2021"
+    doi: "10.1080/23745118.2020.1717064"
+    title: "‘We won’t let Brussels dictate us’: Eurosceptic populism in Hungary and Poland"
+    year: 2021
+    ref: "H0239"
+    tags:
+      - "approach:ideational"
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
+      - "type:article"
+
+  - cite: "Damiani 2020"
+    doi: "10.4324/9781351022668"
+    title: "Populist Radical Left Parties in Western Europe"
+    year: 2020
+    ref: "H0246"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "method:qualitative"
+      - "type:book"
+
+  - cite: "De Cleen et al. 2017"
+    doi: "10.1080/13183222.2017.1330083"
+    title: "Distinctions and Articulations: A Discourse Theoretical Framework for the Study of Populism and Nationalism"
+    year: 2017
+    ref: "H0252"
+    tags:
+      - "approach:discursive"
+      - "type:article"
+
+  - cite: "De Cleen and A 2018"
+    doi: "10.1177/1350508418768053"
+    title: "Critical research on populism: Nine rules of engagement"
+    year: 2018
+    ref: "H0253"
+    tags:
+      - "approach:discursive"
+      - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "De Cleen et al. 2020"
+    doi: "10.1111/nana.12575"
+    title: "How should we analyze the connections between populism and nationalism: A response to Rogers Brubaker"
+    year: 2020
+    ref: "H0254"
+    tags:
+      - "approach:other"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "De Genova 2018"
+    doi: "10.1080/01419870.2017.1361543"
+    title: "The “migrant crisis” as racial crisis: do Black Lives Matter in Europe?"
+    year: 2018
+    ref: "H0255"
+    tags:
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "De la Torre 2017"
+    doi: "10.1353/sais.2017.0007"
+    title: "A Populist International?: ALBA's Democratic and Autocratic Promotion"
+    year: 2017
+    ref: "H0257"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:venezuela"
+      - "type:article"
+      - "todo:check-outlet"
+
+  - cite: "De Sá e Silva 2020"
+    doi: "10.1353/hrq.2020.0036"
+    title: "Once Upon a Time, a Human Rights Ally: The State and its Bureaucracy in Right-Wing Populist Brazil"
+    year: 2020
+    ref: "H0261"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+
+  - cite: "De Sá Guimarães et al. 2021"
+    doi: "10.1093/ia/iiaa220"
+    title: "Far-right populism and foreign policy identity: Jair Bolsonaro's ultra-conservatism and the new politics of alignment"
+    year: 2021
+    ref: "H0262"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+
+  - cite: "Dennison et al. 2021"
+    doi: "10.1080/1369183x.2020.1853907"
+    title: "The centre no longer holds: the Lega, Matteo Salvini and the remaking of Italian immigration politics"
+    year: 2021
+    ref: "H0269"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:migration"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Dennison et al. 2022"
+    doi: "10.1111/pops.12817"
+    title: "Populist Attitudes and Threat Perceptions of Global Transformations and Governance: Experimental Evidence from India and the United Kingdom"
+    year: 2022
+    ref: "H0270"
+    tags:
+      - "approach:ideational"
+      - "topic:international"
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:united-kingdom"
+      - "country:india"
+      - "method:survey"
+      - "method:experiment"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Destradi et al. 2024"
+    doi: "10.1007/s11558-024-09569-w"
+    title: "Populism and the liberal international order: An analysis of UN voting patterns"
+    year: 2024
+    ref: "H0275"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:government"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Diamond 2023"
+    doi: "10.1080/07351690.2023.2163147"
+    title: "Perverted Containment: Trumpism, Cult Creation, and the Rise of Destructive American Populism"
+    year: 2023
+    ref: "H0277"
+    tags:
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Diehl 2022"
+    doi: "10.1086/720076"
+    title: "For a Complex Concept of Populism"
+    year: 2022
+    ref: "H0278"
+    tags:
+      - "type:article"
+
+  - cite: "Diodato et al. 2019"
+    doi: "10.1007/978-3-319-97262-6"
+    title: "Berlusconi ‘The Diplomat’: Populism and Foreign Policy in Italy"
+    year: 2019
+    ref: "H0280"
+    tags:
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:italy"
+      - "type:book"
+
+  - cite: "Donelli and Lequesne 2023"
+    doi: "10.1093/isr/viad035"
+    title: "New Directions in the Study of Populism in International Relations"
+    year: 2023
+    ref: "H0282"
+    tags:
+      - "topic:foreign-policy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Drezner 2019"
+    doi: "10.1086/702230"
+    title: "Present at the Destruction: The Trump Administration and the Foreign Policy Bureaucracy"
+    year: 2019
+    ref: "H0286"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Dutta et al. 2024"
+    doi: "10.1080/13569317.2024.2337181"
+    title: "Protecting the people: populism and masculine security in India and Hungary"
+    year: 2024
+    ref: "H0292"
+    tags:
+      - "topic:defence-security"
+      - "topic:parties"
+      - "topic:gender"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:hungary"
+      - "country:india"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Dyduch et al. 2021"
+    doi: "10.1080/07036337.2021.1927010"
+    title: "Populism meets EU Foreign policy: the de-Europeanization of Poland´s Foreign policy toward the Israeli-Palestinian conflict"
+    year: 2021
+    ref: "H0295"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Eder 2024"
+    doi: "10.1177/13691481231224265"
+    title: "The nature of a populist and radical-right foreign policy: Analysing the freedom party’s participation in the right-wing Austrian government"
+    year: 2024
+    ref: "H0298"
+    tags:
+      - "approach:measurement"
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "country:austria"
+      - "method:mixed"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Eger et al. 2019"
+    doi: "10.1057/s41304-018-0160-0"
+    title: "From radical right to neo-nationalist"
+    year: 2019
+    ref: "H0301"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "type:article"
+
+  - cite: "Eklundh et al. 2024"
+    doi: "10.1093/ia/iiae137"
+    title: "Left populism and foreign policy: Bernie Sanders and Podemos"
+    year: 2024
+    ref: "H0302"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "region:north-america"
+      - "country:spain"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ekström et al. 2018"
+    doi: "10.1057/s41599-018-0132-6"
+    title: "Right-wing populism and the dynamics of style: a discourse-analytic perspective on mediated political performances"
+    year: 2018
+    ref: "H0303"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "country:united-kingdom"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Engler et al. 2019"
+    doi: "10.1080/01402382.2019.1596696"
+    title: "Assessing the Diversity of Anti- Establishment and Populist Politics in Central and Eastern Europe"
+    year: 2019
+    ref: "H0304"
+    tags:
+      - "approach:ideational"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Enli et al. 2018"
+    doi: "10.1177/2056305118764430"
+    title: "Trust in the Age of Social Media: Populist Politicians Seem More Authentic"
+    year: 2018
+    ref: "H0305"
+    tags:
+      - "approach:political-strategic"
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ernst et al. 2019"
+    doi: "10.1177/2056305118823358"
+    title: "Populists Prefer Social Media Over Talk Shows: An Analysis of Populist Messages and Stylistic Elements Across Six Countries"
+    year: 2019
+    ref: "H0308"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Escudero et al. 2022"
+    doi: "10.5354/0719-5338.2022.69322"
+    title: "Populismo y Política Exterior"
+    year: 2022
+    ref: "H0309"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ettinger 2020"
+    doi: "10.1080/09557571.2019.1659229"
+    title: "Principled realism and populist sovereignty in Trump’s foreign policy"
+    year: 2020
+    ref: "H0310"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Fabbrini et al. 2019"
+    doi: "10.1080/23248823.2019.1642657"
+    title: "Italy and the European Union: the discontinuity of the Conte government"
+    year: 2019
+    ref: "H0313"
+    tags:
+      - "topic:international"
+      - "topic:migration"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Falkner et al. 2019"
+    doi: "10.1111/jcms.12963"
+    title: "EU Policies and Populist Radical Right Parties' Programmatic Claims: Foreign Policy, Anti‐discrimination and the Single Market"
+    year: 2019
+    ref: "H0315"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Fanoulis et al. 2020"
+    doi: "10.17645/pag.v8i1.2539"
+    title: "Veridiction and Leadership in Transnational Populism: The Case of DiEM25"
+    year: 2020
+    ref: "H0317"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Farias et al. 2024"
+    doi: "10.1093/ia/iiae179"
+    title: "Populist international (dis)order? Lessons from world-order visions in Latin American populism"
+    year: 2024
+    ref: "H0318"
+    tags:
+      - "topic:international"
+      - "region:latin-america"
+      - "country:brazil"
+      - "country:mexico"
+      - "country:venezuela"
+      - "type:article"
+
+  - cite: "Ferdjani 2022"
+    doi: "10.4000/rfcb.9503"
+    title: "The Populist Dimension of Brexit"
+    year: 2022
+    ref: "H0320"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Finchelstein et al. 2018"
+    doi: "10.1163/25888072-01011001"
+    title: "On Populism and Democracy"
+    year: 2018
+    ref: "H0323"
+    tags:
+      - "topic:democracy-institutions"
+      - "type:article"
+
+  - cite: "Fomina et al. 2016"
+    doi: "10.1353/jod.2016.0062"
+    title: "Populism and Protest in Poland"
+    year: 2016
+    ref: "H0329"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "todo:check-outlet"
+
+  - cite: "Forchtner et al. 2015"
+    doi: "10.3167/nc.2015.100204"
+    title: "The Nature of Nationalism: Populist Radical Right Parties on Countryside and Climate"
+    year: 2015
+    ref: "H0330"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:denmark"
+      - "type:article"
+
+  - cite: "Forchtner et al. 2018"
+    doi: "10.1080/17524032.2018.1470546"
+    title: "Being Skeptical? Exploring Far-Right Climate-Change Communication in Germany"
+    year: 2018
+    ref: "H0331"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Fouquet 2023"
+    doi: "10.1093/fpa/orad003"
+    title: "Populist Leadership, Opportunistic Decision-Making, and Poliheuristic Theory: Cristina Kirchner's Decision to Defy “The Vultures”"
+    year: 2023
+    ref: "H0333"
+    tags:
+      - "approach:political-strategic"
+      - "topic:parties"
+      - "region:latin-america"
+      - "country:argentina"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Fouquet et al. 2023"
+    doi: "10.1057/s41268-022-00270-2"
+    title: "Profiling the personality of populist foreign policy makers: a leadership trait analysis"
+    year: 2023
+    ref: "H0334"
+    tags:
+      - "topic:foreign-policy"
+      - "type:article"
+
+  - cite: "Fraser 2017"
+    doi: "10.1177/0192512117720809"
+    title: "Post-populism in Zambia: Michael Sata’s rise, demise and legacy"
+    year: 2017
+    ref: "H0337"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "region:sub-saharan-africa"
+      - "country:zambia"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Fraune et al. 2018"
+    doi: "10.1016/j.erss.2018.05.029"
+    title: "Sustainable energy transformations in an age of populism, post-truth politics, and local resistance"
+    year: 2018
+    ref: "H0338"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Freeden 2017"
+    doi: "10.1080/13569317.2016.1260813"
+    title: "After the Brexit referendum: revisiting populism as an ideology"
+    year: 2017
+    ref: "H0340"
+    tags:
+      - "approach:ideational"
+      - "topic:international"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Frič et al. 2022"
+    doi: "10.1177/0095327x221131917"
+    title: "Civil–Military Relations in the Season of Military Populism: Czechia"
+    year: 2022
+    ref: "H0343"
+    tags:
+      - "topic:defence-security"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:czech-republic"
+      - "type:article"
+
+  - cite: "Garzia 2022"
+    doi: "10.1080/01402382.2022.2148603"
+    title: "The Italian parliamentary election of 2022: the populist radical right takes charge"
+    year: 2022
+    ref: "H0351"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Gerbaudo 2018"
+    doi: "10.1177/0163443718772192"
+    title: "Social media and populism: an elective affinity?"
+    year: 2018
+    ref: "H0357"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Germani 1978"
+    doi: "10.2307/2513934"
+    title: "Authoritarianism, Fascism, and National Populism."
+    year: 1978
+    ref: "H0358"
+    tags:
+      - "topic:democracy-institutions"
+      - "type:article"
+
+  - cite: "Gidron et al. 2017"
+    doi: "10.1111/1468-4446.12319"
+    title: "The politics of social status: economic and cultural roots of the populist right"
+    year: 2017
+    ref: "H0361"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Giurlando 2021"
+    doi: "10.1080/11926422.2020.1819357"
+    title: "Populist foreign policy: the case of Italy"
+    year: 2021
+    ref: "H0363"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Giurlando et al. 2023"
+    doi: "10.1007/978-3-031-22773-8"
+    title: "Populist Foreign Policy: Regional Perspectives of Populism in the International Scene"
+    year: 2023
+    ref: "H0364"
+    tags:
+      - "topic:foreign-policy"
+      - "type:book"
+
+  - cite: "Giurlando et al. 2024"
+    doi: "10.1057/s41295-023-00376-y"
+    title: "Euro-Mediterranean populism: navigating populist foreign policy around the Mare Nostrum"
+    year: 2024
+    ref: "H0365"
+    tags:
+      - "topic:foreign-policy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Giurlando et al. 2024"
+    doi: "10.1093/ia/iiae058"
+    title: "Institutional change, sovereigntist contestation and the limits of populism: evidence from southern Europe"
+    year: 2024
+    ref: "H0366"
+    tags:
+      - "topic:international"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:italy"
+      - "country:spain"
+      - "type:article"
+
+  - cite: "Goodger 2023"
+    doi: "10.1177/14789299231177285"
+    title: "Policy and Populism: Analysing Support for Die Linke"
+    year: 2023
+    ref: "H0368"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "country:germany"
+      - "method:quantitative"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Greene 2024"
+    doi: "10.1177/00471178221112480"
+    title: "Fitting national interests with populist opportunities: intervention politics on the European radical right"
+    year: 2024
+    ref: "H0373"
+    tags:
+      - "topic:defence-security"
+      - "topic:parties"
+      - "region:europe"
+      - "country:france"
+      - "country:germany"
+      - "country:united-kingdom"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Griffini 2023"
+    doi: "10.36253/qoe-14413"
+    title: "Walking on the tightrope between moderation and radicalisation: the first 100 days of the Meloni government"
+    year: 2023
+    ref: "H0375"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Gruber et al. 2021"
+    doi: "10.1080/01442872.2021.2019212"
+    title: "Between opportunities and constraints: right-wing populists as designers of migrant integration policy"
+    year: 2021
+    ref: "H0380"
+    tags:
+      - "topic:parties"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Gruszczyński et al. 2022"
+    doi: "10.24425/pyil.2023.147177"
+    title: "The Populist Challenge of Common EU Policies: The Case of (Im)migration (2015-2018)"
+    year: 2022
+    ref: "H0381"
+    tags:
+      - "topic:defence-security"
+      - "topic:international"
+      - "topic:parties"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Grzymala-Busse 2017"
+    doi: "10.1017/slr.2017.152"
+    title: "Global Populisms and Their Impact"
+    year: 2017
+    ref: "H0383"
+    tags:
+      - "region:global"
+      - "type:article"
+
+  - cite: "Guderjan et al. 2018"
+    doi: "10.5817/pc2018-1-64"
+    title: "Brexit Populism: The Thick (and Thin) of It"
+    year: 2018
+    ref: "H0384"
+    tags:
+      - "approach:ideational"
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hackenesch et al. 2022"
+    doi: "10.1111/jcms.13308"
+    title: "Populist Radical Right Parties' Impact on European Foreign Aid Spending"
+    year: 2022
+    ref: "H0397"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hadiz 2016"
+    doi: "10.1017/cbo9781316402382"
+    title: "Islamic Populism in Indonesia and the Middle East"
+    year: 2016
+    ref: "H0398"
+    tags:
+      - "topic:economy-welfare"
+      - "topic:religion"
+      - "region:asia-pacific"
+      - "region:mena"
+      - "country:indonesia"
+      - "type:book"
+
+  - cite: "Hadiz et al. 2017"
+    doi: "10.1177/0192512117693908"
+    title: "Populism in world politics: A comparative cross-regional perspective"
+    year: 2017
+    ref: "H0399"
+    tags:
+      - "topic:economy-welfare"
+      - "region:global"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Haesebrouck 2023"
+    doi: "10.1080/03050629.2023.2184815"
+    title: "The populist radical right and military intervention: A coincidence analysis of military deployment votes"
+    year: 2023
+    ref: "H0401"
+    tags:
+      - "topic:defence-security"
+      - "topic:parties"
+      - "type:article"
+
+  - cite: "Hall 2021"
+    doi: "10.1177/0263395720935377"
+    title: "In search of enemies: Donald Trump’s populist foreign policy rhetoric"
+    year: 2021
+    ref: "H0407"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "topic:media-communication"
+      - "topic:religion"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hamilton 2024"
+    doi: "10.1093/bjc/azad061"
+    title: "Security, Emotions and Radical Right Populism: Beyond a ‘Flaunting of the Low’?"
+    year: 2024
+    ref: "H0408"
+    tags:
+      - "approach:socio-cultural"
+      - "topic:parties"
+      - "region:europe"
+      - "country:france"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hammerschmidt et al. 2022"
+    doi: "10.1080/09557571.2021.1980498"
+    title: "Foreign aid in times of populism: the influence of populist radical right parties on the official development assistance of OECD countries"
+    year: 2022
+    ref: "H0409"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "type:article"
+
+  - cite: "Handlin 2018"
+    doi: "10.1177/0002764218756922"
+    title: "The Logic of Polarizing Populism: State Crises and Polarization in South America"
+    year: 2018
+    ref: "H0410"
+    tags:
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:article"
+
+  - cite: "Handlin et al. 2023"
+    doi: "10.1093/isq/sqad079"
+    title: "Sovereignty Intrusion: Populism and Attitudes toward the International Monetary Fund"
+    year: 2023
+    ref: "H0411"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:voters"
+      - "method:survey"
+      - "method:experiment"
+      - "type:article"
+
+  - cite: "Hawkins 2009"
+    doi: "10.1177/0010414009331721"
+    title: "Is Chávez Populist?: Measuring Populist Discourse in Comparative Perspective"
+    year: 2009
+    ref: "H0416"
+    tags:
+      - "approach:discursive"
+      - "approach:measurement"
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:article"
+
+  - cite: "Hawkins 2010"
+    doi: "10.1017/cbo9780511730245"
+    title: "Venezuela's Chavismo and Populism in Comparative Perspective"
+    year: 2010
+    ref: "H0418"
+    tags:
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:book"
+
+  - cite: "Heinrich et al. 2021"
+    doi: "10.1177/13540661211044202"
+    title: "Populism and foreign aid"
+    year: 2021
+    ref: "H0421"
+    tags:
+      - "approach:ideational"
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Heiskanen 2021"
+    doi: "10.1080/13569317.2020.1825280"
+    title: "The nationalism-populism matrix"
+    year: 2021
+    ref: "H0422"
+    tags:
+      - "type:article"
+
+  - cite: "Henke et al. 2021"
+    doi: "10.1080/13501763.2021.1881587"
+    title: "The populist challenge to European defense"
+    year: 2021
+    ref: "H0425"
+    tags:
+      - "topic:defence-security"
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Hess et al. 2015"
+    doi: "10.1007/978-3-319-17629-1"
+    title: "Charting the Roots of Anti-Chinese Populism in Africa"
+    year: 2015
+    ref: "H0429"
+    tags:
+      - "region:asia-pacific"
+      - "region:sub-saharan-africa"
+      - "country:china"
+      - "type:book"
+
+  - cite: "Hisarlıoğlu et al. 2022"
+    doi: "10.1093/isr/viab052"
+    title: "Contesting the “Corrupt Elites,” Creating the “Pure People,” and Renegotiating the Hierarchies of the International Order? Populism and Foreign Policy-Making in Turkey and Hungary"
+    year: 2022
+    ref: "H0435"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:hungary"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Holland et al. 2021"
+    doi: "10.1177/0263395720936867"
+    title: "The discursive hegemony of Trump’s Jacksonian populism: Race, class, and gender in constructions and contestations of US national identity, 2016–2018"
+    year: 2021
+    ref: "H0437"
+    tags:
+      - "topic:media-communication"
+      - "topic:gender"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Holliday 2019"
+    doi: "10.1177/0032321718817476"
+    title: "Populism, the International and Methodological Nationalism: Global Order and the Iran–Israel Nexus"
+    year: 2019
+    ref: "H0438"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "topic:religion"
+      - "region:mena"
+      - "country:iran"
+      - "country:israel"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Homolar et al. 2019"
+    doi: "10.1080/09557571.2019.1575796"
+    title: "The power of Trump-speak: populist crisis narratives and ontological security"
+    year: 2019
+    ref: "H0440"
+    tags:
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:mixed"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Homolar et al. 2021"
+    doi: "10.1093/isagsq/ksab002"
+    title: "Populism and the Affective Politics of Humiliation Narratives"
+    year: 2021
+    ref: "H0441"
+    tags:
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Huber et al. 2017"
+    doi: "10.17645/pag.v5i4.919"
+    title: "On the Distinct Effects of Left-Wing and Right-Wing Populism on Democratic Quality"
+    year: 2017
+    ref: "H0448"
+    tags:
+      - "approach:ideational"
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Huber 2020"
+    doi: "10.1080/09644016.2019.1708186"
+    title: "The role of populist attitudes in explaining climate change skepticism and support for environmental protection"
+    year: 2020
+    ref: "H0449"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Huber et al. 2021"
+    doi: "10.1080/09644016.2021.1978200"
+    title: "From populism to climate scepticism: the role of institutional trust and attitudes towards science"
+    year: 2021
+    ref: "H0450"
+    tags:
+      - "topic:voters"
+      - "method:quantitative"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Huber et al. 2021"
+    doi: "10.1080/13501763.2021.1918214"
+    title: "Is populism a challenge to European energy and climate policy? Empirical evidence across varieties of populism"
+    year: 2021
+    ref: "H0451"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Huju 2022"
+    doi: "10.1093/ia/iiab220"
+    title: "Saffronizing diplomacy: the Indian Foreign Service under Hindu nationalist rule"
+    year: 2022
+    ref: "H0456"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:religion"
+      - "region:asia-pacific"
+      - "country:india"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hunter and Diego 2020"
+    doi: "10.1080/13510347.2021.1956466"
+    title: "Populism and the military: symbiosis and tension in Bolsonaro’s Brazil"
+    year: 2020
+    ref: "H0459"
+    tags:
+      - "topic:defence-security"
+      - "topic:government"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+
+  - cite: "Ikenberry 2018"
+    doi: "10.1093/ia/iix241"
+    title: "The end of liberal international order?"
+    year: 2018
+    ref: "H0469"
+    tags:
+      - "topic:international"
+      - "topic:economy-welfare"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jahn 2018"
+    doi: "10.1093/ia/iix231"
+    title: "Liberal internationalism: historical trajectory and current prospects"
+    year: 2018
+    ref: "H0477"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jahn 2021"
+    doi: "10.1177/13540661211049491"
+    title: "Critical theory in crisis? a reconsideration"
+    year: 2021
+    ref: "H0478"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jakimów et al. 2025"
+    doi: "10.1111/jcms.13621"
+    title: "Does Populism Matter in EU–China Relations? The Cases of Italy and Czechia"
+    year: 2025
+    ref: "H0479"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:government"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:czech-republic"
+      - "country:italy"
+      - "country:china"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jansen 2011"
+    doi: "10.1111/j.1467-9558.2011.01388.x"
+    title: "Populist Mobilization: A New Theoretical Approach to Populism"
+    year: 2011
+    ref: "H0481"
+    tags:
+      - "region:latin-america"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jaskulowski et al. 2023"
+    doi: "10.1080/23745118.2022.2058752"
+    title: "Populist in form, nationalist in content? Law and Justice, nationalism and memory politics"
+    year: 2023
+    ref: "H0482"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jenne 2018"
+    doi: "10.1080/17449057.2018.1532635"
+    title: "Is Nationalism or Ethnopopulism on the Rise Today?"
+    year: 2018
+    ref: "H0483"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jenne et al. 2021"
+    doi: "10.1007/s12116-021-09334-9"
+    title: "Mapping Populism and Nationalism in Leader Rhetoric Across North America and Europe"
+    year: 2021
+    ref: "H0484"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "type:article"
+
+  - cite: "Jenne 2021"
+    doi: "10.1093/ia/iiaa230"
+    title: "Populism, nationalism and revisionist foreign policy"
+    year: 2021
+    ref: "H0485"
+    tags:
+      - "approach:discursive"
+      - "topic:foreign-policy"
+      - "topic:media-communication"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Johnson et al. 2015"
+    doi: "10.1080/09692290.2014.919336"
+    title: "Financial nationalism and its international enablers: The Hungarian experience"
+    year: 2015
+    ref: "H0490"
+    tags:
+      - "topic:international"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+
+  - cite: "Jones 2021"
+    doi: "10.1093/oso/9780190086350.001.0001"
+    title: "Populism and Trade: The Challenge to the Global Trading System"
+    year: 2021
+    ref: "H0491"
+    tags:
+      - "topic:international"
+      - "topic:economy-welfare"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:book"
+
+  - cite: "Joppke 2020"
+    doi: "10.1186/s40878-020-00208-y"
+    title: "Immigration in the populist crucible: comparing Brexit and Trump"
+    year: 2020
+    ref: "H0492"
+    tags:
+      - "topic:international"
+      - "topic:migration"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jotzo et al. 2018"
+    doi: "10.1080/14693062.2018.1490051"
+    title: "US and international climate policy under President Trump"
+    year: 2018
+    ref: "H0493"
+    tags:
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Juncos et al. 2021"
+    doi: "10.1080/09662839.2021.1947799"
+    title: "Contesting procedural norms: the impact of politicisation on European foreign policy cooperation"
+    year: 2021
+    ref: "H0497"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Juncos et al. 2024"
+    doi: "10.17645/pag.8099"
+    title: "Populists in the Shadow of Unanimity: Contestation of EU Foreign and Security Policy"
+    year: 2024
+    ref: "H0498"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:international"
+      - "topic:government"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Kajta et al. 2024"
+    doi: "10.1017/nps.2022.113"
+    title: "In the Name of “Endangered Nations” and “Unsovereign States”? Official Discourses of Radical Right Movement Parties and Social Movement Organizations in Poland and Germany"
+    year: 2024
+    ref: "H0506"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:germany"
+      - "country:poland"
+      - "type:article"
+
+  - cite: "Kaliber et al. 2019"
+    doi: "10.1080/03932729.2019.1668640"
+    title: "From De-Europeanisation to Anti-Western Populism: Turkish Foreign Policy in Flux"
+    year: 2019
+    ref: "H0507"
+    tags:
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Kantola et al. 2021"
+    doi: "10.1177/0192512120972609"
+    title: "Introduction: Populism and feminist politics"
+    year: 2021
+    ref: "H0511"
+    tags:
+      - "topic:parties"
+      - "topic:gender"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Katsambekis 2016"
+    doi: "10.1111/1467-8675.12234"
+    title: "Radical Left Populism in Contemporary Greece: Syriza's Trajectory from Minoritarian Opposition to Power"
+    year: 2016
+    ref: "H0514"
+    tags:
+      - "approach:discursive"
+      - "topic:parties"
+      - "region:europe"
+      - "country:greece"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Katsambekis et al. 2017"
+    doi: "10.1080/13183222.2017.1330087"
+    title: "Revisiting the Nationalism/ Populism Nexus: Lessons from the Greek Case"
+    year: 2017
+    ref: "H0515"
+    tags:
+      - "region:europe"
+      - "country:greece"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Katsambekis 2020"
+    doi: "10.1080/13569317.2020.1844372"
+    title: "Constructing ‘the people’ of populism: a critique of the ideational approach from a discursive perspective"
+    year: 2020
+    ref: "H0516"
+    tags:
+      - "approach:ideational"
+      - "approach:discursive"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Kaya et al. 2019"
+    doi: "10.1080/15570274.2019.1570759"
+    title: "Europe versus Islam?: Right-Wing Populist Discourse and the Construction of a Civilizational Identity"
+    year: 2019
+    ref: "H0520"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:religion"
+      - "region:europe"
+      - "country:germany"
+      - "country:greece"
+      - "country:italy"
+      - "country:netherlands"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Kazin 1998"
+    doi: "10.2307/2211330"
+    title: "The Populist Persuasion: An American History."
+    year: 1998
+    ref: "H0521"
+    tags:
+      - "type:article"
+
+  - cite: "Kemahlıoğlu et al. 2021"
+    doi: "10.1080/13608746.2021.1985497"
+    title: "Surviving the Covid-19 Pandemic under Right-wing Populist Rule: Turkey in the First Phase"
+    year: 2021
+    ref: "H0523"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Kenny 2017"
+    doi: "10.1093/oso/9780198807872.003.0009"
+    title: "Populism and Patronage: Why Populists Win Elections in India, Asia, and Beyond"
+    year: 2017
+    ref: "H0524"
+    tags:
+      - "topic:parties"
+      - "region:asia-pacific"
+      - "country:india"
+      - "method:quantitative"
+      - "type:book"
+
+  - cite: "Kenny 2023"
+    doi: "10.1017/9781009275262"
+    title: "Why Populism?: Political Strategy from Ancient Greece to the Present"
+    year: 2023
+    ref: "H0525"
+    tags:
+      - "topic:voters"
+      - "region:europe"
+      - "country:greece"
+      - "type:book"
+      - "oa:yes"
+
+  - cite: "Kidron et al. 2024"
+    doi: "10.1177/14789299241242259"
+    title: "The Populist Name Game: About Populism and Naming"
+    year: 2024
+    ref: "H0532"
+    tags:
+      - "approach:ideational"
+      - "region:north-america"
+      - "region:mena"
+      - "country:united-states"
+      - "country:israel"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Kinnvall 2018"
+    doi: "10.1177/0160597618802646"
+    title: "Ontological Insecurities and Postcolonial Imaginaries: The Emotional Appeal of Populism"
+    year: 2018
+    ref: "H0534"
+    tags:
+      - "topic:migration"
+      - "type:article"
+
+  - cite: "Kissas 2020"
+    doi: "10.1177/0957926519889127"
+    title: "Performative and ideological populism: The case of charismatic leaders on Twitter"
+    year: 2020
+    ref: "H0538"
+    tags:
+      - "approach:performative"
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Klaus 2017"
+    doi: "10.24908/ss.v15i3/4.6627"
+    title: "Security First: The New Right-Wing Government in Poland and its Policy towards Immigrants and Refugees"
+    year: 2017
+    ref: "H0540"
+    tags:
+      - "topic:defence-security"
+      - "topic:migration"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Knight 1998"
+    doi: "10.1017/s0022216x98005033"
+    title: "Populism and Neo-populism in Latin America, especially Mexico"
+    year: 1998
+    ref: "H0545"
+    tags:
+      - "approach:performative"
+      - "approach:economic"
+      - "region:latin-america"
+      - "country:mexico"
+      - "type:article"
+
+  - cite: "Koposov 2022"
+    doi: "10.1177/0888325420950806"
+    title: "Populism and Memory: Legislation of the Past in Poland, Ukraine, and Russia"
+    year: 2022
+    ref: "H0548"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:poland"
+      - "country:russia"
+      - "country:ukraine"
+      - "type:article"
+
+  - cite: "Kriesi 2018"
+    doi: "10.5817/pc2018-1-5"
+    title: "Revisiting the Populist Challenge"
+    year: 2018
+    ref: "H0554"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Kulyk 2023"
+    doi: "10.1080/13537113.2023.2260047"
+    title: "Ukraine according to Zelensky: Populism and National Identity in Presidential Addresses to Compatriots"
+    year: 2023
+    ref: "H0557"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:ukraine"
+      - "type:article"
+
+  - cite: "Kurylo 2020"
+    doi: "10.1177/0047117820973071"
+    title: "The discourse and aesthetics of populism as securitisation style"
+    year: 2020
+    ref: "H0558"
+    tags:
+      - "topic:defence-security"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Kurylo 2022"
+    doi: "10.1017/s0260210521000620"
+    title: "Counter-populist performances of (in)security: Feminist resistance in the face of right-wing populism in Poland"
+    year: 2022
+    ref: "H0559"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:gender"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Kuyper et al. 2020"
+    doi: "10.21248/gjn.12.02.208"
+    title: "Transnational Populism, Democracy, and Representation: Pitfalls and Potentialities"
+    year: 2020
+    ref: "H0563"
+    tags:
+      - "approach:performative"
+      - "topic:international"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Körtvélyesi et al. 2017"
+    doi: "10.1017/s2071832200022513"
+    title: "Game of Values: The Threat of Exclusive Constitutional Identity, the EU and Hungary"
+    year: 2017
+    ref: "H0565"
+    tags:
+      - "topic:international"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lacatus 2020"
+    doi: "10.1177/0263395720935380"
+    title: "Populism and President Trump’s approach to foreign policy: An analysis of tweets and rally speeches"
+    year: 2020
+    ref: "H0568"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lacatus et al. 2021"
+    doi: "10.1017/gov.2021.34"
+    title: "Crisis, Rhetoric and Right-Wing Populist Incumbency: An Analysis of Donald Trump's Tweets and Press Briefings"
+    year: 2021
+    ref: "H0569"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lacatus et al. 2022"
+    doi: "10.1177/13691481221089137"
+    title: "‘Saying it like it is’: Right-wing populism, international politics, and the performance of authenticity"
+    year: 2022
+    ref: "H0571"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lacatus et al. 2023"
+    doi: "10.1007/978-3-031-41640-8"
+    title: "Political Communication and Performative Leadership: Populism in International Politics"
+    year: 2023
+    ref: "H0572"
+    tags:
+      - "approach:performative"
+      - "topic:media-communication"
+      - "type:book"
+
+  - cite: "Lacatus 2023"
+    doi: "10.1093/isagsq/ksac081"
+    title: "Populism, Competitive Authoritarianism, and Foreign Policy: The Case of Uganda's 2021 Election"
+    year: 2023
+    ref: "H0573"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "topic:democracy-institutions"
+      - "region:sub-saharan-africa"
+      - "country:uganda"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lammers et al. 2020"
+    doi: "10.5937/jrs15-24300"
+    title: "Populism and foreign policy: An assessment and a research agenda"
+    year: 2020
+    ref: "H0579"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lamour et al. 2017"
+    doi: "10.1080/08865655.2017.1402200"
+    title: "The Border as a Resource in Right-wing Populist Discourse: Viktor Orbán and the Diasporas in a Multi-scalar Europe"
+    year: 2017
+    ref: "H0580"
+    tags:
+      - "topic:parties"
+      - "topic:migration"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+
+  - cite: "Lamour 2023"
+    doi: "10.1080/14650045.2023.2241825"
+    title: "Orbán Placed in Europe: Ukraine, Russia and the Radical-Right Populist Heartland"
+    year: 2023
+    ref: "H0582"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:hungary"
+      - "country:russia"
+      - "country:ukraine"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Landau et al. 2022"
+    doi: "10.1093/ia/iiac228"
+    title: "Populist peacemaking: Trump's peace initiatives in the Middle East and the Balkans"
+    year: 2022
+    ref: "H0584"
+    tags:
+      - "topic:defence-security"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:global"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Larmer et al. 2007"
+    doi: "10.1093/afraf/adm058"
+    title: "Of cabbages and King Cobra: Populist politics and Zambia's 2006 election"
+    year: 2007
+    ref: "H0587"
+    tags:
+      - "region:sub-saharan-africa"
+      - "country:zambia"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lasco 2020"
+    doi: "10.1080/17441692.2020.1807581"
+    title: "Medical populism and the COVID-19 pandemic"
+    year: 2020
+    ref: "H0588"
+    tags:
+      - "region:global"
+      - "country:united-states"
+      - "country:brazil"
+      - "country:philippines"
+      - "type:article"
+
+  - cite: "Lehoczki 2024"
+    doi: "10.1080/13569775.2023.2267364"
+    title: "Populist sovereigntism and international cooperation: the case of Brazil and Hungary"
+    year: 2024
+    ref: "H0592"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "region:latin-america"
+      - "country:hungary"
+      - "country:brazil"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lemke 2020"
+    doi: "10.3167/gps.2020.380204"
+    title: "Right-Wing Populism and International Issues: A Case Study of the Afd"
+    year: 2020
+    ref: "H0596"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:germany"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Lequesne 2021"
+    doi: "10.1057/s41295-021-00261-6"
+    title: "Populist governments and career diplomats in the EU: the challenge of political capture"
+    year: 2021
+    ref: "H0598"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:government"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Levi et al. 2020"
+    doi: "10.1073/pnas.2006223117"
+    title: "America First populism, social volatility, and self-reported arrests"
+    year: 2020
+    ref: "H0602"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lockwood 2018"
+    doi: "10.1080/09644016.2018.1458411"
+    title: "Right-wing populism and the climate change agenda: exploring the linkages"
+    year: 2018
+    ref: "H0612"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lowndes 2016"
+    doi: "10.1515/for-2016-0004"
+    title: "White Populism and the Transformation of the Silent Majority"
+    year: 2016
+    ref: "H0615"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "type:article"
+
+  - cite: "Lutz 2018"
+    doi: "10.1080/01402382.2018.1504509"
+    title: "Variation in policy success: radical right populism and migration policy"
+    year: 2018
+    ref: "H0619"
+    tags:
+      - "topic:parties"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Löfflmann 2019"
+    doi: "10.1080/00396338.2019.1688573"
+    title: "America First and the Populist Impact on US Foreign Policy"
+    year: 2019
+    ref: "H0623"
+    tags:
+      - "topic:foreign-policy"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "todo:check-outlet"
+
+  - cite: "Löfflmann 2022"
+    doi: "10.1177/13691481221103116"
+    title: "Introduction to special issue: The study of populism in international relations"
+    year: 2022
+    ref: "H0625"
+    tags:
+      - "topic:foreign-policy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Löfflmann 2022"
+    doi: "10.1177/13691481211048499"
+    title: "‘Enemies of the people’: Donald Trump and the security imaginary of America First"
+    year: 2022
+    ref: "H0626"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Löfflmann 2024"
+    doi: "10.4324/9781003283072"
+    title: "The Politics of Antagonism: Populist Security Narratives and the Remaking of Political Identity"
+    year: 2024
+    ref: "H0627"
+    tags:
+      - "topic:defence-security"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:book"
+
+  - cite: "MacArthur et al. 2018"
+    doi: "10.1016/j.erss.2018.05.009"
+    title: "Populist resistance and alternative transitions: Indigenous ownership of energy infrastructure in Aotearoa New Zealand"
+    year: 2018
+    ref: "H0628"
+    tags:
+      - "region:asia-pacific"
+      - "country:new-zealand"
+      - "type:article"
+
+  - cite: "Madrid 2008"
+    doi: "10.1017/s0043887100009060"
+    title: "The Rise of Ethnopopulism in Latin America"
+    year: 2008
+    ref: "H0630"
+    tags:
+      - "topic:parties"
+      - "region:latin-america"
+      - "type:article"
+
+  - cite: "Magcamit 2017"
+    doi: "10.1177/0043820017746263"
+    title: "EXPLAINING THE THREE‐WAY LINKAGE BETWEEN POPULISM, SECURITIZATION, AND REALIST FOREIGN POLICIES: President Donald Trump and the Pursuit of “America First” Doctrine"
+    year: 2017
+    ref: "H0631"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:parties"
+      - "topic:voters"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Magcamit et al. 2024"
+    doi: "10.1093/ia/iiad248"
+    title: "Explaining populist securitization and Rodrigo Duterte's anti-establishment Philippine foreign policy"
+    year: 2024
+    ref: "H0632"
+    tags:
+      - "approach:performative"
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:international"
+      - "topic:parties"
+      - "region:asia-pacific"
+      - "country:philippines"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Makarychev 2022"
+    doi: "10.1163/9789004513792"
+    title: "Popular Biopolitics and Populism at Europe’s Eastern Margins"
+    year: 2022
+    ref: "H0636"
+    tags:
+      - "region:europe"
+      - "type:book"
+
+  - cite: "Mansbridge et al. 2019"
+    doi: "10.1146/annurev-lawsocsci-101518-042843"
+    title: "Populism and Democratic Theory"
+    year: 2019
+    ref: "H0638"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "region:north-america"
+      - "country:spain"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mansfield et al. 2022"
+    doi: "10.1093/isr/viac016"
+    title: "Nationalism, Populism, and Trade Agreements"
+    year: 2022
+    ref: "H0639"
+    tags:
+      - "topic:economy-welfare"
+      - "type:article"
+
+  - cite: "March 2017"
+    doi: "10.1177/1369148117701753"
+    title: "Left and right populism compared: The British case"
+    year: 2017
+    ref: "H0643"
+    tags:
+      - "approach:ideational"
+      - "approach:measurement"
+      - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Markou 2022"
+    doi: "10.33134/rds.376"
+    title: "Is Conspiracism Endogenous to Populism? A Discursive-Theoretical Analysis"
+    year: 2022
+    ref: "H0645"
+    tags:
+      - "approach:discursive"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Masood et al. 2020"
+    doi: "10.1177/1350508419828572"
+    title: "Speaking out: A postcolonial critique of the academic discourse on far-right populism"
+    year: 2020
+    ref: "H0649"
+    tags:
+      - "topic:parties"
+      - "region:north-america"
+      - "region:asia-pacific"
+      - "country:united-states"
+      - "country:india"
+      - "type:article"
+
+  - cite: "Matsunaga 2024"
+    doi: "10.1111/1475-6765.12668"
+    title: "Are right‐wing populists more likely to justify political violence?"
+    year: 2024
+    ref: "H0650"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "McCarthy 1997"
+    doi: "10.1080/13545719708454957"
+    title: "Italy: A new language for a new politics?"
+    year: 1997
+    ref: "H0654"
+    tags:
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "McDonnell et al. 2019"
+    doi: "10.1080/13501763.2018.1561743"
+    title: "Differently Eurosceptic: radical right populist parties and their supporters"
+    year: 2019
+    ref: "H0659"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "McDonnell et al. 2020"
+    doi: "10.1017/s1537592720002418"
+    title: "The Language of Right-Wing Populist Leaders: Not So Simple"
+    year: 2020
+    ref: "H0662"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "region:north-america"
+      - "country:france"
+      - "country:italy"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "McMahon 2022"
+    doi: "10.1080/14782804.2021.1919865"
+    title: "Is Alt-Europe possible? Populist radical right counternarratives of European integration"
+    year: 2022
+    ref: "H0663"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:germany"
+      - "country:italy"
+      - "country:poland"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mede et al. 2020"
+    doi: "10.1177/0963662520924259"
+    title: "Science-related populism: Conceptualizing populist demands toward science"
+    year: 2020
+    ref: "H0670"
+    tags:
+      - "approach:ideational"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Meier et al. 2021"
+    doi: "10.1080/10736700.2020.1864932"
+    title: "Upsetting the nuclear order: how the rise of nationalist populism increases nuclear dangers"
+    year: 2021
+    ref: "H0672"
+    tags:
+      - "topic:defence-security"
+      - "topic:international"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Meijers et al. 2020"
+    doi: "10.1177/0010414020938081"
+    title: "Measuring Populism in Political Parties: Appraisal of a New Approach"
+    year: 2020
+    ref: "H0673"
+    tags:
+      - "approach:measurement"
+      - "topic:parties"
+      - "region:europe"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Menke et al. 2021"
+    doi: "10.17645/mac.v9i2.3803"
+    title: "The Dark Side of Inspirational Pasts: An Investigation of Nostalgia in Right-Wing Populist Communication"
+    year: 2021
+    ref: "H0679"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
+      - "method:mixed"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Merkley 2020"
+    doi: "10.1093/poq/nfz053"
+    title: "Anti-Intellectualism, Populism, and Motivated Resistance to Expert Consensus"
+    year: 2020
+    ref: "H0681"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Miller-Idriss 2019"
+    doi: "10.1080/03932729.2019.1592870"
+    title: "The Global Dimensions of Populist Nationalism"
+    year: 2019
+    ref: "H0685"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Moffitt et al. 2014"
+    doi: "10.1111/1467-9248.12032"
+    title: "Rethinking Populism: Politics, Mediatisation and Political Style"
+    year: 2014
+    ref: "H0693"
+    tags:
+      - "approach:performative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Moffitt 2015"
+    doi: "10.1017/gov.2014.13"
+    title: "How to Perform Crisis: A Model for Understanding the Key Role of Crisis in Contemporary Populism"
+    year: 2015
+    ref: "H0694"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Moffitt 2017"
+    doi: "10.1080/13183222.2017.1330086"
+    title: "Transnational Populism? Representative Claims, Media and the Difficulty of Constructing a Transnational “People”"
+    year: 2017
+    ref: "H0697"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Mohrenberg et al. 2021"
+    doi: "10.1177/1354068819868908"
+    title: "Love at first sight? Populist attitudes and support for direct democracy"
+    year: 2021
+    ref: "H0698"
+    tags:
+      - "topic:voters"
+      - "topic:democracy-institutions"
+      - "method:survey"
+      - "type:article"
+
+  - cite: "Monteleone 2021"
+    doi: "10.1080/07036337.2021.1927009"
+    title: "Foreign Policy and De-Europeanization under the M5S– League Government: Exploring the Italian Behavior in the UN General Assembly"
+    year: 2021
+    ref: "H0699"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Montgomery 2017"
+    doi: "10.1075/jlp.17023.mon"
+    title: "Post-truth politics?: Authenticity, populism and the electoral discourses of Donald Trump"
+    year: 2017
+    ref: "H0700"
+    tags:
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Mudde 2004"
+    doi: "10.1111/j.1477-7053.2004.00135.x"
+    title: "The Populist Zeitgeist"
+    year: 2004
+    ref: "H0705"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mudde 2007"
+    doi: "10.1017/cbo9780511492037"
+    title: "Populist Radical Right Parties in Europe"
+    year: 2007
+    ref: "H0707"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "type:book"
+
+  - cite: "Mudde et al. 2013"
+    doi: "10.1017/gov.2012.11"
+    title: "Exclusionary vs. Inclusionary Populism: Comparing Contemporary Europe and Latin America"
+    year: 2013
+    ref: "H0708"
+    tags:
+      - "region:europe"
+      - "region:latin-america"
+      - "country:austria"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mudde 2017"
+    doi: "10.1007/978-3-319-47479-3"
+    title: "SYRIZA: The Failure of the Populist Promise"
+    year: 2017
+    ref: "H0711"
+    tags:
+      - "region:europe"
+      - "country:greece"
+      - "type:book"
+
+  - cite: "Murthi 2021"
+    doi: "10.1111/ajps.12616"
+    title: "American Politics in Two Dimensions: Partisan and Ideological Identities versus Anti‐Establishment Orientations"
+    year: 2021
+    ref: "H0716"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:survey"
+      - "type:article"
+
+  - cite: "Mény et al. 2001"
+    doi: "10.1057/9781403920072"
+    title: "Democracies and the Populist Challenge. Springer"
+    year: 2001
+    ref: "H0718"
+    tags:
+      - "topic:parties"
+      - "type:book"
+
+  - cite: "Müller 2017"
+    doi: "10.9783/9780812293784"
+    title: "What Is Populism? London: Penguin Books"
+    year: 2017
+    ref: "H0725"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:book"
+
+  - cite: "Müller et al. 2021"
+    doi: "10.1057/s41295-021-00260-7"
+    title: "Austria and the Global Compact on Migration: the ‘populist securitization’ of foreign policy"
+    year: 2021
+    ref: "H0729"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:parties"
+      - "topic:migration"
+      - "region:europe"
+      - "country:austria"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Müller et al. 2023"
+    doi: "10.1111/jcms.13377"
+    title: "Populist Capture of Foreign Policy Institutions: The Orbán Government and the De‐Europeanization of Hungarian Foreign Policy"
+    year: 2023
+    ref: "H0731"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:government"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Nair 2023"
+    doi: "10.1177/13540661231173866"
+    title: "Populists in the shadow of great power competition: Duterte, Sukarno, and Sihanouk in comparative perspective"
+    year: 2023
+    ref: "H0737"
+    tags:
+      - "approach:discursive"
+      - "topic:parties"
+      - "region:asia-pacific"
+      - "country:philippines"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Neto et al. 2020"
+    doi: "10.4067/s0718-090x2020005000103"
+    title: "The First Year of Bolsonaro in Office: Same Old Story, Same Old Song?"
+    year: 2020
+    ref: "H0740"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Niccolo et al. 2018"
+    doi: "10.1080/15423166.2018.1498375"
+    title: "Populism, Politics and Peace Processes: Analysing the Nexus between Peacebuilding and the Philippines’ Populist Politics"
+    year: 2018
+    ref: "H0747"
+    tags:
+      - "topic:defence-security"
+      - "region:asia-pacific"
+      - "country:philippines"
+      - "type:article"
+
+  - cite: "Norris et al. 2019"
+    doi: "10.1017/9781108595841"
+    title: "Cultural Backlash: Trump, Brexit, and Authoritarian Populism"
+    year: 2019
+    ref: "H0753"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:book"
+
+  - cite: "Norris 2020"
+    doi: "10.1177/1354068820927686"
+    title: "Measuring populism worldwide"
+    year: 2020
+    ref: "H0754"
+    tags:
+      - "approach:measurement"
+      - "topic:parties"
+      - "region:global"
+      - "type:article"
+
+  - cite: "Oliver et al. 2016"
+    doi: "10.1177/0002716216662639"
+    title: "Rise of the Trumpenvolk: Populism in the 2016 Election"
+    year: 2016
+    ref: "H0761"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Olsen 2018"
+    doi: "10.3167/gps.2018.360104"
+    title: "The Left Party and the AfD: Populist Competitors in Eastern Germany"
+    year: 2018
+    ref: "H0762"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "region:europe"
+      - "country:germany"
+      - "type:article"
+
+  - cite: "Ostermann et al. 2022"
+    doi: "10.1093/fpa/orac006"
+    title: "Theorizing Populist Radical-Right Foreign Policy: Ideology and Party Positioning in France and Germany"
+    year: 2022
+    ref: "H0776"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "country:france"
+      - "country:germany"
+      - "type:article"
+
+  - cite: "Oswald et al. 2021"
+    doi: "10.1007/s12286-021-00485-6"
+    title: "Strategic clustering in right-wing-populism? ‘Green policies’ in Germany and France"
+    year: 2021
+    ref: "H0778"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:france"
+      - "country:germany"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Pacciardi et al. 2024"
+    doi: "10.1093/ia/iiae185"
+    title: "Beyond exit: how populist governments disengage from international institutions"
+    year: 2024
+    ref: "H0782"
+    tags:
+      - "topic:international"
+      - "topic:government"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Panayotu 2022"
+    doi: "10.14321/jstudradi.16.2.0077v"
+    title: "Lessons for Left-Wing Populism from the 2010s Austerity Wave in Europe: Dispatches from the Case of Syriza"
+    year: 2022
+    ref: "H0786"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:government"
+      - "topic:economy-welfare"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:cyprus"
+      - "country:greece"
+      - "country:ireland"
+      - "country:portugal"
+      - "country:spain"
+      - "type:article"
+
+  - cite: "Pantazopoulos 2016"
+    doi: "10.3817/0616175201"
+    title: "Populism or National-Populism? A Critical Approach to Cas Mudde's Perspective on SYRIZA's Populism"
+    year: 2016
+    ref: "H0788"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:greece"
+      - "type:article"
+
+  - cite: "Pappas 2019"
+    doi: "10.1093/oso/9780198837886.001.0001"
+    title: "Populism and Liberal Democracy: A Comparative and Theoretical Analysis"
+    year: 2019
+    ref: "H0789"
+    tags:
+      - "topic:government"
+      - "topic:democracy-institutions"
+      - "region:global"
+      - "type:book"
+
+  - cite: "Paquin 2023"
+    doi: "10.1017/eis.2023.29"
+    title: "The United States facing allies’ populist blackmail: Why the Philippines and Turkey threatened to realign with China and Russia"
+    year: 2023
+    ref: "H0790"
+    tags:
+      - "region:global"
+      - "country:russia"
+      - "country:turkey"
+      - "country:united-states"
+      - "country:china"
+      - "country:philippines"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Park 2018"
+    doi: "10.1080/14683849.2017.1407651"
+    title: "Populism and Islamism in Turkey"
+    year: 2018
+    ref: "H0794"
+    tags:
+      - "topic:parties"
+      - "topic:religion"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Paul 2021"
+    doi: "10.1093/ia/iiab072"
+    title: "Globalization, deglobalization and reglobalization: adapting liberal international order"
+    year: 2021
+    ref: "H0796"
+    tags:
+      - "topic:international"
+      - "topic:economy-welfare"
+      - "topic:democracy-institutions"
+      - "type:article"
+
+  - cite: "Piazza 2023"
+    doi: "10.1177/10659129231198248"
+    title: "Populism and Support for Political Violence in the United States: Assessing the Role of Grievances, Distrust of Political Institutions, Social Change Threat, and Political Illiberalism"
+    year: 2023
+    ref: "H0806"
+    tags:
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Pintsch et al. 2022"
+    doi: "10.1080/09557571.2022.2082797"
+    title: "Introduction: the decline of democracy and rise of populism in Europe and their effect on democracy promotion"
+    year: 2022
+    ref: "H0811"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Pirro et al. 2018"
+    doi: "10.1177/0263395718784704"
+    title: "The populist politics of Euroscepticism in times of crisis: Comparative conclusions"
+    year: 2018
+    ref: "H0812"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Pirro et al. 2022"
+    doi: "10.1017/s1537592721001924"
+    title: "Forging, Bending, and Breaking: Enacting the “Illiberal Playbook” in Hungary and Poland"
+    year: 2022
+    ref: "H0813"
+    tags:
+      - "topic:government"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Pirro et al. 2023"
+    doi: "10.1177/13540688221077071"
+    title: "Populists in power and conspiracy theories"
+    year: 2023
+    ref: "H0814"
+    tags:
+      - "topic:government"
+      - "region:global"
+      - "country:hungary"
+      - "country:united-states"
+      - "country:venezuela"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Plageman and Sandra 2019"
+    doi: "10.1093/fpa/ory010"
+    title: "Populism and Foreign Policy: The Case of India"
+    year: 2019
+    ref: "H0815"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:government"
+      - "region:asia-pacific"
+      - "country:india"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Plagemann et al. 2022"
+    doi: "10.5354/0719-5338.2022.68519"
+    title: "Populist Foreign Policy and Mobilization in Bolivia"
+    year: 2022
+    ref: "H0817"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:bolivia"
+      - "country:chile"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Pugliese et al. 2022"
+    doi: "10.1093/ia/iiac039"
+    title: "Italy's embrace of the Belt and Road Initiative: populist foreign policy and political marketing"
+    year: 2022
+    ref: "H0826"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:italy"
+      - "country:china"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Rathgeb 2021"
+    doi: "10.1080/01402382.2020.1720400"
+    title: "Makers against takers: the socio-economic ideology and policy of the Austrian Freedom Party"
+    year: 2021
+    ref: "H0837"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "country:austria"
+      - "type:article"
+
+  - cite: "Raunio et al. 2021"
+    doi: "10.1111/jcms.13138"
+    title: "Contestation over Development Policy in the European Parliament"
+    year: 2021
+    ref: "H0840"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Reinhardt et al. 2023"
+    doi: "10.1080/1369118x.2023.2246536"
+    title: "Varieties of antigenderism: the politicization of gender issues across three European populist radical right parties"
+    year: 2023
+    ref: "H0842"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:gender"
+      - "region:europe"
+      - "country:sweden"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Riedel 2021"
+    doi: "10.1007/s12286-021-00490-9"
+    title: "Green conservatism or environmental nativism?: Exploring carbon dependency as populist political strategy in Poland"
+    year: 2021
+    ref: "H0851"
+    tags:
+      - "topic:migration"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+
+  - cite: "Roberts 2006"
+    doi: "10.2307/20433986"
+    title: "Populism, Political Conflict, and Grass-Roots Organization in Latin America"
+    year: 2006
+    ref: "H0856"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:latin-america"
+      - "type:article"
+
+  - cite: "Rodrik 2018"
+    doi: "10.1057/s42214-018-0001-4"
+    title: "Populism and the economics of globalization"
+    year: 2018
+    ref: "H0857"
+    tags:
+      - "topic:economy-welfare"
+      - "type:article"
+
+  - cite: "Rodrik 2021"
+    doi: "10.1146/annurev-economics-070220-032416"
+    title: "Why Does Globalization Fuel Populism? Economics, Culture, and the Rise of Right-Wing Populism"
+    year: 2021
+    ref: "H0858"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Rooduijn et al. 2014"
+    doi: "10.1177/1354068811436065"
+    title: "A populist Zeitgeist ? Programmatic contagion by populist parties in Western Europe"
+    year: 2014
+    ref: "H0863"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Rooduijn 2014"
+    doi: "10.1017/gov.2013.30"
+    title: "The Nucleus of Populism: In Search of the Lowest Common Denominator"
+    year: 2014
+    ref: "H0864"
+    tags:
+      - "region:europe"
+      - "region:latin-america"
+      - "country:france"
+      - "country:italy"
+      - "country:argentina"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Rooduijn et al. 2017"
+    doi: "10.1177/1354068815596514"
+    title: "Flank attacks: Populism and left-right radicalism in Western Europe"
+    year: 2017
+    ref: "H0865"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Rovira Kaltwasser 2012"
+    doi: "10.1080/13510347.2011.572619"
+    title: "The ambivalence of populism: threat and corrective for democracy"
+    year: 2012
+    ref: "H0870"
+    tags:
+      - "topic:democracy-institutions"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Rovira Kaltwasser et al. 2022"
+    doi: "10.1017/gov.2022.46"
+    title: "The Populist Radical Right and the Pandemic"
+    year: 2022
+    ref: "H0871"
+    tags:
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Rueda 2021"
+    doi: "10.1177/0032321720962355"
+    title: "Is Populism a Political Strategy? A Critique of an Enduring Approach"
+    year: 2021
+    ref: "H0873"
+    tags:
+      - "approach:political-strategic"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Sadecki 2022"
+    doi: "10.1177/00472441221115565"
+    title: "From defying to (re-)defining Europe in Viktor Orbán’s discourse about the past"
+    year: 2022
+    ref: "H0875"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+
+  - cite: "Sadurski 2019"
+    doi: "10.1093/oso/9780198840503.001.0001"
+    title: "Poland's Constitutional Breakdown"
+    year: 2019
+    ref: "H0876"
+    tags:
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:poland"
+      - "type:book"
+      - "oa:yes"
+
+  - cite: "Sagarzazu et al. 2019"
+    doi: "10.1177/1065912918784212"
+    title: "The Foreign Policy Rhetoric of Populism: Chávez, Oil, and Anti-imperialism"
+    year: 2019
+    ref: "H0879"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:media-communication"
+      - "region:latin-america"
+      - "country:venezuela"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Saraiva et al. 2024"
+    doi: "10.1590/0034-7329202400109"
+    title: "Populists and Regional Organizations: lessons from Bolsonaro’s Brazil"
+    year: 2024
+    ref: "H0882"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Sasso et al. 2021"
+    doi: "10.1016/j.jpubeco.2021.104497"
+    title: "Bureaucrats under Populism"
+    year: 2021
+    ref: "H0885"
+    tags:
+      - "type:article"
+
+  - cite: "Sawae 2020"
+    doi: "10.1080/19436149.2020.1770443"
+    title: "Populism and the Politics of Belonging in Erdoğan’s Turkey"
+    year: 2020
+    ref: "H0886"
+    tags:
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Schertzer et al. 2022"
+    doi: "10.1093/oso/9780197547823.001.0001"
+    title: "The New Nationalism in America and Beyond: The Deep Roots of Ethnic Nationalism in the Digital Age. Oxford:Oxford University Press"
+    year: 2022
+    ref: "H0891"
+    tags:
+      - "topic:international"
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:france"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:book"
+
+  - cite: "Schoen 2024"
+    doi: "10.1017/s1755773924000122"
+    title: "Populist attitudes and foreign policy postures: a comparative analysis of four European countries"
+    year: 2024
+    ref: "H0894"
+    tags:
+      - "approach:ideational"
+      - "topic:foreign-policy"
+      - "topic:voters"
+      - "region:europe"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Shehaj et al. 2021"
+    doi: "10.1177/1354068819849888"
+    title: "Immigration and right-wing populism: An origin story"
+    year: 2021
+    ref: "H0906"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Simon et al. 2023"
+    doi: "10.1017/s0022216x23000731"
+    title: "The Devil and Democracy in the Global South: Hugo Chávez's Transnational Populism"
+    year: 2023
+    ref: "H0911"
+    tags:
+      - "topic:international"
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Skonieczny 2018"
+    doi: "10.17645/pag.v6i4.1574"
+    title: "Emotions and Political Narratives: Populism, Trump and Trade"
+    year: 2018
+    ref: "H0915"
+    tags:
+      - "approach:discursive"
+      - "topic:government"
+      - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Skonieczny et al. 2024"
+    doi: "10.1093/ia/iiae183"
+    title: "The Trump effect: the perpetuation of populism in US–China trade"
+    year: 2024
+    ref: "H0917"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "topic:economy-welfare"
+      - "region:north-america"
+      - "region:asia-pacific"
+      - "country:united-states"
+      - "country:china"
+      - "type:article"
+
+  - cite: "Slaven 2021"
+    doi: "10.1093/jogss/ogab005"
+    title: "Populism and Securitization: The Corrosion of Elite Security Authority in a US–Mexico Border State"
+    year: 2021
+    ref: "H0919"
+    tags:
+      - "topic:defence-security"
+      - "topic:government"
+      - "topic:migration"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:mexico"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Solorio et al. 2021"
+    doi: "10.1007/s12286-021-00486-5"
+    title: "AMLO’s Populism in Mexico and the Framing of the Extractivist Agenda: The Construction of the Hegemony of the People Without the Indigeneous Voices"
+    year: 2021
+    ref: "H0929"
+    tags:
+      - "topic:media-communication"
+      - "region:latin-america"
+      - "country:mexico"
+      - "type:article"
+
+  - cite: "Spandler et al. 2023"
+    doi: "10.1093/ia/iiad048"
+    title: "Populist (de) Legitimation of International Organizations"
+    year: 2023
+    ref: "H0931"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Stanley 2008"
+    doi: "10.1080/13569310701822289"
+    title: "The thin ideology of populism"
+    year: 2008
+    ref: "H0936"
+    tags:
+      - "approach:ideational"
+      - "type:article"
+
+  - cite: "Stavrakakis 2004"
+    doi: "10.1080/1356931042000263519"
+    title: "Antinomies of formalism: Laclau's theory of populism and the lessons from religious populism in Greece"
+    year: 2004
+    ref: "H0937"
+    tags:
+      - "approach:discursive"
+      - "topic:religion"
+      - "region:europe"
+      - "country:greece"
+      - "type:article"
+
+  - cite: "Stavrakakis et al. 2014"
+    doi: "10.1080/13569317.2014.909266"
+    title: "Left-wing populism in the European periphery: the case of SYRIZA"
+    year: 2014
+    ref: "H0938"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:greece"
+      - "type:article"
+
+  - cite: "Steele et al. 2019"
+    doi: "10.1080/09557571.2019.1596612"
+    title: "Ontological insecurities and the politics of contemporary populism"
+    year: 2019
+    ref: "H0939"
+    tags:
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Stengel et al. 2019"
+    doi: "10.1007/978-3-030-04621-7"
+    title: "Populism and World Politics: Exploring Inter- and Transnational Dimensions"
+    year: 2019
+    ref: "H0940"
+    tags:
+      - "topic:international"
+      - "type:book"
+      - "oa:yes"
+
+  - cite: "Stijn Van Kessel et al. 2023"
+    doi: "10.1017/s0007123423000431"
+    title: "The PopuList: A Database of Populist, Far-Left, and Far-Right Parties Using Expert-Informed Qualitative Comparative Classification (EiQCC)"
+    year: 2023
+    ref: "H0943"
+    tags:
+      - "topic:parties"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Subedi et al. 2021"
+    doi: "10.1080/13569775.2021.1917162"
+    title: "Populism, authoritarianism, and charismatic-plebiscitary leadership in contemporary Asia: a comparative perspective from India and Myanmar"
+    year: 2021
+    ref: "H0951"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:india"
+      - "country:myanmar"
+      - "type:article"
+
+  - cite: "Subedi 2022"
+    doi: "10.1080/10357823.2021.1983519"
+    title: "The Emergence of Populist Nationalism and ‘Illiberal’ Peacebuilding in Sri Lanka"
+    year: 2022
+    ref: "H0952"
+    tags:
+      - "topic:defence-security"
+      - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:sri-lanka"
+      - "type:article"
+
+  - cite: "Subotić 2022"
+    doi: "10.1177/13691481211066970"
+    title: "Antisemitism in the global populist international"
+    year: 2022
+    ref: "H0955"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:mena"
+      - "country:israel"
+      - "type:article"
+
+  - cite: "Suzuki 2023"
+    doi: "10.1017/s1755773923000073"
+    title: "The punitive impact of radical right populism on foreign aid: immigration pressure and mainstream partnership"
+    year: 2023
+    ref: "H0959"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:migration"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Swen Hutter and Wüest 2012"
+    doi: "10.1017/cbo9781139169219"
+    title: "Political Conflict in Western Europe"
+    year: 2012
+    ref: "H0967"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "type:book"
+
+  - cite: "Söderbaum et al. 2021"
+    doi: "10.1017/9781009030915"
+    title: "Contestations of the Liberal International Order: A Populist Script of Regional Cooperation"
+    year: 2021
+    ref: "H0974"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:global"
+      - "country:hungary"
+      - "country:venezuela"
+      - "country:philippines"
+      - "type:book"
+
+  - cite: "Taggart 2004"
+    doi: "10.1080/1356931042000263528"
+    title: "Populism and representative politics in contemporary Europe"
+    year: 2004
+    ref: "H0978"
+    tags:
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Taguieff 1995"
+    doi: "10.3817/0395103009"
+    title: "Political Science Confronts Populism: From a Conceptual Mirage to a Real Problem"
+    year: 1995
+    ref: "H0979"
+    tags:
+      - "approach:discursive"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Tarrow 2022"
+    doi: "10.1017/9781009219839"
+    title: "Power in Movement"
+    year: 2022
+    ref: "H0981"
+    tags:
+      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:book"
+
+  - cite: "Taş 2020"
+    doi: "10.1080/1070289x.2020.1735160"
+    title: "The chronopolitics of national populism"
+    year: 2020
+    ref: "H0982"
+    tags:
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Taş 2020"
+    doi: "10.1080/13629395.2020.1833160"
+    title: "The formulation and implementation of populist foreign policy: Turkey in the Eastern Mediterranean"
+    year: 2020
+    ref: "H0983"
+    tags:
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Taş 2022"
+    doi: "10.1080/01436597.2022.2108392"
+    title: "Continuity through change: populism and foreign policy in Turkey"
+    year: 2022
+    ref: "H0984"
+    tags:
+      - "approach:discursive"
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Taş 2024"
+    doi: "10.1080/13510347.2023.2255976"
+    title: "Populism and civil–military relations"
+    year: 2024
+    ref: "H0988"
+    tags:
+      - "topic:defence-security"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Thiers et al. 2022"
+    doi: "10.1093/isq/sqab083"
+    title: "The Personality Traits of Populist Leaders and Their Foreign Policies: Hugo Chávez and Donald Trump"
+    year: 2022
+    ref: "H0992"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:venezuela"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Thomeczek 2025"
+    doi: "10.1080/13569317.2023.2196516"
+    title: "Moderate in power, populist in opposition? Die Linke’s populist communication in the German states"
+    year: 2025
+    ref: "H1001"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
+      - "type:article"
+
+  - cite: "Thompson 2016"
+    doi: "10.1177/186810341603500303"
+    title: "Bloodied Democracy: Duterte and the Death of Liberal Reformism in the Philippines"
+    year: 2016
+    ref: "H1002"
+    tags:
+      - "topic:voters"
+      - "topic:government"
+      - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:philippines"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Thompson 2021"
+    doi: "10.1080/00472336.2021.1910859"
+    title: "Duterte’s Violent Populism: Mass Murder, Political Legitimacy and the “Death of Development” in the Philippines"
+    year: 2021
+    ref: "H1003"
+    tags:
+      - "topic:defence-security"
+      - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:philippines"
+      - "type:article"
+
+  - cite: "Tudoroiu 2014"
+    doi: "10.1080/0965156x.2014.959326"
+    title: "The Regional Foreign Policies of Black Sea “New Populist” Leaders"
+    year: 2014
+    ref: "H1013"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "type:article"
+
+  - cite: "Turcu et al. 2023"
+    doi: "10.1177/13540688221088470"
+    title: "Is populism popular abroad? Evidence from diasporas around the globe"
+    year: 2023
+    ref: "H1014"
+    tags:
+      - "topic:parties"
+      - "topic:migration"
+      - "type:article"
+
+  - cite: "Türk 2018"
+    doi: "10.1177/2233865918761111"
+    title: "‘Populism as a medium of mass mobilization’: The case of Recep Tayyip Erdoğan"
+    year: 2018
+    ref: "H1017"
+    tags:
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Urbinati 2019"
+    doi: "10.1146/annurev-polisci-050317-070753"
+    title: "Political Theory of Populism"
+    year: 2019
+    ref: "H1024"
+    tags:
+      - "topic:democracy-institutions"
+      - "type:article"
+
+  - cite: "Vachudova 2020"
+    doi: "10.1080/21599165.2020.1787163"
+    title: "Ethnopopulism and democratic backsliding in Central Europe"
+    year: 2020
+    ref: "H1025"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Vachudova 2021"
+    doi: "10.1146/annurev-polisci-041719-102711"
+    title: "Populism, Democracy, and Party System Change in Europe"
+    year: 2021
+    ref: "H1027"
+    tags:
+      - "topic:parties"
+      - "topic:government"
+      - "region:europe"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Vampa 2023"
+    doi: "10.1007/978-3-031-26132-9"
+    title: "Brothers of Italy: A New Populist Wave in an Unstable Party System"
+    year: 2023
+    ref: "H1028"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:book"
+
+  - cite: "Varga et al. 2021"
+    doi: "10.1080/14650045.2020.1734564"
+    title: "The Foreign Policy of Populists in Power: Contesting Liberalism in Poland and Hungary"
+    year: 2021
+    ref: "H1029"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:government"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
+      - "type:article"
+
+  - cite: "Verbeek et al. 2015"
+    doi: "10.1017/s1755773914000319"
+    title: "The impact of populist radical right parties on foreign policy: the Northern League as a junior coalition partner in the Berlusconi Governments"
+    year: 2015
+    ref: "H1034"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Verbeek et al. 2019"
+    doi: "10.1080/03932729.2019.1606513"
+    title: "Contested Issues Surrounding Populism in Public and Academic Debates"
+    year: 2019
+    ref: "H1035"
+    tags:
+      - "approach:other"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Visnovitz et al. 2021"
+    doi: "10.1057/s41295-021-00256-3"
+    title: "Populist argumentation in foreign policy: the case of Hungary under Viktor Orbán, 2010–2020"
+    year: 2021
+    ref: "H1042"
+    tags:
+      - "topic:foreign-policy"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Voeten 2020"
+    doi: "10.1017/s1537592719000975"
+    title: "Populism and Backlashes against International Courts"
+    year: 2020
+    ref: "H1043"
+    tags:
+      - "topic:international"
+      - "topic:democracy-institutions"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Volk 2019"
+    doi: "10.3917/poeu.066.0120"
+    title: "Speaking for “the European people”? How the transnational alliance Fortress Europe constructs a populist counter-narrative to European integration"
+    year: 2019
+    ref: "H1044"
+    tags:
+      - "topic:international"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Vucetic and Williams 2020"
+    doi: "10.1093/ips/olaa001"
+    title: "Confronting the International Political Sociology of the New Right"
+    year: 2020
+    ref: "H1046"
+    tags:
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "type:article"
+
+  - cite: "Waisbord 2018"
+    doi: "10.1093/ccc/tcx005"
+    title: "Why Populism is Troubling for Democratic Communication"
+    year: 2018
+    ref: "H1052"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Wajner 2021"
+    doi: "10.1057/s41268-020-00206-8"
+    title: "Exploring the foreign policies of populist governments: (Latin) America First"
+    year: 2021
+    ref: "H1054"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:government"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Wajner et al. 2022"
+    doi: "10.1163/26669773-bja10037"
+    title: "Populism and Transnational Projection: The Legitimation Strategies of Pink Tide Neo-Populist Leaderships in Latin America"
+    year: 2022
+    ref: "H1056"
+    tags:
+      - "approach:performative"
+      - "topic:international"
+      - "topic:parties"
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:article"
+
+  - cite: "Wajner 2022"
+    doi: "10.1177/13691481211069345"
+    title: "The populist way out: Why contemporary populist leaders seek transnational legitimation"
+    year: 2022
+    ref: "H1057"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wajner et al. 2023"
+    doi: "10.1093/isagsq/ksad026"
+    title: "Embracing or Rebuffing “the International”? Populist Foreign Policy and the Fourth Wave of Populism in Latin America"
+    year: 2023
+    ref: "H1058"
+    tags:
+      - "approach:performative"
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "region:latin-america"
+      - "country:brazil"
+      - "country:mexico"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wajner et al. 2024"
+    doi: "10.1093/isr/viae012"
+    title: "Populist Foreign Policy: Mapping the Developing Research Program on Populism in International Relations"
+    year: 2024
+    ref: "H1059"
+    tags:
+      - "topic:foreign-policy"
+      - "type:article"
+
+  - cite: "Wajner et al. 2024"
+    doi: "10.1093/ia/iiae217"
+    title: "The effects of global populism: assessing the populist impact on international affairs"
+    year: 2024
+    ref: "H1060"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "region:global"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wehner et al. 2020"
+    doi: "10.1177/0047117820944430"
+    title: "The nexus of populism and foreign policy: The case of Latin America"
+    year: 2020
+    ref: "H1075"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:media-communication"
+      - "region:latin-america"
+      - "country:argentina"
+      - "country:venezuela"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wehner 2023"
+    doi: "10.1177/00108367221108814"
+    title: "Stereotyped images and role dissonance in the foreign policy of right-wing populist leaders: Jair Bolsonaro and Donald Trump"
+    year: 2023
+    ref: "H1078"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:brazil"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Weiss 2021"
+    doi: "10.1080/07036337.2021.1927008"
+    title: "De-Europeanisation of Czech policy towards Eastern Partnership countries under populist leaders"
+    year: 2021
+    ref: "H1079"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:czech-republic"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Weyland 1999"
+    doi: "10.2307/422236"
+    title: "Neoliberal Populism in Latin America and Eastern Europe"
+    year: 1999
+    ref: "H1085"
+    tags:
+      - "approach:economic"
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "region:latin-america"
+      - "country:argentina"
+      - "country:peru"
+      - "type:article"
+
+  - cite: "Weyland 2021"
+    doi: "10.1177/00323217211002669"
+    title: "Populism as a Political Strategy: An Approach’s Enduring — and Increasing — Advantages"
+    year: 2021
+    ref: "H1089"
+    tags:
+      - "approach:political-strategic"
+      - "type:article"
+
+  - cite: "Weyland 2022"
+    doi: "10.1002/polq.13277"
+    title: "How Populism Dies: Political Weaknesses of Personalistic Plebiscitarian Leadership"
+    year: 2022
+    ref: "H1090"
+    tags:
+      - "approach:political-strategic"
+      - "type:article"
+
+  - cite: "Wodak 2015"
+    doi: "10.4135/9781446270073"
+    title: "The Politics of Fear – What Right-wing Populist Discourses Mean"
+    year: 2015
+    ref: "H1098"
+    tags:
+      - "topic:parties"
+      - "topic:gender"
+      - "type:book"
+
+  - cite: "Wodak 2020"
+    doi: "10.4135/9781529739664"
+    title: "The Politics of Fear: The Shameless Normalization of Far-Right Discourse"
+    year: 2020
+    ref: "H1099"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:book"
+
+  - cite: "Wojczewski 2019"
+    doi: "10.1093/isr/viz007"
+    title: "Populism, Hindu Nationalism, and Foreign Policy in India: The Politics of Representing “the People”"
+    year: 2019
+    ref: "H1101"
+    tags:
+      - "approach:discursive"
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:religion"
+      - "region:asia-pacific"
+      - "country:india"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wojczewski 2019"
+    doi: "10.1093/fpa/orz021"
+    title: "Trump, Populism, and American Foreign Policy"
+    year: 2019
+    ref: "H1102"
+    tags:
+      - "approach:ideational"
+      - "approach:discursive"
+      - "topic:foreign-policy"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wojczewski 2020"
+    doi: "10.1017/eis.2019.23"
+    title: "‘Enemies of the people’: Populism and the politics of (in)security"
+    year: 2020
+    ref: "H1105"
+    tags:
+      - "approach:discursive"
+      - "topic:defence-security"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wojczewski 2022"
+    doi: "10.1057/s41268-021-00218-y"
+    title: "Conspiracy theories, right-wing populism and foreign policy: the case of the Alternative for Germany"
+    year: 2022
+    ref: "H1106"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "country:germany"
+      - "type:article"
+
+  - cite: "Wojczewski 2023"
+    doi: "10.1007/978-3-031-16848-2"
+    title: "The Inter- and Transnational Politics of Populism: Foreign Policy, Identity and Popular Sovereignty"
+    year: 2023
+    ref: "H1107"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:international"
+      - "type:book"
+
+  - cite: "Yabancı 2020"
+    doi: "10.1080/21567689.2020.1736046"
+    title: "Fuzzy Borders between Populism and Sacralized Politics: Mission, Leader, Community and Performance in ‘New’ Turkey"
+    year: 2020
+    ref: "H1117"
+    tags:
+      - "topic:parties"
+      - "topic:religion"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Yanchenko 2022"
+    doi: "10.1080/15205436.2022.2105234"
+    title: "Making Sense of Populist Hyperreality in the Post-Truth Age: Evidence from Volodymyr Zelensky’s Voters"
+    year: 2022
+    ref: "H1118"
+    tags:
+      - "topic:voters"
+      - "region:europe"
+      - "country:ukraine"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Yilmaz et al. 2023"
+    doi: "10.1080/01436597.2022.2146578"
+    title: "Manufacturing the Ummah: Turkey’s transnational populism and construction of the people globally"
+    year: 2023
+    ref: "H1124"
+    tags:
+      - "topic:international"
+      - "topic:religion"
+      - "topic:migration"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zappettini et al. 2021"
+    doi: "10.30950/jcer.v17i2.1184"
+    title: "Euroscepticism between Populism and Technocracy: The Case of Italian Lega and Movimento 5 Stelle"
+    year: 2021
+    ref: "H1126"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zappettini 2021"
+    doi: "10.1075/jlp.19103.zap"
+    title: "The tabloidization of the Brexit campaign: Power to the (British) people?"
+    year: 2021
+    ref: "H1127"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+
+  - cite: "Zaslove 2004"
+    doi: "10.1080/1356931032000167490"
+    title: "Closing the door? The ideology and impact of radical right populism on immigration policy in Austria and Italy"
+    year: 2004
+    ref: "H1132"
+    tags:
+      - "topic:parties"
+      - "topic:migration"
+      - "region:europe"
+      - "country:austria"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Zaslove 2008"
+    doi: "10.1017/s1062798708000288"
+    title: "Here to Stay? Populism as a New Party Type"
+    year: 2008
+    ref: "H1133"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Zaslove 2011"
+    doi: "10.1515/9780773586109"
+    title: "The Re-invention of the European Radical Right: Populism, Regionalism, and the Italian Lega Nord"
+    year: 2011
+    ref: "H1134"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:book"
+
+  - cite: "Zaun et al. 2023"
+    doi: "10.1111/jcms.13416"
+    title: "Perpetuating Crisis as a Supply Strategy: The Role of (Nativist) Populist Governments in EU Policymaking on Refugee Distribution"
+    year: 2023
+    ref: "H1136"
+    tags:
+      - "topic:international"
+      - "topic:government"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zulianello et al. 2018"
+    doi: "10.1177/1940161218783836"
+    title: "A Populist Zeitgeist ? The Communication Strategies of Western and Latin American Political Leaders on Facebook"
+    year: 2018
+    ref: "H1138"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zulianello 2020"
+    doi: "10.1017/gov.2019.21"
+    title: "Varieties of Populist Parties and Party Systems in Europe: From State-of-the-Art to the Application of a Novel Classification Scheme to 66 Parties in 33 Countries"
+    year: 2020
+    ref: "H1139"
+    tags:
+      - "approach:ideational"
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zürn 2022"
+    doi: "10.1017/s1537592721001043"
+    title: "How Non-Majoritarian Institutions Make Silent Majorities Vocal: A Political Explanation of Authoritarian Populism"
+    year: 2022
+    ref: "H1145"
+    tags:
+      - "topic:democracy-institutions"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Çelik et al. 2020"
+    doi: "10.1080/13629395.2018.1507338"
+    title: "Explaining the micro dynamics of the populist cleavage in the ‘new Turkey’"
+    year: 2020
+    ref: "H1147"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "region:europe"
+      - "country:turkey"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Özdamar et al. 2019"
+    doi: "10.1177/1354066119850254"
+    title: "European populist radical right leaders’ foreign policy beliefs: An operational code analysis"
+    year: 2019
+    ref: "H1151"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Özdamar et al. 2024"
+    doi: "10.1093/ia/iiae181"
+    title: "Populist hyperpersonalization and politicization of foreign policy institutions"
+    year: 2024
+    ref: "H1153"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:russia"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Özpek et al. 2018"
+    doi: "10.1080/14683849.2017.1400912"
+    title: "Populism and foreign policy in Turkey under the AKP rule"
+    year: 2018
+    ref: "H1156"
+    tags:
+      - "topic:foreign-policy"
+      - "topic:defence-security"
+      - "topic:religion"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:mena"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ćetković et al. 2020"
+    doi: "10.1016/j.erss.2020.101571"
+    title: "Changing climate for populists? Examining the influence of radical-right political parties on low-carbon energy transitions in Western Europe"
+    year: 2020
+    ref: "H1157"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Żuk et al. 2020"
+    doi: "10.1016/j.erss.2020.101485"
+    title: "Unpacking the right-populist threat to climate action: Poland's pro-governmental media on energy transition and climate change"
+    year: 2020
+    ref: "H1158"
+    tags:
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:poland"
+      - "type:article"
+      - "oa:yes"
+
