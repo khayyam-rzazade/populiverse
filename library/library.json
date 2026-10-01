@@ -5,8 +5,8 @@
     "group": 6697881,
     "citation_style": "chicago-author-date",
     "taxonomy_version": 2,
-    "count": 397,
-    "updated": "2026-10-01T10:58:51Z"
+    "count": 432,
+    "updated": "2026-10-01T14:30:06Z"
   },
   "taxonomy": {
     "approach": {
@@ -1684,6 +1684,55 @@
       "added": "2026-10-01T10:48:40Z"
     },
     {
+      "id": "EWZLY5VR",
+      "type": "type:book",
+      "title": "Twenty-First Century Populism",
+      "authors": [
+
+      ],
+      "editors": [
+        {
+          "family": "Albertazzi",
+          "given": "Daniele"
+        },
+        {
+          "family": "McDonnell",
+          "given": "Duncan"
+        }
+      ],
+      "byline": "Albertazzi and McDonnell",
+      "year": 2008,
+      "date": "2008",
+      "container": "",
+      "publisher": "Palgrave Macmillan UK",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.1057/9780230592100",
+      "url": "https://doi.org/10.1057/9780230592100",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/EWZLY5VR",
+      "abstract": "",
+      "citation": "Albertazzi, Daniele, and Duncan McDonnell, eds. 2008. <i>Twenty-First Century Populism<\/i>. Palgrave Macmillan UK. https://doi.org/10.1057/9780230592100.",
+      "bibtex": "@book{albertazzi_twenty-first_2008,\n  editor = {Albertazzi, Daniele and McDonnell, Duncan},\n  title = {Twenty-{First} {Century} {Populism}},\n  year = {2008},\n  publisher = {Palgrave Macmillan UK},\n  address = {London},\n  isbn = {978-1-349-28476-4 978-0-230-59210-0},\n  doi = {10.1057/9780230592100}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:28:29Z"
+    },
+    {
       "id": "XAGGQDVU",
       "type": "type:book",
       "title": "Populists in Power",
@@ -2298,6 +2347,59 @@
       "added": "2026-10-01T10:48:47Z"
     },
     {
+      "id": "VY6CFJ9T",
+      "type": "type:article",
+      "title": "Challenging anti-Western historical myths in populist discourse: re-visiting Ottoman Empire–Europe interaction during the 19th century",
+      "authors": [
+        {
+          "family": "Aydın-Düzgit",
+          "given": "Senem"
+        },
+        {
+          "family": "Rumelili",
+          "given": "Bahar"
+        },
+        {
+          "family": "Topal",
+          "given": "Alp Eren"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Aydın-Düzgit et al.",
+      "year": 2022,
+      "date": "2022",
+      "container": "European Journal of International Relations",
+      "publisher": "",
+      "volume": "28",
+      "issue": "3",
+      "pages": "513-537",
+      "doi": "10.1177/13540661221095945",
+      "url": "https://doi.org/10.1177/13540661221095945",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/VY6CFJ9T",
+      "abstract": "In this article, we conceptualize and demonstrate how historical International Relations (IR) can be employed to critically engage with the populist uses of history at present. In this endeavour, we focus on myths as analytical nodal points. We revisit the rich interdisciplinary literature on myths to conceptually connect historical research that unsettles myths with political critiques of myths in terms of their naturalizing effects at present. We also expand the critical agenda of historical IR research into targeting the prevalent historical myths of Self and Other that are employed to promote antagonism in contemporary politics. We illustrate the potential that historical IR research holds in illuminating and debunking the contemporary populist uses of history through the case of the relations between Europe and the Ottoman Empire and its relationship with present-day anti-Western populism in Turkey. Via the notion of myth, we combine a critical discourse analysis of the ample historical references in Erdoğan’s populist discourse with original historical analysis of the varied interactions between the Ottoman Empire and European states in the period invoked in those references. In doing so, we shed light on the relatively neglected Tanzimat (1839–1877) period in Euro-Ottoman history by drawing on pioneering secondary literature as well as our own analysis of primary sources. We demonstrate how the developments of this period debunk the myths of ‘Eternal Antagonism’ and ‘Europe the Protagonist’ and how they can inform less antagonistic Self/Other relations that are conducive to a more cosmopolitan co-existence in contemporary Turkey–Europe relations.",
+      "citation": "Aydın-Düzgit, Senem, Bahar Rumelili, and Alp Eren Topal. 2022. “Challenging Anti-Western Historical Myths in Populist Discourse: Re-Visiting Ottoman Empire–Europe Interaction during the 19th Century.” <i>European Journal of International Relations<\/i> 28 (3): 513–37. https://doi.org/10.1177/13540661221095945.",
+      "bibtex": "@article{aydin-duzgit_challenging_2022,\n  author = {Aydın-Düzgit, Senem and Rumelili, Bahar and Topal, Alp Eren},\n  title = {Challenging anti-{Western} historical myths in populist discourse: re-visiting {Ottoman} {Empire}–{Europe} interaction during the 19th century},\n  journal = {European Journal of International Relations},\n  year = {2022},\n  volume = {28},\n  number = {3},\n  pages = {513--537},\n  issn = {1354-0661, 1460-3713},\n  doi = {10.1177/13540661221095945}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:28:29Z"
+    },
+    {
       "id": "DTETLNEW",
       "type": "type:article",
       "title": "Populists, Outsiders and Anti-Establishment Politics",
@@ -2864,6 +2966,61 @@
       "added": "2026-10-01T10:48:53Z"
     },
     {
+      "id": "5E64WQZ4",
+      "type": "type:article",
+      "title": "Blackmailing and Identity Profiling? The Behaviour of Populist Radical Right Governments in EU Development Policy",
+      "authors": [
+        {
+          "family": "Bergmann",
+          "given": "Julian"
+        },
+        {
+          "family": "Keijzer",
+          "given": "Niels"
+        },
+        {
+          "family": "Hackenesch",
+          "given": "Christine"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Bergmann et al.",
+      "year": 2024,
+      "date": "2024-09-09",
+      "container": "Politics and Governance",
+      "publisher": "",
+      "volume": "12",
+      "issue": "",
+      "pages": "8180",
+      "doi": "10.17645/pag.8180",
+      "url": "https://doi.org/10.17645/pag.8180",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/5E64WQZ4",
+      "abstract": "EU development policy has in recent years become more contested and politicised. One key factor driving this trend is the increasing influence of populist radical right parties (PRRPs). Previous studies have focused on PRRPs as opposition parties. This contribution breaks new ground by exploring the behaviour of PRRP-led governments in EU development policy. More specifically, the article analyses how and to what extent this behaviour is characterised by “unpolitics,” an approach to undermining EU policymaking. We define “cross-policy blackmailing” and “identity profiling” as two potential strategies of unpolitics in EU development policy and probe these in two case studies. The first case concerns the New European Consensus on Development and the second is the EU’s positioning in the negotiations and signing of the Samoa Agreement. In the first case, we find that PRRP-led governments fundamentally rejected the decision-making rules as well as the norms on migration, gender, and sexual and reproductive health rights, using a strategy of identity profiling. In the second case, PRRP-led governments significantly stalled the conclusion of the agreement by combining cross-policy blackmailing and identity profiling. Based on this analysis, we generalise on the scope conditions of unpolitics in EU development policy.",
+      "citation": "Bergmann, Julian, Niels Keijzer, and Christine Hackenesch. 2024. “Blackmailing and Identity Profiling? The Behaviour of Populist Radical Right Governments in EU Development Policy.” <i>Politics and Governance<\/i> 12 (September): 8180. https://doi.org/10.17645/pag.8180.",
+      "bibtex": "@article{bergmann_blackmailing_2024,\n  author = {Bergmann, Julian and Keijzer, Niels and Hackenesch, Christine},\n  title = {Blackmailing and {Identity} {Profiling}? {The} {Behaviour} of {Populist} {Radical} {Right} {Governments} in {EU} {Development} {Policy}},\n  journal = {Politics and Governance},\n  year = {2024},\n  volume = {12},\n  pages = {8180},\n  issn = {2183-2463},\n  doi = {10.17645/pag.8180}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:international",
+        "topic:parties",
+        "topic:economy-welfare"
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:28:30Z"
+    },
+    {
       "id": "UT9TD9BM",
       "type": "type:article",
       "title": "Populism and the Decline of Social Democracy",
@@ -3050,6 +3207,52 @@
       ],
       "oa": true,
       "added": "2026-10-01T10:48:56Z"
+    },
+    {
+      "id": "RARHHHAH",
+      "type": "type:article",
+      "title": "Xenophobia, Identity Politics and Exclusionary Populism in Western Europe",
+      "authors": [
+        {
+          "family": "Betz",
+          "given": "Hans-Georg"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Betz",
+      "year": 2003,
+      "date": "2003",
+      "container": "Socialist Register",
+      "publisher": "",
+      "volume": "39",
+      "issue": "",
+      "pages": "193-210",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/RARHHHAH",
+      "abstract": "The Vlaams Blok in Belgium is one of the most successful examples of a new type of right-wing populist party, which during the 1990s emerged as one of the most significant new political forces in Western Europe and other liberal capitalist democracies. Initially dismissed as a fleeting phenomenon, which would soon fade away, the radical right has managed to establish itself firmly as a serious contender for votes and, increasingly, for political offices (e.g., in Austria and Italy). The growing acceptance of radical right-wing parties as serious and legitimate contenders for political power raises important questions about the nature and objectives of these parties. In recent years, there has been a great deal of scholarship devoted to explaining their rise and electoral success. Much of this scholarship has focused on the search for structural factors and developments that might help explain the remarkable surge in popular support for the radical right in the 1990s. At the same time, there has been relatively little serious comparative analysis of the political doctrines espoused by these parties, their ideological foundations and ideological justification.",
+      "citation": "Betz, Hans-Georg. 2003. “Xenophobia, Identity Politics and Exclusionary Populism in Western Europe.” <i>Socialist Register<\/i> 39: 193–210.",
+      "bibtex": "@article{betz_xenophobia_2003,\n  author = {Betz, Hans-Georg},\n  title = {Xenophobia, {Identity} {Politics} and {Exclusionary} {Populism} in {Western} {Europe}},\n  journal = {Socialist Register},\n  year = {2003},\n  volume = {39},\n  pages = {193--210}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:parties",
+        "topic:migration"
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+        "country:belgium"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:57Z"
     },
     {
       "id": "NEGX4FSG",
@@ -3534,6 +3737,52 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:49:01Z"
+    },
+    {
+      "id": "6U2HDJA5",
+      "type": "type:article",
+      "title": "Three Lessons of Contemporary Populism in Europe and the United States",
+      "authors": [
+        {
+          "family": "Bonikowski",
+          "given": "Bart"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Bonikowski",
+      "year": 2016,
+      "date": "2016",
+      "container": "The Brown Journal of World Affairs",
+      "publisher": "",
+      "volume": "23",
+      "issue": "1",
+      "pages": "9-24",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/6U2HDJA5",
+      "abstract": "",
+      "citation": "Bonikowski, Bart. 2016. “Three Lessons of Contemporary Populism in Europe and the United States.” <i>The Brown Journal of World Affairs<\/i> 23 (1): 9–24.",
+      "bibtex": "@article{bonikowski_three_2016,\n  author = {Bonikowski, Bart},\n  title = {Three {Lessons} of {Contemporary} {Populism} in {Europe} and the {United} {States}},\n  journal = {The Brown Journal of World Affairs},\n  year = {2016},\n  volume = {23},\n  number = {1},\n  pages = {9--24}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:europe",
+        "region:north-america"
+      ],
+      "country": [
+        "country:united-states"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:57Z"
     },
     {
       "id": "XUPZAVVK",
@@ -5502,6 +5751,55 @@
       "added": "2026-10-01T10:49:34Z"
     },
     {
+      "id": "5X7WD2XR",
+      "type": "type:article",
+      "title": "The Inevitable Clash? Populists and Foreign Policy Bureaucracies",
+      "authors": [
+        {
+          "family": "Coticchia",
+          "given": "Fabrizio"
+        },
+        {
+          "family": "Donelli",
+          "given": "Federico"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Coticchia and Donelli",
+      "year": 2023,
+      "date": "2023",
+      "container": "International Studies Review",
+      "publisher": "",
+      "volume": "25",
+      "issue": "4",
+      "pages": "18-20",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/5X7WD2XR",
+      "abstract": "",
+      "citation": "Coticchia, Fabrizio, and Federico Donelli. 2023. “The Inevitable Clash? Populists and Foreign Policy Bureaucracies.” <i>International Studies Review<\/i> 25 (4): 18–20.",
+      "bibtex": "@article{coticchia_inevitable_2023,\n  author = {Coticchia, Fabrizio and Donelli, Federico},\n  title = {The {Inevitable} {Clash}? {Populists} and {Foreign} {Policy} {Bureaucracies}},\n  journal = {International Studies Review},\n  year = {2023},\n  volume = {25},\n  number = {4},\n  pages = {18--20}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:foreign-policy"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:57Z"
+    },
+    {
       "id": "Z69ZTCES",
       "type": "type:article",
       "title": "Historical legacies and the political mobilization of national nostalgia: Understanding populism’s relationship to the past",
@@ -5890,6 +6188,51 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:49:45Z"
+    },
+    {
+      "id": "2XZJTB7H",
+      "type": "type:book",
+      "title": "Routledge handbook on global populism",
+      "authors": [
+        {
+          "family": "De la Torre",
+          "given": "Carlos"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "De la Torre",
+      "year": 2018,
+      "date": "2018",
+      "container": "",
+      "publisher": "Routledge",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/2XZJTB7H",
+      "abstract": "",
+      "citation": "De la Torre, Carlos. 2018. <i>Routledge Handbook on Global Populism<\/i>. Routledge.",
+      "bibtex": "@book{de_la_torre_routledge_2018,\n  author = {De la Torre, Carlos},\n  title = {Routledge handbook on global populism},\n  year = {2018},\n  publisher = {Routledge},\n  address = {New York}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:global"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:57Z"
     },
     {
       "id": "XIKXHNBV",
@@ -6502,6 +6845,102 @@
       "added": "2026-10-01T10:49:51Z"
     },
     {
+      "id": "W6KS97I8",
+      "type": "type:article",
+      "title": "Populism and Foreign Policy in Venezuela and Iran",
+      "authors": [
+        {
+          "family": "Dodson",
+          "given": "Michael"
+        },
+        {
+          "family": "Dorra",
+          "given": "Manochehr"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Dodson and Dorra",
+      "year": 2008,
+      "date": "2008",
+      "container": "Whitehead Journal of Diplomacy and International Relations",
+      "publisher": "",
+      "volume": "9",
+      "issue": "1",
+      "pages": "71-87",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/W6KS97I8",
+      "abstract": "",
+      "citation": "Dodson, Michael, and Manochehr Dorra. 2008. “Populism and Foreign Policy in Venezuela and Iran.” <i>Whitehead Journal of Diplomacy and International Relations<\/i> 9 (1): 71–87.",
+      "bibtex": "@article{dodson_populism_2008,\n  author = {Dodson, Michael and Dorra, Manochehr},\n  title = {Populism and {Foreign} {Policy} in {Venezuela} and {Iran}},\n  journal = {Whitehead Journal of Diplomacy and International Relations},\n  year = {2008},\n  volume = {9},\n  number = {1},\n  pages = {71--87}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:foreign-policy"
+      ],
+      "region": [
+        "region:latin-america",
+        "region:mena"
+      ],
+      "country": [
+        "country:venezuela",
+        "country:iran"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
+    },
+    {
+      "id": "438RI59W",
+      "type": "type:article",
+      "title": "The Angry Populist as Foreign Policy Leader: Real Change or Just Hot Air?",
+      "authors": [
+        {
+          "family": "Drezner",
+          "given": "Daniel W."
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Drezner",
+      "year": 2017,
+      "date": "2017",
+      "container": "The Fletcher Forum of World Affairs",
+      "publisher": "",
+      "volume": "41",
+      "issue": "2",
+      "pages": "23-43",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/438RI59W",
+      "abstract": "",
+      "citation": "Drezner, Daniel W. 2017. “The Angry Populist as Foreign Policy Leader: Real Change or Just Hot Air?” <i>The Fletcher Forum of World Affairs<\/i> 41 (2): 23–43.",
+      "bibtex": "@article{drezner_angry_2017,\n  author = {Drezner, Daniel W.},\n  title = {The {Angry} {Populist} as {Foreign} {Policy} {Leader}: {Real} {Change} or {Just} {Hot} {Air}?},\n  journal = {The Fletcher Forum of World Affairs},\n  year = {2017},\n  volume = {41},\n  number = {2},\n  pages = {23--43}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:foreign-policy"
+      ],
+      "region": [
+        "region:global"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
+    },
+    {
       "id": "3CP8V38F",
       "type": "type:article",
       "title": "Present at the Destruction: The Trump Administration and the Foreign Policy Bureaucracy",
@@ -6546,6 +6985,100 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:49:53Z"
+    },
+    {
+      "id": "2FUDBGF5",
+      "type": "type:article",
+      "title": "Pegida as a European Far-Right Populist Movement",
+      "authors": [
+        {
+          "family": "Druxes",
+          "given": "Helga"
+        },
+        {
+          "family": "Simpson",
+          "given": "Patricia Anne"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Druxes and Simpson",
+      "year": 2016,
+      "date": "2016-12-01",
+      "container": "German Politics and Society",
+      "publisher": "",
+      "volume": "34",
+      "issue": "4",
+      "pages": "1-16",
+      "doi": "10.3167/gps.2016.340401",
+      "url": "https://doi.org/10.3167/gps.2016.340401",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/2FUDBGF5",
+      "abstract": "Historian Geoff Eley argues that the idea of Europe has contracted from the ideal of a pluralistic community with the potential to integrate cultural “Others” to a “narrowly understood market-defined geopolitical drive for the purposes of competitive globalization.” Global deregulation, he states, has produced streams of labor migrants and the tightening of Europe’s external borders, while the economic expansion of Europe to more member countries since 1992 has opened up new divisions and inequalities among them. Aftereffects from the break-up of the East bloc can be felt in the escalation of antiminority violence in Central and Eastern Europe, as well as “the smouldering slow burn of the legacies of colonialism” in Western Europe. These diverse pressures and anxieties coalesce on the spectral figure of the Islamic fundamentalist at Europe’s gates.",
+      "citation": "Druxes, Helga, and Patricia Anne Simpson. 2016. “Pegida as a European Far-Right Populist Movement.” <i>German Politics and Society<\/i> 34 (4): 1–16. https://doi.org/10.3167/gps.2016.340401.",
+      "bibtex": "@article{druxes_pegida_2016,\n  author = {Druxes, Helga and Simpson, Patricia Anne},\n  title = {Pegida as a {European} {Far}-{Right} {Populist} {Movement}},\n  journal = {German Politics and Society},\n  year = {2016},\n  volume = {34},\n  number = {4},\n  pages = {1--16},\n  issn = {1045-0300, 1558-5441},\n  doi = {10.3167/gps.2016.340401}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:parties"
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+        "country:germany"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:28:32Z"
+    },
+    {
+      "id": "G7X7JZZ5",
+      "type": "type:article",
+      "title": "Do You Hear the People Sing?: Populist Discourse in the French Revolution",
+      "authors": [
+        {
+          "family": "Dudley",
+          "given": "Rebecca"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Dudley",
+      "year": 2016,
+      "date": "2016",
+      "container": "Sigma: Journal of Political and International Studies",
+      "publisher": "",
+      "volume": "33",
+      "issue": "6",
+      "pages": "61-79",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/G7X7JZZ5",
+      "abstract": "The rallying cry of the French Revolutionaries was \"Liberte! Egalite! Fraternite!\" (liberty, equality, fraternity), and the French Revolution, a pivotal moment in French, European, and world history, has been consistently considered one of the first and most significant nationalist movements. Research and literature thus far on discourse in this revolution have focused on nationalism Qenkins 1990; Hayward 1991; O'Brien 1988), along with the discourses of violence and terror that led to the graphic revolution (Ozouf 1984; Leoussi 2001). The presence of nationalist discourse and nationalist sentiment in the French Revolution is undeniable, but there are other elements potentially missing from the current analyses.",
+      "citation": "Dudley, Rebecca. 2016. “Do You Hear the People Sing?: Populist Discourse in the French Revolution.” <i>Sigma: Journal of Political and International Studies<\/i> 33 (6): 61–79.",
+      "bibtex": "@article{dudley_you_2016,\n  author = {Dudley, Rebecca},\n  title = {Do {You} {Hear} the {People} {Sing}?: {Populist} {Discourse} in the {French} {Revolution}},\n  journal = {Sigma: Journal of Political and International Studies},\n  year = {2016},\n  volume = {33},\n  number = {6},\n  pages = {61--79}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": true,
+      "added": "2026-10-01T14:29:58Z"
     },
     {
       "id": "ZY6CR2AW",
@@ -7953,6 +8486,51 @@
       "added": "2026-10-01T10:50:32Z"
     },
     {
+      "id": "K6Z5A8UI",
+      "type": "type:book",
+      "title": "Authoritarianism, Fascism, and National Populism",
+      "authors": [
+        {
+          "family": "Germani",
+          "given": "Gino"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Germani",
+      "year": 1978,
+      "date": "1978",
+      "container": "",
+      "publisher": "Transaction Books",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/K6Z5A8UI",
+      "abstract": "",
+      "citation": "Germani, Gino. 1978. <i>Authoritarianism, Fascism, and National Populism<\/i>. Transaction Books.",
+      "bibtex": "@book{germani_authoritarianism_1978,\n  author = {Germani, Gino},\n  title = {Authoritarianism, {Fascism}, and {National} {Populism}},\n  year = {1978},\n  publisher = {Transaction Books},\n  address = {New Brunswick, NJ}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:democracy-institutions"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
+    },
+    {
       "id": "HT546LV4",
       "type": "type:article",
       "title": "The politics of social status: economic and cultural roots of the populist right",
@@ -8421,7 +8999,7 @@
       "doi": "10.24425/pyil.2023.147177",
       "url": "https://doi.org/10.24425/pyil.2023.147177",
       "zotero": "https://www.zotero.org/groups/populiverse_library/items/KI52YVZM",
-      "abstract": "One of the major conflicts between populist and non-populist forces (movements, parties, governments) as well as the European Union (EU) institutions has manifested in the area of immigration policy.This article investigates how the influx of migrants in 2015-2016 was subsequently used by populists as a policy conflict ground within the EU.In this context, it particularly looks at how the problem of migration was framed and map the policy responses in the selected EU Member States.The article covers the 2015-2018 period and includes the following countries: France, Germany, Greece, Italy, Hungary, and Poland.The article observes that the 2015-2016 migration crisis and the response to it led to (or reinvigorated existing) politicisation of the topic across the EU, forcing the parties from all sides of the political spectrum to take a position on it.Simultaneously, one may also observe a process of securitisation of migration in the political debate in all analysed countries.Irregular migration was construed as a security threat by many political parties and leaders, requiring emergency measures and justifying actions outside the normal bounds of political and legal procedures.While the securitisation strategy was most visible in the discourse of the right-wing populist parties, its elements were progressively taken by the mainstream parties, arguably in response to increased salience of the issue.The article also finds a correlation between the ideological profile of the parties and their approach to the migration crisis and the proposed EU response.All the parties located close to the right extreme tended to take a strong anti-immigration and an-",
+      "abstract": "",
       "citation": "Gruszczyński, Łukasz, and Réka Friedery. 2024. “The Populist Challenge of Common EU Policies: The Case of (Im)migration (2015-2018).” <i>Polish Yearbook of International Law<\/i>, January 22, 221–44. https://doi.org/10.24425/pyil.2023.147177.",
       "bibtex": "@article{gruszczynski_populist_2024,\n  author = {Gruszczyński, Łukasz and Friedery, Réka},\n  title = {The {Populist} {Challenge} of {Common} {EU} {Policies}: {The} {Case} of ({Im})migration (2015-2018)},\n  journal = {Polish Yearbook of International Law},\n  year = {2024},\n  pages = {221--244},\n  issn = {0554-498X},\n  doi = {10.24425/pyil.2023.147177}\n}",
       "approach": [
@@ -9082,6 +9660,55 @@
       "added": "2026-10-01T10:50:49Z"
     },
     {
+      "id": "3A5KC8RH",
+      "type": "type:article",
+      "title": "The ideational approach to populism",
+      "authors": [
+        {
+          "family": "Hawkins",
+          "given": "Kirk A."
+        },
+        {
+          "family": "Rovira Kaltwasser",
+          "given": "Cristóbal"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Hawkins and Rovira Kaltwasser",
+      "year": 2017,
+      "date": "2017",
+      "container": "Latin American Research Review",
+      "publisher": "",
+      "volume": "52",
+      "issue": "4",
+      "pages": "513-528",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/3A5KC8RH",
+      "abstract": "The ideational approach has emerged as one of the most popular cross-regional approaches to the study of populism. The ideational approach gives center stage to the role of ideas in defining and explaining populism; indeed, it is strongly inspired by the work of Ernesto Laclau. The chapter argues that the ideational approach is becoming an approach in the broadest sense of the word, that of a scientific research program combining concepts, theories and method. It is a productive program that studies populism at multiple levels of analysis. After providing a brief history of its origins, the chapter explores the ideational theory that synthesizes current arguments into a larger causal framework and outlines some of the methodological features of this program. It compares the ideational approach to the Essex school and the strategic approach. The chapter concludes with a discussion of the approach&s;s strengths and weaknesses, giving particular attention to the lessons it must still learn from other approaches.",
+      "citation": "Hawkins, Kirk A., and Cristóbal Rovira Kaltwasser. 2017. “The Ideational Approach to Populism.” <i>Latin American Research Review<\/i> 52 (4): 513–28.",
+      "bibtex": "@article{hawkins_ideational_2017,\n  author = {Hawkins, Kirk A. and Rovira Kaltwasser, Cristóbal},\n  title = {The ideational approach to populism},\n  journal = {Latin American Research Review},\n  year = {2017},\n  volume = {52},\n  number = {4},\n  pages = {513--528}\n}",
+      "approach": [
+        "approach:ideational"
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
+    },
+    {
       "id": "QUGDX4Z4",
       "type": "type:article",
       "title": "Populism and foreign aid",
@@ -9280,6 +9907,51 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:50:52Z"
+    },
+    {
+      "id": "QJ3GXJGB",
+      "type": "type:book",
+      "title": "The Rise of Duterte: A Populist Revolt against Elite Democracy",
+      "authors": [
+        {
+          "family": "Heydarian",
+          "given": "Richard"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Heydarian",
+      "year": 2017,
+      "date": "2017",
+      "container": "",
+      "publisher": "Palgrave Pivot",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/QJ3GXJGB",
+      "abstract": "",
+      "citation": "Heydarian, Richard. 2017. <i>The Rise of Duterte: A Populist Revolt against Elite Democracy<\/i>. Palgrave Pivot.",
+      "bibtex": "@book{heydarian_rise_2017,\n  author = {Heydarian, Richard},\n  title = {The {Rise} of {Duterte}: {A} {Populist} {Revolt} against {Elite} {Democracy}},\n  year = {2017},\n  publisher = {Palgrave Pivot},\n  address = {Singapore}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:asia-pacific"
+      ],
+      "country": [
+        "country:philippines"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
     },
     {
       "id": "S58S8A8N",
@@ -10789,6 +11461,55 @@
       "added": "2026-10-01T10:52:41Z"
     },
     {
+      "id": "E27ARTAE",
+      "type": "type:article",
+      "title": "Populism and Foreign Policy: Deepening Divisions and Decreasing Efficiency",
+      "authors": [
+        {
+          "family": "Kane",
+          "given": "Catherine"
+        },
+        {
+          "family": "McCulloch",
+          "given": "Caitlin"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Kane and McCulloch",
+      "year": 2017,
+      "date": "2017",
+      "container": "Global Politics Review",
+      "publisher": "",
+      "volume": "3",
+      "issue": "2",
+      "pages": "39-52",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/E27ARTAE",
+      "abstract": "",
+      "citation": "Kane, Catherine, and Caitlin McCulloch. 2017. “Populism and Foreign Policy: Deepening Divisions and Decreasing Efficiency.” <i>Global Politics Review<\/i> 3 (2): 39–52.",
+      "bibtex": "@article{kane_populism_2017,\n  author = {Kane, Catherine and McCulloch, Caitlin},\n  title = {Populism and {Foreign} {Policy}: {Deepening} {Divisions} and {Decreasing} {Efficiency}},\n  journal = {Global Politics Review},\n  year = {2017},\n  volume = {3},\n  number = {2},\n  pages = {39--52}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:foreign-policy"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
+    },
+    {
       "id": "U7VFPVBQ",
       "type": "type:article",
       "title": "Introduction: Populism and feminist politics",
@@ -11031,6 +11752,51 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:51:15Z"
+    },
+    {
+      "id": "7GT7SF33",
+      "type": "type:book",
+      "title": "The Populist Persuasion: An American History",
+      "authors": [
+        {
+          "family": "Kazin",
+          "given": "Michael"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Kazin",
+      "year": 1998,
+      "date": "1998",
+      "container": "",
+      "publisher": "Cornell University Press",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/7GT7SF33",
+      "abstract": "",
+      "citation": "Kazin, Michael. 1998. <i>The Populist Persuasion: An American History<\/i>. Revised. Cornell University Press.",
+      "bibtex": "@book{kazin_populist_1998,\n  author = {Kazin, Michael},\n  title = {The {Populist} {Persuasion}: {An} {American} {History}},\n  year = {1998},\n  edition = {Revised},\n  publisher = {Cornell University Press},\n  address = {Ithaca, NY}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
     },
     {
       "id": "Z2FG42EX",
@@ -12056,6 +12822,51 @@
       "added": "2026-10-01T10:51:39Z"
     },
     {
+      "id": "849ATEFD",
+      "type": "type:book",
+      "title": "On Populist Reason",
+      "authors": [
+        {
+          "family": "Laclau",
+          "given": "Ernesto"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Laclau",
+      "year": 2005,
+      "date": "2005",
+      "container": "",
+      "publisher": "Verso",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/849ATEFD",
+      "abstract": "In this new and highly original work Ernesto Laclau continues the philosophical and political exploration initiated in Hegemony and Socialist Strategy, New Reflections on the Revolution of Our Time and Emancipation(s). his topic here is the construction of popular identities, conceived in a wide sense covering the ensemble of strategies making possible the emergence of the 'people' as a collective actor. The book skilfully combines theoretical analysis with a myriad of empirical references from numerous historical and geographical contexts. The first part presents a critical reading of the existing literature on populism, demonstrating its dependency on the basic categories elaborated by theorists of 'mass psychology', from Taine and Le Bon to Tarde, McDougall and Freud. The second part forms the main theoretical core of the work, where the question of the emergence of the 'people' as a political and social force is treated. Several categories already present in Laclau's work - such as empty and floating signifiers, hegemony and heterogeneity - are developed here in new and innovative directions. In particular, the relation of populism to democracy and to the logic of representation is given special emphasis. The third part is devoted to particular case studies of both the conditions leading to the emergence of the 'people' and the obstacles preventing its formation. Finally, in a concluding chapter, Laclau locates the question of popular identities within the context of a globalized world and differentiates his approach from those of other theoreticians such as Zizek, Hardt and Negri and Ranciere. This book is essential reading for all those interested in the question of political identities in present-day societies.",
+      "citation": "Laclau, Ernesto. 2005. <i>On Populist Reason<\/i>. Verso.",
+      "bibtex": "@book{laclau_populist_2005,\n  author = {Laclau, Ernesto},\n  title = {On {Populist} {Reason}},\n  year = {2005},\n  publisher = {Verso},\n  address = {London}\n}",
+      "approach": [
+        "approach:discursive"
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
+    },
+    {
       "id": "H9CPZGSC",
       "type": "type:article",
       "title": "Populism and foreign policy: An assessment and a research agenda",
@@ -12490,6 +13301,52 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:51:45Z"
+    },
+    {
+      "id": "FPH5PJK8",
+      "type": "type:article",
+      "title": "Populist Governments and Career Diplomats: A Structural Conflict",
+      "authors": [
+        {
+          "family": "Lequesne",
+          "given": "Christian"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Lequesne",
+      "year": 2023,
+      "date": "2023",
+      "container": "International Studies Review",
+      "publisher": "",
+      "volume": "25",
+      "issue": "4",
+      "pages": "21-23",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/FPH5PJK8",
+      "abstract": "",
+      "citation": "Lequesne, Christian. 2023. “Populist Governments and Career Diplomats: A Structural Conflict.” <i>International Studies Review<\/i> 25 (4): 21–23.",
+      "bibtex": "@article{lequesne_populist_2023,\n  author = {Lequesne, Christian},\n  title = {Populist {Governments} and {Career} {Diplomats}: {A} {Structural} {Conflict}},\n  journal = {International Studies Review},\n  year = {2023},\n  volume = {25},\n  number = {4},\n  pages = {21--23}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:foreign-policy",
+        "topic:government"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:58Z"
     },
     {
       "id": "TFDLW4Q8",
@@ -13491,6 +14348,56 @@
       "added": "2026-10-01T10:51:59Z"
     },
     {
+      "id": "KUBCVZHC",
+      "type": "type:book",
+      "title": "International Populism: The Radical Right in the European Parliament",
+      "authors": [
+        {
+          "family": "McDonnell",
+          "given": "Duncan"
+        },
+        {
+          "family": "Werner",
+          "given": "Annika"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "McDonnell and Werner",
+      "year": 2019,
+      "date": "2019",
+      "container": "",
+      "publisher": "Oxford University Press",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/KUBCVZHC",
+      "abstract": "This opening chapter sets out the book’s key questions: How can we explain the different choices radical right populist parties have made regarding the groups they join in the European Parliament? How have they behaved in the parliament within their groups? How do they use their group identities outside parliament? What do these group choices and actions at European level tell us about the past, present and futures of radical right populists, both domestically and internationally? The chapter then introduces the main concepts used in the book and briefly explains the quantitative and qualitative data used to answer these questions, the outline of chapters and some of the main findings.",
+      "citation": "McDonnell, Duncan, and Annika Werner. 2019. <i>International Populism: The Radical Right in the European Parliament<\/i>. Oxford University Press.",
+      "bibtex": "@book{mcdonnell_international_2019,\n  author = {McDonnell, Duncan and Werner, Annika},\n  title = {International {Populism}: {The} {Radical} {Right} in the {European} {Parliament}},\n  year = {2019},\n  publisher = {Oxford University Press},\n  address = {Oxford}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:international",
+        "topic:parties"
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
       "id": "9PZ933IC",
       "type": "type:article",
       "title": "The Language of Right-Wing Populist Leaders: Not So Simple",
@@ -13590,6 +14497,97 @@
       ],
       "oa": true,
       "added": "2026-10-01T10:52:00Z"
+    },
+    {
+      "id": "DCI79W53",
+      "type": "type:article",
+      "title": "The tea party and American foreign policy: What populism means for globalism",
+      "authors": [
+        {
+          "family": "Mead",
+          "given": "Walter Russell"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Mead",
+      "year": 2011,
+      "date": "2011",
+      "container": "Foreign Affairs",
+      "publisher": "",
+      "volume": "90",
+      "issue": "2",
+      "pages": "28-44",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/DCI79W53",
+      "abstract": "",
+      "citation": "Mead, Walter Russell. 2011. “The Tea Party and American Foreign Policy: What Populism Means for Globalism.” <i>Foreign Affairs<\/i> 90 (2): 28–44.",
+      "bibtex": "@article{mead_tea_2011,\n  author = {Mead, Walter Russell},\n  title = {The tea party and {American} foreign policy: {What} populism means for globalism},\n  journal = {Foreign Affairs},\n  year = {2011},\n  volume = {90},\n  number = {2},\n  pages = {28--44}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:foreign-policy",
+        "topic:parties"
+      ],
+      "region": [
+        "region:north-america"
+      ],
+      "country": [
+        "country:united-states"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
+      "id": "SXT9IRMU",
+      "type": "type:article",
+      "title": "The Jacksonian Revolt. American Populism and the Liberal Order",
+      "authors": [
+        {
+          "family": "Mead",
+          "given": "Walter Russell"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Mead",
+      "year": 2017,
+      "date": "2017",
+      "container": "Foreign Affairs",
+      "publisher": "",
+      "volume": "96",
+      "issue": "2",
+      "pages": "2-7",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/SXT9IRMU",
+      "abstract": "",
+      "citation": "Mead, Walter Russell. 2017. “The Jacksonian Revolt. American Populism and the Liberal Order.” <i>Foreign Affairs<\/i> 96 (2): 2–7.",
+      "bibtex": "@article{mead_jacksonian_2017,\n  author = {Mead, Walter Russell},\n  title = {The {Jacksonian} {Revolt}. {American} {Populism} and the {Liberal} {Order}},\n  journal = {Foreign Affairs},\n  year = {2017},\n  volume = {96},\n  number = {2},\n  pages = {2--7}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:international"
+      ],
+      "region": [
+        "region:north-america"
+      ],
+      "country": [
+        "country:united-states"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
     },
     {
       "id": "6XC9KD2P",
@@ -13870,7 +14868,7 @@
       "doi": "10.1057/9781403920072",
       "url": "https://doi.org/10.1057/9781403920072",
       "zotero": "https://www.zotero.org/groups/populiverse_library/items/DPHAGYES",
-      "abstract": "Populism has become a favourite catchword for mass media and politicians faced with the challenge of protest parties or movements. It has often been equated with radical right leaders or parties. This",
+      "abstract": "",
       "citation": "Mény, Yves, and Yves Surel, eds. 2002. <i>Democracies and the Populist Challenge<\/i>. Palgrave Macmillan UK. https://doi.org/10.1057/9781403920072.",
       "bibtex": "@book{meny_democracies_2002,\n  editor = {Mény, Yves and Surel, Yves},\n  title = {Democracies and the {Populist} {Challenge}},\n  year = {2002},\n  publisher = {Palgrave Macmillan UK},\n  address = {London},\n  isbn = {978-1-349-42911-0 978-1-4039-2007-2},\n  doi = {10.1057/9781403920072}\n}",
       "approach": [
@@ -14315,6 +15313,96 @@
       "added": "2026-10-01T10:52:09Z"
     },
     {
+      "id": "N7C2PXXS",
+      "type": "type:book",
+      "title": "Towards a Green Democratic Revolution – Left Populism and the Power of Affects",
+      "authors": [
+        {
+          "family": "Mouffe",
+          "given": "Chantal"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Mouffe",
+      "year": 2022,
+      "date": "2022",
+      "container": "",
+      "publisher": "Verso",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/N7C2PXXS",
+      "abstract": "",
+      "citation": "Mouffe, Chantal. 2022. <i>Towards a Green Democratic Revolution – Left Populism and the Power of Affects<\/i>. Verso.",
+      "bibtex": "@book{mouffe_towards_2022,\n  author = {Mouffe, Chantal},\n  title = {Towards a {Green} {Democratic} {Revolution} – {Left} {Populism} and the {Power} of {Affects}},\n  year = {2022},\n  publisher = {Verso},\n  address = {London}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
+      "id": "Q84EDT9D",
+      "type": "type:article",
+      "title": "Pitchfork Politics: The Populist Threat to Liberal Democracy",
+      "authors": [
+        {
+          "family": "Mounk",
+          "given": "Yascha"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Mounk",
+      "year": 2014,
+      "date": "2014",
+      "container": "Foreign Affairs",
+      "publisher": "",
+      "volume": "93",
+      "issue": "5",
+      "pages": "27-36",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/Q84EDT9D",
+      "abstract": "",
+      "citation": "Mounk, Yascha. 2014. “Pitchfork Politics: The Populist Threat to Liberal Democracy.” <i>Foreign Affairs<\/i> 93 (5): 27–36.",
+      "bibtex": "@article{mounk_pitchfork_2014,\n  author = {Mounk, Yascha},\n  title = {Pitchfork {Politics}: {The} {Populist} {Threat} to {Liberal} {Democracy}},\n  journal = {Foreign Affairs},\n  year = {2014},\n  volume = {93},\n  number = {5},\n  pages = {27--36}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:democracy-institutions"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
       "id": "AQWCUWD7",
       "type": "type:article",
       "title": "The Populist Zeitgeist",
@@ -14455,6 +15543,51 @@
       "added": "2026-10-01T10:52:11Z"
     },
     {
+      "id": "Z8QIS5FN",
+      "type": "type:article",
+      "title": "Europe’s Populist Surge: A Long Time in the Making",
+      "authors": [
+        {
+          "family": "Mudde",
+          "given": "Cas"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Mudde",
+      "year": 2016,
+      "date": "2016",
+      "container": "Foreign Affairs",
+      "publisher": "",
+      "volume": "95",
+      "issue": "6",
+      "pages": "25-30",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/Z8QIS5FN",
+      "abstract": "",
+      "citation": "Mudde, Cas. 2016. “Europe’s Populist Surge: A Long Time in the Making.” <i>Foreign Affairs<\/i> 95 (6): 25–30.",
+      "bibtex": "@article{mudde_europes_2016,\n  author = {Mudde, Cas},\n  title = {Europe’s {Populist} {Surge}: {A} {Long} {Time} in the {Making}},\n  journal = {Foreign Affairs},\n  year = {2016},\n  volume = {95},\n  number = {6},\n  pages = {25--30}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
       "id": "Q9ERP7FL",
       "type": "type:book",
       "title": "Populism: A Very Short Introduction",
@@ -14548,6 +15681,51 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:52:11Z"
+    },
+    {
+      "id": "NUMXNKRH",
+      "type": "type:article",
+      "title": "How to Think – and Not to Think – about Populism",
+      "authors": [
+        {
+          "family": "Müller",
+          "given": "Jan-Werner"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Müller",
+      "year": 2016,
+      "date": "2016",
+      "container": "Comparative Politics Newsletter",
+      "publisher": "",
+      "volume": "26",
+      "issue": "2",
+      "pages": "58-62",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/NUMXNKRH",
+      "abstract": "",
+      "citation": "Müller, Jan-Werner. 2016. “How to Think – and Not to Think – about Populism.” <i>Comparative Politics Newsletter<\/i> 26 (2): 58–62.",
+      "bibtex": "@article{muller_how_2016,\n  author = {Müller, Jan-Werner},\n  title = {How to {Think} – and {Not} to {Think} – about {Populism}},\n  journal = {Comparative Politics Newsletter},\n  year = {2016},\n  volume = {26},\n  number = {2},\n  pages = {58--62}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
     },
     {
       "id": "23YUXQE2",
@@ -15247,6 +16425,52 @@
       "added": "2026-10-01T10:53:56Z"
     },
     {
+      "id": "Z88VFHEC",
+      "type": "type:book",
+      "title": "Liberal World Order and Its Critics. Civilisational States and Cultural Commonwealths",
+      "authors": [
+        {
+          "family": "Pabst",
+          "given": "Adrian"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Pabst",
+      "year": 2019,
+      "date": "2019",
+      "container": "",
+      "publisher": "Routledge",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/Z88VFHEC",
+      "abstract": "Liberals blame the retreat of the liberal world order on populists at home and authoritarian leaders abroad. Only liberalism, so they claim, can defend the rules-based international system against demagogy, corruption and nationalism. This provocative book contends that the liberal world order is illiberal and undemocratic – intolerant about the cultural values of ordinary people in the West and elsewhere while concentrating power in the hands of unaccountable Western elites and Western-dominated institutions. Under the influence of contemporary liberalism, the international system is fuelling economic injustice, social fragmentation and a worldwide ‘culture war’ between globalists and nativists. Liberals, far from defending rules, have broken international law and imposed their version of market fundamentalism and democracy promotion by military means. Liberal ‘civilisation’ has fuelled resentment across the world by imposing a narrow worldview that pits cultures against one another. To avoid a descent into a violent culture clash, this book proposes radical ideas for international order that take the form of cultural commonwealths – social bonds and cross-border cultural ties on which international trust and cooperation depend. The book’s defence of an older order against both liberals and nationalists will speak to all readers trying to understand our age of anger.",
+      "citation": "Pabst, Adrian. 2019. <i>Liberal World Order and Its Critics. Civilisational States and Cultural Commonwealths<\/i>. Routledge.",
+      "bibtex": "@book{pabst_liberal_2019,\n  author = {Pabst, Adrian},\n  title = {Liberal {World} {Order} and {Its} {Critics}. {Civilisational} {States} and {Cultural} {Commonwealths}},\n  year = {2019},\n  publisher = {Routledge},\n  address = {London}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:international",
+        "topic:democracy-institutions"
+      ],
+      "region": [
+        "region:global"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
       "id": "GWXFE4PZ",
       "type": "type:article",
       "title": "Beyond exit: how populist governments disengage from international institutions",
@@ -15635,55 +16859,6 @@
       "added": "2026-10-01T10:52:27Z"
     },
     {
-      "id": "T8Q2ZF89",
-      "type": "type:article",
-      "title": "Authoritarianism, Fascism, and National Populism.",
-      "authors": [
-        {
-          "family": "Pike",
-          "given": "Fredrick B."
-        },
-        {
-          "family": "Germani",
-          "given": "Gino"
-        }
-      ],
-      "editors": [
-
-      ],
-      "byline": "Pike and Germani",
-      "year": 1980,
-      "date": "1980",
-      "container": "The Hispanic American Historical Review",
-      "publisher": "",
-      "volume": "60",
-      "issue": "1",
-      "pages": "148",
-      "doi": "10.2307/2513934",
-      "url": "https://doi.org/10.2307/2513934",
-      "zotero": "https://www.zotero.org/groups/populiverse_library/items/T8Q2ZF89",
-      "abstract": "",
-      "citation": "Pike, Fredrick B., and Gino Germani. 1980. “Authoritarianism, Fascism, and National Populism.” <i>The Hispanic American Historical Review<\/i> 60 (1): 148. https://doi.org/10.2307/2513934.",
-      "bibtex": "@article{pike_authoritarianism_1980,\n  author = {Pike, Fredrick B. and Germani, Gino},\n  title = {Authoritarianism, {Fascism}, and {National} {Populism}.},\n  journal = {The Hispanic American Historical Review},\n  year = {1980},\n  volume = {60},\n  number = {1},\n  pages = {148},\n  issn = {00182168},\n  doi = {10.2307/2513934}\n}",
-      "approach": [
-
-      ],
-      "topic": [
-        "topic:democracy-institutions"
-      ],
-      "region": [
-
-      ],
-      "country": [
-
-      ],
-      "method": [
-
-      ],
-      "oa": false,
-      "added": "2026-10-01T10:50:33Z"
-    },
-    {
       "id": "BIQHSNGB",
       "type": "type:article",
       "title": "Introduction: the decline of democracy and rise of populism in Europe and their effect on democracy promotion",
@@ -15818,7 +16993,7 @@
       "doi": "10.1017/S1537592721001924",
       "url": "https://doi.org/10.1017/S1537592721001924",
       "zotero": "https://www.zotero.org/groups/populiverse_library/items/MA9GW2BH",
-      "abstract": "In recent years, Central and Eastern Europe have furnished several examples of illiberalism in power. The most prominent and consequential cases are Fidesz, which has ruled in Hungary since 2010, and Law and Justice (PiS), which has ruled in Poland since 2015. In both cases, illiberal governments have embarked upon an extensive project of political reform aimed at dismantling the liberal-democratic order. We examine the nature, scope, and consequences of these processes of autocratisation. We first argue that illiberal changes are ideologically founded and identify how both populism and nativism figure in the policymaking of illiberals in power. We then show how these practices emerge from a common “illiberal playbook”—a paradigm of policy change comprising forms of forging , bending , and breaking —and elaborate on the notion that illiberal governments are using legalism to kill liberalism. The fine-grained approach that we employ allows us to distinguish between different rationales and gradations of illiberal policymaking, and assess their implications for the rule of law, executive power, and civil rights and freedoms",
+      "abstract": "",
       "citation": "Pirro, Andrea L. P., and Ben Stanley. 2022. “Forging, Bending, and Breaking: Enacting the ‘Illiberal Playbook’ in Hungary and Poland.” <i>Perspectives on Politics<\/i> 20 (1): 86–101. https://doi.org/10.1017/S1537592721001924.",
       "bibtex": "@article{pirro_forging_2022,\n  author = {Pirro, Andrea L. P. and Stanley, Ben},\n  title = {Forging, {Bending}, and {Breaking}: {Enacting} the “{Illiberal} {Playbook}” in {Hungary} and {Poland}},\n  journal = {Perspectives on Politics},\n  year = {2022},\n  volume = {20},\n  number = {1},\n  pages = {86--101},\n  issn = {1537-5927, 1541-0986},\n  doi = {10.1017/S1537592721001924}\n}",
       "approach": [
@@ -15999,6 +17174,51 @@
       ],
       "oa": true,
       "added": "2026-10-01T10:52:32Z"
+    },
+    {
+      "id": "8SPNCCTD",
+      "type": "type:article",
+      "title": "Populism, Pluralism, and Liberal Democracy",
+      "authors": [
+        {
+          "family": "Plattner",
+          "given": "Marc F."
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Plattner",
+      "year": 2010,
+      "date": "2010",
+      "container": "Journal of Democracy",
+      "publisher": "",
+      "volume": "21",
+      "issue": "1",
+      "pages": "81-92",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/8SPNCCTD",
+      "abstract": "",
+      "citation": "Plattner, Marc F. 2010. “Populism, Pluralism, and Liberal Democracy.” <i>Journal of Democracy<\/i> 21 (1): 81–92.",
+      "bibtex": "@article{plattner_populism_2010,\n  author = {Plattner, Marc F.},\n  title = {Populism, {Pluralism}, and {Liberal} {Democracy}},\n  journal = {Journal of Democracy},\n  year = {2010},\n  volume = {21},\n  number = {1},\n  pages = {81--92}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:democracy-institutions"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
     },
     {
       "id": "HBN2D9SP",
@@ -16278,7 +17498,7 @@
       "doi": "10.2307/20433986",
       "url": "https://doi.org/10.2307/20433986",
       "zotero": "https://www.zotero.org/groups/populiverse_library/items/RWYD6ALW",
-      "abstract": "Populism remains a widely used but heavily contested concept in the field of com parative politics. It is especially controversial in the study of Latin America, where debates continue over its definitional attributes and empirical referents.' In recent years some scholars have emphasized the intrinsically political character of pop ulism, distancing the concept from any particular stage or model of economic devel opment while arguing that it is compatible with both state-led import substitution industrialization and market-oriented neoliberalism.2 Others have upheld more tradi tional, multidimensional conceptionalizations and questioned the applicability of the term to neoliberal political contexts with relatively low levels of social mobilization.3 In general, however, the debate over the political and economic corre lates of populism has paid insufficient attention to the phenomenon's variable orga nizational expressions. What makes populism so difficult to define, both conceptual ly and empirically, is in part its organizational malleability and association with diverse patterns of sociopolitical mobilization. Even with a reductionist political definition, under which the essential core of populism is understood to be the political mobilization of mass constituencies by personalistic leaders who challenge established elites, a broad range of organization al outcomes fit under the rubric of populism. Whereas some populist leaders opt for direct, noninstitutionalized, and unmediated relationships with unorganized follow ers, others have constructed formidable party organizations to encapsulate and disci pline adherents. Still others have deigned to institutionalize their party organs but devoted considerable energy to the development of civic associations such as labor and, in some cases, peasant unions. Some have built encapsulating organizations in both partisan and civic arenas. Furthermore, where populists have seriously engaged in building organizations, they have relied on several different types of linkage mechanisms to secure their mass constituencies. In some cases corporatist bonds to horizontally organized, class-based constituencies have been forged, while in others vertically organized networks of patrons and clients predominate. As these two modes of social linkage are hardly mutually exclusive, some populist figures have successfully welded them together within the same movement or party.4 Given this organizational variation, the support of unorganized masses can not be a definitional",
+      "abstract": "",
       "citation": "Roberts, Kenneth M. 2006. “Populism, Political Conflict, and Grass-Roots Organization in Latin America.” <i>Comparative Politics<\/i> 38 (2): 127. https://doi.org/10.2307/20433986.",
       "bibtex": "@article{roberts_populism_2006,\n  author = {Roberts, Kenneth M.},\n  title = {Populism, {Political} {Conflict}, and {Grass}-{Roots} {Organization} in {Latin} {America}},\n  journal = {Comparative Politics},\n  year = {2006},\n  volume = {38},\n  number = {2},\n  pages = {127},\n  issn = {00104159},\n  doi = {10.2307/20433986}\n}",
       "approach": [
@@ -16998,6 +18218,55 @@
       "added": "2026-10-01T10:52:56Z"
     },
     {
+      "id": "5N89R8ED",
+      "type": "type:book",
+      "title": "The Democratic Regression: The Political Causes of Authoritarian Populism",
+      "authors": [
+        {
+          "family": "Schäfer",
+          "given": "Armin"
+        },
+        {
+          "family": "Zürn",
+          "given": "Michael"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Schäfer and Zürn",
+      "year": 2023,
+      "date": "2023",
+      "container": "",
+      "publisher": "John Wiley & Sons",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/5N89R8ED",
+      "abstract": "",
+      "citation": "Schäfer, Armin, and Michael Zürn. 2023. <i>The Democratic Regression: The Political Causes of Authoritarian Populism<\/i>. John Wiley &amp; Sons.",
+      "bibtex": "@book{schafer_democratic_2023,\n  author = {Schäfer, Armin and Zürn, Michael},\n  title = {The {Democratic} {Regression}: {The} {Political} {Causes} of {Authoritarian} {Populism}},\n  year = {2023},\n  publisher = {John Wiley \\& Sons},\n  address = {Oxford}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:democracy-institutions"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+        "method:quantitative"
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
       "id": "D33DIKYN",
       "type": "type:book",
       "title": "The New Nationalism in America and Beyond: The Deep Roots of Ethnic Nationalism in the Digital Age",
@@ -17049,6 +18318,104 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:52:57Z"
+    },
+    {
+      "id": "TV7UTZSU",
+      "type": "type:article",
+      "title": "The Nation is not Enough: A Post-Structural Discourse Analysis of Greta Thunberg’s Global Populism",
+      "authors": [
+        {
+          "family": "Schmidt",
+          "given": "Dominik"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Schmidt",
+      "year": 2021,
+      "date": "2021",
+      "container": "The Interdisciplinary Journal of Populism",
+      "publisher": "",
+      "volume": "1",
+      "issue": "2",
+      "pages": "58-83",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/TV7UTZSU",
+      "abstract": "",
+      "citation": "Schmidt, Dominik. 2021. “The Nation Is Not Enough: A Post-Structural Discourse Analysis of Greta Thunberg’s Global Populism.” <i>The Interdisciplinary Journal of Populism<\/i> 1 (2): 58–83.",
+      "bibtex": "@article{schmidt_nation_2021,\n  author = {Schmidt, Dominik},\n  title = {The {Nation} is not {Enough}: {A} {Post}-{Structural} {Discourse} {Analysis} of {Greta} {Thunberg}’s {Global} {Populism}},\n  journal = {The Interdisciplinary Journal of Populism},\n  year = {2021},\n  volume = {1},\n  number = {2},\n  pages = {58--83}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:global"
+      ],
+      "country": [
+
+      ],
+      "method": [
+        "method:qualitative"
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:29:59Z"
+    },
+    {
+      "id": "5Z36NCWH",
+      "type": "type:book",
+      "title": "Populism and postcolonialism",
+      "authors": [
+
+      ],
+      "editors": [
+        {
+          "family": "Scribano",
+          "given": "Adrián"
+        },
+        {
+          "family": "Korstanje",
+          "given": "Maximiliano"
+        },
+        {
+          "family": "Timmermann",
+          "given": "Freddy"
+        }
+      ],
+      "byline": "Scribano et al.",
+      "year": 2020,
+      "date": "2020",
+      "container": "",
+      "publisher": "Routledge",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/5Z36NCWH",
+      "abstract": "",
+      "citation": "Scribano, Adrián, Maximiliano Korstanje, and Freddy Timmermann, eds. 2020. <i>Populism and Postcolonialism<\/i>. Routledge.",
+      "bibtex": "@book{scribano_populism_2020,\n  editor = {Scribano, Adrián and Korstanje, Maximiliano and Timmermann, Freddy},\n  title = {Populism and postcolonialism},\n  year = {2020},\n  publisher = {Routledge},\n  address = {London}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:30:00Z"
     },
     {
       "id": "VFT92VPX",
@@ -17897,6 +19264,96 @@
       "added": "2026-10-01T10:53:10Z"
     },
     {
+      "id": "PK6JAFGS",
+      "type": "type:book",
+      "title": "The New Populism and the New Politics",
+      "authors": [
+        {
+          "family": "Taggart",
+          "given": "Paul"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Taggart",
+      "year": 1995,
+      "date": "1995",
+      "container": "",
+      "publisher": "Palgrave Macmillan",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/PK6JAFGS",
+      "abstract": "The suggestion that West European countries are still confronting the ‘frozen’ party systems of the 1920s seemed somewhat tenable in the 1960s when it was first postulated (Lipset and Rokkan, 1967). Since that decade, the rise of the new social movements, the new left, the New Politics, the new right and the decline of old voting patterns, old class constellations and even old political systems, renders such suggestions less sustainable. Given the history of the last three decades this is hardly surprising. These keywords were added by machine and not by the authors. This process is experimental and the keywords may be updated as the learning algorithm improves.",
+      "citation": "Taggart, Paul. 1995. <i>The New Populism and the New Politics<\/i>. Palgrave Macmillan.",
+      "bibtex": "@book{taggart_new_1995,\n  author = {Taggart, Paul},\n  title = {The {New} {Populism} and the {New} {Politics}},\n  year = {1995},\n  publisher = {Palgrave Macmillan},\n  address = {London}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:parties"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:30:01Z"
+    },
+    {
+      "id": "5QU9M95Z",
+      "type": "type:book",
+      "title": "Populism",
+      "authors": [
+        {
+          "family": "Taggart",
+          "given": "Paul"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Taggart",
+      "year": 2000,
+      "date": "2000",
+      "container": "",
+      "publisher": "Open University Press",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/5QU9M95Z",
+      "abstract": "",
+      "citation": "Taggart, Paul. 2000. <i>Populism<\/i>. Open University Press.",
+      "bibtex": "@book{taggart_populism_2000,\n  author = {Taggart, Paul},\n  title = {Populism},\n  year = {2000},\n  publisher = {Open University Press},\n  address = {Buckingham}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:30:01Z"
+    },
+    {
       "id": "36QAD7PZ",
       "type": "type:article",
       "title": "Populism and representative politics in contemporary Europe",
@@ -17965,7 +19422,7 @@
       "doi": "10.3817/0395103009",
       "url": "https://doi.org/10.3817/0395103009",
       "zotero": "https://www.zotero.org/groups/populiverse_library/items/IZA9SFF8",
-      "abstract": "Introducción: ¿la nueva era del populismo?El «populismo» es, indudablemente, uno de los conceptos más controvertidos en la literatura académica de los últimos años y ha llegado incluso a ser moneda corriente en los debates políticos y los medios de comunicación (Laclau, 2005 y 2010; Mouffe y Errejón, 2015; Errejón y Serrano,",
+      "abstract": "",
       "citation": "Taguieff, P. A. 1995. “Political Science Confronts Populism: From a Conceptual Mirage to a Real Problem.” <i>Telos<\/i> 1995 (103): 9–43. https://doi.org/10.3817/0395103009.",
       "bibtex": "@article{taguieff_political_1995,\n  author = {Taguieff, P.-A.},\n  title = {Political {Science} {Confronts} {Populism}: {From} a {Conceptual} {Mirage} to a {Real} {Problem}},\n  journal = {Telos},\n  year = {1995},\n  volume = {1995},\n  number = {103},\n  pages = {9--43},\n  issn = {0090-6514, 1940-459X},\n  doi = {10.3817/0395103009}\n}",
       "approach": [
@@ -18264,6 +19721,52 @@
       "added": "2026-10-01T10:53:18Z"
     },
     {
+      "id": "BZV7HZNZ",
+      "type": "type:article",
+      "title": "Hegemony, Populism and Democracy: Laclau and Mouffe Today (Review Article)",
+      "authors": [
+        {
+          "family": "Thomassen",
+          "given": "Lasse"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Thomassen",
+      "year": 2016,
+      "date": "2016",
+      "container": "Revista Española de Ciencia Política",
+      "publisher": "",
+      "volume": "40",
+      "issue": "",
+      "pages": "161-76",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/BZV7HZNZ",
+      "abstract": "This review article takes the publication of four new volumes by, and on, Ernesto Laclau and Chantal Mouffe as an opportunity to revisit their work and consider its contemporary relevance. After introducing the four volumes, I explain how Laclau and Mouffe’s work has developed since Hegemony and Socialist Strategy, highlighting three key developments: the incorporation of psychoanalysis, rhetoric and passions. Having done so, I turn to consider Laclau’s and Mouffe’s respective works on populism, connecting these to the emergence of left-wing populism in Europe today, with particular attention to the case of Podemos. Given the relevance of Laclau’s and Mouffe’s works for contemporary left populism, I show how the key elements from their theory on hegemony inform their argument that populist discourse is a fruitful strategy for the left today. It is because identities are contingent that a progressive collective will does not need to be articulated around class, but can be articulated around the figure of “the people”. Moreover, since rhetoric, antagonism and passions are inherent to politics, populism is not necessarily opposed to democracy, but can be articulated in a way so as to reinvigorate democratic politics.",
+      "citation": "Thomassen, Lasse. 2016. “Hegemony, Populism and Democracy: Laclau and Mouffe Today (Review Article).” <i>Revista Española de Ciencia Política<\/i> 40: 161–76.",
+      "bibtex": "@article{thomassen_hegemony_2016,\n  author = {Thomassen, Lasse},\n  title = {Hegemony, {Populism} and {Democracy}: {Laclau} and {Mouffe} {Today} ({Review} {Article})},\n  journal = {Revista Española de Ciencia Política},\n  year = {2016},\n  volume = {40},\n  pages = {161--76}\n}",
+      "approach": [
+        "approach:discursive"
+      ],
+      "topic": [
+        "topic:media-communication",
+        "topic:democracy-institutions"
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": true,
+      "added": "2026-10-01T14:30:01Z"
+    },
+    {
       "id": "49YPME55",
       "type": "type:article",
       "title": "Moderate in power, populist in opposition? Die Linke’s populist communication in the German states",
@@ -18402,6 +19905,48 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:53:20Z"
+    },
+    {
+      "id": "US34BA6V",
+      "type": "type:article",
+      "title": "To define populism",
+      "authors": [
+
+      ],
+      "editors": [
+
+      ],
+      "byline": "",
+      "year": 1968,
+      "date": "1968-04-01",
+      "container": "Government and Opposition",
+      "publisher": "",
+      "volume": "3",
+      "issue": "2",
+      "pages": "137-180",
+      "doi": "10.1111/j.1477-7053.1968.tb01332.x",
+      "url": "https://doi.org/10.1111/j.1477-7053.1968.tb01332.x",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/US34BA6V",
+      "abstract": "",
+      "citation": "“To Define Populism.” 1968. <i>Government and Opposition<\/i> 3 (2): 137–80. https://doi.org/10.1111/j.1477-7053.1968.tb01332.x.",
+      "bibtex": "@article{noauthor_define_1968,\n  title = {To define populism},\n  journal = {Government and Opposition},\n  year = {1968},\n  volume = {3},\n  number = {2},\n  pages = {137--180},\n  issn = {0017-257X, 1477-7053},\n  doi = {10.1111/j.1477-7053.1968.tb01332.x}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:28:31Z"
     },
     {
       "id": "Y6FF7IF3",
@@ -18590,6 +20135,51 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:53:22Z"
+    },
+    {
+      "id": "RMUR5I2M",
+      "type": "type:book",
+      "title": "Me the People: How Populism Transforms Democracy",
+      "authors": [
+        {
+          "family": "Urbinati",
+          "given": "Nadia"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Urbinati",
+      "year": 2019,
+      "date": "2019",
+      "container": "",
+      "publisher": "Harvard University Press",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/RMUR5I2M",
+      "abstract": "",
+      "citation": "Urbinati, Nadia. 2019. <i>Me the People: How Populism Transforms Democracy<\/i>. Harvard University Press.",
+      "bibtex": "@book{urbinati_me_2019,\n  author = {Urbinati, Nadia},\n  title = {Me the {People}: {How} {Populism} {Transforms} {Democracy}},\n  year = {2019},\n  publisher = {Harvard University Press},\n  address = {Cambridge}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:30:01Z"
     },
     {
       "id": "6RRWII2R",
@@ -19439,55 +21029,6 @@
       "added": "2026-10-01T10:53:34Z"
     },
     {
-      "id": "W33MVSEJ",
-      "type": "type:article",
-      "title": "The Populist Persuasion: An American History.",
-      "authors": [
-        {
-          "family": "Webb",
-          "given": "Samuel L."
-        },
-        {
-          "family": "Kazin",
-          "given": "Michael"
-        }
-      ],
-      "editors": [
-
-      ],
-      "byline": "Webb and Kazin",
-      "year": 1997,
-      "date": "1997",
-      "container": "The Journal of Southern History",
-      "publisher": "",
-      "volume": "63",
-      "issue": "2",
-      "pages": "428",
-      "doi": "10.2307/2211330",
-      "url": "https://doi.org/10.2307/2211330",
-      "zotero": "https://www.zotero.org/groups/populiverse_library/items/W33MVSEJ",
-      "abstract": "",
-      "citation": "Webb, Samuel L., and Michael Kazin. 1997. “The Populist Persuasion: An American History.” <i>The Journal of Southern History<\/i> 63 (2): 428. https://doi.org/10.2307/2211330.",
-      "bibtex": "@article{webb_populist_1997,\n  author = {Webb, Samuel L. and Kazin, Michael},\n  title = {The {Populist} {Persuasion}: {An} {American} {History}.},\n  journal = {The Journal of Southern History},\n  year = {1997},\n  volume = {63},\n  number = {2},\n  pages = {428},\n  issn = {00224642},\n  doi = {10.2307/2211330}\n}",
-      "approach": [
-
-      ],
-      "topic": [
-
-      ],
-      "region": [
-
-      ],
-      "country": [
-
-      ],
-      "method": [
-
-      ],
-      "oa": false,
-      "added": "2026-10-01T10:51:15Z"
-    },
-    {
       "id": "BK9N62MQ",
       "type": "type:article",
       "title": "The nexus of populism and foreign policy: The case of Latin America",
@@ -19657,7 +21198,7 @@
       "doi": "10.2307/422236",
       "url": "https://doi.org/10.2307/422236",
       "zotero": "https://www.zotero.org/groups/populiverse_library/items/JN364XFD",
-      "abstract": "How do democracies enact drastic market reforms that impose considerable shortterm costs on large sectors of the population? What tactics do political leaders use to make such painful measures, which could trigger unrest and endanger democratic stability, politically viable? In addressing these important questions, some authors have resorted to the concept of populism. Roberts and Weyland have claimed an unexpected compatibility of populist politics and neoliberal economics in contemporary Latin America.' Presidents Alberto Fujimori in Peru, Carlos Menem in Argentina, and Fernando Collor in Brazil won elections through populist tactics, enacted drastic market reforms upon taking office, and often managed to maintain popular support. Despite the great hardships of structural adjustment, neoliberal populists Fujimori and Menem won democratic reelection. This combination of political populism and economic liberalism challenges established theories of populism. Scholars used to associate populism with nationalist, inward-looking economic policies, which flourished during the easy stage of import-substitution industrialization from the 1930s to 1950s. Yet the resurgence of populism in the 1980s contradicted this argument, and the recent coincidence of political populism and economic liberalism has discredited it further. Also applying a substantive, policy-oriented notion of populism, liberal economists drew a stark contrast to economic populism, which they identified with excessive government spending and other irresponsible, inflationary policies.2 The adoption of market reforms by populist leaders casts doubt on these arguments as well. The recent connection of populism and neoliberalism thus calls for a theoretical reconsideration. The hypothesized compatibility of political populism and economic liberalismthe possibility, but not necessity, of their coexistence-is also of great practical relevance. The political success of Fujimori and Menem suggests that populist leaders can enact drastic adjustment without provoking massive unrest. Thus, authoritarian rule is not required for imposing painful reforms.3 Contrary to previous pessimistic arguments, democracy and market-oriented change are compatible. Yet, while populists can enact neoliberal reforms under democracy, it is doubtful whether they will institutionalize the new market model. Populist leaders are reluctant to limit their personal latitude by creating firm institutions. They may refuse to",
+      "abstract": "",
       "citation": "Weyland, Kurt. 1999. “Neoliberal Populism in Latin America and Eastern Europe.” <i>Comparative Politics<\/i> 31 (4): 379. https://doi.org/10.2307/422236.",
       "bibtex": "@article{weyland_neoliberal_1999,\n  author = {Weyland, Kurt},\n  title = {Neoliberal {Populism} in {Latin} {America} and {Eastern} {Europe}},\n  journal = {Comparative Politics},\n  year = {1999},\n  volume = {31},\n  number = {4},\n  pages = {379},\n  issn = {00104159},\n  doi = {10.2307/422236}\n}",
       "approach": [
@@ -19840,7 +21381,7 @@
       "doi": "10.4135/9781446270073",
       "url": "https://doi.org/10.4135/9781446270073",
       "zotero": "https://www.zotero.org/groups/populiverse_library/items/N7S5UTFT",
-      "abstract": "Chapter 1: Populism and Politics: Transgressing Norms and Taboos Chapter 2: Theories and Definitions: The Politics of Identity Chapter 3: Protecting Borders and the People: The Politics of Exclusion Chapter 4: Language and Identity: The Politics of Nationalism Chapter 5: Antisemitism: The Politics of Denial Chapter 6: Performance and the Media: The Politics of Charisma Chapter 7: Gender and the Body Politic: The Politics of Patriarchy Chapter 8: Mainstreaming: The Normalization of Exclusion",
+      "abstract": "",
       "citation": "Wodak, Ruth. 2015. <i>The Politics of Fear: What Right-Wing Populist Discourses Mean<\/i>. SAGE Publications Ltd. https://doi.org/10.4135/9781446270073.",
       "bibtex": "@book{wodak_politics_2015,\n  author = {Wodak, Ruth},\n  title = {The {Politics} of {Fear}: {What} {Right}-{Wing} {Populist} {Discourses} {Mean}},\n  year = {2015},\n  publisher = {SAGE Publications Ltd},\n  address = {1 Oliver’s Yard, 55 City Road London EC1Y 1SP},\n  isbn = {978-1-4462-4700-6 978-1-4462-7007-3},\n  doi = {10.4135/9781446270073}\n}",
       "approach": [
@@ -20139,6 +21680,51 @@
       "added": "2026-10-01T10:53:44Z"
     },
     {
+      "id": "A4VJG7SW",
+      "type": "type:article",
+      "title": "Mourning Populism: The Case of Poland",
+      "authors": [
+        {
+          "family": "Wróbel",
+          "given": "Szymon"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Wróbel",
+      "year": 2011,
+      "date": "2011",
+      "container": "Polish Sociological Review",
+      "publisher": "",
+      "volume": "176",
+      "issue": "4",
+      "pages": "437-456",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/A4VJG7SW",
+      "abstract": "",
+      "citation": "Wróbel, Szymon. 2011. “Mourning Populism: The Case of Poland.” <i>Polish Sociological Review<\/i> 176 (4): 437–56.",
+      "bibtex": "@article{wrobel_mourning_2011,\n  author = {Wróbel, Szymon},\n  title = {Mourning {Populism}: {The} {Case} of {Poland}},\n  journal = {Polish Sociological Review},\n  year = {2011},\n  volume = {176},\n  number = {4},\n  pages = {437--456}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+        "country:poland"
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:30:01Z"
+    },
+    {
       "id": "PE7AHDV9",
       "type": "type:article",
       "title": "Fuzzy Borders between Populism and Sacralized Politics: Mission, Leader, Community and Performance in ‘New’ Turkey",
@@ -20279,6 +21865,55 @@
       ],
       "oa": true,
       "added": "2026-10-01T10:53:46Z"
+    },
+    {
+      "id": "66I3XVIH",
+      "type": "type:book",
+      "title": "Religions and the Global Rise of Civilizational Populism",
+      "authors": [
+        {
+          "family": "Yilmaz",
+          "given": "Ihsan"
+        },
+        {
+          "family": "Morieson",
+          "given": "Nicholas"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Yilmaz and Morieson",
+      "year": 2023,
+      "date": "2023",
+      "container": "",
+      "publisher": "Springer Nature Singapore",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/66I3XVIH",
+      "abstract": "",
+      "citation": "Yilmaz, Ihsan, and Nicholas Morieson. 2023. <i>Religions and the Global Rise of Civilizational Populism<\/i>. Springer Nature Singapore.",
+      "bibtex": "@book{yilmaz_religions_2023,\n  author = {Yilmaz, Ihsan and Morieson, Nicholas},\n  title = {Religions and the {Global} {Rise} of {Civilizational} {Populism}},\n  year = {2023},\n  publisher = {Springer Nature Singapore},\n  address = {Singapore}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:religion"
+      ],
+      "region": [
+        "region:global"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T14:30:01Z"
     },
     {
       "id": "5Z6WDL7Z",
