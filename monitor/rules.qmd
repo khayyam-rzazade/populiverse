@@ -1,0 +1,201 @@
+---
+title: "How the Monitor is made"
+description: "The rules of PopuliVerse Monitor: who is covered, what counts as news, where the news comes from and how an issue is written."
+# This page holds the rules of the Monitor. It is not an issue, so the issue settings are switched off here.
+google-scholar: false
+citation: false
+toc: true
+---
+
+<!-- EVERY CHANGE TO THE RULES: raise the version number and the date in the line below, and add an entry under "Changes to these rules" at the end of the page. -->
+
+::: {.pv-label}
+Rules, version 1.0 · 1 October 2026
+:::
+
+These are the rules of [PopuliVerse Monitor](index.qmd). They were set before the first issue, so that every reader knows what to expect. Each issue says which version of the rules it follows. Every change is listed [at the end of this page](#changes).
+
+## What the Monitor is
+
+The Monitor is a monthly digest of what populist actors did around the world. It is for readers who do not follow the news every day and still want a reliable picture.
+
+The Monitor describes. It does not analyse, judge or predict. You can understand each event from the issue itself. The links are there as proof.
+
+Populism is the object of study, never the target.
+
+## What is in an issue
+
+1. **The month in brief.** A short general picture of the month.
+2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. Each region has about four full items and a few one-line entries. If nothing in a region met the rules, the issue says so. A region is never padded.
+3. **New research.** The works added to the [Library](../library/index.qmd) that month. The list is made automatically.
+
+An issue has 15 pages at most.
+
+## Who counts as a populist actor {#who}
+
+The Monitor does not decide who is populist. Research does.
+
+An actor is covered when an academic dataset classifies it as populist. The datasets are:
+
+- **The PopuList**, version 4.0. It classifies parties in 31 European countries (Rooduijn et al. 2024).
+- **The Global Populism Database**, version 2. It measures populism in the speeches of presidents and prime ministers in 74 countries (Hawkins et al. 2019).
+
+Another dataset is added to this list first, then used.
+
+The datasets have gaps. Outside Europe, the Global Populism Database covers presidents and prime ministers only, and its speeches end in 2022. So there is one more rule. An actor that is in no dataset is covered only when a peer-reviewed publication classifies it as populist. The reference is printed next to the name.
+
+The Monitor follows actors that sit in a national parliament or in government.
+
+::: {.pv-pending}
+The list of actors is being built. It will stand here before the first issue, with the dataset or the publication behind each name.
+:::
+
+## What counts as news {#news}
+
+Actions, not words.
+
+The Monitor reports what populist actors did: elections; entering or leaving government; laws; foreign and defence policy moves; court rulings; party splits; changes of leader.
+
+It does not report polls. It does not report social media posts.
+
+## Where the news comes from {#sources}
+
+The Monitor uses a fixed list of sources. A source that is not on the list is not used. A new source is added to the list first, with the reason, then used.
+
+The Monitor does not claim that its sources are neutral. Nobody can prove that. It shows which sources it uses, why it uses them and where their limits are.
+
+### News agencies
+
+News agencies sell their reports to media on every side of politics. Their job is to report, not to comment. An agency is on the list when it meets two conditions:
+
+- It has a service in English.
+- It is owned by media companies, by a cooperative or by a not-for-profit body, not by a state.
+
+The list has nine agencies.
+
+Reuters
+: Owned by Thomson Reuters. Bound since 1941 by the Trust Principles: independence, integrity and freedom from bias. Used for all regions.
+
+Associated Press (AP)
+: A not-for-profit cooperative of news organisations in the United States. Used for all regions.
+
+Agence France-Presse (AFP)
+: Independent by a French law of 1957. Part of its income comes from the French state. For that reason AFP is never the Monitor's only source on French politics. Used for all regions.
+
+Deutsche Presse-Agentur (dpa)
+: Owned by about 170 German media companies. Used for Germany.
+
+ANSA
+: A cooperative of Italian newspaper publishers. Used for Italy.
+
+PA Media
+: A private company. Most of its shareholders are British newspaper publishers. Used for the United Kingdom and Ireland.
+
+Press Trust of India (PTI)
+: A non-profit cooperative of Indian newspapers. Used for India.
+
+Kyodo News
+: A non-profit cooperative of Japanese newspapers and the broadcaster NHK. Used for Japan.
+
+Australian Associated Press (AAP)
+: A not-for-profit body with no shareholders. Used for Australia.
+
+A national agency is used for its own country. For foreign news, national agencies often pass on the reports of the three global agencies. Two reports count as two sources only when each agency did its own reporting.
+
+Agencies owned by a state are not on the list. For any source with a link to a state, the Monitor consults the State Media Monitor, a research dataset that classifies state and public media by their independence (Dragomir 2025).
+
+### One specialist source for the European Union
+
+Populist parties also act in the institutions of the European Union. The agencies report little on them. For these institutions only, the Monitor also uses **Politico Europe**.
+
+Politico Europe is not a news agency. It mixes news with analysis. It belongs to Axel Springer, a German media company that states political values of its own. So two limits apply:
+
+- The Monitor takes facts from it: votes, decisions, dates. It does not take its analysis.
+- It is never the only source. It stands next to an agency or the official record of the institution.
+
+### Regional sources
+
+In Latin America, Sub-Saharan Africa and the Middle East and North Africa, most news agencies are run by the state. The Monitor found none that meets the two conditions above and covers its region widely in English. For these regions it adds news organisations based in the region. Each one meets four conditions:
+
+- It is based in the region.
+- It is not owned by a state or a party.
+- It reports news and has published standards.
+- It publishes in English.
+
+There are at most three for each region. Where the country is covered, the trust scores of the Digital News Report are the outside yardstick (Reuters Institute 2026). Owners change, so every regional source is checked again each year.
+
+A full item on these regions rests on one agency and, where one reported the event, one source from the region.
+
+::: {.pv-pending}
+The regional sources are being checked one by one. They will be named here before the first issue.
+:::
+
+### Official records
+
+For results and texts the Monitor also uses official records: election results, court rulings, laws and the records of the European Union's institutions.
+
+### How the sources are used
+
+- Only news reports are used. Opinion pieces are not.
+- A full item rests on two sources where it matters.
+- A contested fact is attributed to the side that states it. It needs two sources.
+- Each item is written around the event, in the Monitor's own words. Quotations are short.
+- Every item links to its sources. The PDF prints them too, because links die.
+- Some reports sit behind a paywall. The editor reads them through a subscription or a library. Where possible, such a report stands next to one that is free to read.
+
+## How an issue is made {#making}
+
+1. **Every week** the listed sources are searched for news on the listed actors. The editor goes through the reports. He cuts and adds.
+2. **For each event** a short note is kept: the date, the country, the actor, what happened and the sources.
+3. **The month closes on its last day.** The issue is written once, in the week that follows. So it reports how each story stood at the end of the month.
+4. **The issue comes out** about a week after the month closes.
+
+### What the AI does and what the editor does
+
+PopuliVerse uses an AI assistant, Claude. It searches the listed sources, keeps the notes and drafts the text. It writes only from the reports that the editor has approved. It adds nothing from its own memory.
+
+The editor chooses the items, edits every word and checks every link. He is responsible for everything that is published. See the [editorial policy](../about/editorial-policy.qmd).
+
+## How it is written {#language}
+
+- Short sentences, with one idea in each.
+- Plain words. A special term is explained once.
+- Who did what, when and where, with exact names, dates and numbers.
+- No judging adjectives and no predictions.
+- Every full item in the same order: what happened, the background, what comes next.
+- British spelling.
+
+## From the news back to research {#research}
+
+Every item carries the same topic and country tags as the [Library](../library/index.qmd). A link under the item, "Research on this", opens the Library with those tags. So each piece of news leads to the research on the same topic and country.
+
+## Limits {#limits}
+
+The Monitor cannot do everything. These are its known limits.
+
+- **A Western core.** Reuters, AP and AFP are based in Europe and North America. Outside Europe and the Asia-Pacific region they carry most of the items.
+- **English only.** All sources are in English. Events reported only in other languages can be missed. Latin America and French-speaking Africa lose most.
+- **The datasets lag.** A new party or leader enters the datasets late. The Monitor does not cover an actor until research classifies it.
+- **Big events are reported better than small ones.** A small party in a small country can be missed.
+- **Selection.** About four full items for each region is a choice. The rules guide the choice. They do not remove it.
+
+## Corrections and replies
+
+A published PDF is never changed silently. Corrections and the right of reply follow the [editorial policy](../about/editorial-policy.qmd).
+
+## Changes to these rules {#changes}
+
+Version 1.0, 1 October 2026
+: The first version, set before the first issue.
+
+## References
+
+Dragomir, Marius. 2025. *State Media Monitor Global Dataset 2025*. Media and Journalism Research Center. Zenodo. [DOI: 10.5281/zenodo.17219015](https://doi.org/10.5281/zenodo.17219015).
+
+Hawkins, Kirk A., Rosario Aguilar, Bruno Castanho Silva, Erin K. Jenne, Bojana Kocijan, and Cristóbal Rovira Kaltwasser. 2019. "Global Populism Database." Version 2. Harvard Dataverse. [DOI: 10.7910/DVN/LFTQEZ](https://doi.org/10.7910/DVN/LFTQEZ).
+
+Reuters Institute for the Study of Journalism. 2026. [*Digital News Report 2026*](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026). University of Oxford.
+
+Rooduijn, Matthijs, Andrea L. P. Pirro, Daphne Halikiopoulou, Caterina Froio, Stijn van Kessel, Sarah L. de Lange, Cas Mudde, and Paul Taggart. 2024. "The PopuList: A Database of Populist, Far-Left, and Far-Right Parties Using Expert-Informed Qualitative Comparative Classification (EiQCC)." *British Journal of Political Science* 54 (3): 969–78. [DOI: 10.1017/S0007123423000431](https://doi.org/10.1017/S0007123423000431).
+
+The PopuList. 2026. Version 4.0. [popu-list.org](https://popu-list.org).

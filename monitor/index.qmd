@@ -14,7 +14,7 @@ listing:
   date-format: "MMMM YYYY"
 ---
 
-The Monitor is a monthly issue on what populist actors did around the world. It is neutral, analytical and sourced. Populism is the object of study, never the target.
+The Monitor is a monthly digest of what populist actors did around the world. It is for readers who do not follow the news every day and still want a reliable picture. It describes what happened. It does not analyse or judge. Every item links to its sources. Populism is the object of study, never the target.
 
 ## Issues
 
@@ -27,11 +27,23 @@ The first issue, 2027/1, is planned for January 2027.
 
 ## What is in an issue
 
-1. **Editor's note.** The month's main story.
-2. **Around the world.** Six regional roundups: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa.
-3. **In focus.** One theme a month: an election, populists in government, a foreign or defence policy move.
-4. **New research.** Papers added to the [Library](../library/index.qmd) that month.
-5. **Coming up.** Elections, conferences and calls for papers in the next two months.
+1. **The month in brief.** A short general picture of the month.
+2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. Each region has about four full items and a few one-line entries. A full item says what happened, gives the background and says what comes next.
+3. **New research.** The works added to the [Library](../library/index.qmd) that month.
+
+An issue has 15 pages at most. You can understand each event from the issue itself. The links are there as proof.
+
+## How it is made
+
+The Monitor follows written rules. They were set before the first issue.
+
+- **Who is covered.** Actors that academic datasets classify as populist.
+- **What counts as news.** What these actors did, not what they said: elections, governments, laws, court rulings.
+- **Where the news comes from.** A fixed list of sources: nine news agencies, one specialist outlet for the European Union, regional sources and official records.
+- **How it is written.** From the reports only, in plain words, without judgement.
+- **Who does what.** An AI assistant searches and drafts. The editor chooses the items, edits every word and checks every link.
+
+[Read the rules in full](rules.qmd)
 
 ## Web page and PDF
 
