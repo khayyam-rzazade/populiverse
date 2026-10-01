@@ -5,8 +5,8 @@
     "group": 6697881,
     "citation_style": "chicago-author-date",
     "taxonomy_version": 2,
-    "count": 604,
-    "updated": "2026-10-01T16:00:04Z"
+    "count": 605,
+    "updated": "2026-10-01T16:56:56Z"
   },
   "taxonomy": {
     "approach": {
@@ -6026,6 +6026,55 @@
       ],
       "oa": true,
       "added": "2026-10-01T10:49:19Z"
+    },
+    {
+      "id": "V9ZB2ZXZ",
+      "type": "type:article",
+      "title": "Setting the scene: Filling the Gaps in Populism Studies",
+      "authors": [
+        {
+          "family": "Caiani",
+          "given": "Manuela"
+        },
+        {
+          "family": "Padoan",
+          "given": "Enrico"
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Caiani and Padoan",
+      "year": 2020,
+      "date": "2020",
+      "container": "Partecipazione e Conflitto",
+      "publisher": "University of Salento",
+      "volume": "13",
+      "issue": "1",
+      "pages": "1-28",
+      "doi": "10.1285/I20356609V13I1P01",
+      "url": "https://doi.org/10.1285/I20356609V13I1P01",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/V9ZB2ZXZ",
+      "abstract": "This article introduces the conceptual and analytical framework for the special issue, which explores the cultural side of populism: the relationships between politics, emotions, music, and subcultures in populist contexts. We highlight the role that cultural and symbolic 'products' (such as music, emotions, narratives, and visual symbols) play in the emergence and spread of populism. First, we explore the opportunities afforded by understanding the concept of populism from a cultural/symbolic point of view, reaching beyond the traditional party politics literature to which it is usually confined. Second, we suggest different ways in which populism has been articulated in various European countries (e.g. popular cultures, subcultures) since the economic crisis of 2008, emphasizing music, narratives, visuals, and emotions as means of the populist symbolic construction of the political and social reality. Third, from a social movement perspective, we reflect on the mechanisms (cognitive, emotional, normative) that may help understanding the current populist 'momentum', as well as on the methods to empirically grasp them.",
+      "citation": "Caiani, Manuela, and Enrico Padoan. 2020. “Setting the Scene: Filling the Gaps in Populism Studies.” <i>Partecipazione e Conflitto<\/i> 13 (1): 1–28. https://doi.org/10.1285/I20356609V13I1P01.",
+      "bibtex": "@article{caiani_setting_2020,\n  author = {Caiani, Manuela and Padoan, Enrico},\n  title = {Setting the scene: {Filling} the {Gaps} in {Populism} {Studies}},\n  journal = {Partecipazione e Conflitto},\n  year = {2020},\n  volume = {13},\n  number = {1},\n  pages = {1--28},\n  publisher = {University of Salento},\n  doi = {10.1285/I20356609V13I1P01}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-01T15:53:52Z"
     },
     {
       "id": "NY5D6JPF",
