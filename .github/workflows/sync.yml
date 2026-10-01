@@ -1,0 +1,77 @@
+# PopuliVerse Library: the nightly sync.
+#
+# Every night, and whenever you press "Run workflow" on GitHub, this job
+#   1. runs scripts/sync_zotero.R, which reads the public Zotero group and
+#      writes library/library.json;
+#   2. saves the file in the repository when it has changed;
+#   3. starts the "Publish site" job, so that the site shows the new Library;
+#   4. ends with a red cross when a work was held back, so that GitHub
+#      sends you an email. The works that passed are published all the same.
+#
+# No key and no password are involved: the Zotero group is public.
+
+name: Sync Library
+
+on:
+  schedule:
+    - cron: "17 2 * * *"       # every night at 02:17 UTC
+  workflow_dispatch:            # the "Run workflow" button on GitHub
+
+permissions:
+  contents: write               # to save library.json in the repository
+  actions: write                # to start the "Publish site" job
+
+concurrency:
+  group: sync-library
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    # Fixed on purpose: the script is tested with the R that this system provides.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      LANG: C.UTF-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install R and the three packages the script needs
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends r-base-core r-cran-httr r-cran-jsonlite r-cran-yaml
+
+      - name: Read the Zotero group and write library/library.json
+        id: sync
+        run: Rscript scripts/sync_zotero.R
+
+      - name: Save the file in the repository when it has changed
+        id: save
+        env:
+          PUBLISHED: ${{ steps.sync.outputs.published }}
+        run: |
+          if [ -z "$(git status --porcelain -- library/library.json)" ]; then
+            echo "Nothing has changed: library.json is already up to date."
+            echo "saved=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add library/library.json
+          git commit -m "Library sync: ${PUBLISHED} works"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "saved=true" >> "$GITHUB_OUTPUT"
+
+      - name: Rebuild the site
+        if: steps.save.outputs.saved == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run publish.yml --ref "${GITHUB_REF_NAME}"
+
+      - name: Raise a flag when works were held back
+        if: steps.sync.outputs.held != '0'
+        env:
+          HELD: ${{ steps.sync.outputs.held }}
+        run: |
+          echo "::error::${HELD} work(s) were held back from the Library. Open the summary of this run to see which ones and why."
+          exit 1
