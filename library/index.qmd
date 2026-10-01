@@ -1,48 +1,65 @@
 ---
 title: "Library"
 description: "A curated database of research on populism, built for literature reviews."
+page-layout: full
+body-classes: pv-library
+# The two files the page needs next to it on the site:
+# the data (written by the nightly sync) and the code that draws the list.
+resources:
+  - library.json
+  - library.js
 ---
 
-::: {#library-app .pv-pending}
-The Library is being built. The search, the filters and the first entries will appear here.
-:::
+```{=html}
+<!-- The list is drawn here by library.js from library.json. -->
+<div id="library-app" class="pv-lib" data-source="library.json" data-zotero="https://www.zotero.org/groups/6697881/populiverse_library">
+  <noscript>
+    <div class="pv-lib-message">
+      <p>The search and the filters need JavaScript. Without it, the full list is in the <a href="https://www.zotero.org/groups/6697881/populiverse_library">PopuliVerse Library group on Zotero</a>.</p>
+    </div>
+  </noscript>
+</div>
+<script src="library.js" defer></script>
+```
+
+::: {.pv-prose}
 
 ## How it is organised
 
-Every entry is tagged on two axes. The first says how the work defines populism. The second says what populism is studied alongside.
+Every entry is tagged on two axes. The first says how the work defines populism. The second says what populism is studied alongside. Each name below opens the Library with that filter.
 
 ::: {.pv-axes}
 
 ::: {.pv-axis}
 ### Approaches to populism
 
-- Ideational: populism as a thin ideology (Mudde)
-- Discursive (Laclau, the Essex school)
-- Political-strategic (Weyland)
-- Performative or stylistic (Moffitt)
-- Socio-cultural (Ostiguy)
-- Economic or structural
-- Measurement and methods: how populism is measured
-- Other or multiple
+- [Ideational](?approach=ideational): populism as a thin ideology (Mudde)
+- [Discursive](?approach=discursive) (Laclau, the Essex school)
+- [Political-strategic](?approach=political-strategic) (Weyland)
+- [Performative or stylistic](?approach=performative) (Moffitt)
+- [Socio-cultural](?approach=socio-cultural) (Ostiguy)
+- [Economic or structural](?approach=economic)
+- [Measurement and methods](?approach=measurement): how populism is measured
+- [Other or multiple](?approach=other)
 :::
 
 ::: {.pv-axis}
 ### Populism and…
 
-- Foreign policy
-- Defence and security
-- The international sphere: the EU, international organisations, multilateralism
-- Parties, leaders and movements: the supply side
-- Voters and attitudes: the demand side
-- Populists in government
-- Spatial populism: geography, urban–rural divides, regions
-- Economy and welfare
-- Media and communication
-- Gender
-- Religion
-- Migration
-- Democracy and institutions
-- Other
+- [Foreign policy](?topic=foreign-policy)
+- [Defence and security](?topic=defence-security)
+- [The international sphere](?topic=international): the EU, international organisations, multilateralism
+- [Parties, leaders and movements](?topic=parties): the supply side
+- [Voters and attitudes](?topic=voters): the demand side
+- [Populists in government](?topic=government)
+- [Spatial populism](?topic=spatial): geography, urban–rural divides, regions
+- [Economy and welfare](?topic=economy-welfare)
+- [Media and communication](?topic=media-communication)
+- [Gender](?topic=gender)
+- [Religion](?topic=religion)
+- [Migration](?topic=migration)
+- [Democracy and institutions](?topic=democracy-institutions)
+- [Other](?topic=other)
 :::
 
 :::
@@ -55,7 +72,7 @@ Peer-reviewed articles, books, book chapters, and selected policy and working pa
 
 ## What each entry gives you
 
-The full citation, the abstract as published, a link to the DOI or to an open-access copy, the tags on both axes, and a BibTeX reference in one click. PopuliVerse links to papers. It does not host them.
+The full citation, the abstract as published when the publisher provides one, a link to the DOI or to an open-access copy, the tags on both axes, and a BibTeX reference in one click. The works shown can be downloaded as a BibTeX or a CSV file. PopuliVerse links to papers. It does not host them.
 
 ## Suggest a paper
 
@@ -71,8 +88,6 @@ The form opens with the launch.
 
 The Library lives in a public Zotero group called "PopuliVerse Library". Anyone can read it and use it in their own Zotero. Scholars who contribute regularly are invited to join it as editors.
 
-<!-- TODO(link): when the Zotero group is public, replace the box below with a link to it. -->
+[Open the PopuliVerse Library on Zotero](https://www.zotero.org/groups/6697881/populiverse_library)
 
-::: {.pv-pending}
-The link to the group will be added when the group is public.
 :::

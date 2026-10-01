@@ -30,6 +30,7 @@ In English, global in scope, academic in standard and readable by anyone.
 :::
 
 <!-- ============================ The Library ============================ -->
+<!-- Each item of the two lists opens the Library with that filter switched on. -->
 
 ::: {.pv-section}
 
@@ -44,33 +45,33 @@ A curated, filterable database of academic and policy literature on populism, bu
 ::: {.pv-axis}
 ### Approaches to populism
 
-- Ideational
-- Discursive
-- Political-strategic
-- Performative or stylistic
-- Socio-cultural
-- Economic or structural
-- Measurement and methods
-- Other or multiple
+- [Ideational](library/index.html?approach=ideational)
+- [Discursive](library/index.html?approach=discursive)
+- [Political-strategic](library/index.html?approach=political-strategic)
+- [Performative or stylistic](library/index.html?approach=performative)
+- [Socio-cultural](library/index.html?approach=socio-cultural)
+- [Economic or structural](library/index.html?approach=economic)
+- [Measurement and methods](library/index.html?approach=measurement)
+- [Other or multiple](library/index.html?approach=other)
 :::
 
 ::: {.pv-axis .pv-axis-wide}
 ### Populism and…
 
-- Foreign policy
-- Defence and security
-- The international sphere
-- Parties, leaders and movements
-- Voters and attitudes
-- Populists in government
-- Spatial populism
-- Economy and welfare
-- Media and communication
-- Gender
-- Religion
-- Migration
-- Democracy and institutions
-- Other
+- [Foreign policy](library/index.html?topic=foreign-policy)
+- [Defence and security](library/index.html?topic=defence-security)
+- [The international sphere](library/index.html?topic=international)
+- [Parties, leaders and movements](library/index.html?topic=parties)
+- [Voters and attitudes](library/index.html?topic=voters)
+- [Populists in government](library/index.html?topic=government)
+- [Spatial populism](library/index.html?topic=spatial)
+- [Economy and welfare](library/index.html?topic=economy-welfare)
+- [Media and communication](library/index.html?topic=media-communication)
+- [Gender](library/index.html?topic=gender)
+- [Religion](library/index.html?topic=religion)
+- [Migration](library/index.html?topic=migration)
+- [Democracy and institutions](library/index.html?topic=democracy-institutions)
+- [Other](library/index.html?topic=other)
 :::
 
 :::
