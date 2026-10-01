@@ -1,5 +1,5 @@
 # PopuliVerse Library: the phrases that count as evidence for each tag.
-# Version 1, 2026-10-01. It belongs with taxonomy.yml (the tags) and actors.yml
+# Version 2, 2026-10-01 (version 1 of the same day lacked the rule on review articles). It belongs with taxonomy.yml (the tags) and actors.yml
 # (countries, leaders and parties).
 #
 # HOW IT WORKS
@@ -19,12 +19,13 @@
 #   topic     one phrase in the title, or two phrases in the abstract.
 #   method    one phrase in the title, or one in a sentence of the abstract that
 #             speaks about the study itself (it contains one of the "study words").
+#             For a review article (see "review_titles") the title alone counts.
 #   Region and country are in actors.yml.
 #   Three or more approaches found in one work become "Other or multiple".
 #   A work found to use mixed methods gets "Mixed methods" only, not also
 #   "Qualitative" or "Quantitative".
 
-version: 1
+version: 2
 date: "2026-10-01"
 
 # Outlets that may not be peer-reviewed. A work in one of them stays in the
@@ -35,6 +36,11 @@ outlets_to_check: ["Foreign Affairs", "Journal of Democracy", "The Brown Journal
                    "The Fletcher Forum of World Affairs", "Survival",
                    "Sigma: Journal of Political and International Studies", "Comparative Politics Newsletter",
                    "Global Politics Review"]
+
+# A review article describes the methods of the studies it reviews, so its
+# abstract gives no evidence for its own method: when the title holds one of
+# these wordings, a method tag can come from the title only.
+review_titles: ["review", "meta analysis", "meta research", "state of the art", "state of the field"]
 
 # A sentence of the abstract counts for method only if it holds one of these.
 study_words: ["we", "our", "this article", "this paper", "this study", "this essay", "this book",

@@ -85,7 +85,7 @@ local({
            exact = compile(c(extra$exact, extra$actors), TRUE), adj = adj)
     })
     list(approach = tagset(ph$approach), topic = tagset(ph$topic), method = tagset(ph$method),
-         study = compile(ph$study_words), ignore = compile(ac$ignore),
+         study = compile(ph$study_words), review = compile(ph$review_titles), ignore = compile(ac$ignore),
          regions = lapply(ac$regions, compile), regions_exact = lapply(ac$regions_exact %||% list(), compile, keep_case = TRUE),
          countries = countries,
          any_place = compile(unlist(c(tax$country_label, lapply(ac$countries, function(x) c(x$names, x$adjectives))))),
@@ -131,6 +131,7 @@ local({
     sent <- tolower(vapply(sentences(abstract), plain, "", USE.NAMES = FALSE))
     about <- if (length(sent)) sent[vapply(sent, function(s) length(hits(s, k$study)) > 0, logical(1))] else character()
     study_text <- paste(about, collapse = " ")
+    if (length(hits(t_low, k$review))) study_text <- ""        # a review's abstract speaks of other studies' methods
     for (tag in names(k$method)) {
       def <- k$method[[tag]]
       ft <- hits(blank(t_low, def$not), def$rx); fa <- hits(blank(study_text, def$not), def$rx)
@@ -226,6 +227,13 @@ local({
     d$doi[wrong_kind] <- ""; d$status[wrong_kind] <- "not found"; d$type[wrong_kind] <- ""
     d$abstract[wrong_kind] <- ""; d$open_access[wrong_kind] <- ""; d$title_found[wrong_kind] <- ""
     d$journal_or_publisher[wrong_kind] <- ""
+    # titles as printed in the source, where the reading of the list had cut them short,
+    # and the titles of the records: both must be in place before the scope rule looks at them
+    for (ref in names(rec$titles)) d$title[d$ref_id == ref] <- rec$titles[[ref]]
+    for (ref in names(rec$records)) if (!is.null(rec$records[[ref]]$title)) d$title[d$ref_id == ref] <- rec$records[[ref]]$title
+    # references left out by reading (a work cited twice under two titles, a chapter printed like an article)
+    dropped <- d$ref_id %in% names(rec$drop)
+    d <- d[!dropped, ]
     for (ref in names(rec$accepted)) {
       i <- which(d$ref_id == ref)
       if (length(i) == 1) { d$doi[i] <- rec$accepted[[ref]]$doi; d$status[i] <- "found"
@@ -261,7 +269,7 @@ local({
     already <- nzchar(s$doi) & tolower(s$doi) %in% old_dois
     s <- s[!already, ]
     # works without a confirmed DOI: those with a record read from the source enter; the others wait
-    has_record <- !nzchar(s$doi) & s$ref_id %in% names(rec$records)
+    has_record <- s$ref_id %in% names(rec$records)
     for (i in which(has_record)) {
       r1 <- rec$records[[s$ref_id[i]]]
       s$title[i] <- r1$title; s$title_found[i] <- ""
@@ -269,12 +277,14 @@ local({
       s$journal_or_publisher[i] <- r1$publicationTitle %||% r1$publisher %||% ""
     }
     waiting <- s[!nzchar(s$doi) & !has_record, ]
+    if (length(rec$drop)) say("       left out by reading: ", length(rec$drop), " (", paste(names(rec$drop), collapse = ", "), ")")
     utils::write.csv(waiting[, c("ref_id", "first_author", "year", "title", "container", "kind", "reference")],
                      paste0("drafts/batch-", nn, "-without-doi.csv"), row.names = FALSE, fileEncoding = "UTF-8")
     s <- s[nzchar(s$doi) | (s$ref_id %in% names(rec$records)), ]
     say("       already in the Library from an earlier batch: ", sum(already),
         "; without a DOI and without a record, left out: ", nrow(waiting))
-    say("       with a DOI: ", sum(nzchar(s$doi)), "; without a DOI, entered from the source's own reference: ", sum(!nzchar(s$doi)))
+    say("       with a DOI: ", sum(nzchar(s$doi)), "; without a DOI, entered from the source's own reference: ", sum(!nzchar(s$doi)),
+        "; with a record kept ready in case Zotero cannot fetch the DOI: ", sum(nzchar(s$doi) & s$ref_id %in% names(rec$records)))
     say("  [ok] in this batch: ", nrow(s), " works")
 
     # tags
@@ -285,7 +295,8 @@ local({
       title <- if (nzchar(r$title_found) && nchar(r$title_found) >= nchar(r$title)) r$title_found else r$title
       title <- trimws(gsub("\\s+", " ", gsub("<[^>]+>", "", title)))
       res <- code_one(title, r$abstract, k, tax)
-      tags <- c(res$tags, if (r$kind == "article") "type:article" else "type:book", if (identical(r$open_access, "TRUE")) "oa:yes")
+      # open access is taken from the catalogue only for a work with a DOI: without one the record cannot be checked twice
+      tags <- c(res$tags, if (r$kind == "article") "type:article" else "type:book", if (identical(r$open_access, "TRUE") && nzchar(r$doi)) "oa:yes")
       if (!nzchar(r$doi) || r$ref_id %in% names(rec$accepted)) {
         tags <- c(tags, "todo:check-record")
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule",
@@ -301,8 +312,14 @@ local({
                      " ", r$year)
       works[[i]] <- list(cite = cite, doi = r$doi, title = title, year = as.integer(r$year), kind = r$kind,
                          ref_id = r$ref_id, tags = all_tags[all_tags %in% tags],
-                         create = if (!nzchar(r$doi)) rec$records[[r$ref_id]] else NULL)
+                         create = rec$records[[r$ref_id]])
       for (e in res$evidence) evidence[[length(evidence) + 1]] <- c(r$ref_id, e)
+    }
+
+    # works of an earlier batch whose tags a new rule changes: listed with their full set of tags
+    for (x in rec$also %||% list()) {
+      works[[length(works) + 1]] <- list(cite = x$cite, doi = "", title = x$title, year = as.integer(x$year), kind = "",
+                                         ref_id = "", tags = all_tags[all_tags %in% unlist(x$tags)], create = NULL)
     }
 
     # the batch file

@@ -1,0 +1,2376 @@
+# Batch 04: works taken from a list of references, kept by the scope rule and
+# tagged from the words of their own title and abstract (scripts/code_works.R,
+# library/phrases.yml, library/actors.yml). The phrase behind every tag is in
+# batch-04-evidence.csv. Written by the script; do not edit by hand.
+
+batch: 4
+date: "2026-10-01"
+phrases_version: 2
+
+note: "Record made from the reference list of a review article of 2026 (Bliuc et al.; Tóth et al.; Yilmaz et al.); not yet checked against the publication."
+
+works:
+  - cite: "Albertazzi 2024"
+    doi: "10.1080/14782804.2022.2163380"
+    title: "Beyond anger: the populist radical right on TikTok"
+    year: 2024
+    ref: "S0002"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "country:spain"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Almodt 2022"
+    doi: "10.51480/1899-5101.15.3(32).6"
+    title: "The Right-Wing Perspective: Populist Frames and Agenda on Facebook in Central and Eastern Europe"
+    year: 2022
+    ref: "S0003"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "method:qualitative"
+      - "method:qta"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Alonso-Muñoz and A 2020"
+    doi: "10.3389/fcomm.2020.00054"
+    title: "Populism against Europe on social media: the Eurosceptic discourse on Twitter in Spain, Italy, France, and the United Kingdom during the 2019 European Parliament election campaign"
+    year: 2020
+    ref: "S0004"
+    tags:
+      - "topic:international"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "country:italy"
+      - "country:spain"
+      - "country:united-kingdom"
+      - "type:article"
+      - "todo:check-record"
+
+  - cite: "Alonso-Muñoz 2021"
+    doi: ""
+    title: "Everything for the people, but without the people? Illustrated populism on Social Media in the European political context"
+    year: 2021
+    ref: "S0005"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: Everything for the people, but without the people? Illustrated populism on
+        Social Media in the European political context
+      date: '2021'
+      publicationTitle: International Journal of Communication
+      volume: '15'
+      pages: 2787-2806
+      url: https://ijoc.org/index.php/ijoc/article/view/15603
+      creators:
+        - creatorType: author
+          firstName: L
+          lastName: Alonso-Muñoz
+
+  - cite: "Alonso-Muñoz and A 2023"
+    doi: "10.3389/fcomm.2023.1159847"
+    title: "The appeal to emotions in the discourse of populist political actors from Spain, Italy, France, and the United Kingdom on Twitter"
+    year: 2023
+    ref: "S0006"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "country:italy"
+      - "country:spain"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Aslan 2021"
+    doi: "10.1017/s0020743820000859"
+    title: "Public Tears: Populism and the Politics of Emotion in AKP's Turkey"
+    year: 2021
+    ref: "S0007"
+    tags:
+      - "approach:performative"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+
+  - cite: "Aslanidis 2016"
+    doi: "10.17813/1086-671x-20-3-301"
+    title: "Populist Social Movements of the Great Recession*"
+    year: 2016
+    ref: "S0008"
+    tags:
+      - "topic:parties"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Baldwin-Philippi 2019"
+    doi: "10.1177/1461444818797591"
+    title: "The technological performance of populism"
+    year: 2019
+    ref: "S0010"
+    tags:
+      - "approach:other"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Baloğlu 2021"
+    doi: "10.17645/mac.v9i4.4213"
+    title: "Trolls, Pressure and Agenda: The discursive fight on Twitter in Turkey"
+    year: 2021
+    ref: "S0013"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Barbeito Iglesias 2021"
+    doi: "10.1080/03906701.2021.1947948"
+    title: "Political emotions and digital political mobilization in the new populist parties: the cases of Podemos and Vox in Spain"
+    year: 2021
+    ref: "S0014"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "region:europe"
+      - "country:spain"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Bast 2022"
+    doi: "10.1080/10584609.2021.2007190"
+    title: "Successfully Overcoming the “Double Bind”? A Mixed-Method Analysis of the Self-Presentation of Female Right-wing Populists on Instagram and the Impact on Voter Attitudes"
+    year: 2022
+    ref: "S0015"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:gender"
+      - "method:experiment"
+      - "method:mixed"
+      - "type:article"
+
+  - cite: "Bast 2024"
+    doi: "10.1080/15377857.2021.1892901"
+    title: "Managing the image. The visual communication strategy of European right-wing populist politicians on Instagram"
+    year: 2024
+    ref: "S0016"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+      - "todo:check-record"
+
+  - cite: "Belim Rodrigues 2020"
+    doi: "10.51698/tripodos.2020.49p109-128"
+    title: "“In the land of elections, the populist man is king”: The online communication of Basta and Vox in the 2019 European elections"
+    year: 2020
+    ref: "S0017"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "method:mixed"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bene 2022"
+    doi: "10.1080/10584609.2022.2042435"
+    title: "Keep Them Engaged! Investigating the Effects of Self-centered Social Media Communication Style on User Engagement in 12 European Countries"
+    year: 2022
+    ref: "S0018"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bene 2025"
+    doi: "10.1177/19401612231196158"
+    title: "Populism in Context: A Cross-Country Investigation of the Facebook Usage of Populist Appeals During the 2019 European Parliament Elections"
+    year: 2025
+    ref: "S0019"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Berti 2021"
+    doi: "10.1177/14614448211039222"
+    title: "Character assassination as a right-wing populist communication tactic on social media: The case of Matteo Salvini in Italy"
+    year: 2021
+    ref: "S0020"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Bliuc 2026"
+    doi: "10.1080/1369118x.2026.2639567"
+    title: "The emotional logic of populist communication: a systematic review"
+    year: 2026
+    ref: "S0021"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bobba 2019"
+    doi: "10.1057/s41304-017-0141-8"
+    title: "Social media populism: features and ‘likeability’ of Lega Nord communication on Facebook"
+    year: 2019
+    ref: "S0022"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bobba 2022"
+    doi: "10.1080/00344893.2019.1691638"
+    title: "Between the ideological and communicative approaches: Hard and soft populism in France and Italy"
+    year: 2022
+    ref: "S0023"
+    tags:
+      - "region:europe"
+      - "country:france"
+      - "country:italy"
+      - "type:article"
+      - "todo:check-record"
+
+  - cite: "Bolsover 2022"
+    doi: ""
+    title: "Indian democracy under threat: the BJP’s online authoritarian populism as a means to advance an ethnoreligious nationalist agenda in the 2019 general election"
+    year: 2022
+    ref: "S0024"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:india"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: 'Indian democracy under threat: the BJP’s online authoritarian populism as
+        a means to advance an ethnoreligious nationalist agenda in the 2019 general election'
+      date: '2022'
+      publicationTitle: International Journal of Communication
+      volume: '16'
+      pages: 1940-1968
+      url: https://ijoc.org/index.php/ijoc/article/view/17200/3745
+      creators:
+        - creatorType: author
+          firstName: G
+          lastName: Bolsover
+
+  - cite: "Bos and S 2023"
+    doi: "10.1177/00936502231178432"
+    title: "Short but Critical?: How “Fake News” and “Anti-Elitist” Media Attacks Undermine Perceived Message Credibility on Social Media"
+    year: 2023
+    ref: "S0025"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Boulianne and B 2020"
+    doi: "10.1177/1461444819893983"
+    title: "Right-wing populism, social media and echo chambers in Western democracies. new media & society 22(4): 683–699"
+    year: 2020
+    ref: "S0026"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:france"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "method:survey"
+      - "type:article"
+
+  - cite: "Bozdag 2024"
+    doi: "10.1177/10776990241284579"
+    title: "When Articulating Populist Dichotomies Is Paramount: Exploring the Effects of Explicit and Implicit Populist Styles on User Engagement in Turkish Election Tweets"
+    year: 2024
+    ref: "S0028"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Bracciale 2017"
+    doi: "10.1080/1369118x.2017.1328522"
+    title: "Define the populist political communication style: the case of Italian political leaders on Twitter"
+    year: 2017
+    ref: "S0029"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Bracciale 2021"
+    doi: "10.1080/1369118x.2021.1874472"
+    title: "Does populism go viral? How Italian leaders engage citizens through social media"
+    year: 2021
+    ref: "S0030"
+    tags:
+      - "approach:performative"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Bulut and E 2017"
+    doi: ""
+    title: "Digital populism: trolls and political polarization of Twitter in Turke"
+    year: 2017
+    ref: "S0032"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: 'Digital populism: trolls and political polarization of Twitter in Turke'
+      date: '2017'
+      publicationTitle: International Journal of Communication
+      volume: '11'
+      pages: 4093-4117
+      creators:
+        - creatorType: author
+          firstName: E
+          lastName: Bulut
+        - creatorType: author
+          firstName: E
+          lastName: Yörük
+
+  - cite: "Buštíková 2019"
+    doi: "10.1177/0888325418791723"
+    title: "The State as a Firm: Understanding the Autocratic Roots of Technocratic Populism"
+    year: 2019
+    ref: "S0033"
+    tags:
+      - "type:article"
+
+  - cite: "Caiani 2020"
+    doi: "10.1285/i20356609v13i1p01"
+    title: "Setting the scene: Filling the gaps in populism studies"
+    year: 2020
+    ref: "S0034"
+    tags:
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: 'Setting the scene: Filling the gaps in populism studies'
+      date: '2020'
+      publicationTitle: Partecipazione e Conflitto
+      volume: '13'
+      issue: '1'
+      pages: 1-28
+      DOI: 10.1285/i20356609v13i1p01
+      creators:
+        - creatorType: author
+          firstName: M.
+          lastName: Caiani
+        - creatorType: author
+          firstName: E.
+          lastName: Padoan
+
+  - cite: "Caiani 2023"
+    doi: "10.1017/ipo.2023.8"
+    title: "Populism and emotions: a comparative study using Machine Learning"
+    year: 2023
+    ref: "S0035"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "method:qta"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Capdevila and JM 2022"
+    doi: "10.17645/mac.v10i4.5704"
+    title: "Far-Right Populism Online: Did Vox’s Community Reproduce the Party’s Discourse During the April 2019 Campaign?"
+    year: 2022
+    ref: "S0036"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Carrella 2020"
+    doi: "10.5817/bse2020-2-1"
+    title: "#Populism on Twitter : statistical analysis of the correlation between tweet popularity and \"populist\" discursive features"
+    year: 2020
+    ref: "S0037"
+    tags:
+      - "topic:media-communication"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Casero-Ripolles 2017"
+    doi: "10.1177/0002764217707624"
+    title: "The Populist Political Communication Style in Action: Podemos’s Issues and Functions on Twitter During the 2016 Spanish General Election"
+    year: 2017
+    ref: "S0038"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cassell 2021"
+    doi: "10.1016/j.electstud.2021.102359"
+    title: "The comparative effectiveness of populist rhetoric in generating online engagement"
+    year: 2021
+    ref: "S0040"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Cassell 2021"
+    doi: "10.1080/10584609.2020.1829761"
+    title: "When “Following” the Leader Inspires Action: Individuals’ Receptivity to Discursive Frame Elements on Social Media"
+    year: 2021
+    ref: "S0041"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Ceccobelli 2020"
+    doi: "10.1177/0267323120909292"
+    title: "Citizens’ engagement with popularization and with populist actors on Facebook: A study on 52 leaders in 18 Western democracies"
+    year: 2020
+    ref: "S0042"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cervi and C 2021"
+    doi: "10.6035/clr.5817"
+    title: "TikTok and the new language of political communication: the case of Podemos"
+    year: 2021
+    ref: "S0043"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Chen 2023"
+    doi: "10.1177/09636625221146269"
+    title: "Anti-intellectualism amid the COVID-19 pandemic: The discursive elements and sources of anti-Fauci tweets"
+    year: 2023
+    ref: "S0044"
+    tags:
+      - "topic:media-communication"
+      - "method:qta"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cohen 2025"
+    doi: "10.1177/20563051251363213"
+    title: "Imagined Democratic Affordances: Persistent Faith in the Democratic Power of the Internet among Sanders Supporters on Reddit"
+    year: 2025
+    ref: "S0047"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Cunha 2023"
+    doi: ""
+    title: "‘Brazil above everything. God above everyone’. Political-religious fundamentalist expressions in digital media in times of ultra-right populism in Brazil"
+    year: 2023
+    ref: "S0048"
+    tags:
+      - "topic:media-communication"
+      - "topic:religion"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: ‘Brazil above everything. God above everyone’. Political-religious fundamentalist
+        expressions in digital media in times of ultra-right populism in Brazil
+      date: '2023'
+      publicationTitle: International Journal of Communication
+      volume: '17'
+      pages: 2841-2861
+      creators:
+        - creatorType: author
+          firstName: MN
+          lastName: Cunha
+
+  - cite: "Datts 2020"
+    doi: "10.17645/mac.v8i4.3212"
+    title: "Social Media, Populism, and Migration"
+    year: 2020
+    ref: "S0050"
+    tags:
+      - "topic:media-communication"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Davidson 2025"
+    doi: "10.1080/10584609.2024.2369118"
+    title: "Engaging Populism? The Popularity of European Populist Political Parties on Facebook and Twitter, 2010–2020"
+    year: 2025
+    ref: "S0051"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "De Bruycker 2021"
+    doi: "10.1177/1077699021998648"
+    title: "The People’s Champions? Populist Communication as a Contextually Dependent Political Strategy"
+    year: 2021
+    ref: "S0052"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "de Vreese 2018"
+    doi: "10.1177/1940161218790035"
+    title: "Populism as an Expression of Political Communication Content and Style: A New Perspective"
+    year: 2018
+    ref: "S0053"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Di Nubila et al. 2023"
+    doi: "10.17645/mac.v11i2.6470"
+    title: "Technopopulism and Politainment in Brazil: Bolsonaro Government’s Weekly YouTube Broadcasts"
+    year: 2023
+    ref: "S0055"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "topic:democracy-institutions"
+      - "region:latin-america"
+      - "country:brazil"
+      - "method:mixed"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Dinc and O 2023"
+    doi: "10.1017/npt.2023.5"
+    title: "From resolution to resecuritization: populist communication of the AKP’s Kurdish peace process in Turkey"
+    year: 2023
+    ref: "S0056"
+    tags:
+      - "topic:defence-security"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Eatwell 2018"
+    doi: ""
+    title: "National populism: The revolt against liberal democracy"
+    year: 2018
+    ref: "S0059"
+    tags:
+      - "topic:voters"
+      - "topic:democracy-institutions"
+      - "type:book"
+      - "todo:check-record"
+    create:
+      itemType: book
+      title: 'National populism: The revolt against liberal democracy'
+      date: '2018'
+      publisher: Penguin Books
+      creators:
+        - creatorType: author
+          firstName: R.
+          lastName: Eatwell
+        - creatorType: author
+          firstName: M.
+          lastName: Goodwin
+
+  - cite: "Eberl and E 2021"
+    doi: "10.1080/17457289.2021.1924730"
+    title: "From populism to the “plandemic”: why populists believe in COVID-19 conspiracies"
+    year: 2021
+    ref: "S0060"
+    tags:
+      - "topic:voters"
+      - "method:quantitative"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Egelhofer and S 2021"
+    doi: "10.1075/jlp.20081.ege"
+    title: "Delegitimizing the media?: Analyzing politicians’ media criticism on social media"
+    year: 2021
+    ref: "S0061"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Eklundh 2021"
+    doi: "10.30950/jcer.v17i2.1182"
+    title: "Mad Marx? Rethinking Emotions, Euroscepticism and Nationalism in the Populist Left"
+    year: 2021
+    ref: "S0062"
+    tags:
+      - "approach:performative"
+      - "topic:international"
+      - "topic:parties"
+      - "region:europe"
+      - "country:spain"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Elçi 2022"
+    doi: "10.1017/s0007123420000666"
+    title: "Politics of Nostalgia and Populism: Evidence from Turkey"
+    year: 2022
+    ref: "S0063"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "region:europe"
+      - "country:turkey"
+      - "method:experiment"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Engesser 2017"
+    doi: "10.1080/1369118x.2016.1207697"
+    title: "Populism and social media: how politicians spread a fragmented ideology"
+    year: 2017
+    ref: "S0064"
+    tags:
+      - "approach:measurement"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Engesser and AO 2017"
+    doi: "10.1080/1369118x.2017.1328525"
+    title: "Populist online communication: introduction to the special issue"
+    year: 2017
+    ref: "S0065"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ernst 2017"
+    doi: "10.1080/1369118x.2017.1329333"
+    title: "Extreme parties and populism: an analysis of Facebook and Twitter across six countries"
+    year: 2017
+    ref: "S0067"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "method:qta"
+      - "type:article"
+
+  - cite: "Ernst 2019"
+    doi: "10.1177/1940161218819430"
+    title: "Favorable Opportunity Structures for Populist Communication: Comparing Different Types of Politicians and Issues in Social Media, Television and the Press"
+    year: 2019
+    ref: "S0068"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Farkas 2022"
+    doi: "10.1093/ips/olac017"
+    title: "It Just Feels Right. Visuality and Emotion Norms in Right-Wing Populist Storytelling"
+    year: 2022
+    ref: "S0069"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Farkas 2022"
+    doi: "10.1177/02673231221082238"
+    title: "Strikingly similar: Comparing visual political communication of populist and non-populist parties across 28 countries"
+    year: 2022
+    ref: "S0070"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Fenoll 2022"
+    doi: "10.15581/003.35.3.91-103"
+    title: "Political communications on Facebook and populism. The 2019 European parliament election in Spain"
+    year: 2022
+    ref: "S0071"
+    tags:
+      - "topic:international"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: Political communications on Facebook and populism. The 2019 European parliament
+        election in Spain
+      date: '2022'
+      publicationTitle: Communication and Society
+      volume: '35'
+      pages: 91-103
+      DOI: 10.15581/003.35.3.91-103
+      creators:
+        - creatorType: author
+          firstName: V.
+          lastName: Fenoll
+
+  - cite: "Filc 2015"
+    doi: "10.1080/13569317.2015.1075264"
+    title: "Latin American inclusive and European exclusionary populism: colonialism as an explanation"
+    year: 2015
+    ref: "S0072"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "region:latin-america"
+      - "country:france"
+      - "country:argentina"
+      - "type:article"
+
+  - cite: "Filsinger 2023"
+    doi: "10.1017/s1755773923000036"
+    title: "The emotional fabric of populism during a public health crisis: How anger shapes the relationship between pandemic threat and populist attitudes"
+    year: 2023
+    ref: "S0073"
+    tags:
+      - "topic:voters"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Fontes and FPJ 2022"
+    doi: "10.1177/14648849221075429"
+    title: "Defending democracy or amplifying populism? Journalistic coverage, Twitter, and users’ engagement in Bolsonaro’s Brazil"
+    year: 2022
+    ref: "S0074"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+
+  - cite: "Gaffney 2018"
+    doi: "10.1111/asap.12145"
+    title: "The State of American Protest: Shared Anger and Populism"
+    year: 2018
+    ref: "S0076"
+    tags:
+      - "topic:voters"
+      - "type:article"
+
+  - cite: "Gandini 2022"
+    doi: ""
+    title: "Populists or influencers? The use of Facebook videos by populist leaders"
+    year: 2022
+    ref: "S0078"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: Populists or influencers? The use of Facebook videos by populist leaders
+      date: '2022'
+      publicationTitle: International Journal of Communication
+      volume: '16'
+      pages: 3894-3916
+      creators:
+        - creatorType: author
+          firstName: A
+          lastName: Gandini
+
+  - cite: "Gerbaudo 2023"
+    doi: "10.1177/20563051231163327"
+    title: "Angry Posts Mobilize: Emotional Communication and Online Mobilization in the Facebook Pages of Western European Right-Wing Populist Leaders"
+    year: 2023
+    ref: "S0079"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Gil de Zuniga 2020"
+    doi: "10.1177/1461444819893978"
+    title: "Populism in the era of Twitter: How social media contextualized new insights into an old phenomenon"
+    year: 2020
+    ref: "S0081"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Glazunova 2020"
+    doi: "10.17645/mac.v8i4.3169"
+    title: "‘Four Populisms’ of Alexey Navalny: An Analysis of Russian Non-Systemic Opposition Discourse on YouTube"
+    year: 2020
+    ref: "S0082"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:russia"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "González-Aguilar and M 2023"
+    doi: "10.17645/mac.v11i2.6358"
+    title: "Populist Right Parties on TikTok: Spectacularization, Personalization, and Hate Speech"
+    year: 2023
+    ref: "S0084"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "González-González et al. 2022"
+    doi: "10.17645/pag.v10i1.4772"
+    title: "The Informational Consequences of Populism: Social Media News Use and “News Finds Me” Perception"
+    year: 2022
+    ref: "S0085"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Grapă and A-A 2023"
+    doi: "10.17645/mac.v11i2.6367"
+    title: "The Spectacle of “Patriotic Violence” in Romania: Populist Leader George Simion’s Mediated Performance"
+    year: 2023
+    ref: "S0087"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:romania"
+      - "method:qta"
+      - "method:mixed"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Grasso 2022"
+    doi: "10.1016/j.pragma.2022.03.014"
+    title: "Populist dialogues on Twitter to #PutAustraliaFirst"
+    year: 2022
+    ref: "S0088"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Hameleers 2018"
+    doi: ""
+    title: "A typology of populism: Toward a revised theoretical framework on the sender side and receiver side of communication"
+    year: 2018
+    ref: "S0090"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: 'A typology of populism: Toward a revised theoretical framework on the sender
+        side and receiver side of communication'
+      date: '2018'
+      publicationTitle: International Journal of Communication
+      volume: '12'
+      pages: 2171-2190
+      creators:
+        - creatorType: author
+          firstName: M.
+          lastName: Hameleers
+
+  - cite: "Hameleers 2018"
+    doi: "10.1057/s41269-018-0119-8"
+    title: "Augmenting polarization via social media? A comparative analysis of Trump’s and Wilders’ online populist communication and the electorate’s interpretations surrounding the elections"
+    year: 2018
+    ref: "S0091"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:netherlands"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hameleers et al. 2018"
+    doi: "10.1177/1940161218786786"
+    title: "Start spreading the news: A comparative experiment on the effects of populist communication on political engagement/participation in sixteen European countries"
+    year: 2018
+    ref: "S0092"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+      - "todo:check-record"
+
+  - cite: "Hameleers 2019"
+    doi: "10.1093/ccc/tcz009"
+    title: "The Populism of Online Communities: Constructing the Boundary Between “Blameless” People and “Culpable” Others"
+    year: 2019
+    ref: "S0093"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:netherlands"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hameleers 2019"
+    doi: ""
+    title: "To like is to support? The effects and mechanisms of selective exposure to online populist communication on voting preferences"
+    year: 2019
+    ref: "S0094"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: To like is to support? The effects and mechanisms of selective exposure to
+        online populist communication on voting preferences
+      date: '2019'
+      publicationTitle: International Journal of Communication
+      volume: '13'
+      pages: 2417-2436
+      creators:
+        - creatorType: author
+          firstName: M.
+          lastName: Hameleers
+
+  - cite: "Hameleers 2020"
+    doi: "10.17645/pag.v8i1.2478"
+    title: "Populist Disinformation: Exploring Intersections between Online Populism and Disinformation in the US and the Netherlands"
+    year: 2020
+    ref: "S0097"
+    tags:
+      - "approach:discursive"
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:netherlands"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hameleers 2021"
+    doi: "10.1177/0267323120978723"
+    title: "Interacting with the ordinary people: How populist messages and styles communicated by politicians trigger users’ behaviour on social media in a comparative context"
+    year: 2021
+    ref: "S0098"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hameleers 2021"
+    doi: "10.1002/polq.13235"
+    title: "On the Ordinary People’s Enemies: How Politicians in the United States, the United Kingdom, and the Netherlands Communicate Populist Boundaries via Twitter and the Effects on Party Preferences"
+    year: 2021
+    ref: "S0099"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:netherlands"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hameleers 2022"
+    doi: "10.17645/pag.v10i1.4726"
+    title: "Empowering the People’s Truth Through Social Media? (De)Legitimizing Truth Claims of Populist Politicians and Citizens"
+    year: 2022
+    ref: "S0100"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hameleers 2022"
+    doi: "10.17645/mac.v10i4.5654"
+    title: "Populist disinformation: are citizens with populist attitudes affected most by radical right-wing disinformation"
+    year: 2022
+    ref: "S0101"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "type:article"
+      - "todo:check-record"
+
+  - cite: "He and M 2023"
+    doi: "10.1080/17544750.2023.2183970"
+    title: "Who are the people? Populists’ articulation of “the people” in contemporary China"
+    year: 2023
+    ref: "S0103"
+    tags:
+      - "region:asia-pacific"
+      - "country:china"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Heiss 2020"
+    doi: "10.1080/10584609.2019.1661890"
+    title: "Stuck in a Nativist Spiral: Content, Selection, and Effects of Right-Wing Populists’ Communication on Facebook"
+    year: 2020
+    ref: "S0105"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Hopster 2021"
+    doi: "10.1177/0163443720957889"
+    title: "Mutual affordances: the dynamics between social media and populism"
+    year: 2021
+    ref: "S0110"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Humprecht 2024"
+    doi: "10.1080/10584609.2024.2350416"
+    title: "Emotionalized Social Media Environments: How Alternative News Media and Populist Actors Drive Angry Reactions"
+    year: 2024
+    ref: "S0111"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Inglehart 2017"
+    doi: "10.1017/s1537592717000111"
+    title: "Trump and the Populist Authoritarian Parties: The Silent Revolution in Reverse"
+    year: 2017
+    ref: "S0112"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "topic:migration"
+      - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jacobs 2020"
+    doi: "10.1177/1461444819893991"
+    title: "Twitter and Facebook: Populists’ double-barreled gun?"
+    year: 2020
+    ref: "S0113"
+    tags:
+      - "topic:media-communication"
+      - "method:quantitative"
+      - "type:article"
+
+  - cite: "Jacobs 2024"
+    doi: "10.1017/gov.2022.45"
+    title: "How Do Mainstream Parties Justify Their (Un)willingness to Rule with Populist Parties? Evidence from Twitter Data"
+    year: 2024
+    ref: "S0114"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Jagers 2007"
+    doi: "10.1111/j.1475-6765.2006.00690.x"
+    title: "Populism as political communication style: An empirical study of political parties' discourse in Belgium"
+    year: 2007
+    ref: "S0115"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:belgium"
+      - "method:qualitative"
+      - "method:quantitative"
+      - "type:article"
+
+  - cite: "Jost 2020"
+    doi: ""
+    title: "Populism fuels love and anger: The impact of message features on users’ reactions on Facebook"
+    year: 2020
+    ref: "S0117"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: 'Populism fuels love and anger: The impact of message features on users’
+        reactions on Facebook'
+      date: '2020'
+      publicationTitle: International Journal of Communication
+      volume: '14'
+      pages: 2081-2102
+      creators:
+        - creatorType: author
+          firstName: P.
+          lastName: Jost
+        - creatorType: author
+          firstName: M.
+          lastName: Maurer
+        - creatorType: author
+          firstName: J.
+          lastName: Hassler
+
+  - cite: "Jost 2023"
+    doi: "10.1177/20563051231186372"
+    title: "Radical Mobilization in Times of Crisis: Use and Effects of Appeals and Populist Communication Features in Telegram Channels"
+    year: 2023
+    ref: "S0118"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Jungherr and J 2021"
+    doi: "10.1177/0894439321996130"
+    title: "Populist Supporters on Reddit: A Comparison of Content and Behavioral Patterns Within Publics of Supporters of Donald Trump and Hillary Clinton"
+    year: 2021
+    ref: "S0120"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Konakçi 2023"
+    doi: "10.47478/lectio.1239602"
+    title: "Electoral Consolidation Through Islamic Populism and Religious Grievance: The Case of Transformation of Hagia Sophia in Turkey"
+    year: 2023
+    ref: "S0121"
+    tags:
+      - "topic:religion"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Krämer 2017"
+    doi: "10.1080/1369118x.2017.1328520"
+    title: "Populist online practices: the function of the Internet in right-wing populism"
+    year: 2017
+    ref: "S0122"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Kruschinski 2024"
+    doi: ""
+    title: "Divisive, negative, and populist?! An empirical analysis of European populist and mainstream parties’ use of digital political advertisements"
+    year: 2024
+    ref: "S0124"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: Divisive, negative, and populist?! An empirical analysis of European populist
+        and mainstream parties’ use of digital political advertisements
+      date: '2024'
+      publicationTitle: International Journal of Communication
+      volume: '18'
+      pages: 5518-5539
+      url: https://ijoc.org/index.php/ijoc/article/view/21509
+      creators:
+        - creatorType: author
+          firstName: S.
+          lastName: Kruschinski
+        - creatorType: author
+          firstName: M.
+          lastName: Bene
+        - creatorType: author
+          firstName: J.
+          lastName: Haßler
+        - creatorType: author
+          firstName: U.
+          lastName: Rußmann
+        - creatorType: author
+          firstName: D.
+          lastName: Lilleker
+        - creatorType: author
+          firstName: D. C.
+          lastName: Balaban
+        - creatorType: author
+          firstName: P.
+          lastName: Baranowski
+        - creatorType: author
+          firstName: A.
+          lastName: Ceron
+        - creatorType: author
+          firstName: V.
+          lastName: Fenoll
+        - creatorType: author
+          firstName: D.
+          lastName: Jackson
+
+  - cite: "Lammers 2020"
+    doi: "10.1002/ejsp.2673"
+    title: "Make America gracious again: Collective nostalgia can increase and decrease support for right‐wing populist rhetoric"
+    year: 2020
+    ref: "S0127"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lantos 2021"
+    doi: "10.1002/jts5.80"
+    title: "The role of collective narcissism in populist attitudes and the collapse of democracy in Hungary"
+    year: 2021
+    ref: "S0128"
+    tags:
+      - "topic:international"
+      - "topic:voters"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Larsson 2020"
+    doi: "10.1177/1461444819887700"
+    title: "Right-wingers on the rise online: insights from the 2018 Swedish elections. new media & society 22(12): 2018–2038"
+    year: 2020
+    ref: "S0129"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:sweden"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Larsson 2022"
+    doi: "10.1177/1461444820963777"
+    title: "Picture-perfect populism: tracing the rise of European populist parties on Facebook. new media & society 24(1): 227–245"
+    year: 2022
+    ref: "S0130"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Larsson 2023"
+    doi: "10.1177/14614448211034158"
+    title: "The rise of Instagram as a tool for political communication: a longitudinal study of European political parties and their followers. new media & society 25(3): 580–600"
+    year: 2023
+    ref: "S0131"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Leidig 2019"
+    doi: "10.17645/mac.v7i1.1629"
+    title: "Immigrant, Nationalist and Proud: A Twitter Analysis of Indian Diaspora Supporters for Brexit and Trump"
+    year: 2019
+    ref: "S0132"
+    tags:
+      - "approach:performative"
+      - "topic:international"
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Lin 2023"
+    doi: "10.1080/01296612.2023.2212502"
+    title: "On mainstream parties’ professionalized use of populist communication on social networking sites: an analysis of party Facebook contents in Taiwan’s 2020 national election"
+    year: 2023
+    ref: "S0134"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:asia-pacific"
+      - "country:taiwan"
+      - "type:article"
+
+  - cite: "Lokot 2019"
+    doi: "10.3318/isia.2017.28.9"
+    title: "Public networked discourses in the Ukraine–Russia conflict: ‘Patriotic hackers’ and digital populism"
+    year: 2019
+    ref: "S0135"
+    tags:
+      - "region:europe"
+      - "country:russia"
+      - "country:ukraine"
+      - "type:article"
+      - "todo:check-record"
+
+  - cite: "Magin 2024"
+    doi: "10.2478/nor-2024-0007"
+    title: "What makes the difference? Social media platforms and party characteristics as contextual factors for political parties’ use of populist political communication"
+    year: 2024
+    ref: "S0137"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mangerotti and P 2021"
+    doi: "10.25200/bjr.v17n3.2021.1415"
+    title: "Populism, Twitter, and Political Communication: An analysis of Jair Bolsonaro’s tweets during the 2018 election campaign"
+    year: 2021
+    ref: "S0138"
+    tags:
+      - "topic:media-communication"
+      - "region:latin-america"
+      - "country:brazil"
+      - "method:mixed"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Marchal et al. 2021"
+    doi: "10.17645/mac.v9i1.3421"
+    title: "Investigating Visual Content Shared over Twitter during the 2019 EU Parliamentary Election Campaign"
+    year: 2021
+    ref: "S0139"
+    tags:
+      - "topic:international"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Marchetti et al. 2022"
+    doi: "10.1163/18748929-bja10052"
+    title: "Right-Wing Populism and Political Instrumentalization of Religion: The Italian Debate on Matteo Salvini’s Use of Religious Symbols on Facebook"
+    year: 2022
+    ref: "S0140"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:religion"
+      - "region:europe"
+      - "country:italy"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Marcus 2019"
+    doi: "10.1111/pops.12571"
+    title: "Applying the Theory of Affective Intelligence to Support for Authoritarian Policies and Parties"
+    year: 2019
+    ref: "S0142"
+    tags:
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:france"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Martella 2022"
+    doi: "10.1080/13511610.2021.1951681"
+    title: "Populism and emotions: Italian political leaders’ communicative strategies to engage Facebook users"
+    year: 2022
+    ref: "S0144"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+
+  - cite: "Martelli and V 2023"
+    doi: "10.1111/1758-5899.13173"
+    title: "Populism à la Carte: The paradoxical political communication of Narendra Modi on Twitter"
+    year: 2023
+    ref: "S0145"
+    tags:
+      - "topic:media-communication"
+      - "region:north-america"
+      - "region:asia-pacific"
+      - "country:united-states"
+      - "country:india"
+      - "type:article"
+
+  - cite: "Martínez 2023"
+    doi: "10.1177/19485506221127491"
+    title: "The Hateful People: Populist Attitudes Predict Interpersonal and Intergroup Hate"
+    year: 2023
+    ref: "S0146"
+    tags:
+      - "topic:voters"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Maurer 2020"
+    doi: "10.1177/0267323120909288"
+    title: "What kind of populism? Tone and targets in the Twitter discourse of French and American presidential candidates"
+    year: 2020
+    ref: "S0148"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:quantitative"
+      - "method:qta"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mayer 2021"
+    doi: "10.17645/pag.v9i3.4000"
+    title: "Angry Reactionary Narcissists? Anger Activates the Link Between Narcissism and Right-Populist Party Support"
+    year: 2021
+    ref: "S0149"
+    tags:
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mazzoleni 2018"
+    doi: "10.1057/s41599-018-0104-x"
+    title: "Socially mediated populism: the communicative strategies of political leaders on Facebook"
+    year: 2018
+    ref: "S0150"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "McLamore and ÖM 2020"
+    doi: "10.1111/asap.12212"
+    title: "Social Representations of Sociopolitical Groups on r/The_Donald and Emergent Conflict Narratives: A Qualitative Content Analysis "
+    year: 2020
+    ref: "S0151"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "McTernan 2024"
+    doi: "10.1080/22041451.2024.2347689"
+    title: "Politics of the gut: comparative content analysis of Australian political Facebook posts using authenticity and populist frameworks"
+    year: 2024
+    ref: "S0152"
+    tags:
+      - "topic:media-communication"
+      - "region:asia-pacific"
+      - "country:australia"
+      - "method:experiment"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Melito 2025"
+    doi: "10.1177/14789299241292575"
+    title: "Populist Visual Communication: A State-of-the-Art Review"
+    year: 2025
+    ref: "S0153"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Miro 2024"
+    doi: "10.1080/01402382.2024.2325785"
+    title: "The short-lived hope for contagion: Brexit in social media communication of the populist right"
+    year: 2024
+    ref: "S0154"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:united-kingdom"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Moffitt 2022"
+    doi: "10.1086/719829"
+    title: "Taking Account of the Visual Politics of Populism"
+    year: 2022
+    ref: "S0155"
+    tags:
+      - "type:article"
+
+  - cite: "Moffitt 2024"
+    doi: "10.1177/19401612221100418"
+    title: "How Do Populists Visually Represent ‘The People’? A Systematic Comparative Visual Content Analysis of Donald Trump and Bernie Sanders’ Instagram Accounts"
+    year: 2024
+    ref: "S0156"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:gender"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "Moir 2023"
+    doi: "10.1177/20563051231157604"
+    title: "The Use of TikTok for Political Campaigning in Canada: The Case of Jagmeet Singh"
+    year: 2023
+    ref: "S0157"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:north-america"
+      - "country:canada"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mothes and J 2019"
+    doi: "10.17645/mac.v7i3.2183"
+    title: "Partisan Selective Exposure in Times of Political and Technological Upheaval: A Social Media Field Experiment"
+    year: 2019
+    ref: "S0158"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "method:experiment"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Mouffe 2018"
+    doi: ""
+    title: "For a Left Populism"
+    year: 2018
+    ref: "S0159"
+    tags:
+      - "type:book"
+      - "todo:check-record"
+    create:
+      itemType: book
+      title: For a Left Populism
+      date: '2018'
+      place: London
+      publisher: Verso Books
+      creators:
+        - creatorType: author
+          firstName: C
+          lastName: Mouffe
+
+  - cite: "Mudde 2018"
+    doi: "10.1177/0010414018789490"
+    title: "Studying Populism in Comparative Perspective: Reflections on the Contemporary and Future Research Agenda"
+    year: 2018
+    ref: "S0160"
+    tags:
+      - "approach:ideational"
+      - "type:article"
+
+  - cite: "Müller et al. 2017"
+    doi: "10.1111/jcom.12337"
+    title: "The Polarizing Impact of News Coverage on Populist Attitudes in the Public: Evidence From a Panel Study in Four European Democracies: Polarizing News Effects on Populist Attitudes"
+    year: 2017
+    ref: "S0161"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "method:survey"
+      - "type:article"
+
+  - cite: "Nenjerama and S 2021"
+    doi: "10.1177/00219096211034526"
+    title: "Populism From Below and Social Movements: A Case of Zimbabwe’s #ThisFlag Movement"
+    year: 2021
+    ref: "S0163"
+    tags:
+      - "topic:parties"
+      - "region:sub-saharan-africa"
+      - "country:zimbabwe"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "Palau-Sampio 2022"
+    doi: "10.3389/fpos.2021.685295"
+    title: "Pseudo-Media Sites, Polarization, and Pandemic Skepticism in Spain"
+    year: 2022
+    ref: "S0167"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Peters 2024"
+    doi: "10.1177/02673231241271905"
+    title: "Populist alone, but harmless together? Analysing inter- and transnational populism of EP parties ID and ECR on Facebook"
+    year: 2024
+    ref: "S0171"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "method:qta"
+      - "type:article"
+
+  - cite: "Postill 2018"
+    doi: "10.1177/0163443718772186"
+    title: "Populism and social media: a global perspective"
+    year: 2018
+    ref: "S0172"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Pytlas 2023"
+    doi: "10.1177/13540688221080536"
+    title: "Beyond populism: The diversity of thin anti-establishment contestation in turbulent times"
+    year: 2023
+    ref: "S0173"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Quandt 2018"
+    doi: "10.17645/mac.v6i4.1519"
+    title: "Dark Participation"
+    year: 2018
+    ref: "S0174"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ragragio 2023"
+    doi: "10.1093/ccc/tcad001"
+    title: "Media populism and the metanarrative of God in the Philippines"
+    year: 2023
+    ref: "S0175"
+    tags:
+      - "topic:media-communication"
+      - "topic:religion"
+      - "region:asia-pacific"
+      - "country:philippines"
+      - "type:article"
+
+  - cite: "Rhodes-Purdy 2021"
+    doi: "10.1086/715168"
+    title: "Populist Psychology: Economics, Culture, and Emotions"
+    year: 2021
+    ref: "S0176"
+    tags:
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "method:experiment"
+      - "type:article"
+
+  - cite: "Rico 2020"
+    doi: "10.1111/1475-6765.12374"
+    title: "Empowered and enraged: Political efficacy, anger and support for populism in Europe"
+    year: 2020
+    ref: "S0177"
+    tags:
+      - "topic:voters"
+      - "region:europe"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Roberts 2020"
+    doi: "10.17645/pag.v8i1.2508"
+    title: "The Populist Radical Right in the US: New Media and the 2018 Arizona Senate Primary"
+    year: 2020
+    ref: "S0178"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "topic:migration"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Ruzza 2025"
+    doi: "10.1163/25888072-bja10083"
+    title: "Institutionationalizing Populist Ambiguity of the Radical Right: Giorgia Meloni and Brothers of Italy in the International Arena"
+    year: 2025
+    ref: "S0179"
+    tags:
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "method:qta"
+      - "method:mixed"
+      - "type:article"
+
+  - cite: "Salgado 2019"
+    doi: ""
+    title: "Where’s populism? Online media and the diffusion of populist discourses and styles in Portugal"
+    year: 2019
+    ref: "S0181"
+    tags:
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:portugal"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: Where’s populism? Online media and the diffusion of populist discourses and
+        styles in Portugal
+      date: '2019'
+      publicationTitle: Contemporary Politics
+      volume: '25'
+      issue: '1'
+      pages: 53-69
+      creators:
+        - creatorType: author
+          firstName: S
+          lastName: Salgado
+
+  - cite: "Sandberg 2022"
+    doi: "10.1111/1467-9477.12239"
+    title: "Populist MPs on Facebook: Adoption and emotional reactions in Austria, the Netherlands, and Sweden"
+    year: 2022
+    ref: "S0182"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:austria"
+      - "country:netherlands"
+      - "country:sweden"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Santamaría 2022"
+    doi: "10.17645/mac.v10i4.5842"
+    title: "Caring Ecologies of the New Right and Left: Populist Performances of Care During the Pandemic"
+    year: 2022
+    ref: "S0183"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Santoso et al. 2020"
+    doi: "10.17576/gema-2020-2002-07"
+    title: "Populism in New Media: The Online Presidential Campaign Discourse in Indonesia"
+    year: 2020
+    ref: "S0184"
+    tags:
+      - "topic:media-communication"
+      - "region:asia-pacific"
+      - "country:indonesia"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Schaub and D 2020"
+    doi: "10.1111/1475-6765.12373"
+    title: "Voter mobilisation in the echo chamber: Broadband internet and the rise of populism in Europe"
+    year: 2020
+    ref: "S0185"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Schmuck 2020"
+    doi: "10.1080/1369118x.2019.1588909"
+    title: "Closer to the people: A comparative content analysis of populist communication on social networking sites in pre- and post-Election periods"
+    year: 2020
+    ref: "S0186"
+    tags:
+      - "approach:discursive"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Schreurs 2021"
+    doi: "10.1017/ics.2020.30"
+    title: "Those were the days: welfare nostalgia and the populist radical right in the Netherlands, Austria and Sweden"
+    year: 2021
+    ref: "S0187"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "country:austria"
+      - "country:netherlands"
+      - "country:sweden"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Schumacher 2022"
+    doi: "10.1111/pops.12832"
+    title: "Hot Populism? Affective Responses to Antiestablishment Rhetoric"
+    year: 2022
+    ref: "S0188"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Schumann et al. 2021"
+    doi: "10.1080/1369118x.2021.1907435"
+    title: "Maintenance or change? Examining the reinforcing spiral between social media news use and populist attitudes"
+    year: 2021
+    ref: "S0189"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Schurmann 2022"
+    doi: "10.1080/2474736x.2021.2021095"
+    title: "Yelling from the sidelines? How German parties employ populist and crisis-related messages on Facebook"
+    year: 2022
+    ref: "S0190"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Schwarzenegger and A 2023"
+    doi: ""
+    title: "Commemorative populism in the COVID-19 pandemic: the strategic (ab)use of memory in anti-corona protest communication on Telegram"
+    year: 2023
+    ref: "S0191"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "todo:check-record"
+    create:
+      itemType: journalArticle
+      title: 'Commemorative populism in the COVID-19 pandemic: the strategic (ab)use of
+        memory in anti-corona protest communication on Telegram'
+      date: '2023'
+      publicationTitle: International Journal of Communication
+      volume: '17'
+      pages: 2138-2156
+      creators:
+        - creatorType: author
+          firstName: C
+          lastName: Schwarzenegger
+        - creatorType: author
+          firstName: A
+          lastName: Wagner
+
+  - cite: "Shahin 2021"
+    doi: "10.1080/1369118x.2020.1748088"
+    title: "User-generated nationalism: interactions with religion, race, and partisanship in everyday talk online"
+    year: 2021
+    ref: "S0192"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:religion"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Sharma 2023"
+    doi: "10.1080/01296612.2022.2135269"
+    title: "Populism and social media use: comparing the Indian Prime Minister Narendra Modi’s strategic use of Twitter during the 2014 and the 2019 election campaigns"
+    year: 2023
+    ref: "S0193"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:asia-pacific"
+      - "country:india"
+      - "type:article"
+
+  - cite: "Siles et al. 2021"
+    doi: "10.1177/19401612211032884"
+    title: "Populism, Religion, and Social Media in Central America"
+    year: 2021
+    ref: "S0194"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:religion"
+      - "region:latin-america"
+      - "country:el-salvador"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Smeekes 2021"
+    doi: "10.1002/jts5.78"
+    title: "Longing for the “good old days” of our country: National nostalgia as a new master‐frame of populist radical right parties"
+    year: 2021
+    ref: "S0196"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:migration"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Solahudin and M 2020"
+    doi: "10.3390/rel11010019"
+    title: "Internet and Islamic Learning Practices in Indonesia: Social Media, Religious Populism, and Religious Authority"
+    year: 2020
+    ref: "S0198"
+    tags:
+      - "topic:media-communication"
+      - "topic:religion"
+      - "region:asia-pacific"
+      - "country:indonesia"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Speed 2017"
+    doi: "10.15171/ijhpm.2017.19"
+    title: "The Rise of Post-truth Populism in Pluralist Liberal Democracies: Challenges for Health Policy"
+    year: 2017
+    ref: "S0199"
+    tags:
+      - "topic:media-communication"
+      - "topic:democracy-institutions"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Spruyt 2016"
+    doi: "10.1177/1065912916639138"
+    title: "Who Supports Populism and What Attracts People to It?"
+    year: 2016
+    ref: "S0201"
+    tags:
+      - "topic:voters"
+      - "region:europe"
+      - "country:belgium"
+      - "type:article"
+
+  - cite: "Stier 2020"
+    doi: "10.1177/1940161220907018"
+    title: "Populist Attitudes and Selective Exposure to Online News: A Cross-Country Analysis Combining Web Tracking and Surveys"
+    year: 2020
+    ref: "S0203"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Stockemer 2017"
+    doi: "10.1177/0267323116680132"
+    title: "The ‘new’ discourse of the Front National under Marine Le Pen: A slight change with a big impact"
+    year: 2017
+    ref: "S0204"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Szebeni and V 2022"
+    doi: "10.1080/15205436.2022.2111265"
+    title: "“Authentically” Maintaining Populism in Hungary – Visual Analysis of Prime Minister Viktor Orbán’s Instagram"
+    year: 2022
+    ref: "S0205"
+    tags:
+      - "topic:government"
+      - "topic:media-communication"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Thiele 2021"
+    doi: "10.1080/0031322x.2021.2014089"
+    title: "Right-wing populist affective governing: a frame analysis of Austrian parliamentary debates on migration"
+    year: 2021
+    ref: "S0206"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:migration"
+      - "region:europe"
+      - "country:austria"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Tóth 2026"
+    doi: "10.1093/anncom/wlag014"
+    title: "What have we learned, and what is yet to be learned about social media populism? A scoping review and meta-research"
+    year: 2026
+    ref: "S0209"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Trillò and GD 2023"
+    doi: "10.1177/19401612231186938"
+    title: "The Middle Region Populism of Giorgia Meloni and Matteo Renzi on Instagram"
+    year: 2023
+    ref: "S0211"
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Uyheng 2021"
+    doi: "10.1037/pac0000503"
+    title: "Power-differentiated emotions of populist support: Regional anger and classed fear in Duterte’s Philippines."
+    year: 2021
+    ref: "S0214"
+    tags:
+      - "region:asia-pacific"
+      - "country:philippines"
+      - "type:article"
+
+  - cite: "Van Kessel and S 2020"
+    doi: "10.1080/01402382.2019.1700448"
+    title: "Informed, uninformed or misinformed? A cross-national analysis of populist party supporters across European democracies"
+    year: 2020
+    ref: "S0215"
+    tags:
+      - "topic:parties"
+      - "topic:voters"
+      - "topic:media-communication"
+      - "region:europe"
+      - "method:survey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "van Prooijen 2022"
+    doi: "10.1111/pops.12825"
+    title: "Make It Great Again: The Relationship Between Populist Attitudes and Nostalgia"
+    year: 2022
+    ref: "S0216"
+    tags:
+      - "topic:voters"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Varis 2020"
+    doi: "10.1590/01031813683411620200406"
+    title: "TRUMP TWEETS THE TRUTH: METRIC POPULISM AND MEDIA CONSPIRACY"
+    year: 2020
+    ref: "S0218"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Vázquez-Barrio 2021"
+    doi: "10.15581/003.34.1.123-141"
+    title: "Populism in the 2019 General Elections. Analysis of the speeches by the three right-wing candidates on Twitter"
+    year: 2021
+    ref: "S0219"
+    tags:
+      - "approach:performative"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "method:qualitative"
+      - "method:quantitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Vences and GDF 2023"
+    doi: "10.15581/003.36.4.175-190"
+    title: "Populist strategies on Twitter: analysis of the political discourse during the campaign for the general elections in Spain on November 10th, 2019"
+    year: 2023
+    ref: "S0220"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wawrzyński 2022"
+    doi: "10.15804/ppsy202267"
+    title: "Emotional Dynamics of Populism and Its Non-Populist Alternatives: Discussing the Role of Compassion and Pride"
+    year: 2022
+    ref: "S0222"
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Wettstein et al. 2018"
+    doi: "10.1177/1940161218785979"
+    title: "News Media as Gatekeepers, Critics, and Initiators of Populist Communication: How Journalists in Ten Countries Deal with the Populist Challenge"
+    year: 2018
+    ref: "S0225"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "type:article"
+
+  - cite: "Widmann 2021"
+    doi: "10.1111/pops.12693"
+    title: "How Emotional Are Populists Really? Factors Explaining Emotional Appeals in the Communication of Political Parties"
+    year: 2021
+    ref: "S0226"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Widmann 2022"
+    doi: "10.1111/pops.12831"
+    title: "Fear, Hope, and COVID‐19: Emotional Elite Rhetoric and Its Impact on the Public During the First Wave of the COVID‐19 Pandemic"
+    year: 2022
+    ref: "S0227"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "method:qta"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Yanchenko 2022"
+    doi: "10.1093/ijpor/edac004"
+    title: "Stories about “Us” and “Them”: An Experimental Inquiry into the Relative Appeal of Populist Narratives"
+    year: 2022
+    ref: "S0228"
+    tags:
+      - "topic:voters"
+      - "topic:media-communication"
+      - "type:article"
+
+  - cite: "Yilmaz and D 2026"
+    doi: "10.1177/14614448261420218"
+    title: "Populism in the age of social media: A systematic review of recent digital populism research"
+    year: 2026
+    ref: "S0229"
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zahay 2022"
+    doi: "10.17645/mac.v10i4.5726"
+    title: "What “Real” Women Want: Alt-Right Femininity Vlogs as an Anti-Feminist Populist Aesthetic"
+    year: 2022
+    ref: "S0230"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:gender"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zararsiz 2024"
+    doi: "10.1177/20570473241277296"
+    title: "Populist politicians’ representations of the people: A comparative visual content analysis of candidates’ Instagram posts in 2023 Turkish general elections"
+    year: 2024
+    ref: "S0231"
+    tags:
+      - "topic:parties"
+      - "topic:gender"
+      - "region:europe"
+      - "country:turkey"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Zhang 2020"
+    doi: "10.1177/1354066119850253"
+    title: "Right-wing populism with Chinese characteristics? Identity, otherness and global imaginaries in debating world politics online"
+    year: 2020
+    ref: "S0232"
+    tags:
+      - "approach:discursive"
+      - "topic:international"
+      - "topic:parties"
+      - "topic:media-communication"
+      - "topic:religion"
+      - "topic:migration"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:china"
+      - "method:qualitative"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Dudley 2016"
+    doi: ""
+    title: "Do You Hear the People Sing?: Populist Discourse in the French Revolution"
+    year: 2016
+    ref: ""
+    tags:
+      - "type:article"
+      - "todo:check-outlet"
+      - "todo:check-record"
+
+  - cite: "Thomassen 2016"
+    doi: ""
+    title: "Hegemony, Populism and Democracy: Laclau and Mouffe Today (Review Article)"
+    year: 2016
+    ref: ""
+    tags:
+      - "approach:discursive"
+      - "topic:media-communication"
+      - "topic:democracy-institutions"
+      - "type:article"
+      - "todo:check-record"
+

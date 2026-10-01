@@ -1,0 +1,74 @@
+# Batch 04: what was decided by reading, not by the automatic lookup.
+# Sources: the reference lists of three review articles of 2026 (Bliuc et al.,
+# Information, Communication & Society; Tóth et al., Annals of the International
+# Communication Association; Yilmaz et al., new media & society). Written by
+# Claude on 2026-10-01; every work below also gets the note "todo:check-record"
+# in Zotero, for the editor's own pass.
+#
+# titles    A title as the source prints it, where the reading of the list had cut it short.
+# drop      References left out by reading.
+# accepted  References the lookup did not match by its strict rule, but whose DOI
+#           is the same work for the reason given.
+# records   Works for which no DOI is confirmed: each record repeats the source's
+#           reference as printed (names, year, title, journal or publisher, volume,
+#           issue, pages). Nothing was added from memory. Two records carry a DOI
+#           printed in the source: they are used only if Zotero cannot fetch that DOI.
+
+# The note written into each created record in Zotero (field "Extra").
+note: "Record made from the reference list of a review article of 2026 (Bliuc et al.; Tóth et al.; Yilmaz et al.); not yet checked against the publication."
+
+titles:
+  S0016: "Managing the image. The visual communication strategy of European right-wing populist politicians on Instagram"
+
+drop:
+  S0039: "the same article as Cassell 2021 (Electoral Studies 72: 102359), cited twice in one source under two titles and years"
+  S0147: "a chapter of the handbook Political Populism (Nomos), though printed like a journal article"
+
+accepted:
+  S0004: {doi: "10.3389/fcomm.2020.00054", why: "same two authors and year; Frontiers in Communication, volume 5, article 54, as in the DOI; the catalogue title differs by a few words"}
+  S0016: {doi: "10.1080/15377857.2021.1892901", why: "DOI printed in the source; the journal's number (1537-7857, Journal of Political Marketing) is in the DOI; published online in 2021, in volume 23 in 2024, so the years lie three apart"}
+  S0023: {doi: "10.1080/00344893.2019.1691638", why: "DOI printed in the source; the registry record has the same title and authors; published online in 2019, in volume 58 in 2022, so the years lie three apart"}
+  S0034: {doi: "10.1285/i20356609v13i1p01", why: "DOI printed in the source; it carries the journal's number (2035-6609, Partecipazione e Conflitto), volume 13, issue 1, page 1, as in the reference; it is not registered at Crossref, so the script could not confirm it"}
+  S0071: {doi: "10.15581/003.35.3.91-103", why: "DOI printed in the source; it carries volume 35, issue 3 and pages 91-103, as in the reference; the script could not confirm the registry record"}
+  S0092: {doi: "10.1177/1940161218786786", why: "same authors and year; the journal's number (1940-1612, The International Journal of Press/Politics) is in the DOI; the catalogue title lacks one word"}
+  S0101: {doi: "10.17645/mac.v10i4.5654", why: "same author, year and title; the article number 5654 of the address printed in the source is in the DOI"}
+  S0135: {doi: "10.3318/isia.2017.28.9", why: "same title and author; the source names another journal and year (International Journal of Intelligence and Counterintelligence, 2019), the catalogue has Irish Studies in International Affairs 28 (2017)"}
+
+# Two records of batch 03 (works without a DOI) lose the tag "oa:yes": from batch 04
+# on, open access is taken from the catalogue only for a work with a DOI. Their
+# other tags stay as they are.
+also:
+  - {cite: "Dudley 2016", title: "Do You Hear the People Sing?: Populist Discourse in the French Revolution", year: 2016, tags: ["type:article", "todo:check-outlet", "todo:check-record"]}
+  - {cite: "Thomassen 2016", title: "Hegemony, Populism and Democracy: Laclau and Mouffe Today (Review Article)", year: 2016, tags: ["approach:discursive", "topic:media-communication", "topic:democracy-institutions", "type:article", "todo:check-record"]}
+
+records:
+  S0005: {itemType: journalArticle, title: "Everything for the people, but without the people? Illustrated populism on Social Media in the European political context", date: "2021", publicationTitle: "International Journal of Communication", volume: "15", pages: "2787-2806", url: "https://ijoc.org/index.php/ijoc/article/view/15603",
+          creators: [{creatorType: author, firstName: "L", lastName: "Alonso-Muñoz"}]}
+  S0024: {itemType: journalArticle, title: "Indian democracy under threat: the BJP’s online authoritarian populism as a means to advance an ethnoreligious nationalist agenda in the 2019 general election", date: "2022", publicationTitle: "International Journal of Communication", volume: "16", pages: "1940-1968", url: "https://ijoc.org/index.php/ijoc/article/view/17200/3745",
+          creators: [{creatorType: author, firstName: "G", lastName: "Bolsover"}]}
+  S0032: {itemType: journalArticle, title: "Digital populism: trolls and political polarization of Twitter in Turke", date: "2017", publicationTitle: "International Journal of Communication", volume: "11", pages: "4093-4117",
+          creators: [{creatorType: author, firstName: "E", lastName: "Bulut"}, {creatorType: author, firstName: "E", lastName: "Yörük"}]}
+  S0034: {itemType: journalArticle, title: "Setting the scene: Filling the gaps in populism studies", date: "2020", publicationTitle: "Partecipazione e Conflitto", volume: "13", issue: "1", pages: "1-28", DOI: "10.1285/i20356609v13i1p01",
+          creators: [{creatorType: author, firstName: "M.", lastName: "Caiani"}, {creatorType: author, firstName: "E.", lastName: "Padoan"}]}
+  S0048: {itemType: journalArticle, title: "‘Brazil above everything. God above everyone’. Political-religious fundamentalist expressions in digital media in times of ultra-right populism in Brazil", date: "2023", publicationTitle: "International Journal of Communication", volume: "17", pages: "2841-2861",
+          creators: [{creatorType: author, firstName: "MN", lastName: "Cunha"}]}
+  S0059: {itemType: book, title: "National populism: The revolt against liberal democracy", date: "2018", publisher: "Penguin Books",
+          creators: [{creatorType: author, firstName: "R.", lastName: "Eatwell"}, {creatorType: author, firstName: "M.", lastName: "Goodwin"}]}
+  S0071: {itemType: journalArticle, title: "Political communications on Facebook and populism. The 2019 European parliament election in Spain", date: "2022", publicationTitle: "Communication and Society", volume: "35", pages: "91-103", DOI: "10.15581/003.35.3.91-103",
+          creators: [{creatorType: author, firstName: "V.", lastName: "Fenoll"}]}
+  S0078: {itemType: journalArticle, title: "Populists or influencers? The use of Facebook videos by populist leaders", date: "2022", publicationTitle: "International Journal of Communication", volume: "16", pages: "3894-3916",
+          creators: [{creatorType: author, firstName: "A", lastName: "Gandini"}]}
+  S0090: {itemType: journalArticle, title: "A typology of populism: Toward a revised theoretical framework on the sender side and receiver side of communication", date: "2018", publicationTitle: "International Journal of Communication", volume: "12", pages: "2171-2190",
+          creators: [{creatorType: author, firstName: "M.", lastName: "Hameleers"}]}
+  S0094: {itemType: journalArticle, title: "To like is to support? The effects and mechanisms of selective exposure to online populist communication on voting preferences", date: "2019", publicationTitle: "International Journal of Communication", volume: "13", pages: "2417-2436",
+          creators: [{creatorType: author, firstName: "M.", lastName: "Hameleers"}]}
+  S0117: {itemType: journalArticle, title: "Populism fuels love and anger: The impact of message features on users’ reactions on Facebook", date: "2020", publicationTitle: "International Journal of Communication", volume: "14", pages: "2081-2102",
+          creators: [{creatorType: author, firstName: "P.", lastName: "Jost"}, {creatorType: author, firstName: "M.", lastName: "Maurer"}, {creatorType: author, firstName: "J.", lastName: "Hassler"}]}
+  S0124: {itemType: journalArticle, title: "Divisive, negative, and populist?! An empirical analysis of European populist and mainstream parties’ use of digital political advertisements", date: "2024", publicationTitle: "International Journal of Communication", volume: "18", pages: "5518-5539", url: "https://ijoc.org/index.php/ijoc/article/view/21509",
+          creators: [{creatorType: author, firstName: "S.", lastName: "Kruschinski"}, {creatorType: author, firstName: "M.", lastName: "Bene"}, {creatorType: author, firstName: "J.", lastName: "Haßler"}, {creatorType: author, firstName: "U.", lastName: "Rußmann"}, {creatorType: author, firstName: "D.", lastName: "Lilleker"}, {creatorType: author, firstName: "D. C.", lastName: "Balaban"}, {creatorType: author, firstName: "P.", lastName: "Baranowski"}, {creatorType: author, firstName: "A.", lastName: "Ceron"}, {creatorType: author, firstName: "V.", lastName: "Fenoll"}, {creatorType: author, firstName: "D.", lastName: "Jackson"}]}
+  S0159: {itemType: book, title: "For a Left Populism", date: "2018", place: "London", publisher: "Verso Books",
+          creators: [{creatorType: author, firstName: "C", lastName: "Mouffe"}]}
+  S0181: {itemType: journalArticle, title: "Where’s populism? Online media and the diffusion of populist discourses and styles in Portugal", date: "2019", publicationTitle: "Contemporary Politics", volume: "25", issue: "1", pages: "53-69",
+          creators: [{creatorType: author, firstName: "S", lastName: "Salgado"}]}
+  S0191: {itemType: journalArticle, title: "Commemorative populism in the COVID-19 pandemic: the strategic (ab)use of memory in anti-corona protest communication on Telegram", date: "2023", publicationTitle: "International Journal of Communication", volume: "17", pages: "2138-2156",
+          creators: [{creatorType: author, firstName: "C", lastName: "Schwarzenegger"}, {creatorType: author, firstName: "A", lastName: "Wagner"}]}
