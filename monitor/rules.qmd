@@ -10,7 +10,7 @@ toc: true
 <!-- EVERY CHANGE TO THE RULES: raise the version number and the date in the line below, and add an entry under "Changes to these rules" at the end of the page. -->
 
 ::: {.pv-label}
-Rules, version 1.0 · 1 October 2026
+Rules, version 1.1 · 1 October 2026
 :::
 
 These are the rules of [PopuliVerse Monitor](index.qmd). They were set before the first issue, so that every reader knows what to expect. Each issue says which version of the rules it follows. Every change is listed [at the end of this page](#changes).
@@ -37,12 +37,12 @@ The Monitor does not decide who is populist. Research does.
 
 An actor is covered when an academic dataset classifies it as populist. The datasets are:
 
-- **The PopuList**, version 4.0. It classifies parties in 31 European countries (Rooduijn et al. 2024).
-- **The Global Populism Database**, version 2. It measures populism in the speeches of presidents and prime ministers in 74 countries (Hawkins et al. 2019).
+- **The PopuList**, version 4.0. It classifies parties in 31 European countries (Rooduijn et al. 2024). Parties that it marks as borderline cases are covered too. The Monitor marks them as borderline.
+- **The Global Populism Database**, version 2.1. It grades the speeches of presidents and prime ministers in 77 countries from 0 to 2 (Hawkins et al. 2019). A leader counts as populist with an average of 0.5 or more in the latest term. On the database's own scale, 0.5 rounds up to 1: a speech with strong, clearly populist elements. The Monitor follows the leader and the party or government that the leader heads.
 
 Another dataset is added to this list first, then used.
 
-The datasets have gaps. Outside Europe, the Global Populism Database covers presidents and prime ministers only, and its speeches end in 2022. So there is one more rule. An actor that is in no dataset is covered only when a peer-reviewed publication classifies it as populist. The reference is printed next to the name.
+The datasets have gaps. Outside Europe, the Global Populism Database covers presidents and prime ministers only, and its newest terms began in 2023. So there is one more rule. An actor that is in no dataset is covered only when a peer-reviewed publication classifies it as populist. The reference is printed next to the name.
 
 The Monitor follows actors that sit in a national parliament or in government.
 
@@ -126,8 +126,19 @@ There are at most three for each region. Where the country is covered, the trust
 
 A full item on these regions rests on one agency and, where one reported the event, one source from the region.
 
+Three are on the list so far.
+
+News24 (South Africa)
+: Owned by Media24, part of the Naspers group.
+
+The Punch (Nigeria)
+: Owned by the family of its founder.
+
+Buenos Aires Times (Argentina)
+: Published by Editorial Perfil, a private publisher.
+
 ::: {.pv-pending}
-The regional sources are being checked one by one. They will be named here before the first issue.
+The other regional sources are being checked one by one. They will be named here before the first issue.
 :::
 
 ### Official records
@@ -176,6 +187,7 @@ The Monitor cannot do everything. These are its known limits.
 - **A Western core.** Reuters, AP and AFP are based in Europe and North America. Outside Europe and the Asia-Pacific region they carry most of the items.
 - **English only.** All sources are in English. Events reported only in other languages can be missed. Latin America and French-speaking Africa lose most.
 - **The datasets lag.** A new party or leader enters the datasets late. The Monitor does not cover an actor until research classifies it.
+- **Thin outside Europe and the Americas.** In Sub-Saharan Africa no leader in the database reaches the threshold. That region can stay empty until research classifies an actor there.
 - **Big events are reported better than small ones.** A small party in a small country can be missed.
 - **Selection.** About four full items for each region is a choice. The rules guide the choice. They do not remove it.
 
@@ -185,6 +197,9 @@ A published PDF is never changed silently. Corrections and the right of reply fo
 
 ## Changes to these rules {#changes}
 
+Version 1.1, 1 October 2026
+: The Global Populism Database is used in its version 2.1. A threshold is set for it: 0.5. A leader is followed together with the party or government that he or she heads. Borderline cases of The PopuList are covered and marked. The first three regional sources are named.
+
 Version 1.0, 1 October 2026
 : The first version, set before the first issue.
 
@@ -192,7 +207,7 @@ Version 1.0, 1 October 2026
 
 Dragomir, Marius. 2025. *State Media Monitor Global Dataset 2025*. Media and Journalism Research Center. Zenodo. [DOI: 10.5281/zenodo.17219015](https://doi.org/10.5281/zenodo.17219015).
 
-Hawkins, Kirk A., Rosario Aguilar, Bruno Castanho Silva, Erin K. Jenne, Bojana Kocijan, and Cristóbal Rovira Kaltwasser. 2019. "Global Populism Database." Version 2. Harvard Dataverse. [DOI: 10.7910/DVN/LFTQEZ](https://doi.org/10.7910/DVN/LFTQEZ).
+Hawkins, Kirk A., Rosario Aguilar, Bruno Castanho Silva, Erin K. Jenne, Bojana Kocijan, and Cristóbal Rovira Kaltwasser. 2019. "Global Populism Database." Version 2.1. Harvard Dataverse. [DOI: 10.7910/DVN/LFTQEZ](https://doi.org/10.7910/DVN/LFTQEZ).
 
 Reuters Institute for the Study of Journalism. 2026. [*Digital News Report 2026*](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026). University of Oxford.
 
