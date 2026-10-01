@@ -27,6 +27,6 @@ If something published here is wrong, write to the editor. Corrections are made 
 
 ## Get in touch
 
-<hello@populiverse.com>
+<editor@populiverse.com>
 
 <!-- TODO(link): when the contact form exists, add a button to it here. -->

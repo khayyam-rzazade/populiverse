@@ -9,7 +9,7 @@ PopuliVerse is an independent, non-commercial academic website.
 
 **Publisher and editor.** Khayyam Rzazade
 
-**Contact.** <hello@populiverse.com>
+**Contact.** <editor@populiverse.com>
 
 **Hosting.** GitHub Pages, a service of GitHub, Inc.
 

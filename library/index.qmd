@@ -78,6 +78,68 @@ A tag is given only when the work's own title or abstract supports it. The wordi
 
 The full citation, the abstract as published when the publisher provides one, a link to the DOI or to an open-access copy, the tags on both axes, and a BibTeX reference in one click. The works shown can be downloaded as a BibTeX or a CSV file. PopuliVerse links to papers. It does not host them.
 
+## How to cite the Library
+
+If you use the Library in your research or teaching, please cite it. The Library grows, so give the date of your visit.
+
+```{=html}
+<div class="pv-cite" id="pv-cite">
+  <p id="pv-cite-text">Rzazade, Khayyam, ed. 2026–. <em>PopuliVerse Library</em>. https://populiverse.com/library/. Accessed <span id="pv-cite-date">[the date of your visit]</span>.</p>
+  <p class="pv-lib-tools">
+    <button type="button" class="pv-lib-link" id="pv-cite-copy" hidden>Copy citation</button>
+    <button type="button" class="pv-lib-link" id="pv-cite-bib" hidden>Copy BibTeX</button>
+  </p>
+</div>
+<script>
+// Fills in today's date and makes the two "copy" buttons work. Without JavaScript
+// the citation above stays readable and the buttons stay hidden.
+(function () {
+  var box = document.getElementById("pv-cite");
+  if (!box) return;
+  var now = new Date();
+  var long = now.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  var iso = now.getFullYear() + "-" + ("0" + (now.getMonth() + 1)).slice(-2) + "-" + ("0" + now.getDate()).slice(-2);
+  var date = document.getElementById("pv-cite-date");
+  if (date) date.textContent = long;
+  var plain = "Rzazade, Khayyam, ed. 2026\u2013. PopuliVerse Library. https://populiverse.com/library/. Accessed " + long + ".";
+  var bibtex = "@misc{rzazade_populiverse_library,\n" +
+    "  editor = {Rzazade, Khayyam},\n" +
+    "  title = {{PopuliVerse} Library},\n" +
+    "  year = {2026},\n" +
+    "  url = {https://populiverse.com/library/},\n" +
+    "  urldate = {" + iso + "},\n" +
+    "  note = {Accessed " + long + "}\n" +
+    "}\n";
+  function copy(text, button) {
+    var label = button.textContent;
+    function done(ok) {
+      button.textContent = ok ? "Copied" : "Could not copy";
+      window.setTimeout(function () { button.textContent = label; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+      return;
+    }
+    try {
+      var area = document.createElement("textarea");
+      area.value = text; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+      document.body.appendChild(area); area.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(area); done(ok);
+    } catch (e) { done(false); }
+  }
+  [["pv-cite-copy", plain], ["pv-cite-bib", bibtex]].forEach(function (pair) {
+    var button = document.getElementById(pair[0]);
+    if (!button) return;
+    button.hidden = false;
+    button.addEventListener("click", function () { copy(pair[1], button); });
+  });
+})();
+</script>
+```
+
+Cite the works themselves as usual: each entry gives its reference and its BibTeX.
+
 ## Suggest a paper
 
 Is something missing? Send the title or the DOI, and a line on why it belongs here.

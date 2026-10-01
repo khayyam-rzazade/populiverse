@@ -24,7 +24,7 @@ Students and early-career researchers starting a literature review on populism. 
 
 ## Editor
 
-Editor: Khayyam RZAZADE
+Editor: [Khayyam RZAZADE](https://thekhayyam.com/polsci)
 
 <!-- EDITOR: two or three lines about you go here. The plan keeps the site without an institutional line; decide whether your own bio names your university. -->
 
@@ -34,4 +34,4 @@ How PopuliVerse works, including its use of AI, is set out in the [editorial pol
 
 ## Contact {#contact}
 
-<hello@populiverse.com>
+Write to the editor: <editor@populiverse.com>
