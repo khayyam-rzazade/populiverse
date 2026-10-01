@@ -51,6 +51,6 @@ Every issue is published twice from the same text: as a web page and as a typese
 
 ## How to cite
 
-Author (year), "Title", *PopuliVerse Monitor* 2027/1, pp. x–y, DOI.
+Author (year), "Title", *PopuliVerse Monitor* 2026/1, pp. x–y, DOI.
 
-Issues are numbered by year: 2027/1, 2027/2 and so on. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).
+Issues are numbered by year, and the number follows the month the issue covers: 2026/1 is September 2026, 2026/2 is October 2026, and so on. Each year starts again at 1: January 2027 is 2027/1. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).

@@ -14,7 +14,7 @@ listing:
   date-format: "MMMM YYYY"
 ---
 
-Commentary publishes short pieces in which scholars comment on populism and populist actors: an opinion, an argument, a way of looking at a question. The pieces are written by scholars and reviewed by the editor. Commentary appears quarterly.
+Commentary publishes short pieces in which scholars comment on populism and populist actors: an opinion, an argument, a way of looking at a question. The pieces are written by scholars and reviewed by the editor. Commentary appears quarterly, and its issues are numbered by year: the first, 2026/1, comes out in December 2026, and the next, 2027/1, in March 2027.
 
 ## Issues
 

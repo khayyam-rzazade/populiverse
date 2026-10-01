@@ -1,7 +1,7 @@
 # Settings shared by every Commentary piece in this folder.
 # Google Scholar metadata and the "Cite this" box are switched on here,
 # so each new piece gets them without any extra step.
-# The exact citation wording (2027/1, pp. x-y, DOI) is set later, with the piece template.
+# The exact citation wording (2026/1, pp. x-y, DOI) is set later, with the piece template.
 google-scholar: true
 citation:
   type: article-journal

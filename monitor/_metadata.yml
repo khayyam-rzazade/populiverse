@@ -1,7 +1,7 @@
 # Settings shared by every Monitor issue in this folder.
 # Google Scholar metadata and the "Cite this" box are switched on here,
 # so each new issue gets them without any extra step.
-# The exact citation wording (2027/1, pp. x-y, DOI) is set later, with the issue template.
+# The exact citation wording (2026/1, pp. x-y, DOI) is set later, with the issue template.
 google-scholar: true
 citation:
   type: article-journal
