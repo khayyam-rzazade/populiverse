@@ -32,7 +32,9 @@ date: "2026-10-01"
 # the site). The name must be written as the catalogue writes it.
 outlets_to_check: ["Foreign Affairs", "Journal of Democracy", "The Brown Journal of World Affairs",
                    "SAIS Review of International Affairs", "The Fletcher forum of world affairs",
-                   "The Fletcher Forum of World Affairs", "Survival"]
+                   "The Fletcher Forum of World Affairs", "Survival",
+                   "Sigma: Journal of Political and International Studies", "Comparative Politics Newsletter",
+                   "Global Politics Review"]
 
 # A sentence of the abstract counts for method only if it holds one of these.
 study_words: ["we", "our", "this article", "this paper", "this study", "this essay", "this book",

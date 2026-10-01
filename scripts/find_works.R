@@ -11,11 +11,17 @@
 #   2. Asks the DOI registry (Crossref) for each reference. A DOI is accepted
 #      only when the title, the year and the first author all agree with the
 #      reference. If they do not, the reference gets no DOI. Nothing is guessed.
+#      A book is never matched to a journal article (a review of the book
+#      carries the same title), nor an article to a book or to a record in
+#      another journal.
 #   3. Asks OpenAlex, an open catalogue of research, for the abstract and for
 #      whether the work is open access. This needs a free OpenAlex key, which
 #      the script asks for once and keeps in your home folder (~/.Renviron).
 #      Without a key it still runs, with fewer abstracts.
 #   4. Writes drafts/batch-NN-found.csv and prints a short report.
+#
+# When nothing is accepted for a reference, the nearest candidate is written
+# down as a note for checking ("near_..."). It is never used as the work's DOI.
 #
 # It starts with a trial of ten references and goes on only after you type yes.
 # It can be stopped and started again: what was already found is kept.
@@ -24,7 +30,8 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01"
+  SCRIPT_VERSION <- "2026-10-01.3"
+  MATCHING <- 2          # raised when the way of comparing changes: references not found before are asked again
   DRAFTS <- "drafts"
   TRIAL  <- 10
 
@@ -78,7 +85,11 @@ local({
   close_enough <- function(a, b) {
     if (!nzchar(a) || !nzchar(b)) return(FALSE)
     if (identical(a, b)) return(TRUE)
+    # "anti western" and "antiwestern": a list taken from a PDF loses hyphens at line ends
+    sa <- gsub(" ", "", a, fixed = TRUE); sb <- gsub(" ", "", b, fixed = TRUE)
+    if (identical(sa, sb)) return(TRUE)
     longer <- max(nchar(a), nchar(b)); shorter <- min(nchar(a), nchar(b))
+    if (shorter >= 20 && shorter >= 0.6 * longer && (startsWith(sa, sb) || startsWith(sb, sa))) return(TRUE)
     # one is the other plus a subtitle
     if (shorter >= 12 && shorter >= 0.6 * longer &&
         (startsWith(a, paste0(b, " ")) || startsWith(b, paste0(a, " ")))) return(TRUE)
@@ -98,7 +109,8 @@ local({
     m_ref <- main(ref$title); m_cand <- main(cand$title)
     title_ok <- close_enough(t_ref, fold(cand$title)) ||
       (nzchar(cand$subtitle %||% "") && close_enough(t_ref, fold(paste(cand$title, cand$subtitle)))) ||
-      (nchar(m_ref) >= 8 && (identical(m_ref, fold(cand$title)) || identical(m_cand, t_ref)))
+      (nchar(m_ref) >= 8 && (identical(m_ref, fold(cand$title)) || identical(m_cand, t_ref) ||
+                               identical(gsub(" ", "", m_ref), gsub(" ", "", fold(cand$title)))))
     year_ok <- !is.na(cand$year) && abs(as.integer(ref$year) - cand$year) <= 2
     fam <- gsub(" ", "", fold(ref$first_author))
     names <- gsub(" ", "", vapply(cand$families, fold, ""))
@@ -106,6 +118,27 @@ local({
       any(names == fam | (nchar(fam) >= 4 & grepl(fam, names, fixed = TRUE)) |
             (nchar(names) >= 4 & vapply(names, function(n) grepl(n, fam, fixed = TRUE), logical(1))))
     title_ok && year_ok && author_ok
+  }
+
+  # A reference to a book is never matched to a journal article, and the other
+  # way round: a review of a book carries the book's title and names its author.
+  kind_ok <- function(ref, type) {
+    k <- ref$kind_guess %||% ""
+    if (identical(k, "book") && type %in% c("journal-article", "article", "review", "book-review", "reference-entry")) return(FALSE)
+    if (identical(k, "article") && type %in% c("book", "monograph", "edited-book", "book-chapter", "book-review", "reference-entry")) return(FALSE)
+    TRUE
+  }
+
+  # An article is not matched to a record in another journal (for example a
+  # preprint with the same title). Names are compared loosely, so that
+  # "JCMS: Journal of Common Market Studies" still equals "Journal of Common
+  # Market Studies": at least half of the words of the shorter name must agree.
+  journal_ok <- function(ref, container) {
+    if (!identical(ref$kind_guess %||% "", "article")) return(TRUE)
+    words <- function(x) setdiff(strsplit(fold(x), " ", fixed = TRUE)[[1]], c("", "the", "of", "and", "for", "in", "a", "an"))
+    r <- words(sub("\\s+[0-9(].*$", "", ref$container %||% "")); c <- words(container %||% "")
+    if (!length(r) || !length(c)) return(TRUE)
+    length(intersect(r, c)) / min(length(r), length(c)) >= 0.5
   }
 
   # ---- asking the two catalogues --------------------------------------------
@@ -152,6 +185,27 @@ local({
     list(ok = TRUE, items = items)
   }
 
+  # Second try at Crossref: the title and the author asked as separate fields.
+  crossref_by_fields <- function(ref, email) {
+    q <- list("query.title" = ref$title, "query.author" = ref$first_author, rows = 5,
+              select = "DOI,title,subtitle,author,editor,issued,container-title,publisher,type,abstract")
+    if (nzchar(email)) q$mailto <- email
+    r <- get_json(paste0(CROSSREF, "/works"), q)
+    if (r$status == 400L) { q$select <- NULL; r <- get_json(paste0(CROSSREF, "/works"), q) }
+    if (r$status != 200L) return(list(ok = FALSE, items = list()))
+    items <- lapply(r$body$message$items %||% list(), function(it) {
+      people <- it$author %||% it$editor %||% list()
+      list(doi = it$DOI %||% "",
+           title = (it$title %||% list(""))[[1]] %||% "",
+           subtitle = (it$subtitle %||% list(""))[[1]] %||% "",
+           year = suppressWarnings(as.integer((it$issued[["date-parts"]] %||% list(list(NA)))[[1]][[1]] %||% NA)),
+           families = vapply(people, function(p) p$family %||% p$name %||% "", ""),
+           container = (it[["container-title"]] %||% list(""))[[1]] %||% "",
+           publisher = it$publisher %||% "", type = it$type %||% "", abstract = it$abstract %||% "")
+    })
+    list(ok = TRUE, items = items)
+  }
+
   OA_FIELDS <- "id,doi,display_name,publication_year,type,authorships,primary_location,open_access,abstract_inverted_index"
 
   openalex_item <- function(w) {
@@ -194,7 +248,15 @@ local({
                                        ",publication_year:", y - 2, "-", y + 2),
                        "per-page" = 5, select = OA_FIELDS, api_key = key))
     if (r$status != 200L) return(list(ok = FALSE, items = list(), status = r$status))
-    list(ok = TRUE, items = lapply(r$body$results %||% list(), openalex_item))
+    items <- lapply(r$body$results %||% list(), openalex_item)
+    if (!any(vapply(items, function(c) same_work(ref, c), logical(1)))) {
+      # second try: OpenAlex's free search, which forgives a word written differently
+      r2 <- get_json(paste0(OPENALEX, "/works"),
+                     list(search = trimws(gsub("\\s+", " ", words)), filter = paste0("publication_year:", y - 2, "-", y + 2),
+                          "per-page" = 5, select = OA_FIELDS, api_key = key))
+      if (r2$status == 200L) items <- c(items, lapply(r2$body$results %||% list(), openalex_item))
+    }
+    list(ok = TRUE, items = items)
   }
 
   clean_jats <- function(x) {
@@ -208,11 +270,27 @@ local({
     out <- list(ref_id = ref$ref_id, status = "not found", doi = "", found_by = "", title_found = "",
                 year_found = NA_integer_, journal_or_publisher = "", type = "", source_type = "",
                 open_access = NA, oa_status = "", abstract = "", abstract_from = "", openalex_id = "",
-                complete = TRUE, with_openalex = nzchar(key))
+                complete = TRUE, with_openalex = nzchar(key), matching = MATCHING,
+                near_doi = "", near_title = "", near_year = NA_integer_, near_authors = "")
     cr <- crossref_candidates(ref, email)
     if (!cr$ok) out$complete <- FALSE
     hit <- NULL
-    for (cand in cr$items) if (nzchar(cand$doi) && same_work(ref, cand)) { hit <- cand; break }
+    for (cand in cr$items) if (nzchar(cand$doi) && same_work(ref, cand) && kind_ok(ref, cand$type) && journal_ok(ref, cand$container)) { hit <- cand; break }
+    seen <- cr$items
+    if (is.null(hit) && cr$ok) {
+      cr2 <- crossref_by_fields(ref, email)
+      if (!cr2$ok) out$complete <- FALSE
+      for (cand in cr2$items) if (nzchar(cand$doi) && same_work(ref, cand) && kind_ok(ref, cand$type) && journal_ok(ref, cand$container)) { hit <- cand; break }
+      seen <- c(seen, cr2$items)
+    }
+    if (is.null(hit) && length(seen)) {
+      # nothing accepted: keep the nearest candidate as a note only (it is NOT used as the work's DOI)
+      t_ref <- fold(ref$title)
+      d <- vapply(seen, function(c) as.numeric(utils::adist(t_ref, fold(c$title))) / max(nchar(t_ref), 1), 0)
+      n <- seen[[which.min(d)]]
+      out$near_doi <- n$doi; out$near_title <- n$title; out$near_year <- n$year
+      out$near_authors <- paste(utils::head(n$families, 3), collapse = "; ")
+    }
     if (!is.null(hit)) {
       out$status <- "found"; out$doi <- hit$doi; out$found_by <- "Crossref"
       out$title_found <- trimws(paste0(hit$title, if (nzchar(hit$subtitle)) paste0(": ", hit$subtitle) else ""))
@@ -230,7 +308,7 @@ local({
       } else {
         r <- openalex_by_title(ref, key)
         if (!r$ok) out$complete <- FALSE
-        for (cand in r$items) if (same_work(ref, cand)) { oa <- cand; break }
+        for (cand in r$items) if (same_work(ref, cand) && kind_ok(ref, cand$type) && journal_ok(ref, cand$container)) { oa <- cand; break }
         if (!is.null(oa)) {
           out$status <- "found"; out$doi <- oa$doi; out$found_by <- "OpenAlex"
           out$title_found <- oa$title; out$year_found <- oa$year
@@ -333,6 +411,11 @@ local({
     cache_file <- paste0(stem, "-cache.rds")
     cache <- if (file.exists(cache_file)) readRDS(cache_file) else list()
     if (nzchar(set$key)) cache <- cache[!vapply(cache, function(r) isFALSE(r$with_openalex), logical(1))]
+    again <- vapply(cache, function(r) !identical(r$status, "found") && (is.null(r$matching) || r$matching < MATCHING), logical(1))
+    if (any(again)) {
+      say("  [ok] ", sum(again), " references that were not found before are asked again (the comparison was improved)")
+      cache <- cache[!again]
+    }
     todo  <- refs$ref_id[!(refs$ref_id %in% names(cache))]
     if (length(cache)) say("  [ok] ", length(cache), " references were already looked up earlier; ", length(todo), " to go")
 
@@ -346,7 +429,7 @@ local({
 
     # a trial of ten first
     first <- utils::head(todo, TRIAL)
-    if (length(first) && length(cache) == 0) {
+    if (length(first) && length(cache) == 0) {   # (no trial when most of the list is already done)
       say(""); say("Trial with the first ", length(first), " references")
       silent <- 0
       for (id in first) {
@@ -400,6 +483,8 @@ local({
                       type = col("type", ""), source_type = col("source_type", ""),
                       open_access = col("open_access", ""), oa_status = col("oa_status", ""),
                       abstract_from = col("abstract_from", ""), openalex_id = col("openalex_id", ""),
+                      near_doi = col("near_doi", ""), near_title = col("near_title", ""),
+                      near_year = col("near_year", ""), near_authors = col("near_authors", ""),
                       abstract = col("abstract", ""), stringsAsFactors = FALSE)
     out <- merge(refs[, intersect(c("ref_id", "first_author", "year", "title", "container", "kind_guess",
                                     "chapters_citing", "authors", "reference"), names(refs))], out, by = "ref_id", all.x = TRUE)

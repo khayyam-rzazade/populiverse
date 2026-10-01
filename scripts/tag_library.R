@@ -26,6 +26,11 @@
 # A batch of more than 30 works is reported in short: counts, the first five
 # works, and every work that needs attention.
 #
+# A work that enters without a DOI is created in Zotero from the record written
+# in the batch file (taken from the source's own reference list), with its tags.
+# It is never matched to an item that already carries a DOI. The script never
+# deletes anything: records to remove are named, and you move them to the bin.
+#
 # THE ZOTERO KEY
 #   The script looks for the key in the private file ~/.Renviron in your home
 #   folder, which is outside the site folder. If the key is not there, a small
@@ -35,7 +40,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01.2"
+  SCRIPT_VERSION <- "2026-10-01.3"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
   BATCH_FILE     <- NULL        # NULL = the newest file in library/batches/
 
@@ -326,7 +331,9 @@ local({
         prefix <- nchar(titles) >= 15 & startsWith(paste0(wt, " "), paste0(titles, " "))
         hit <- which(same | prefix)
         # an item that carries a different DOI is a different work, whatever its title
-        if (nzchar(wd) && length(hit)) hit <- hit[!nzchar(dois[hit])]
+        # (the same holds for a work that enters without a DOI: it is never matched to an item that has one)
+        if ((nzchar(wd) || !is.null(w$create)) && length(hit)) hit <- hit[!nzchar(dois[hit])]
+        if (!is.null(w$create) && length(hit)) hit <- hit[titles[hit] == wt]
         if (!is.null(w$year) && length(hit)) {
           years <- vapply(items[hit], function(it) grepl(as.character(w$year), it$data$date %||% "", fixed = TRUE), logical(1))
           if (any(years)) hit <- hit[years]
@@ -339,6 +346,12 @@ local({
     })
   }
 
+  # Is this a whole abstract? At least 250 characters, ending like a sentence, not cut off.
+  whole_abstract <- function(a) {
+    a <- trimws(gsub("\\s+", " ", a %||% ""))
+    nchar(a) >= 250 & grepl("[.!?\"'\u201d\u2019)\\]]$", a, perl = TRUE) & !grepl("(\\.\\.\\.|\u2026)$", a, perl = TRUE)
+  }
+
   # The abstracts found by scripts/find_works.R for this batch, by reference number.
   # Only whole abstracts are used: one that ends cut off is left out.
   load_abstracts <- function(batch_path) {
@@ -348,7 +361,7 @@ local({
     if (!all(c("ref_id", "abstract") %in% names(d))) return(list())
     a <- trimws(gsub("\\s+", " ", d$abstract))
     a <- sub("^(Abstract|ABSTRACT|Summary|SUMMARY)[:.]? +(?=[A-Z\u201c\u2018\"'(\\[])", "", a, perl = TRUE)
-    ok <- nchar(a) >= 200 & !grepl("(\\.\\.\\.|\u2026)$", a)
+    ok <- whole_abstract(a)
     stats::setNames(as.list(a[ok]), d$ref_id[ok])
   }
 
@@ -422,10 +435,15 @@ local({
     plans   <- vector("list", length(works))
     big     <- length(works) > 30          # a large batch is reported in short
     say("3. What would change", if (big) " (a large batch: only the first five works and every problem are listed)" else "")
-    shown <- 0; missing <- character()
+    shown <- 0; missing <- character(); to_create <- integer()
     for (i in seq_along(works)) {
       w <- works[[i]]; m <- matches[[i]]
       head <- paste0("  ", i, ". ", w$cite %||% "?", " - ", short(w$title, 60))
+      if (m$status == "not found" && !is.null(w$create)) {
+        to_create <- c(to_create, i)
+        if (!big) { say(head); say("       no DOI: the record will be created in Zotero from the source's reference, with ", length(unlist(w$tags)), " tags") }
+        next
+      }
       if (m$status == "not found") {
         missing <- c(missing, w$doi %||% "")
         if (!big) { say(head); say("       NOT IN THE GROUP: add it in the Zotero app with the DOI ", w$doi %||% "(none)", ", sync, and run again") }
@@ -463,14 +481,40 @@ local({
     n_abs      <- sum(vapply(plans[to_change], function(p) !is.null(p$new_abstract), logical(1)))
     say("")
     say("  Summary: ", length(to_change), " to change (", n_abs, " of them also get their abstract), ",
+        length(to_create), " to create (works without a DOI), ",
         sum(status == "found") - length(to_change), " already right, ",
-        sum(status == "not found"), " not in the group, ",
+        sum(status == "not found") - length(to_create), " not in the group, ",
         sum(status == "duplicate"), " in the group more than once.")
+    # abstracts written by an earlier batch that are not whole: taken out again
+    all_dois <- vapply(items, function(it) item_doi(it)$doi, "")
+    to_clear <- list()
+    for (x in batch$clear_abstract %||% list()) {
+      i <- which(all_dois == norm_doi(x$doi))
+      if (length(i) == 1 && nzchar(trimws(items[[i]]$data$abstractNote %||% "")) && !whole_abstract(items[[i]]$data$abstractNote)) {
+        to_clear[[length(to_clear) + 1]] <- list(item = items[[i]], why = x$why)
+      }
+    }
+    if (length(to_clear)) {
+      say("")
+      say("  ", length(to_clear), " abstract(s) written by an earlier batch are not whole and are taken out again:")
+      for (x in to_clear) say("   - ", short(x$item$data$title, 60), ": ", x$why)
+    }
+    # records of an earlier batch that are to be removed by hand
+    stale <- Filter(function(x) x$key %in% vapply(items, function(it) it$key, ""), batch$remove %||% list())
+    if (length(stale)) {
+      say("")
+      say("  TO REMOVE BY HAND: ", length(stale), " record(s) in the group are not the works cited. In the Zotero app,")
+      say("  move each to the bin (right-click, Move Item to Bin), then sync:")
+      titles_now <- stats::setNames(vapply(items, function(it) it$data$title %||% "", ""), vapply(items, function(it) it$key, ""))
+      for (x in stale) say("   - ", short(titles_now[[x$key]], 60), ": ", x$why)
+    }
     say("")
 
     # 4. confirmation and writing
     written <- integer(); failed <- character()
-    if (length(to_change)) {
+    created <- 0
+    cleared <- 0
+    if (length(to_change) || length(to_create) || length(to_clear)) {
       answer <- if (interactive()) {
         readline("Type yes and press Enter to write these changes to Zotero (anything else stops): ")
       } else Sys.getenv("TAG_LIBRARY_CONFIRM", "")
@@ -503,6 +547,42 @@ local({
         }
         Sys.sleep(0.25)   # a short pause between writes, to go easy on Zotero
       }
+      # works without a DOI: created from the source's own reference, at most 25 per request
+      for (chunk in split(to_create, ceiling(seq_along(to_create) / 25))) {
+        objects <- lapply(chunk, function(i) {
+          w <- works[[i]]
+          ab <- if (!is.null(w$ref)) abstracts[[w$ref]] else NULL      # the abstract found by the lookup, if a whole one exists
+          c(w$create, list(tags = lapply(as.character(unlist(w$tags)), function(t) list(tag = t)),
+                           extra = batch$note %||% "Record made from a reference list; not yet checked against the publication."),
+            if (!is.null(ab)) list(abstractNote = ab))
+        })
+        body <- jsonlite::toJSON(objects, auto_unbox = TRUE)
+        resp <- zot("POST", paste0("/groups/", GROUP_ID, "/items"), key, body = enc2utf8(as.character(body)), soft = TRUE)
+        code <- if (is.null(resp)) NA_integer_ else httr::status_code(resp)
+        if (identical(code, 200L)) {
+          res <- parse_json(resp)
+          created <- created + length(res$successful %||% res$success %||% list())
+          for (k in names(res$failed %||% list())) {
+            w <- works[[chunk[as.integer(k) + 1]]]
+            failed <- c(failed, paste0(w$cite, ": not created (", res$failed[[k]]$message %||% "no reason given", ")"))
+            say("  [!!] ", w$cite, ": not created (", res$failed[[k]]$message %||% "no reason given", ")")
+          }
+        } else {
+          why <- if (is.na(code)) "no connection to Zotero" else if (code == 403L) "the key may not write to the group" else paste0("Zotero answered with code ", code)
+          failed <- c(failed, paste0(length(chunk), " records not created: ", why))
+          say("  [!!] ", length(chunk), " records not created: ", why)
+        }
+        Sys.sleep(0.5)
+      }
+      if (length(to_create)) say("  ", created, " of ", length(to_create), " records created")
+      for (x in to_clear) {
+        resp <- zot("PATCH", paste0("/groups/", GROUP_ID, "/items/", x$item$key), key,
+                    body = "{\"abstractNote\":\"\"}", if_version = x$item$version, soft = TRUE)
+        if (!is.null(resp) && identical(httr::status_code(resp), 204L)) cleared <- cleared + 1
+        else failed <- c(failed, paste0("abstract not taken out: ", short(x$item$data$title, 50)))
+        Sys.sleep(0.25)
+      }
+      if (length(to_clear)) say("  ", cleared, " of ", length(to_clear), " abstracts that were not whole taken out")
       say("")
     } else {
       say("Nothing to write.")
@@ -510,7 +590,7 @@ local({
     }
 
     # 5. read again, check, report
-    items_after   <- if (length(written)) get_items(key) else items
+    items_after   <- if (length(written) || created > 0) get_items(key) else items
     matches_after <- match_works(works, items_after)
     exact <- vapply(seq_along(works), function(i) {
       m <- matches_after[[i]]
@@ -518,13 +598,14 @@ local({
     }, logical(1))
     say("5. Check after writing: ", sum(exact), " of ", length(works),
         " works now carry exactly the tags of the batch.")
-    if (length(written)) say("   In the Zotero app, click the sync button to see the tags.")
+    if (length(written) || created > 0) say("   In the Zotero app, click the sync button to see the changes.")
     say("")
     say("----- REPORT: copy from this line to END OF REPORT and paste it to Claude -----")
     say("script ", SCRIPT_VERSION, " | ", basename(batch_path), " | group ", GROUP_ID, " | ", format(Sys.time(), "%Y-%m-%d %H:%M"))
     say(group_line)
     say("in batch ", length(works), " | found ", sum(status == "found"),
-        " | written ", length(written), " | failed ", length(failed),
+        " | written ", length(written), " | created ", created, " | abstracts taken out ", cleared,
+        " | still to remove by hand ", length(stale), " | failed ", length(failed),
         " | not in group ", sum(status == "not found"), " | duplicates ", sum(status == "duplicate"),
         " | exact after run ", sum(exact), " | works in group ", length(items_after))
     for (f in failed) say("failed: ", f)

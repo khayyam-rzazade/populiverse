@@ -1,0 +1,106 @@
+# Batch 03: what was decided by reading, not by the automatic lookup.
+# Source: the reference lists of the Routledge Handbook of Populism and Foreign
+# Policy (2025). Written by Claude on 2026-10-01; every work below also gets the
+# note "todo:check-record" in Zotero, for the editor's own pass.
+#
+# accepted  References the lookup did not match by its strict rule, but whose
+#           nearest catalogue record is the same work for the reason given.
+# records   Works for which no DOI is confirmed. Each record repeats the
+#           handbook's reference as printed there (names, year, title, journal or
+#           publisher, volume, issue, pages). Nothing was added from memory.
+# remove    Two records of batch 02 that are not the works cited: the lookup had
+#           matched two books to reviews of those books, which carry the same
+#           title. They are to be moved to the bin in Zotero; the books
+#           themselves are among the records below.
+
+# The note written into each created record in Zotero (field "Extra").
+note: "Record made from the reference list of the Routledge Handbook of Populism and Foreign Policy (2025); not yet checked against the publication."
+
+accepted:
+  H0048: {doi: "10.1177/13540661221095945", why: "same three authors and year; the journal's number (1354-0661, European Journal of International Relations) is in the DOI; the title differs by one word"}
+  H0078: {doi: "10.17645/pag.8180", why: "same authors and year; the article number 8180 of the reference is in the DOI (Politics and Governance)"}
+  H0079: {doi: "10.1111/j.1477-7053.1968.tb01332.x", why: "same title and year; the journal's number (1477-7053, Government and Opposition) is in the DOI; the catalogue record names no author"}
+  H0290: {doi: "10.3167/gps.2016.340401", why: "same authors and year; German Politics and Society, volume 34, issue 4, first article, as in the DOI; the catalogue title lacks the word Introduction"}
+
+remove:
+  - {key: "T8Q2ZF89", doi: "10.2307/2513934", why: "a review of Germani 1978 in The Hispanic American Historical Review, not the book"}
+  - {key: "W33MVSEJ", doi: "10.2307/2211330", why: "a review of Kazin 1998 in The Journal of Southern History, not the book"}
+
+# Abstracts that batch 02 wrote into Zotero from the lookup and that are not
+# whole: cut off, or not an abstract at all. They are taken out again, so these
+# works show no abstract until the editor adds the published one. Nothing else
+# in those records changes; an abstract that has been repaired by hand is kept.
+clear_abstract:
+  - {doi: "10.24425/pyil.2023.147177", why: "ends in the middle of a word"}
+  - {doi: "10.1057/9781403920072", why: "cut after 200 characters"}
+  - {doi: "10.1017/s1537592721001924", why: "ends without closing its last sentence"}
+  - {doi: "10.2307/20433986", why: "ends in the middle of a sentence"}
+  - {doi: "10.3817/0395103009", why: "not the abstract of this work (it cites writings of 2015 for a work of 1995)"}
+  - {doi: "10.2307/422236", why: "ends in the middle of a sentence"}
+  - {doi: "10.4135/9781446270073", why: "a list of chapter titles, not an abstract"}
+
+records:
+  H0086: {itemType: journalArticle, title: "Xenophobia, Identity Politics and Exclusionary Populism in Western Europe", date: "2003", publicationTitle: "Socialist Register", volume: "39", pages: "193-210",
+          creators: [{creatorType: author, firstName: "Hans-Georg", lastName: "Betz"}]}
+  H0101: {itemType: journalArticle, title: "Three Lessons of Contemporary Populism in Europe and the United States", date: "2016", publicationTitle: "The Brown Journal of World Affairs", volume: "23", issue: "1", pages: "9-24",
+          creators: [{creatorType: author, firstName: "Bart", lastName: "Bonikowski"}]}
+  H0231: {itemType: journalArticle, title: "The Inevitable Clash? Populists and Foreign Policy Bureaucracies", date: "2023", publicationTitle: "International Studies Review", volume: "25", issue: "4", pages: "18-20",
+          creators: [{creatorType: author, firstName: "Fabrizio", lastName: "Coticchia"}, {creatorType: author, firstName: "Federico", lastName: "Donelli"}]}
+  H0258: {itemType: book, title: "Routledge handbook on global populism", date: "2018", place: "New York", publisher: "Routledge",
+          creators: [{creatorType: author, firstName: "Carlos", lastName: "De la Torre"}]}
+  H0281: {itemType: journalArticle, title: "Populism and Foreign Policy in Venezuela and Iran", date: "2008", publicationTitle: "Whitehead Journal of Diplomacy and International Relations", volume: "9", issue: "1", pages: "71-87",
+          creators: [{creatorType: author, firstName: "Michael", lastName: "Dodson"}, {creatorType: author, firstName: "Manochehr", lastName: "Dorra"}]}
+  H0285: {itemType: journalArticle, title: "The Angry Populist as Foreign Policy Leader: Real Change or Just Hot Air?", date: "2017", publicationTitle: "The Fletcher Forum of World Affairs", volume: "41", issue: "2", pages: "23-43",
+          creators: [{creatorType: author, firstName: "Daniel W.", lastName: "Drezner"}]}
+  H0291: {itemType: journalArticle, title: "Do You Hear the People Sing?: Populist Discourse in the French Revolution", date: "2016", publicationTitle: "Sigma: Journal of Political and International Studies", volume: "33", issue: "6", pages: "61-79",
+          creators: [{creatorType: author, firstName: "Rebecca", lastName: "Dudley"}]}
+  H0358: {itemType: book, title: "Authoritarianism, Fascism, and National Populism", date: "1978", place: "New Brunswick, NJ", publisher: "Transaction Books",
+          creators: [{creatorType: author, firstName: "Gino", lastName: "Germani"}]}
+  H0419: {itemType: journalArticle, title: "The ideational approach to populism", date: "2017", publicationTitle: "Latin American Research Review", volume: "52", issue: "4", pages: "513-528",
+          creators: [{creatorType: author, firstName: "Kirk A.", lastName: "Hawkins"}, {creatorType: author, firstName: "Cristóbal", lastName: "Rovira Kaltwasser"}]}
+  H0432: {itemType: book, title: "The Rise of Duterte: A Populist Revolt against Elite Democracy", date: "2017", place: "Singapore", publisher: "Palgrave Pivot",
+          creators: [{creatorType: author, firstName: "Richard", lastName: "Heydarian"}]}
+  H0510: {itemType: journalArticle, title: "Populism and Foreign Policy: Deepening Divisions and Decreasing Efficiency", date: "2017", publicationTitle: "Global Politics Review", volume: "3", issue: "2", pages: "39-52",
+          creators: [{creatorType: author, firstName: "Catherine", lastName: "Kane"}, {creatorType: author, firstName: "Caitlin", lastName: "McCulloch"}]}
+  H0521: {itemType: book, title: "The Populist Persuasion: An American History", date: "1998", edition: "Revised", place: "Ithaca, NY", publisher: "Cornell University Press",
+          creators: [{creatorType: author, firstName: "Michael", lastName: "Kazin"}]}
+  H0576: {itemType: book, title: "On Populist Reason", date: "2005", place: "London", publisher: "Verso",
+          creators: [{creatorType: author, firstName: "Ernesto", lastName: "Laclau"}]}
+  H0599: {itemType: journalArticle, title: "Populist Governments and Career Diplomats: A Structural Conflict", date: "2023", publicationTitle: "International Studies Review", volume: "25", issue: "4", pages: "21-23",
+          creators: [{creatorType: author, firstName: "Christian", lastName: "Lequesne"}]}
+  H0660: {itemType: book, title: "International Populism: The Radical Right in the European Parliament", date: "2019", place: "Oxford", publisher: "Oxford University Press",
+          creators: [{creatorType: author, firstName: "Duncan", lastName: "McDonnell"}, {creatorType: author, firstName: "Annika", lastName: "Werner"}]}
+  H0665: {itemType: journalArticle, title: "The tea party and American foreign policy: What populism means for globalism", date: "2011", publicationTitle: "Foreign Affairs", volume: "90", issue: "2", pages: "28-44",
+          creators: [{creatorType: author, firstName: "Walter Russell", lastName: "Mead"}]}
+  H0667: {itemType: journalArticle, title: "The Jacksonian Revolt. American Populism and the Liberal Order", date: "2017", publicationTitle: "Foreign Affairs", volume: "96", issue: "2", pages: "2-7",
+          creators: [{creatorType: author, firstName: "Walter Russell", lastName: "Mead"}]}
+  H0703: {itemType: book, title: "Towards a Green Democratic Revolution – Left Populism and the Power of Affects", date: "2022", place: "London", publisher: "Verso",
+          creators: [{creatorType: author, firstName: "Chantal", lastName: "Mouffe"}]}
+  H0704: {itemType: journalArticle, title: "Pitchfork Politics: The Populist Threat to Liberal Democracy", date: "2014", publicationTitle: "Foreign Affairs", volume: "93", issue: "5", pages: "27-36",
+          creators: [{creatorType: author, firstName: "Yascha", lastName: "Mounk"}]}
+  H0709: {itemType: journalArticle, title: "Europe’s Populist Surge: A Long Time in the Making", date: "2016", publicationTitle: "Foreign Affairs", volume: "95", issue: "6", pages: "25-30",
+          creators: [{creatorType: author, firstName: "Cas", lastName: "Mudde"}]}
+  H0721: {itemType: journalArticle, title: "How to Think – and Not to Think – about Populism", date: "2016", publicationTitle: "Comparative Politics Newsletter", volume: "26", issue: "2", pages: "58-62",
+          creators: [{creatorType: author, firstName: "Jan-Werner", lastName: "Müller"}]}
+  H0781: {itemType: book, title: "Liberal World Order and Its Critics. Civilisational States and Cultural Commonwealths", date: "2019", place: "London", publisher: "Routledge",
+          creators: [{creatorType: author, firstName: "Adrian", lastName: "Pabst"}]}
+  H0818: {itemType: journalArticle, title: "Populism, Pluralism, and Liberal Democracy", date: "2010", publicationTitle: "Journal of Democracy", volume: "21", issue: "1", pages: "81-92",
+          creators: [{creatorType: author, firstName: "Marc F.", lastName: "Plattner"}]}
+  H0892: {itemType: journalArticle, title: "The Nation is not Enough: A Post-Structural Discourse Analysis of Greta Thunberg’s Global Populism", date: "2021", publicationTitle: "The Interdisciplinary Journal of Populism", volume: "1", issue: "2", pages: "58-83",
+          creators: [{creatorType: author, firstName: "Dominik", lastName: "Schmidt"}]}
+  H0896: {itemType: book, title: "The Democratic Regression: The Political Causes of Authoritarian Populism", date: "2023", place: "Oxford", publisher: "John Wiley & Sons",
+          creators: [{creatorType: author, firstName: "Armin", lastName: "Schäfer"}, {creatorType: author, firstName: "Michael", lastName: "Zürn"}]}
+  H0897: {itemType: book, title: "Populism and postcolonialism", date: "2020", place: "London", publisher: "Routledge",
+          creators: [{creatorType: editor, firstName: "Adrián", lastName: "Scribano"}, {creatorType: editor, firstName: "Maximiliano", lastName: "Korstanje"}, {creatorType: editor, firstName: "Freddy", lastName: "Timmermann"}]}
+  H0975: {itemType: book, title: "The New Populism and the New Politics", date: "1995", place: "London", publisher: "Palgrave Macmillan",
+          creators: [{creatorType: author, firstName: "Paul", lastName: "Taggart"}]}
+  H0977: {itemType: book, title: "Populism", date: "2000", place: "Buckingham", publisher: "Open University Press",
+          creators: [{creatorType: author, firstName: "Paul", lastName: "Taggart"}]}
+  H1000: {itemType: journalArticle, title: "Hegemony, Populism and Democracy: Laclau and Mouffe Today (Review Article)", date: "2016", publicationTitle: "Revista Española de Ciencia Política", volume: "40", pages: "161-76",
+          creators: [{creatorType: author, firstName: "Lasse", lastName: "Thomassen"}]}
+  H1023: {itemType: book, title: "Me the People: How Populism Transforms Democracy", date: "2019", place: "Cambridge", publisher: "Harvard University Press",
+          creators: [{creatorType: author, firstName: "Nadia", lastName: "Urbinati"}]}
+  H1113: {itemType: journalArticle, title: "Mourning Populism: The Case of Poland", date: "2011", publicationTitle: "Polish Sociological Review", volume: "176", issue: "4", pages: "437-456",
+          creators: [{creatorType: author, firstName: "Szymon", lastName: "Wróbel"}]}
+  H1125: {itemType: book, title: "Religions and the Global Rise of Civilizational Populism", date: "2023", place: "Singapore", publisher: "Springer Nature Singapore",
+          creators: [{creatorType: author, firstName: "Ihsan", lastName: "Yilmaz"}, {creatorType: author, firstName: "Nicholas", lastName: "Morieson"}]}

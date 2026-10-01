@@ -214,6 +214,24 @@ local({
     if (length(setdiff(listed, all_tags))) halt("These tags of the phrase lists are not in taxonomy.yml: ", paste(setdiff(listed, all_tags), collapse = ", "))
     say("  [ok] ", basename(input), ": ", nrow(d), " references")
 
+    # what was decided by reading (optional file next to the batch): DOIs accepted by hand,
+    # records for works without a DOI, and earlier records to remove
+    rec_file <- paste0("library/batches/batch-", nn, "-records.yml")
+    rec <- if (file.exists(rec_file)) read_yaml_utf8(rec_file) else list()
+    # a reference that is a book is never matched to a journal article (a review of the
+    # book carries the same title), and the other way round
+    wrong_kind <- d$status == "found" &
+      ((d$kind_guess == "book" & d$type %in% c("journal-article", "article", "book-review", "reference-entry")) |
+       (d$kind_guess == "article" & !(d$type %in% c("journal-article", "article"))))
+    d$doi[wrong_kind] <- ""; d$status[wrong_kind] <- "not found"; d$type[wrong_kind] <- ""
+    d$abstract[wrong_kind] <- ""; d$open_access[wrong_kind] <- ""; d$title_found[wrong_kind] <- ""
+    d$journal_or_publisher[wrong_kind] <- ""
+    for (ref in names(rec$accepted)) {
+      i <- which(d$ref_id == ref)
+      if (length(i) == 1) { d$doi[i] <- rec$accepted[[ref]]$doi; d$status[i] <- "found"
+                            d$type[i] <- if (d$kind_guess[i] == "book") "book" else "journal-article" }
+    }
+
     # scope
     has <- function(x) grepl("populis", x, ignore.case = TRUE)
     in_title <- has(d$title) | has(d$title_found); in_abs <- has(d$abstract)
@@ -239,13 +257,21 @@ local({
     old_dois <- tolower(unlist(lapply(earlier, function(f) vapply(read_yaml_utf8(f)$works, function(w) w$doi %||% "", ""))))
     already <- nzchar(s$doi) & tolower(s$doi) %in% old_dois
     s <- s[!already, ]
-    # works without a confirmed DOI wait for the next round
-    waiting <- s[!nzchar(s$doi), ]
+    # works without a confirmed DOI: those with a record read from the source enter; the others wait
+    has_record <- !nzchar(s$doi) & s$ref_id %in% names(rec$records)
+    for (i in which(has_record)) {
+      r1 <- rec$records[[s$ref_id[i]]]
+      s$title[i] <- r1$title; s$title_found[i] <- ""
+      s$kind[i] <- if (identical(r1$itemType, "book")) "book" else "article"
+      s$journal_or_publisher[i] <- r1$publicationTitle %||% r1$publisher %||% ""
+    }
+    waiting <- s[!nzchar(s$doi) & !has_record, ]
     utils::write.csv(waiting[, c("ref_id", "first_author", "year", "title", "container", "kind", "reference")],
                      paste0("drafts/batch-", nn, "-without-doi.csv"), row.names = FALSE, fileEncoding = "UTF-8")
-    s <- s[nzchar(s$doi), ]
+    s <- s[nzchar(s$doi) | (s$ref_id %in% names(rec$records)), ]
     say("       already in the Library from an earlier batch: ", sum(already),
-        "; without a confirmed DOI, kept for the next round: ", nrow(waiting))
+        "; without a DOI and without a record, left out: ", nrow(waiting))
+    say("       with a DOI: ", sum(nzchar(s$doi)), "; without a DOI, entered from the source's own reference: ", sum(!nzchar(s$doi)))
     say("  [ok] in this batch: ", nrow(s), " works")
 
     # tags
@@ -257,6 +283,11 @@ local({
       title <- trimws(gsub("\\s+", " ", gsub("<[^>]+>", "", title)))
       res <- code_one(title, r$abstract, k, tax)
       tags <- c(res$tags, if (r$kind == "article") "type:article" else "type:book", if (identical(r$open_access, "TRUE")) "oa:yes")
+      if (!nzchar(r$doi) || r$ref_id %in% names(rec$accepted)) {
+        tags <- c(tags, "todo:check-record")
+        evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule",
+                                              if (nzchar(r$doi)) "DOI accepted by reading, not by the automatic rule" else "no DOI: record made from the source's reference")
+      }
       if (r$kind == "article" && tolower(trimws(r$journal_or_publisher)) %in% tolower(unlist(ph$outlets_to_check))) {
         tags <- c(tags, "todo:check-outlet")
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-outlet", "journal", r$journal_or_publisher)
@@ -266,21 +297,39 @@ local({
                      if (grepl(",.*, and |et al", r$authors)) " et al." else if (grepl(" and ", r$authors)) paste0(" and ", sub("^.* and (?:[A-Z][^ ]* )*", "", r$authors, perl = TRUE)) else "",
                      " ", r$year)
       works[[i]] <- list(cite = cite, doi = r$doi, title = title, year = as.integer(r$year), kind = r$kind,
-                         ref_id = r$ref_id, tags = all_tags[all_tags %in% tags])
+                         ref_id = r$ref_id, tags = all_tags[all_tags %in% tags],
+                         create = if (!nzchar(r$doi)) rec$records[[r$ref_id]] else NULL)
       for (e in res$evidence) evidence[[length(evidence) + 1]] <- c(r$ref_id, e)
     }
 
     # the batch file
+    q <- function(x) paste0("\"", gsub("\"", "\\\\\"", gsub("\\\\", "\\\\\\\\", x)), "\"")
     out <- c(paste0("# Batch ", nn, ": works taken from a list of references, kept by the scope rule and"),
              "# tagged from the words of their own title and abstract (scripts/code_works.R,",
              "# library/phrases.yml, library/actors.yml). The phrase behind every tag is in",
              paste0("# batch-", nn, "-evidence.csv. Written by the script; do not edit by hand."), "",
              paste0("batch: ", as.integer(nn)), paste0("date: \"", format(Sys.Date()), "\""),
-             paste0("phrases_version: ", ph$version), "", "works:")
-    q <- function(x) paste0("\"", gsub("\"", "\\\\\"", gsub("\\\\", "\\\\\\\\", x)), "\"")
+             paste0("phrases_version: ", ph$version), "")
+    if (!is.null(rec$note)) out <- c(out, paste0("note: ", q(rec$note)), "")
+    if (length(rec$remove)) {
+      out <- c(out, "# Records of an earlier batch that are not the works cited: to be moved to the bin in Zotero.", "remove:")
+      for (x in rec$remove) out <- c(out, paste0("  - key: ", q(x$key)), paste0("    why: ", q(x$why)))
+      out <- c(out, "")
+    }
+    if (length(rec$clear_abstract)) {
+      out <- c(out, "# Abstracts written by an earlier batch that are not whole: to be taken out again.", "clear_abstract:")
+      for (x in rec$clear_abstract) out <- c(out, paste0("  - doi: ", q(x$doi)), paste0("    why: ", q(x$why)))
+      out <- c(out, "")
+    }
+    out <- c(out, "works:")
     for (w in works) {
       out <- c(out, paste0("  - cite: ", q(w$cite)), paste0("    doi: ", q(w$doi)), paste0("    title: ", q(w$title)),
-               paste0("    year: ", w$year), paste0("    ref: ", q(w$ref_id)), "    tags:", paste0("      - ", q(w$tags)), "")
+               paste0("    year: ", w$year), paste0("    ref: ", q(w$ref_id)), "    tags:", paste0("      - ", q(w$tags)))
+      if (!is.null(w$create)) {
+        block <- strsplit(yaml::as.yaml(list(create = w$create), indent.mapping.sequence = TRUE), "\n")[[1]]
+        out <- c(out, paste0("    ", block[nzchar(block)]))
+      }
+      out <- c(out, "")
     }
     dir.create("library/batches", showWarnings = FALSE)
     con <- file(paste0("library/batches/batch-", nn, ".yml"), open = "wb"); writeLines(enc2utf8(out), con, useBytes = TRUE); close(con)
