@@ -15,7 +15,7 @@ resources:
 <div id="library-app" class="pv-lib" data-source="library.json" data-zotero="https://www.zotero.org/groups/6697881/populiverse_library">
   <noscript>
     <div class="pv-lib-message">
-      <p>The search and the filters need JavaScript. Without it, the full list is in the <a href="https://www.zotero.org/groups/6697881/populiverse_library">PopuliVerse Library group on Zotero</a>.</p>
+      <p>The search and the filters need JavaScript. Without it, the full list is in the <a href="https://www.zotero.org/groups/6697881/populiverse_library">Populi<em>Verse</em> Library group on Zotero</a>.</p>
     </div>
   </noscript>
 </div>

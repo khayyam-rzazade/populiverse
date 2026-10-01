@@ -13,6 +13,11 @@ project:
 
 lang: en-GB
 
+# In the text of every page, "Verse" in the name PopuliVerse is set in italics.
+# The small file verse.lua does this when the site is built.
+filters:
+  - verse.lua
+
 website:
   title: "PopuliVerse"
   description: "A curated library of research on populism, a monthly monitor of populist actors worldwide, and short commentary by scholars."
@@ -25,7 +30,7 @@ website:
   # PRE-LAUNCH, part 1 of 2: the strip under the menu.
   # Delete these six lines at the soft launch.
   announcement:
-    content: "PopuliVerse is under construction. The pages are drafts."
+    content: "Populi*Verse* is under construction. The pages are drafts."
     type: secondary
     dismissable: false
     position: below-navbar
@@ -45,7 +50,7 @@ website:
         href: resources/index.qmd
       - text: "About"
         menu:
-          - text: "About PopuliVerse"
+          - text: "About Populi*Verse*"
             href: about/about.qmd
           - text: "How to contribute"
             href: about/contribute.qmd

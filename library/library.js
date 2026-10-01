@@ -561,7 +561,7 @@
     var p = el("p", null, ["The Library could not be loaded. Reload the page in a moment."]);
     if (ZOTERO) {
       p.appendChild(document.createTextNode(" The full list is also in the "));
-      p.appendChild(el("a", { href: ZOTERO, target: "_blank", rel: "noopener", text: "PopuliVerse Library group on Zotero" }));
+      p.appendChild(el("a", { href: ZOTERO, target: "_blank", rel: "noopener" }, ["Populi", el("em", { text: "Verse" }), " Library group on Zotero"]));
       p.appendChild(document.createTextNode("."));
     }
     root.appendChild(el("div", { class: "pv-lib-message" }, [p]));
