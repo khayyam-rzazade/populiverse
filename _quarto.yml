@@ -27,14 +27,6 @@ website:
     location: navbar
     type: overlay
 
-  # PRE-LAUNCH, part 1 of 2: the strip under the menu.
-  # Delete these six lines at the soft launch.
-  announcement:
-    content: "Populi*Verse* is under construction. The pages are drafts."
-    type: secondary
-    dismissable: false
-    position: below-navbar
-
   # The menu at the top of every page.
   navbar:
     # The wordmark: "Populi" upright, "Verse" italic (the stars make it italic).
@@ -52,6 +44,8 @@ website:
         menu:
           - text: "About Populi*Verse*"
             href: about/about.qmd
+          - text: "Editor"
+            href: about/editor.qmd
           - text: "How to contribute"
             href: about/contribute.qmd
           - text: "Editorial policy"
@@ -62,12 +56,12 @@ website:
 
   # The strip at the bottom of every page.
   page-footer:
-    left: "Editor: Khayyam RZAZADE"
+    left:
+      - text: "Editor: Khayyam RZAZADE"
+        href: about/editor.qmd
     center:
       - text: "Privacy"
         href: legal/privacy.qmd
-      - text: "Legal notice"
-        href: legal/notice.qmd
       - text: "Licence"
         href: legal/licence.qmd
     right:
@@ -76,7 +70,8 @@ website:
 
 format:
   html:
-    # No outside fonts or scripts: every page is served from this site alone.
+    # No outside fonts: every page is served from this site alone, with one exception,
+    # the visit counter at the end of this file.
     # The look is "Edition": edition.scss holds the colours, sizes, masthead and covers;
     # styles.css declares the typeface from the files in the fonts folder.
     theme:
@@ -87,8 +82,8 @@ format:
     toc: false
     link-external-newwindow: true
     email-obfuscation: javascript
-    # PRE-LAUNCH, part 2 of 2: asks search engines not to list the site yet.
-    # Delete these three lines at the soft launch.
-    include-in-header:
+    # The visit counter: Cloudflare Web Analytics. It sets no cookies.
+    # This one line is the only thing a page loads from another company.
+    include-after-body:
       text: |
-        <meta name="robots" content="noindex">
+        <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6cc8cff09da149d49c01978ce7f11555"}'></script><!-- End Cloudflare Web Analytics -->

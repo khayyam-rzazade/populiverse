@@ -1,6 +1,6 @@
 ---
 title: "PopuliVerse Commentary"
-description: "Short scholarly commentary on populism, written by researchers."
+description: "Short commentary on populism, written by scholars."
 # This page is the archive, not a piece, so the piece settings are switched off here.
 google-scholar: false
 citation: false
@@ -14,7 +14,7 @@ listing:
   date-format: "MMMM YYYY"
 ---
 
-Commentary publishes short analytical pieces on populism and populist actors. They are written by scholars and reviewed by the editor. Commentary appears quarterly.
+Commentary publishes short pieces in which scholars comment on populism and populist actors: an opinion, an argument, a way of looking at a question. The pieces are written by scholars and reviewed by the editor. Commentary appears quarterly.
 
 ## Issues
 
@@ -22,33 +22,66 @@ Commentary publishes short analytical pieces on populism and populist actors. Th
 :::
 
 ::: {.pv-pending}
-The first issue, 2027/1, is planned for March 2027.
+The first issue, 2026/1, is planned for December 2026.
 :::
 
 ## Call for commentary
 
-<!-- EDITOR: the plan says year one runs on invited pieces and the open call goes out from year two. Decide how much of that to say here, and whether unsolicited proposals are welcome before then. -->
+Commentary starts with invited pieces. Scholars who want to write are welcome too: send your piece to the editor at editor@populiverse.com
 
-In its first year Commentary publishes invited pieces. An open call will follow.
-
-## Submission guidelines
+## Guidelines
 
 **Who can write.** PhD holders and doctoral candidates, with their affiliation stated. The decision to publish is the editor's.
 
-**Length.** 800 to 1,500 words, with references.
+**What Commentary publishes.** Your view on a question about populism or populist actors: an opinion, an argument, an approach. No partisan advocacy.
 
-**What Commentary publishes.** Analytical commentary on populism and populist actors. No partisan advocacy.
+**Length.** 800 to 1,500 words. The length is flexible.
+
+**Pitch.** Each piece opens with a pitch of 100 to 150 words that says what the piece argues. It is printed at the top of the piece. Nothing has to be sent to the editor beforehand.
+
+**Sources.** You choose the form: links in the text, author-date (Harvard) references, a reference list at the end, or none. The editor may ask for a source for a specific factual claim.
+
+**Whose views.** Every piece carries a line saying that the views are the author's own.
 
 **Review.** Pieces are editor-reviewed. Commentary is not peer-reviewed, and PopuliVerse does not describe it as such.
 
-**Originality and AI use.** Authors sign a declaration on originality and on any use of AI. Every piece goes through a similarity check and the editor's own read.
-
-**What authors provide.** An ORCID iD, a stated affiliation and a conflict-of-interest statement.
-
-**Copyright and licence.** Authors keep the copyright and grant a [CC BY 4.0 licence](../legal/licence.qmd). CC BY-ND 4.0 is available on request.
+**What you send.** The piece, your affiliation, your ORCID iD and the declaration below, in one email to editor@populiverse.com
 
 **Cost.** None. There is no fee to submit or to publish.
 
 **How a piece is published.** As a web page and as a typeset PDF, with its own DOI and a "Cite this" box. It is also collected in the PDF of its issue.
 
 **After publication.** Corrections and the right of reply are set out in the [editorial policy](../about/editorial-policy.qmd).
+
+## The author's declaration
+
+Copy the lines below into your email. In each group, keep the one line that applies to you.
+
+**1. The piece**
+
+- is new and has not been published
+- builds on work of mine that is published or under review, which I name in the piece
+- has appeared elsewhere, and I hold the right to republish it
+
+**2. AI tools**
+
+- were not used
+- were used for language only (spelling, grammar, translation)
+- were used in drafting; I have checked every sentence and I answer for the text
+
+**3. Interests**
+
+- I have no tie to any actor discussed in the piece
+- I am or was a member, adviser or employee of a party, government or organisation discussed
+- my work on this topic is or was funded by an actor discussed
+- I have another tie, which I name in one line
+
+**4. Licence**
+
+- CC BY 4.0: anyone may share and adapt the piece, with credit to me
+- CC BY-ND 4.0: anyone may share the piece, with credit to me, but not change it
+- Not sure: the editor applies the site's standard, CC BY 4.0
+
+**5. The views in the piece are my own.**
+
+Keeping a line does not guarantee publication: the editor decides in each case. Authors keep the copyright in their pieces. What the licences allow is on the [licence page](../legal/licence.qmd).

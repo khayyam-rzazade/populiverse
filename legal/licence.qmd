@@ -19,5 +19,3 @@ Give appropriate credit, link to the licence, and say if you changed anything. T
 **The Library.** Citations and abstracts are shown as published and belong to their authors and publishers. PopuliVerse links to papers and does not host them.
 
 Commentary authors keep the copyright in their pieces.
-
-<!-- EDITOR: two things the plan does not settle yet: whether the PopuliVerse name and wordmark are excluded from the licence, and which licence covers the site's code in the public repository. -->

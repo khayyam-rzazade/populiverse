@@ -142,13 +142,7 @@ Cite the works themselves as usual: each entry gives its reference and its BibTe
 
 ## Suggest a paper
 
-Is something missing? Send the title or the DOI, and a line on why it belongs here.
-
-<!-- TODO(link): when the "Suggest a paper" form exists, replace the box below with a button to it. -->
-
-::: {.pv-pending}
-The form opens with the launch.
-:::
+Is something missing? Send the title or the DOI, and a line on why it belongs here, to the editor: editor@populiverse.com
 
 ## The Zotero group
 

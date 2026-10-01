@@ -1,42 +1,35 @@
 ---
-title: "Privacy policy"
+title: "Privacy"
 description: "What personal data PopuliVerse handles, and what it does not."
-toc: true
 ---
 
-<!-- EDITOR: this is a structure with draft wording. It is not legal advice. Before launch, check every line against what the site really uses, and fill in each [bracket]. -->
+Last updated: 1 October 2026
 
-Last updated: [date]
-
-PopuliVerse collects as little personal data as it can. The site has no user accounts, no comments section, no advertising and no tracking cookies.
+PopuliVerse collects as little personal data as it can. The site has no user accounts, no comments section, no advertising and no cookies.
 
 ## Who is responsible
 
-Khayyam Rzazade, editor of PopuliVerse. Contact: <editor@populiverse.com>.
+Khayyam Rzazade, editor of PopuliVerse. Contact: editor@populiverse.com
 
 ## When you visit
 
-**Hosting.** The site is hosted on GitHub Pages. To deliver the pages, GitHub processes technical data such as your IP address. [Link to GitHub's privacy statement.]
+**Hosting.** The site is hosted on GitHub Pages. To deliver the pages, GitHub processes technical data such as your IP address.
 
-**Visit statistics.** [To confirm when analytics are switched on: Cloudflare Web Analytics, which counts visits without cookies.]
+**Visit statistics.** The site counts visits with Cloudflare Web Analytics. For this, each page loads one small script from Cloudflare. It sets no cookies and stores nothing in your browser.
 
-**Cookies.** The site itself sets no cookies.
+**Everything else.** All other things the pages need, the typeface included, are served from this site itself.
 
-**Fonts and scripts.** [To confirm with the final design: everything the pages need is served from this site, with nothing loaded from other companies.]
+## When you write to the editor
 
-## When you give information
+**Email.** Messages to editor@populiverse.com are forwarded through Cloudflare to the editor's inbox. A message is kept for as long as it takes to deal with it.
 
-**Newsletter.** The newsletter runs on Substack. If you subscribe, Substack holds your email address and sends the emails. You can unsubscribe from any email. [Link to Substack's privacy policy.]
-
-**Forms.** The "Suggest a paper" and contact forms run on Google Forms. What you enter is stored in the editor's Google account and is used only to consider the suggestion or to answer you. [Link to Google's privacy policy.]
-
-**Email.** If you write to the editor, your message is kept for as long as it takes to deal with it.
+**Newsletter.** If you ask to be told about new issues, the editor keeps your email address on his list and uses it only for that. To be taken off the list, write to the same address.
 
 **Commentary authors.** An author's name, affiliation and ORCID iD are published with the piece and deposited with it in Zenodo.
 
 ## Your rights
 
-Under the EU's General Data Protection Regulation you can ask to see, correct or delete the personal data held about you, and you can complain to a data protection authority. To use these rights, write to the address above.
+You can ask to see, correct or delete the personal data held about you. Write to the address above.
 
 ## Changes to this page
 

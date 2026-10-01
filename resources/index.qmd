@@ -1,6 +1,6 @@
 ---
 title: "Resources"
-description: "Datasets, research hubs and teaching materials on populism."
+description: "Datasets and research hubs on populism."
 ---
 
 A short, curated list. Each link goes to the project's own site.
@@ -32,11 +32,3 @@ A short, curated list. Each link goes to the project's own site.
 
 [POPULISMUS](https://populismus.gr)
 : An observatory of populist discourse at the Aristotle University of Thessaloniki.
-
-## Syllabi
-
-<!-- EDITOR: the plan lists "key syllabi" here; none are named yet. -->
-
-::: {.pv-pending}
-Key syllabi on populism will be listed here.
-:::

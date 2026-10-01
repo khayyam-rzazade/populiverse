@@ -6,11 +6,11 @@ toc: true
 
 ## Voice
 
-PopuliVerse is neutral, analytical and sourced. It does not advocate. Populism is the object of study, never the target.
+PopuliVerse is neutral and sourced. The Monitor describes what happened; it does not analyse or judge. Commentary pieces carry the views of their authors, and say so. PopuliVerse itself does not advocate. Populism is the object of study, never the target.
 
 ## Sources
 
-Every factual claim in the Monitor links to its source. Quotations are short. Long extracts from other publications are never reproduced.
+Every factual claim in the Monitor links to its source. Quotations are short. Long extracts from other publications are never reproduced. Commentary authors choose how they give their sources; the editor may ask for a source for a specific factual claim.
 
 ## Review
 
@@ -18,7 +18,7 @@ Monitor issues are written and edited by the editor. Commentary pieces are edito
 
 ## Originality
 
-Commentary authors sign a declaration of originality. Every piece goes through a similarity check and the editor's own read before it is published.
+Commentary authors send a short declaration with their piece. In it they mark what applies: whether the piece is new, whether AI tools were used, and whether they have a tie to an actor discussed. Every piece goes through a similarity check and the editor's own read before it is published.
 
 ## Use of AI
 

@@ -88,20 +88,20 @@ A curated, filterable database of academic and policy literature on populism, bu
 ::: {.pv-cover .pv-cover-monitor}
 [PopuliVerse]{.pv-cover-series}
 [Monitor]{.pv-cover-title}
-[2027/1]{.pv-cover-number}
-[January 2027]{.pv-cover-date}
+[2026/1]{.pv-cover-number}
+[September 2026]{.pv-cover-date}
 :::
 
 ::: {.pv-periodical-body}
 ## PopuliVerse Monitor
 
-A monthly issue on what populist actors did around the world: six regional roundups, one theme in focus, new research and what is coming up. Every claim links to its source.
+A monthly digest of what populist actors did around the world: the month in brief, six regional roundups and new research. It describes what happened; it does not analyse. Every item links to its sources.
 
 ::: {#latest-monitor}
 :::
 
 ::: {.pv-pending}
-The first issue, 2027/1, is planned for January 2027.
+The first issue, 2026/1, covers September 2026.
 :::
 
 ::: {.pv-regions}
@@ -132,20 +132,20 @@ Around the world
 ::: {.pv-cover .pv-cover-commentary}
 [PopuliVerse]{.pv-cover-series}
 [Commentary]{.pv-cover-title}
-[2027/1]{.pv-cover-number}
-[March 2027]{.pv-cover-date}
+[2026/1]{.pv-cover-number}
+[December 2026]{.pv-cover-date}
 :::
 
 ::: {.pv-periodical-body}
 ## PopuliVerse Commentary
 
-Short scholarly commentary on populism and populist actors, written by researchers and reviewed by the editor. Published quarterly.
+Short pieces in which scholars comment on populism and populist actors, reviewed by the editor. Published quarterly.
 
 ::: {#latest-commentary}
 :::
 
 ::: {.pv-pending}
-The first issue, 2027/1, is planned for March 2027.
+The first issue, 2026/1, is planned for December 2026.
 :::
 
 [All issues, and how to write for Commentary](commentary/index.qmd)
@@ -158,5 +158,5 @@ The first issue, 2027/1, is planned for March 2027.
 ::: {.pv-section .pv-newsletter}
 ## Newsletter
 
-One email for each new issue: a short summary and a link. [About the newsletter](newsletter/index.qmd)
+One email for each new issue: a short summary and a link. [How to get it](newsletter/index.qmd)
 :::

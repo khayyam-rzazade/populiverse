@@ -16,7 +16,7 @@ PopuliVerse is one place to study, learn about, stay updated on and publish on p
 : A quarterly issue of short scholarly commentary by researchers.
 
 [Resources](../resources/index.qmd)
-: Links to datasets, other hubs and syllabi.
+: Links to datasets and other hubs.
 
 ## Who it is for
 
@@ -24,14 +24,12 @@ Students and early-career researchers starting a literature review on populism. 
 
 ## Editor
 
-Editor: [Khayyam RZAZADE](https://thekhayyam.com/polsci)
+Editor: [Khayyam RZAZADE](editor.qmd)
 
-Khayyam RZAZADE is a Marie Skłodowska-Curie (MSCA) Research Fellow at the University of Genoa. He studies the impact of populist actors on foreign and defence policies across European middle powers. He built PopuliVerse to have one place to study populism, to follow what populist actors do and to publish on it. His own work is on his [academic page](https://thekhayyam.com/polsci).
-
-PopuliVerse is his own project and is independent. It is not part of his doctoral project, and it is neither funded nor endorsed by the University of Genoa or by the European Union. It is free to read and carries no advertising. It has no comments section and no user accounts.
+PopuliVerse is independent. It is free to read and carries no advertising. It has no comments section and no user accounts.
 
 How PopuliVerse works, including its use of AI, is set out in the [editorial policy](editorial-policy.qmd). To take part, see [how to contribute](contribute.qmd).
 
 ## Contact {#contact}
 
-Write to the editor: <editor@populiverse.com>
+Write to the editor: editor@populiverse.com

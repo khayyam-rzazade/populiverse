@@ -5,13 +5,7 @@ description: "Suggest a paper, join the Zotero group, write for Commentary or re
 
 ## Suggest a paper for the Library
 
-Send the title or the DOI of a work on populism, and a line on why it belongs in the [Library](../library/index.qmd).
-
-<!-- TODO(link): when the "Suggest a paper" form exists, replace the box below with a button to it. -->
-
-::: {.pv-pending}
-The form opens with the launch.
-:::
+Send the title or the DOI of a work on populism, and a line on why it belongs in the [Library](../library/index.qmd), to the editor: editor@populiverse.com
 
 ## Join the Zotero group
 
@@ -19,7 +13,7 @@ The Library lives in a public Zotero group called "PopuliVerse Library". Scholar
 
 ## Write for Commentary
 
-Commentary publishes short pieces of 800 to 1,500 words by PhD holders and doctoral candidates. See the [call and the submission guidelines](../commentary/index.qmd#call-for-commentary).
+Commentary publishes pieces of 800 to 1,500 words in which scholars comment on populism and populist actors. They are written by PhD holders and doctoral candidates. See the [call and the guidelines](../commentary/index.qmd#call-for-commentary).
 
 ## Report an error or ask for a reply
 
@@ -27,6 +21,4 @@ If something published here is wrong, write to the editor. Corrections are made 
 
 ## Get in touch
 
-<editor@populiverse.com>
-
-<!-- TODO(link): when the contact form exists, add a button to it here. -->
+Write to the editor: editor@populiverse.com
