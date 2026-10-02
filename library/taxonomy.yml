@@ -1,5 +1,6 @@
 # PopuliVerse Library: the controlled vocabulary (the "codebook").
-# Version 2, 2026-10-01 (version 1: 2026-09-30). Master plan, section 5.
+# Version 3, 2026-10-02 (version 2: 2026-10-01; version 1: 2026-09-30). Master plan, section 5.
+# New in version 3: the type "Book review".
 #
 # This file lists every tag the Library is allowed to use.
 # Lines that start with # are notes for people. The scripts ignore them.
@@ -46,8 +47,8 @@
 # The order of the tags below is the order in which they are shown on the
 # site. Countries are the exception: the site sorts them by name.
 
-version: 2
-date: "2026-10-01"
+version: 3
+date: "2026-10-02"
 
 facets:
 
@@ -422,6 +423,11 @@ facets:
         label: "Journal article"
         definition: "An article in an academic journal, including review articles."
         zotero: ["journalArticle"]
+      - tag: "type:book-review"
+        label: "Book review"
+        definition: "A review of a book, published in a journal."
+        zotero: ["journalArticle"]
+        guess: false          # Zotero holds a review as a journal article: without this tag a journal article is taken as an article
       - tag: "type:book"
         label: "Book"
         definition: "A monograph, or an edited volume as a whole."

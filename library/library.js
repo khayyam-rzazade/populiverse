@@ -98,7 +98,7 @@
         return [p.given, p.family].filter(Boolean).join(" ");
       });
       var tags = [].concat(e.approach || [], e.topic || [], e.region || [], e.country || [], e.method || []);
-      var journal = e.type === "type:article" ? (e.container || "") : "";
+      var journal = (e.type === "type:article" || e.type === "type:book-review") ? (e.container || "") : "";
       return {
         e: e,
         order: i,                                   // library.json is sorted by author, then year
@@ -248,6 +248,8 @@
       cite.appendChild(document.createTextNode(" "));
       cite.appendChild(el("a", { href: e.url, target: "_blank", rel: "noopener", text: e.url }));
     }
+    // a review of a book carries the book's title: the entry says that it is a review
+    if (e.type === "type:book-review") { cite.appendChild(document.createTextNode(" ")); cite.appendChild(el("span", { class: "pv-lib-oa", text: nameOf(e.type) })); }
     if (e.oa) { cite.appendChild(document.createTextNode(" ")); cite.appendChild(el("span", { class: "pv-lib-oa", text: "Open access" })); }
 
     var tags = el("p", { class: "pv-lib-tags" });

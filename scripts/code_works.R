@@ -25,7 +25,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02"
+  SCRIPT_VERSION <- "2026-10-02.2"
   `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
   say <- function(...) cat(..., "\n", sep = "")
   halt <- function(...) stop(structure(class = c("pv_stop", "error", "condition"),
@@ -314,9 +314,17 @@ local({
       # every kind of space becomes one plain space, whatever the computer's language settings are
       title <- trimws(gsub("[\\s\u00a0\u2000-\u200b\u202f\u3000]+", " ", gsub("<[^>]+>", "", title), perl = TRUE))
       title <- gsub("[\u0080-\u009f]", "", gsub("[[:cntrl:]]", "", title), perl = TRUE)
-      res <- code_one(title, r$abstract, k, tax)
+      # a review of a book (the search says so): the tags come from its title alone, because a text
+      # that stands as its abstract is often the publisher's words about the book; and it has no method
+      is_review <- from_search && "piece" %in% names(r) && identical(r$piece, "book review")
+      res <- code_one(title, if (is_review) "" else r$abstract, k, tax)
+      if (is_review) {
+        res$evidence <- Filter(function(e) !startsWith(e[1], "method:"), res$evidence)
+        res$tags <- res$tags[!startsWith(res$tags, "method:")]
+      }
       # open access is taken from the catalogue only for a work with a DOI: without one the record cannot be checked twice
-      tags <- c(res$tags, if (r$kind == "article") "type:article" else "type:book", if (identical(r$open_access, "TRUE") && nzchar(r$doi)) "oa:yes")
+      tags <- c(res$tags, if (is_review) "type:book-review" else if (r$kind == "article") "type:article" else "type:book",
+                if (identical(r$open_access, "TRUE") && nzchar(r$doi)) "oa:yes")
       if (!nzchar(r$doi) || r$ref_id %in% names(rec$accepted)) {
         tags <- c(tags, "todo:check-record")
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule",
@@ -336,7 +344,8 @@ local({
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-outlet", "journal", r$journal_or_publisher)
       }
       # a journal on none of the journal lists that OpenAlex records: a note for the editor (search batches)
-      if (from_search && r$kind == "article" && !nzchar(r$listed_in) && !("todo:check-outlet" %in% tags)) {
+      # (not asked when the journal was checked against the Scopus list)
+      if (from_search && r$kind == "article" && !nzchar(r$listed_in) && !("scopus_title" %in% names(r)) && !("todo:check-outlet" %in% tags)) {
         tags <- c(tags, "todo:check-outlet")
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-outlet", "journal",
                                               paste0(r$journal_or_publisher, " (on none of the journal lists that OpenAlex records)"))
@@ -350,6 +359,7 @@ local({
                          year = as.integer(if (from_search && nzchar(r$year_found)) r$year_found else r$year), kind = r$kind,
                          ref_id = r$ref_id, tags = all_tags[all_tags %in% tags],
                          doi_also = if ("doi_also" %in% names(r) && nzchar(r$doi_also)) r$doi_also else NULL,
+                         published = if ("publication_date" %in% names(r) && nzchar(r$publication_date)) r$publication_date else NULL,
                          create = rec$records[[r$ref_id]])
       for (e in res$evidence) evidence[[length(evidence) + 1]] <- c(r$ref_id, e)
     }
@@ -386,7 +396,10 @@ local({
       out <- c(out, paste0("  - cite: ", q(w$cite)), paste0("    doi: ", q(w$doi)),
                # the registry can hold one record under two DOIs: Zotero may store the other one
                if (!is.null(w$doi_also)) paste0("    doi_also: ", q(w$doi_also)), paste0("    title: ", q(w$title)),
-               paste0("    year: ", w$year), paste0("    ref: ", q(w$ref_id)), "    tags:", paste0("      - ", q(w$tags)))
+               paste0("    year: ", w$year),
+               # the day of publication as OpenAlex gives it (the Monitor lists the works published in the month of an issue)
+               if (!is.null(w$published)) paste0("    published: ", q(w$published)),
+               paste0("    ref: ", q(w$ref_id)), "    tags:", paste0("      - ", q(w$tags)))
       if (!is.null(w$create)) {
         block <- strsplit(yaml::as.yaml(list(create = w$create), indent.mapping.sequence = TRUE), "\n")[[1]]
         out <- c(out, paste0("    ", block[nzchar(block)]))

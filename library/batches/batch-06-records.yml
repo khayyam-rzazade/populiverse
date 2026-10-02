@@ -1,0 +1,52 @@
+# Batch 06: what was decided by reading, not by the rules alone.
+# Source: search 01 of OpenAlex (scripts/search_works.R, third version of the rules): journal articles,
+# reviews of books in journals, and books, in English, with a DOI, whose title names populism, published
+# 2025 to 2026. A piece in a journal counts when the journal is on the Scopus source list of August 2026
+# for the year of the work. Each DOI is checked at the DOI registry (Crossref).
+#
+# read      Works that the script gave to Claude to read (a short piece whose kind the record does not
+#           show, a title that the Library holds, a language to check) and that enter for the reason given.
+# accepted  Works on which the two catalogues do not fully agree and that enter for the reason given.
+#           Each also gets the note "todo:check-record" in Zotero, for the editor's own pass.
+
+read:
+  W7125698187: {doi: "10.12688/openreseurope.22680.1", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W7135053862: {doi: "10.12688/openreseurope.23109.1", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W7127314549: {doi: "10.1057/s41268-026-00370-3", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W7148926067: {doi: "10.1177/13540688261428415", why: "the part of the title before the colon is also the title of a book, but the abstract is the article's own (\"This study examines ...\", \"This paper explores ...\")"}
+  W7133353612: {doi: "10.2298/fid241008002f", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W7134188603: {doi: "10.22146/jsp.101578", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W7155069228: {doi: "10.51870/pce-2026-0004", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W7165134205: {doi: "10.1142/s1013251126400011", why: "the part of the title before the colon is also the title of a book, but the abstract is the article's own (\"This study examines ...\", \"This paper explores ...\")"}
+  W7165205930: {doi: "10.1080/01900692.2026.2676039", why: "two pages; the abstract speaks of the book reviewed (\"This volume makes a compelling intervention ...\")"}
+  W7168129178: {doi: "10.1080/0048721x.2026.2702595", why: "four pages; the abstract says so (\"There is a familiar way to review a book ...\")"}
+  W7212144326: {doi: "10.12688/f1000research.188420.1", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W7212781266: {doi: "10.1086/743065", why: "the pages are not set yet (000-000); the abstract is the article's own (\"Purpose: This study ...\")"}
+  W4412937467: {doi: "10.1038/s41598-025-14115-8", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4416224082: {doi: "10.1093/9780197695012.001.0001", why: "the Library holds an article and a chapter of this title by other authors; this is the book of 2025 by Destradi and Plagemann (Oxford University Press)"}
+  W4409889266: {doi: "10.3390/socsci14050270", why: "no page range (the journal numbers its articles, or the piece is new); the abstract is the article's own, though the record cuts it"}
+  W4406379555: {doi: "10.1017/s1049096524000830", why: "three pages; the abstract is its own: it introduces a set of articles on populism and democracy"}
+  W4411206037: {doi: "10.1080/02589346.2025.2518706", why: "three pages; it carries the title of the volume that another record of this batch reviews (International Journal of Public Administration)"}
+  W4414041144: {doi: "10.1093/ia/iiaf172", why: "a short piece; the abstract names the book and its author in its first words"}
+  W4406081678: {doi: "10.1093/ia/iiae310", why: "two pages; the abstract speaks of the book reviewed (\"this edited volume ...\")"}
+  W4406118717: {doi: "10.1093/ia/iiae290", why: "a short piece; the abstract names the book and its author in its first words"}
+  W4406755209: {doi: "10.1080/00933104.2025.2455357", why: "a short piece; the abstract discusses a book by Sarah Stitzlein (\"In this review ...\")"}
+  W4407223039: {doi: "10.1111/polp.70013", why: "no page range (the journal numbers its articles, or the piece is new); the abstract is the article's own, though the record cuts it"}
+  W4408403397: {doi: "10.1093/ahr/rhae489", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4408829746: {doi: "10.56345/ijrdv12n112", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W4410186937: {doi: "10.1177/08883254251335940", why: "six pages; the abstract is its own: it introduces a thematic cluster of the journal; it shares only the first words of its title with a book"}
+  W4410339915: {doi: "10.4067/s0718-090x2025005000106", why: "the pages are not set (0-0); the abstract is the essay's own; the registry gives English as its language"}
+  W4411094329: {doi: "10.1080/0031322x.2025.2504833", why: "a short piece; the abstract names the book and its author in its first words"}
+  W4411136792: {doi: "10.1177/14778785251347065", why: "a short piece; the abstract discusses a book by Sarah Stitzlein (\"In this review ...\")"}
+  W4411813968: {doi: "10.1162/jcws_r_01268", why: "a short piece; the abstract names the book and its author in its first words"}
+  W4412780389: {doi: "10.1080/03068374.2025.2532169", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4413959814: {doi: "10.1093/wentk/9780197758328.001.0001", why: "the Library holds a book of this title by Taggart (2000); this is the book of 2025 by Kenny (Oxford University Press)"}
+  W4414357495: {doi: "10.12688/openreseurope.21115.1", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4414770948: {doi: "10.1163/25888072-bja10085", why: "three pages; the text in the record is its own: an editorial article of the journal Populism"}
+  W4415126816: {doi: "10.1093/ehr/ceaf163", why: "three pages; the abstract speaks of the book reviewed (\"In this book, Sishuwa Sishuwa ...\")"}
+  W4416406891: {doi: "10.1177/00490857251382803", why: "five pages; the abstract opens with the book reviewed, its publisher, pages and price"}
+  W4417490393: {doi: "10.51870/fvpk3384", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+
+accepted:
+  W4406260500: {doi: "10.2307/jj.17732993", why: "the registry names Krakovsky, and OpenAlex names Roman Krakovsky with the accent written as a separate mark, which the comparison did not read; title, year and type agree"}
+

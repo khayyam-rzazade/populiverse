@@ -34,7 +34,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01.2"
+  SCRIPT_VERSION <- "2026-10-02.1"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
   GROUP_URL      <- "https://www.zotero.org/groups/6697881/populiverse_library"
   STYLE          <- "chicago-author-date"
@@ -114,10 +114,13 @@ local({
                                    vapply(tt, function(t) t$tag, ""))
     # Zotero item types that point to exactly one type tag
     # (a "report" can be a policy paper or a working paper, so it is left out).
+    # A tag marked "guess: false" in the taxonomy is never guessed: Zotero holds a review of a book
+    # as a journal article, and a journal article without a type tag is still taken as an article.
+    guessable <- vapply(tt, function(t) !identical(t$guess, FALSE), logical(1))
     zot_types <- unique(unlist(type_zotero, use.names = FALSE))
     type_from_zotero <- list()
     for (z in zot_types) {
-      hits <- names(type_zotero)[vapply(type_zotero, function(v) z %in% v, logical(1))]
+      hits <- names(type_zotero)[guessable & vapply(type_zotero, function(v) z %in% v, logical(1))]
       if (length(hits) == 1) type_from_zotero[[z]] <- hits
     }
     # A copy of the vocabulary for library.json (lists stay lists in the file).
