@@ -25,7 +25,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02.2"
+  SCRIPT_VERSION <- "2026-10-02.3"
   `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
   say <- function(...) cat(..., "\n", sep = "")
   halt <- function(...) stop(structure(class = c("pv_stop", "error", "condition"),
@@ -364,9 +364,9 @@ local({
       for (e in res$evidence) evidence[[length(evidence) + 1]] <- c(r$ref_id, e)
     }
 
-    # works of an earlier batch whose tags a new rule changes: listed with their full set of tags
+    # works of an earlier batch whose tags a new rule changes, or that still wait for their tags: listed with their full set of tags
     for (x in rec$also %||% list()) {
-      works[[length(works) + 1]] <- list(cite = x$cite, doi = "", title = x$title, year = as.integer(x$year), kind = "",
+      works[[length(works) + 1]] <- list(cite = x$cite, doi = x$doi %||% "", title = x$title, year = as.integer(x$year), kind = "",
                                          ref_id = "", tags = all_tags[all_tags %in% unlist(x$tags)], create = NULL)
     }
 

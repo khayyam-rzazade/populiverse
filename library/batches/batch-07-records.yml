@@ -1,0 +1,89 @@
+# Batch 07: what was decided by reading, not by the rules alone.
+# Source: search 01 of OpenAlex (scripts/search_works.R, third version of the rules): journal articles,
+# reviews of books in journals, and books, in English, with a DOI, whose title names populism, published
+# 2022 to 2024. A piece in a journal counts when the journal is on the Scopus source list of August 2026
+# for the year of the work. Each DOI is checked at the DOI registry (Crossref).
+#
+# read      Works that the script gave to Claude to read (a short piece whose kind the record does not
+#           show, a title that the Library holds, a language to check) and that enter for the reason given.
+# accepted  Works on which the two catalogues do not fully agree and that enter for the reason given.
+#           Each also gets the note "todo:check-record" in Zotero, for the editor's own pass.
+
+# Works of an earlier batch that still wait for their tags: tagged with this batch.
+also:
+  - {cite: "De la Torre 2013", doi: "10.18352/erlacs.9229", title: "In the Name of the People: Democratization, Popular Organizations, and Populism in Venezuela, Bolivia, and Ecuador", year: 2013, tags: ["topic:democracy-institutions", "region:latin-america", "country:bolivia", "country:ecuador", "country:venezuela", "type:article", "oa:yes"]}
+  - {cite: "Pérez-Curiel 2020", doi: "10.15581/003.33.2.175-192", title: "Trend towards extreme right-wing populism on Twitter. An analysis of the influence on leaders, media and users", year: 2020, tags: ["topic:parties", "topic:media-communication", "region:europe", "country:france", "country:italy", "country:spain", "method:qualitative", "type:article", "oa:yes"]}
+
+read:
+  W4399659467: {doi: "10.1215/00021482-11077605", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4399296536: {doi: "10.31078/consrev1016", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W4391789710: {doi: "10.1353/cj.2024.a919201", why: "six pages; the text in the record is the article's own"}
+  W4401499345: {doi: "10.15642/jiis.2024.18.1.27-48", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W4391888309: {doi: "10.17010/pijom/2024/v17i2/173329", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W4392646776: {doi: "10.5117/ccr2024.1.2.thie", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W4402464385: {doi: "10.24294/jipd.v8i9.6941", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4404024428: {doi: "10.1093/whq/whae075", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W4404234836: {doi: "10.24294/jipd8302", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4390828797: {doi: "10.1080/08941920.2024.2303744", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4392003436: {doi: "10.1024/2673-8627/a000053", why: "the Library holds the article of this title by Kavanagh and others (2021); this is another article, of 2024 and by other authors, that examines it again"}
+  W4392984991: {doi: "10.12688/openreseurope.16751.1", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4399281184: {doi: "10.52975/llt.2024v93.027", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4399342582: {doi: "10.1353/dss.2024.a929025", why: "two pages; the abstract is its own"}
+  W4399759958: {doi: "10.1093/jahist/jaae049", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4402337490: {doi: "10.1093/ahr/rhae301", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4403074166: {doi: "10.1080/00472336.2024.2408772", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4403851104: {doi: "10.1093/psquar/qqae033", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4405296829: {doi: "10.1093/jahist/jaae213", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4364377956: {doi: "10.1177/20531680231167680", why: "no page range in the record; the abstract is the article's own"}
+  W4366086315: {doi: "10.4324/9781003375289", why: "the Library holds the article of 2019 by the same authors under this title; this is the book of 2023 (Routledge)"}
+  W4317214841: {doi: "10.1057/s41599-023-01507-2", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4388939473: {doi: "10.12688/openreseurope.16733.1", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4321482689: {doi: "10.1080/07351690.2023.2163143", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W4360605874: {doi: "10.2307/jj.1357295", why: "the Library holds a book of this title by Taggart (2000); this is the volume edited by Munck, Mastrangelo and Pozzi (Agenda Publishing, 2023)"}
+  W4389091928: {doi: "10.1080/23254823.2023.2287860", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4389130848: {doi: "10.1007/978-3-031-36343-6", why: "another book of this batch has the same title before the colon; the editors, the publishers and the years differ: two books"}
+  W4321480199: {doi: "10.1080/07351690.2023.2163151", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W4327944861: {doi: "10.1093/psquar/qqac014", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4328107877: {doi: "10.5430/wjel.v13n2p521", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W4367681383: {doi: "10.1093/whq/whad076", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4372624760: {doi: "10.1080/0895769x.2023.2210625", why: "six pages; the text in the record is the article's own"}
+  W4380202293: {doi: "10.1080/01916599.2023.2218671", why: "three pages; the title names the book that the piece discusses"}
+  W4381853144: {doi: "10.1111/1467-923x.13284", why: "two pages; the abstract speaks of \"both books\" under review"}
+  W4387603380: {doi: "10.1080/14742837.2023.2267997", why: "three pages; the title says \"Review essay\""}
+  W4388294263: {doi: "10.3389/fsoc.2023.1275384", why: "the journal numbers its articles; the record says that it is an opinion article of the journal"}
+  W4388553850: {doi: "10.1093/socrel/srad051", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4388952563: {doi: "10.1504/ijpp.2023.10060665", why: "no page range in the record; the abstract is the article's own"}
+  W4389933668: {doi: "10.1215/00021482-10796086", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W4390124651: {doi: "10.1093/ajcl/avad036", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4390344598: {doi: "10.1215/00182168-11085677", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W4391367247: {doi: "10.1515/soeu-2023-0050", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4393174440: {doi: "10.17356/ieejsp.v9i4.1278", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4312327439: {doi: "10.1080/08935696.2022.2111960", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4293740987: {doi: "10.1057/s41599-022-01317-y", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4205694425: {doi: "10.1016/j.polgeo.2021.102583", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W4295872732: {doi: "10.1002/polq.13377", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4320029827: {doi: "10.1215/15476715-10032434", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W4213302022: {doi: "10.1017/mit.2021.68", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W4309179861: {doi: "10.36019/9781978825345", why: "another book of this batch has the same title before the colon; the editors, the publishers and the years differ: two books"}
+  W4281996817: {doi: "10.1017/s0898588x22000049", why: "three pages; the abstract is its own (\"this article argues ...\")"}
+  W2887012421: {doi: "10.4000/ejas.12490", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4210552473: {doi: "10.1093/jahist/jaac059", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4212989984: {doi: "10.1080/01916599.2021.1975927", why: "four pages; the author's own piece on her book in a discussion of it; the text in the record is its own"}
+  W4213019247: {doi: "10.1163/25888072-bja10028", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4213210117: {doi: "10.1080/01916599.2021.1975922", why: "three pages; the title names the book that the piece discusses"}
+  W4282583316: {doi: "10.1215/00021482-9634693", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W4285235544: {doi: "10.1017/nie.2022.11", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W4296472200: {doi: "10.1093/ahr/rhac185", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4297831243: {doi: "10.1163/25888072-bja10040", why: "two pages; the text in the record is its own: an editorial article of the journal Populism"}
+  W4300427911: {doi: "10.1080/1462317x.2022.2110586", why: "six pages; the abstract opens with the book reviewed (\"Bonnie Honig's book ...\")"}
+  W4308785023: {doi: "10.1093/ehr/ceac234", why: "a short piece; the abstract names the book reviewed or its author"}
+
+accepted:
+  W4408784368: {doi: "10.1134/s1019331625600040", why: "OpenAlex writes the author's name in Cyrillic letters, which read Elena Alekseenkova; the registry names Alekseenkova; title, year, journal and type agree"}
+  W4387894657: {doi: "10.4467/k7466.155/22.23.17542", why: "an edited volume: title, year and type agree; the registry names its editors (Dajc and Styczynska); OpenAlex lists a contributor first"}
+  W4366967652: {doi: "10.5040/9781350347076", why: "title, year and type agree; the registry names Lotina and Aiolfi; OpenAlex writes the first editor as Petrovic, the first part of the same double family name"}
+  W4391331937: {doi: "10.2298/soc2304517b", why: "OpenAlex writes the first author's name in Cyrillic letters, which read Jovan Bliznakovski; the registry names Bliznakovski; the registry gives English as the language"}
+  W4385237754: {doi: "10.1080/00380253.2023.2236662", why: "OpenAlex writes the first author's name in Cyrillic letters, which read Chad Alan Goldberg; the registry names Goldberg; title, year, journal and type agree"}
+  W4312179035: {doi: "10.1134/s1019331622130123", why: "OpenAlex writes the author's name in Cyrillic letters, which read Elena Alekseenkova; the registry names Alekseenkova; title, year, journal and type agree"}
+  W4294286992: {doi: "10.1257/jel.20201514", why: "the title says \"A Review of Barry Eichengreen's The Populist Temptation\"; OpenAlex writes the author's name in Cyrillic letters, which read Konstantin Sonin, and the registry names Sonin"}
+
