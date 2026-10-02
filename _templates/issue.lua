@@ -15,6 +15,11 @@
 --   5. The web page gets the facts of the issue at the top (period, rules,
 --      editor, DOI, PDF), a "How to cite" box at the end, and the data that
 --      Google Scholar reads.
+--   6. "New research": the issue's text holds a short account only. The full
+--      list of the month's works is a file next to the text
+--      (populiverse-monitor-2026-1-new-research.csv). On the web page the
+--      list is shown under the account, folded shut. The PDF prints where the
+--      list is.
 --
 -- It only acts on a page whose header has the line "issue:". Every other
 -- page of the site passes through untouched.
@@ -105,6 +110,82 @@ local function input_dir()
   local dir = pandoc.path.directory(file)
   if dir == "" then dir = "." end
   return dir
+end
+
+-- ------------------------------------------------- 6: the list of new research
+
+-- Reads a file of comma-separated values: the first line holds the names of
+-- the columns. Returns one table per line, with the column names as keys.
+local function read_csv(text)
+  text = text:gsub("^\239\187\191", "")
+  local lines, line, field = {}, {}, {}
+  local quoted = false
+  local i, n = 1, #text
+  while i <= n do
+    local c = text:sub(i, i)
+    if quoted then
+      if c == '"' then
+        if text:sub(i + 1, i + 1) == '"' then
+          field[#field + 1] = '"'
+          i = i + 1
+        else
+          quoted = false
+        end
+      else
+        field[#field + 1] = c
+      end
+    elseif c == '"' then
+      quoted = true
+    elseif c == "," then
+      line[#line + 1] = table.concat(field)
+      field = {}
+    elseif c == "\n" then
+      line[#line + 1] = table.concat(field)
+      field = {}
+      lines[#lines + 1] = line
+      line = {}
+    elseif c ~= "\r" then
+      field[#field + 1] = c
+    end
+    i = i + 1
+  end
+  if #field > 0 or #line > 0 then
+    line[#line + 1] = table.concat(field)
+    lines[#lines + 1] = line
+  end
+  local out = {}
+  local head = lines[1] or {}
+  for r = 2, #lines do
+    local rec = {}
+    for c, name in ipairs(head) do rec[name] = lines[r][c] or "" end
+    if (rec.reference or "") ~= "" and (rec.doi or "") ~= "" then out[#out + 1] = rec end
+  end
+  return out
+end
+
+local RESEARCH_HEADING = "new research"
+local RESEARCH_KINDS = {
+  { "journal article", "Journal articles" },
+  { "book", "Books" },
+  { "book review", "Book reviews" },
+}
+
+-- Where the list goes: at the end of the part "New research". Gives the
+-- place in the list of blocks, or nil if the issue has no such part.
+local function research_place(blocks, is_foreign)
+  local start, level = nil, nil
+  for i, b in ipairs(blocks) do
+    if b.t == "Header" and stringify(b):lower() == RESEARCH_HEADING then
+      start, level = i, b.level
+      break
+    end
+  end
+  if not start then return nil end
+  for i = start + 1, #blocks do
+    local b = blocks[i]
+    if (b.t == "Header" and b.level <= level) or is_foreign(b) then return i end
+  end
+  return #blocks + 1
 end
 
 -- ------------------------------------------------- 1 and 2: the structure
@@ -335,6 +416,7 @@ local function issue_info(meta)
   info.url = SITE .. "/monitor/" .. info.slug .. "/"
   info.pdf = "populiverse-monitor-" .. info.slug .. ".pdf"
   info.pdf_url = info.url .. info.pdf
+  info.research = "populiverse-monitor-" .. info.slug .. "-new-research.csv"
   info.title = "PopuliVerse Monitor " .. info.number
   -- the family name first, as reference lists print it: "Rzazade, Khayyam"
   local first, last = info.editor:match("^(.-)%s+(%S+)$")
@@ -367,6 +449,18 @@ local function make_typst(doc, info)
     end)
     return b
   end)
+
+  -- "New research": the PDF prints where the full list is
+  if info.research_list and info.research_place then
+    local line = "#pvlistnote[The full list of the " .. #info.research_list
+      .. " works, with the Library's tags for each, is on the web page of this issue: "
+      .. '#pvurl("' .. typst_string(info.url .. "#new-research") .. '");.'
+    if info.doi ~= "" then
+      line = line .. " It is also a file in the record of this issue at Zenodo: "
+        .. '#pvurl("https://doi.org/' .. typst_string(info.doi) .. '");.'
+    end
+    doc.blocks:insert(info.research_place, raw_typst_block(line .. "]"))
+  end
 
   doc = doc:walk({
     -- the headings start one step down in the text ("##"); in the PDF the
@@ -573,6 +667,46 @@ local function cite_block(info, pages)
   return raw_html_block(table.concat(h, "\n"))
 end
 
+-- The full list of the month's works, folded shut under the short account.
+local function research_block(info)
+  local list = info.research_list
+  local h = {
+    '<details class="pv-research">',
+    "<summary>The full list: " .. #list .. " works published in " .. html_escape(info.month) .. "</summary>",
+  }
+  local shown = {}
+  local function group(kind, heading)
+    local items = {}
+    for i, r in ipairs(list) do
+      if not shown[i] and (kind == nil or r.kind == kind) then
+        shown[i] = true
+        local title = html_escape(r.title)
+        local where = html_escape(r.journal_or_publisher)
+        local body
+        if r.kind == "book" then
+          body = "<em>" .. title .. "</em>." .. (where ~= "" and (" " .. where .. ".") or "")
+        else
+          body = "\226\128\156" .. title .. (title:match("[%?%!%.]$") and "" or ".") .. "\226\128\157"
+            .. (where ~= "" and (" <em>" .. where .. "</em>.") or "")
+        end
+        items[#items + 1] = "<li>" .. html_escape(r.reference) .. ". " .. body
+          .. ' <a href="https://doi.org/' .. html_escape(r.doi) .. '">https://doi.org/' .. html_escape(r.doi) .. "</a></li>"
+      end
+    end
+    if #items > 0 then
+      h[#h + 1] = '<p class="pv-research-kind">' .. heading .. " (" .. #items .. ")</p>"
+      h[#h + 1] = '<ul class="pv-research-list">\n' .. table.concat(items, "\n") .. "\n</ul>"
+    end
+  end
+  for _, k in ipairs(RESEARCH_KINDS) do group(k[1], k[2]) end
+  group(nil, "Other works")
+  h[#h + 1] = '<p class="pv-issue-note">The same list as a file, with the Library\226\128\153s tags for each work: '
+    .. '<a href="' .. info.research .. '">' .. info.research .. "</a>. "
+    .. "The file is also part of the record of this issue at Zenodo.</p>"
+  h[#h + 1] = "</details>"
+  return raw_html_block(table.concat(h, "\n"))
+end
+
 local function make_html(doc, info)
   local dir = input_dir()
   local has_pdf = file_exists(pandoc.path.join({ dir, info.pdf }))
@@ -637,6 +771,11 @@ local function make_html(doc, info)
     end,
   })
 
+  -- "New research": the full list, folded shut, under the short account
+  if info.research_list and info.research_place then
+    doc.blocks:insert(info.research_place, research_block(info))
+  end
+
   local last = #doc.blocks
   while last > 0 and is_quarto_part(doc.blocks[last]) do last = last - 1 end
   doc.blocks:insert(last + 1, cite_block(info, state == "ok" and map.pages or nil))
@@ -670,6 +809,16 @@ function Pandoc(doc)
   if not (TYPST or HTML) then return nil end
   local info = issue_info(doc.meta)
   doc.blocks = restructure(doc.blocks)
+
+  -- the list of the month's research, if the issue has one
+  local raw = read_file(pandoc.path.join({ input_dir(), info.research }))
+  if raw then
+    local list = read_csv(raw)
+    if #list > 0 then
+      info.research_list = list
+      info.research_place = research_place(doc.blocks, is_quarto_part)
+    end
+  end
   if TYPST then return make_typst(doc, info) end
   return make_html(doc, info)
 end

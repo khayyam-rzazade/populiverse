@@ -29,7 +29,7 @@ The first issue, 2026/1, covers September 2026.
 
 1. **The month in brief.** A short general picture of the month.
 2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. Each region has about four full items and a few one-line entries. A full item says what happened, gives the background and says what comes next.
-3. **New research.** The works added to the [Library](../library/index.qmd) that month.
+3. **New research.** A short account of the works on populism published that month that are in the [Library](../library/index.qmd). The full list is one click away.
 
 An issue has 15 pages at most. You can understand each event from the issue itself. The links are there as proof.
 

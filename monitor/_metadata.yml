@@ -9,9 +9,11 @@ filters:
 google-scholar: false
 citation: false
 license: "CC BY"
-# The PDF of an issue is copied to the site next to its web page.
+# The PDF of an issue and its list of new research are copied to the site
+# next to its web page.
 resources:
   - "*.pdf"
+  - "*.csv"
 # The filter reads the day of publication in the form year-month-day.
 date-format: iso
 toc: true

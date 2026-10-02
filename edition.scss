@@ -1421,6 +1421,57 @@ section.pv-page-here::before {
   }
 }
 
+// "New research": the full list of the month, folded shut under the account
+.pv-research {
+  margin: 1.5rem 0 0;
+  border-top: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-research > summary {
+  padding: 0.75rem 0;
+  color: $pv-ink;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.pv-research > summary:hover,
+.pv-research > summary:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pv-research[open] > summary {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-research-kind {
+  @include pv-label;
+  margin: 1.5rem 0 0.75rem;
+  color: $pv-muted;
+}
+
+.pv-research-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main.content .pv-research-list li {
+  max-width: 50rem;
+  margin: 0 0 0.75rem;
+  padding-left: 1.75rem;
+  text-indent: -1.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.pv-research > .pv-issue-note {
+  margin: 1.5rem 0 1rem;
+}
+
 // "How to cite this issue"
 .pv-issue-cite .pv-cite {
   max-width: 50rem;

@@ -118,6 +118,13 @@ $endif$
 ]
 #let pvline(body) = block(above: 0.5em, below: 0pt, width: 100%, body)
 
+// a line of small print under a part: where the full list of new research is
+#let pvlistnote(body) = block(above: 1.1em, below: 0pt, width: 100%)[
+  #set text(size: 7.5pt, fill: muted, hyphenate: false)
+  #set par(justify: false, leading: 0.62em)
+  #body
+]
+
 // "Also this month" and its short entries
 #let pvalsolabel(body) = block(above: 2em, below: 0.9em, sticky: true)[
   #text(size: 7.3pt, tracking: 0.12em, fill: muted, upper(body))

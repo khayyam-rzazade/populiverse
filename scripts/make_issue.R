@@ -13,6 +13,9 @@
 #      that folder, as populiverse-monitor-2026-1.pdf.
 #   3. It notes on which page of the PDF every part of the text stands
 #      (pages.json). The web page shows these page numbers in its margin.
+#      If the folder holds the list of the month's new research
+#      (populiverse-monitor-2026-1-new-research.csv), it counts the works in it
+#      and checks that the Library has them.
 #   4. It builds the issue's web page once, so that you can look at both.
 #   5. It prints a short report.
 #   6. If the header of the issue has a date and a DOI, it asks whether to
@@ -139,6 +142,8 @@ local({
   pdf_name <- paste0("populiverse-monitor-", slug, ".pdf")
   pdf_file <- file.path(folder, pdf_name)
   map_file <- file.path(folder, "pages.json")
+  list_name <- paste0("populiverse-monitor-", slug, "-new-research.csv")
+  list_file <- file.path(folder, list_name)
 
   say("")
   say("PopuliVerse Monitor ", number, " (", month, ")")
@@ -206,11 +211,31 @@ local({
     }
   }
 
+  # ---- the list of the month's new research, if the issue has one
+  list_n <- NA
+  list_in_library <- NA
+  if (file.exists(list_file)) {
+    works <- tryCatch(utils::read.csv(list_file, stringsAsFactors = FALSE, check.names = FALSE,
+                                      encoding = "UTF-8", colClasses = "character"),
+                      error = function(e) NULL)
+    if (is.null(works) || !("doi" %in% names(works))) {
+      stop_plain("I cannot read ", list_file, ". It must be a table with a column called doi. Please tell Claude.")
+    }
+    list_n <- nrow(works)
+    library_file <- file.path("library", "library.json")
+    if (file.exists(library_file)) {
+      held <- tolower(paste(readLines(library_file, encoding = "UTF-8", warn = FALSE), collapse = "\n"))
+      list_in_library <- sum(vapply(tolower(trimws(works$doi)),
+                                    function(d) grepl(paste0("\"", d, "\""), held, fixed = TRUE), logical(1)))
+    }
+  }
+
   say("PDF:        ", pdf_file, " (", pages, " pages)")
   say("Web page:   ", if (web_ok) web_file else "could not be built (see below)")
   say("Published:  ", if (nzchar(date)) date else "no date yet")
   say("DOI:        ", if (nzchar(doi)) doi else "no DOI yet")
   say("Full items: ", length(starts))
+  if (!is.na(list_n)) say("New research: ", list_n, " works in the list (", list_name, ")")
   if (pages > MAX_PAGES) {
     say("")
     say("NOTE: the PDF has ", pages, " pages. The rules say ", MAX_PAGES, " at most.")
@@ -219,6 +244,12 @@ local({
     say("")
     say("NOTE: the rules say ", ITEM_WORDS[1], " to ", ITEM_WORDS[2], " words for a full item. Outside that:")
     say(paste(short_or_long, collapse = "\n"))
+  }
+  if (!is.na(list_n) && !is.na(list_in_library) && list_in_library < list_n) {
+    say("")
+    say("NOTE: the Library on this computer holds ", list_in_library, " of the ", list_n, " works in the list of new research.")
+    say("      The text says that the Library holds them all. Wait until the Library has taken them in,")
+    say("      click \"Pull origin\" in GitHub Desktop, and run this script again before you publish.")
   }
   if (!web_ok) {
     say("")
@@ -238,7 +269,7 @@ local({
   say("")
   if (!nzchar(date) || !nzchar(doi)) {
     say("This is a draft: the PDF and the web page say so. GitHub cannot see the folder.")
-    say("On publication day, fill in \"date:\" and \"doi:\" in the header and run this script again.")
+    say("On publication day, fill in what is still empty in the header (\"date:\", \"doi:\") and run this script again.")
     say("")
     return(invisible(NULL))
   }
@@ -273,7 +304,8 @@ local({
   say("Done: the folder is now ", target, ". From here on this PDF is frozen.")
   say("")
   say("What is left, in this order:")
-  say("  1. Zenodo: upload ", file.path(target, pdf_name), " to the record that holds the DOI, and publish the record.")
+  say("  1. Zenodo: upload ", file.path(target, pdf_name), " to the record that holds the DOI",
+      if (!is.na(list_n)) paste0(", and with it the list ", file.path(target, list_name)) else "", ". Then publish the record.")
   say("  2. GitHub Desktop: commit and push. The issue is live a few minutes later.")
   say("  3. Check ", "https://populiverse.com/monitor/", slug, "/ and the DOI link.")
   say("")
