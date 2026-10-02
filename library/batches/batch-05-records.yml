@@ -1,0 +1,61 @@
+# Batch 05: what was decided by reading, not by the rules alone.
+# Source: search 01 of OpenAlex (scripts/search_works.R, run by the editor on 2026-10-02):
+# journal articles and books in English with a DOI whose title names populism, cited at
+# least 25 times in OpenAlex on that day, each DOI checked at the DOI registry (Crossref).
+# Written by Claude on 2026-10-02 from the search's own files.
+#
+# read      Works that a rule of the list had set aside (a short article, only one page
+#           number known, a title the Library already holds) and that enter after Claude
+#           read the record. The DOI of each is confirmed by the registry check. The reason
+#           is given for each work.
+# accepted  Works whose registry check did not pass by the rule and that enter for the
+#           reason given. Each also gets the note "todo:check-record" in Zotero, for the
+#           editor's own pass.
+
+read:
+  W2248592500: {doi: "10.2307/422034", why: "only the first page is known in both catalogues; the abstract is the article's own (it sets out the article's argument about radical right-wing populist parties); the registry confirms title, year, journal and author"}
+  W2052237115: {doi: "10.2307/202117", why: "only the first page is known in both catalogues; the abstract is the article's own (it sets out the article's argument); the registry confirms title, year, journal and author"}
+  W2892589153: {doi: "10.11114/ijsss.v6i10.3650", why: "only the first page is known; the abstract is the article's own (\"the authors seek to explore ...\"); the journal is on the CWTS core list"}
+  W1981314116: {doi: "10.15642/jiis.2013.7.2.268-287", why: "only the first page is known at OpenAlex, but the DOI itself carries the pages 268-287; the abstract is the article's own (\"This article aims to analyze ...\")"}
+  W2531881120: {doi: "10.18573/j.2016.10043", why: "only the first page is known; the abstract is the article's own (\"This article discusses ...\")"}
+  W3045756472: {doi: "10.1186/s12992-020-00600-4", why: "the journal numbers its articles (article 70), so there is no page range; the abstract is the article's own"}
+  W3005260318: {doi: "10.4324/9781315196923", why: "the Library's record of this title is the article of 2017 in Latin American Research Review; this is the edited book of 2018 (Routledge), whose editors the registry names"}
+  W2789408816: {doi: "10.1177/0263395718770579", why: "the Library holds another article of the same special issue; the subtitle and the DOI differ"}
+  W2099078832: {doi: "10.1177/0021909613479769", why: "the Library holds the authors' book of 2015; this is their journal article of 2013"}
+  W2915714879: {doi: "10.1093/eurpub/ckz004", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W2785669466: {doi: "10.1111/amet.12469", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
+  W2803221375: {doi: "10.1257/pandp.20181122", why: "a short article of 4 pages; the abstract is its own and it is not a review of a book"}
+  W3200643390: {doi: "10.1111/puar.13433", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W2803367946: {doi: "10.1257/pandp.20181123", why: "a short article of 4 pages; the abstract is its own and it is not a review of a book"}
+  W3043011732: {doi: "10.34172/ijhpm.2020.124", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W3110889640: {doi: "10.17645/pag.v8i4.3876", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W4200453804: {doi: "10.17645/pag.v9i4.5003", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
+  W3003857003: {doi: "10.1016/j.cobeha.2019.11.011", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W2789734169: {doi: "10.1080/02723638.2018.1448135", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
+  W2901229005: {doi: "10.1017/s104909651800183x", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
+  W2899215701: {doi: "10.1093/eurpub/cky157", why: "a short article of 4 pages; the abstract is its own and it is not a review of a book"}
+  W2920790148: {doi: "10.1086/702235", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W3215639463: {doi: "10.17645/pag.v9i4.5002", why: "a short article of 4 pages; the abstract is its own and it is not a review of a book"}
+  W2803893298: {doi: "10.1257/pandp.20181125", why: "a short article of 4 pages; the abstract is its own and it is not a review of a book"}
+  W2976035612: {doi: "10.1086/705322", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
+  W3205018635: {doi: "10.1017/s0003055421000265", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
+  W3042748144: {doi: "10.17645/pag.v8i3.3460", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W2074004608: {doi: "10.1007/s12290-011-0152-8", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
+  W2783017218: {doi: "10.1353/jod.2018.0012", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
+  W2613605229: {doi: "10.15171/ijhpm.2017.46", why: "a short article of 4 pages; the abstract is its own and it is not a review of a book"}
+
+accepted:
+  W1515854992: {doi: "10.1016/j.jpubeco.2006.12.006", why: "the registry gives the year 2007 and OpenAlex 2004, three years apart; title, journal, authors and type agree"}
+  W2087104035: {doi: "10.1080/0966813042000190515", why: "OpenAlex writes the author's name in Cyrillic letters, which read Kimitaka Matsuzato; the registry names Matsuzato; title, year, journal and type agree"}
+  W3112301012: {doi: "10.17645/pag.v8i4.3370", why: "OpenAlex writes the first author's name in Cyrillic letters, which read David Aprasidze; the registry names Aprasidze and Siroky; title, year, journal and type agree"}
+  W2782427774: {doi: "10.4324/9781315514574", why: "a book: title, year and type agree in both catalogues; the registry names Mudde; OpenAlex lists another person first (Albertazzi, Daniele)"}
+  W2527453515: {doi: "10.1057/978-1-137-58197-6", why: "a book: title, year and type agree in both catalogues; the registry names Heinisch and Mazzoleni; OpenAlex lists another person first (Ivaldi, Gilles)"}
+  W4237074543: {doi: "10.4324/9781003004431", why: "a book: title, year and type agree in both catalogues; the registry names Tumber and Waisbord; OpenAlex lists another person first (M.M.T.L. Hameleers)"}
+  W3134395566: {doi: "10.1007/978-3-030-66011-6", why: "a book: title, year and type agree in both catalogues; the registry names Bobba and Hubé; OpenAlex lists another person first (Jaume Magre)"}
+  W4211224611: {doi: "10.1017/9781108692793", why: "a book: title, year and type agree in both catalogues; the registry names Weyland and Madrid; OpenAlex lists another person first (Verbeek, J.A.)"}
+  W4206116016: {doi: "10.1007/978-3-030-80803-7", why: "a book: title, year and type agree in both catalogues; the registry names Oswald; OpenAlex lists another person first (Fazzi, L)"}
+  W3128520027: {doi: "10.4324/9780429429798", why: "a book: title, year and type agree in both catalogues; the registry names Albertazzi and Vampa; OpenAlex lists another person first (Hartwig Pautz)"}
+  W4220801626: {doi: "10.1017/9781009031103", why: "a book: title, year and type agree in both catalogues; the registry names Krygier, Czarnota, and Sadurski; OpenAlex lists another person first (Gábor Halmai)"}
+  W4234936896: {doi: "10.5771/9783845271491", why: "a book: title, year and type agree in both catalogues; the registry names Heinisch, Holtz-Bacha, and Mazzoleni; OpenAlex lists another person first (Ruth, S.P.)"}
+  W2794487001: {doi: "10.4324/9781315680903", why: "a book: title, year and type agree in both catalogues; the registry names Ranieri; OpenAlex lists another person first (Mojca Pajnik)"}
+  W3002106874: {doi: "10.4324/9781315101958", why: "a book: title, year and type agree in both catalogues; the registry names Pajnik and Sauer; OpenAlex lists another person first (Tsagkroni, V.)"}

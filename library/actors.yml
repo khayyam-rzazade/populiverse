@@ -1,5 +1,6 @@
 # PopuliVerse Library: regions, countries, leaders and parties.
-# Version 1, 2026-10-01. It belongs with taxonomy.yml and phrases.yml.
+# Version 2, 2026-10-02 (version 1: 2026-10-01). It belongs with taxonomy.yml and phrases.yml.
+# New in version 2: "needs" for Georgia, and two more wordings to ignore ("African American", "New Mexico").
 #
 # WHAT IT IS FOR
 #   scripts/code_works.R gives a region or a country tag only when the title or
@@ -13,6 +14,8 @@
 #   adjectives  count only when a political word follows ("Italian government",
 #               not "Italian" alone); the political words are listed in "after_adjective"
 #   actors      leaders and parties, written exactly so (accents do not matter)
+#   needs       the country's own name counts only when one of these words is also in the
+#               title or the abstract (Georgia is also a state of the United States)
 #
 # HOW MUCH EVIDENCE IS NEEDED
 #   One mention in the title, or two in the abstract. A work that names more than
@@ -23,8 +26,8 @@
 # The leaders and parties were entered by hand from common knowledge (Orbán is
 # Hungary, Podemos is Spain). The list can be extended or checked against PopuList.
 
-version: 1
-date: "2026-10-01"
+version: 2
+date: "2026-10-02"
 
 after_adjective: ["government*", "politic*", "part*", "election*", "elector*", "voter*", "populis*", "foreign polic*",
                   "case", "president*", "prime minister*", "parliament*", "left", "right", "far right", "radical right",
@@ -34,7 +37,8 @@ after_adjective: ["government*", "politic*", "part*", "election*", "elector*", "
 
 # Wordings removed before anything is looked for, so they cannot mislead.
 ignore: ["latin american", "north american", "south american", "central american", "vox populi",
-         "new england", "georgia state", "american journal", "european journal", "british journal"]
+         "new england", "georgia state", "american journal", "european journal", "british journal",
+         "african american*", "new mexico"]
 
 regions:
   "region:europe": ["europe", "european", "western europe*", "eastern europe*", "central europe*",
@@ -99,7 +103,8 @@ countries:
   "country:russia": {adjectives: ["russian"], actors: ["Putin", "Kremlin", "Zhirinovsky"]}
   "country:belarus": {adjectives: ["belarusian"], actors: ["Lukashenko"]}
   "country:turkey": {names: ["türkiye"], adjectives: ["turkish"], actors: ["Erdoğan", "AKP", "Justice and Development Party"]}
-  "country:georgia": {adjectives: ["georgian"], actors: ["Georgian Dream"]}
+  "country:georgia": {adjectives: ["georgian"], actors: ["Georgian Dream"],
+                      needs: ["georgian", "tbilisi", "caucasus", "soviet", "saakashvili", "ivanishvili", "abkhazia", "ossetia", "eurasia*", "black sea"]}
   "country:armenia": {adjectives: ["armenian"]}
   "country:azerbaijan": {adjectives: ["azerbaijani"]}
   "country:israel": {adjectives: ["israeli"], actors: ["Netanyahu", "Likud"]}

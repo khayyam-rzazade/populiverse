@@ -1,5 +1,5 @@
 # PopuliVerse Library: the phrases that count as evidence for each tag.
-# Version 2, 2026-10-01 (version 1 of the same day lacked the rule on review articles). It belongs with taxonomy.yml (the tags) and actors.yml
+# Version 3, 2026-10-02 (version 2 of 2026-10-01 added the rule on review articles; version 3 removes two more wordings before "war" is looked for). It belongs with taxonomy.yml (the tags) and actors.yml
 # (countries, leaders and parties).
 #
 # HOW IT WORKS
@@ -25,8 +25,8 @@
 #   A work found to use mixed methods gets "Mixed methods" only, not also
 #   "Qualitative" or "Quantitative".
 
-version: 2
-date: "2026-10-01"
+version: 3
+date: "2026-10-02"
 
 # Outlets that may not be peer-reviewed. A work in one of them stays in the
 # Library and gets the note "todo:check-outlet" for the editor (never shown on
@@ -97,7 +97,8 @@ topic:
               "use of force", "nato", "nuclear weapon*", "nuclear deterrence", "nuclear proliferation", "war", "wars",
               "warfare", "terroris*", "peacekeeping", "peacemaking", "peace process*", "arms control", "arms export*",
               "securiti*ation", "securiti*ing", "security threat*"]
-    not: ["cold war", "culture war*", "trade war*", "class war*", "post war", "postwar", "world war", "inter war", "interwar"]
+    not: ["cold war", "culture war*", "trade war*", "class war*", "post war", "postwar", "world war", "inter war", "interwar",
+          "war on science", "mention the war"]
   "topic:international":
     phrases: ["european union", "eu", "euroscepti*", "european integration", "brexit", "european parliament",
               "international organi*ation*", "international institution*", "multilateral*", "global governance",

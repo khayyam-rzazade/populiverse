@@ -40,7 +40,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01.3"
+  SCRIPT_VERSION <- "2026-10-02.4"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
   BATCH_FILE     <- NULL        # NULL = the newest file in library/batches/
 
@@ -612,6 +612,14 @@ local({
     with_abs <- sum(vapply(matches_after, function(m) m$status == "found" && nzchar(trimws(m$item$data$abstractNote %||% "")), logical(1)))
     say("abstracts filled by this run ", if (length(written)) sum(vapply(plans[written], function(p) !is.null(p$new_abstract), logical(1))) else 0,
         " | works of the batch with an abstract now ", with_abs)
+    # works whose kind in Zotero contradicts their type tag: the nightly sync holds these back
+    odd <- Filter(Negate(is.null), lapply(seq_along(works), function(i) {
+      p <- plans[[i]]
+      if (!is.null(p) && !is.null(p$type_note)) paste0(i, " | ", works[[i]]$cite %||% "?", " | ", sub("^note: ", "", p$type_note)) else NULL
+    }))
+    say("kind in Zotero differs from the type tag: ", length(odd),
+        if (length(odd)) " (the nightly sync holds these works back until the item type is corrected in the Zotero app)" else "")
+    for (x in odd) say("type differs: ", x)
     listed <- 0
     for (i in seq_along(works)) {
       w <- works[[i]]; m <- matches_after[[i]]

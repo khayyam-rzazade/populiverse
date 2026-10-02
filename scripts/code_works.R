@@ -7,7 +7,9 @@
 #     source("scripts/code_works.R")
 #
 # WHAT IT DOES, IN ORDER
-#   1. Reads the newest result of the lookup (drafts/batch-NN-found.csv).
+#   1. Reads the newest result of the lookup or of the search (drafts/batch-NN-found.csv).
+#      A batch can come from a list of references (scripts/find_works.R) or from the
+#      search of OpenAlex (scripts/search_works.R); the file says which.
 #   2. Scope: keeps a work only if "populis..." is in its title, or in its
 #      abstract when there is one, and only journal articles and books.
 #   3. Tags: gives a tag only when a phrase listed in library/phrases.yml or a
@@ -23,7 +25,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-01"
+  SCRIPT_VERSION <- "2026-10-02"
   `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
   say <- function(...) cat(..., "\n", sep = "")
   halt <- function(...) stop(structure(class = c("pv_stop", "error", "condition"),
@@ -82,7 +84,7 @@ local({
                       paste(vapply(ac$after_adjective, one_pattern, ""), collapse = "|"), ")(?![A-Za-z0-9])")
       }
       list(tag = tag, names = compile(c(tax$country_label[[tag]], extra$names)),
-           exact = compile(c(extra$exact, extra$actors), TRUE), adj = adj)
+           exact = compile(c(extra$exact, extra$actors), TRUE), adj = adj, needs = compile(extra$needs))
     })
     list(approach = tagset(ph$approach), topic = tagset(ph$topic), method = tagset(ph$method),
          study = compile(ph$study_words), review = compile(ph$review_titles), ignore = compile(ac$ignore),
@@ -163,9 +165,11 @@ local({
     countries <- character(); c_ev <- list()
     if (length(hits(paste(t_l, a_l), k$any_place)) || length(hits(paste(t_c, a_c), k$any_exact))) {
       for (cn in k$countries) {
+        # a country whose name has another meaning: the name counts only next to one of its "needs" words
+        name_counts <- is.null(cn$needs) || length(hits(paste(t_l, a_l), cn$needs)) > 0
         one <- function(low, case) {
           f4 <- hits(low, cn$adj)
-          c(hits(low, cn$names), hits(case, cn$exact), if (length(f4)) paste0(sub(" .*$", "", f4), " (+ political word)"))
+          c(if (name_counts) hits(low, cn$names), hits(case, cn$exact), if (length(f4)) paste0(sub(" .*$", "", f4), " (+ political word)"))
         }
         ft <- one(t_l, t_c); fa <- one(a_l, a_c)
         if (length(ft) >= 1 || length(fa) >= 2) {
@@ -204,6 +208,10 @@ local({
     input <- files[length(files)]
     nn <- sub("^batch-([0-9]+)-found\\.csv$", "\\1", basename(input))
     d <- utils::read.csv(input, stringsAsFactors = FALSE, encoding = "UTF-8", colClasses = "character", na.strings = character())
+    # a batch that comes from the search of OpenAlex carries the result of the registry check
+    from_search <- "check" %in% names(d)
+    # an abstract counts only when it is whole (the search says so for each work)
+    if ("abstract_whole" %in% names(d)) d$abstract[d$abstract_whole != "TRUE"] <- ""
     y <- read_yaml_utf8("library/taxonomy.yml")
     ph <- read_yaml_utf8("library/phrases.yml"); ac <- read_yaml_utf8("library/actors.yml")
     all_tags <- unlist(lapply(y$facets, function(f) vapply(f$tags, function(t) t$tag, "")), use.names = FALSE)
@@ -219,6 +227,12 @@ local({
     # records for works without a DOI, and earlier records to remove
     rec_file <- paste0("library/batches/batch-", nn, "-records.yml")
     rec <- if (file.exists(rec_file)) read_yaml_utf8(rec_file) else list()
+    # a work that a rule had set aside and that was let in by reading needs its reason in that file
+    if (from_search && "let_in" %in% names(d)) {
+      no_reason <- setdiff(d$ref_id[d$let_in == "read"], names(rec$read))
+      if (length(no_reason)) halt("These works were let in by reading, but ", basename(rec_file), " gives no reason for them: ",
+                                  paste(no_reason, collapse = ", "))
+    }
     # a reference that is a book is never matched to a journal article (a review of the
     # book carries the same title), and the other way round
     wrong_kind <- d$status == "found" &
@@ -254,8 +268,10 @@ local({
     keep <- (in_title | in_abs) & (article | book) & !other_language
     s <- d[keep, ]
     s$kind <- ifelse(s$type %in% c("journal-article", "article") | (s$status != "found" & s$kind_guess == "article"), "article", "book")
+    # (in a list of references the same work can be cited twice under one title; the search has
+    # sorted out repeats itself, and two different works may carry one title, so only the DOI counts there)
     dup <- (nzchar(s$doi) & duplicated(tolower(s$doi))) |
-      duplicated(paste(tolower(gsub("[^A-Za-z0-9]+", " ", s$title)), s$year))
+      (!from_search & duplicated(paste(tolower(gsub("[^A-Za-z0-9]+", " ", s$title)), s$year)))
     s <- s[!dup, ]
     say("  [ok] in scope: ", nrow(s), " works (", sum(s$kind == "article"), " articles, ", sum(s$kind == "book"), " books); ",
         sum(nzchar(s$doi)), " with a DOI, ", sum(nzchar(s$abstract)), " with an abstract")
@@ -292,8 +308,12 @@ local({
     works <- vector("list", nrow(s)); evidence <- list()
     for (i in seq_len(nrow(s))) {
       r <- s[i, ]
-      title <- if (nzchar(r$title_found) && nchar(r$title_found) >= nchar(r$title)) r$title_found else r$title
-      title <- trimws(gsub("\\s+", " ", gsub("<[^>]+>", "", title)))
+      # a registry title with broken characters (a slip of encoding in the record) is not used
+      broken <- grepl("[\u0080-\u009f]|\u00e2\u20ac|\u00c3[\u00a0-\u00bf]", r$title_found, perl = TRUE)
+      title <- if (nzchar(r$title_found) && !broken && nchar(r$title_found) >= nchar(r$title)) r$title_found else r$title
+      # every kind of space becomes one plain space, whatever the computer's language settings are
+      title <- trimws(gsub("[\\s\u00a0\u2000-\u200b\u202f\u3000]+", " ", gsub("<[^>]+>", "", title), perl = TRUE))
+      title <- gsub("[\u0080-\u009f]", "", gsub("[[:cntrl:]]", "", title), perl = TRUE)
       res <- code_one(title, r$abstract, k, tax)
       # open access is taken from the catalogue only for a work with a DOI: without one the record cannot be checked twice
       tags <- c(res$tags, if (r$kind == "article") "type:article" else "type:book", if (identical(r$open_access, "TRUE") && nzchar(r$doi)) "oa:yes")
@@ -302,15 +322,28 @@ local({
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule",
                                               if (nzchar(r$doi)) "DOI accepted by reading, not by the automatic rule" else "no DOI: record made from the source's reference")
       }
+      if (broken) {
+        tags <- c(tags, "todo:check-record")
+        evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule",
+                                              "the registry's title has broken characters: the title in Zotero is to be corrected by hand")
+      }
       if (r$kind == "article" && tolower(trimws(r$journal_or_publisher)) %in% tolower(unlist(ph$outlets_to_check))) {
         tags <- c(tags, "todo:check-outlet")
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-outlet", "journal", r$journal_or_publisher)
       }
-      n_auth <- lengths(regmatches(r$authors, gregexpr(",? and |, (?=[A-Z][^,]*,)", r$authors, perl = TRUE))) + 1
+      # a journal on none of the journal lists that OpenAlex records: a note for the editor (search batches)
+      if (from_search && r$kind == "article" && !nzchar(r$listed_in) && !("todo:check-outlet" %in% tags)) {
+        tags <- c(tags, "todo:check-outlet")
+        evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-outlet", "journal",
+                                              paste0(r$journal_or_publisher, " (on none of the journal lists that OpenAlex records)"))
+      }
       cite <- paste0(r$first_author, if (grepl(" and ", r$authors) && !grepl(",.*,.*,", r$authors)) "" else "",
                      if (grepl(",.*, and |et al", r$authors)) " et al." else if (grepl(" and ", r$authors)) paste0(" and ", sub("^.* and (?:[A-Z][^ ]* )*", "", r$authors, perl = TRUE)) else "",
                      " ", r$year)
-      works[[i]] <- list(cite = cite, doi = r$doi, title = title, year = as.integer(r$year), kind = r$kind,
+      # the search gives the short reference and the registry's year itself
+      if (from_search && nzchar(r$cite)) cite <- r$cite
+      works[[i]] <- list(cite = cite, doi = r$doi, title = title,
+                         year = as.integer(if (from_search && nzchar(r$year_found)) r$year_found else r$year), kind = r$kind,
                          ref_id = r$ref_id, tags = all_tags[all_tags %in% tags],
                          create = rec$records[[r$ref_id]])
       for (e in res$evidence) evidence[[length(evidence) + 1]] <- c(r$ref_id, e)
@@ -324,7 +357,9 @@ local({
 
     # the batch file
     q <- function(x) paste0("\"", gsub("\"", "\\\\\"", gsub("\\\\", "\\\\\\\\", x)), "\"")
-    out <- c(paste0("# Batch ", nn, ": works taken from a list of references, kept by the scope rule and"),
+    out <- c(if (from_search) c(paste0("# Batch ", nn, ": works found by the search of OpenAlex (scripts/search_works.R), each DOI"),
+                                "# checked at the DOI registry (Crossref); kept by the scope rule and")
+             else paste0("# Batch ", nn, ": works taken from a list of references, kept by the scope rule and"),
              "# tagged from the words of their own title and abstract (scripts/code_works.R,",
              "# library/phrases.yml, library/actors.yml). The phrase behind every tag is in",
              paste0("# batch-", nn, "-evidence.csv. Written by the script; do not edit by hand."), "",
