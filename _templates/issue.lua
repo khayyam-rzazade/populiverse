@@ -568,7 +568,7 @@ local function facts_block(info, has_pdf, state)
   if info.rules ~= "" then
     row("Rules", '<a href="../rules.html">Version ' .. html_escape(info.rules) .. "</a>")
   end
-  row("Editor", '<a href="../../about/editor.html">' .. html_escape(info.editor) .. "</a>")
+  row("Founder and editor", '<a href="../../about/editor.html">' .. html_escape(info.editor) .. "</a>")
   row("Published", info.date_long ~= "" and html_escape(info.date_long) or "<em>not yet</em>")
   if info.doi ~= "" then
     row("DOI", '<a href="https://doi.org/' .. html_escape(info.doi) .. '">' .. html_escape(info.doi) .. "</a>")

@@ -1,0 +1,234 @@
+---
+# ============================================================================
+# PopuliVerse Monitor: one issue.
+#
+# This first part, between the two lines of dashes, is the HEADER: the facts
+# about the issue. The TEXT of the issue starts below it.
+#
+# - Edit the text as you like. Keep the three lines under an item as they are
+#   built: each starts with *Actor:* (or *Actors:*), *Sources:* or
+#   *Research on this:*.
+# - In the header, change only what stands to the right of a colon.
+# - After any change, run scripts/make_issue.R (open it in RStudio and click
+#   "Source"). It makes the PDF again and brings the page numbers up to date.
+# - "New research" is a short account. The full list of the month's works is
+#   the file populiverse-monitor-2026-1-new-research.csv in this folder: the
+#   web page shows it folded shut, and the PDF says where it is.
+# - While this folder's name ends in "-draft", GitHub cannot see it.
+# ============================================================================
+
+title: "PopuliVerse Monitor 2026/1"
+subtitle: "September 2026"
+description: "What populist actors did around the world from 1 to 30 September 2026."
+
+issue: "2026/1"                      # the number of the issue
+period: "1 to 30 September 2026"     # the period covered
+rules-version: "1.3"                 # the version of the rules this issue follows
+author: "Khayyam Rzazade"            # the editor
+
+# ---- ON PUBLICATION DAY: fill in these two lines, between the quotation marks.
+date: "2026-10-02"        # the day of publication, as year-month-day, for example "2026-10-05"
+doi: "10.5281/zenodo.23100316"         # the DOI reserved at Zenodo
+
+# ---- Leave this line as it is: it gives the page the look of an issue.
+body-classes: pv-issue
+---
+
+## The month in brief
+
+September was a month of elections. In Sweden the opposition won a narrow majority, the Sweden Democrats lost seats, and the prime minister whom they had supported said that he would resign. In Germany the Alternative for Germany won the state election in Saxony-Anhalt with 43.8 per cent, without a majority of its own. In Russia the main Kremlin party took 349 of the 450 seats in a vote from which genuine opposition was excluded. Swiss voters rejected a neutrality initiative backed by the Swiss People's Party.
+
+Governments led by actors on the Monitor's watchlist acted at home and abroad. Italy's government limited by decree the share of pupils with little Italian in a classroom and banned face veils in schools. Nicaragua's parliament passed, in a first vote, a reform that bars opposition parties from elections. Chile's government held no official event on the anniversary of the 1973 coup. The United States struck Iranian tankers and later met Iranian officials, sent envoys to Moscow and Kyiv, signed an agreement on Greenland, received China's president, banned Canadian goods and withdrew its last troops from Iraq. Israel closed the British consulate in East Jerusalem and opened an embassy in Slovenia.
+
+In Asia-Pacific and in Sub-Saharan Africa nothing met the Monitor's rules.
+
+## Around the world
+
+### Europe
+
+#### Sweden: the opposition wins the election, and the Sweden Democrats lose seats
+
+Sweden elected a new parliament on 13 September. The complete count of 17 September gave the four opposition parties 176 of the 349 seats. The four parties that form or support the outgoing government won 173. The Sweden Democrats took 62 seats, 11 fewer than before, and fell to third place behind the Moderates of Prime Minister Ulf Kristersson. Kristersson said that he would resign. He led a coalition of three centre-right parties. Its majority relied on outside support from the Sweden Democrats, an anti-immigration party. Before the election he had held out the prospect of cabinet seats for them if the governing side won. The Social Democrats of the opposition leader, Magdalena Andersson, remain the biggest party with 99 seats, eight fewer. It is not clear what government comes next. The Centre Party sided with the left because it does not want to govern with the Sweden Democrats.
+
+*Actor:* Sweden Democrats (The PopuList 4.0).
+*Sources:* AP, 17 September 2026 ([read in the copy of DTN Progressive Farmer](https://www.dtnpf.com/agriculture/web/ag/news/world-policy/article/2026/09/18/swedens-prime-minister-kristersson)).
+*Research on this:* [Library: parties, leaders and movements; voters and attitudes; Sweden](https://populiverse.com/library/?topic=parties,voters&country=sweden)
+
+#### Germany: the AfD wins the state election in Saxony-Anhalt
+
+The Alternative for Germany (AfD) won the election to the state parliament of Saxony-Anhalt on 6 September. Preliminary figures gave it 43.8 per cent of the vote and 39 seats. It has no majority of its own. The Christian Democrats (CDU) of the state premier, Sven Schulze, fell from 37.1 to 17.2 per cent and 15 seats. The Social Democrats, the Greens and The Left (a borderline case in The PopuList) won eight seats each, and the BSW party five. The state's Office for the Protection of the Constitution classifies the AfD in Saxony-Anhalt as confirmed right-wing extremist. The other parties had ruled out cooperation with the AfD. Its top candidate, Ulrich Siegmund, called the result a mandate to form a government. He said that a new election would be an option if no government can be formed. Schulze's cabinet stays in office as caretaker until a new premier is elected.
+
+*Actors:* Alternative for Germany (The PopuList 4.0); The Left (The PopuList 4.0, borderline).
+*Sources:* dpa, 7 September 2026 ([read in the copy of deutschland.de](https://www.deutschland.de/en/news/afd-wins-state-election-in-saxony-anhalt)).
+*Research on this:* [Library: parties, leaders and movements; voters and attitudes; Germany](https://populiverse.com/library/?topic=parties,voters&country=germany)
+
+#### Russia: United Russia wins 349 of the 450 seats in the State Duma
+
+Russia elected the State Duma, the lower house of parliament, from 18 to 20 September. Full results came on 25 September. United Russia, the main Kremlin party, won 349 of the 450 seats, more than three quarters and a record. Smaller parties that vote with the Kremlin on all key issues won 97 seats. The election commission put turnout at nearly 60 per cent of 111 million eligible voters. It was the first parliamentary election since Russia invaded Ukraine in 2022. People also voted in Crimea and in four Ukrainian regions that Russia annexed. Kyiv called this voting illegal. Genuine opposition parties and candidates were excluded, AP reports. Yabloko, the only registered party that publicly criticised the war, was removed from the ballot by the Supreme Court in August. President Vladimir Putin said that the result showed public support for his policies.
+
+*Actor:* Vladimir Putin, president, and United Russia (Global Populism Database 2.1).
+*Sources:* AP, 25 September 2026 ([read in the copy of WRAL](https://www.wral.com/news/ap/da0ab-full-results-from-russias-parliamentary-election-confirm-kremlins-dominance/)).
+*Research on this:* [Library: parties, leaders and movements; democracy and institutions; Russia](https://populiverse.com/library/?topic=parties,democracy-institutions&country=russia)
+
+#### Italy: a decree limits the share of pupils with little Italian and bans face veils in schools
+
+On 24 September the government of Giorgia Meloni passed a decree on schools. At most 30 per cent of the pupils in a classroom may be foreign students who lack sufficient Italian. Burqas and niqabs, veils that cover the face, are banned in schools. Headscarves remain allowed. The decree takes effect at once. Parliament, where Meloni's coalition has a majority, must endorse it within 60 days. The education minister, Giuseppe Valditara, said that the limit affects about 1,000 classrooms, 0.3 per cent of the total. Foreign students who were born in Italy or went to an Italian preschool are exempt. Some parents must attend Italian courses and face fines of 200 to 1,000 euros if they do not. Unions, some educators and opposition parties object. They say that pupils may have to attend schools far from home and that the funding of 14 million euros is too small.
+
+*Actors:* the government of Giorgia Meloni: Brothers of Italy and the League (The PopuList 4.0); Forza Italia (The PopuList 4.0, borderline).
+*Sources:* AP, 24 September 2026 ([read in the copy of WHIO](https://www.whio.com/news/world/italy-decrees-limits/C4P3YWX6BQ57XNBRI6Z25BY6FY/); [AP](https://apnews.com/article/italy-school-foreign-students-classrooms-veil-migrants-education-3d7cf97f62c8e9a3f8855ef018fc6112)).
+*Research on this:* [Library: migration, religion, populists in government; Italy](https://populiverse.com/library/?topic=migration,religion,government&country=italy)
+
+#### Switzerland: voters reject the neutrality initiative backed by the Swiss People's Party
+
+On 27 September Swiss voters rejected a proposal to write a strict definition of neutrality into the constitution. All cantons and about 70 per cent of voters said no. Under the proposal Switzerland could not join or cooperate with any military or defence alliance unless it was attacked. It could join sanctions only if the United Nations had approved them. The Swiss People's Party (SVP) backed the proposal. It says that Switzerland's traditional position was eroded when the government imposed sanctions on Russia after the invasion of Ukraine. The government and most other parties opposed the proposal. The foreign minister, Ignazio Cassis, said that the result is not a vote against neutrality and that Switzerland can go on deciding on sanctions case by case. The SVP accepted the defeat. Its lawmaker Lukas Reimann said that the party would become active again if the government strayed from neutrality.
+
+*Actor:* Swiss People's Party (The PopuList 4.0).
+*Sources:* Reuters, 27 September 2026 ([read in the copy of GV Wire](https://gvwire.com/2026/09/27/swiss-voters-reject-tighter-neutrality-rules-that-would-have-curbed-nato-cooperation/); [Reuters](https://www.reuters.com/world/swiss-vote-tightening-neutrality-rules-ending-peacetime-cooperation-with-nato-2026-09-27/)).
+*Research on this:* [Library: foreign policy, defence and security; Europe](https://populiverse.com/library/?topic=foreign-policy,defence-security&region=europe)
+
+**Also this month**
+
+- **United Kingdom.** On 9 September London's Metropolitan Police opened a criminal investigation into allegations that Reform UK broke the rules against foreign donations. An undercover report by Channel 4 had shown two party officials who appeared to discuss how money from a supposed American donor could be passed through his son in Britain. The party denies wrongdoing and suspended the two officials. (AP, 9 September, [copy of WRAL](https://www.wral.com/news/ap/8dc9d-british-police-open-criminal-investigation-into-whether-reform-uk-broke-foreign-donation-rules/); [AP](https://apnews.com/article/britain-reform-uk-8dc9d6790e3e06b2bb898f803231bec1))
+- **France.** On 27 September leaders of the National Rally said that the party and its allies had won enough seats in the Senate election to form a group of their own for the first time. A group needs ten senators. (Reuters, 27 September, [copy of ThePrint](https://theprint.in/world/french-far-right-leaders-say-they-have-won-enough-seats-to-form-senate-caucus/3055169/))
+- **Russia and Germany.** On 28 September a decree of President Vladimir Putin placed the Russian business of the German retailer Metro under temporary administration. Before that, Germany had blamed Russia for an attempted drone attack at Leipzig airport and had closed a Russian consulate and a Russian cultural centre. Russia denied the allegation and closed the German consulate in St Petersburg. (AP, 28 September, [copy of WRAL](https://www.wral.com/news/ap/3c9e1-kremlin-transfers-control-of-german-retailer-metros-russia-business/); [AP](https://apnews.com/article/russia-kremlin-metro-germany-ukraine-3c9e1ffc85eec2a448ca2dbc2ef4147b))
+
+### North America
+
+#### United States and Iran: strikes on tankers, then a first meeting at the United Nations
+
+On 5 September United States forces struck three Iranian oil tankers. US Central Command said that the tankers were linked to Iran's Islamic Revolutionary Guard Corps, and that the Guard had fired missiles at American warships and missed. Two tankers were disabled, off Kharg Island and near Jask. A third was destroyed in the Gulf of Oman. The war began on 28 February with attacks by the United States and Israel on Iran. A ceasefire brokered in June did not last. Iran keeps its hold on the Strait of Hormuz, and the United States blockades Iranian ports. On 22 September President Donald Trump said that his envoys, Steve Witkoff and Jared Kushner, had met Iranian officials for about three hours on the sidelines of the United Nations General Assembly in New York. The talks ran through mediators. Trump called it "a very good meeting".
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* AFP, 5 September 2026 ([read in the copy of Oman Observer](https://www.omanobserver.om/ampArticle/1195661); [AFP at France 24](https://www.france24.com/en/live-news/20260905-us-military-says-destroys-iranian-oil-tankers-after-missile-attacks)). AP, 5 September 2026 ([copy of WBRC](https://www.wbrc.com/2026/09/05/us-military-hits-3-iranian-oil-tankers-after-saying-navy-warships-were-targeted-with-missiles/)). AP, 22 September 2026 ([read in the copy of WSOC-TV](https://www.wsoctv.com/news/world/trump-returns-un/RX6UZAKIOQZBTJDKYM3RRWJBWU/)).
+*Research on this:* [Library: foreign policy, defence and security; United States](https://populiverse.com/library/?topic=foreign-policy,defence-security&country=united-states)
+
+#### United States, Russia and Ukraine: envoys in Moscow and Kyiv; a sanctions law is signed
+
+On 5 September the US envoys Steve Witkoff and Jared Kushner held three hours of talks with President Vladimir Putin in Moscow. On 6 September they met President Volodymyr Zelenskyy in Kyiv. It was their first visit to Kyiv as negotiators. The Kremlin said it would pause strikes on Kyiv until 7 September. Zelenskyy said Ukraine would halt strikes on Moscow. The two sides remain far apart. Russia demands that Ukraine withdraw from the towns it still holds in the Donbas region. Kyiv refuses. On 18 September Trump signed a law on sanctions against Russia. It targets Russia's energy and defence industries and the "shadow fleet", the tankers that get around existing sanctions. It also lets the president put tariffs of up to 100 per cent on the five biggest importers of Russian oil or gas. By 22 September Trump had not used these powers.
+
+*Actors:* Donald Trump, president, and his government; Vladimir Putin, president of Russia (both Global Populism Database 2.1).
+*Sources:* Reuters, 6 September 2026 ([read in the copy of The Moscow Times](https://www.themoscowtimes.com/2026/09/06/us-envoys-make-first-kyiv-visit-amid-ukraine-war-peace-push-a93648); [Reuters](https://www.reuters.com/business/aerospace-defense/us-envoys-make-first-kyiv-visit-amid-ukraine-war-peace-push-2026-09-06/)). Reuters, 18 September 2026 ([copy of GV Wire](https://gvwire.com/2026/09/18/trump-signs-russia-sanctions-bill-into-law/)). AP, 22 September 2026 ([read in the copy of WSOC-TV](https://www.wsoctv.com/news/world/trump-returns-un/RX6UZAKIOQZBTJDKYM3RRWJBWU/)).
+*Research on this:* [Library: foreign policy; United States, Russia](https://populiverse.com/library/?topic=foreign-policy&country=united-states,russia)
+
+#### United States, Denmark and Greenland: a security agreement is signed
+
+On 22 September President Donald Trump, Denmark's prime minister, Mette Frederiksen, and Greenland's prime minister, Jens-Frederik Nielsen, signed a security agreement at the United Nations in New York. It allows a larger US military presence on Greenland. Greenland remains Danish territory. Two new military sites open, at Narsarsuaq and Mestersvig. The United States may set up a "Golden Dome" missile defence system on the island, and its aircraft and ships get broad access. States outside NATO may not set up military installations there. The agreement amends the defence treaty of 1951 and has no end date. In January Trump had refused to rule out military or economic force to acquire Greenland. This set off a crisis inside NATO, and months of negotiations followed. Greenland is a semi-autonomous territory of the Kingdom of Denmark with 57,000 people. The parliaments of Denmark and Greenland must still approve it.
+
+*Actor:* Donald Trump, president (Global Populism Database 2.1).
+*Sources:* Reuters, 22 September 2026 ([read in the copy of Internazionale](https://www.internazionale.it/ultime-notizie-reuters/2026/09/22/trump-denmark-greenland-to-sign-deal-in-bid-to-end-arctic-standoff); [Reuters](https://www.reuters.com/world/europe/trump-denmark-greenland-sign-deal-bid-end-arctic-standoff-2026-09-22/)). AP, 22 September 2026 ([read in the copy of WSOC-TV](https://www.wsoctv.com/news/world/trump-returns-un/RX6UZAKIOQZBTJDKYM3RRWJBWU/)).
+*Research on this:* [Library: defence and security, foreign policy; United States](https://populiverse.com/library/?topic=defence-security,foreign-policy&country=united-states)
+
+#### United States and China: tariff cuts and a dialogue on artificial intelligence
+
+China's president, Xi Jinping, made a state visit to Washington from 23 to 25 September. After the visit both countries said that they had agreed to cut tariffs on 30 billion dollars of goods in each direction. The cuts apply to US exports such as farm goods, wood and cosmetics, and to US imports such as small appliances and toys. The two sides also agreed to hold a dialogue on the risks and benefits of artificial intelligence (AI) and to set up a channel of communication for incidents linked to it. Both countries said that the leaders agreed that Iran should keep its commitment not to develop nuclear weapons. Before the visit the two countries had extended their trade truce by two months. It had been due to end on 10 November. The next round of the AI dialogue is set for November.
+
+*Actor:* Donald Trump, president (Global Populism Database 2.1).
+*Sources:* Reuters, 26 September 2026 ([read in the copy of The Business Standard](https://www.tbsnews.net/worldbiz/usa/china-us-agree-ai-dialogue-tariff-cuts-30-billion-goods-during-xi-visit-1554756); [Reuters](https://www.reuters.com/world/china/china-us-agree-30-billion-tariff-cut-ai-dialogue-during-xi-visit-2026-09-26/)).
+*Research on this:* [Library: foreign policy, economy and welfare; United States](https://populiverse.com/library/?topic=foreign-policy,economy-welfare&country=united-states)
+
+#### United States and Canada: import bans in the trade war
+
+On 8 September the United States banned the import of a wide range of Canadian alcoholic drinks, motorcycles and dairy products. The bans were set to take effect on 29 September. The United States also added cheese products and some paper, aluminium, wood and furniture products to the goods under a tariff of 50 per cent. In August it had put tariffs of 50 per cent on about 20 billion dollars of Canadian goods, after several rounds of talks had collapsed. Canada answered with tariffs of 15 to 50 per cent on 20 billion dollars of US goods. They took effect on 8 September. Canada's prime minister, Mark Carney, urged a further shift away from the country's biggest trading partner. A US official said that the threat to raise tariffs on Canadian cars from 25 to 50 per cent on 1 January still stands.
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* Reuters, 8 September 2026, two versions ([read in the copy of Hawaii Tribune-Herald](https://www.hawaiitribune-herald.com/2026/09/09/nation-world-news/us-to-ban-canadian-motorcycle-dairy-alcohol-imports-as-trade-war-sizzles/); [read in the copy of Yahoo Finance](https://finance.yahoo.com/news/canadas-retaliatory-tariffs-effect-us-040314518.html); [Reuters](https://www.reuters.com/business/autos-transportation/canadas-retaliatory-tariffs-take-effect-us-trade-talks-stall-2026-09-08/)).
+*Research on this:* [Library: foreign policy, economy and welfare; United States](https://populiverse.com/library/?topic=foreign-policy,economy-welfare&country=united-states)
+
+#### United States and Iraq: the last American troops leave
+
+On 30 September the US military announced that all American troops had left Iraq. The last soldiers left an air base in Irbil, in the semi-autonomous Kurdish region in the north. This ends a 12-year mission against the Islamic State group. The Pentagon said that the United States would go on giving Iraq targeted training and intelligence support. In 2024 Washington and Baghdad had agreed to wind the mission down, with 30 September as the deadline. The last bases came under regular attack after the United States and Israel began their war against Iran on 28 February. Iran-backed militias fired on US troops, and the United States struck the militias. Iraq's prime minister, Ali al-Zaidi, said that Iraqi forces would go on fighting the Islamic State group. Officials in the Kurdish region voiced concern, above all about the removal of US air defence systems.
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* AP, 30 September 2026 ([read in the copy of PBS News](https://www.pbs.org/newshour/world/u-s-military-says-its-withdrawal-of-troops-from-iraq-for-islamic-state-fight-is-complete); [AP](https://apnews.com/article/iraq-us-withdrawal-militias-disarmament-kurds-a097a39f3d1a3515adc2ba3298a6816f)).
+*Research on this:* [Library: defence and security, foreign policy; United States](https://populiverse.com/library/?topic=defence-security,foreign-policy&country=united-states)
+
+**Also this month**
+
+- **United States and Venezuela.** On 22 September Trump met Venezuela's interim president, Delcy Rodríguez, at a reception in New York. It was their first meeting since US forces captured Nicolás Maduro in January. (Reuters, 22 September, [copy of LBC](https://www.lbc.co.uk/article/trump-venezuela-rodriguez-maduro-5Hjdhq5_2/); AP, 22 September, [copy of WSOC-TV](https://www.wsoctv.com/news/world/trump-returns-un/RX6UZAKIOQZBTJDKYM3RRWJBWU/))
+- **United States.** On 18 September Trump barred CNN, MS NOW and Politico from the White House. On 24 September a federal judge, Timothy Kelly, ordered the government to restore their access at once. (AFP, 24 September, [copy of Citizen Digital](https://citizen.digital/article/us-judge-orders-white-house-to-reinstate-access-to-cnn-ms-now-and-politico-n390764))
+- **United States.** On 2 September a federal judge in Maryland, Deborah Boardman, blocked Trump's executive order of 6 August, which limits who gets US citizenship by birth. (Reuters, 2 September, [copy of People News](https://www.peoplenewstoday.com/news/en/2026/09/02/1153720.html.US-judge-blocks-Trumps-newest-order-limiting-birthright-citizenship.html); [Reuters](https://www.reuters.com/world/us-judge-blocks-trumps-newest-order-limiting-birthright-citizenship-2026-09-02/))
+
+### Latin America
+
+#### Nicaragua: a reform that bars opposition parties from elections passes its first vote
+
+On 1 September Nicaragua's National Assembly passed a constitutional reform in the first of two votes. The reform bans opposition parties from taking part in elections. It lengthens the presidential term from six to seven years. The terms of other elected officials and of the heads of the army and the police also become seven years. The co-presidents, Daniel Ortega and Rosario Murillo, backed the reform. On 19 July Ortega had said in public that there would be no more elections in Nicaragua, to stop the opposition from taking the government again. Several Central American countries, Bolivia, Brazil and Chile criticised this, and Panama withdrew its ambassador. An earlier reform had made Murillo, then vice president, co-president and had moved the presidential election from the end of 2026 to late 2027. Constitutional changes need two separate legislative sessions. Murillo said that the second vote starts on 18 January.
+
+*Actor:* Daniel Ortega, co-president (Global Populism Database 2.1).
+*Sources:* Reuters, 1 September 2026 ([read in the copy of Internazionale](https://www.internazionale.it/ultime-notizie-reuters/2026/09/02/nicaraguan-congress-passes-ortega-backed-reform-excluding-opposition-from-elections); [Reuters](https://www.reuters.com/world/americas/nicaraguan-congress-passes-ortega-backed-reform-excluding-opposition-elections-2026-09-02/)).
+*Research on this:* [Library: democracy and institutions, populists in government; Latin America](https://populiverse.com/library/?topic=democracy-institutions,government&region=latin-america)
+
+#### Nicaragua: hearings in its case against Germany at the International Court of Justice
+
+From 7 September the International Court of Justice in The Hague held four days of hearings in the case that the government of Daniel Ortega has brought against Germany. On 8 September Nicaragua accused Germany of several violations of international law. It argued that Germany is complicit in what Nicaragua calls genocide in Gaza, because of its support for Israel, above all its arms shipments. Nicaragua bases the case on the Genocide Convention of 1948. Germany asks the court to throw the case out. It says that the judges have no jurisdiction and that Nicaragua has no case. Israel denies the accusation of genocide. The court had already rejected Nicaragua's request for emergency measures, such as a stop to German arms exports. It can now end the case or go on to examine it in detail. A ruling takes about six months on average.
+
+*Actor:* the government of Daniel Ortega (Global Populism Database 2.1).
+*Sources:* AFP, 8 September 2026 ([read in the copy of Ahram Online](https://english.ahram.org.eg/NewsContent/58/1262/576199/War-on-Gaza/War-on-Gaza/Nicaragua-accuses-Germany-of-multiple-violations-o.aspx); [AFP at France 24](https://www.france24.com/en/live-news/20260908-nicaragua-accuses-germany-of-multiple-violations-of-law-in-gaza-genocide-case)).
+*Research on this:* [Library: foreign policy, international sphere; Latin America](https://populiverse.com/library/?topic=foreign-policy,international&region=latin-america)
+
+#### Chile: no official event on the anniversary of the 1973 coup
+
+For the first time since Chile's return to democracy in 1990, the government held no official event on 11 September to mark the anniversary of the military coup of 1973. President José Antonio Kast (populist radical right: Díaz, Rovira Kaltwasser and Zanotti 2023) defended the decision in a speech in the Los Ríos region on the same day. It was the 53rd anniversary of the coup led by Augusto Pinochet against President Salvador Allende. The dictatorship lasted until 1990 and left more than 3,200 people dead or disappeared. Thousands of people marched to remember the victims. Protesters threw stones and sticks, and police used tear gas and water cannon. The security minister, Martín Arrau, counted 198 incidents of violence on 10 and 11 September, 34 per cent fewer than in 2025, and 284 arrests, 80 per cent more.
+
+*Actor:* José Antonio Kast, president, and his government (Díaz, Rovira Kaltwasser and Zanotti 2023).
+*Sources:* AFP, 12 September 2026 ([read in the copy of Buenos Aires Times](https://www.batimes.com.ar/news/latin-america/nearly-300-detained-in-chile-at-protests-marking-pinochet-coup-anniversary.phtml)).
+*Research on this:* [Library: democracy and institutions, populists in government; Chile](https://populiverse.com/library/?topic=democracy-institutions,government&country=chile)
+
+#### Chile and Argentina: Kast backs Argentina's claim to the Malvinas; a shipping route to the islands is planned
+
+On 3 September President José Antonio Kast (populist radical right: Díaz, Rovira Kaltwasser and Zanotti 2023) received Argentina's president, Javier Milei, at La Moneda palace in Santiago. Kast declared Chile's support for Argentina's sovereignty claim over the Malvinas (Falkland Islands). The meeting came during a dispute over the Strait of Magellan. The chief of Argentina's air force had called the strait a matter of Argentine sovereignty. Chile's foreign minister, Francisco Pérez Mackenna, answered that it is Chilean beyond dispute. On 28 September business representatives of the Falkland Islands Government came to Punta Arenas, in southern Chile, to relaunch a shipping route between the islands and the city. On 29 September Argentina's foreign minister, Pablo Quirno, said that Argentina expects Chile to respect the treaties in force and to give no logistical support for the exploitation of the islands' resources. The route is expected to open between November and December.
+
+*Actor:* José Antonio Kast, president (Díaz, Rovira Kaltwasser and Zanotti 2023).
+*Sources:* Buenos Aires Times, 3 September 2026 ([report on the visit](https://www.batimes.com.ar/news/latin-america/milei-vindicates-1973-overthrow-of-chiles-allende-in-santiago-speech.phtml); [report on Argentina's measures](https://www.batimes.com.ar/news/argentina/milei-to-seek-tough-sanctions-for-firms-operating-in-malvinas-announces-new-naval-base.phtml)); 6 September 2026 ([report](https://www.batimes.com.ar/news/argentina/milei-quiets-ruling-party-rifts-reclaims-agenda-via-malvinas.phtml)); 29 September 2026, with AFP ([report on the route](https://www.batimes.com.ar/news/latin-america/argentina-angry-as-malvinas-chile-shipping-route-set-for-revival.phtml); [report on Argentina's reaction](https://www.batimes.com.ar/news/argentina/argentina-monitoring-talks-between-chilean-and-malvinas-firms-says-quirno.phtml)).
+*Research on this:* [Library: foreign policy; Chile, Argentina](https://populiverse.com/library/?topic=foreign-policy&country=chile,argentina)
+
+**Also this month**
+
+- **Venezuela.** On 2 September Nicolás Maduro, who has been held in the United States since January, asked the federal court in New York to dismiss all charges against him. He argues that he cannot be prosecuted because he is the head of a foreign state. By 21 September the court had not ruled. (Congressional Research Service, 21 September, [official record](https://www.congress.gov/crs-product/LSB11401))
+- **Brazil.** Brazil votes on 4 October. Senator Flávio Bolsonaro, son of former president Jair Bolsonaro, is the main rival of President Luiz Inácio Lula da Silva. Jair Bolsonaro is serving a 27-year sentence under house arrest for attempting a coup. (AFP, 28 September, [copy of Buenos Aires Times](https://www.batimes.com.ar/news/latin-america/scandal-weary-brazilians-to-vote-as-lula-faces-bolsonaro-son.phtml))
+
+### Asia-Pacific
+
+Nothing met the Monitor's rules in this region in September 2026.
+
+### Middle East and North Africa
+
+#### Israel and the United Kingdom: Israel closes the British consulate in East Jerusalem
+
+On 8 September Britain, France and Canada announced plans to block imports from Israeli settlements in the occupied West Bank. On the same day Israel's foreign minister, Gideon Saar, said that Israel was closing Britain's consulate in East Jerusalem in response. The consulate is accredited to the Palestinian Authority. Saar also said that Britain could no longer take part in a US-led coordination mission for Gaza. Some British officials and other nationals, among them the former Labour leader Jeremy Corbyn, were banned from entering Israel. Saar said that he had coordinated the response with Prime Minister Benjamin Netanyahu. He accused Britain of interfering in Israel's election, due in late October. The United Nations and most countries regard the settlements as illegal under international law. Israel disputes this. On the same day Israel announced plans for 1,000 new homes in the West Bank.
+
+*Actor:* Benjamin Netanyahu, prime minister, and his government (Global Populism Database 2.1).
+*Sources:* Reuters, 8 September 2026 ([read in the copy of Al-Monitor](https://www.al-monitor.com/originals/2026/09/israel-close-british-consulate-east-jerusalem-after-uk-france-and-canada-ban)).
+*Research on this:* [Library: foreign policy; Middle East and North Africa](https://populiverse.com/library/?topic=foreign-policy&region=mena)
+
+#### Israel and Slovenia: Israel opens its first embassy in Ljubljana
+
+On 9 September Israel opened its first embassy in Slovenia. Its foreign minister, Gideon Saar, travelled to Ljubljana and met his Slovenian counterpart, Tone Kajzer. The two signed a cooperation agreement on education, science, culture, youth and sport. Hundreds of pro-Palestinian protesters gathered outside the new embassy and demanded that it be closed. The opening marks a change of policy in Slovenia under Prime Minister Janez Janša, who came to power in early June. The previous government, under Robert Golob, had recognised a Palestinian state in 2024. In 2025 it had banned imports from Israeli settlements, imposed an arms embargo and barred top Israeli officials, among them Benjamin Netanyahu, from entering the country. Janša's government scrapped all these measures. Golob's party, the Freedom Movement, said on 9 September that it would seek to remove Janša and Kajzer in parliament. Until now Israel's embassy in Vienna had covered Slovenia.
+
+*Actors:* the government of Benjamin Netanyahu (Global Populism Database 2.1); the government of Janez Janša, whose Slovenian Democratic Party is in The PopuList 4.0.
+*Sources:* AP, 9 September 2026 ([read in the copy of DT Next](https://www.dtnext.in/news/world/israel-opens-embassy-in-slovenia-as-small-eu-nation-shifts-policies); [AP](https://apnews.com/article/slovenia-israel-embassy-protest-747a067d6d44501bab151480bffcb7ab)).
+*Research on this:* [Library: foreign policy; Middle East and North Africa](https://populiverse.com/library/?topic=foreign-policy&region=mena)
+
+#### Israel and Lebanon: detainees released in a deal, and the talks go on
+
+On 3 and 4 September Israel released five civilians whom its forces had detained in southern Lebanon. Two of them are Syrians who had been captured in Lebanon, Lebanese officials said. In return, Lebanon agreed to search for the bodies of Jewish Lebanese citizens who went missing during the civil war. The office of Prime Minister Benjamin Netanyahu said that Israel agreed to the release after Lebanon helped in that search. Officials said that the United States had mediated. Israel and Lebanon have no diplomatic relations. They began direct negotiations after a new war between Israel and the Lebanese group Hezbollah broke out on 2 March. Israel invaded and now occupies a large part of southern Lebanon. A framework deal of June foresees an Israeli withdrawal in exchange for the disarmament of Hezbollah. Little of it has been carried out. Another round of talks was expected in Rome later in September.
+
+*Actor:* Benjamin Netanyahu, prime minister, and his government (Global Populism Database 2.1).
+*Sources:* AP, 4 September 2026 ([read in the copy of WSOC-TV](https://www.wsoctv.com/news/world/israel-frees-4-more/NX7YZUQ3BA2DVFLGD7JSBER6RU/)).
+*Research on this:* [Library: foreign policy, defence and security; Middle East and North Africa](https://populiverse.com/library/?topic=foreign-policy,defence-security&region=mena)
+
+**Also this month**
+
+- **Israel.** On 23 September Israel's Central Elections Committee voted to bar Arab-majority parties and two candidates from the election of 27 October. Members of Netanyahu's governing coalition had asked for the ban on the United Arab List (Ra'am). The decision is not final: the Supreme Court must review it. (AFP, 23 September, [copy of Daily Sabah](https://www.dailysabah.com/world/mid-east/israeli-election-panel-moves-to-bar-arab-parties-candidates))
+
+### Sub-Saharan Africa
+
+Nothing met the Monitor's rules in this region in September 2026.
+
+## New research
+
+The PopuliVerse Library holds 49 works on populism that were published in September 2026: 44 journal articles, two books and three book reviews. By the Library's tags, most are on parties, leaders and movements (21), on media and communication (12) and on voters and attitudes (9). Gender and migration follow with five works each. Fourteen works carry no topic tag. Among the regions Europe comes first (15 works), and among the countries Italy (5). Three works are on Giorgia Meloni.
+
+## Reference for an actor that is in no dataset
+
+- Díaz, Camila, Cristóbal Rovira Kaltwasser, and Lisa Zanotti. 2023. "The Arrival of the Populist Radical Right in Chile: José Antonio Kast and the 'Partido Republicano'." *Journal of Language and Politics* 22 (3): 342–59. [https://doi.org/10.1075/jlp.22131.dia](https://doi.org/10.1075/jlp.22131.dia)

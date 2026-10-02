@@ -276,13 +276,13 @@ $endfor$
 
       *Period covered:* #issue.period. \
       *Rules:* version #issue.rules, #link(site + "/monitor/rules.html")[populiverse.com/monitor/rules.html]. \
-      *Editor:* #issue.editor. \
+      *Founder and editor:* #issue.editor. \
       *Published:* #if issue.date-long != "" [#issue.date-long.] else [not yet.] \
       *DOI:* #if issue.doi != "" [#link("https://doi.org/" + issue.doi)[#issue.doi].] else [not yet.] \
       *Web page:* #link(issue.url)[#issue.url.replace("https://", "")]
     ],
     [
-      *How it is made.* An AI assistant, Claude, searches the listed sources and drafts the text. The editor chooses the items, edits every word and checks every link.
+      *How it is made.* The editor sets the rules, decides what goes into an issue and answers for every word. The rules say how an issue is made and how an AI assistant is used in it.
 
       *How to cite.* #issue.editor-inverted, ed. #issue.year. #emph[PopuliVerse Monitor] #issue.number (#issue.month). #if issue.doi != "" [#link("https://doi.org/" + issue.doi)[https:\/\/doi.org\/#issue.doi].] else [#issue.url.]
 

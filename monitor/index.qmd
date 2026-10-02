@@ -9,9 +9,10 @@ listing:
   id: issues
   contents: "*/*.qmd"
   sort: "date desc"
-  type: default
-  # each issue shows its number, the month it covers (its "subtitle") and one line on what is in it
-  fields: [title, subtitle, description]
+  # each issue is shown as a small cover with its number and month on it, and
+  # its title, the month it covers and one line on what is in it next to the
+  # cover. The file issues.ejs, next to this page, draws the list.
+  template: issues.ejs
 ---
 
 The Monitor is a monthly digest of what populist actors did around the world. It is for readers who do not follow the news every day and still want a reliable picture. It describes what happened. It does not analyse or judge. Every item links to its sources. Populism is the object of study, never the target.
