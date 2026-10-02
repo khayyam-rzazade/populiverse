@@ -401,6 +401,10 @@ local function issue_info(meta)
   info.rules = meta_text(meta, "rules-version")
   info.editor = meta_text(meta, "author")
   if info.editor == "" then info.editor = "Khayyam Rzazade" end
+  -- how the editor is named on the issue: "Editor", unless the header of the
+  -- issue says otherwise in a line "editor-label:"
+  info.editor_label = meta_text(meta, "editor-label")
+  if info.editor_label == "" then info.editor_label = "Editor" end
   info.doi = meta_text(meta, "doi"):gsub("^https?://doi%.org/", "")
   info.description = meta_text(meta, "description")
   -- the day of publication: the line "published" if there is one, else "date"
@@ -518,6 +522,7 @@ local function make_typst(doc, info)
   doc.meta["pv"] = pandoc.MetaMap({
     number = v(info.number), month = v(info.month), period = v(info.period),
     rules = v(info.rules), editor = v(info.editor), ["editor-inverted"] = v(info.editor_inverted),
+    ["editor-label"] = v(info.editor_label),
     doi = v(info.doi), year = v(info.year), ["date-long"] = v(info.date_long),
     url = v(info.url), description = v(info.description), ["text-hash"] = v(text_hash),
   })
@@ -572,7 +577,7 @@ local function facts_block(info, has_pdf, state)
   if info.rules ~= "" then
     row("Rules", '<a href="../rules.html">Version ' .. html_escape(info.rules) .. "</a>")
   end
-  row("Founder and editor", '<a href="../../about/editor.html">' .. html_escape(info.editor) .. "</a>")
+  row(html_escape(info.editor_label), '<a href="../../about/editor.html">' .. html_escape(info.editor) .. "</a>")
   row("Published", info.date_long ~= "" and html_escape(info.date_long) or "<em>not yet</em>")
   if info.doi ~= "" then
     row("DOI", '<a href="https://doi.org/' .. html_escape(info.doi) .. '">' .. html_escape(info.doi) .. "</a>")

@@ -22,6 +22,7 @@
   rules: "$pv.rules$",
   editor: "$pv.editor$",
   editor-inverted: "$pv.editor-inverted$",
+  editor-label: "$pv.editor-label$",
   doi: "$pv.doi$",
   year: "$pv.year$",
   date-long: "$pv.date-long$",
@@ -276,7 +277,7 @@ $endfor$
 
       *Period covered:* #issue.period. \
       *Rules:* version #issue.rules, #link(site + "/monitor/rules.html")[populiverse.com/monitor/rules.html]. \
-      *Founder and editor:* #issue.editor. \
+      *#issue.editor-label:* #issue.editor. \
       *Published:* #if issue.date-long != "" [#issue.date-long.] else [not yet.] \
       *DOI:* #if issue.doi != "" [#link("https://doi.org/" + issue.doi)[#issue.doi].] else [not yet.] \
       *Web page:* #link(issue.url)[#issue.url.replace("https://", "")]

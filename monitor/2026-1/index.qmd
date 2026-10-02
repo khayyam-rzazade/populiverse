@@ -30,8 +30,11 @@ author: "Khayyam Rzazade"            # the editor
 date: "2026-10-02"        # the day of publication, as year-month-day, for example "2026-10-05"
 doi: "10.5281/zenodo.23100316"         # the DOI reserved at Zenodo
 
-# ---- Leave this line as it is: it gives the page the look of an issue.
+# ---- Leave these lines as they are.
+# The first gives the page the look of an issue. The second keeps the name
+# that the PDF of this issue prints for the editor; later issues say "Editor".
 body-classes: pv-issue
+editor-label: "Founder and editor"
 ---
 
 ## The month in brief
