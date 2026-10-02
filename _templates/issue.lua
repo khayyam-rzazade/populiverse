@@ -325,7 +325,11 @@ end
 local function fingerprint(words)
   local clean = {}
   for _, w in ipairs(words) do
-    w = w:gsub("%p", "")
+    -- The signs are named one by one, by their place in the ASCII table. The
+    -- short form "%p" must not be used here: what it counts as a sign depends
+    -- on the computer (a Mac counts parts of accented letters), and then the
+    -- Mac that makes the PDF and the machine that builds the site disagree.
+    w = w:gsub("[\33-\47\58-\64\91-\96\123-\126]", "")
     w = w:gsub("\226\128[\144-\191]", "")   -- dashes, curly quotation marks, the ellipsis
     w = w:gsub("\194\160", "")              -- the no-break space
     if w ~= "" then clean[#clean + 1] = w end
@@ -592,6 +596,9 @@ local function facts_block(info, has_pdf, state)
   if state == "ok" then
     h[#h + 1] = '<p class="pv-issue-note">The PDF is the version of record. The small numbers at the edge of '
       .. 'the text show where each page of the PDF begins, so a passage can be cited by page from this page too.</p>'
+  elseif not info.draft then
+    -- a published issue never shows a working note to its readers
+    h[#h + 1] = '<p class="pv-issue-note">The PDF is the version of record.</p>'
   elseif state == "stale" then
     h[#h + 1] = '<div class="pv-pending"><p>The text has changed since the PDF was made, so the page numbers '
       .. 'are not shown. Run <code>scripts/make_issue.R</code> to make the PDF again.</p></div>'
@@ -710,6 +717,8 @@ end
 local function make_html(doc, info)
   local dir = input_dir()
   local has_pdf = file_exists(pandoc.path.join({ dir, info.pdf }))
+  -- an issue in preparation lives in a folder whose name ends in "-draft"
+  info.draft = (pandoc.path.filename(dir):match("%-draft$") ~= nil)
 
   -- where the pages of the PDF begin (written by scripts/make_issue.R)
   local map, starts = nil, {}
