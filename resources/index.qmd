@@ -5,7 +5,10 @@ description: "Datasets, hubs, journals, tools, networks, jobs and grants for res
 
 Each link goes to the project's own site. A line with a plus sign opens a list.
 
-## Datasets
+## For Your Research
+
+<details class="pv-fold">
+<summary>Datasets</summary>
 
 [Global Populism Database](https://doi.org/10.7910/DVN/LFTQEZ)
 : How populist the speeches of presidents and prime ministers are, across countries and terms of office, coded by hand. Hosted on Harvard Dataverse.
@@ -25,7 +28,10 @@ Each link goes to the project's own site. A line with a plus sign opens a list.
 [Global Party Survey](https://doi.org/10.1177/1354068820927686)
 : An expert survey of parties around the world that also rates how populist their rhetoric is. The link goes to the article that presents it (Norris 2020).
 
-## Other Hubs
+</details>
+
+<details class="pv-fold">
+<summary>Other Hubs</summary>
 
 [European Center for Populism Studies (ECPS)](https://www.populismstudies.org)
 : An independent centre in Brussels for research on and analysis of populism.
@@ -39,7 +45,7 @@ Each link goes to the project's own site. A line with a plus sign opens a list.
 [POPULISMUS](https://populismus.gr)
 : An observatory of populist discourse at the Aristotle University of Thessaloniki.
 
-## For Your Research
+</details>
 
 <details class="pv-fold">
 <summary>Journals With the Most Articles on Populism</summary>
