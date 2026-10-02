@@ -5,8 +5,8 @@
     "group": 6697881,
     "citation_style": "chicago-author-date",
     "taxonomy_version": 2,
-    "count": 2288,
-    "updated": "2026-10-02T01:17:30Z"
+    "count": 2290,
+    "updated": "2026-10-02T01:32:22Z"
   },
   "taxonomy": {
     "approach": {
@@ -29402,6 +29402,56 @@
       ],
       "oa": false,
       "added": "2026-10-01T10:49:50Z"
+    },
+    {
+      "id": "HWY2RXS5",
+      "type": "type:book",
+      "title": "Right-Wing Populism and Gender: European Perspectives and Beyond",
+      "authors": [
+
+      ],
+      "editors": [
+        {
+          "family": "Dietze",
+          "given": "Gabriele"
+        },
+        {
+          "family": "Roth",
+          "given": "Julia"
+        }
+      ],
+      "byline": "Dietze and Roth",
+      "year": 2020,
+      "date": "2020-04-14",
+      "container": "",
+      "publisher": "transcript Verlag",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.14361/9783839449806",
+      "url": "https://doi.org/10.14361/9783839449806",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/HWY2RXS5",
+      "abstract": "While research in right-wing populism has recently been blossoming, a systematic study of the intersection of right-wing populism and gender is still missing, even though gender issues are ubiquitous in discourses of the radical right ranging from »ethnosexism« against immigrants, to »anti-genderism.« This volume shows that the intersectionality of gender, race and class is constitutional for radical right discourse. From different European perspectives, the contributions investigate the ways in which gender is used as a meta-language, strategic tool and »affective bridge« for ordering and hierarchizing political objectives in the discourse of the diverse actors of the »right-wing complex.«",
+      "citation": "Dietze, Gabriele, and Julia Roth, eds. 2020. <i>Right-Wing Populism and Gender: European Perspectives and Beyond<\/i>. 1st ed. Gender Studies. Transcript Verlag. https://doi.org/10.14361/9783839449806.",
+      "bibtex": "@book{dietze_right-wing_2020,\n  editor = {Dietze, Gabriele and Roth, Julia},\n  title = {Right-{Wing} {Populism} and {Gender}: {European} {Perspectives} and {Beyond}},\n  year = {2020},\n  edition = {1},\n  series = {Gender {Studies}},\n  publisher = {transcript Verlag},\n  address = {Bielefeld, Germany},\n  isbn = {978-3-8376-4980-2 978-3-8394-4980-6},\n  doi = {10.14361/9783839449806}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+        "topic:parties",
+        "topic:gender"
+      ],
+      "region": [
+        "region:europe"
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-02T00:38:27Z"
     },
     {
       "id": "MZEPFR9H",
@@ -95398,6 +95448,51 @@
       ],
       "oa": false,
       "added": "2026-10-02T00:51:40Z"
+    },
+    {
+      "id": "HN8I4IZM",
+      "type": "type:article",
+      "title": "Populism and Black Lynching in Georgia, 1890-1900",
+      "authors": [
+        {
+          "family": "Soule",
+          "given": "Sarah A."
+        }
+      ],
+      "editors": [
+
+      ],
+      "byline": "Soule",
+      "year": 1992,
+      "date": "1992",
+      "container": "Social Forces",
+      "publisher": "",
+      "volume": "71",
+      "issue": "2",
+      "pages": "431",
+      "doi": "10.2307/2580018",
+      "url": "https://doi.org/10.2307/2580018",
+      "zotero": "https://www.zotero.org/groups/populiverse_library/items/HN8I4IZM",
+      "abstract": "",
+      "citation": "Soule, Sarah A. 1992. “Populism and Black Lynching in Georgia, 1890-1900.” <i>Social Forces<\/i> 71 (2): 431. https://doi.org/10.2307/2580018.",
+      "bibtex": "@article{soule_populism_1992,\n  author = {Soule, Sarah A.},\n  title = {Populism and {Black} {Lynching} in {Georgia}, 1890-1900},\n  journal = {Social Forces},\n  year = {1992},\n  volume = {71},\n  number = {2},\n  pages = {431},\n  issn = {00377732},\n  doi = {10.2307/2580018}\n}",
+      "approach": [
+
+      ],
+      "topic": [
+
+      ],
+      "region": [
+
+      ],
+      "country": [
+
+      ],
+      "method": [
+
+      ],
+      "oa": false,
+      "added": "2026-10-02T00:38:38Z"
     },
     {
       "id": "TE2FA3MY",
