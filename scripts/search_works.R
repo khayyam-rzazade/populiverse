@@ -8,7 +8,7 @@
 #
 # WHAT IT DOES, IN ORDER
 #   1. Counts. Asks OpenAlex how many journal articles and books carry
-#      "populism" or "populist" in their title, and shows what fetching the
+#      "populism" or "populist" in their title (book reviews in journals too), and shows what fetching the
 #      list costs out of today's free allowance. Nothing else happens until
 #      you type yes.
 #   2. The list. Fetches the list of these works (title, year, journal, DOI,
@@ -17,12 +17,16 @@
 #      already in the Library, other languages, corrections, book reviews,
 #      preprints, repeats. Every work left out or set aside keeps the reason,
 #      in plain words.
-#   3. The records. For the most cited works that are not yet in the Library it
-#      fetches the abstract from OpenAlex and asks the DOI registry (Crossref)
-#      for the same DOI. A DOI counts as confirmed only when the two catalogues
-#      agree on the title, the year, the kind of work, the journal and the
-#      first author, and nothing says the work is not in English. Everything
-#      else is set aside with its reason. Nothing is guessed.
+#   3. The records. For the newest works that are not yet in the Library (3,000
+#      a run, newest first) it fetches the abstract from OpenAlex and asks the DOI
+#      registry (Crossref) for the same DOI. A DOI counts as confirmed only when
+#      the two catalogues agree on the title, the year, the kind of work, the
+#      journal and the first author, and nothing says the work is not in English.
+#      A piece in a journal counts only when the journal is on the Scopus source
+#      list for the year of the work (the list is in drafts/scopus-sources.csv).
+#      Each work then gets one verdict: "enters by the rules", "to read" (Claude
+#      reads the record and gives a reason), or "waits", with the reason in plain
+#      words. Nothing is guessed.
 #   4. Writes two files into drafts/ and prints a report.
 #
 # WHAT IT NEVER DOES
@@ -40,26 +44,30 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02.1"
+  SCRIPT_VERSION <- "2026-10-02.3"          # the third version of the rules (master plan, section 18)
   SEARCH_ID <- "01"                 # the files of this search: drafts/search-01-...
   DRAFTS    <- "drafts"
-  TOP       <- 2000                 # how many of the most cited works get their record checked
+  TOP       <- 3000                 # how many works get their record checked in one run, the newest first
+  SCOPUS_LIST <- "August 2026"      # the Scopus source list in drafts/scopus-sources.csv (Elsevier's public file)
+  REGISTRY_FORMAT <- 2              # raised when more is kept of a registry answer: older answers are asked again
   RESERVE   <- 0.10                 # dollars of today's free allowance that are never touched
   BLIND_CAP <- 0.80                 # the most one run spends when OpenAlex does not tell what is left
 
   # The words asked for in the title. OpenAlex looks for whole words, so every
   # form needs its own question; a plural is found with its singular.
   MAIN_TERMS <- c("populism", "populist")
-  RARE_TERMS <- c("populistic", "neopopulism", "neopopulist", "technopopulism", "technopopulist",
+  RARE_TERMS <- c("neopopulism", "neopopulist", "technopopulism", "technopopulist",
                   "ethnopopulism", "ethnopopulist", "antipopulism", "antipopulist",
                   "postpopulism", "postpopulist", "petropopulism", "telepopulism", "cyberpopulism")
-  # Only needed if OpenAlex's search without word-stemming has to be used:
-  PLURALS    <- c("populisms", "populists", "neopopulists", "technopopulists", "ethnopopulists",
+  # Only needed if OpenAlex's search without word-stemming has to be used ("populistic" is
+  # found with "populist" by the stemmed search, so it is asked only here):
+  PLURALS    <- c("populistic", "populisms", "populists", "neopopulists", "technopopulists", "ethnopopulists",
                   "antipopulists", "postpopulists")
 
   # The two kinds of work the Library takes, as OpenAlex's filters say them.
   KINDS <- list(
     article = "type:article|review,primary_location.source.type:journal,has_doi:true,is_retracted:false",
+    review  = "type:book-review,primary_location.source.type:journal,has_doi:true,is_retracted:false",   # reviews of books, in journals
     book    = "type:book,has_doi:true,is_retracted:false")
   LIST_FIELDS <- paste0("id,doi,display_name,publication_year,publication_date,type,language,",
                         "cited_by_count,is_retracted,primary_location,authorships,biblio,open_access,indexed_in")
@@ -67,6 +75,11 @@ local({
   # DOIs of preprint servers and repositories: never the published work.
   REPOSITORY_DOIS <- c("10.2139/", "10.31235/", "10.31219/", "10.17605/", "10.5281/", "10.13140/", "10.48550/",
                        "10.21203/", "10.20944/", "10.31234/", "10.6084/", "10.7910/", "10.33774/")
+  # DOIs of publishers that number their articles and give no page range.
+  NUMBERED_DOIS <- c("10.3390/", "10.3389/", "10.1371/", "10.1186/")
+  # Words in a journal's name that tell it also publishes in another language than English.
+  OTHER_LANGUAGE_RX <- paste0("(?i)\\b(revista|estudios|estudos|trabalhos|zeitschrift|cahiers|revue|rivista|anuario|profesional|",
+                              "problemas|desarrollo|foro|nueva|perfiles|cuadernos|quaderni|studi|sociologia|historia|sprawy|societa)\\b")
 
   # The settings below exist for automated tests only.
   OPENALEX <- Sys.getenv("OPENALEX_API_BASE", "https://api.openalex.org")
@@ -91,10 +104,14 @@ local({
   one_line <- function(x) trimws(gsub("\\s+", " ", x, perl = TRUE))
   txt <- function(x) if (is.null(x) || length(x) == 0 || is.na(x[[1]])) "" else as.character(x[[1]])
   # A title as plain text: "&amp;" and the like written out, markup such as <i> removed.
+  # A title or a name as plain text: "&amp;" and the like written out, markup such as <i> removed,
+  # control characters taken out, every kind of space turned into one plain space.
   plain_title <- function(x) {
     x <- gsub("&amp;", "&", x, fixed = TRUE); x <- gsub("&lt;", "<", x, fixed = TRUE); x <- gsub("&gt;", ">", x, fixed = TRUE)
     x <- gsub("&quot;", "\"", x, fixed = TRUE); x <- gsub("&#39;|&apos;", "'", x)
-    one_line(gsub("</?[A-Za-z][^>]*>", "", x))
+    x <- gsub("</?[A-Za-z][^>]*>", "", x)
+    x <- gsub("[\u0080-\u009f]", "", gsub("[[:cntrl:]]", " ", x), perl = TRUE)
+    trimws(gsub("[\\s\u00a0\u2000-\u200b\u202f\u3000]+", " ", x, perl = TRUE))
   }
 
   use_utf8 <- function() {
@@ -166,16 +183,39 @@ local({
 
   # The last word of a name ("Cristobal Rovira Kaltwasser" -> "kaltwasser").
   last_word <- function(x) sub("^.* ", "", fold(x))
+  # A name written "Family, Given" gives its family name; any other name is left as it is.
+  family_part <- function(x) ifelse(grepl(",", x, fixed = TRUE), sub(",.*$", "", x), x)
+  # German spellings: "Boecher" stands for the same name written with an o-umlaut.
+  no_umlaut <- function(x) gsub("ue", "u", gsub("ae", "a", gsub("oe", "o", x, fixed = TRUE), fixed = TRUE), fixed = TRUE)
 
   # Is the first author that OpenAlex names among the people the registry names?
   # NA when one of the two names nobody.
   same_author <- function(first_author, families) {
-    fam <- last_word(first_author)
-    names <- gsub(" ", "", vapply(families, fold, ""))
-    names <- names[nzchar(names)]
-    if (!nzchar(fam) || !length(names)) return(NA)
-    any(names == fam | (nchar(fam) >= 4 & grepl(fam, names, fixed = TRUE)) |
-          (nchar(names) >= 4 & vapply(names, function(n) grepl(n, fam, fixed = TRUE), logical(1))))
+    fam <- last_word(family_part(first_author))
+    words <- no_umlaut(strsplit(fold(first_author), " ", fixed = TRUE)[[1]])
+    families <- families[nzchar(vapply(families, fold, ""))]
+    if (!nzchar(fam) || !length(families)) return(NA)
+    for (f in families) {
+      ff <- fold(f); joined <- gsub(" ", "", ff, fixed = TRUE)
+      if (identical(no_umlaut(joined), no_umlaut(fam)) || (nchar(fam) >= 4 && grepl(fam, joined, fixed = TRUE)) ||
+          (nchar(joined) >= 4 && grepl(joined, fam, fixed = TRUE))) return(TRUE)
+      # every word of the registry's family name is in the name that OpenAlex gives ("Alonso" in "Sonia Alonso Saenz de Oteyza")
+      if (all(no_umlaut(strsplit(ff, " ", fixed = TRUE)[[1]]) %in% words)) return(TRUE)
+    }
+    FALSE
+  }
+  # Given name and family name the wrong way round in the registry ("Manuel" for Manuel Anselmi)? A note for the editor.
+  names_turned <- function(first_author, families) {
+    w <- strsplit(fold(first_author), " ", fixed = TRUE)[[1]]
+    if (length(w) < 2 || grepl(",", first_author, fixed = TRUE)) return("")
+    for (f in families) {
+      fw <- strsplit(fold(f), " ", fixed = TRUE)[[1]]
+      if (length(fw) && all(nzchar(fw)) && all(fw %in% w) && w[1] %in% fw && !grepl(w[length(w)], paste(fw, collapse = ""), fixed = TRUE)) {
+        return(paste0("the registry gives \"", f, "\" as a family name, and OpenAlex names the author \"", first_author,
+                      "\": the names in Zotero are to be checked by hand"))
+      }
+    }
+    ""
   }
 
   # Journal names are compared loosely, so that "JCMS: Journal of Common Market
@@ -357,16 +397,75 @@ local({
     dois <- norm_doi(vapply(e, function(x) txt(x$doi), ""))
     titles <- vapply(e, function(x) txt(x$title), "")
     people <- vapply(e, first_person, "")
-    types <- vapply(e, function(x) txt(x$type), "")
-    # the batch files too: a work may be in Zotero and not yet in library.json
+    books <- titles[vapply(e, function(x) txt(x$type), "") == "type:book"]
+    # the batch files too: a work may be in Zotero and not yet in library.json. They give the DOI (both DOIs
+    # when the registry holds a record under two), the title, and the first author in the short reference.
     for (f in list.files("library/batches", pattern = "^batch-[0-9]+\\.yml$", full.names = TRUE)) {
       b <- tryCatch(read_yaml_utf8(f), error = function(err) NULL)
-      dois <- c(dois, norm_doi(vapply(b$works %||% list(), function(w) txt(w$doi), "")))
+      for (w in b$works %||% list()) {
+        dois <- c(dois, norm_doi(txt(w$doi)), norm_doi(txt(w$doi_also)))
+        titles <- c(titles, txt(w$title))
+        cite <- sub("\\s+and\\s+.*$", "", sub("\\s+et al\\.?$", "", sub("\\s+[0-9]{4}[a-z]?$", "", txt(w$cite))))
+        people <- c(people, cite)
+        if ("type:book" %in% unlist(w$tags)) books <- c(books, txt(w$title))
+      }
     }
+    keep <- nzchar(titles)
     list(n = length(e), updated = txt(lib$meta$updated),
          dois = unique(dois[nzchar(dois)]),
-         keys = unique(paste(fold(titles), last_word(people), sep = "|")),
-         book_titles = unique(fold(titles[types == "type:book"])))
+         titles = unique(fold(titles[keep])),                                               # whole titles
+         keys = unique(paste(main_part(titles[keep]), last_word(family_part(people[keep])), sep = "|")),   # main title and first author
+         book_titles = unique(fold(books)), book_mains = unique(main_part(books)))
+  }
+
+  # ---- the Scopus source list ------------------------------------------------------
+
+  # The name of a journal for comparing: "The International Journal of Press/Politics"
+  # and "International Journal of Press/Politics" are one journal.
+  journal_key <- function(x) sub("^the ", "", fold(x))
+
+  # Elsevier's public list of the sources of Scopus, as a table (made by Claude from the Excel file),
+  # and the titles of the books on populism in Scopus's list of books.
+  read_scopus <- function() {
+    f <- file.path(DRAFTS, "scopus-sources.csv"); b <- file.path(DRAFTS, "scopus-books-populism.csv")
+    if (!file.exists(f) || !file.exists(b)) {
+      halt("The Scopus list is missing (drafts/scopus-sources.csv and drafts/scopus-books-populism.csv). ",
+           "Both come in the zip from Claude: install the zip again, then run the line again.")
+    }
+    s <- utils::read.csv(f, stringsAsFactors = FALSE, colClasses = "character", encoding = "UTF-8", na.strings = character())
+    years <- lapply(regmatches(s$coverage, gregexpr("[0-9]{4}(\\s*-\\s*[0-9]{4})?", s$coverage)), function(parts) {
+      unlist(lapply(parts, function(x) { y <- as.integer(regmatches(x, gregexpr("[0-9]{4}", x))[[1]]); seq(y[1], y[length(y)]) }))
+    })
+    index <- new.env(hash = TRUE, size = 200000L)
+    add <- function(keys, prefix) {
+      for (i in which(nzchar(keys))) { k <- paste0(prefix, keys[i]); assign(k, c(index[[k]], i), envir = index) }
+    }
+    add(toupper(s$issn), "i"); add(toupper(s$eissn), "i"); add(journal_key(s$title), "n")
+    books <- utils::read.csv(b, stringsAsFactors = FALSE, colClasses = "character", encoding = "UTF-8", na.strings = character())
+    list(table = s, years = years, index = index, book_titles = unique(fold(books$title)), book_mains = unique(main_part(books$title)))
+  }
+
+  # Is the journal on the Scopus list for the year of the work? Every source that shares the ISSN or the
+  # name with the journal is looked at, and the best answer counts (a journal that changed its name has two entries).
+  scopus_gate <- function(issn_l, journal, year, sc) {
+    key <- paste(issn_l, journal, year, sep = "\r")
+    first <- which(!duplicated(key))
+    answer <- lapply(first, function(i) {
+      id <- toupper(gsub("[^0-9Xx]", "", issn_l[i]))
+      cand <- unique(c(if (nzchar(id)) sc$index[[paste0("i", id)]], if (nzchar(journal[i])) sc$index[[paste0("n", journal_key(journal[i]))]]))
+      if (!length(cand)) return(c("the journal is not on the Scopus list", ""))
+      y <- suppressWarnings(as.integer(year[i])); if (is.na(y)) y <- 0L
+      rank <- vapply(cand, function(k) {
+        if (sc$table$source_type[k] != "Journal") return(3L)
+        ys <- sc$years[[k]]
+        if (y %in% ys || (sc$table$active[k] == "Active" && length(ys) && y >= min(ys))) 0L else 2L
+      }, 1L)
+      k <- cand[which.min(rank)]
+      c(switch(as.character(min(rank)), "0" = "indexed", "2" = "the journal is on the Scopus list, but not for the year of the work",
+               "the source is on the Scopus list, but not as a journal"), as.character(k))
+    })
+    pos <- match(key, key[first])
+    list(gate = vapply(answer[pos], `[`, "", 1), source = suppressWarnings(as.integer(vapply(answer[pos], `[`, "", 2))))
   }
 
   # ---- one work of OpenAlex's list, as one row ----------------------------------
@@ -382,8 +481,8 @@ local({
       year = txt(w$publication_year), date = txt(w$publication_date),
       kind = kind, type = txt(w$type), language = txt(w$language),
       cited_by_count = txt(w$cited_by_count), is_retracted = txt(w$is_retracted),
-      journal = one_line(txt(src$display_name)), source_type = txt(src$type), issn_l = txt(src$issn_l),
-      publisher = one_line(txt(src$host_organization_name)),
+      journal = plain_title(txt(src$display_name)), source_type = txt(src$type), issn_l = txt(src$issn_l),
+      publisher = plain_title(txt(src$host_organization_name)),
       is_core = txt(src$is_core), listed_in = paste(unlist(src$listed_in), collapse = ";"),
       raw_type = txt(loc$raw_type),
       first_author = if (length(people)) people[1] else "",
@@ -415,12 +514,37 @@ local({
   TAIL_RX    <- paste0("(?i)university press|\\bisbn\\b|\\b(hardback|hardcover|paperback|cloth)\\b|[$\u00a3\u20ac]\\s?[0-9]|",
                        "\\b[0-9]{2,4}\\s?pp\\b|\\bpp\\.\\s?[0-9ivxl]")
 
-  sort_out <- function(d, lib) {
+  # The length of an article, as far as the list tells it: a page range ("431-449"; "1425-30" is read as
+  # 1425-1430), or NA when only one number is known, or none.
+  page_range <- function(first, last) {
+    p1 <- suppressWarnings(as.integer(first)); p2 <- suppressWarnings(as.integer(last))
+    short <- !is.na(p1) & !is.na(p2) & p2 < p1 & nchar(last) < nchar(first)
+    p2[short] <- suppressWarnings(as.integer(paste0(substr(first[short], 1, nchar(first[short]) - nchar(last[short])), last[short])))
+    ifelse(!is.na(p1) & !is.na(p2) & p2 > p1, p2 - p1 + 1L, NA_integer_)
+  }
+
+  sort_out <- function(d, lib, sc) {
     n <- nrow(d)
     status <- rep("", n)
     mark <- function(which, text) { which <- which & !nzchar(status); status[which] <<- text; invisible() }
-    t_fold <- fold(d$title)
+    t_fold <- fold(d$title); t_main <- main_part(d$title)
+    fam <- last_word(family_part(d$first_author))
+    in_journal <- d$kind != "book"
     cites <- suppressWarnings(as.integer(d$cited_by_count)); cites[is.na(cites)] <- 0L
+    pages <- page_range(d$first_page, d$last_page)
+    one_number <- is.na(pages) & grepl("^[0-9]+$", d$first_page)                 # one page number, or the number of the article
+    numbered <- one_number & (suppressWarnings(as.integer(d$first_page)) >= 100000L |
+                                vapply(d$doi, function(x) any(startsWith(x, NUMBERED_DOIS)), logical(1)))
+    long <- !is.na(pages) & pages > 6L
+    # signs of a review of a book: OpenAlex calls it one, the title says so, or (for a piece that is not long)
+    # the title is the title of a book that the list, the Library or Scopus's list of books knows
+    says_review <- d$kind == "review" | (d$kind == "article" & (grepl(REVIEW_RX, d$title, perl = TRUE) |
+                     grepl(REVIEW2_RX, d$title, perl = TRUE) | grepl(TAIL_RX, d$title, perl = TRUE)))
+    books <- unique(c(lib$book_titles, sc$book_titles, t_fold[d$kind == "book"]))
+    books_main <- unique(c(lib$book_mains, sc$book_mains, t_main[d$kind == "book"]))
+    books_main <- books_main[lengths(strsplit(books_main, " ", fixed = TRUE)) >= 3]
+    known_book <- in_journal & !long & (t_fold %in% books | t_main %in% books_main)
+    gate <- scopus_gate(d$issn_l, d$journal, d$year, sc)
 
     mark(!grepl("populis", d$title, ignore.case = TRUE), "left out: the title does not name populism")
     mark(!nzchar(d$doi), "left out: no DOI")
@@ -429,25 +553,20 @@ local({
     mark(d$is_retracted == "TRUE", "left out: retracted")
     mark(vapply(d$doi, function(x) any(startsWith(x, REPOSITORY_DOIS)), logical(1)), "left out: preprint or repository record")
     mark(grepl(NOTICE_RX, d$title, perl = TRUE), "left out: correction or notice")
-    mark(d$kind == "article" & grepl(REVIEW_RX, d$title, perl = TRUE), "left out: book review")
-    # the Library holds a work with this title and first author under another DOI (or without one)
-    key <- paste(t_fold, last_word(d$first_author), sep = "|")
-    mark(nzchar(d$first_author) & key %in% lib$keys, "set aside: the Library holds a work with this title and first author")
-    mark(d$kind == "article" & grepl(REVIEW2_RX, d$title, perl = TRUE), "set aside: may be a book review, by its title")
-    mark(d$kind == "article" & grepl(TAIL_RX, d$title, perl = TRUE), "set aside: the title looks like a notice of a book")
-    # an article that carries the full title of a book (three words or more)
-    books <- unique(c(lib$book_titles, t_fold[d$kind == "book"]))
-    books <- books[lengths(strsplit(books, " ", fixed = TRUE)) >= 3]
-    mark(d$kind == "article" & t_fold %in% books, "set aside: carries the title of a book (may be a review of it)")
-    # three pages or fewer: often a review or a note
-    p1 <- suppressWarnings(as.integer(d$first_page)); p2 <- suppressWarnings(as.integer(d$last_page))
-    mark(d$kind == "article" & !is.na(p1) & !is.na(p2) & p2 >= p1 & (p2 - p1) <= 2,
-         "set aside: three pages or fewer (may be a review or a note)")
-    mark(!nzchar(d$first_author), "set aside: OpenAlex names no author")
-    # the same title and first author twice: the more cited record stays
+    mark(grepl("(?i)^\\s*chapter\\s+[0-9ivx]+\\b", d$title, perl = TRUE), "left out: a chapter, by its title")
+    # a piece in a journal counts only when the journal is on the Scopus list for the year of the work
+    mark(in_journal & gate$gate != "indexed", paste0("left out: ", gate$gate)[in_journal & gate$gate != "indexed" & !nzchar(status)])
+    # the Library holds this title: the whole title whoever the first author is, or the part before the colon
+    # together with the first author. Not asked of a piece that looks like a review: it carries the book's title.
+    key <- paste(t_main, fam, sep = "|")
+    mark(!says_review & !known_book & (t_fold %in% lib$titles | (nzchar(fam) & key %in% lib$keys)),
+         "set aside: the Library holds a work with this title")
+    mark(in_journal & !nzchar(d$first_author), "set aside: OpenAlex names no author")
+    # the same work twice: the more cited record stays (a piece in a journal: the whole title and the first author;
+    # a book: the part of the title before the colon and the first author)
     open <- which(!nzchar(status))
     if (length(open)) {
-      k <- paste(d$kind[open], key[open], sep = "|")
+      k <- paste(d$kind[open] == "book", ifelse(in_journal[open], t_fold[open], t_main[open]), fam[open], sep = "|")
       ord <- order(-cites[open], d$openalex_id[open])
       later <- open[ord][duplicated(k[ord])]
       status[later] <- "set aside: same title and first author as a more cited record"
@@ -455,6 +574,11 @@ local({
     status[!nzchar(status)] <- "candidate"
     d$status <- status
     d$cited_by_count <- cites
+    d$page_range <- pages
+    d$one_number <- ifelse(one_number & !numbered, "TRUE", "")
+    d$signs <- ifelse(says_review, "says review", ifelse(known_book, "title of a known book", ""))
+    d$scopus_title <- ifelse(is.na(gate$source), "", sc$table$title[gate$source])
+    d$scopus_languages <- ifelse(is.na(gate$source), "", sc$table$languages[gate$source])
     d
   }
 
@@ -463,13 +587,13 @@ local({
   crossref_record <- function(doi, email) {
     path <- paste(vapply(strsplit(doi, "/", fixed = TRUE)[[1]], utils::URLencode, "", reserved = TRUE), collapse = "/")
     r <- get_json(paste0(CROSSREF, "/works/", path), if (nzchar(email)) list(mailto = email) else NULL)
-    if (r$status == 404L) return(list(answered = TRUE, found = FALSE))
+    if (r$status == 404L) return(list(answered = TRUE, found = FALSE, format = REGISTRY_FORMAT))
     it <- if (is.list(r$body)) r$body$message else NULL
     if (r$status != 200L || !is.list(it)) return(list(answered = FALSE))
     people <- it$author %||% list()
     if (!length(people)) people <- it$editor %||% list()
     updated_by <- vapply(it[["updated-by"]] %||% list(), function(u) tolower(txt(u$type)), "")
-    list(answered = TRUE, found = TRUE,
+    list(answered = TRUE, found = TRUE, format = REGISTRY_FORMAT, doi = norm_doi(txt(it$DOI)),
          title = plain_title(txt((it$title %||% list(""))[[1]])),
          subtitle = plain_title(txt((it$subtitle %||% list(""))[[1]])),
          year = suppressWarnings(as.integer(txt((it$issued[["date-parts"]] %||% list(list(NA)))[[1]][[1]]))),
@@ -493,21 +617,78 @@ local({
     y <- suppressWarnings(as.integer(row$year))
     if (is.na(cr$year) || is.na(y)) why <- c(why, "a year is missing in one catalogue")
     else if (abs(cr$year - y) > 2) why <- c(why, paste0("the years lie more than two apart: registry ", cr$year, ", OpenAlex ", y))
-    ok_types <- if (row$kind == "article") "journal-article" else c("book", "monograph", "edited-book")
+    ok_types <- if (row$kind != "book") "journal-article" else c("book", "monograph", "edited-book")
     if (!(cr$type %in% ok_types)) why <- c(why, paste0("the registry calls it \"", cr$type, "\""))
-    if (row$kind == "article") {
+    if (row$kind != "book") {
       j <- same_journal(row$journal, cr$container)
       if (is.na(j)) why <- c(why, "one catalogue names no journal")
       else if (!j) why <- c(why, paste0("the catalogues name different journals: registry \"", short(cr$container, 40), "\""))
     }
-    a <- same_author(row$first_author, cr$families)
-    if (is.na(a)) why <- c(why, "the registry names no author")
-    else if (!a) why <- c(why, paste0("the registry names other people: ", short(paste(utils::head(cr$families, 3), collapse = ", "), 50)))
+    # the people: the first author that OpenAlex names must be among those the registry names.
+    # For a book the registry's people are taken when OpenAlex names nobody (an edited volume).
+    people <- cr$families[nzchar(cr$families)]
+    if (!length(people)) why <- c(why, if (nzchar(row$first_author)) "the registry names no author" else "neither catalogue names a person")
+    else if (!nzchar(row$first_author)) { if (row$kind != "book") why <- c(why, "OpenAlex names no author") }
+    else if (!nzchar(fold(row$first_author))) why <- c(why, "OpenAlex writes the first author's name in another script")
+    else if (!isTRUE(same_author(row$first_author, people))) {
+      why <- c(why, paste0(if (row$kind == "book") "a book for which the registry names other people: " else "the registry names other people: ",
+                           short(paste(utils::head(people, 3), collapse = ", "), 50)))
+    }
     if (nzchar(cr$language) && !startsWith(cr$language, "en")) why <- c(why, paste0("not in English, by the registry (", cr$language, ")"))
     if (!nzchar(cr$language) && !nzchar(row$language)) why <- c(why, "neither catalogue states the language")
     if (isTRUE(cr$is_notice)) why <- c(why, "the registry marks it as a correction or retraction notice")
     if (isTRUE(cr$retracted)) why <- c(why, "retracted, by the registry")
     why
+  }
+
+  # ---- one verdict for each checked work ------------------------------------------
+
+  # Does the journal also publish in another language than English? Scopus says so for its journals;
+  # where it gives no language, the journal's lists and its name are looked at.
+  language_doubt <- function(r) {
+    if (nzchar(r$scopus_languages)) return(!identical(r$scopus_languages, "ENG"))
+    journal <- if (nzchar(r$journal_or_publisher)) r$journal_or_publisher else r$container
+    grepl("latindex|scielo", r$listed_in) || grepl("[^\\x01-\\x7f]", journal, perl = TRUE) || grepl(OTHER_LANGUAGE_RX, journal, perl = TRUE)
+  }
+
+  # What kind of piece is it: a book, a review of a book, an article? Or does the record not show it
+  # ("?read": Claude reads the record; "?wait": there is nothing to read)?
+  piece_of <- function(r) {
+    if (r$kind_guess == "book") return("book")
+    whole <- identical(r$abstract_whole, "TRUE")
+    if (r$kind_guess == "review" || r$signs == "says review" ||
+        grepl("(?i)^\\s*(book reviews?\\b|reviewed by\\b|reviews? of\\b)", r$abstract, perl = TRUE)) return("book review")
+    pages <- if (nzchar(r$page_range)) as.integer(r$page_range) else NA_integer_
+    if (!is.na(pages) && pages > 6L) return("article")
+    if (r$signs == "title of a known book") {
+      return(if (whole) "?read: carries the title of a book and has an abstract (a review of the book, or an article of the same title)" else "book review")
+    }
+    if (is.na(pages) && !identical(r$one_number, "TRUE") && whole) return("article")     # no page range in the record (the journal numbers its articles, or the piece is new)
+    if (!is.na(pages) && pages >= 4L && whole) return("article")
+    if (nzchar(r$abstract)) return("?read: a short piece, and the record does not show whether it is an article or a review")
+    "?wait: a short piece without an abstract, and the record does not show what it is"
+  }
+
+  # "enters by the rules", "to read: ..." (Claude reads the record and gives a reason) or "waits: ...".
+  verdict_one <- function(r) {
+    reg <- if (r$check == "confirmed") character() else strsplit(sub("^set aside: ", "", r$check), "; ", fixed = TRUE)[[1]]
+    book_people <- length(reg) == 1 && startsWith(reg[1], "a book for which the registry names other people")
+    # two disagreements that reading the record can settle: a name in another script, and years that lie apart
+    readable <- length(reg) == 1 && (startsWith(reg[1], "OpenAlex writes the first author") || startsWith(reg[1], "the years lie more than two apart"))
+    if (length(reg) && !book_people && !readable) {
+      return(paste0("waits: the two catalogues do not agree (", sub("(: | \\().*$", "", reg[1]), if (length(reg) > 1) ", and more" else "", ")"))
+    }
+    st <- r$list_status
+    if (st == "set aside: the Library holds a work with this title") return("to read: the Library holds a work with this title")
+    if (st != "candidate") return(paste0("waits: ", sub("^set aside: ", "", st)))
+    if (startsWith(r$piece, "?read")) return(paste0("to read", sub("^\\?read", "", r$piece)))
+    if (startsWith(r$piece, "?wait")) return(paste0("waits", sub("^\\?wait", "", r$piece)))
+    if (r$kind_guess != "book" && !nzchar(r$language_registry) && language_doubt(r)) {
+      return("to read: the language is to be checked (the registry gives none, and the journal also publishes in another language)")
+    }
+    if (book_people) return("to read: a book for which the registry names other people than OpenAlex")
+    if (readable) return(paste0("to read: ", sub(":.*$", "", reg[1])))
+    "enters by the rules"
   }
 
   # ---- the cache: everything fetched so far ------------------------------------
@@ -653,6 +834,9 @@ local({
 
     lib <- read_library()
     say("  [ok] the Library as this folder knows it: ", num(lib$n), " works on the site, ", num(length(lib$dois)), " DOIs in all")
+    sc <- read_scopus()
+    say("  [ok] the Scopus source list of ", SCOPUS_LIST, ": ", num(sum(sc$table$source_type == "Journal")), " journals; ",
+        num(length(sc$book_titles)), " books on populism in Scopus's list of books")
     set <- settings(); key <- set$key
     say("  [ok] OpenAlex accepts the key")
     al <- read_allowance(key)
@@ -668,8 +852,6 @@ local({
           money(BLIND_CAP - RESERVE), " in this run")
     }
     say("  [ok] Crossref", if (nzchar(set$email)) " (with your email, for faster answers)" else " (without an email)")
-    if (!is.null(cache$list_done_at)) say("  [ok] the list of this search was fetched on ", cache$list_done_at,
-                                          ": it is not fetched again; the files and the report are written from it")
 
     # 1. counts
     say(""); say("1. Counts (titles that name populism, at OpenAlex today)")
@@ -682,6 +864,7 @@ local({
     cnt <- function(kind, term) as.integer(cache$counts[[paste(kind, term, sep = "|")]] %||% 0L)
     line <- function(kind) paste0("populism ", num(cnt(kind, "populism")), " | populist ", num(cnt(kind, "populist")))
     say("  journal articles with a DOI: ", line("article"))
+    say("  book reviews in journals:    ", line("review"))
     say("  books with a DOI:            ", line("book"))
     say("  (a work that carries both words is counted under both; rarer forms such as \"neopopulism\" come with the list)")
     for (term in MAIN_TERMS) {
@@ -734,11 +917,18 @@ local({
     to_fetch <- requests_left(counts_now)
     if (cache$floor > 0) say("  Today's allowance does not cover every work, so the list holds the works cited at least ",
                               cache$floor, " time(s): ", num(expected_in_all), " works. The counts above are complete.")
+    if (to_fetch == 0 && !is.null(cache$list_done_at)) {
+      say("  [ok] the list of this search was fetched on ", cache$list_done_at, ": it is not fetched again")
+    }
+    if (to_fetch > 0 && !is.null(cache$list_done_at)) {
+      say("  The articles and books of this search were fetched on ", cache$list_done_at, " and are kept; only what is new is fetched now.")
+      cache$list_more_at <- format(Sys.time(), "%Y-%m-%d %H:%M")
+    }
     if (to_fetch > 0) {
       say("")
       say("  To fetch the list: about ", num(to_fetch), " requests, about ", money(to_fetch * COST_SEARCH),
           " of today's free allowance (", money(max(0, available() + oa$reserve)), " left).")
-      say("  Then the DOI registry is asked about the ", num(min(TOP, expected_in_all)), " most cited works: about ",
+      say("  Then the DOI registry is asked about up to ", num(TOP), " works, the newest first: about ",
           round(min(TOP, expected_in_all) * (PAUSE + 0.4) / 60) + 1, " minutes. It all runs by itself.")
       answer <- if (interactive()) readline("Type yes and press Enter to fetch the list (anything else stops): ")
                 else Sys.getenv("SEARCH_WORKS_CONFIRM")
@@ -755,25 +945,31 @@ local({
     rows <- unlist(lapply(all_ids, function(id) cache$lists[[id]]$rows), recursive = FALSE)
     if (!length(rows)) halt("OpenAlex returned no works at all. Paste this message to Claude.")
     d <- as.data.frame(do.call(rbind, rows), stringsAsFactors = FALSE)
+    # (a list fetched by the first version of this script may hold control characters in names)
+    for (col in c("title", "journal", "publisher", "first_author", "authors")) d[[col]] <- plain_title(d[[col]])
     # a work found under two words is one work
     seen <- tapply(d$terms, d$openalex_id, function(x) paste(unique(x), collapse = ";"))
     d <- d[!duplicated(d$openalex_id), ]
     d$terms <- as.character(seen[d$openalex_id])
-    d <- sort_out(d, lib)
+    d <- sort_out(d, lib, sc)
     d <- d[order(-d$cited_by_count, d$openalex_id), ]
     rownames(d) <- NULL
     rare <- function(kind) sum(vapply(setdiff(terms, MAIN_TERMS), function(term) as.integer(cache$rare_counts[[paste(kind, term, sep = "|")]] %||% 0L), 0L))
-    say("  [ok] ", num(nrow(d)), " different works (", num(sum(d$kind == "article")), " journal articles, ",
-        num(sum(d$kind == "book")), " books); under the rarer forms: ", num(rare("article") + rare("book")))
+    say("  [ok] ", num(nrow(d)), " different works (", num(sum(d$kind == "article")), " journal articles, ", num(sum(d$kind == "review")),
+        " book reviews, ", num(sum(d$kind == "book")), " books)")
     say("  [ok] sorted out by the rules: ", num(sum(d$status == "candidate")), " candidates, ",
         num(sum(d$status == "already in the Library")), " already in the Library, ",
         num(sum(startsWith(d$status, "set aside"))), " set aside, ", num(sum(startsWith(d$status, "left out"))), " left out")
 
-    # 3. the records of the most cited
+    # 3. the records: the newest works that are not yet in the Library
     open <- d[d$status == "candidate" | startsWith(d$status, "set aside"), ]
-    top <- utils::head(open, TOP)
+    year <- suppressWarnings(as.integer(open$year)); year[is.na(year)] <- 0L
+    open <- open[order(-year, -open$cited_by_count, open$openalex_id), ]
+    # whole years: every work of the oldest year that the run reaches is taken, so that a batch can be cut by year
+    top <- open[sort(year, decreasing = TRUE) >= sort(year, decreasing = TRUE)[min(TOP, nrow(open))], ]
     if (!nrow(top)) halt("The list holds no work that could enter the Library. Paste this message and the lines above to Claude.")
-    say(""); say("3. The records of the ", num(nrow(top)), " most cited works that are not yet in the Library")
+    say(""); say("3. The records of ", num(nrow(top)), " works, the newest first (every work published ", min(top$year), " to ", max(top$year), "); ",
+                 num(nrow(open) - nrow(top)), " older ones are left for the next run")
     # 3a. abstracts from OpenAlex, fifty works per request
     need <- top$openalex_id[!(top$openalex_id %in% names(cache$abstracts))]
     for (chunk in split(need, ceiling(seq_along(need) / 50))) {
@@ -786,8 +982,10 @@ local({
     }
     save_cache()
     say("  [ok] abstracts: OpenAlex has one for ", num(sum(nzchar(unlist(cache$abstracts[top$openalex_id])))), " of these works")
-    # 3b. the DOI registry, one DOI at a time
-    need <- top$doi[!(top$doi %in% names(cache$registry))]
+    # 3b. the DOI registry, one DOI at a time (an answer kept by the first version of this script is asked again:
+    #     it did not keep the DOI under which the registry holds the record)
+    answered <- function(doi) identical(cache$registry[[doi]]$format, REGISTRY_FORMAT)
+    need <- top$doi[!vapply(top$doi, answered, logical(1))]
     if (length(need)) {
       say("  Asking the DOI registry about ", num(length(need)), " DOIs. This runs by itself; leave RStudio open.")
       t0 <- Sys.time(); silent <- 0L
@@ -806,17 +1004,18 @@ local({
         }
       }
     }
-    no_answer <- sum(!(top$doi %in% names(cache$registry)))
+    no_answer <- sum(!vapply(top$doi, answered, logical(1)))
 
-    # the record of each of these works: what OpenAlex says, what the registry says, and whether they agree
+    # 3c. the record of each work: what OpenAlex says, what the registry says, whether they agree, and the verdict
     rec <- lapply(seq_len(nrow(top)), function(i) {
       row <- as.list(top[i, ]); cr <- cache$registry[[row$doi]]
-      if (is.null(cr)) { why <- "the registry did not answer"; cr <- list(found = FALSE) } else why <- compare(row, cr)
+      if (is.null(cr) || !identical(cr$format, REGISTRY_FORMAT)) { why <- "the registry did not answer"; cr <- list(found = FALSE) } else why <- compare(row, cr)
       a_oa <- cache$abstracts[[row$openalex_id]] %||% ""; a_cr <- cr$abstract %||% ""
       # a whole abstract before one that is not whole; the publisher's own deposit before OpenAlex's; else the longer one
       from <- if (!nzchar(a_oa) && !nzchar(a_cr)) "" else if (whole_abstract(a_cr)) "Crossref" else if (whole_abstract(a_oa)) "OpenAlex"
               else if (nchar(a_cr) > nchar(a_oa)) "Crossref" else "OpenAlex"
       abstract <- if (from == "Crossref") a_cr else if (from == "OpenAlex") a_oa else ""
+      abstract <- gsub("[\u0080-\u009f]", "", gsub("[[:cntrl:]]", " ", abstract), perl = TRUE)
       families <- cr$families %||% character(); families <- families[nzchar(families)]
       people <- if (length(families) == 0) "" else if (length(families) == 1) families
                 else if (length(families) == 2) paste(families, collapse = " and ")
@@ -824,6 +1023,8 @@ local({
       known_year <- if (isTRUE(cr$found) && !is.na(cr$year)) as.character(cr$year) else ""
       cite <- if (length(families) == 0) "" else paste0(if (length(families) <= 2) paste(families, collapse = " and ") else paste(families[1], "et al."),
                                                         " ", if (nzchar(known_year)) known_year else row$year)
+      # the registry can hold a record under another DOI than the one OpenAlex gives: the registry's is the one Zotero stores
+      reg_doi <- if (isTRUE(cr$found) && nzchar(cr$doi %||% "")) cr$doi else row$doi
       data.frame(
         ref_id = row$openalex_id, cite = cite,
         first_author = if (length(families)) families[1] else "",
@@ -831,8 +1032,11 @@ local({
         authors = people, reference = "", doi_printed = "",
         status = if (!length(why)) "found" else "not found",
         check = if (!length(why)) "confirmed" else paste0("set aside: ", paste(why, collapse = "; ")),
-        list_status = row$status,
-        doi = row$doi, found_by = "OpenAlex title search, checked at Crossref",
+        list_status = row$status, verdict = "", piece = "", signs = row$signs, one_number = row$one_number,
+        scopus_title = row$scopus_title, scopus_languages = row$scopus_languages,
+        doi = reg_doi, doi_also = if (!identical(reg_doi, row$doi)) row$doi else "",
+        check_record = if (isTRUE(cr$found) && nzchar(row$first_author)) names_turned(row$first_author, families) else "",
+        found_by = "OpenAlex title search, checked at Crossref",
         title_found = if (isTRUE(cr$found)) one_line(paste0(cr$title, if (nzchar(cr$subtitle)) paste0(": ", cr$subtitle) else "")) else "",
         year_found = known_year,
         journal_or_publisher = if (isTRUE(cr$found)) (if (nzchar(cr$container)) cr$container else cr$publisher) else "",
@@ -843,12 +1047,33 @@ local({
         language = if (nzchar(cr$language %||% "")) substr(cr$language, 1, 2) else row$language,
         language_openalex = row$language, language_registry = cr$language %||% "",
         cited_by_count = row$cited_by_count, is_core = row$is_core, listed_in = row$listed_in,
+        page_range = if (is.na(row$page_range)) "" else as.character(row$page_range),
         publisher = cr$publisher %||% row$publisher, issn = cr$issn %||% row$issn_l,
         volume = cr$volume %||% row$volume, issue = cr$issue %||% row$issue, pages = cr$page %||% "",
         n_authors = row$n_authors, authors_openalex = row$authors,
         abstract = abstract, stringsAsFactors = FALSE)
     })
     rec <- do.call(rbind, rec)
+    for (i in seq_len(nrow(rec))) { rec$piece[i] <- piece_of(rec[i, ]); rec$verdict[i] <- verdict_one(rec[i, ]) }
+    rec$piece[startsWith(rec$piece, "?")] <- ""
+    # one record of the registry reached under two DOIs: the more cited record stays; and the Library may hold that DOI
+    live <- which(!startsWith(rec$verdict, "waits"))
+    again <- live[duplicated(rec$doi[live])]
+    rec$verdict[again] <- "waits: another record of a work in this list (the registry holds both under one DOI)"
+    # a book twice: the same part of the title before the colon and the same first person (the registry's, else OpenAlex's)
+    # waits; the same such title of four words or more with other people is read (it may be the same book under another DOI)
+    books <- which(!startsWith(rec$verdict, "waits") & rec$kind_guess == "book")
+    if (length(books) > 1) {
+      m <- main_part(rec$title[books]); who <- last_word(ifelse(nzchar(rec$first_author[books]), rec$first_author[books], family_part(rec$authors_openalex[books])))
+      twice <- duplicated(paste(m, who))
+      rec$verdict[books[twice]] <- "waits: another record of a book in this list (same title and first person)"
+      also <- !twice & duplicated(m) & lengths(strsplit(m, " ", fixed = TRUE)) >= 4
+      rec$verdict[books[also]] <- "to read: another book in this list has the same title (it may be the same book under another DOI)"
+    }
+    held <- which(!startsWith(rec$verdict, "waits") & rec$doi %in% lib$dois)
+    rec$verdict[held] <- "waits: the Library holds this work under the DOI that the registry gives"
+
+    d$page_range <- ifelse(is.na(d$page_range), "", as.character(d$page_range))
     list_file <- file.path(DRAFTS, paste0("search-", SEARCH_ID, "-list.csv"))
     rec_file  <- file.path(DRAFTS, paste0("search-", SEARCH_ID, "-records.csv"))
     utils::write.csv(d, list_file, row.names = FALSE, na = "", fileEncoding = "UTF-8")
@@ -864,7 +1089,8 @@ local({
     left_now <- read_allowance(key)
 
     # ---- the report --------------------------------------------------------------
-    ready <- rec[rec$check == "confirmed" & rec$list_status == "candidate", ]
+    ready <- rec[rec$verdict == "enters by the rules", ]
+    to_read <- rec[startsWith(rec$verdict, "to read"), ]
     say("")
     say("----- REPORT: copy from this line to END OF REPORT and paste it to Claude -----")
     say("script ", SCRIPT_VERSION, " | search ", SEARCH_ID, " | list fetched ", cache$list_done_at, " | report written ", format(Sys.time(), "%Y-%m-%d %H:%M"),
@@ -872,45 +1098,40 @@ local({
     say("OpenAlex allowance: spent in this run ", sprintf("$%.3f", oa$total), " | on this search in all ", sprintf("$%.3f", oa$before + oa$total),
         " | left today ", if (is.null(left_now)) "not told" else money(left_now$left),
         " | prepaid balance: ", if (is.null(left_now)) "not told" else if (left_now$prepaid > 0) paste0(money(left_now$prepaid), ", untouched") else "none")
-    say("Library in this folder: ", num(lib$n), " works on the site (", lib$updated, "), ", num(length(lib$dois)), " DOIs")
+    say("Library in this folder: ", num(lib$n), " works on the site (", lib$updated, "), ", num(length(lib$dois)), " DOIs with the batch files")
     say("words asked: ", paste(terms, collapse = ", "))
     say("titles at OpenAlex, journal articles with a DOI: ", line("article"), " | rarer forms ", num(rare("article")))
+    say("titles at OpenAlex, book reviews in journals: ", line("review"), " | rarer forms ", num(rare("review")))
     say("titles at OpenAlex, books with a DOI: ", line("book"), " | rarer forms ", num(rare("book")))
     for (v in names(cache$views)) say("  ", v, ": ", cache$views[[v]])
-    say("list: ", num(nrow(d)), " different works (", num(sum(d$kind == "article")), " articles, ", num(sum(d$kind == "book")), " books)",
-        " | citation floor: ", if (cache$floor > 0) paste0("at least ", cache$floor) else "none")
+    say("list: ", num(nrow(d)), " different works (", num(sum(d$kind == "article")), " articles, ", num(sum(d$kind == "review")), " book reviews, ",
+        num(sum(d$kind == "book")), " books) | citation floor: ", if (cache$floor > 0) paste0("at least ", cache$floor) else "none",
+        if (!is.null(cache$list_more_at)) paste0(" | more was fetched on ", cache$list_more_at) else "")
     tab <- sort(table(d$status), decreasing = TRUE)
     for (s in names(tab)) say(sprintf("  %7s  %s", num(as.integer(tab[[s]])), s))
-    say("candidates by citations (OpenAlex's count today); each column: works cited at least so often")
-    say(table_row("at least", THRESHOLDS))
-    say(table_row("articles", by_citations(d$cited_by_count[d$status == "candidate" & d$kind == "article"])))
-    say(table_row("books", by_citations(d$cited_by_count[d$status == "candidate" & d$kind == "book"])))
-    say("records checked at the DOI registry: ", num(nrow(rec)), " (the most cited candidates and works set aside; down to ",
-        min(rec$cited_by_count), " citations)",
+    out_of_scopus <- d$kind != "book" & startsWith(d$status, "left out: the journal is not on the Scopus list")
+    jt <- utils::head(sort(table(d$journal[out_of_scopus]), decreasing = TRUE), 25)
+    say("journals not on the Scopus list of ", SCOPUS_LIST, ", most frequent: ", paste0(names(jt), " ", as.integer(jt), collapse = "; "))
+    yo <- suppressWarnings(as.integer(open$year)); grp <- function(y) ifelse(y >= 2019, as.character(y), ifelse(y >= 2015, "2015-18", "before 2015"))
+    go <- table(factor(grp(yo), levels = unique(grp(sort(yo, decreasing = TRUE)))), ifelse(open$kind == "book", "books", "pieces in journals"))
+    say("works not yet in the Library that can still enter, by year (pieces in journals | books): ",
+        paste0(rownames(go), " ", go[, "pieces in journals"], "|", if ("books" %in% colnames(go)) go[, "books"] else 0, collapse = "; "))
+    say("records checked at the DOI registry: ", num(nrow(rec)), " (the newest, published ", min(rec$year), " to ", max(rec$year), ")",
         if (no_answer > 0) paste0(" | no answer for ", no_answer, ": run the line again to ask them once more") else "")
-    say("  confirmed ", num(sum(rec$check == "confirmed")), " | set aside by the registry check ", num(sum(rec$check != "confirmed")),
-        " | confirmed and a candidate in the list: ", num(nrow(ready)))
-    reasons <- unlist(strsplit(sub("^set aside: ", "", rec$check[rec$check != "confirmed"]), "; ", fixed = TRUE))
-    reasons <- ifelse(grepl("calls it", reasons, fixed = TRUE), reasons, sub("(: | \\().*$", "", reasons))
-    rt <- sort(table(reasons), decreasing = TRUE)
-    for (s in names(rt)) say(sprintf("  %7s  %s", num(as.integer(rt[[s]])), s))
-    lists <- strsplit(ready$listed_in, ";", fixed = TRUE)
-    say("  of the ", num(nrow(ready)), ": with an abstract ", num(sum(nzchar(ready$abstract))), " (whole ", num(sum(ready$abstract_whole == "TRUE")),
-        ") | open access ", num(sum(ready$open_access == "TRUE")),
-        " | articles in a journal on the CWTS core list ", num(sum(ready$kind_guess == "article" & ready$is_core == "TRUE")),
-        ", on no journal list ", num(sum(ready$kind_guess == "article" & lengths(lists) == 0)),
-        " | language not told by OpenAlex ", num(sum(!nzchar(ready$language_openalex))))
-    say("confirmed candidates by citations")
-    say(table_row("at least", THRESHOLDS))
-    say(table_row("articles", by_citations(ready$cited_by_count[ready$kind_guess == "article"])))
-    say(table_row("books", by_citations(ready$cited_by_count[ready$kind_guess == "book"])))
-    target <- ceiling((lib$n + 1) / 1000) * 1000; missing <- target - lib$n
-    at <- function(k) if (nrow(ready) >= k) paste0("no. ", num(k), " has ", ready$cited_by_count[k], " citations") else paste0("fewer than ", num(k), " are confirmed")
-    say("to reach ", num(target), " the Library needs ", num(missing), " more works; the confirmed candidates in order of citations: ",
-        at(missing), "; ", at(missing + 50), "; ", at(missing + 100))
-    yg_all <- table(year_groups(ready$year)); yg_first <- table(factor(year_groups(utils::head(ready, missing + 50)$year), levels = names(yg_all)))
-    say("confirmed candidates by year (all | the first ", num(min(nrow(ready), missing + 50)), "): ",
-        paste0(names(yg_all), " ", as.integer(yg_all), "|", as.integer(yg_first), collapse = "; "))
+    say("  the catalogues agree on ", num(sum(rec$check == "confirmed")), " | the registry gives another DOI than OpenAlex for ", num(sum(nzchar(rec$doi_also))),
+        " | names to check ", num(sum(nzchar(rec$check_record))))
+    say("verdicts:")
+    vt <- sort(table(rec$verdict), decreasing = TRUE)
+    for (s in names(vt)) say(sprintf("  %7s  %s", num(as.integer(vt[[s]])), s))
+    say("of the ", num(nrow(ready)), " that enter by the rules: articles ", num(sum(ready$piece == "article")), ", book reviews ", num(sum(ready$piece == "book review")),
+        ", books ", num(sum(ready$piece == "book")), " | with a whole abstract ", num(sum(ready$abstract_whole == "TRUE")),
+        " | open access ", num(sum(ready$open_access == "TRUE")), " | in a journal that Scopus lists with English only ", num(sum(ready$scopus_languages == "ENG")))
+    say("by year: enter as article | as book review | as book | to read | wait")
+    for (y in sort(unique(rec$year), decreasing = TRUE)) {
+      one <- rec[rec$year == y, ]
+      say("  ", y, ": ", sum(one$verdict == "enters by the rules" & one$piece == "article"), " | ", sum(one$verdict == "enters by the rules" & one$piece == "book review"),
+          " | ", sum(one$verdict == "enters by the rules" & one$piece == "book"), " | ", sum(startsWith(one$verdict, "to read")), " | ", sum(startsWith(one$verdict, "waits")))
+    }
     say("----- END OF REPORT -----")
     say("")
     if (zipped) {
