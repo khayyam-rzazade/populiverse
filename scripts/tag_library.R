@@ -40,7 +40,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02.4"
+  SCRIPT_VERSION <- "2026-10-02.5"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
   BATCH_FILE     <- NULL        # NULL = the newest file in library/batches/
 
@@ -325,6 +325,8 @@ local({
       hit <- integer(); how <- "DOI"
       wd <- norm_doi(w$doi)
       if (nzchar(wd)) hit <- which(dois == wd)
+      # the registry can hold one record under two DOIs, and Zotero may have stored the other one
+      if (!length(hit) && nzchar(w$doi_also %||% "")) { hit <- which(dois == norm_doi(w$doi_also)); if (length(hit)) how <- "other DOI" }
       if (!length(hit) && nzchar(w$title %||% "")) {
         wt <- norm_title(w$title)
         same   <- titles == wt
@@ -459,6 +461,7 @@ local({
       shown <- shown + 1
       say(head)
       if (m$how == "title") say("       found by its title (Zotero did not keep the DOI)")
+      if (m$how == "other DOI") say("       found under the other DOI of the same record, ", w$doi_also)
       if (!has_change(p)) say("       already right, nothing to change")
       if (length(p$add)) say("       add:    ", paste(p$add, collapse = "  "))
       if (length(p$remove)) {
@@ -626,7 +629,13 @@ local({
       if (big && m$status == "found" && exact[i]) next
       listed <- listed + 1
       if (big && listed > 40) { say("(more works not in order; the list stops at 40)"); break }
-      if (m$status != "found") { say(i, " | ", w$cite, " | ", toupper(m$status), " | ", w$doi %||% ""); next }
+      if (m$status != "found") {
+        # what the group holds under this title, if anything: its key and the DOI it carries
+        wt <- norm_title(w$title)
+        same <- Filter(function(it) { t <- norm_title(it$data$title); nzchar(t) && nzchar(wt) && (identical(t, wt) || (nchar(t) >= 15 && startsWith(wt, t)) || (nchar(wt) >= 15 && startsWith(t, wt))) }, items_after)
+        hint <- if (length(same)) paste0(" | the group holds this title as: ", paste(vapply(same, function(it) { d <- item_doi(it)$doi; paste0(it$key, " ", if (nzchar(d)) d else "without a DOI") }, ""), collapse = "; ")) else ""
+        say(i, " | ", w$cite, " | ", toupper(m$status), " | ", w$doi %||% "", hint); next
+      }
       d <- m$item$data
       say(i, " | ", w$cite, " | key ", m$item$key, " | ", d$itemType %||% "?",
           " | date ", d$date %||% "", " | DOI in ", item_doi(m$item)$where,

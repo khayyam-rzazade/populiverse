@@ -8,6 +8,11 @@ batch: 5
 date: "2026-10-02"
 phrases_version: 3
 
+# Records of the Library to be moved to the bin in Zotero by hand (the reason is given for each).
+remove:
+  - key: "KUBCVZHC"
+    why: "the Library's earlier record of McDonnell and Werner, International Populism, made in batch 03 from a reference list and without a DOI; batch 05 brings the same book with its DOI (10.1093/oso/9780197500859.001.0001)"
+
 works:
   - cite: "Kaltwasser et al. 2017"
     doi: "10.1093/oxfordhb/9780198803560.001.0001"
@@ -2788,6 +2793,20 @@ works:
       - "country:hungary"
       - "country:poland"
       - "type:article"
+
+  - cite: "De la Torre 2013"
+    doi: "10.18352/erlacs.9229"
+    title: "In the Name of the People: Democratization, Popular Organizations, and Populism in Venezuela, Bolivia, and Ecuador"
+    year: 2013
+    ref: "W1903148141"
+    tags:
+      - "topic:democracy-institutions"
+      - "region:latin-america"
+      - "country:bolivia"
+      - "country:ecuador"
+      - "country:venezuela"
+      - "type:article"
+      - "oa:yes"
 
   - cite: "Uitermark and Duyvendak 2008"
     doi: "10.1177/0042098008090685"
@@ -5857,6 +5876,7 @@ works:
 
   - cite: "Dietze and Roth 2020"
     doi: "10.1515/9783839449806"
+    doi_also: "10.14361/9783839449806"
     title: "Right-Wing Populism and Gender: European Perspectives and Beyond"
     year: 2020
     ref: "W4232951955"
@@ -6012,6 +6032,7 @@ works:
 
   - cite: "Soule 1992"
     doi: "10.1093/sf/71.2.431"
+    doi_also: "10.2307/2580018"
     title: "Populism and Black Lynching in Georgia, 1890-1900"
     year: 1992
     ref: "W2113363055"
@@ -6603,6 +6624,22 @@ works:
       - "topic:media-communication"
       - "region:europe"
       - "country:sweden"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "Pérez-Curiel 2020"
+    doi: "10.15581/003.33.2.175-192"
+    title: "Trend towards extreme right-wing populism on Twitter. An analysis of the influence on leaders, media and users"
+    year: 2020
+    ref: "W3023698878"
+    tags:
+      - "topic:parties"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "country:italy"
+      - "country:spain"
+      - "method:qualitative"
       - "type:article"
       - "oa:yes"
 
@@ -10100,6 +10137,7 @@ works:
     ref: "W4238348537"
     tags:
       - "type:book"
+      - "todo:check-record"
 
   - cite: "Heinze 2022"
     doi: "10.1017/s1755773922000108"

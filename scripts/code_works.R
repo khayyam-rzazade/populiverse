@@ -322,6 +322,10 @@ local({
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule",
                                               if (nzchar(r$doi)) "DOI accepted by reading, not by the automatic rule" else "no DOI: record made from the source's reference")
       }
+      if ("check_record" %in% names(r) && nzchar(r$check_record)) {
+        tags <- c(tags, "todo:check-record")
+        evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule", r$check_record)
+      }
       if (broken) {
         tags <- c(tags, "todo:check-record")
         evidence[[length(evidence) + 1]] <- c(r$ref_id, "todo:check-record", "rule",
@@ -345,6 +349,7 @@ local({
       works[[i]] <- list(cite = cite, doi = r$doi, title = title,
                          year = as.integer(if (from_search && nzchar(r$year_found)) r$year_found else r$year), kind = r$kind,
                          ref_id = r$ref_id, tags = all_tags[all_tags %in% tags],
+                         doi_also = if ("doi_also" %in% names(r) && nzchar(r$doi_also)) r$doi_also else NULL,
                          create = rec$records[[r$ref_id]])
       for (e in res$evidence) evidence[[length(evidence) + 1]] <- c(r$ref_id, e)
     }
@@ -367,7 +372,7 @@ local({
              paste0("phrases_version: ", ph$version), "")
     if (!is.null(rec$note)) out <- c(out, paste0("note: ", q(rec$note)), "")
     if (length(rec$remove)) {
-      out <- c(out, "# Records of an earlier batch that are not the works cited: to be moved to the bin in Zotero.", "remove:")
+      out <- c(out, "# Records of the Library to be moved to the bin in Zotero by hand (the reason is given for each).", "remove:")
       for (x in rec$remove) out <- c(out, paste0("  - key: ", q(x$key)), paste0("    why: ", q(x$why)))
       out <- c(out, "")
     }
@@ -378,7 +383,9 @@ local({
     }
     out <- c(out, "works:")
     for (w in works) {
-      out <- c(out, paste0("  - cite: ", q(w$cite)), paste0("    doi: ", q(w$doi)), paste0("    title: ", q(w$title)),
+      out <- c(out, paste0("  - cite: ", q(w$cite)), paste0("    doi: ", q(w$doi)),
+               # the registry can hold one record under two DOIs: Zotero may store the other one
+               if (!is.null(w$doi_also)) paste0("    doi_also: ", q(w$doi_also)), paste0("    title: ", q(w$title)),
                paste0("    year: ", w$year), paste0("    ref: ", q(w$ref_id)), "    tags:", paste0("      - ", q(w$tags)))
       if (!is.null(w$create)) {
         block <- strsplit(yaml::as.yaml(list(create = w$create), indent.mapping.sequence = TRUE), "\n")[[1]]

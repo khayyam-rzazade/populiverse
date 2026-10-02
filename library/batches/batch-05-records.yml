@@ -43,6 +43,12 @@ read:
   W2074004608: {doi: "10.1007/s12290-011-0152-8", why: "a short article of 6 pages; the abstract is its own and it is not a review of a book"}
   W2783017218: {doi: "10.1353/jod.2018.0012", why: "a short article of 5 pages; the abstract is its own and it is not a review of a book"}
   W2613605229: {doi: "10.15171/ijhpm.2017.46", why: "a short article of 4 pages; the abstract is its own and it is not a review of a book"}
+  W1903148141: {doi: "10.18352/erlacs.9229", why: "the registry gives no language and the journal also publishes in Spanish; the journal's own page offers this article as \"PDF (US English)\" (opened by Claude on 2026-10-02)"}
+  W3023698878: {doi: "10.15581/003.33.2.175-192", why: "the registry gives no language and the journal also publishes in Spanish; the journal's own PDF of this article is in English (opened by Claude on 2026-10-02)"}
+
+# Records of the Library to move to the bin in Zotero by hand (the script names them and deletes nothing).
+remove:
+  - {key: "KUBCVZHC", why: "the Library's earlier record of McDonnell and Werner, International Populism, made in batch 03 from a reference list and without a DOI; batch 05 brings the same book with its DOI (10.1093/oso/9780197500859.001.0001)"}
 
 accepted:
   W1515854992: {doi: "10.1016/j.jpubeco.2006.12.006", why: "the registry gives the year 2007 and OpenAlex 2004, three years apart; title, journal, authors and type agree"}
