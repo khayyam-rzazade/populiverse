@@ -1200,3 +1200,251 @@ $pv-faint: #6E6E6B;       // choices that match nothing, and the hint in the sea
   background: $pv-ink;
   color: $pv-paper;
 }
+
+// ---------------------------------------------------------------- An issue of the Monitor
+// The page of one issue (monitor/2026-1/ and so on). The filter
+// _templates/issue.lua puts these parts into the page.
+
+// The issue's own facts replace Quarto's line of author and date
+.pv-issue #title-block-header.quarto-title-block.default .quarto-title-meta {
+  display: none;
+}
+
+.pv-issue #title-block-header .subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+// The facts at the top: period, rules, editor, date, DOI, licence
+.pv-issue-facts dl {
+  margin: 0 0 1.5rem;
+  border-top: 1px solid $pv-hairline;
+  font-size: 0.9375rem;
+}
+
+.pv-issue-facts dl > div {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: 0 1rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+main.content .pv-issue-facts dt {
+  margin: 0;
+  color: $pv-muted;
+}
+
+main.content .pv-issue-facts dd {
+  margin: 0;
+  color: $pv-ink;
+  overflow-wrap: anywhere;
+}
+
+.pv-issue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.75rem;
+  margin: 0 0 1rem;
+}
+
+.pv-issue-note {
+  max-width: 42rem;
+  color: $pv-muted;
+  font-size: 0.875rem;
+}
+
+.pv-issue-facts {
+  margin-bottom: 2.75rem;
+}
+
+// The three parts of an issue open with the double rule of the masthead
+.pv-issue main.content > section.level2 > h2,
+.pv-issue main.content > h2 {
+  margin-top: 3.25rem;
+  padding-top: 1.125rem;
+  border-top: 3px double $pv-ink;
+}
+
+// A region
+.pv-issue main.content h3 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+// An item
+.pv-issue main.content h4 {
+  margin: 2.25rem 0 0.625rem;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.pv-issue main.content h3 + section.level4 > h4,
+.pv-issue main.content h3 + h4 {
+  margin-top: 1.5rem;
+}
+
+// The small print under an item: actor, sources, research
+.pv-item-meta {
+  margin: 0.75rem 0 0;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.pv-meta-line + .pv-meta-line {
+  margin-top: 0.2rem;
+}
+
+.pv-item-meta a {
+  color: inherit;
+  text-decoration-color: #B5B5B1;
+}
+
+.pv-item-meta a:hover,
+.pv-item-meta a:focus-visible {
+  color: $pv-ink;
+  text-decoration-color: $pv-ink;
+}
+
+// "Also this month" and its short entries
+.pv-also-label {
+  @include pv-label;
+  margin: 2.5rem 0 0.75rem;
+  color: $pv-muted;
+}
+
+.pv-also ul,
+.pv-refs ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-also li {
+  margin: 0 0 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+// A list of references, with hanging indents as in the Library
+.pv-refs li {
+  max-width: 50rem;
+  margin: 0 0 0.875rem;
+  padding-left: 1.75rem;
+  text-indent: -1.75rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+// Where a page of the PDF begins. Inside a paragraph: a thin stroke in front
+// of the exact word, and the page number next to it (in the margin on wide
+// screens). Where a page begins with a heading, the number stands at the heading.
+.pv-issue main.content {
+  position: relative;
+}
+
+@mixin pv-page-number {
+  color: $pv-muted;
+  font-family: $pv-serif;
+  font-size: 0.6875rem;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-indent: 0;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.pv-page {
+  user-select: none;
+}
+
+.pv-page::before {
+  @include pv-page-number;
+  content: "p.\00a0" attr(data-page);
+  margin-right: 0.35em;
+  padding: 0.1em 0.35em;
+  border: 1px solid $pv-hairline;
+  vertical-align: 0.15em;
+}
+
+section.pv-page-here::before {
+  @include pv-page-number;
+  content: "p.\00a0" attr(data-page);
+  position: absolute;
+  right: 0;
+  margin-top: -1.5rem;
+  padding: 0.1em 0.35em;
+  border: 1px solid $pv-hairline;
+}
+
+@include media-breakpoint-up(lg) {
+  .pv-page::before,
+  section.pv-page-here::before {
+    position: absolute;
+    left: -4.25rem;
+    right: auto;
+    width: 3.25rem;
+    padding: 0.3em 0 0;
+    border: 0;
+    border-top: 1px solid $pv-muted;
+    text-align: left;
+    vertical-align: baseline;
+  }
+
+  .pv-page::before {
+    margin: 0.5em 0 0;
+  }
+
+  section.pv-page-here::before {
+    margin-top: 0.4rem;
+  }
+
+  section.level2.pv-page-here::before {
+    margin-top: 1.7rem;
+  }
+
+  .pv-page::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0.95em;
+    margin: 0 0.2em 0 0;
+    border-left: 1px solid $pv-muted;
+    vertical-align: -0.12em;
+  }
+}
+
+// "How to cite this issue"
+.pv-issue-cite .pv-cite {
+  max-width: 50rem;
+  overflow-wrap: anywhere;
+}
+
+.pv-issue-cite .pv-cite > p:first-child {
+  margin-bottom: 0.25rem;
+}
+
+@include media-breakpoint-down(sm) {
+  .pv-issue-facts dl > div {
+    grid-template-columns: 1fr;
+  }
+
+  .pv-refs li {
+    padding-left: 1.25rem;
+    text-indent: -1.25rem;
+  }
+}
+
+@media print {
+  .pv-page,
+  .pv-issue-actions {
+    display: none;
+  }
+}

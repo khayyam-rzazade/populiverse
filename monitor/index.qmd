@@ -10,8 +10,8 @@ listing:
   contents: "*/*.qmd"
   sort: "date desc"
   type: default
-  fields: [title, date, description]
-  date-format: "MMMM YYYY"
+  # each issue shows its number, the month it covers (its "subtitle") and one line on what is in it
+  fields: [title, subtitle, description]
 ---
 
 The Monitor is a monthly digest of what populist actors did around the world. It is for readers who do not follow the news every day and still want a reliable picture. It describes what happened. It does not analyse or judge. Every item links to its sources. Populism is the object of study, never the target.
@@ -51,6 +51,10 @@ Every issue is published twice from the same text: as a web page and as a typese
 
 ## How to cite
 
-Author (year), "Title", *PopuliVerse Monitor* 2026/1, pp. x–y, DOI.
+Each issue gives its reference in a "How to cite" box, for example:
+
+Rzazade, Khayyam, ed. 2026. *PopuliVerse Monitor* 2026/1 (September 2026). DOI.
+
+To cite one item, add its title and the page of the PDF on which it stands.
 
 Issues are numbered by year, and the number follows the month the issue covers: 2026/1 is September 2026, 2026/2 is October 2026, and so on. Each year starts again at 1: January 2027 is 2027/1. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).

@@ -18,3 +18,9 @@
 # Private settings such as the Zotero key never belong in this folder
 # (the key lives in the home folder, in ~/.Renviron)
 .Renviron
+
+# An issue or a piece in preparation: while the name of its folder ends in
+# "-draft", it stays on this computer and GitHub never sees it.
+# scripts/make_issue.R takes the ending away on publication day.
+/monitor/*-draft/
+/commentary/*-draft/

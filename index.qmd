@@ -10,8 +10,7 @@ listing:
     sort: "date desc"
     max-items: 1
     type: default
-    fields: [title, date, description]
-    date-format: "MMMM YYYY"
+    fields: [title, subtitle, description]
   - id: latest-commentary
     contents: "commentary/*/*.qmd"
     sort: "date desc"

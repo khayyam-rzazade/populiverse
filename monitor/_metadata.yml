@@ -1,10 +1,19 @@
-# Settings shared by every Monitor issue in this folder.
-# Google Scholar metadata and the "Cite this" box are switched on here,
-# so each new issue gets them without any extra step.
-# The exact citation wording (2026/1, pp. x-y, DOI) is set later, with the issue template.
-google-scholar: true
-citation:
-  type: article-journal
-  container-title: "PopuliVerse Monitor"
+# Settings shared by every page in the Monitor folder.
+#
+# The filter issue.lua turns an issue into its web page: the facts at the top,
+# the PDF's page numbers in the margin, the "How to cite" box and the data that
+# Google Scholar reads. It only acts on a page whose header has the line "issue:".
+filters:
+  - ../_templates/issue.lua
+# The filter writes the citation data itself, so Quarto's own are switched off.
+google-scholar: false
+citation: false
 license: "CC BY"
+# The PDF of an issue is copied to the site next to its web page.
+resources:
+  - "*.pdf"
+# The filter reads the day of publication in the form year-month-day.
+date-format: iso
 toc: true
+toc-depth: 3
+toc-expand: true
