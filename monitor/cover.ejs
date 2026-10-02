@@ -1,0 +1,23 @@
+```{=html}
+<%
+// The cover of the Monitor on the Home page. The site takes the newest issue
+// and writes its number and its month onto the cover, so a new issue needs no
+// change on Home. Number and month come from the issue's own header ("issue",
+// "subtitle"), the same way as in the list of issues (issues.ejs).
+const plain = (s) => String(s == null ? "" : s).replace(/<[^>]*>/g, "");
+%>
+<% if (items.length > 0) { %>
+<%
+  const item = items[0];
+  const found = plain(item.title).match(/\d{4}\/\d+/);
+  const number = plain(item.issue) || (found ? found[0] : "");
+  const month = plain(item.subtitle);
+%>
+<div class="pv-cover pv-cover-monitor">
+<p class="quarto-post"><span class="pv-cover-series">Populi<em>Verse</em></span>
+<span class="pv-cover-title">Monitor</span>
+<span class="pv-cover-number"><%- number %></span>
+<span class="pv-cover-date"><%- month %></span></p>
+</div>
+<% } %>
+```

@@ -14,7 +14,7 @@ listing:
   date-format: "MMMM YYYY"
 ---
 
-Commentary publishes short pieces in which scholars comment on populism and populist actors: an opinion, an argument, a way of looking at a question. The pieces are written by scholars and reviewed by the editor. Commentary appears quarterly, and its issues are numbered by year: the first, 2026/1, comes out in December 2026, and the next, 2027/1, in March 2027.
+Commentary publishes short pieces in which scholars comment on populism and populist actors: an opinion, an argument, a way of looking at a question. The editor reviews them. Commentary appears four times a year, and its issues are numbered by year.
 
 ## Issues
 
@@ -22,38 +22,38 @@ Commentary publishes short pieces in which scholars comment on populism and popu
 :::
 
 ::: {.pv-pending}
-The first issue, 2026/1, is planned for December 2026.
+The first issue, 2026/1, is planned for December 2026. The next, 2027/1, follows in March 2027.
 :::
 
-## Call for commentary
+## Call for Commentary
 
-Commentary starts with invited pieces. Scholars who want to write are welcome too: send your piece to the editor at editor@populiverse.com
+Commentary starts with invited pieces. Other scholars are welcome too: send your piece to the editor at editor@populiverse.com
 
 ## Guidelines
 
-**Who can write.** PhD holders and doctoral candidates, with their affiliation stated. The decision to publish is the editor's.
+**Who can write.** PhD holders and doctoral candidates, with their affiliation stated. The editor decides what is published.
 
-**What Commentary publishes.** Your view on a question about populism or populist actors: an opinion, an argument, an approach. No partisan advocacy.
+**What to write.** Your view on a question about populism or populist actors: an opinion, an argument, an approach. No partisan advocacy.
 
 **Length.** 800 to 1,500 words. The length is flexible.
 
-**Pitch.** Each piece opens with a pitch of 100 to 150 words that says what the piece argues. It is printed at the top of the piece. Nothing has to be sent to the editor beforehand.
+**Pitch.** Each piece opens with a pitch of 100 to 150 words that says what it argues. It is printed at the top of the piece. Nothing has to be sent beforehand.
 
-**Sources.** You choose the form: links in the text, author-date (Harvard) references, a reference list at the end, or none. The editor may ask for a source for a specific factual claim.
+**Sources.** You choose the form: links in the text, author-date references, a reference list at the end, or none. The editor may ask for a source for a factual claim.
 
 **Whose views.** Every piece carries a line saying that the views are the author's own.
 
-**Review.** Pieces are editor-reviewed. Commentary is not peer-reviewed, and PopuliVerse does not describe it as such.
+**Review.** Pieces are reviewed by the editor. Commentary is not peer-reviewed.
 
 **What you send.** The piece, your affiliation, your ORCID iD and the declaration below, in one email to editor@populiverse.com
 
-**Cost.** None. There is no fee to submit or to publish.
+**Cost.** None.
 
-**How a piece is published.** As a web page and as a typeset PDF, with its own DOI and a "Cite this" box. It is also collected in the PDF of its issue.
+**How a piece is published.** As a web page and as a typeset PDF, with its own DOI. It is also collected in the PDF of its issue.
 
 **After publication.** Corrections and the right of reply are set out in the [editorial policy](../about/editorial-policy.qmd).
 
-## The author's declaration
+## The Author's Declaration
 
 Copy the lines below into your email. In each group, keep the one line that applies to you.
 

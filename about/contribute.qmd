@@ -1,24 +1,24 @@
 ---
-title: "How to contribute"
+title: "How to Contribute"
 description: "Suggest a paper, join the Zotero group, write for Commentary or report an error."
 ---
 
-## Suggest a paper for the Library
+## Suggest a Paper for the Library
 
-Send the title or the DOI of a work on populism, and a line on why it belongs in the [Library](../library/index.qmd), to the editor: editor@populiverse.com
+Send the title or the DOI of a work on populism, with one line on why it belongs in the [Library](../library/index.qmd), to the editor: editor@populiverse.com
 
-## Join the Zotero group
+## Join the Zotero Group
 
-The Library lives in a public Zotero group called "PopuliVerse Library". Scholars who suggest papers regularly are invited to join it as editors.
+The Library lives in a public Zotero group, "PopuliVerse Library". Scholars who suggest papers regularly are invited to join it as editors.
 
 ## Write for Commentary
 
-Commentary publishes pieces of 800 to 1,500 words in which scholars comment on populism and populist actors. They are written by PhD holders and doctoral candidates. See the [call and the guidelines](../commentary/index.qmd#call-for-commentary).
+Commentary publishes pieces of 800 to 1,500 words by PhD holders and doctoral candidates. See the [call and the guidelines](../commentary/index.qmd#call-for-commentary).
 
-## Report an error or ask for a reply
+## Report an Error or Ask for a Reply
 
-If something published here is wrong, write to the editor. Corrections are made in the open, never silently. A person or party discussed in an issue may also ask for a short reply. Both are described in the [editorial policy](editorial-policy.qmd).
+If something published here is wrong, write to the editor. Corrections are made in the open, never silently. A person or party discussed in an issue may ask for a short reply. Both are set out in the [editorial policy](editorial-policy.qmd).
 
-## Get in touch
+## Contact
 
 Write to the editor: editor@populiverse.com

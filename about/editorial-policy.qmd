@@ -1,5 +1,5 @@
 ---
-title: "Editorial policy"
+title: "Editorial Policy"
 description: "How PopuliVerse handles sources, review, originality, AI, corrections and the right of reply."
 toc: true
 ---
@@ -10,29 +10,29 @@ PopuliVerse is neutral and sourced. The Monitor describes what happened; it does
 
 ## Sources
 
-Every factual claim in the Monitor links to its source. Quotations are short. Long extracts from other publications are never reproduced. Commentary authors choose how they give their sources; the editor may ask for a source for a specific factual claim.
+Every factual claim in the Monitor links to its source. Quotations are short. Long extracts from other publications are never reproduced. Commentary authors choose how they give their sources; the editor may ask for a source for a factual claim.
 
 ## Review
 
-Monitor issues are written and edited by the editor. Commentary pieces are editor-reviewed. PopuliVerse does not call anything peer-reviewed, and will not do so unless external peer review is introduced.
+The editor decides what goes into the Monitor and answers for every issue. Commentary pieces are reviewed by the editor. Nothing on PopuliVerse is peer-reviewed, and nothing is called so.
 
 ## Originality
 
-Commentary authors send a short declaration with their piece. In it they mark what applies: whether the piece is new, whether AI tools were used, and whether they have a tie to an actor discussed. Every piece goes through a similarity check and the editor's own read before it is published.
+Commentary authors send a short declaration with their piece: whether the piece is new, whether AI tools were used, and whether they have a tie to an actor discussed. Every piece goes through a similarity check and the editor's own read before it is published.
 
 ## Use of AI
 
-PopuliVerse uses an AI assistant, Claude, to monitor sources and to draft, summarise and translate. The editor edits every published word and is responsible for it. No AI-written text is published unedited. Commentary authors declare any use of AI in their piece.
+PopuliVerse is made with the help of an AI assistant. The editor reads every word before it is published and answers for it. Commentary authors declare any use of AI in their piece.
 
-## Version of record
+## Version of Record
 
-Every Monitor issue and every Commentary piece is published as a web page and as a typeset PDF. The PDF is the version of record. Citations use its page numbers, and the web page shows the same numbers in the margin. Each issue and each Commentary piece has its own DOI, registered through Zenodo.
+Every Monitor issue and every Commentary piece is published as a web page and as a typeset PDF. The PDF is the version of record. Citations use its page numbers, and the web page shows the same numbers in the margin. Each issue and each piece has its own DOI, registered through Zenodo.
 
 ## Corrections
 
-A published PDF is never changed silently. A correction is published as a new version in Zenodo, with an erratum note on the web page.
+A published PDF is never changed silently. A correction is published as a new version at Zenodo, with a note on the web page.
 
-## Right of reply
+## Right of Reply
 
 A person or party discussed in an issue may ask for a short reply. The editor decides. Accepted replies appear in the next issue.
 
@@ -40,6 +40,6 @@ A person or party discussed in an issue may ask for a short reply. The editor de
 
 The Monitor and Commentary are published under CC BY 4.0. See the [licence page](../legal/licence.qmd).
 
-## What PopuliVerse does not do
+## What PopuliVerse Does Not Do
 
 It has no comments section, no user accounts and no advertising. It does not host other people's papers: the Library links to them.

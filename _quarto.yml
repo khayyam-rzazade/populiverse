@@ -20,7 +20,9 @@ filters:
 
 website:
   title: "PopuliVerse"
-  description: "A curated library of research on populism, a monthly monitor of populist actors worldwide, and short commentary by scholars."
+  description: "A library of research on populism, a monthly monitor of populist actors worldwide, and short commentary by scholars."
+  # The small picture in the browser tab: the letters P and V, black on white.
+  favicon: favicon.png
   site-url: "https://populiverse.com"
   back-to-top-navigation: true
   search:
@@ -46,9 +48,9 @@ website:
             href: about/about.qmd
           - text: "Editor"
             href: about/editor.qmd
-          - text: "How to contribute"
+          - text: "How to Contribute"
             href: about/contribute.qmd
-          - text: "Editorial policy"
+          - text: "Editorial Policy"
             href: about/editorial-policy.qmd
     right:
       - text: "Newsletter"

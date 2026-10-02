@@ -3,7 +3,9 @@
 # Every night, and whenever you press "Run workflow" on GitHub, this job
 #   1. runs scripts/sync_zotero.R, which reads the public Zotero group and
 #      writes library/library.json;
-#   2. saves the file in the repository when it has changed;
+#   1b. runs scripts/split_library.py, which makes from it the two lighter
+#      files that the Library page loads (the list, and the abstracts and BibTeX);
+#   2. saves the files in the repository when they have changed;
 #   3. starts the "Publish site" job, so that the site shows the new Library;
 #   4. ends with a red cross when a work was held back, so that GitHub
 #      sends you an email. The works that passed are published all the same.
@@ -44,19 +46,26 @@ jobs:
         id: sync
         run: Rscript scripts/sync_zotero.R
 
-      - name: Save the file in the repository when it has changed
+      - name: Make the two lighter files that the Library page loads
+        id: split
+        # If this step fails, the night's library.json is saved all the same and the page
+        # keeps yesterday's lighter files; the last step then raises a flag.
+        continue-on-error: true
+        run: python3 scripts/split_library.py
+
+      - name: Save the files in the repository when they have changed
         id: save
         env:
           PUBLISHED: ${{ steps.sync.outputs.published }}
         run: |
-          if [ -z "$(git status --porcelain -- library/library.json)" ]; then
-            echo "Nothing has changed: library.json is already up to date."
+          if [ -z "$(git status --porcelain -- library/library.json library/library-list.json library/library-text.json)" ]; then
+            echo "Nothing has changed: the Library's files are already up to date."
             echo "saved=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add library/library.json
+          git add library/library.json library/library-list.json library/library-text.json
           git commit -m "Library sync: ${PUBLISHED} works"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
@@ -74,4 +83,10 @@ jobs:
           HELD: ${{ steps.sync.outputs.held }}
         run: |
           echo "::error::${HELD} work(s) were held back from the Library. Open the summary of this run to see which ones and why."
+          exit 1
+
+      - name: Raise a flag when the lighter files could not be made
+        if: steps.split.outcome == 'failure'
+        run: |
+          echo "::error::scripts/split_library.py failed, so the Library page still shows the lighter files of the day before. Open this run to see why."
           exit 1

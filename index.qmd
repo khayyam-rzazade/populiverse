@@ -1,10 +1,17 @@
 ---
-title: "The universe of populism"
-description: "PopuliVerse is one place to study populism, follow what populist actors do around the world, and publish short scholarly commentary."
+title: "The Universe of Populism"
+description: "PopuliVerse is one place to study populism, to follow what populist actors do around the world and to publish short scholarly commentary."
 body-classes: pv-home
 page-layout: full
 anchor-sections: false
 listing:
+  # The cover of the Monitor on this page: its number and its month are read
+  # from the newest issue, so nothing is typed here when a new issue comes out.
+  - id: monitor-cover
+    contents: "monitor/*/*.qmd"
+    sort: "date desc"
+    max-items: 1
+    template: monitor/cover.ejs
   - id: latest-monitor
     contents: "monitor/*/*.qmd"
     sort: "date desc"
@@ -23,9 +30,9 @@ listing:
 <!-- The headline and the sentence under it come from "title" and "description" above. -->
 
 ::: {.pv-hero}
-In English, global in scope, academic in standard and readable by anyone.
+Global in scope, academic in standard and readable by anyone.
 
-[Open the Library](library/index.qmd){.pv-button}
+[Open the Library](library/index.qmd){.pv-button .pv-button-lead}
 :::
 
 <!-- ============================ The Library ============================ -->
@@ -36,40 +43,40 @@ In English, global in scope, academic in standard and readable by anyone.
 ::: {.pv-section-intro}
 ## The Library
 
-A curated, filterable database of academic and policy literature on populism, built for literature reviews. Filter by how populism is defined and by what it is studied alongside. Every entry links to its DOI or to an open-access copy.
+A database of research on populism, built for literature reviews. Filter it by approach to populism and by topic. Every entry links to its DOI or to an open-access copy.
 :::
 
 ::: {.pv-axes}
 
 ::: {.pv-axis}
-### Approaches to populism
+### Approaches to Populism
 
 - [Ideational](library/index.html?approach=ideational)
 - [Discursive](library/index.html?approach=discursive)
-- [Political-strategic](library/index.html?approach=political-strategic)
-- [Performative or stylistic](library/index.html?approach=performative)
-- [Socio-cultural](library/index.html?approach=socio-cultural)
-- [Economic or structural](library/index.html?approach=economic)
-- [Measurement and methods](library/index.html?approach=measurement)
-- [Other or multiple](library/index.html?approach=other)
+- [Politico-Strategic](library/index.html?approach=political-strategic)
+- [Performative or Stylistic](library/index.html?approach=performative)
+- [Socio-Cultural](library/index.html?approach=socio-cultural)
+- [Economic or Structural](library/index.html?approach=economic)
+- [Measurement and Methods](library/index.html?approach=measurement)
+- [Other or Multiple](library/index.html?approach=other)
 :::
 
 ::: {.pv-axis .pv-axis-wide}
 ### Populism and…
 
-- [Foreign policy](library/index.html?topic=foreign-policy)
-- [Defence and security](library/index.html?topic=defence-security)
-- [The international sphere](library/index.html?topic=international)
-- [Parties, leaders and movements](library/index.html?topic=parties)
-- [Voters and attitudes](library/index.html?topic=voters)
-- [Populists in government](library/index.html?topic=government)
-- [Spatial populism](library/index.html?topic=spatial)
-- [Economy and welfare](library/index.html?topic=economy-welfare)
-- [Media and communication](library/index.html?topic=media-communication)
+- [Foreign Policy](library/index.html?topic=foreign-policy)
+- [Defence and Security](library/index.html?topic=defence-security)
+- [The International Sphere](library/index.html?topic=international)
+- [Parties, Leaders and Movements](library/index.html?topic=parties)
+- [Voters and Attitudes](library/index.html?topic=voters)
+- [Populists in Government](library/index.html?topic=government)
+- [Spatial Populism](library/index.html?topic=spatial)
+- [Economy and Welfare](library/index.html?topic=economy-welfare)
+- [Media and Communication](library/index.html?topic=media-communication)
 - [Gender](library/index.html?topic=gender)
 - [Religion](library/index.html?topic=religion)
 - [Migration](library/index.html?topic=migration)
-- [Democracy and institutions](library/index.html?topic=democracy-institutions)
+- [Democracy and Institutions](library/index.html?topic=democracy-institutions)
 - [Other](library/index.html?topic=other)
 :::
 
@@ -80,33 +87,25 @@ A curated, filterable database of academic and policy literature on populism, bu
 :::
 
 <!-- ============================ Monitor ============================ -->
-<!-- EVERY NEW ISSUE: change the number and the month on the cover (the two lines marked below). -->
+<!-- The cover is drawn by the site from the newest issue (the file monitor/cover.ejs). Nothing to change here. -->
 
 ::: {.pv-section .pv-periodical}
 
-::: {.pv-cover .pv-cover-monitor}
-[PopuliVerse]{.pv-cover-series}
-[Monitor]{.pv-cover-title}
-[2026/1]{.pv-cover-number}
-[September 2026]{.pv-cover-date}
+::: {#monitor-cover}
 :::
 
 ::: {.pv-periodical-body}
 ## PopuliVerse Monitor
 
-A monthly digest of what populist actors did around the world: the month in brief, six regional roundups and new research. It describes what happened; it does not analyse. Every item links to its sources.
+A monthly digest of what populist actors did around the world: the month in brief, six regions and a list of new research publications related to populism. It describes what happened. It does not analyse. Every item links to its sources.
 
 ::: {#latest-monitor}
-:::
-
-::: {.pv-pending}
-The first issue, 2026/1, covers September 2026.
 :::
 
 ::: {.pv-regions}
 
 ::: {.pv-label}
-Around the world
+Around the World
 :::
 
 - Europe
@@ -124,7 +123,7 @@ Around the world
 :::
 
 <!-- ============================ Commentary ============================ -->
-<!-- EVERY NEW ISSUE: change the number and the month on the cover (the two lines marked below). -->
+<!-- FIRST ISSUE: until then the cover is typed here by hand (the number and the month, two lines below). -->
 
 ::: {.pv-section .pv-periodical}
 
@@ -138,7 +137,7 @@ Around the world
 ::: {.pv-periodical-body}
 ## PopuliVerse Commentary
 
-Short pieces in which scholars comment on populism and populist actors, reviewed by the editor. Published quarterly.
+Short pieces in which scholars comment on populism and populist actors, reviewed by the editor. Four times a year.
 
 ::: {#latest-commentary}
 :::

@@ -2,25 +2,25 @@
 title: "About PopuliVerse"
 ---
 
-PopuliVerse is one place to study, learn about, stay updated on and publish on populism: the universe of populism. It is in English, global in scope, academic in standard and readable by anyone.
+PopuliVerse is one place to study populism, to follow what populist actors do and to publish on it: the universe of populism. It is in English, global in scope, academic in standard and readable by anyone.
 
-## What is here
+## What Is Here
 
 [The Library](../library/index.qmd)
-: A curated, filterable database of academic and policy literature on populism, built for literature reviews.
+: A database of research on populism, built for literature reviews.
 
 [PopuliVerse Monitor](../monitor/index.qmd)
-: A monthly issue on what populist actors are doing around the world.
+: A monthly digest of what populist actors did around the world.
 
 [PopuliVerse Commentary](../commentary/index.qmd)
-: A quarterly issue of short scholarly commentary by researchers.
+: Short commentary by scholars, four times a year.
 
 [Resources](../resources/index.qmd)
 : Links to datasets and other hubs.
 
-## Who it is for
+## Who It Is For
 
-Students and early-career researchers starting a literature review on populism. Scholars of populism who want a curated database and a regular update on populist actors. Journalists, policy staff and general readers who want to know what populists are doing, with sources.
+Students and early-career researchers starting a literature review on populism. Scholars of populism who want a database and a regular update on populist actors. Journalists, policy staff and general readers who want to know what populists are doing, with sources.
 
 ## Editor
 
@@ -28,7 +28,7 @@ Editor: [Khayyam RZAZADE](editor.qmd)
 
 PopuliVerse is independent. It is free to read and carries no advertising. It has no comments section and no user accounts.
 
-How PopuliVerse works, including its use of AI, is set out in the [editorial policy](editorial-policy.qmd). To take part, see [how to contribute](contribute.qmd).
+How PopuliVerse works is set out in the [editorial policy](editorial-policy.qmd). To take part, see [how to contribute](contribute.qmd).
 
 ## Contact {#contact}
 

@@ -1,6 +1,8 @@
 # PopuliVerse Library: the controlled vocabulary (the "codebook").
 # Version 3, 2026-10-02 (version 2: 2026-10-01; version 1: 2026-09-30). Master plan, section 5.
 # New in version 3: the type "Book review".
+# 2026-10-03: the names shown on the site (the labels) are capitalised, and
+#   "Political-strategic" is now "Politico-Strategic" (the editor). No tag changed.
 #
 # This file lists every tag the Library is allowed to use.
 # Lines that start with # are notes for people. The scripts ignore them.
@@ -56,7 +58,7 @@ facets:
   # Axis A: how the work defines populism
   # ------------------------------------------------------------------
   approach:
-    label: "Approaches to populism"
+    label: "Approaches to Populism"
     about: "How the work defines populism."
     tags:
       - tag: "approach:ideational"
@@ -66,22 +68,22 @@ facets:
         label: "Discursive"
         definition: "Populism as a discourse or political logic that links unmet demands into ‘the people’ and sets it against those in power (Laclau, Mouffe, the Essex school)."
       - tag: "approach:political-strategic"
-        label: "Political-strategic"
+        label: "Politico-Strategic"
         definition: "Populism as a way of winning and using power, in which a personalistic leader relies on direct, unmediated support from a large and mostly unorganised following (Weyland)."
       - tag: "approach:performative"
-        label: "Performative or stylistic"
+        label: "Performative or Stylistic"
         definition: "Populism as a political style that is performed: appeals to ‘the people’ against ‘the elite’, ‘bad manners’, and the staging of crisis or threat (Moffitt)."
       - tag: "approach:socio-cultural"
-        label: "Socio-cultural"
+        label: "Socio-Cultural"
         definition: "Populism as the flaunting of the ‘low’ in politics: manners, speech and tastes close to ordinary people, set against a ‘high’ that is polished and distant (Ostiguy)."
       - tag: "approach:economic"
-        label: "Economic or structural"
+        label: "Economic or Structural"
         definition: "Populism defined by economic policy or social structure: redistribution and spending that play down economic limits (Dornbusch and Edwards), or a cross-class coalition tied to a stage of development."
       - tag: "approach:measurement"
-        label: "Measurement and methods"
+        label: "Measurement and Methods"
         definition: "Work on how to measure populism: attitude scales, text analysis of speeches and manifestos, expert surveys, and classifications of parties and leaders."
       - tag: "approach:other"
-        label: "Other or multiple"
+        label: "Other or Multiple"
         definition: "An approach not listed here, or a work that compares or combines three or more approaches, such as overviews, handbooks and conceptual debates."
 
   # ------------------------------------------------------------------
@@ -92,31 +94,31 @@ facets:
     about: "What populism is studied alongside."
     tags:
       - tag: "topic:foreign-policy"
-        label: "Foreign policy"
+        label: "Foreign Policy"
         definition: "What populists say and do in foreign policy: positions, decisions, diplomacy and relations with other states."
       - tag: "topic:defence-security"
-        label: "Defence and security"
+        label: "Defence and Security"
         definition: "Populism and defence or security policy: armed forces, military missions, defence spending, alliances, war and terrorism."
       - tag: "topic:international"
-        label: "The international sphere"
+        label: "The International Sphere"
         definition: "Populism beyond the state: the EU and Euroscepticism, international organisations, multilateralism, the international order, and links between populists across borders."
       - tag: "topic:parties"
-        label: "Parties, leaders and movements"
+        label: "Parties, Leaders and Movements"
         definition: "The supply side: populist parties, leaders and movements themselves, their organisation, ideas and strategy, how they compete, and how other parties respond."
       - tag: "topic:voters"
-        label: "Voters and attitudes"
+        label: "Voters and Attitudes"
         definition: "The demand side: who supports populists and why, including vote choice, populist attitudes and public opinion."
       - tag: "topic:government"
-        label: "Populists in government"
+        label: "Populists in Government"
         definition: "What populists do in office, nationally or locally: how they govern, the policies they pass, and what changes as a result."
       - tag: "topic:spatial"
-        label: "Spatial populism"
+        label: "Spatial Populism"
         definition: "The geography of populism: urban–rural and centre–periphery divides, regions and places ‘left behind’, and local contexts of support."
       - tag: "topic:economy-welfare"
-        label: "Economy and welfare"
+        label: "Economy and Welfare"
         definition: "Economic causes and effects of populism: globalisation, trade, crisis and inequality, economic policy, and the welfare state, including welfare chauvinism."
       - tag: "topic:media-communication"
-        label: "Media and communication"
+        label: "Media and Communication"
         definition: "How populists communicate and how the media treat them: rhetoric, social media, news coverage and disinformation."
       - tag: "topic:gender"
         label: "Gender"
@@ -128,7 +130,7 @@ facets:
         label: "Migration"
         definition: "Populism and migration: immigration and asylum politics, nativism, borders, integration, and attitudes to migrants."
       - tag: "topic:democracy-institutions"
-        label: "Democracy and institutions"
+        label: "Democracy and Institutions"
         definition: "Populism and democracy: effects on liberal democracy, the rule of law, courts, parliaments and constitutions, democratic backsliding, and direct democracy."
       - tag: "topic:other"
         label: "Other"
@@ -161,7 +163,7 @@ facets:
         label: "Sub-Saharan Africa"
         definition: "Africa south of the Sahara, including Sudan and the Horn of Africa."
       - tag: "region:global"
-        label: "Global or no regional focus"
+        label: "Global or No Regional Focus"
         definition: "Works that cover three or more regions, or no region in particular, such as theory and concept work."
 
   # ------------------------------------------------------------------
@@ -398,7 +400,7 @@ facets:
         label: "Quantitative"
         definition: "Statistical analysis of numerical data such as election results, votes in parliament, expert surveys or economic indicators. Surveys, experiments and text-as-data have their own tags."
       - tag: "method:qta"
-        label: "Text-as-data (QTA)"
+        label: "Text-as-Data (QTA)"
         definition: "Quantitative text analysis: dictionaries, scaling, topic models, machine learning and language models applied to speeches, manifestos, social media or news."
       - tag: "method:survey"
         label: "Survey"
@@ -407,7 +409,7 @@ facets:
         label: "Experiment"
         definition: "Survey, conjoint, laboratory or field experiments."
       - tag: "method:mixed"
-        label: "Mixed methods"
+        label: "Mixed Methods"
         definition: "Qualitative and quantitative methods combined in one design."
 
   # ------------------------------------------------------------------
@@ -416,15 +418,15 @@ facets:
   # scripts can check that the tag and the Zotero record agree.
   # ------------------------------------------------------------------
   type:
-    label: "Type of publication"
+    label: "Type of Publication"
     about: "What kind of publication it is."
     tags:
       - tag: "type:article"
-        label: "Journal article"
+        label: "Journal Article"
         definition: "An article in an academic journal, including review articles."
         zotero: ["journalArticle"]
       - tag: "type:book-review"
-        label: "Book review"
+        label: "Book Review"
         definition: "A review of a book, published in a journal."
         zotero: ["journalArticle"]
         guess: false          # Zotero holds a review as a journal article: without this tag a journal article is taken as an article
@@ -433,15 +435,15 @@ facets:
         definition: "A monograph, or an edited volume as a whole."
         zotero: ["book"]
       - tag: "type:chapter"
-        label: "Book chapter"
+        label: "Book Chapter"
         definition: "A chapter in an edited volume or handbook."
         zotero: ["bookSection"]
       - tag: "type:policy-paper"
-        label: "Policy paper"
+        label: "Policy Paper"
         definition: "A report or brief from a think tank, an international organisation or a public body."
         zotero: ["report"]
       - tag: "type:working-paper"
-        label: "Working paper"
+        label: "Working Paper"
         definition: "A working paper or preprint not yet published in a journal or book."
         zotero: ["report", "preprint"]
       - tag: "type:dataset"
@@ -453,11 +455,11 @@ facets:
   # Open access: one tag. No tag means "not known to be free to read".
   # ------------------------------------------------------------------
   oa:
-    label: "Open access"
+    label: "Open Access"
     about: "Whether the work is free to read."
     tags:
       - tag: "oa:yes"
-        label: "Open access"
+        label: "Open Access"
         definition: "The work is free to read, at the publisher or as a legal copy in a repository."
 
   # ------------------------------------------------------------------

@@ -322,6 +322,111 @@ main.content h3 {
   color: $pv-paper;
 }
 
+// The one button on Home that leads into the site: larger, in bold, with an arrow.
+// Under the pointer it turns from black to white, so it reads as a button.
+.pv-button-lead {
+  min-height: 3.75rem;
+  padding: 0 2.25rem;
+  border: 2px solid $pv-ink;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.pv-button-lead::after {
+  content: "\2192";
+  margin-left: 0.75rem;
+  font-weight: 400;
+}
+
+.pv-button-lead:hover,
+.pv-button-lead:focus {
+  background: $pv-paper;
+  color: $pv-ink;
+}
+
+// "How to cite", set where it is seen: a quiet strip between two thin lines
+// (the top of the Library page), or a reference set apart (the Monitor page)
+.pv-cite-top {
+  margin: 0 0 2rem;
+  padding: 0.875rem 0 0.25rem;
+  border-top: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-cite-top > p {
+  margin: 0;
+}
+
+.pv-cite-label {
+  @include pv-label;
+  color: $pv-muted;
+}
+
+.pv-cite-top #pv-cite-text,
+.pv-cite-example {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.pv-cite-example {
+  max-width: 50rem;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid $pv-ink;
+  background: rgba(17, 17, 17, 0.03);
+}
+
+.pv-cite-example > p:last-child {
+  margin-bottom: 0;
+}
+
+// A list that opens with a click (the Resources page): one line with a plus sign,
+// between two thin lines; the list itself appears underneath
+.pv-fold {
+  border-top: 1px solid $pv-hairline;
+}
+
+.pv-fold:last-of-type {
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-fold > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.5rem 0;
+  font-size: 1.125rem;
+  font-style: italic;
+  cursor: pointer;
+  list-style: none;
+}
+
+.pv-fold > summary::-webkit-details-marker {
+  display: none;
+}
+
+.pv-fold > summary::after {
+  content: "+";
+  margin-left: 1rem;
+  font-style: normal;
+  color: $pv-muted;
+}
+
+.pv-fold[open] > summary::after {
+  content: "\2212";
+}
+
+.pv-fold > summary:hover {
+  color: $pv-muted;
+}
+
+.pv-fold[open] {
+  padding-bottom: 1rem;
+}
+
 // A box that marks something not there yet
 .pv-pending {
   margin: 1.25rem 0 2rem;
@@ -654,6 +759,13 @@ footer.footer .nav-footer::before {
   padding: 0.625rem;
   display: flex;
   color: #FFFFFF;
+}
+
+// On Home the Monitor's cover is drawn by the site from the newest issue.
+// The box that Quarto puts around it adds nothing of its own.
+.pv-periodical > .quarto-listing {
+  margin: 0;
+  padding: 0;
 }
 
 .pv-cover-monitor {

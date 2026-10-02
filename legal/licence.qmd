@@ -4,18 +4,24 @@ title: "Licence"
 
 PopuliVerse Monitor and PopuliVerse Commentary are published under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
 
-## What you may do
+## What You May Do
 
 You may copy and share the text in any medium or format, and you may adapt it and build on it, for any purpose, including commercially.
 
-## What you must do
+## What You Must Do
 
-Give appropriate credit, link to the licence, and say if you changed anything. The simplest way to give credit is the reference in the "Cite this" box on each issue or piece, with its DOI.
+Give appropriate credit, link to the licence, and say if you changed anything. The simplest way to give credit is the reference in the "How to cite" box on each issue or piece, with its DOI.
 
-## What the licence does not cover
+## What the Licence Does Not Cover
 
 **Commentary under CC BY-ND.** A Commentary author may choose the [CC BY-ND 4.0 licence](https://creativecommons.org/licenses/by-nd/4.0/) instead. Such a piece can be shared but not adapted, and it says so on its page.
 
 **The Library.** Citations and abstracts are shown as published and belong to their authors and publishers. PopuliVerse links to papers and does not host them.
 
 Commentary authors keep the copyright in their pieces.
+
+## What You May Not Do
+
+The Library's tags are the editor's own work: the categories, and the way each work is classified under them. They are not under the CC BY licence.
+
+Use them freely to search the Library and to build your own literature review. They may not be reproduced as a dataset, and a study of the field as a whole that rests on the Library's tags and filters may not be published, without the editor's written permission. The editor is preparing that study himself. If your project comes close to it, write to him first: editor@populiverse.com

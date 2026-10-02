@@ -1,9 +1,9 @@
 ---
 title: "Resources"
-description: "Datasets and research hubs on populism."
+description: "Datasets, hubs, journals, tools, networks, jobs and grants for research on populism."
 ---
 
-A short, curated list. Each link goes to the project's own site.
+Each link goes to the project's own site. A line with a plus sign opens a list.
 
 ## Datasets
 
@@ -19,7 +19,13 @@ A short, curated list. Each link goes to the project's own site.
 [Chapel Hill Expert Survey (CHES)](https://www.chesdata.eu)
 : Expert estimates of where national parties in Europe stand on European integration, ideology and policy issues, in waves since 1999.
 
-## Other hubs
+[Populism and Political Parties Expert Survey (POPPA)](https://poppa-data.eu/)
+: Expert ratings of how populist the parties of Europe are: 312 parties in 31 countries in 2023, after a first round in 2018.
+
+[Global Party Survey](https://doi.org/10.1177/1354068820927686)
+: An expert survey of parties around the world that also rates how populist their rhetoric is. The link goes to the article that presents it (Norris 2020).
+
+## Other Hubs
 
 [European Center for Populism Studies (ECPS)](https://www.populismstudies.org)
 : An independent centre in Brussels for research on and analysis of populism.
@@ -32,3 +38,91 @@ A short, curated list. Each link goes to the project's own site.
 
 [POPULISMUS](https://populismus.gr)
 : An observatory of populist discourse at the Aristotle University of Thessaloniki.
+
+## For Your Research
+
+<details class="pv-fold">
+<summary>Journals With the Most Articles on Populism</summary>
+
+The ten journals with the most articles in the [Library](../library/index.qmd), counted in October 2026. Each name opens the Library with that journal.
+
+- [Politics and Governance](../library/index.html?journal=Politics%20and%20Governance)
+- [Populism](../library/index.html?journal=Populism)
+- [Government and Opposition](../library/index.html?journal=Government%20and%20Opposition)
+- [Political Studies](../library/index.html?journal=Political%20Studies)
+- [West European Politics](../library/index.html?journal=West%20European%20Politics)
+- [European Politics and Society](../library/index.html?journal=European%20Politics%20and%20Society)
+- [Party Politics](../library/index.html?journal=Party%20Politics)
+- [Journal of Political Ideologies](../library/index.html?journal=Journal%20of%20Political%20Ideologies)
+- [Journal of Contemporary European Studies](../library/index.html?journal=Journal%20of%20Contemporary%20European%20Studies)
+- [Frontiers in Political Science](../library/index.html?journal=Frontiers%20in%20Political%20Science)
+
+</details>
+
+<details class="pv-fold">
+<summary>Tools for Measuring Populism in Text</summary>
+
+Six ways to measure populism in speeches, manifestos and posts, each in the article that presents it.
+
+- Hawkins 2009. [Is Chávez Populist?: Measuring Populist Discourse in Comparative Perspective](https://doi.org/10.1177/0010414009331721). *Comparative Political Studies*. Speeches graded as a whole by trained readers.
+- Rooduijn and Pauwels 2011. [Measuring Populism: Comparing Two Methods of Content Analysis](https://doi.org/10.1080/01402382.2011.616665). *West European Politics*. A dictionary of words, tested against coding by hand.
+- Aslanidis 2018. [Measuring populist discourse with semantic text analysis: an application on grassroots populist mobilization](https://doi.org/10.1007/s11135-017-0517-4). *Quality & Quantity*. Semantic text analysis.
+- Gründl 2022. [Populist ideas on social media: A dictionary-based measurement of populist communication](https://doi.org/10.1177/1461444820976970). *New Media & Society*. A dictionary for posts on social media.
+- Di Cocco and Monechi 2022. [How Populist are Parties? Measuring Degrees of Populism in Party Manifestos Using Supervised Machine Learning](https://doi.org/10.1017/pan.2021.29). *Political Analysis*. Supervised machine learning on party manifestos.
+- Bonikowski et al. 2022. [Politics as Usual? Measuring Populism, Nationalism, and Authoritarianism in U.S. Presidential Campaigns (1952–2020) with Neural Language Models](https://doi.org/10.1177/00491241221122317). *Sociological Methods & Research*. Neural language models on campaign speeches.
+
+[Every work on measurement in the Library](../library/index.html?approach=measurement)
+
+</details>
+
+<details class="pv-fold">
+<summary>Networks and Groups</summary>
+
+[ECPR Standing Group on Extremism & Democracy](https://standinggroups.ecpr.eu/extremismanddemocracy/)
+: The group of the European Consortium for Political Research for scholars of extremism, radicalism and populism, founded in 1999. Its newsletter is e-Extreme.
+
+[PSA Populism Specialist Group](https://psapopulism.org/)
+: The group of the Political Studies Association for the study of populist discourses, movements and parties.
+
+</details>
+
+<details class="pv-fold">
+<summary>Summer Schools and Workshops</summary>
+
+[Summer School on Concepts and Methods for Research on Far-Right Politics](https://standinggroups.ecpr.eu/extremismanddemocracy/)
+: Held every two years since 2018, with the ECPR Standing Group on Extremism & Democracy.
+
+[ECPS Academy Summer School](https://www.populismstudies.org)
+: The summer school of the European Center for Populism Studies.
+
+[Annual workshop of the PSA Populism Specialist Group](https://psapopulism.org/)
+: One workshop every year, and panels at the annual conference of the Political Studies Association.
+
+</details>
+
+## For Your Career
+
+<details class="pv-fold">
+<summary>Jobs and Fellowships</summary>
+
+[EURAXESS](https://euraxess.ec.europa.eu/jobs)
+: The European Commission's portal of research jobs, funding and fellowships across Europe. Hosts that support applications for MSCA Postdoctoral Fellowships advertise there too.
+
+[APSA eJobs](https://www.apsanet.org/jobs)
+: The job board of the American Political Science Association.
+
+</details>
+
+<details class="pv-fold">
+<summary>Grants</summary>
+
+[MSCA Postdoctoral Fellowships](https://marie-sklodowska-curie-actions.ec.europa.eu/)
+: Fellowships of the European Union for researchers who hold a PhD, of any nationality. European Fellowships last 12 to 24 months.
+
+[MSCA Doctoral Networks](https://marie-sklodowska-curie-actions.ec.europa.eu/)
+: Funded PhD positions in networks of universities. The positions are advertised on EURAXESS.
+
+[European Research Council (ERC)](https://erc.europa.eu)
+: Starting, Consolidator, Advanced and Synergy Grants for researchers who lead their own project.
+
+</details>

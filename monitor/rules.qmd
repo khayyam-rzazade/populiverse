@@ -1,267 +1,133 @@
 ---
-title: "How the Monitor is made"
-description: "The rules of PopuliVerse Monitor: who is covered, what counts as news, where the news comes from and how an issue is written."
+title: "How the Monitor Is Made"
+description: "The rules of PopuliVerse Monitor: who is covered, what counts as news, where the news comes from and how an issue is made."
 # This page holds the rules of the Monitor. It is not an issue, so the issue settings are switched off here.
 google-scholar: false
 citation: false
 toc: true
 ---
 
-<!-- EVERY CHANGE TO THE RULES: raise the version number and the date in the line below, and add an entry under "Changes to these rules" at the end of the page. -->
+<!-- EVERY CHANGE TO THE RULES: raise the version number and the date in the line below, and add an entry under "Changes to These Rules" at the end of the page. -->
 
 ::: {.pv-label}
-Rules, version 1.3 · 2 October 2026
+Rules, version 1.4 · 3 October 2026
 :::
 
-These are the rules of [PopuliVerse Monitor](index.qmd). They were set before the first issue, so that every reader knows what to expect. Each issue says which version of the rules it follows. Every change is listed [at the end of this page](#changes).
+Each issue says which version of these rules it follows. Every change is listed [at the end of this page](#changes). A new dataset or source is added to this page first, then used.
 
-## What the Monitor is
+## What the Monitor Is
 
-The Monitor is a monthly digest of what populist actors did around the world. It is for readers who do not follow the news every day and still want a reliable picture.
+The Monitor describes what populist actors did around the world, month by month. It does not analyse, judge or predict. Populism is the object of study, never the target.
 
-The Monitor describes. It does not analyse, judge or predict. You can understand each event from the issue itself. The links are there as proof.
+## What Is in an Issue
 
-Populism is the object of study, never the target.
+Three parts: the month in brief; around the world, in six regions; new research. An issue has 15 pages at most.
 
-## What is in an issue
+One story is one item, told as it stood at the end of the month, in 120 to 150 words. Under it stand the actor, with the dataset or the publication behind it, the sources, and a link to the research on the topic in the [Library](../library/index.qmd).
 
-1. **The month in brief.** A short general picture of the month.
-2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. Each region has about four full items and a few one-line entries. If nothing in a region met the rules, the issue says so in one sentence. A region is never padded.
-3. **New research.** A short account of the works on populism that were published that month and are in the [Library](../library/index.qmd): how many, of which kinds, on which topics and places. The full list is one click away: on the web page of the issue, and as a file next to the PDF.
+A region where nothing met the rules says so. It is never padded.
 
-One story is one item. Several events of one story are told together, as the story stood at the end of the month. A full item has 120 to 150 words.
+"New research" is a count, not a judgement: the works published that month that are in the Library, by their date of publication in the open catalogue OpenAlex. The full list is one click away.
 
-Under each full item stand three lines:
+## Who Is Covered {#who}
 
-- **Actor.** The actor, with the dataset or the publication that classifies it as populist.
-- **Sources.** The reports behind the item, with their dates and links.
-- **Research on this.** A link into the Library ([see below](#research)).
+The Monitor does not decide who is populist. Research does. An actor is covered when one of these classifies it as populist:
 
-"New research" is counted, not judged. A work belongs to a month by its date of publication in the open catalogue OpenAlex. This is the earliest date that the catalogue knows, often the day the work appeared online. Topics, regions and countries are counted from the Library's tags. A work can carry several tags, or none. If no work was published in a month, the issue says so.
+- **[The PopuList](https://popu-list.org)**, version 4.0: parties in 31 European countries. Its borderline cases are covered too, and marked.
+- **[The Global Populism Database](https://doi.org/10.7910/DVN/LFTQEZ)**, version 2.1: the speeches of presidents and prime ministers in 77 countries, graded from 0 to 2. A leader counts with an average of 0.5 or more in the latest term (0.5 rounds up to 1: clearly populist). The Monitor follows the leader and the party or government that the leader heads.
+- **A peer-reviewed publication**, for an actor that is in no dataset. It is enough that the publication classifies the actor as partially populist. The reference is printed next to the name.
 
-An issue has 15 pages at most.
+An actor is followed in or out of parliament and government. Leaders who have died, parties that no longer exist and governments that a listed actor no longer heads are not followed.
 
-## Who counts as a populist actor {#who}
+## What Counts as News {#news}
 
-The Monitor does not decide who is populist. Research does.
+Actions, not words: elections; entering or leaving government; laws; foreign and defence policy moves; court rulings; party splits; changes of leader. No polls. No social media posts.
 
-An actor is covered when an academic dataset classifies it as populist. The datasets are:
+Any level counts: the government an actor leads, the party, its leader, a member of parliament or another representative; national, regional or local.
 
-- **The PopuList**, version 4.0. It classifies parties in 31 European countries (Rooduijn et al. 2024). Parties that it marks as borderline cases are covered too. The Monitor marks them as borderline in the item.
-- **The Global Populism Database**, version 2.1. It grades the speeches of presidents and prime ministers in 77 countries from 0 to 2 (Hawkins et al. 2019). A leader counts as populist with an average of 0.5 or more in the latest term. On the database's own scale, 0.5 rounds up to 1: a speech with strong, clearly populist elements. The Monitor follows the leader and the party or government that the leader heads.
+Left out: thin news, which no listed source reports solidly; court rulings and moves inside a party, unless they matter internationally; events that the actor did not bring about. An event abroad is filed under the actor's region.
 
-Another dataset is added to this list first, then used.
+## Sources {#sources}
 
-The datasets have gaps. Outside Europe, the Global Populism Database covers presidents and prime ministers only, and its newest terms began in 2023. So there is one more rule. An actor that is in no dataset is covered only when a peer-reviewed publication plainly classifies it as populist. "Partially populist" is not enough. The reference is printed next to the name.
+The list is fixed. A source that is not on it is not used. The Monitor does not claim that its sources are neutral: nobody can prove that. It shows which sources it uses, why, and where their limits are.
 
-Four actors are covered on this ground so far:
+### News Agencies
 
-- José Antonio Kast, Chile (Díaz, Rovira Kaltwasser and Zanotti 2023).
-- The Economic Freedom Fighters, South Africa (Fölscher, de Jager and Nyenhuis 2021).
-- Prabowo Subianto, Indonesia (Aspinall 2015).
-- Pauline Hanson's One Nation, Australia (Moffitt and Sengul 2023).
-
-Three were looked up and left out, because the Monitor found no peer-reviewed publication that plainly classifies them as populist: Javier Milei (Argentina), the uMkhonto weSizwe Party (South Africa) and Kais Saied (Tunisia).
-
-### Who is followed
-
-An actor on the list is followed whether or not it sits in a parliament or in government today.
-
-Leaders who have died and parties that no longer exist are not followed.
-
-A government that a listed actor no longer heads is not followed. In September 2026 this applied to Venezuela's interim government and to Mexico's government.
-
-### The list of actors
-
-The full list is not on this page yet. The working list has 128 actors. It is taken from the two datasets and from the publications named above, and it has not been checked name by name. Until the checked list stands here, every item in an issue names the dataset or the publication behind its actor.
-
-## What counts as news {#news}
-
-Actions, not words.
-
-The Monitor reports what populist actors did: elections; entering or leaving government; laws; foreign and defence policy moves; court rulings; party splits; changes of leader.
-
-It does not report polls. It does not report social media posts.
-
-Any news about a listed actor counts, at any level: the government it leads, the party, its leader, a member of parliament or another representative; national, regional or local.
-
-Four more rules keep an issue short and solid:
-
-- **Thin news is left out.** Without a solid report from a listed source there is no line in the issue. Leads are not chased.
-- **Court rulings and moves inside a party** count only if they matter internationally. Regular domestic ones are left out.
-- **Not every event under an actor's government is an action of the actor.** An event that the actor did not bring about is not covered. In September 2026 this applied to a blackout in Cuba.
-- **An event abroad** is filed under the actor's region.
-
-## Where the news comes from {#sources}
-
-The Monitor uses a fixed list of sources. A source that is not on the list is not used. A new source is added to the list first, with the reason, then used.
-
-The Monitor does not claim that its sources are neutral. Nobody can prove that. It shows which sources it uses, why it uses them and where their limits are.
-
-### News agencies
-
-News agencies sell their reports to media on every side of politics. Their job is to report, not to comment. An agency is on the list when it meets two conditions:
-
-- It has a service in English.
-- It is owned by media companies, by a cooperative or by a not-for-profit body, not by a state.
-
-The list has nine agencies.
+An agency is on the list when it has a service in English and is not owned by a state. Agencies sell their reports to media on every side of politics: they report, they do not comment.
 
 Reuters
-: Owned by Thomson Reuters. Bound since 1941 by the Trust Principles: independence, integrity and freedom from bias. Used for all regions.
+: Thomson Reuters; bound by its Trust Principles since 1941. All regions.
 
 Associated Press (AP)
-: A not-for-profit cooperative of news organisations in the United States. Used for all regions.
+: A not-for-profit cooperative of news organisations in the United States. All regions.
 
 Agence France-Presse (AFP)
-: Independent by a French law of 1957. Part of its income comes from the French state. For that reason AFP is never the Monitor's only source on French politics. Used for all regions.
+: Independent by a French law of 1957. Part of its income comes from the French state, so it is never the only source on French politics. All regions.
 
 Deutsche Presse-Agentur (dpa)
-: Owned by about 170 German media companies. Used for Germany.
+: About 170 German media companies. Germany.
 
 ANSA
-: A cooperative of Italian newspaper publishers. Used for Italy.
+: A cooperative of Italian newspaper publishers. Italy.
 
 PA Media
-: A private company. Most of its shareholders are British newspaper publishers. Used for the United Kingdom and Ireland.
+: A private company; most of its shareholders are British newspaper publishers. The United Kingdom and Ireland.
 
 Press Trust of India (PTI)
-: A non-profit cooperative of Indian newspapers. Used for India.
+: A non-profit cooperative of Indian newspapers. India.
 
 Kyodo News
-: A non-profit cooperative of Japanese newspapers and the broadcaster NHK. Used for Japan.
+: A non-profit cooperative of Japanese newspapers and the broadcaster NHK. Japan.
 
 Australian Associated Press (AAP)
-: A not-for-profit body with no shareholders. Used for Australia.
+: A not-for-profit body with no shareholders. Australia.
 
-A national agency is used for its own country. For foreign news, national agencies often pass on the reports of the three global agencies. Two reports count as two sources only when each agency did its own reporting.
+Two reports count as two sources only when each agency did its own reporting. A source with a link to a state is checked against the [State Media Monitor](https://doi.org/10.5281/zenodo.17219015).
 
-Agencies owned by a state are not on the list. For any source with a link to a state, the Monitor consults the State Media Monitor, a research dataset that classifies state and public media by their independence (Dragomir 2025).
+### Politico Europe
 
-### One specialist source for the European Union
+For the institutions of the European Union only. It mixes news with analysis, and its owner, Axel Springer, states political values of its own. So the Monitor takes only facts from it (votes, decisions, dates) and never uses it as the only source.
 
-Populist parties also act in the institutions of the European Union. The agencies report little on them. For these institutions only, the Monitor also uses **Politico Europe**.
+### Regional Sources
 
-Politico Europe is not a news agency. It mixes news with analysis. It belongs to Axel Springer, a German media company that states political values of its own. So two limits apply:
+For Latin America, Sub-Saharan Africa and the Middle East and North Africa, where most agencies are run by the state. A regional source is based in the region, is not owned by a state or a party, has published standards and publishes in English. There are at most three for each region, checked every year against the trust scores of the [Digital News Report](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026) of the Reuters Institute.
 
-- The Monitor takes facts from it: votes, decisions, dates. It does not take its analysis.
-- It is never the only source. It stands next to an agency or the official record of the institution.
+So far: News24, South Africa (Media24, part of Naspers); The Punch, Nigeria (the family of its founder); Buenos Aires Times, Argentina (Editorial Perfil).
 
-### Regional sources
+### Official Records
 
-In Latin America, Sub-Saharan Africa and the Middle East and North Africa, most news agencies are run by the state. The Monitor found none that meets the two conditions above and covers its region widely in English. For these regions it adds news organisations based in the region. Each one meets four conditions:
+Election results, court rulings, laws and the records of the European Union's institutions.
 
-- It is based in the region.
-- It is not owned by a state or a party.
-- It reports news and has published standards.
-- It publishes in English.
+### How the Sources Are Used
 
-There are at most three for each region. Where the country is covered, the trust scores of the Digital News Report are the outside yardstick (Reuters Institute 2026). Owners change, so every regional source is checked again each year.
-
-A full item on these regions rests on one agency and, where one reported the event, one source from the region.
-
-Three are on the list so far.
-
-News24 (South Africa)
-: Owned by Media24, part of the Naspers group.
-
-The Punch (Nigeria)
-: Owned by the family of its founder.
-
-Buenos Aires Times (Argentina)
-: Published by Editorial Perfil, a private publisher.
-
-The other places are open. A regional source is added here first, with the reason, then used.
-
-### Official records
-
-For results and texts the Monitor also uses official records: election results, court rulings, laws and the records of the European Union's institutions.
-
-### How the sources are used
-
-- Only news reports are used. Opinion pieces are not.
-- A full item rests on two sources where it matters.
-- A contested fact is attributed to the side that states it. It needs two sources.
-- Each item is written around the event, in the Monitor's own words. Quotations are short.
+- Only news reports, never opinion pieces.
+- Two sources for a full item where it matters, and always for a contested fact, which is attributed.
+- In the three regions above: one agency and, where one reported the event, one regional source.
+- The Monitor's own words. Quotations are short.
 - Every item links to its sources. The PDF prints their addresses too, because links die.
-- An agency report may be read in a copy that another outlet carries. The item then names that outlet. Where the agency's own page is known, the item links it too.
-- A short report that a search page shows in full counts as read in full.
-- Some reports sit behind a paywall. One is used only when the event matters and the editor has the full text. Where possible, it stands next to a report that is free to read.
+- An agency report may be read in a copy carried by another outlet, which the item names.
+- A report behind a paywall is used only when the event matters and the editor has the full text.
 
-## How an issue is made {#making}
+## How an Issue Is Made {#making}
 
-1. **Every week** the listed sources are searched for news on the listed actors. An index of events, such as Wikipedia's "Current events" pages, may help to find the reports. An index is never a source. The editor goes through the reports. He cuts and adds.
-2. **For each event** a short note is kept: the date, the country, the actor, what happened and the sources.
-3. **The month closes on its last day.** The issue is written once, in the week that follows. So it reports how each story stood at the end of the month.
-4. **The issue comes out** about a week after the month closes.
+Every week the listed sources are searched for news on the listed actors, and a short note is kept for each event. The month closes on its last day. The issue is written once, in the week that follows, and comes out about a week after the month closes.
 
-### What the AI does and what the editor does
+An index of events, such as Wikipedia's "Current events" pages, may help to find the reports. It is never a source.
 
-PopuliVerse uses an AI assistant, Claude. It searches the listed sources, keeps the notes and drafts the text. It writes only from the reports that the editor has approved. It adds nothing from its own memory.
-
-The editor chooses the items, edits every word and checks every link. He is responsible for everything that is published. See the [editorial policy](../about/editorial-policy.qmd).
-
-## How it is written {#language}
-
-- Short sentences, with one idea in each.
-- Plain words. A special term is explained once.
-- Who did what, when and where, with exact names, dates and numbers.
-- No judging adjectives and no predictions.
-- Every full item in the same order: what happened, the background, what comes next.
-- British spelling.
-
-## From the news back to research {#research}
-
-Every item carries the same topic and country tags as the [Library](../library/index.qmd). A link under the item, "Research on this", opens the Library with those tags. So each piece of news leads to the research on the same topic and country. Where the Library holds no work on the country yet, the link uses the region.
+The editor sets the rules, decides what goes into an issue and answers for every word. See the [editorial policy](../about/editorial-policy.qmd).
 
 ## Limits {#limits}
 
-The Monitor cannot do everything. These are its known limits.
+- **A Western core.** Outside Europe and the Asia-Pacific region, Reuters, AP and AFP carry most of the items.
+- **English only.** Events reported only in other languages can be missed, most of all in Latin America and French-speaking Africa.
+- **Small events can be missed.**
+- **Selection.** About four full items for each region is a choice. The rules guide it. They do not remove it.
 
-- **A Western core.** Reuters, AP and AFP are based in Europe and North America. Outside Europe and the Asia-Pacific region they carry most of the items.
-- **English only.** All sources are in English. Events reported only in other languages can be missed. Latin America and French-speaking Africa lose most.
-- **The datasets lag.** A new party or leader enters the datasets late. The Monitor does not cover an actor until research classifies it.
-- **Thin outside Europe and the Americas.** In Sub-Saharan Africa no leader in the database reaches the threshold. One actor is covered there so far, through a peer-reviewed publication. The region can often stay empty.
-- **The list of actors is not checked yet.** It comes from the datasets as they stand. It has not been checked name by name, and it is not on this page yet.
-- **Big events are reported better than small ones.** A small party in a small country can be missed.
-- **Selection.** About four full items for each region is a choice. The rules guide the choice. They do not remove it.
-- **New research.** The list is made on one day, soon after the month ends. A work that the catalogue takes in later is missing. A date of 1 January can stand for a year without a day. Works that are still being checked for the Library are not in. The tags follow written rules applied to titles and abstracts; nobody reads each work to set them.
-- **The first issue.** Issue 2026/1 was made from one look back over September 2026, not from weekly searches: the rules were set when the month was over. Its index of events, Wikipedia's "Current events", is thin on Asia-Pacific and Sub-Saharan Africa, and both regions are empty in that issue. A report that could not be opened was left out. This is why Germany's state elections of 20 September 2026 are missing.
-
-## Corrections and replies
+## Corrections and Replies
 
 A published PDF is never changed silently. Corrections and the right of reply follow the [editorial policy](../about/editorial-policy.qmd).
 
-## Changes to these rules {#changes}
+## Changes to These Rules {#changes}
 
-Version 1.3, 2 October 2026
-: "New research" is now a short account of the works published in the month of the issue, with the full list linked. Before, it was the list of the works added to the Library that month.
-
-Version 1.2, 2 October 2026
-: An actor is followed whether or not it sits in a parliament or in government; before, only actors in a national parliament or in government were followed. Any news about a listed actor counts, at any level. Thin news is left out. Court rulings and moves inside a party count only if they matter internationally. An event abroad is filed under the actor's region. A government that a listed actor no longer heads is not followed. An event that is not an action of the actor is not covered. "Partially populist" is not enough for an actor that is in no dataset. An agency report may be read in a copy carried by another outlet. Also new: the four actors covered through a publication; one item for each story; the three lines under each item; the list of actors and the limits of the first issue, stated plainly.
-
-Version 1.1, 1 October 2026
-: The Global Populism Database is used in its version 2.1. A threshold is set for it: 0.5. A leader is followed together with the party or government that he or she heads. Borderline cases of The PopuList are covered and marked. The first three regional sources are named.
-
-Version 1.0, 1 October 2026
-: The first version, set before the first issue.
-
-## References
-
-Aspinall, Edward. 2015. "Oligarchic Populism: Prabowo Subianto's Challenge to Indonesian Democracy." *Indonesia* 99. [DOI: 10.5728/indonesia.99.0001](https://doi.org/10.5728/indonesia.99.0001).
-
-Díaz, Camila, Cristóbal Rovira Kaltwasser, and Lisa Zanotti. 2023. "The Arrival of the Populist Radical Right in Chile: José Antonio Kast and the 'Partido Republicano'." *Journal of Language and Politics* 22 (3): 342–59. [DOI: 10.1075/jlp.22131.dia](https://doi.org/10.1075/jlp.22131.dia).
-
-Dragomir, Marius. 2025. *State Media Monitor Global Dataset 2025*. Media and Journalism Research Center. Zenodo. [DOI: 10.5281/zenodo.17219015](https://doi.org/10.5281/zenodo.17219015).
-
-Fölscher, Marine, Nicola de Jager, and Robert Nyenhuis. 2021. "Populist Parties Shifting the Political Discourse? A Case Study of the Economic Freedom Fighters in South Africa." *The Journal of Modern African Studies* 59 (4): 535–58.
-
-Hawkins, Kirk A., Rosario Aguilar, Bruno Castanho Silva, Erin K. Jenne, Bojana Kocijan, and Cristóbal Rovira Kaltwasser. 2019. "Global Populism Database." Version 2.1. Harvard Dataverse. [DOI: 10.7910/DVN/LFTQEZ](https://doi.org/10.7910/DVN/LFTQEZ).
-
-Moffitt, Benjamin, and Kurt Sengul. 2023. "The Populist Radical Right in Australia: Pauline Hanson's One Nation." *Journal of Language and Politics* 22 (3): 306–23. [DOI: 10.1075/jlp.22132.mof](https://doi.org/10.1075/jlp.22132.mof).
-
-Reuters Institute for the Study of Journalism. 2026. [*Digital News Report 2026*](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026). University of Oxford.
-
-Rooduijn, Matthijs, Andrea L. P. Pirro, Daphne Halikiopoulou, Caterina Froio, Stijn van Kessel, Sarah L. de Lange, Cas Mudde, and Paul Taggart. 2024. "The PopuList: A Database of Populist, Far-Left, and Far-Right Parties Using Expert-Informed Qualitative Comparative Classification (EiQCC)." *British Journal of Political Science* 54 (3): 969–78. [DOI: 10.1017/S0007123423000431](https://doi.org/10.1017/S0007123423000431).
-
-The PopuList. 2026. Version 4.0. [popu-list.org](https://popu-list.org).
+Version 1.4, 3 October 2026
+: The page is shorter and plainer. One rule changed: for an actor that is in no dataset, a peer-reviewed publication that classifies it as partially populist is now enough. Issue 2026/1 follows version 1.3. Versions 1.0 to 1.3, of 1 and 2 October 2026, are kept in the site's [public repository](https://github.com/khayyam-rzazade/populiverse/commits/main/monitor/rules.qmd).

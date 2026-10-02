@@ -1,89 +1,25 @@
 ---
 title: "Library"
-description: "A curated database of research on populism, built for literature reviews."
+description: "A database of research on populism, built for literature reviews."
 page-layout: full
 body-classes: pv-library
-# The two files the page needs next to it on the site:
-# the data (written by the nightly sync) and the code that draws the list.
+# The files the page needs next to it on the site: the code that draws the list,
+# and the data. The nightly sync writes library.json, the complete file; from it
+# scripts/split_library.py makes the two lighter files that the page loads:
+# the list first, the abstracts and BibTeX entries right after.
 resources:
-  - library.json
   - library.js
+  - library-list.json
+  - library-text.json
+  - library.json
 ---
 
-```{=html}
-<!-- The list is drawn here by library.js from library.json. -->
-<div id="library-app" class="pv-lib" data-source="library.json" data-zotero="https://www.zotero.org/groups/6697881/populiverse_library">
-  <noscript>
-    <div class="pv-lib-message">
-      <p>The search and the filters need JavaScript. Without it, the full list is in the <a href="https://www.zotero.org/groups/6697881/populiverse_library">Populi<em>Verse</em> Library group on Zotero</a>.</p>
-    </div>
-  </noscript>
-</div>
-<script src="library.js" defer></script>
-```
-
-::: {.pv-prose}
-
-## How it is organised
-
-Every entry is tagged on two axes. The first says how the work defines populism. The second says what populism is studied alongside. Each name below opens the Library with that filter.
-
-::: {.pv-axes}
-
-::: {.pv-axis}
-### Approaches to populism
-
-- [Ideational](?approach=ideational): populism as a thin ideology (Mudde)
-- [Discursive](?approach=discursive) (Laclau, the Essex school)
-- [Political-strategic](?approach=political-strategic) (Weyland)
-- [Performative or stylistic](?approach=performative) (Moffitt)
-- [Socio-cultural](?approach=socio-cultural) (Ostiguy)
-- [Economic or structural](?approach=economic)
-- [Measurement and methods](?approach=measurement): how populism is measured
-- [Other or multiple](?approach=other)
-:::
-
-::: {.pv-axis}
-### Populism and…
-
-- [Foreign policy](?topic=foreign-policy)
-- [Defence and security](?topic=defence-security)
-- [The international sphere](?topic=international): the EU, international organisations, multilateralism
-- [Parties, leaders and movements](?topic=parties): the supply side
-- [Voters and attitudes](?topic=voters): the demand side
-- [Populists in government](?topic=government)
-- [Spatial populism](?topic=spatial): geography, urban–rural divides, regions
-- [Economy and welfare](?topic=economy-welfare)
-- [Media and communication](?topic=media-communication)
-- [Gender](?topic=gender)
-- [Religion](?topic=religion)
-- [Migration](?topic=migration)
-- [Democracy and institutions](?topic=democracy-institutions)
-- [Other](?topic=other)
-:::
-
-:::
-
-Entries can also be filtered by region, country, method, type of publication, year, journal and open access.
-
-## What goes in
-
-Works related to populism, in English: articles in peer-reviewed journals, and books. Chapters and other kinds of work enter only when they have proved significant over time. The rule that anyone can check: "populism" or "populist" is in the title, or in the abstract when there is one.
-
-## How the tags are given
-
-A tag is given only when the work's own title or abstract supports it. The wordings that count as evidence are public: the [phrases for approaches, topics and methods](https://github.com/khayyam-rzazade/populiverse/blob/main/library/phrases.yml) and the [names of countries, leaders and parties](https://github.com/khayyam-rzazade/populiverse/blob/main/library/actors.yml). Nothing is guessed, so a work stays untagged where its own text does not say. A missing tag means "not stated in the title or the abstract", not "does not apply".
-
-## What each entry gives you
-
-The full citation, the abstract as published when the publisher provides one, a link to the DOI or to an open-access copy, the tags on both axes, and a BibTeX reference in one click. The works shown can be downloaded as a BibTeX or a CSV file. PopuliVerse links to papers. It does not host them.
-
-## How to cite the Library
-
-If you use the Library in your research or teaching, please cite it. The Library grows, so give the date of your visit.
+<!-- "How to cite the Library" stands at the top of the page, above the search,
+     so that it is seen. The box fills in today's date by itself. -->
 
 ```{=html}
-<div class="pv-cite" id="pv-cite">
+<div class="pv-cite pv-cite-top" id="pv-cite">
+  <p class="pv-cite-label">How to cite the Library</p>
   <p id="pv-cite-text">Rzazade, Khayyam, ed. 2026–. <em>PopuliVerse Library</em>. https://populiverse.com/library/. Accessed <span id="pv-cite-date">[the date of your visit]</span>.</p>
   <p class="pv-lib-tools">
     <button type="button" class="pv-lib-link" id="pv-cite-copy" hidden>Copy citation</button>
@@ -138,15 +74,89 @@ If you use the Library in your research or teaching, please cite it. The Library
 </script>
 ```
 
-Cite the works themselves as usual: each entry gives its reference and its BibTeX.
+```{=html}
+<!-- The list is drawn here by library.js from library.json. -->
+<div id="library-app" class="pv-lib" data-source="library-list.json" data-text="library-text.json" data-full="library.json" data-zotero="https://www.zotero.org/groups/6697881/populiverse_library">
+  <noscript>
+    <div class="pv-lib-message">
+      <p>The search and the filters need JavaScript. Without it, the full list is in the <a href="https://www.zotero.org/groups/6697881/populiverse_library">Populi<em>Verse</em> Library group on Zotero</a>.</p>
+    </div>
+  </noscript>
+</div>
+<script src="library.js" defer></script>
+```
 
-## Suggest a paper
+::: {.pv-prose}
 
-Is something missing? Send the title or the DOI, and a line on why it belongs here, to the editor: editor@populiverse.com
+## How It Is Organised
 
-## The Zotero group
+Entries are tagged on two axes, where their own text supports it. The first says how the work defines populism. The second says what populism is studied with. Each name below opens the Library with that filter.
 
-The Library lives in a public Zotero group called "PopuliVerse Library". Anyone can read it and use it in their own Zotero. Scholars who contribute regularly are invited to join it as editors.
+::: {.pv-axes}
+
+::: {.pv-axis}
+### Approaches to Populism
+
+- [Ideational](?approach=ideational) (Mudde)
+- [Discursive](?approach=discursive) (Laclau, the Essex school)
+- [Politico-Strategic](?approach=political-strategic) (Weyland)
+- [Performative or Stylistic](?approach=performative) (Moffitt)
+- [Socio-Cultural](?approach=socio-cultural) (Ostiguy)
+- [Economic or Structural](?approach=economic)
+- [Measurement and Methods](?approach=measurement): how populism is measured
+- [Other or Multiple](?approach=other)
+:::
+
+::: {.pv-axis}
+### Populism and…
+
+- [Foreign Policy](?topic=foreign-policy)
+- [Defence and Security](?topic=defence-security)
+- [The International Sphere](?topic=international): the EU, international organisations, multilateralism
+- [Parties, Leaders and Movements](?topic=parties): the supply side
+- [Voters and Attitudes](?topic=voters): the demand side
+- [Populists in Government](?topic=government)
+- [Spatial Populism](?topic=spatial): geography, urban–rural divides, regions
+- [Economy and Welfare](?topic=economy-welfare)
+- [Media and Communication](?topic=media-communication)
+- [Gender](?topic=gender)
+- [Religion](?topic=religion)
+- [Migration](?topic=migration)
+- [Democracy and Institutions](?topic=democracy-institutions)
+- [Other](?topic=other)
+:::
+
+:::
+
+Entries can also be filtered by region, country, method, type of publication, year, journal and open access.
+
+## What Goes In
+
+Works on populism, in English: journal articles, books and book reviews. Chapters and other kinds of work enter only when they have proved significant over time. The rule that anyone can check: "populism" or "populist" is in the title, or in the abstract when there is one.
+
+Works enter in two ways: from the reference lists of handbooks and review articles, and from a search of the open catalogue OpenAlex by title.
+
+From the search, a piece in a journal enters when Scopus covered the journal in the year of the work. There is no citation threshold. Every DOI is checked in a second catalogue, Crossref.
+
+The Library is not complete. If a work is missing or wrongly tagged, or if you see any other problem, tell the editor: editor@populiverse.com
+
+## How the Tags Are Given
+
+A tag is given only when the work's own title or abstract supports it. The wordings that count are public: the [phrases for approaches, topics and methods](https://github.com/khayyam-rzazade/populiverse/blob/main/library/phrases.yml) and the [names of countries, leaders and parties](https://github.com/khayyam-rzazade/populiverse/blob/main/library/actors.yml). Nothing is guessed. A missing tag means "not stated in the title or the abstract", not "does not apply".
+
+## What Each Entry Gives You
+
+The full citation, the abstract when the publisher provides one, a link to the DOI or to an open-access copy, the tags, and a BibTeX reference in one click. The works shown can be downloaded as a BibTeX or a CSV file. PopuliVerse links to papers. It does not host them.
+
+If you use the Library in your research or teaching, please cite it: the reference stands at the top of this page. Cite the works themselves as usual: each entry gives its reference and its BibTeX.
+
+## Suggest a Paper
+
+Is something missing? Send the title or the DOI, with one line on why it belongs here, to the editor: editor@populiverse.com
+
+## The Zotero Group
+
+The Library lives in a public Zotero group, "PopuliVerse Library". Anyone can read it and use it in their own Zotero. Scholars who contribute regularly are invited to join it as editors.
 
 [Open the PopuliVerse Library on Zotero](https://www.zotero.org/groups/6697881/populiverse_library)
 

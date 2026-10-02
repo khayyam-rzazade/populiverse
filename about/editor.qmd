@@ -1,9 +1,10 @@
 ---
-title: "Editor and founder"
-description: "Who founded and edits PopuliVerse."
+title: "Editor and Founder"
 ---
 
 Khayyam RZAZADE founded PopuliVerse and edits it. He is a Marie Skłodowska-Curie (MSCA) Research Fellow at the University of Genoa. He studies the impact of populist actors on foreign and defence policies across European middle powers. He built PopuliVerse to have one place to study populism, to follow what populist actors do and to publish on it. His own work is on his [academic page](https://thekhayyam.com/polsci).
+
+His doctoral research is funded by the European Union through the Marie Skłodowska-Curie Actions, which he gratefully acknowledges.
 
 PopuliVerse is his own project and is independent. It is not part of his doctoral project, and it is neither funded nor endorsed by the University of Genoa or by the European Union.
 

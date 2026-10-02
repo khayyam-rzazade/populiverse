@@ -15,47 +15,45 @@ listing:
   template: issues.ejs
 ---
 
-The Monitor is a monthly digest of what populist actors did around the world. It is for readers who do not follow the news every day and still want a reliable picture. It describes what happened. It does not analyse or judge. Every item links to its sources. Populism is the object of study, never the target.
+The Monitor is a monthly digest of what populist actors did around the world. It is for readers who do not follow the news every day and still want a reliable picture. It describes what happened. It also includes a list of the month's scientific publications on populism. It does not analyse or judge. Every item links to its sources. Populism is the object of study, never the target.
 
 ## Issues
 
 ::: {#issues}
 :::
 
-::: {.pv-pending}
-The first issue, 2026/1, covers September 2026.
+## How to Cite
+
+Each issue gives its reference in a "How to cite" box, for example:
+
+::: {.pv-cite-example}
+Rzazade, Khayyam, ed. 2026. *PopuliVerse Monitor* 2026/1 (September 2026). <https://doi.org/10.5281/zenodo.23100316>.
 :::
 
-## What is in an issue
+To cite one item, add its title and the page of the PDF on which it stands.
 
-1. **The month in brief.** A short general picture of the month.
-2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. Each region has about four full items and a few one-line entries. A full item says what happened, gives the background and says what comes next.
+Issues are numbered by year, and the number follows the month covered: 2026/1 is September 2026, 2026/2 is October 2026. Each year starts again at 1: January 2027 is 2027/1. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).
+
+## What Is in an Issue
+
+1. **The month in brief.** A short picture of the month.
+2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. About four full items and a few one-line entries for each region. A full item says what happened, gives the background and says what comes next.
 3. **New research.** A short account of the works on populism published that month that are in the [Library](../library/index.qmd). The full list is one click away.
 
 An issue has 15 pages at most. You can understand each event from the issue itself. The links are there as proof.
 
-## How it is made
+## How It Is Made
 
-The Monitor follows written rules. They were set before the first issue.
+The Monitor follows written rules.
 
 - **Who is covered.** Actors that academic datasets classify as populist.
 - **What counts as news.** What these actors did, not what they said: elections, governments, laws, court rulings.
 - **Where the news comes from.** A fixed list of sources: nine news agencies, one specialist outlet for the European Union, regional sources and official records.
 - **How it is written.** From the reports only, in plain words, without judgement.
-- **Who does what.** An AI assistant searches and drafts. The editor chooses the items, edits every word and checks every link.
+- **Who decides.** The editor sets the rules, decides what goes into an issue and answers for every word.
 
 [Read the rules in full](rules.qmd)
 
-## Web page and PDF
+## Web Page and PDF
 
 Every issue is published twice from the same text: as a web page and as a typeset PDF. The PDF is the version of record. The web page shows the PDF's page numbers in the margin, so a passage can be cited by page from either one. Each issue has its own DOI.
-
-## How to cite
-
-Each issue gives its reference in a "How to cite" box, for example:
-
-Rzazade, Khayyam, ed. 2026. *PopuliVerse Monitor* 2026/1 (September 2026). DOI.
-
-To cite one item, add its title and the page of the PDF on which it stands.
-
-Issues are numbered by year, and the number follows the month the issue covers: 2026/1 is September 2026, 2026/2 is October 2026, and so on. Each year starts again at 1: January 2027 is 2027/1. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).

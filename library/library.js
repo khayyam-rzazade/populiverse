@@ -21,7 +21,16 @@
   var root = document.getElementById("library-app");
   if (!root) return;
 
+  // The data comes in two steps, so that the list shows quickly:
+  //   SOURCE  the list itself (titles, authors, journals, tags, citations)
+  //   TEXT    the abstracts and the BibTeX entries, loaded right after, in the background
+  //   FULL    the one complete file: the way back if the light list cannot be loaded
+  // scripts/split_library.py makes SOURCE and TEXT from FULL every night.
   var SOURCE = root.getAttribute("data-source") || "library.json";
+  var TEXT = root.getAttribute("data-text") || "";
+  var FULL = root.getAttribute("data-full") || "";
+  var textState = "none";           // "none": one file held everything; then "loading", "ready" or "failed"
+  var byId = {};                    // id of a work -> the work
   var ZOTERO = root.getAttribute("data-zotero") || "";
   var PAGE_SIZE = 50;               // works drawn at first; "Show more" adds as many again
 
@@ -109,10 +118,49 @@
           country: e.country || [], method: e.method || [],
           type: e.type ? [e.type] : [], journal: journal ? [journal] : []
         },
-        text: fold([e.title, people.join(" "), e.container, e.publisher, e.year, e.abstract,
-                    tags.map(nameOf).join(" "), e.type ? nameOf(e.type) : "", e.doi].join(" "))
+        base: fold([e.title, people.join(" "), e.container, e.publisher, e.year,
+                    tags.map(nameOf).join(" "), e.type ? nameOf(e.type) : "", e.doi].join(" ")),
+        text: ""
       };
     });
+    works.forEach(function (w) {
+      w.text = w.e.abstract ? w.base + " " + fold(w.e.abstract) : w.base;
+      byId[w.e.id] = w;
+    });
+  }
+
+  // The abstracts and the BibTeX entries have arrived: each work gets its own,
+  // the search covers the abstracts from now on, and what is on the page is filled in.
+  function attachText(data) {
+    var map = (data && data.text) || {};
+    works.forEach(function (w) {
+      var t = map[w.e.id];
+      if (!t) return;
+      if (t.abstract) { w.e.abstract = t.abstract; w.text = w.base + " " + fold(t.abstract); }
+      if (t.bibtex) w.e.bibtex = t.bibtex;
+    });
+    textState = "ready";
+    if (state.q) { refresh(false); return; }       // a search is on: its results now count the abstracts too
+    fillText();
+  }
+
+  function waitingText() {
+    return textState === "failed" ? "The abstract could not be loaded. Reload the page in a moment."
+                                  : "Loading the abstract\u2026";
+  }
+
+  // Fills in the abstracts and switches on the BibTeX buttons of the works that are on the page.
+  function fillText() {
+    if (!ui.list) return;
+    Array.prototype.forEach.call(ui.list.querySelectorAll(".pv-lib-abstract"), function (p) {
+      var w = byId[p.id.slice(4)];
+      p.textContent = (w && w.e.abstract) || waitingText();
+    });
+    Array.prototype.forEach.call(ui.list.querySelectorAll("button[data-bib]"), function (b) {
+      var w = byId[b.getAttribute("data-bib")];
+      b.disabled = !(w && w.e.bibtex);
+    });
+    if (ui.bib) ui.bib.disabled = !current().some(function (w) { return w.e.bibtex; });
   }
 
   // ---------------------------------------------------------------- the page address
@@ -250,7 +298,7 @@
     }
     // a review of a book carries the book's title: the entry says that it is a review
     if (e.type === "type:book-review") { cite.appendChild(document.createTextNode(" ")); cite.appendChild(el("span", { class: "pv-lib-oa", text: nameOf(e.type) })); }
-    if (e.oa) { cite.appendChild(document.createTextNode(" ")); cite.appendChild(el("span", { class: "pv-lib-oa", text: "Open access" })); }
+    if (e.oa) { cite.appendChild(document.createTextNode(" ")); cite.appendChild(el("span", { class: "pv-lib-oa", text: "Open Access" })); }
 
     var tags = el("p", { class: "pv-lib-tags" });
     ["approach", "topic", "region", "country", "method"].forEach(function (k) {
@@ -272,8 +320,8 @@
 
     var actions = el("p", { class: "pv-lib-actions" });
     var abstract = null;
-    if (e.abstract) {
-      abstract = el("p", { class: "pv-lib-abstract", id: "abs-" + e.id, hidden: true, text: e.abstract });
+    if (e.abstract || e.has_abstract === true) {
+      abstract = el("p", { class: "pv-lib-abstract", id: "abs-" + e.id, hidden: true, text: e.abstract || waitingText() });
       actions.appendChild(el("button", {
         type: "button", class: "pv-lib-link", text: "Abstract", "aria-expanded": "false", "aria-controls": "abs-" + e.id,
         onclick: function (ev) {
@@ -284,11 +332,13 @@
         }
       }));
     }
-    if (e.bibtex) {
-      actions.appendChild(el("button", {
-        type: "button", class: "pv-lib-link", text: "Copy BibTeX",
-        onclick: function (ev) { copy(e.bibtex, ev.currentTarget, "Copy BibTeX", "BibTeX copied"); }
-      }));
+    if (e.bibtex || e.has_bibtex === true) {
+      var bib = el("button", {
+        type: "button", class: "pv-lib-link", text: "Copy BibTeX", "data-bib": e.id,
+        onclick: function (ev) { if (e.bibtex) copy(e.bibtex, ev.currentTarget, "Copy BibTeX", "BibTeX copied"); }
+      });
+      bib.disabled = !e.bibtex;                     // switched on when the BibTeX entries have arrived
+      actions.appendChild(bib);
     }
     return el("li", { class: "pv-lib-entry", id: "work-" + e.id }, [cite, tags.childNodes.length ? tags : null,
                                                                     actions.childNodes.length ? actions : null, abstract]);
@@ -342,13 +392,14 @@
   }
 
   function csv(list) {
+    // The file holds the works and their citations. The Library's tags (approach, topic,
+    // region, country, method) are the editor's own classification and are not in it.
     var cols = ["authors", "year", "title", "journal_or_book", "publisher", "volume", "issue", "pages", "doi", "url",
-                "type", "approach", "topic", "region", "country", "method", "open_access", "citation"];
+                "type", "open_access", "citation"];
     function cell(v) {
       v = String(v === null || v === undefined ? "" : v);
       return /[",\r\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
     }
-    function names(tags) { return (tags || []).map(nameOf).join("; "); }
     var rows = [cols.join(",")];
     list.forEach(function (w) {
       var e = w.e;
@@ -356,8 +407,7 @@
         return p.given ? p.family + ", " + p.given : p.family;
       }).join("; ");
       rows.push([people, e.year, e.title, e.container, e.publisher, e.volume, e.issue, e.pages, e.doi, e.url,
-                 e.type ? nameOf(e.type) : "", names(e.approach), names(e.topic), names(e.region), names(e.country),
-                 names(e.method), e.oa ? "yes" : "", plainCitation(e.citation)].map(cell).join(","));
+                 e.type ? nameOf(e.type) : "", e.oa ? "yes" : "", plainCitation(e.citation)].map(cell).join(","));
     });
     return "\ufeff" + rows.join("\r\n") + "\r\n";     // the first character lets Excel read accents
   }
@@ -457,7 +507,7 @@
     ui.oa = el("input", { type: "checkbox", id: "f-oa", onchange: function () { state.oa = ui.oa.checked; refresh(true); } });
     ui.oaCount = el("span", { class: "pv-lib-n" });
     ui.oaRow = el("li", { class: "pv-lib-option" }, [el("label", { for: "f-oa" }, [ui.oa, el("span", { class: "pv-lib-optname", text: "Free to read" }), ui.oaCount])]);
-    ui.groups.oa = group("Open access", "oa", state.oa, el("ul", { class: "pv-lib-options" }, [ui.oaRow]));
+    ui.groups.oa = group("Open Access", "oa", state.oa, el("ul", { class: "pv-lib-options" }, [ui.oaRow]));
     groups.push(ui.groups.oa);
 
     // On phones the filters fold away behind one line; on wide screens they are always open.
@@ -521,13 +571,25 @@
     // the count next to each choice: works that fit everything else
     var pools = {};
     function pool(k) { return pools[k] || (pools[k] = works.filter(function (w) { return fits(w, k); })); }
+    // The works are gone through once for each filter, and every choice of that filter
+    // is counted on the way. (Going through them once for each choice took half a
+    // second with thousands of journals in the list, at every click and every letter typed.)
+    var tallies = {};
+    function tally(k) {
+      if (tallies[k]) return tallies[k];
+      var t = Object.create(null), p = pool(k), i, j, v;
+      for (i = 0; i < p.length; i++) {
+        v = p[i].values[k];
+        for (j = 0; j < v.length; j++) if (v.indexOf(v[j]) === j) t[v[j]] = (t[v[j]] || 0) + 1;
+      }
+      return (tallies[k] = t);
+    }
     ui.options.forEach(function (o) {
-      var n = 0, p = pool(o.key), i;
-      for (i = 0; i < p.length; i++) if (p[i].values[o.key].indexOf(o.value) >= 0) n++;
+      var n = tally(o.key)[o.value] || 0;
       var on = state.sel[o.key].has(o.value);
       o.box.checked = on;
       o.box.disabled = n === 0 && !on;
-      o.count.textContent = n;
+      if (o.shown !== n) { o.shown = n; o.count.textContent = n; }
       o.row.classList.toggle("is-empty", n === 0 && !on);
     });
     var free = pool("oa").filter(function (w) { return w.e.oa; }).length;
@@ -571,17 +633,39 @@
 
   root.appendChild(el("p", { class: "pv-lib-loading", text: "Loading the Library\u2026" }));
 
-  fetch(SOURCE, { credentials: "same-origin" })
-    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  function getJSON(url) {
+    return fetch(url, { credentials: "same-origin" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status + " for " + url); return r.json(); });
+  }
+
+  function start(data) {
+    prepare(data);
+    readAddress();
+    build();
+    refresh(true);
+    window.addEventListener("popstate", function () { readAddress(); refresh(true); });
+  }
+
+  function complain(err) { if (window.console) console.error("PopuliVerse Library:", err); }
+
+  getJSON(SOURCE)
     .then(function (data) {
-      prepare(data);
-      readAddress();
-      build();
-      refresh(true);
-      window.addEventListener("popstate", function () { readAddress(); refresh(true); });
+      start(data);
+      if (!TEXT) return;                            // one file held everything
+      textState = "loading";
+      getJSON(TEXT).then(attachText).catch(function (err) {
+        complain(err);
+        textState = "failed";
+        fillText();
+      });
     })
     .catch(function (err) {
-      if (window.console) console.error("PopuliVerse Library:", err);
-      fail();
+      complain(err);
+      if (!FULL || FULL === SOURCE) { fail(); return; }
+      // the light list did not come: the complete file still holds everything
+      textState = "none";
+      root.textContent = "";
+      root.appendChild(el("p", { class: "pv-lib-loading", text: "Loading the Library\u2026" }));
+      getJSON(FULL).then(start).catch(function (err2) { complain(err2); fail(); });
     });
 })();
