@@ -13,6 +13,7 @@
 also:
   - {cite: "De la Torre 2013", doi: "10.18352/erlacs.9229", title: "In the Name of the People: Democratization, Popular Organizations, and Populism in Venezuela, Bolivia, and Ecuador", year: 2013, tags: ["topic:democracy-institutions", "region:latin-america", "country:bolivia", "country:ecuador", "country:venezuela", "type:article", "oa:yes"]}
   - {cite: "Pérez-Curiel 2020", doi: "10.15581/003.33.2.175-192", title: "Trend towards extreme right-wing populism on Twitter. An analysis of the influence on leaders, media and users", year: 2020, tags: ["topic:parties", "topic:media-communication", "region:europe", "country:france", "country:italy", "country:spain", "method:qualitative", "type:article", "oa:yes"]}
+  - {cite: "Hawkins et al. 2017", doi: "", title: "The ideational approach to populism", year: 2017, tags: ["approach:ideational", "type:article", "todo:check-record"]}
 
 read:
   W4399659467: {doi: "10.1215/00021482-11077605", why: "a short piece; the abstract names the book reviewed or its author"}

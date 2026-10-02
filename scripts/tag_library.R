@@ -40,7 +40,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02.5"
+  SCRIPT_VERSION <- "2026-10-02.6"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
   BATCH_FILE     <- NULL        # NULL = the newest file in library/batches/
 
@@ -318,6 +318,23 @@ local({
   item_tags <- function(it) vapply(it$data$tags %||% list(), function(t) t$tag %||% "", "")
 
   # Find each work of the batch among the items of the group.
+  # Does the year of a Zotero item lie within one year of the year of a batch work?
+  same_year <- function(it, year) {
+    d <- it$data$date %||% ""
+    y <- suppressWarnings(as.integer(regmatches(d, regexpr("[0-9]{4}", d))))
+    length(y) == 1 && !is.na(y) && !is.null(year) && abs(y - as.integer(year)) <= 1
+  }
+
+  # Is the first person of a Zotero item the first name in the short reference of a batch work ("Hawkins et al. 2017")?
+  same_first_author <- function(it, cite) {
+    first <- sub("\\s+and\\s+.*$", "", sub("\\s+et al\\.?$", "", sub("\\s+[0-9]{4}[a-z]?$", "", cite %||% "")))
+    letters_only <- function(x) gsub("[^\\p{L}]", "", tolower(x), perl = TRUE)
+    people <- it$data$creators %||% list()
+    if (!length(people)) return(FALSE)
+    a <- letters_only(first); b <- letters_only(people[[1]]$lastName %||% people[[1]]$name %||% "")
+    nzchar(a) && nzchar(b) && (a == b || grepl(a, b, fixed = TRUE) || grepl(b, a, fixed = TRUE))
+  }
+
   match_works <- function(works, items) {
     dois   <- vapply(items, function(it) item_doi(it)$doi, "")
     titles <- vapply(items, function(it) norm_title(it$data$title), "")
@@ -335,6 +352,11 @@ local({
         # an item that carries a different DOI is a different work, whatever its title
         # (the same holds for a work that enters without a DOI: it is never matched to an item that has one)
         if ((nzchar(wd) || !is.null(w$create)) && length(hit)) hit <- hit[!nzchar(dois[hit])]
+        # a work that has a DOI and is found by its title only: the year and the first author must agree as well,
+        # so that it is never taken for an older record whose title begins in the same way
+        if (nzchar(wd) && is.null(w$create) && length(hit)) {
+          hit <- hit[vapply(items[hit], function(it) same_year(it, w$year) && same_first_author(it, w$cite), logical(1))]
+        }
         if (!is.null(w$create) && length(hit)) hit <- hit[titles[hit] == wt]
         if (!is.null(w$year) && length(hit)) {
           years <- vapply(items[hit], function(it) grepl(as.character(w$year), it$data$date %||% "", fixed = TRUE), logical(1))
