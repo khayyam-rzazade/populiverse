@@ -1,5 +1,6 @@
 # PopuliVerse Library: the phrases that count as evidence for each tag.
-# Version 3, 2026-10-02 (version 2 of 2026-10-01 added the rule on review articles; version 3 removes two more wordings before "war" is looked for). It belongs with taxonomy.yml (the tags) and actors.yml
+# Version 4, 2026-10-02 (version 2 of 2026-10-01 added the rule on review articles; version 3 removes two more wordings before "war" is looked for;
+# version 4, with batch 08: more wordings removed before "war" and before "interview" are looked for, and "opinion poll" no longer counts as a survey). It belongs with taxonomy.yml (the tags) and actors.yml
 # (countries, leaders and parties).
 #
 # HOW IT WORKS
@@ -25,7 +26,7 @@
 #   A work found to use mixed methods gets "Mixed methods" only, not also
 #   "Qualitative" or "Quantitative".
 
-version: 3
+version: 4
 date: "2026-10-02"
 
 # Outlets that may not be peer-reviewed. A work in one of them stays in the
@@ -98,7 +99,10 @@ topic:
               "warfare", "terroris*", "peacekeeping", "peacemaking", "peace process*", "arms control", "arms export*",
               "securiti*ation", "securiti*ing", "security threat*"]
     not: ["cold war", "culture war*", "trade war*", "class war*", "post war", "postwar", "world war", "inter war", "interwar",
-          "war on science", "mention the war"]
+          "war on science", "mention the war",
+          # since version 4 (batch 08): a period, a figure of speech or a name, not a war
+          "pre war", "prewar", "civil war era", "dirty war", "war on human rights", "cultural war*", "oil war*",
+          "immigration war*", "wal mart wars"]
   "topic:international":
     phrases: ["european union", "eu", "euroscepti*", "european integration", "brexit", "european parliament",
               "international organi*ation*", "international institution*", "multilateral*", "global governance",
@@ -159,7 +163,9 @@ method:
               "process tracing", "focus group*", "discourse analysis", "critical discourse analysis",
               "participant observation", "archival", "in depth case stud*", "comparative case stud*",
               "within case", "narrative analysis", "interpretive analysis"]
-    not: ["qualitative comparative analysis"]
+    not: ["qualitative comparative analysis",
+          # since version 4 (batch 08): a piece that is an interview, or that studies interviews in the news
+          "an interview", "interview with", "news interview*", "interviewing a"]
   "method:quantitative":
     phrases: ["regression*", "panel data", "time series", "statistical analys*", "quantitative analys*",
               "quantitative evidence", "quantitative study", "quantitative data", "large n", "multilevel model*",
@@ -175,7 +181,8 @@ method:
               "original survey*", "online survey*", "national survey*", "representative survey*", "panel survey*",
               "public opinion survey*", "cross national survey*", "nationally representative", "survey based",
               "european social survey", "eurobarometer", "world values survey", "latinobarometro",
-              "american national election stud*", "opinion poll*", "polling data", "election stud*"]
+              "american national election stud*", "polling data", "election stud*"]
+    # ("opinion poll*" was a phrase until version 3: polls are often named without being the work's own method)
     not: ["expert survey*", "survey experiment*"]
   "method:experiment":
     phrases: ["survey experiment*", "conjoint", "vignette experiment*", "experimental design", "experimental evidence",

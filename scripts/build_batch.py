@@ -13,13 +13,20 @@ usage:  python3 scripts/build_batch.py SITE RECORDS.csv NN YEAR_FROM YEAR_TO [DE
   DECISIONS.json  what Claude decided by reading, with a reason for each work:
                     {"W123...": {"as": "article" | "book review" | "book" | "no", "why": "...", "note": "..."}}
                   "note" (optional) becomes a note for the editor (todo:check-record).
+                  "no_abstract" (optional, true): the abstract in the record belongs to another text
+                  (a chapter of the volume, a thesis of the same title) and is left out.
+                  "published" (optional): the day of publication, where OpenAlex's day is that of another version.
+                  A decision also counts for a work that enters by the rules (since batch 08): "no" holds it
+                  back (a second DOI of a work that is in, a journal that only shares its name with a Scopus
+                  journal, an abstract of a conference paper), and another kind changes its kind (a review of
+                  a book that the rules took for an article).
                   "_also" (optional): works of an earlier batch that this batch is to tag again:
-                    [{"cite": ..., "doi": ... or "", "title": ..., "year": ..., "tags": [...]}]
+                    [{"cite": ..., "doi": ... or "", "title": ..., "year": ..., "tags": [...], "why": "..."}]
   LIST.csv        drafts/search-NN-list.csv (for OpenAlex's day of publication); by default next to RECORDS.csv
 
-What enters: every work of the years asked whose verdict is "enters by the rules"; every work for which neither
-catalogue states the language, when Scopus lists its journal with English only; and every work "to read" that
-DECISIONS.json lets in. A work whose record the two catalogues do not fully confirm enters as "accepted" and gets
+What enters: every work of the years asked whose verdict is "enters by the rules", unless DECISIONS.json holds it
+back; every work for which neither catalogue states the language, when Scopus lists its journal with English only;
+and every work "to read" that DECISIONS.json lets in. A work whose record the two catalogues do not fully confirm enters as "accepted" and gets
 the note todo:check-record. A review of a book is written without its abstract (its tags come from the title alone).
 A work whose names the registry writes in capitals gets todo:check-record.
 
@@ -36,17 +43,22 @@ R = list(csv.DictReader(open(records, encoding='utf-8')))
 W = [r for r in R if r['year'].isdigit() and y1 <= int(r['year']) <= y2]
 ctrl = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]'); broken = re.compile(r'[\x80-\x9f]|\u00e2\u20ac|\u00c3[\u00a0-\u00bf]')
 final, wait = [], []
+held = retyped = 0
 for r in W:
     d = decisions.get(r['ref_id'])
-    r['publication_date'] = dates.get(r['ref_id'], '')
+    r['publication_date'] = (d or {}).get('published') or dates.get(r['ref_id'], '')
     # neither catalogue states the language: a piece in a journal that Scopus lists with English only is taken as English
     by_scopus = r['check'] == 'set aside: neither catalogue states the language' and r['scopus_languages'] == 'ENG' and r['piece'] in ('article', 'book review') \
                 and r['list_status'] == 'candidate'
-    if r['verdict'] == 'enters by the rules' or by_scopus: r['let_in'] = ''; r['by_scopus_language'] = 'yes' if by_scopus else ''; final.append(r)
+    by_rules = r['verdict'] == 'enters by the rules' or by_scopus
+    # a work that enters by the rules and on which the reading says nothing, or nothing new
+    if by_rules and (not d or d.get('as') == r['piece']): r['let_in'] = ''; r['by_scopus_language'] = 'yes' if by_scopus else ''; final.append(r)
     elif d and d.get('as') in ('article', 'book review', 'book'):
         r['piece'] = d['as']; r['let_in'] = 'read' if r['check'] == 'confirmed' else 'accepted'; r['why'] = d['why']; final.append(r)
         if d.get('note'): r['check_record'] = d['note']
-    else: r['why'] = ((d or {}).get('why') + ' (read by Claude)') if d else r['verdict']; wait.append(r)
+        if d.get('no_abstract'): r['abstract'] = ''; r['abstract_whole'] = ''
+        retyped += by_rules
+    else: r['why'] = ((d or {}).get('why') + ' (read by Claude)') if d else r['verdict']; wait.append(r); held += by_rules
 for r in final:     # names that the registry writes in capitals come into Zotero in capitals: a note for the editor
     if not r.get('check_record') and re.search(r'(^|[ ,])[A-Z\u00c0-\u00de]{3,}([ ,]|$)', r['authors']):
         r['check_record'] = 'the registry writes the names in capitals (' + r['authors'][:60] + '): to be corrected in Zotero by hand'
@@ -74,15 +86,17 @@ with open('%s/library/batches/batch-%s-records.yml' % (site, nn), 'w', encoding=
 # for the year of the work. Each DOI is checked at the DOI registry (Crossref).
 #
 # read      Works that the script gave to Claude to read (a short piece whose kind the record does not
-#           show, a title that the Library holds, a language to check) and that enter for the reason given.
+#           show, a title that the Library holds, a language to check) and that enter for the reason given;
+#           and works that enter by the rules and whose kind the reading changed.
 # accepted  Works on which the two catalogues do not fully agree and that enter for the reason given.
 #           Each also gets the note "todo:check-record" in Zotero, for the editor's own pass.
 
 ''' % (nn, y1, y2))
     also = decisions.get('_also', [])
     if also:
-        f.write('# Works of an earlier batch that still wait for their tags: tagged with this batch.\nalso:\n')
-        for a in also: f.write('  - {cite: %s, doi: %s, title: %s, year: %d, tags: [%s]}\n' % (q(a['cite']), q(a['doi']), q(a['title']), a['year'], ', '.join(q(t) for t in a['tags'])))
+        f.write('# Works of an earlier batch that this batch tags again: each with its full set of tags, and why.\nalso:\n')
+        for a in also: f.write('  - {cite: %s, doi: %s, title: %s, year: %d, tags: [%s]%s}\n' % (q(a['cite']), q(a['doi']), q(a['title']), a['year'], ', '.join(q(t) for t in a['tags']),
+                                                                                              (', why: ' + q(a['why'])) if a.get('why') else ''))
         f.write('\n')
     for name in ('read', 'accepted'):
         rows = [r for r in final if r['let_in'] == name]
@@ -95,4 +109,5 @@ with open('%s/drafts/batch-%s-waiting.csv' % (site, nn), 'w', newline='', encodi
 print('batch %s, published %d to %d: checked %d | enter %d (by the rules %d, read %d, accepted %d) | as: %s | wait %d' % (nn, y1, y2, len(W), len(final), sum(not r['let_in'] for r in final),
       sum(r['let_in'] == 'read' for r in final), sum(r['let_in'] == 'accepted' for r in final), dict(collections.Counter(r['piece'] for r in final)), len(wait)))
 print('entered because Scopus lists the journal with English only:', sum(1 for r in final if r.get('by_scopus_language')))
+print('enter by the rules, held back by reading:', held, '| kind changed by reading:', retyped)
 print('still to read (no decision yet):', sum(1 for r in wait if r['verdict'].startswith('to read') and r['ref_id'] not in decisions))

@@ -1,0 +1,230 @@
+# Batch 08: what was decided by reading, not by the rules alone.
+# Source: search 01 of OpenAlex (scripts/search_works.R, third version of the rules): journal articles,
+# reviews of books in journals, and books, in English, with a DOI, whose title names populism, published
+# 2008 to 2021. A piece in a journal counts when the journal is on the Scopus source list of August 2026
+# for the year of the work. Each DOI is checked at the DOI registry (Crossref).
+#
+# read      Works that the script gave to Claude to read (a short piece whose kind the record does not
+#           show, a title that the Library holds, a language to check) and that enter for the reason given;
+#           and works that enter by the rules and whose kind the reading changed.
+# accepted  Works on which the two catalogues do not fully agree and that enter for the reason given.
+#           Each also gets the note "todo:check-record" in Zotero, for the editor's own pass.
+
+# Works of an earlier batch that this batch tags again: each with its full set of tags, and why.
+also:
+  - {cite: "Netanyahu and Susanto 2022", doi: "10.47655/dialog.v45i2.664", title: "Sustainability of Interreligious Dialogue in Indonesia under the Phenomenon of Intolerance by Islamic Populists", year: 2022, tags: ["topic:religion", "region:asia-pacific", "country:indonesia", "type:article", "oa:yes", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (0126-396X) is not there, and the piece passed the check through another journal of the same name (Dialog, ISSN 0012-2033); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Paris Institute of Political Studies (SciencesPo) and Gordadze 2024", doi: "10.62343/geopolitics.2024.10.3", title: "From “Free Money for All!” to “SOS! LGBT are Coming!” - Georgian Dream's Drift from Social Populism to Nativist Ethnonationalism", year: 2024, tags: ["topic:gender", "topic:migration", "region:europe", "country:georgia", "type:article", "oa:yes", "todo:check-outlet", "todo:check-record"], why: "the journal is not on the Scopus list: its ISSN (2960-9445) is not there, and the piece passed the check through another journal of the same name (Geopolitics, ISSN 1465-0045); it gets the note todo:check-outlet (the editor's decision of 2026-10-02); the registry lists the author's institute as an author: to be corrected in Zotero by hand"}
+  - {cite: "S. Gavrilova 2023", doi: "10.21557/iaf.88282404", title: "A New Right-Wing Italy and Prospects for Italian Populism", year: 2023, tags: ["region:europe", "country:italy", "type:article", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (0130-9641) is not there, and the piece passed the check through another journal of the same name (International Affairs, ISSN 0020-5850); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Baranivska 2026", doi: "10.53317/2786-4774-2026-2-3", title: "Populism as a Discursive Practice of Power: An Interpretation within the Framework of Michel Foucault`s Theory", year: 2026, tags: ["approach:discursive", "type:article", "oa:yes", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (2786-4774) is not there, and the piece passed the check through another journal of the same name (Political Studies, ISSN 0032-3217); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Fyodor GAYDA 2024", doi: "10.21557/ssc.99327915", title: "The Burden of Responsibility: Its Alternatives in the Ideological Transformation of Populism (Narodnichestvo) in the 1880s", year: 2024, tags: ["type:article", "todo:check-record", "todo:check-outlet"], why: "the Scopus list holds the journal of this ISSN (0134-5486) as \"Social Sciences (Russian Federation)\", but not for 2024; the piece passed the check through another journal called Social Sciences (ISSN 2076-0760); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Martinico 2026", doi: "10.1515/pol-2026-2005", title: "Identity and Memory Politics in Populist Contexts", year: 2026, tags: ["topic:democracy-institutions", "type:article", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (2035-5262) is not there, and the piece passed the check through another journal of the same name (Polemos, ISSN 2281-9517); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Jung 2026", doi: "10.35223/gnulaw.34.2.7", title: "Constitutional Democracy in the Age of Post-Democracy: On the Compatibility of Populism and Constitutionalism in Normative Perspective", year: 2026, tags: ["topic:democracy-institutions", "type:article", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (1975-2784) is not there, and the piece passed the check through another journal of the same name (Journal of Legal Studies, ISSN 0047-2530); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Ambrozy 2023", doi: "10.2478/ejis-2023-0007", title: "The Covid-19 Pandemic in the Light of Populism", year: 2023, tags: ["type:article", "oa:yes", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (2411-4138) is not there, and the piece passed the check through another journal of the same name (European Journal of Interdisciplinary Studies, ISSN 2067-3795); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Featherstone 2022", doi: "10.3898/soun:81.02.2022", title: "Culture wars and the making of authoritarian populism: articulations of spatial division and popular consent", year: 2022, tags: ["topic:spatial", "topic:democracy-institutions", "type:article", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (1362-6620) is not there, and the piece passed the check through another journal of the same name (Soundings, ISSN 0038-1861); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Prentoulis et al. 2022", doi: "10.3898/soun.80.09.2022", title: "Reflections on the spaces of populist politics in Europe", year: 2022, tags: ["topic:parties", "topic:economy-welfare", "region:europe", "country:greece", "country:spain", "type:article", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (1362-6620) is not there, and the piece passed the check through another journal of the same name (Soundings, ISSN 0038-1861); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Prentoulis 2022", doi: "10.3898/soun:81.06.2022", title: "From austerity to Brexit: the failed populist moment in the UK", year: 2022, tags: ["topic:international", "topic:parties", "topic:economy-welfare", "region:europe", "country:greece", "country:spain", "country:united-kingdom", "type:article", "todo:check-outlet"], why: "the journal is not on the Scopus list: its ISSN (1362-6620) is not there, and the piece passed the check through another journal of the same name (Soundings, ISSN 0038-1861); it gets the note todo:check-outlet (the editor's decision of 2026-10-02)"}
+  - {cite: "Keoppen 2022", doi: "10.14321/rhetpublaffa.25.4.0127", title: "Intellectual Populism: Democracy, Inquiry, and the People", year: 2022, tags: ["type:book-review"], why: "batch 07 took it for an article and tagged it from its abstract; the abstract names the book reviewed (\"Paul Stob's Intellectual Populism\"), and this batch holds another review of the same book: it becomes a book review, tagged from its title alone"}
+
+read:
+  W3210421072: {doi: "10.1093/ia/iiab177", why: "a short piece; the abstract names the book reviewed or its author"}
+  W3190365769: {doi: "10.1080/08854300.2021.1941523", why: "a short piece; the abstract names the book reviewed or its author"}
+  W3196836373: {doi: "10.17645/pag.v9i3.4727", why: "five pages; the text in the record is its own: it introduces a thematic issue of the journal"}
+  W3201327325: {doi: "10.1016/j.frl.2021.102479", why: "the title is also the title of a book, but the abstract is the article's own (\"How do financial markets react to populist electoral success?\"); the journal numbers its articles"}
+  W3180173569: {doi: "10.1080/14767724.2021.1948392", why: "five pages; the text in the record is its own: it introduces a special issue of the journal"}
+  W3132006514: {doi: "10.14507/epaa.29.5868", why: "the journal numbers its articles (the \"page\" is the number of the article); the abstract is the article's own"}
+  W3208047151: {doi: "10.11114/smc.v9i2.5388", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W3175229845: {doi: "10.1111/1753-6405.13140", why: "three pages; the text in the record is its own"}
+  W4213313758: {doi: "10.1093/jahist/jaab283", why: "a short piece; the abstract names the book reviewed or its author"}
+  W3134688396: {doi: "10.1111/dewb.12304", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W3210919976: {doi: "10.1080/23248823.2021.1967596", why: "six pages; the text in the record is its own: it introduces a special issue of the journal"}
+  W3165167197: {doi: "10.17951/sil.2021.30.4.393-440", why: "only the first page is in the record, and the DOI gives the pages (393-440); the abstract is the article's own"}
+  W3120273390: {doi: "10.1080/00335630.2020.1863974", why: "five pages; the registry's title gives the author and the publisher of the book reviewed (\"by Paul Stob, Michigan State University Press, 2020\"); the Library holds another review of the same book under this title"}
+  W3135442478: {doi: "10.1017/s1474746420000743", why: "three pages; the title and the text in the record say what it is: the introduction to a themed section of the journal"}
+  W3127116517: {doi: "10.1057/s41304-020-00301-x", why: "three pages; a review of McDonnell and Werner, International Populism: the author's own copy of the text names the book reviewed (found by a search on 2026-10-02); the abstract in the record does not name it"}
+  W3135648268: {doi: "10.25253/99.2021231.11", why: "no page range in the record; the abstract is the article's own"}
+  W3156425184: {doi: "10.1093/whq/whab041", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3164298854: {doi: "10.30965/18763332-45010009", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3169426382: {doi: "10.1093/icon/moab048", why: "four pages; the author's rejoinder in a discussion of her article; the text in the record is its own"}
+  W3174869852: {doi: "10.5817/pc2021-2-204", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3195730239: {doi: "10.1080/01419870.2021.1942122", why: "one page; the title names the book that the piece discusses, and its authors"}
+  W3197215078: {doi: "10.1093/ahr/rhab243", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3198593881: {doi: "10.1080/01916599.2021.1975924", why: "five pages; the title names the book that the piece discusses"}
+  W3205538526: {doi: "10.1093/ssjj/jyab041", why: "a short piece; the abstract names the book reviewed or its author"}
+  W3206087506: {doi: "10.1093/whq/whab081", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3212361801: {doi: "10.1215/00182168-9367105", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4200009607: {doi: "10.30965/18763308-48020012", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4285351538: {doi: "10.1080/02513625.2021.2060585", why: "four pages; the text in the record is its own: an interview on urban justice and populism"}
+  W4297879161: {doi: "10.25162/9783515129640", why: "the Library holds a book of this title by Taggart (2000); this is the volume edited by Kirste and Paulo (Franz Steiner Verlag, 2021), \"Populism: Perspectives From Legal Philosophy\" in the registry"}
+  W3097891112: {doi: "10.2105/ajph.2020.305952", why: "three pages; the abstract is its own"}
+  W3046914605: {doi: "10.34172/ijhpm.2020.141", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W3111497505: {doi: "10.1093/ijpor/edaa033", why: "no page range in the record; the text in the record is the article's own"}
+  W3016553856: {doi: "10.3167/choc.2020.150103", why: "the Library holds a book of this title by Taggart (2000); this is an article by Fuentes (Contributions to the History of Concepts, 2020, 22 pages)"}
+  W3023613224: {doi: "10.1080/23276665.2020.1733854", why: "three pages; the abstract is its own"}
+  W4240666122: {doi: "10.4324/9780429316692", why: "the Library holds the article of 2018 by the same authors under this title; this is the book of 2020 (Routledge)"}
+  W3003849043: {doi: "10.1007/s10272-020-0864-6", why: "six pages; the text in the record is the article's own"}
+  W3033524039: {doi: "10.31078/consrev614", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W3048395873: {doi: "10.34172/ijhpm.2020.153", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W3004211530: {doi: "10.1007/s10272-020-0859-3", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W3043426674: {doi: "10.34172/ijhpm.2020.125", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W3081031780: {doi: "10.34172/ijhpm.2020.154", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W3009686400: {doi: "10.5817/pc2020-1-91", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3003294906: {doi: "10.1111/aepr.12304", why: "two pages; a discussant's comment on an article of the journal; the text in the record is its own"}
+  W3003864210: {doi: "10.1111/aepr.12303", why: "two pages; a discussant's comment on an article of the journal; the text in the record is its own"}
+  W3010001277: {doi: "10.1080/13629395.2020.1736783", why: "five pages; the title gives the titles of the two books reviewed"}
+  W3015152817: {doi: "10.1075/jlp.20017.ber", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3081432483: {doi: "10.34172/ijhpm.2020.157", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W3092567650: {doi: "10.1080/00138398.2020.1780746", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W3014145127: {doi: "10.1075/jlp.20001.lu", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3041493868: {doi: "10.2979/jmodelite.43.3.04", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W3046136463: {doi: "10.1080/17533171.2020.1775363", why: "six pages; the title and the abstract say what it is: the introduction to a special issue of the journal"}
+  W3108472241: {doi: "10.1163/25888072-02021044", why: "three pages; the abstract is its own: it introduces a special issue of the journal"}
+  W2972170450: {doi: "10.1093/ia/iiz097", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2943212061: {doi: "10.1093/ia/iiz064", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2943320368: {doi: "10.1093/ia/iiz085", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2972950462: {doi: "10.1016/j.dcm.2019.100326", why: "the journal numbers its articles (the \"page\" is the number of the article); the title names the study itself (\"A computational and qualitative analysis of populist discourse\")"}
+  W2922637404: {doi: "10.1080/00396338.2019.1589087", why: "six pages; the text in the record is the article's own, and the author's university lists the piece as an article (found by a search on 2026-10-02)"}
+  W2912464930: {doi: "10.1111/1467-8322.12479", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own (a guest editorial)"}
+  W4400901332: {doi: "10.59588/2350-8329.1240", why: "the part of the title before the colon is also the title of a book, but the abstract is the article's own (\"This paper seeks ...\")"}
+  W2990874538: {doi: "10.1080/07352166.2019.1588573", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2957748167: {doi: "10.1080/00396338.2019.1637125", why: "the Library holds an article of 2007 by the same author with the title \"Populism in Europe\"; this is another article, of 2019 (Survival, 24 pages)"}
+  W2979569832: {doi: "10.1093/jel/eqz028", why: "five pages; the text in the record is the article's own"}
+  W2982722720: {doi: "10.1080/19392397.2019.1691756", why: "five pages; the text in the record is the article's own"}
+  W2927972841: {doi: "10.2979/indjglolegstu.26.1.0173", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W3003933788: {doi: "10.1163/25891715-00102006", why: "the Library holds a book of this title by Taggart (2000); this is an essay by Ahmad (Public Anthropologist, 2019, 22 pages)"}
+  W2945560627: {doi: "10.1080/13510347.2019.1615458", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2991852434: {doi: "10.1093/jahist/jaz626", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2954381350: {doi: "10.11114/smc.v7i1.4346", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W2982341665: {doi: "10.1080/08935696.2019.1650574", why: "five pages; the registry's title gives the author and the publisher of the book reviewed (\"by Chantal Mouffe. London: Verso, 2018\")"}
+  W2921803802: {doi: "10.1111/ajph.12560", why: "two pages; the abstract opens with the book reviewed, its publisher, pages and price"}
+  W2933177001: {doi: "10.2979/indjglolegstu.26.1.0061", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W2942618934: {doi: "10.1080/03932729.2019.1601947", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2982520592: {doi: "10.1075/jlp.19095.lub", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2914276364: {doi: "10.1080/00064246.2019.1548062", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2928095249: {doi: "10.1093/ahr/rhz223", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2932928415: {doi: "10.1093/jhmas/jrz015", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2938200018: {doi: "10.1215/15476715-7269482", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2942600704: {doi: "10.1093/jaarel/lfz026", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2943321244: {doi: "10.1080/03932729.2019.1589968", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2944801351: {doi: "10.1353/llt.2019.0015", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2955009239: {doi: "10.25138/13.1.b1", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2955286383: {doi: "10.1093/icon/moz042", why: "one page; the abstract is its own: it introduces a symposium of the journal"}
+  W2960864881: {doi: "10.1386/ajr.41.1.136_5", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2965805760: {doi: "10.1215/00182168-7575756", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2992238987: {doi: "10.1017/qre.2019.34", why: "a short piece; the title gives the authors and the titles of the two books reviewed"}
+  W3004984719: {doi: "10.28939/iam.debats-en.2019-8", why: "two pages; the title says what it is: the presentation of the special section of the journal on culture and populism in the Global South; the DOI is that of the English edition of the journal (debats-en)"}
+  W3093478788: {doi: "10.1093/ahr/rhz767", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W3197979254: {doi: "10.52056/9788833138282/08", why: "no page range in the record; the text in the record is the list of contents of the yearly volume, which names this piece among its articles"}
+  W4243048640: {doi: "10.5325/pennhistory.86.2.0300", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2898692971: {doi: "10.1215/00182168-7160743", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4289401857: {doi: "10.4324/9781315108056", why: "the Library holds volume 2 of this work; this is volume 3 (\"Migration, Gender and Religion\"), as the registry's title says"}
+  W2802467252: {doi: "10.1353/lag.2018.0011", why: "four pages; the text in the record is the article's own"}
+  W2898275612: {doi: "10.1080/17449057.2018.1532637", why: "five pages; the text in the record is the article's own"}
+  W2799819300: {doi: "10.15184/aqy.2018.26", why: "three pages; the authors' reply in a debate of the journal on their article; the text in the record is its own"}
+  W2897647141: {doi: "10.1080/23248823.2018.1530896", why: "six pages; the text in the record is its own: it introduces a special issue of the journal"}
+  W2945007107: {doi: "10.1525/curh.2018.117.800.209", why: "six pages; the text in the record is the article's own"}
+  W2790374769: {doi: "10.1080/00380253.2018.1403775", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own (it introduces a collection of articles)"}
+  W2794341737: {doi: "10.1093/ahr/123.1.335", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2795908910: {doi: "10.1002/polq.12758", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2800414462: {doi: "10.1080/00107530.2018.1458277", why: "three pages; the text in the record is its own"}
+  W2896226660: {doi: "10.1080/21699763.2018.1521864", why: "three pages; the abstract is its own: it introduces a themed section of the journal"}
+  W2903691572: {doi: "10.3817/1218185201", why: "four pages; the text in the record is its own"}
+  W2906566475: {doi: "10.1093/jahist/jay374", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2786040706: {doi: "10.1007/s10272-018-0708-9", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W2793621511: {doi: "10.1093/publius/pjy002", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2803624952: {doi: "10.1093/whq/why048", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2807081049: {doi: "10.1093/ahr/123.3.965", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2809450372: {doi: "10.1093/jsh/shy043", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2887702851: {doi: "10.1111/2057-1615.12231", why: "two pages; the text in the record is its own"}
+  W2888842892: {doi: "10.1162/jinh_r_01289", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2899712877: {doi: "10.29173/cjs29510", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2906535479: {doi: "10.1093/jahist/jay370", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2913052582: {doi: "10.1093/ahr/rhy555", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2913565682: {doi: "10.1093/ahr/rhy565", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W4379414046: {doi: "10.1353/see.2018.0083", why: "a short piece; the title says \"(review)\" and gives the author and the title of the book"}
+  W2595967505: {doi: "10.1080/00131857.2017.1305720", why: "three pages; the text in the record is its own"}
+  W2755774630: {doi: "10.3318/isia.2017.28.5", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W4206211044: {doi: "10.12987/9780300180947", why: "the Library holds two articles of this title by other authors (Urbinati 1998; Braun 2023); this is the book by John Lukacs (Yale University Press)"}
+  W2609014430: {doi: "10.1093/jhuman/hux005", why: "six pages; the record says what it is: a response to Philip Alston's lecture on the populist challenge to human rights"}
+  W2610171511: {doi: "10.15171/ijhpm.2017.50", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W2761963347: {doi: "10.1080/02601370.2017.1343346", why: "four pages; the text in the record is its own"}
+  W2573732336: {doi: "10.15171/ijhpm.2017.08", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W2587452119: {doi: "10.1007/s10272-017-0634-2", why: "a short piece that opens or closes an issue of the journal; the text in the record is its own"}
+  W2734048841: {doi: "10.15171/ijhpm.2017.72", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W2616085610: {doi: "10.15171/ijhpm.2017.58", why: "three pages; a commentary of the journal on one of its articles; the abstract is its own"}
+  W2649077908: {doi: "10.1080/08038740.2017.1298667", why: "four pages; the text in the record is the article's own"}
+  W2751668167: {doi: "10.1162/tneq_r_00636", why: "the rules took it for an article (four pages, a whole abstract); it carries the full title of a book (Maggor, Brahmin Capitalism) that five other records of the list review, and the text in the record opens with the title of the book"}
+  W2754705891: {doi: "10.1080/15377857.2017.1377143", why: "no page range in the record; the abstract is the article's own"}
+  W2808839394: {doi: "10.1093/icon/mox090", why: "seven pages; it carries the title of the book by Müller, which the Library holds, and the abstract speaks of the book (\"This is a slim but very valuable book ...\")"}
+  W2608078498: {doi: "10.1075/jlp.16.1.07dec", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2726149686: {doi: "10.15201/hungeobull.66.2.8", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2597241066: {doi: "10.3817/0317178191", why: "three pages; the text in the record is its own"}
+  W2606413865: {doi: "10.1093/ahr/122.2.552a", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2617971969: {doi: "10.3138/cjh.ach.52.1.rev22", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2625216279: {doi: "10.3817/0617179195", why: "four pages; the text in the record is its own"}
+  W2737050171: {doi: "10.1353/scr.2017.0012", why: "six pages; the text in the record is the article's own"}
+  W2754585921: {doi: "10.1093/jsh/shx108", why: "the rules took it for an article (no pages in the record, a whole abstract); it carries the full title of a book (Maggor, Brahmin Capitalism) that five other records of the list review"}
+  W2757872909: {doi: "10.31269/triplec.v15i2.932", why: "three pages; the abstract says that it is a review of a book by Paolo Gerbaudo"}
+  W2772488360: {doi: "10.3817/1217181229", why: "three pages; the text in the record is its own"}
+  W2772586580: {doi: "10.1093/jsh/shx133", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2773206946: {doi: "10.1093/ahr/122.4.1284", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2778779122: {doi: "10.1353/his.2017.0044", why: "six pages; the text in the record names the books reviewed (a review essay)"}
+  W2797900606: {doi: "10.1093/jahist/jax480", why: "a short piece; the abstract names the book reviewed or its author"}
+  W4379414481: {doi: "10.1353/see.2017.0013", why: "a short piece; the title says \"(review)\" and gives the author and the title of the book"}
+  W2590767646: {doi: "10.1080/08038740.2016.1278263", why: "four pages; the text in the record is the article's own"}
+  W4239593828: {doi: "10.1353/dss.2016.0082", why: "the Library holds a book of this title by Betz (2026); this is an article by Judis (Dissent, 2016, 7 pages)"}
+  W2512483995: {doi: "10.21018/rjcpr.2016.2.208", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W2519107017: {doi: "10.3817/0916176187", why: "two pages; the text in the record is its own"}
+  W2475023467: {doi: "10.1080/00472336.2016.1205648", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2473054256: {doi: "10.1057/eps.2016.9", why: "five pages; the abstract says that it reviews books on populism in Europe (\"The article analyzes some of the most important books ...\")"}
+  W2309228186: {doi: "10.1093/ehr/cev366", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2398788400: {doi: "10.1093/ehr/cew061", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2469632741: {doi: "10.1093/ohr/ohw001", why: "a short piece; the title gives the authors and the titles of the two books reviewed"}
+  W2192843933: {doi: "10.1111/j.2050-5876.2015.00865.x", why: "five pages; the text in the record is the article's own (it presents the author's argument on Stephen Harper and the Reform party); only the first words of its title are those of a book"}
+  W2079269244: {doi: "10.1215/00182168-2694382", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W1502964463: {doi: "10.1002/polq.12177", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2042742840: {doi: "10.1080/01419870.2013.865772", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2000554221: {doi: "10.1080/23269995.2014.906771", why: "three pages; the record says what it is: a reply to an article of the journal"}
+  W1997113329: {doi: "10.5860/rusq.54n1.63b", why: "one page; the title gives the title of the reference work reviewed (the section \"Sources\" of the journal)"}
+  W2317273834: {doi: "10.1093/ahr/119.3.877", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2038608841: {doi: "10.1093/dh/dht042", why: "three pages; the abstract speaks of the book reviewed (\"in this fluid and well-researched book, historian Paul Chamberlin ...\")"}
+  W2323833644: {doi: "10.1093/jahist/jas615", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2315408993: {doi: "10.1093/ahr/118.3.868", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2487511527: {doi: "10.5403/oregonhistq.114.1.0064", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W2094271046: {doi: "10.1093/jahist/jas379", why: "a short piece; the abstract names the book reviewed or its author"}
+  W1505414427: {doi: "10.1080/09627251.2012.671022", why: "two pages; the abstract is its own"}
+  W2312818297: {doi: "10.1093/ahr/117.4.1266", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2319960059: {doi: "10.1093/ahr/117.4.1243", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2325319517: {doi: "10.1215/00182168-1600425", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2111691050: {doi: "10.1093/jahist/jar199", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2329862732: {doi: "10.1093/jahist/jar496", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2008755849: {doi: "10.1080/14725860903106245", why: "one page; the abstract opens with the book reviewed, its publisher, pages and price"}
+  W1977195250: {doi: "10.1086/ahr.114.3.774", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2107447300: {doi: "10.1093/jcs/csp078", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2300629507: {doi: "10.2307/27694814", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W1826624258: {doi: "10.29173/cjs6394", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2055367749: {doi: "10.1111/j.1468-5965.2009.02038_8.x", why: "a short piece; the title gives the author and the title of the book reviewed"}
+  W2471720300: {doi: "10.1093/whq/40.2.228-a", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2800020673: {doi: "10.1086/ahr.114.3.759", why: "a short piece; the abstract names the book reviewed or its author"}
+  W2796759932: {doi: "10.1086/ahr.113.5.1517", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W638885420: {doi: "10.2307/27650195", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W1277982598: {doi: "10.2307/27650194", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W2085075008: {doi: "10.2753/ppc1075-8216550301", why: "four pages; the text in the record is its own"}
+  W2904203805: {doi: "10.1086/ahr.113.4.1176", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+  W1965329763: {doi: "10.1093/ehr/cen233", why: "a short piece that carries the full title of a book; another record of the list reviews the same book, or the abstract speaks of the book"}
+
+accepted:
+  W3209249952: {doi: "10.1017/9781009861731", why: "title, authors and type agree; the registry dates the book 2026 (a Cambridge Element, published on 8 July 2026), and OpenAlex dates the same record 2021, the year of an earlier version"}
+  W3176805695: {doi: "10.4337/9781839109676", why: "an edited volume: title, year and type agree; the registry names its editors (Mendilow and Phélippeau); OpenAlex lists a contributor first"}
+  W4207041503: {doi: "10.4337/9781789906745", why: "an edited volume: title, year and type agree; the registry names its editors (Greve); OpenAlex lists a contributor first"}
+  W4244435933: {doi: "10.1007/978-3-030-53889-7", why: "an edited volume: title, year and type agree; the registry names its editors (Tournier-Sol and Gayte); OpenAlex lists a contributor first"}
+  W3110759161: {doi: "10.17645/pag.v8i4.3397", why: "OpenAlex writes the author's name in Cyrillic letters, which read Elena Semenova; the registry names Semenova; title, year, journal and type agree"}
+  W2999282891: {doi: "10.1080/00344893.2019.1700153", why: "OpenAlex writes the first author's name in Greek letters, which read Alexia Katsanidou; the registry names Katsanidou; title, year, journal and type agree"}
+  W3126168509: {doi: "10.3726/b17824", why: "an edited volume: title, year and type agree; the registry names its editors (Stępińska); OpenAlex lists a contributor first"}
+  W2951726337: {doi: "10.3817/0619187157", why: "OpenAlex writes the author's name in Greek letters, which read Andreas Pantazopoulos; the registry names Pantazopoulos; title, year, journal and type agree"}
+  W2780377300: {doi: "10.5699/slaveasteurorev2.96.1.0067", why: "only the first page is known; the abstract is the article's own (it sets out the study); OpenAlex writes the author's name in Cyrillic letters, which read Ben Eklof, and the registry names Eklof"}
+  W2613453187: {doi: "10.4324/9781315199757", why: "an edited volume: title, year and type agree; the registry names its editors (Odmalm and Hepburn); OpenAlex lists a contributor first"}
+  W2595303672: {doi: "10.3817/0317178202", why: "OpenAlex writes the author's name in Greek letters, which read Andreas Pantazopoulos; the registry names Pantazopoulos; title, year, journal and type agree"}
+  W2765160739: {doi: "10.1017/slr.2017.176", why: "OpenAlex writes the first author's name in Cyrillic letters, which read Ben Eklof; the registry names Eklof; title, year, journal and type agree"}
+  W2613521398: {doi: "10.1177/1478929917706657", why: "the title says \"Book Review\"; OpenAlex writes the author's name in Greek letters, which read Stratos Patrikios, and the registry names Patrikios"}
+  W2736801091: {doi: "10.2307/jj.30346775", why: "title, year and type agree with the registry, which names Conniff and calls it the second edition (University of Alabama Press, 2012); OpenAlex has joined a thesis of the same title to this record (another author, and the abstract of the thesis); the Library holds no edition of the book"}
+
