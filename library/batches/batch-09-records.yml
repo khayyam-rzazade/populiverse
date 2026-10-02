@@ -1,0 +1,71 @@
+# Batch 09: what was decided by reading, not by the rules alone.
+# Source: search 01 of OpenAlex (scripts/search_works.R, third version of the rules): journal articles,
+# reviews of books in journals, and books, in English, with a DOI, whose title names populism, published
+# 1896 to 2007. A piece in a journal counts when the journal is on the Scopus source list of August 2026
+# for the year of the work. Each DOI is checked at the DOI registry (Crossref).
+#
+# read      Works that the script gave to Claude to read (a short piece whose kind the record does not
+#           show, a title that the Library holds, a language to check) and that enter for the reason given;
+#           and works that enter by the rules and whose kind the reading changed.
+# accepted  Works on which the two catalogues do not fully agree and that enter for the reason given.
+#           Each also gets the note "todo:check-record" in Zotero, for the editor's own pass.
+
+# Works of an earlier batch that this batch tags again: each with its full set of tags, and why.
+also:
+  - {cite: "Harp and Creech 2008", doi: "10.2307/27650195", title: "Righteous Indignation: Religion and the Populist Revolution", year: 2008, tags: ["topic:religion", "type:book-review", "todo:check-record"], why: "the registry lists the author of the book reviewed (Creech) next to the reviewer (Harp): the names are to be corrected in Zotero by hand; two other reviews of batch 08 with the same slip carry this note already"}
+  - {cite: "McCutcheon 2016", doi: "10.4135/cqresrre20160909", title: "Populism and Party Politics", year: 2016, tags: ["topic:parties", "type:book", "todo:check-record"], why: "a report of CQ Researcher (9 September 2016), which the registry files as a book and batch 08 let in as one; reports stay out for now (the editor's decision of 2026-10-02 on policy papers): for the editor to decide whether it stays"}
+  - {cite: "Potamianos 2020", doi: "10.14321/jstudradi.14.2.0127", title: "Populism in Greece? Right, Left, and Laclau’s “Jacobinism” in the Years of the Goudi Coup, 1908–1910", year: 2020, tags: ["approach:discursive", "region:europe", "country:greece", "type:article"], why: "the tag \"media and communication\" came from the words \"Facebook\" and \"Twitter\" in a text that is the publisher's web page, not the abstract: the tag is taken off"}
+  - {cite: "Patch 2016", doi: "10.5406/americanmusic.34.3.0365", title: "Notes on Deconstructing the Populism: Music on the Campaign Trail, 2012 and 2016", year: 2016, tags: ["type:article"], why: "the tag \"media and communication\" came from the words \"Facebook\" and \"Twitter\" in a text that is the publisher's web page, not the abstract: the tag is taken off"}
+  - {cite: "Dorraj and Dodson 2009", doi: "10.1215/1089201x-2008-049", title: "Neo-Populism in Comparative Perspective: Iran and Venezuela", year: 2009, tags: ["region:latin-america", "region:mena", "country:venezuela", "country:iran", "type:article"], why: "the region \"global\" came from the name of the journal in a text that is the publisher's web page, not the abstract; the title names Iran and Venezuela: the two regions of these countries stand in its place"}
+  - {cite: "Nanda 1991", doi: "10.1215/07323867-11-1_and_2-32", title: "Is Modern Science a Western, Patriarchal Myth? A Critique of the Populist Orthodoxy", year: 1991, tags: ["topic:gender", "type:article"], why: "the region \"global\" came from the name of the journal in a text that is the publisher's web page, not the abstract; the title names no place: the tag is taken off"}
+
+read:
+  W2150840193: {doi: "10.1017/s1537592707072635", why: "two pages; the abstract opens with the book reviewed, its publisher and its pages"}
+  W2331652463: {doi: "10.2307/25094886", why: "two pages; the abstract speaks of the book reviewed (Creech, Righteous Indignation); the Library holds another review of this book under the same title (Harp 2008)"}
+  W2023720396: {doi: "10.1080/10350330701637114", why: "the rules took it for an article (seven pages); the text in the record names the books reviewed, with publisher, price and ISBN (Arditi; Laclau, On Populist Reason)"}
+  W2062642271: {doi: "10.1353/dss.2007.0080", why: "three pages; the text in the record is its own (the opening lines of the piece, which are not written into Zotero as an abstract)"}
+  W4380763900: {doi: "10.1353/book11465", why: "the Library holds a review of this book under the same title (McMath 2008); this is the book itself (Lester, University of Georgia Press, 2006), on which the two catalogues agree"}
+  W1504109868: {doi: "10.1525/maq.2006.20.2.274", why: "the rules took it for an article (four pages, with a text of its own); the title gives the titles of the two books reviewed, and the text in the record their editors, publisher and pages"}
+  W1534256208: {doi: "10.1080/10584600600977060", why: "two pages; the title says \"A Review of\" and gives the title and the author of the book"}
+  W2038462332: {doi: "10.1017/s1537592706320142", why: "three pages; the title gives the titles of the two books reviewed, and the abstract their authors and publishers"}
+  W2128287250: {doi: "10.1017/s0008423905349973", why: "two pages; the abstract opens with the book reviewed, its publisher and its pages"}
+  W2003834353: {doi: "10.1353/lar.2004.0052", why: "the rules took it for an article (15 pages); the text in the record opens with the books reviewed, their publishers, pages and prices"}
+  W2061693357: {doi: "10.1163/1569206043505248", why: "the rules took it for an article (ten pages); the title gives the titles of the two books reviewed, and the text in the record says \"Reviewed by\""}
+  W2091231633: {doi: "10.2307/20202338", why: "three pages; it carries the full title of a book (by Álvarez Junco) that two other records of this batch review"}
+  W2802588886: {doi: "10.29173/alr1324", why: "a short piece; the title gives the title and the authors of the book reviewed (Roberts, Stalans, Indermaur and Hough)"}
+  W188613569: {doi: "10.2307/2587866", why: "only the first page is in the page field; the text of the record gives the pages (497-524)"}
+  W1579873321: {doi: "10.2307/1342339", why: "only the first page is known; the abstract is the article's own (\"This article explores ...\")"}
+  W2315228617: {doi: "10.2307/2654002", why: "only the first page is known; the text in the record is the essay's own"}
+  W190895471: {doi: "10.2307/1144080", why: "only the first page is in the page field; the text of the record gives the pages (343-379)"}
+  W2335699406: {doi: "10.2307/2096308", why: "only the first page is known; the text in the record is the article's own (it sets out the study)"}
+  W1981446867: {doi: "10.1080/01402389608425141", why: "the rules took it for an article (six pages, with a text of its own); the text in the record is the list of the books reviewed, with publishers, pages and prices (Betz, Radical Right-Wing Populism in Western Europe, and others)"}
+  W2316142370: {doi: "10.2307/422164", why: "only the first page is known; the text in the record is a summary of the article (in French; Scopus lists the journal with English only)"}
+  W2323743219: {doi: "10.2307/1386633", why: "only the first page is known; the text in the record is a summary of the article (in French; Scopus lists the journal with English only)"}
+  W2606356311: {doi: "10.2307/2623783", why: "two pages; the text in the record names the book reviewed, its editor and its publisher (Clogg, Macmillan, 1993)"}
+  W2323928521: {doi: "10.2307/27509235", why: "only the first page is known; the text in the record is the article's own"}
+  W1969183759: {doi: "10.1515/flin.1993.27.3-4.255", why: "no page range in the record; the text in the record is a summary of the article (in French; Scopus lists the journal with English only)"}
+  W2313721909: {doi: "10.2307/2096240", why: "only the first page is known; the abstract is the article's own (it sets out the study)"}
+  W2326488819: {doi: "10.2307/131044", why: "only the first page is known; the text in the record is the article's own (its opening lines, which are not written into Zotero as an abstract)"}
+  W2008438465: {doi: "10.1177/072551369203100111", why: "the rules took it for an article (eleven pages); the title says \"Review Articles\" and names the book that the piece discusses (Davidson, The Invisible State)"}
+  W2130369623: {doi: "10.1080/00988157.1991.9977948", why: "the rules took it for an article (seven pages, with a text of its own); the text in the record opens with the books reviewed, their publishers and pages"}
+  W2068996155: {doi: "10.1177/025764309000600205", why: "the rules took it for an article (22 pages); the title says \"Review Essay\""}
+  W2316028930: {doi: "10.2307/1908347", why: "only the first page is known; the text in the record is the article's own (on Richard Hofstadter's reading of Populism)"}
+  W1998882957: {doi: "10.1093/gh/6.3.315", why: "three pages; the title gives the titles of the two books reviewed; of the two records of this review the one with the DOI of the journal's present publisher is kept"}
+  W2063331278: {doi: "10.2307/524542", why: "only the first page is known; the text in the record is its own: a comment on an article of the same issue (Barber on the popular arts in Africa)"}
+  W2607397731: {doi: "10.2307/2618423", why: "one page; it carries the full title of a book (by Hinnebusch) that another record of this batch reviews"}
+  W2056495564: {doi: "10.1080/0031322x.1985.9969837", why: "five pages; the abstract is its own"}
+  W2336595846: {doi: "10.2307/968514", why: "only the first page is in the page field; the text of the record gives the pages (139-162)"}
+  W1998913411: {doi: "10.1215/00182168-62.2.293", why: "two pages; it carries the full title of the book by Sanderson, which other records of this batch review; the other record of this review (its JSTOR DOI) names the author of the book as an author, so this one, with the DOI of the journal's publisher, is kept"}
+  W2466444357: {doi: "10.2307/968356", why: "only the first page is in the page field; the text of the record gives the pages (143-164)"}
+  W2605804020: {doi: "10.2307/2617123", why: "two pages; it carries the full title of a book (by Mitchell) that another record of the list reviews"}
+  W2324079727: {doi: "10.2307/3110380", why: "only the first page is known; the text in the record is the article's own (its opening lines, which are not written into Zotero as an abstract)"}
+  W2327285368: {doi: "10.2307/523756", why: "only the first page is known; the abstract is the article's own (\"This study argues ...\")"}
+  W2118439089: {doi: "10.2307/2094473", why: "only the first page is in the page field; the text of the record gives the pages (262-280)"}
+  W2003532527: {doi: "10.2307/2148314", why: "two pages; the title gives the title and the author of the book reviewed (\"by Peter H. Argersinger\")"}
+  W4240570393: {doi: "10.1086/ahr/78.4.969", why: "the record with the DOI of the journal gives the pages (969-986); the other record of this piece, with its JSTOR DOI and the first page only, was the one given to read, and its text shows what the piece is: Gerschenkron's essay on Venturi's history of Russian populism"}
+  W4383460624: {doi: "10.1353/tech.1970.a894176", why: "three pages; the title says \"(review)\" and gives the title and the editors of the book"}
+  W2326937174: {doi: "10.2307/1894807", why: "only the first page is known; the text in the record is the article's own"}
+  W2320279012: {doi: "10.2307/27507798", why: "only the first page is known; the text in the record is the article's own (its opening lines, which are not written into Zotero as an abstract)"}
+
+accepted: {}
+

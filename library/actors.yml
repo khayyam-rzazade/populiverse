@@ -1,6 +1,8 @@
 # PopuliVerse Library: regions, countries, leaders and parties.
-# Version 2, 2026-10-02 (version 1: 2026-10-01). It belongs with taxonomy.yml and phrases.yml.
+# Version 3, 2026-10-02 (version 1: 2026-10-01). It belongs with taxonomy.yml and phrases.yml.
 # New in version 2: "needs" for Georgia, and two more wordings to ignore ("African American", "New Mexico").
+# New in version 3 (batch 09): one more wording to ignore ("New South Wales", which is not Wales). And scripts/code_works.R
+# no longer takes the longer name of another country for a country: "Northern Ireland" is not Ireland.
 #
 # WHAT IT IS FOR
 #   scripts/code_works.R gives a region or a country tag only when the title or
@@ -26,7 +28,7 @@
 # The leaders and parties were entered by hand from common knowledge (Orbán is
 # Hungary, Podemos is Spain). The list can be extended or checked against PopuList.
 
-version: 2
+version: 3
 date: "2026-10-02"
 
 after_adjective: ["government*", "politic*", "part*", "election*", "elector*", "voter*", "populis*", "foreign polic*",
@@ -38,7 +40,7 @@ after_adjective: ["government*", "politic*", "part*", "election*", "elector*", "
 # Wordings removed before anything is looked for, so they cannot mislead.
 ignore: ["latin american", "north american", "south american", "central american", "vox populi",
          "new england", "georgia state", "american journal", "european journal", "british journal",
-         "african american*", "new mexico"]
+         "african american*", "new mexico", "new south wales"]
 
 regions:
   "region:europe": ["europe", "european", "western europe*", "eastern europe*", "central europe*",

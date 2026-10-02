@@ -1,6 +1,8 @@
 # PopuliVerse Library: the phrases that count as evidence for each tag.
-# Version 4, 2026-10-02 (version 2 of 2026-10-01 added the rule on review articles; version 3 removes two more wordings before "war" is looked for;
-# version 4, with batch 08: more wordings removed before "war" and before "interview" are looked for, and "opinion poll" no longer counts as a survey). It belongs with taxonomy.yml (the tags) and actors.yml
+# Version 5, 2026-10-02 (version 2 of 2026-10-01 added the rule on review articles; version 3 removes two more wordings before "war" is looked for;
+# version 4, with batch 08: more wordings removed before "war" and before "interview" are looked for, and "opinion poll" no longer counts as a survey;
+# version 5, with batch 09, the works before 2008: wordings removed that gave a wrong tag there, among them "the Civil War" as a date,
+# a "regression" that is a decline, and a "populist president" of a trade union). It belongs with taxonomy.yml (the tags) and actors.yml
 # (countries, leaders and parties).
 #
 # HOW IT WORKS
@@ -26,7 +28,7 @@
 #   A work found to use mixed methods gets "Mixed methods" only, not also
 #   "Qualitative" or "Quantitative".
 
-version: 4
+version: 5
 date: "2026-10-02"
 
 # Outlets that may not be peer-reviewed. A work in one of them stays in the
@@ -67,6 +69,8 @@ approach:
               "political strategic", "politico strategic", "strategic approach*", "strategic definition",
               "strategic conception", "plebiscitarian*", "populism is a strategy", "populism is an elite strategy",
               "populism as an electoral strategy"]
+    # since version 5 (batch 09): a structural account of populism, not the strategic approach
+    not: ["populism is a strategy for capital accumulation"]
   "approach:performative":
     phrases: ["political style", "populist style", "populism as a style", "populism as style", "stylistic approach",
               "stylistic turn", "performative", "performativity", "performance of crisis", "performances of crisis",
@@ -102,7 +106,9 @@ topic:
           "war on science", "mention the war",
           # since version 4 (batch 08): a period, a figure of speech or a name, not a war
           "pre war", "prewar", "civil war era", "dirty war", "war on human rights", "cultural war*", "oil war*",
-          "immigration war*", "wal mart wars"]
+          "immigration war*", "wal mart wars",
+          # since version 5 (batch 09): the American Civil War named as a date or in the title of a book, and a figure of speech
+          "the civil war", "war on the southern railway"]
   "topic:international":
     phrases: ["european union", "eu", "euroscepti*", "european integration", "brexit", "european parliament",
               "international organi*ation*", "international institution*", "multilateral*", "global governance",
@@ -110,6 +116,8 @@ topic:
               "world trade organi*ation", "wto", "international monetary fund", "imf", "international law",
               "international court*", "international cooperation", "regional integration", "regional organi*ation*",
               "regionalism", "transnational*", "international populism", "supranational*"]
+    # since version 5 (batch 09): the regionalism of a province, not of states
+    not: ["regionalism and populism in the russian civil war"]
   "topic:parties":
     phrases: ["party", "parties", "party system*", "party competition", "partisan*", "populist leader*",
               "political leader*", "party leader*", "populist movement*", "social movement*", "populist actor*",
@@ -126,6 +134,8 @@ topic:
               "populist led government*", "ruling populis*", "governing populis*", "populist governing",
               "populists govern", "in government", "in office", "in power", "came to power", "come to power",
               "coming to power", "administration", "presidency", "incumbent*"]
+    # since version 5 (batch 09): the president of a trade union
+    not: ["populist president of the american federation of labor"]
   "topic:spatial":
     phrases: ["urban rural", "rural urban", "rural", "geography of", "geographies of", "geographical",
               "spatial", "left behind places", "left behind regions", "left behind areas", "places that don t matter",
@@ -165,12 +175,16 @@ method:
               "within case", "narrative analysis", "interpretive analysis"]
     not: ["qualitative comparative analysis",
           # since version 4 (batch 08): a piece that is an interview, or that studies interviews in the news
-          "an interview", "interview with", "news interview*", "interviewing a"]
+          "an interview", "interview with", "news interview*", "interviewing a",
+          # since version 5 (batch 09): a piece about a kind of research, or one that calls for a method, is not a study that uses it
+          "qualitative audience research", "qualitative audience studies", "political discourse analysis and cultural studies"]
   "method:quantitative":
     phrases: ["regression*", "panel data", "time series", "statistical analys*", "quantitative analys*",
               "quantitative evidence", "quantitative study", "quantitative data", "large n", "multilevel model*",
               "logit", "probit", "difference in differences", "econometric*", "roll call*", "expert survey*",
               "voting records", "event study", "structural equation"]
+    # since version 5 (batch 09): a decline called a regression, and a sentence about another author's method
+    not: ["regression from", "analysis of quantitative data could"]
   "method:qta":
     phrases: ["text as data", "quantitative text analysis", "automated text analysis", "automated content analysis",
               "computational text analysis", "topic model*", "word embedding*", "dictionary based",

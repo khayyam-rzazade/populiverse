@@ -14,12 +14,16 @@ usage:  python3 scripts/build_batch.py SITE RECORDS.csv NN YEAR_FROM YEAR_TO [DE
                     {"W123...": {"as": "article" | "book review" | "book" | "no", "why": "...", "note": "..."}}
                   "note" (optional) becomes a note for the editor (todo:check-record).
                   "no_abstract" (optional, true): the abstract in the record belongs to another text
-                  (a chapter of the volume, a thesis of the same title) and is left out.
+                  (a chapter of the volume, a thesis of the same title), or is not an abstract but the
+                  opening lines of the piece, and is left out.
                   "published" (optional): the day of publication, where OpenAlex's day is that of another version.
                   A decision also counts for a work that enters by the rules (since batch 08): "no" holds it
                   back (a second DOI of a work that is in, a journal that only shares its name with a Scopus
                   journal, an abstract of a conference paper), and another kind changes its kind (a review of
-                  a book that the rules took for an article).
+                  a book that the rules took for an article). A decision with the kind that the rules gave
+                  changes nothing but can carry "note", "no_abstract" or "published" (since batch 09).
+                  A decision can also let in a work that waits: the second record of a piece, when it is
+                  the better of the two (the publisher's DOI with the page range, since batch 09).
                   "_also" (optional): works of an earlier batch that this batch is to tag again:
                     [{"cite": ..., "doi": ... or "", "title": ..., "year": ..., "tags": [...], "why": "..."}]
   LIST.csv        drafts/search-NN-list.csv (for OpenAlex's day of publication); by default next to RECORDS.csv
@@ -29,10 +33,14 @@ back; every work for which neither catalogue states the language, when Scopus li
 and every work "to read" that DECISIONS.json lets in. A work whose record the two catalogues do not fully confirm enters as "accepted" and gets
 the note todo:check-record. A review of a book is written without its abstract (its tags come from the title alone).
 A work whose names the registry writes in capitals gets todo:check-record.
+A text that is the publisher's web page and not an abstract ("Search for other works by this author",
+"You do not currently have access to this content"), and a text that is cut off with
+spaced dots (". . ."), are left out for every work (since batch 09).
 
 It writes drafts/batch-NN-found.csv (the input of scripts/code_works.R), library/batches/batch-NN-records.yml
 (the reasons, in public) and drafts/batch-NN-waiting.csv (what waits, and why). Then: run scripts/code_works.R
-in SITE, check the batch file, and cut the DOIs into files of 100 for the editor (drafts/batch-NN-dois/)."""
+in SITE, check the batch file, and cut the DOIs into files for the editor (drafts/batch-NN-dois/; 500 a file
+since batch 08, one file for a batch of up to 1,000 works since batch 09)."""
 import csv, json, re, sys, os, collections
 csv.field_size_limit(10**9)
 site, records, nn, y1, y2 = sys.argv[1], sys.argv[2], sys.argv[3], int(sys.argv[4]), int(sys.argv[5])
@@ -42,6 +50,9 @@ dates = {r['openalex_id']: r['date'] for r in csv.DictReader(open(LIST, encoding
 R = list(csv.DictReader(open(records, encoding='utf-8')))
 W = [r for r in R if r['year'].isdigit() and y1 <= int(r['year']) <= y2]
 ctrl = re.compile(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]'); broken = re.compile(r'[\x80-\x9f]|\u00e2\u20ac|\u00c3[\u00a0-\u00bf]')
+# the publisher's web page, taken by a catalogue for the abstract
+page_text = re.compile(r'Search for other works by this author|You do not currently have access to this content|^\s*(?:Research Article|Journal Article|Book Review|Essay)\s*\|')
+cut_off = re.compile(r'(?:\.\s){2}\.\s*$')        # a teaser that ends in ". . ."
 final, wait = [], []
 held = retyped = 0
 for r in W:
@@ -52,7 +63,10 @@ for r in W:
                 and r['list_status'] == 'candidate'
     by_rules = r['verdict'] == 'enters by the rules' or by_scopus
     # a work that enters by the rules and on which the reading says nothing, or nothing new
-    if by_rules and (not d or d.get('as') == r['piece']): r['let_in'] = ''; r['by_scopus_language'] = 'yes' if by_scopus else ''; final.append(r)
+    if by_rules and (not d or d.get('as') == r['piece']):
+        r['let_in'] = ''; r['by_scopus_language'] = 'yes' if by_scopus else ''; final.append(r)
+        if d and d.get('note'): r['check_record'] = d['note']
+        if d and d.get('no_abstract'): r['abstract'] = ''; r['abstract_whole'] = ''
     elif d and d.get('as') in ('article', 'book review', 'book'):
         r['piece'] = d['as']; r['let_in'] = 'read' if r['check'] == 'confirmed' else 'accepted'; r['why'] = d['why']; final.append(r)
         if d.get('note'): r['check_record'] = d['note']
@@ -71,7 +85,7 @@ with open('%s/drafts/batch-%s-found.csv' % (site, nn), 'w', newline='', encoding
     w = csv.DictWriter(f, fieldnames=cols, quoting=csv.QUOTE_ALL); w.writeheader()
     for r in sorted(final, key=lambda r: (-int(r['year']), -int(r['cited_by_count'] or 0), r['ref_id'])):
         row = {c: (r.get(c, '') if c == 'title_found' else ctrl.sub('', r.get(c, ''))) for c in cols}
-        if r['piece'] == 'book review' or broken.search(row['abstract']): row['abstract'] = ''; row['abstract_whole'] = ''     # a review: tags from the title alone, no abstract written
+        if r['piece'] == 'book review' or broken.search(row['abstract']) or page_text.search(row['abstract']) or cut_off.search(row['abstract']): row['abstract'] = ''; row['abstract_whole'] = ''     # a review: tags from the title alone, no abstract written
         if r['let_in'] == 'accepted': row['status'] = 'not found'; row['doi'] = ''          # enters only through the records file
         else: row['status'] = 'found'
         if not row['language']: row['language'] = 'en'

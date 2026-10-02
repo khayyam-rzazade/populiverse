@@ -25,7 +25,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02.3"
+  SCRIPT_VERSION <- "2026-10-02.4"
   `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
   say <- function(...) cat(..., "\n", sep = "")
   halt <- function(...) stop(structure(class = c("pv_stop", "error", "condition"),
@@ -76,14 +76,23 @@ local({
   # Everything that can be prepared once, before the works are read.
   prepare <- function(ph, ac, tax) {
     tagset <- function(group) lapply(group, function(def) list(rx = compile(def$phrases), not = compile(def$not)))
+    # the names of every country as plain lower-case words, to see which name holds another one
+    as_words <- function(x) tolower(trimws(gsub("\\s+", " ", gsub("[^A-Za-z0-9 ]+", " ", chartr(FROM, TO, x)))))
+    own_names <- lapply(names(tax$country_label), function(tag) as_words(c(tax$country_label[[tag]], ac$countries[[tag]]$names)))
+    names(own_names) <- names(tax$country_label)
     countries <- lapply(names(tax$country_label), function(tag) {
       extra <- ac$countries[[tag]] %||% list()
+      # the longer name of another country is not this country: "Northern Ireland" (the United Kingdom) is not
+      # Ireland, "South Sudan" is not Sudan, "Papua New Guinea" is not Guinea (since version 2026-10-02.4)
+      others <- unlist(own_names[names(own_names) != tag], use.names = FALSE)
+      longer <- unique(others[vapply(others, function(b) any(vapply(own_names[[tag]], function(a)
+        nchar(b) > nchar(a) && grepl(paste0(" ", a, " "), paste0(" ", b, " "), fixed = TRUE), logical(1))), logical(1))])
       adj <- NULL
       if (length(extra$adjectives)) {
         adj <- paste0("(?<![A-Za-z0-9])(?:", paste(vapply(extra$adjectives, one_pattern, ""), collapse = "|"), ") +(?:",
                       paste(vapply(ac$after_adjective, one_pattern, ""), collapse = "|"), ")(?![A-Za-z0-9])")
       }
-      list(tag = tag, names = compile(c(tax$country_label[[tag]], extra$names)),
+      list(tag = tag, names = compile(c(tax$country_label[[tag]], extra$names)), longer = compile(longer),
            exact = compile(c(extra$exact, extra$actors), TRUE), adj = adj, needs = compile(extra$needs))
     })
     list(approach = tagset(ph$approach), topic = tagset(ph$topic), method = tagset(ph$method),
@@ -169,7 +178,7 @@ local({
         name_counts <- is.null(cn$needs) || length(hits(paste(t_l, a_l), cn$needs)) > 0
         one <- function(low, case) {
           f4 <- hits(low, cn$adj)
-          c(if (name_counts) hits(low, cn$names), hits(case, cn$exact), if (length(f4)) paste0(sub(" .*$", "", f4), " (+ political word)"))
+          c(if (name_counts) hits(blank(low, cn$longer), cn$names), hits(case, cn$exact), if (length(f4)) paste0(sub(" .*$", "", f4), " (+ political word)"))
         }
         ft <- one(t_l, t_c); fa <- one(a_l, a_c)
         if (length(ft) >= 1 || length(fa) >= 2) {
@@ -408,7 +417,10 @@ local({
     }
     dir.create("library/batches", showWarnings = FALSE)
     con <- file(paste0("library/batches/batch-", nn, ".yml"), open = "wb"); writeLines(enc2utf8(out), con, useBytes = TRUE); close(con)
-    evd <- as.data.frame(do.call(rbind, evidence), stringsAsFactors = FALSE); names(evd) <- c("ref", "tag", "found_in", "phrase")
+    # (a batch in which no work has any wording behind a tag still gets its evidence file, with the header only)
+    evd <- if (length(evidence)) as.data.frame(do.call(rbind, evidence), stringsAsFactors = FALSE)
+           else data.frame(ref = character(), tag = character(), found_in = character(), phrase = character(), stringsAsFactors = FALSE)
+    names(evd) <- c("ref", "tag", "found_in", "phrase")
     utils::write.csv(evd, paste0("library/batches/batch-", nn, "-evidence.csv"), row.names = FALSE, fileEncoding = "UTF-8")
 
     # the summary
