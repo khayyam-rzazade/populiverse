@@ -24,6 +24,9 @@ usage:  python3 scripts/build_batch.py SITE RECORDS.csv NN YEAR_FROM YEAR_TO [DE
                   changes nothing but can carry "note", "no_abstract" or "published" (since batch 09).
                   A decision can also let in a work that waits: the second record of a piece, when it is
                   the better of the two (the publisher's DOI with the page range, since batch 09).
+                  "doi_also" (optional): the DOI under which Zotero holds the record, when its lookup follows
+                  the DOI of the batch to another record of the same work (seen in the group after a batch is in;
+                  the tagging script then finds the work by that DOI).
                   "_also" (optional): works of an earlier batch that this batch is to tag again:
                     [{"cite": ..., "doi": ... or "", "title": ..., "year": ..., "tags": [...], "why": "..."}]
   LIST.csv        drafts/search-NN-list.csv (for OpenAlex's day of publication); by default next to RECORDS.csv
@@ -32,7 +35,8 @@ What enters: every work of the years asked whose verdict is "enters by the rules
 back; every work for which neither catalogue states the language, when Scopus lists its journal with English only;
 and every work "to read" that DECISIONS.json lets in. A work whose record the two catalogues do not fully confirm enters as "accepted" and gets
 the note todo:check-record. A review of a book is written without its abstract (its tags come from the title alone).
-A work whose names the registry writes in capitals gets todo:check-record.
+Until batch 09 a work whose names the registry writes in capitals got todo:check-record; Zotero writes such
+names in normal case when it fetches the record, so the note is no longer written.
 A text that is the publisher's web page and not an abstract ("Search for other works by this author",
 "You do not currently have access to this content"), and a text that is cut off with
 spaced dots (". . ."), are left out for every work (since batch 09).
@@ -67,15 +71,15 @@ for r in W:
         r['let_in'] = ''; r['by_scopus_language'] = 'yes' if by_scopus else ''; final.append(r)
         if d and d.get('note'): r['check_record'] = d['note']
         if d and d.get('no_abstract'): r['abstract'] = ''; r['abstract_whole'] = ''
+        if d and d.get('doi_also'): r['doi_also'] = d['doi_also']
     elif d and d.get('as') in ('article', 'book review', 'book'):
         r['piece'] = d['as']; r['let_in'] = 'read' if r['check'] == 'confirmed' else 'accepted'; r['why'] = d['why']; final.append(r)
         if d.get('note'): r['check_record'] = d['note']
         if d.get('no_abstract'): r['abstract'] = ''; r['abstract_whole'] = ''
+        if d.get('doi_also'): r['doi_also'] = d['doi_also']
         retyped += by_rules
     else: r['why'] = ((d or {}).get('why') + ' (read by Claude)') if d else r['verdict']; wait.append(r); held += by_rules
-for r in final:     # names that the registry writes in capitals come into Zotero in capitals: a note for the editor
-    if not r.get('check_record') and re.search(r'(^|[ ,])[A-Z\u00c0-\u00de]{3,}([ ,]|$)', r['authors']):
-        r['check_record'] = 'the registry writes the names in capitals (' + r['authors'][:60] + '): to be corrected in Zotero by hand'
+# (names that the registry writes in capitals: no note since batch 09, because Zotero writes them in normal case itself)
 dois = collections.Counter(r['doi'] for r in final); assert not [k for k, v in dois.items() if v > 1], 'a DOI twice'
 cols = ['ref_id', 'cite', 'first_author', 'year', 'title', 'container', 'kind_guess', 'piece', 'authors', 'reference', 'doi_printed', 'status', 'doi', 'doi_also', 'found_by', 'title_found',
         'year_found', 'journal_or_publisher', 'type', 'source_type', 'open_access', 'oa_status', 'abstract_from', 'abstract_whole', 'openalex_id', 'language', 'cited_by_count',

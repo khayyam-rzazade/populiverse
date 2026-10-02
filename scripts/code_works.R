@@ -25,7 +25,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02.4"
+  SCRIPT_VERSION <- "2026-10-02.5"
   `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
   say <- function(...) cat(..., "\n", sep = "")
   halt <- function(...) stop(structure(class = c("pv_stop", "error", "condition"),
@@ -155,7 +155,10 @@ local({
     }
 
     # place: regions and countries named in the text
-    t_c <- blank(t_case, k$ignore); a_c <- blank(a_case, k$ignore)       # "ignore" phrases are lower case:
+    # the "ignore" wordings are removed from both forms of the text; in the form that keeps its capital letters
+    # they are looked for whatever the case (since version 2026-10-02.5: "distributed in U.S. by" is not the United States)
+    ig_case <- if (is.null(k$ignore)) NULL else paste0("(?i)", k$ignore)
+    t_c <- blank(t_case, ig_case); a_c <- blank(a_case, ig_case)         # "ignore" phrases are lower case:
     t_l <- blank(t_low, k$ignore);  a_l <- blank(a_low, k$ignore)        # removed from the lower-case text,
     cut <- "(?i)(?<![a-z])(?:latin|north|south|central) american(?![a-z])"
     t_c <- gsub(cut, " ", t_c, perl = TRUE); a_c <- gsub(cut, " ", a_c, perl = TRUE)

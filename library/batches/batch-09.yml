@@ -368,7 +368,6 @@ works:
     tags:
       - "type:article"
       - "oa:yes"
-      - "todo:check-record"
 
   - cite: "Mowbray and Senior 2006"
     doi: "10.1111/j.1835-9310.2006.tb00058.x"
@@ -798,6 +797,7 @@ works:
 
   - cite: "Hak 2004"
     doi: "10.1353/can.2004.0066"
+    doi_also: "10.3138/chr.85.2.277"
     title: "Populism and the 1952 Social Credit Breakthrough in British Columbia"
     year: 2004
     published: "2004-01-01"
@@ -927,7 +927,6 @@ works:
     tags:
       - "topic:economy-welfare"
       - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Necochea 2004"
     doi: "10.1093/shm/17.2.323-a"
@@ -1395,7 +1394,6 @@ works:
       - "region:latin-america"
       - "country:ecuador"
       - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Harrison 2001"
     doi: "10.1080/09692290110055867"
@@ -1520,7 +1518,6 @@ works:
       - "region:latin-america"
       - "country:venezuela"
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Jannarone 2001"
     doi: "10.1017/s0266464x00014755"
@@ -1554,7 +1551,6 @@ works:
       - "region:europe"
       - "country:belgium"
       - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Jayal 2001"
     doi: "10.1177/006996670103500105"
@@ -1578,7 +1574,6 @@ works:
     tags:
       - "region:latin-america"
       - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Ludden 2001"
     doi: "10.2307/2700090"
@@ -1935,7 +1930,6 @@ works:
     ref: "W2105665404"
     tags:
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Baumann 1998"
     doi: "10.1080/03066159808438685"
@@ -2006,7 +2000,6 @@ works:
     ref: "W2132886829"
     tags:
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Busse 1998"
     doi: "10.1111/0591-2385.1321998132"
@@ -2044,7 +2037,6 @@ works:
       - "country:algeria"
       - "country:tunisia"
       - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Hoeveler 1998"
     doi: "10.1017/s0898030600005534"
@@ -2194,7 +2186,6 @@ works:
     ref: "W2184522147"
     tags:
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Cornelius 1997"
     doi: "10.1080/00905999708408493"
@@ -2867,7 +2858,6 @@ works:
       - "region:north-america"
       - "country:united-states"
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Shrader‐Frechette 1994"
     doi: "10.1111/j.1467-9833.1994.tb00348.x"
@@ -3143,7 +3133,6 @@ works:
     tags:
       - "topic:parties"
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Sigelman 1993"
     doi: "10.1093/jcs/35.4.895"
@@ -3624,7 +3613,6 @@ works:
       - "region:mena"
       - "country:iran"
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Lingle 1989"
     doi: "10.1080/02589348908704913"
@@ -5407,15 +5395,15 @@ works:
 
   - cite: "Taylor 1975"
     doi: "10.2307/2129025"
+    doi_also: "10.1017/s0022381600041517"
     title: "Populism and Political Development in Latin America. By A. E. Van Niekerk. (Rotterdam: Rotterdam University Press [distributed in U.S. by International Scholarly Book Services, Portland, Ore.], 1974. Pp. xiii, 230. $20.00.)"
     year: 1975
     published: "1975-05-01"
     ref: "W2005395770"
     tags:
-      - "region:north-america"
       - "region:latin-america"
-      - "country:united-states"
       - "type:book-review"
+      - "todo:check-record"
 
   - cite: "Crow 1975"
     doi: "10.1111/j.1540-6563.1975.tb00047.x"
@@ -5638,7 +5626,6 @@ works:
       - "topic:parties"
       - "topic:spatial"
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Noble 1971"
     doi: "10.1177/000271627139400164"
@@ -5856,7 +5843,6 @@ works:
     ref: "W2322695123"
     tags:
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Roe 1966"
     doi: "10.2307/3112319"
@@ -5896,7 +5882,6 @@ works:
     ref: "W2106920355"
     tags:
       - "type:article"
-      - "todo:check-record"
 
   - cite: "Fallers 1964"
     doi: "10.1017/s0010417500002292"
@@ -6085,5 +6070,482 @@ works:
     ref: ""
     tags:
       - "topic:gender"
+      - "type:article"
+
+  - cite: "Fyodor GAYDA 2024"
+    doi: "10.21557/ssc.99327915"
+    title: "The Burden of Responsibility: Its Alternatives in the Ideological Transformation of Populism (Narodnichestvo) in the 1880s"
+    year: 2024
+    ref: ""
+    tags:
+      - "type:article"
+      - "todo:check-outlet"
+
+  - cite: "BELLAMY 2023"
+    doi: "10.1111/jols.12401"
+    title: "Political constitutionalism and populism"
+    year: 2023
+    ref: ""
+    tags:
+      - "approach:other"
+      - "topic:parties"
+      - "topic:democracy-institutions"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "ÇAKMAKLI et al. 2023"
+    doi: "10.1111/obes.12591"
+    title: "Do Financial Markets Respond to Populist Rhetoric?"
+    year: 2023
+    ref: ""
+    tags:
+      - "topic:media-communication"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "MUNCK et al. 2023"
+    doi: "10.2307/jj.1357295"
+    title: "Populism: Latin American Perspectives"
+    year: 2023
+    ref: ""
+    tags:
+      - "type:book"
+
+  - cite: "Corvinus University and COSSU 2023"
+    doi: "10.24193/ojmne.2023.41.05"
+    title: "THE ECONOMIC EFFECT OF POPULIST RHETORIC IN HUNGARY"
+    year: 2023
+    ref: ""
+    tags:
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "region:europe"
+      - "country:hungary"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "OMER and LUPO 2023"
+    doi: "10.2307/jj.21995875"
+    title: "Religion, Populism, and Modernity: Confronting White Christian Nationalism and Racism"
+    year: 2023
+    ref: ""
+    tags:
+      - "topic:religion"
+      - "type:book"
+
+  - cite: "HIDALGO 2023"
+    doi: "10.2307/jj.5274069"
+    title: "Performing Populism: Visions of Spanish Politics from 15-M to Podemos"
+    year: 2023
+    ref: ""
+    tags:
+      - "region:europe"
+      - "country:spain"
+      - "type:book"
+
+  - cite: "TIETJEN 2022"
+    doi: "10.1017/apa.2021.56"
+    title: "The Affects of Populism"
+    year: 2022
+    ref: ""
+    tags:
+      - "approach:discursive"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "BRETTER 2022"
+    doi: "10.47743/ejes-2022-si10"
+    title: "Comparative populism: Romania and Hungary"
+    year: 2022
+    ref: ""
+    tags:
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "country:romania"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "REED 2022"
+    doi: "10.1017/s0021875821001298"
+    title: "Sleepwalking, Class Mobility, and the Search for the Social Origins of Populism in Charles Brockden Brown's Edgar Huntly"
+    year: 2022
+    ref: ""
+    tags:
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "UNGUREANU and PINTOR 2021"
+    doi: "10.3828/catr.35.4"
+    title: "THE BATTLE FOR RE-IMAGINING CATALONIA: CINEMATIC POPULISM, MYTH-MAKING, AND CATHEDRAL OF THE SEA (JORDI FRADES, 2018)"
+    year: 2021
+    ref: ""
+    tags:
+      - "region:europe"
+      - "country:spain"
+      - "type:article"
+
+  - cite: "NTOMBA 2021"
+    doi: "10.2307/j.ctv2tr4wh7"
+    title: "Michael Sata: Portrait of a Populist"
+    year: 2021
+    ref: ""
+    tags:
+      - "region:sub-saharan-africa"
+      - "country:zambia"
+      - "type:book"
+
+  - cite: "JÄGER 2020"
+    doi: "10.1017/s0018246x20000527"
+    title: "STATE AND CORPORATION IN AMERICAN POPULIST POLITICAL PHILOSOPHY, 1877–1902"
+    year: 2020
+    ref: ""
+    tags:
+      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "BALLANTINE 2020"
+    doi: "10.1017/s1478572220000043"
+    title: "Against Populism: Music, Classification, Genre"
+    year: 2020
+    ref: ""
+    tags:
+      - "type:article"
+
+  - cite: "STEIGERWALD ILLE 2020"
+    doi: "10.1017/s1752196320000322"
+    title: "Negotiating Convention: Pop-Ups and Populism at the San Francisco Opera"
+    year: 2020
+    ref: ""
+    tags:
+      - "approach:performative"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "WINBERG 2020"
+    doi: "10.1111/1468-229x.12941"
+    title: "Blue‐Collar Conservatism: Frank Rizzo's Philadelphia and Populist Politics. By Timothy J. Lombardo. University of Pennsylvania Press. 2018. 328pp. $37.50/£29.99."
+    year: 2020
+    ref: ""
+    tags:
+      - "type:book-review"
+
+  - cite: "FENDLER 2020"
+    doi: "10.1111/1467-9752.12437"
+    title: "An Information Reformation? Research Expertise in a Populist Context"
+    year: 2020
+    ref: ""
+    tags:
+      - "type:article"
+
+  - cite: "ALTERIO 2019"
+    doi: "10.1017/s2045381719000029"
+    title: "Reactive vs structural approach: A public law response to populism"
+    year: 2019
+    ref: ""
+    tags:
+      - "topic:democracy-institutions"
+      - "type:article"
+
+  - cite: "Emil PAIN 2019"
+    doi: "10.21557/ssc.53833414"
+    title: "Ethnic Negativism in the Age of Populism: The Case of Russia"
+    year: 2019
+    ref: ""
+    tags:
+      - "region:europe"
+      - "country:russia"
+      - "type:article"
+
+  - cite: "RITCHIE 2019"
+    doi: "10.2307/jj.21995736"
+    title: "Inclusive Populism: Creating Citizens in the Global Age"
+    year: 2019
+    ref: ""
+    tags:
+      - "topic:voters"
+      - "type:book"
+
+  - cite: "BONNER 2018"
+    doi: "10.1111/blar.12744"
+    title: "Media and Punitive Populism in A rgentina and C hile"
+    year: 2018
+    ref: ""
+    tags:
+      - "topic:media-communication"
+      - "method:qualitative"
+      - "type:article"
+
+  - cite: "PAPAIOANNOU 2018"
+    doi: "10.1111/2057-1615.12231"
+    title: "How populists thrive when times are hard"
+    year: 2018
+    ref: ""
+    tags:
+      - "type:article"
+
+  - cite: "BECKER 2017"
+    doi: "10.1017/s0022216x1700116x"
+    title: "General Alberto Enríquez Gallo: Soldier, Populist, Leftist"
+    year: 2017
+    ref: ""
+    tags:
+      - "topic:parties"
+      - "type:article"
+
+  - cite: "JESSEN 2017"
+    doi: "10.2307/j.ctt1sq5w0g"
+    title: "Populism and Imperialism: Politics, Culture, and Foreign Policy in the American West, 1890-1900"
+    year: 2017
+    ref: ""
+    tags:
+      - "topic:foreign-policy"
+      - "type:book"
+
+  - cite: "NÁLLIM 2017"
+    doi: "10.1017/s0022216x17000578"
+    title: "John Abromeit , Bridget María Chesterton , Gary Marotta and York Norman (eds.), Transformations of Populism in Europe and the Americas: History and Recent Tendencies (London: Bloomsbury Academic Publishing, 2016), pp. x + 354, £70.00, hb."
+    year: 2017
+    ref: ""
+    tags:
+      - "region:europe"
+      - "type:book-review"
+
+  - cite: "JONES 2017"
+    doi: "10.1017/s0047279417000897"
+    title: "Paolo Gerbaudo (2017), The Mask and the Flag: Populism, Citizenism and Global Protest, London: Hurst Publishers, £14.99, pp. 320, pbk."
+    year: 2017
+    ref: ""
+    tags:
+      - "type:book-review"
+
+  - cite: "GARGARELLA 2017"
+    doi: "10.1017/s0022216x17000244"
+    title: "Federico Finchelstein , The Ideological Origins of the Dirty War: Fascism, Populism, and Dictatorship in Twentieth Century Argentina (Oxford and New York: Oxford University Press, 2014), pp. xi + 214, £37.99, hb."
+    year: 2017
+    ref: ""
+    tags:
+      - "region:latin-america"
+      - "country:argentina"
+      - "type:book-review"
+
+  - cite: "SAMET 2016"
+    doi: "10.1017/s0022216x16000419"
+    title: "The Denouncers: Populism and the Press in Venezuela"
+    year: 2016
+    ref: ""
+    tags:
+      - "topic:media-communication"
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:article"
+      - "oa:yes"
+
+  - cite: "MOSOBALAJE 2016"
+    doi: "10.1163/18757421-90000396"
+    title: "The Transition from a Mythopoeic to a Populist Aesthetic in Selected Political Plays of Wole Soyinka"
+    year: 2016
+    ref: ""
+    tags:
+      - "topic:defence-security"
+      - "type:article"
+
+  - cite: "LINDGREN 2015"
+    doi: "10.1017/s1468109915000328"
+    title: "Developing Japanese Populism Research through Readings Of European Populist Radical Right Studies: Populism As An Ideological Concept, Classifications Of Politicians And Explanations For Political Success"
+    year: 2015
+    ref: ""
+    tags:
+      - "topic:parties"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:japan"
+      - "type:article"
+
+  - cite: "BERLINER 2015"
+    doi: "10.5406/amerlitereal.47.3.0219"
+    title: "The Landscapes of Hamlin Garland and the American Populists"
+    year: 2015
+    ref: ""
+    tags:
+      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "RONIGER 2015"
+    doi: "10.1017/s0022216x15000723"
+    title: "Carlos de la Torre (ed.), The Promise and Perils of Populism: Global Perspectives (Lexington, KY: University Press of Kentucky, 2015), p. viii + 474, $30.00, pb."
+    year: 2015
+    ref: ""
+    tags:
+      - "type:book-review"
+
+  - cite: "WEATHERS 2014"
+    doi: "10.1093/ssjj/jyt029"
+    title: "Reformer or Destroyer? Hashimoto Toru and Populist Neoliberal Politics in Japan"
+    year: 2014
+    ref: ""
+    tags:
+      - "approach:performative"
+      - "topic:economy-welfare"
+      - "region:asia-pacific"
+      - "country:japan"
+      - "type:article"
+
+  - cite: "UDDHAMMAR 2014"
+    doi: "10.1017/s0022278x14000482"
+    title: "Urban Poverty and Party Populism in African Democracies by Danielle Resnick Cambridge: Cambridge University Press, 2013. Pp. 336. £65·00 (hbk)"
+    year: 2014
+    ref: ""
+    tags:
+      - "topic:parties"
+      - "region:sub-saharan-africa"
+      - "type:book-review"
+
+  - cite: "CAMERON 2014"
+    doi: "10.1017/s0022216x14001187"
+    title: "Carlos de la Torre and Cynthia J. Arnson (eds.), Latin American Populism in the Twenty-First Century (Washington, DC: Woodrow Wilson Center Press, and Baltimore, MD: Johns Hopkins University Press, 2013), pp. xii+398, £15.50, pb."
+    year: 2014
+    ref: ""
+    tags:
+      - "type:book-review"
+
+  - cite: "SHERMER 2014"
+    doi: "10.1017/s0018246x1400034x"
+    title: "WHO IS WAGGING WHOM? POWER AND THE NEW HISTORY OF AMERICAN POPULISM"
+    year: 2014
+    ref: ""
+    tags:
+      - "region:north-america"
+      - "country:united-states"
+      - "type:article"
+
+  - cite: "BRETT 2013"
+    doi: "10.1111/j.1467-923x.2013.12030.x"
+    title: "What's an Elite to Do? The Threat of Populism from Left, Right and Centre"
+    year: 2013
+    ref: ""
+    tags:
+      - "topic:parties"
+      - "type:article"
+
+  - cite: "LINKE 2013"
+    doi: "10.1111/amet.12029_6"
+    title: "Headlines of Nation, Subtexts of Class: Working‐Class Populism and the Return of the Repressed in Neoliberal Europe. DonKalb and GáborHalmai, eds. New York: Berghahn, 2011. 222 pp."
+    year: 2013
+    ref: ""
+    tags:
+      - "topic:economy-welfare"
+      - "region:europe"
+      - "type:book-review"
+
+  - cite: "POSTEL 2013"
+    doi: "10.1017/s0021875813000467"
+    title: "James M. Beeby (ed.), Populism in the South Revisited: New Interpretations and New Departures (Jackson: University Press of Mississippi, 2012, $60.00). Pp. 247. isbn 978 1 61703 225 7."
+    year: 2013
+    ref: ""
+    tags:
+      - "type:book-review"
+
+  - cite: "IORIS 2012"
+    doi: "10.1017/s0022216x1200003x"
+    title: "‘Fifty Years in Five’ and What's in It for Us? Development Promotion, Populism, Industrial Workers andCarestiain 1950s Brazil"
+    year: 2012
+    ref: ""
+    tags:
+      - "topic:economy-welfare"
+      - "region:latin-america"
+      - "country:brazil"
+      - "type:article"
+
+  - cite: "BANGSTAD 2012"
+    doi: "10.1111/j.1469-8676.2012.00202_9.x"
+    title: "The annoying difference: the emergence of Danish neonationalism, neoracism, and populism in the post-1989 world by Hervik, Peter"
+    year: 2012
+    ref: ""
+    tags:
+      - "type:book-review"
+
+  - cite: "SMITH 2012"
+    doi: "10.1017/s0022216x11001416"
+    title: "Amelia M. Kiddle and Maria L. O. Muñoz (eds.), Populism in 20th Century Mexico: The Presidencies of Lázaro Cárdenas and Luis Echeverría (Tucson, AZ: University of Arizona Press, 2010), pp. xiii + 296, $55.00, hb."
+    year: 2012
+    ref: ""
+    tags:
+      - "region:latin-america"
+      - "country:mexico"
+      - "type:book-review"
+
+  - cite: "KIDDLE 2011"
+    doi: "10.1017/s0022216x11000836"
+    title: "Karen Kampwirth (ed.), Gender and Populism in Latin America: Passionate Politics (University Park, PA: Penn State University Press, 2010), pp. xiv+254, $65.00, hb."
+    year: 2011
+    ref: ""
+    tags:
+      - "topic:gender"
+      - "region:latin-america"
+      - "type:book-review"
+
+  - cite: "BRYAN 2010"
+    doi: "10.1080/10301763.2010.10669402"
+    title: "AUSTRALIAN POPULISM AND THE GLOBAL FINANCIAL CRISIS: FINDING A PLACE FOR LABOUR"
+    year: 2010
+    ref: ""
+    tags:
+      - "topic:economy-welfare"
+      - "topic:media-communication"
+      - "region:asia-pacific"
+      - "country:australia"
+      - "type:article"
+
+  - cite: "GOTT 2010"
+    doi: "10.1017/s0022216x10001628"
+    title: "Barry Cannon, Hugo Chávez and the Bolivarian Revolution: Populism and Democracy in a Globalised Age (Manchester and New York: Manchester University Press, 2009), pp. xiv+235, £14.99, pb."
+    year: 2010
+    ref: ""
+    tags:
+      - "topic:democracy-institutions"
+      - "region:latin-america"
+      - "country:venezuela"
+      - "type:book-review"
+
+  - cite: "DOWNS 2009"
+    doi: "10.1111/j.1468-5965.2009.02038_8.x"
+    title: "Illiberal Politics in Neoliberal Times: Culture, Security and Populism in the New Europe – By M. Berezin"
+    year: 2009
+    ref: ""
+    tags:
+      - "topic:economy-welfare"
+      - "topic:democracy-institutions"
+      - "region:europe"
+      - "type:book-review"
+
+  - cite: "ANSARI 2008"
+    doi: "10.1111/j.1468-2346.2008.00732.x"
+    title: "Iran under Ahmadinejad: populism and its malcontents"
+    year: 2008
+    ref: ""
+    tags:
+      - "topic:religion"
+      - "region:mena"
+      - "country:iran"
+      - "type:article"
+
+  - cite: "HIRANO 2008"
+    doi: "10.3162/036298008783743282"
+    title: "Third Parties, Elections, and Roll‐Call Votes: The Populist Party and the Late Nineteenth‐Century U.S. Congress"
+    year: 2008
+    ref: ""
+    tags:
+      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
+      - "method:quantitative"
       - "type:article"
 
