@@ -56,7 +56,7 @@ Issues are numbered by year, and the number follows the month covered: 2026/1 is
 
 1. **The month in brief.** A short picture of the month.
 2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. About four full items and a few one-line entries for each region. A full item says what happened, gives the background and says what comes next.
-3. **New research.** A short account of the works on populism published that month that are in the [Library](../library/index.qmd). The full list is one click away.
+3. **New research.** A short account of the works on populism published that month that are in the [Library](../library/index.qmd). The full list is one click away. On the web page of an issue this part stands first; in the PDF it is the last of the three.
 
 An issue has 15 pages at most. You can understand each event from the issue itself. The links are there as proof.
 

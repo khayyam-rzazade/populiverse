@@ -18,6 +18,8 @@ include-in-header:
       "inLanguage": "en-GB",
       "editor": { "@type": "Person", "name": "Khayyam Rzazade", "url": "https://populiverse.com/about/editor.html" },
       "sameAs": [
+        "https://www.linkedin.com/company/146682198/",
+        "https://zenodo.org/communities/populiverse/",
         "https://www.zotero.org/groups/6697881/populiverse_library",
         "https://github.com/khayyam-rzazade/populiverse"
       ]

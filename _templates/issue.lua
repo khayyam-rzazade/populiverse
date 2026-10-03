@@ -19,7 +19,9 @@
 --      list of the month's works is a file next to the text
 --      (populiverse-monitor-2026-1-new-research.csv). On the web page the
 --      list is shown under the account, folded shut. The PDF prints where the
---      list is.
+--      list is. On the web page the whole part stands first, before "The
+--      month in brief" (the editor, 2026-10-03); the PDF keeps the order of
+--      the text, in which it is the last of the three parts.
 --
 -- It only acts on a page whose header has the line "issue:". Every other
 -- page of the site passes through untouched.
@@ -186,6 +188,64 @@ local function research_place(blocks, is_foreign)
     if (b.t == "Header" and b.level <= level) or is_foreign(b) then return i end
   end
   return #blocks + 1
+end
+
+-- On the web page the part "New research" stands first, before "The month in
+-- brief" (the editor's decision of 2026-10-03). This moves the whole part: its
+-- heading, the short account and the folded list. The PDF is made by another
+-- part of this file and keeps the order in which the issue's text is written.
+local function research_first(blocks, is_foreign)
+  local start, level = nil, nil
+  for i, b in ipairs(blocks) do
+    if b.t == "Header" and stringify(b):lower() == RESEARCH_HEADING then
+      start, level = i, b.level
+      break
+    end
+  end
+  if not start then return end
+  local stop = #blocks + 1
+  for i = start + 1, #blocks do
+    local b = blocks[i]
+    if (b.t == "Header" and b.level <= level) or is_foreign(b) then
+      stop = i
+      break
+    end
+  end
+  -- where the text of the issue begins
+  local first = 1
+  while first <= #blocks and is_foreign(blocks[first]) do first = first + 1 end
+  if start <= first then return end
+  -- The page of the PDF on which the part begins: the last page number that
+  -- stands before it in the text. Nothing is found when the page numbers are
+  -- not shown (no PDF yet, or the text has changed since the PDF was made).
+  local page = nil
+  local function see(n)
+    n = tonumber(n)
+    if n and (page == nil or n > page) then page = n end
+  end
+  for i = 1, start do
+    local b = blocks[i]
+    if b.t == "Header" and b.attributes["data-page"] then see(b.attributes["data-page"]) end
+    if i < start then
+      b:walk({
+        RawInline = function(el)
+          if el.format == "html" then see(el.text:match('class="pv%-page"[^>]*data%-page="(%d+)"')) end
+          return nil
+        end,
+      })
+    end
+  end
+  local part = {}
+  for i = start, stop - 1 do part[#part + 1] = blocks[i] end
+  -- One line under the heading says where the part stands in the PDF, so that
+  -- it can still be cited by page.
+  if page then
+    table.insert(part, 2, pandoc.RawBlock("html",
+      '<p class="pv-issue-note">In the PDF this part comes last and begins on page '
+      .. string.format("%d", page) .. ".</p>"))
+  end
+  for _ = start, stop - 1 do blocks:remove(start) end
+  for k, b in ipairs(part) do blocks:insert(first + k - 1, b) end
 end
 
 -- ------------------------------------------------- 1 and 2: the structure
@@ -622,12 +682,6 @@ local function facts_block(info, has_pdf, state)
     actions[#actions + 1] = '<a class="pv-button" href="' .. info.pdf .. '">Download the PDF</a>'
   end
   actions[#actions + 1] = '<a href="#how-to-cite">How to cite this issue</a>'
-  -- "New research": one click from the top of the page to the month's list.
-  -- The click also opens the list, which stands folded shut under the account.
-  if info.research_list and info.research_place then
-    actions[#actions + 1] = '<a href="#new-research" onclick="var d=document.querySelector(\'details.pv-research\');if(d){d.open=true;}">'
-      .. "New research: " .. #info.research_list .. " works published in " .. html_escape(info.month) .. "</a>"
-  end
   h[#h + 1] = '<p class="pv-issue-actions">' .. table.concat(actions, " ") .. "</p>"
   if state == "ok" then
     h[#h + 1] = '<p class="pv-issue-note">The PDF is the version of record. The small numbers at the edge of '
@@ -820,6 +874,9 @@ local function make_html(doc, info)
   if info.research_list and info.research_place then
     doc.blocks:insert(info.research_place, research_block(info))
   end
+
+  -- on the web page the part "New research" stands first (not in the PDF)
+  research_first(doc.blocks, is_quarto_part)
 
   local last = #doc.blocks
   while last > 0 and is_quarto_part(doc.blocks[last]) do last = last - 1 end
