@@ -570,6 +570,31 @@ local function scholar_tags(info, pages)
   return table.concat(t, "\n")
 end
 
+-- What search engines are told about a published issue, in the form they read
+-- (schema.org): that it is one issue of a periodical, with its number, its day
+-- of publication, its DOI and its licence. Readers do not see it.
+local function search_tags(info)
+  local function q(x) return '"' .. js_string(x) .. '"' end
+  local t = {
+    '<script type="application/ld+json">',
+    "{",
+    '  "@context": "https://schema.org",',
+    '  "@type": "PublicationIssue",',
+    '  "name": ' .. q(info.title .. ": " .. info.month) .. ",",
+    '  "issueNumber": ' .. q(info.number) .. ",",
+    '  "datePublished": ' .. q(info.date_iso) .. ",",
+    '  "url": ' .. q(info.url) .. ",",
+    '  "sameAs": ' .. q("https://doi.org/" .. info.doi) .. ",",
+    '  "inLanguage": "en-GB",',
+    '  "license": "https://creativecommons.org/licenses/by/4.0/",',
+    '  "editor": { "@type": "Person", "name": ' .. q(info.editor) .. ', "url": ' .. q(SITE .. "/about/editor.html") .. " },",
+    '  "isPartOf": { "@type": "Periodical", "name": "PopuliVerse Monitor", "url": ' .. q(SITE .. "/monitor/") .. " }",
+    "}",
+    "</script>",
+  }
+  return table.concat(t, "\n")
+end
+
 local function facts_block(info, has_pdf, state)
   local rows = {}
   local function row(term, value) rows[#rows + 1] = "<div><dt>" .. term .. "</dt><dd>" .. value .. "</dd></div>" end
@@ -597,6 +622,12 @@ local function facts_block(info, has_pdf, state)
     actions[#actions + 1] = '<a class="pv-button" href="' .. info.pdf .. '">Download the PDF</a>'
   end
   actions[#actions + 1] = '<a href="#how-to-cite">How to cite this issue</a>'
+  -- "New research": one click from the top of the page to the month's list.
+  -- The click also opens the list, which stands folded shut under the account.
+  if info.research_list and info.research_place then
+    actions[#actions + 1] = '<a href="#new-research" onclick="var d=document.querySelector(\'details.pv-research\');if(d){d.open=true;}">'
+      .. "New research: " .. #info.research_list .. " works published in " .. html_escape(info.month) .. "</a>"
+  end
   h[#h + 1] = '<p class="pv-issue-actions">' .. table.concat(actions, " ") .. "</p>"
   if state == "ok" then
     h[#h + 1] = '<p class="pv-issue-note">The PDF is the version of record. The small numbers at the edge of '
@@ -797,7 +828,7 @@ local function make_html(doc, info)
 
   -- what Google Scholar reads; only once the issue is published
   if info.published then
-    local tags = scholar_tags(info, state == "ok" and map.pages or nil)
+    local tags = scholar_tags(info, state == "ok" and map.pages or nil) .. "\n" .. search_tags(info)
     if quarto and quarto.doc and quarto.doc.include_text then
       quarto.doc.include_text("in-header", tags)
     else

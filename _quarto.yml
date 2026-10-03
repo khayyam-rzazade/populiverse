@@ -10,8 +10,16 @@ project:
   # The typeface files are copied into the built site as they are.
   resources:
     - "fonts/"
+    # The picture shown when a link to the site is shared (LinkedIn, messages).
+    - "populiverse-card.png"
 
 lang: en-GB
+
+# Under every list of issues Quarto keeps a hidden line, "No matching items", for
+# lists that readers can filter. Our lists have no filter, so the line is never
+# shown, but search engines read it. Setting it to nothing takes the words out.
+language:
+  listing-page-no-matches: ""
 
 # In the text of every page, "Verse" in the name PopuliVerse is set in italics.
 # The small file verse.lua does this when the site is built.
@@ -24,6 +32,16 @@ website:
   # The small picture in the browser tab: the letters P and V, black on white.
   favicon: favicon.png
   site-url: "https://populiverse.com"
+  # When someone shares a link to any page, the preview shows this picture with
+  # the page's own title and description. "open-graph" is what LinkedIn, Facebook
+  # and messaging apps read; "twitter-card" is what X and Bluesky read.
+  # The slash at the start means "from the top folder of the site", so every
+  # page, in whatever folder, points to the same picture.
+  image: "/populiverse-card.png"
+  image-alt: "PopuliVerse: The Universe of Populism"
+  open-graph: true
+  twitter-card:
+    card-style: summary_large_image
   back-to-top-navigation: true
   search:
     location: navbar
@@ -83,6 +101,10 @@ format:
     html-math-method: mathml
     toc: false
     link-external-newwindow: true
+    # Every page names its one official address. A filter link such as
+    # library/index.html?topic=migration then counts as the Library page itself,
+    # not as a second page with the same content.
+    canonical-url: true
     email-obfuscation: javascript
     # The visit counter: Cloudflare Web Analytics. It sets no cookies.
     # This one line is the only thing a page loads from another company.

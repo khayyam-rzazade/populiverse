@@ -1,5 +1,8 @@
 ---
 title: "Library"
+# The name in the browser tab and in search results. The heading on the page
+# itself stays "Library".
+pagetitle: "Library: A Database of Research on Populism"
 description: "A database of research on populism, built for literature reviews."
 page-layout: full
 body-classes: pv-library

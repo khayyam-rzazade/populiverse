@@ -2,6 +2,27 @@
 title: "The Universe of Populism"
 description: "PopuliVerse is one place to study populism, to follow what populist actors do around the world and to publish short scholarly commentary."
 body-classes: pv-home
+# What search engines are told about the site, in the form they read (schema.org):
+# its name, its address and its editor, and where else PopuliVerse lives.
+# Readers do not see it.
+include-in-header:
+  text: |
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PopuliVerse",
+      "alternateName": "The Universe of Populism",
+      "url": "https://populiverse.com/",
+      "description": "PopuliVerse is one place to study populism, to follow what populist actors do around the world and to publish short scholarly commentary.",
+      "inLanguage": "en-GB",
+      "editor": { "@type": "Person", "name": "Khayyam Rzazade", "url": "https://populiverse.com/about/editor.html" },
+      "sameAs": [
+        "https://www.zotero.org/groups/6697881/populiverse_library",
+        "https://github.com/khayyam-rzazade/populiverse"
+      ]
+    }
+    </script>
 page-layout: full
 anchor-sections: false
 listing:

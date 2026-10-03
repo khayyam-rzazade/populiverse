@@ -5,6 +5,24 @@ description: "What populist actors did around the world, issue by issue."
 google-scholar: false
 citation: false
 toc: false
+# What search engines are told about the Monitor, in the form they read
+# (schema.org): that it is a periodical, who edits it and under which licence.
+# Readers do not see it. When the Monitor has an ISSN, one line is added here.
+include-in-header:
+  text: |
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Periodical",
+      "name": "PopuliVerse Monitor",
+      "url": "https://populiverse.com/monitor/",
+      "description": "A monthly digest of what populist actors did around the world.",
+      "inLanguage": "en-GB",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "editor": { "@type": "Person", "name": "Khayyam Rzazade", "url": "https://populiverse.com/about/editor.html" },
+      "publisher": { "@type": "Organization", "name": "PopuliVerse", "url": "https://populiverse.com/" }
+    }
+    </script>
 listing:
   id: issues
   contents: "*/*.qmd"
