@@ -695,6 +695,24 @@ footer.footer .nav-footer::before {
   text-align: center;
 }
 
+// The row of figures under the Library's sentence on Home (library/_figures.md,
+// written by the nightly sync): quiet, a little smaller than the text.
+.pv-figures {
+  margin-top: 1.5rem;
+  color: $pv-muted;
+  font-size: 0.9rem;
+  font-variant-numeric: lining-nums;
+}
+
+.pv-figures p {
+  margin: 0 0 0.35rem;
+}
+
+.pv-figures p:last-child {
+  margin-bottom: 0;
+  font-size: 0.8125rem;
+}
+
 // The lists of the two axes: one line each, thin rules between
 .pv-home .pv-axes {
   grid-template-columns: 1fr;

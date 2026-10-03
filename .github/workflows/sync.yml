@@ -58,14 +58,14 @@ jobs:
         env:
           PUBLISHED: ${{ steps.sync.outputs.published }}
         run: |
-          if [ -z "$(git status --porcelain -- library/library.json library/library-list.json library/library-text.json)" ]; then
+          if [ -z "$(git status --porcelain -- library/library.json library/library-list.json library/library-text.json library/_figures.md)" ]; then
             echo "Nothing has changed: the Library's files are already up to date."
             echo "saved=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add library/library.json library/library-list.json library/library-text.json
+          git add library/library.json library/library-list.json library/library-text.json library/_figures.md
           git commit -m "Library sync: ${PUBLISHED} works"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"

@@ -67,6 +67,10 @@ Global in scope, academic in standard and readable by anyone.
 ## The Library
 
 A database of research on populism, built for literature reviews. Filter it by approach to populism and by topic. Every entry links to its DOI or to an open-access copy.
+
+<!-- The row of figures. It is not typed here: the nightly sync counts the
+     figures from the Library and writes them into library/_figures.md. -->
+{{< include library/_figures.md >}}
 :::
 
 ::: {.pv-axes}

@@ -1,9 +1,10 @@
 # PopuliVerse Library: the phrases that count as evidence for each tag.
-# Version 5, 2026-10-02 (version 2 of 2026-10-01 added the rule on review articles; version 3 removes two more wordings before "war" is looked for;
+# Version 6, 2026-10-03 (version 2 of 2026-10-01 added the rule on review articles; version 3 removes two more wordings before "war" is looked for;
 # version 4, with batch 08: more wordings removed before "war" and before "interview" are looked for, and "opinion poll" no longer counts as a survey;
 # version 5, with batch 09, the works before 2008: wordings removed that gave a wrong tag there, among them "the Civil War" as a date,
-# a "regression" that is a decline, and a "populist president" of a trade union). It belongs with taxonomy.yml (the tags) and actors.yml
-# (countries, leaders and parties).
+# a "regression" that is a decline, and a "populist president" of a trade union;
+# version 6: a second test for the tag "Parties, Leaders and Movements", see "HOW MUCH EVIDENCE IS NEEDED" and the tag itself).
+# It belongs with taxonomy.yml (the tags) and actors.yml (countries, leaders and parties).
 #
 # HOW IT WORKS
 #   scripts/code_works.R reads the title and the abstract of each work and gives
@@ -20,6 +21,8 @@
 # HOW MUCH EVIDENCE IS NEEDED
 #   approach  one phrase, in the title or in the abstract.
 #   topic     one phrase in the title, or two phrases in the abstract.
+#             "Parties, Leaders and Movements" must pass a second test as well
+#             (since version 6): it is written out under "topic:parties" below.
 #   method    one phrase in the title, or one in a sentence of the abstract that
 #             speaks about the study itself (it contains one of the "study words").
 #             For a review article (see "review_titles") the title alone counts.
@@ -28,8 +31,8 @@
 #   A work found to use mixed methods gets "Mixed methods" only, not also
 #   "Qualitative" or "Quantitative".
 
-version: 5
-date: "2026-10-02"
+version: 6
+date: "2026-10-03"
 
 # Outlets that may not be peer-reviewed. A work in one of them stays in the
 # Library and gets the note "todo:check-outlet" for the editor (never shown on
@@ -123,6 +126,42 @@ topic:
               "political leader*", "party leader*", "populist movement*", "social movement*", "populist actor*",
               "populist politician*", "candidate*", "manifesto*", "radical right", "far right", "radical left",
               "populist right", "populist left", "right wing populis*", "left wing populis*"]
+    # THE SECOND TEST (since version 6, 2026-10-03). Words such as "party" and "radical right" stand in
+    # almost every text on populism, so the phrases above gave this tag to many works that are about
+    # voters or about something else. A work that passes the usual rule now keeps the tag only if
+    #   A. its TITLE holds none of the "title_blocks" (the title is not about voters or supporters), and
+    #   B. one of these is true:
+    #      1. the title holds one of the "title_words";
+    #      2. the title names a leader or a party listed in actors.yml;
+    #      3. the title names a party family ("title_families"), unless the abstract speaks mostly of
+    #         voters: three or more "abstract_counter" words, and at least as many as "abstract_phrases";
+    #      4. the abstract holds two or more "abstract_phrases", and more of them than
+    #         "abstract_counter" words.
+    # Tested on 3 October 2026 on works that carried the tag: of the clear cases, about 6 to 7 in 10
+    # were right before, and 9 in 10 of those that keep the tag (120 works read to write the test,
+    # 50 others to try it; the reader was Claude). The decision log of the master plan has the detail.
+    second_test:
+      title_blocks: ["vote", "votes", "voted", "voting", "voter*", "electorate*", "electoral support", "support for",
+                     "supporters", "attitudes", "public opinion", "demand for", "demand side", "publics", "audience*"]
+      title_words: ["party", "parties", "party system*", "partisan*", "leader*", "leadership", "politician*", "movement*",
+                    "manifesto*", "candidate*", "mps", "parliamentarian*", "legislator*"]
+      title_families: ["radical right", "far right", "radical left", "far left", "populist right", "populist left",
+                       "extreme right", "populist actor*", "populist radical right", "right wing populists",
+                       "left wing populists", "populists in"]
+      abstract_phrases: ["populist part*", "populist radical right part*", "radical right part*", "far right part*",
+                         "radical left part*", "right wing part*", "left wing part*", "right wing populist part*",
+                         "left wing populist part*", "political part*", "mainstream part*", "established part*", "niche part*",
+                         "challenger part*", "anti establishment part*", "opposition part*", "governing part*", "ruling part*",
+                         "new part*", "other part*", "party system*", "party competition", "party organi*", "party strateg*",
+                         "party leader*", "party polit*", "party member*", "party famil*", "party position*", "party manifesto*",
+                         "party program*", "party platform*", "party ideolog*", "party discourse*", "party communication",
+                         "manifesto*", "populist leader*", "political leader*", "leadership", "populist movement*",
+                         "social movement*", "populist actor*", "populist politician*", "politicians", "populist candidate*",
+                         "the party", "parties", "party s"]
+      abstract_counter: ["vote", "votes", "voted", "voting", "voter*", "electorate*", "electoral support", "support",
+                         "supporters", "attitudes", "demand", "preference*", "public opinion", "citizens", "respondents",
+                         "survey experiment", "experiment*"]
+
   "topic:voters":
     phrases: ["voter*", "voting behavio*", "vote choice", "electorate*", "electoral support", "public opinion",
               "populist attitudes", "attitudes", "citizens", "mass public", "demand side", "supporters",

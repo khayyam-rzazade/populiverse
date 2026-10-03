@@ -14,6 +14,8 @@
 #      abstract when there is one, and only journal articles and books.
 #   3. Tags: gives a tag only when a phrase listed in library/phrases.yml or a
 #      name listed in library/actors.yml is found in the title or the abstract.
+#      One tag, "Parties, Leaders and Movements", must pass a second test as
+#      well, written out in library/phrases.yml (since its version 6).
 #      The type comes from the catalogue record; "open access" from OpenAlex.
 #   4. Writes library/batches/batch-NN.yml (the works and their tags) and
 #      library/batches/batch-NN-evidence.csv (for every tag: the phrase found
@@ -25,7 +27,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-02.5"
+  SCRIPT_VERSION <- "2026-10-03.6"
   `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
   say <- function(...) cat(..., "\n", sep = "")
   halt <- function(...) stop(structure(class = c("pv_stop", "error", "condition"),
@@ -75,7 +77,11 @@ local({
 
   # Everything that can be prepared once, before the works are read.
   prepare <- function(ph, ac, tax) {
-    tagset <- function(group) lapply(group, function(def) list(rx = compile(def$phrases), not = compile(def$not)))
+    # the second test that phrases.yml asks of a tag (since its version 6: "topic:parties"), prepared in the same way
+    second <- function(s) if (is.null(s)) NULL else list(
+      title_blocks = compile(s$title_blocks), title_words = compile(s$title_words), title_families = compile(s$title_families),
+      abstract_phrases = compile(s$abstract_phrases), abstract_counter = compile(s$abstract_counter))
+    tagset <- function(group) lapply(group, function(def) list(rx = compile(def$phrases), not = compile(def$not), second = second(def$second_test)))
     # the names of every country as plain lower-case words, to see which name holds another one
     as_words <- function(x) tolower(trimws(gsub("\\s+", " ", gsub("[^A-Za-z0-9 ]+", " ", chartr(FROM, TO, x)))))
     own_names <- lapply(names(tax$country_label), function(tag) as_words(c(tax$country_label[[tag]], ac$countries[[tag]]$names)))
@@ -100,7 +106,8 @@ local({
          regions = lapply(ac$regions, compile), regions_exact = lapply(ac$regions_exact %||% list(), compile, keep_case = TRUE),
          countries = countries,
          any_place = compile(unlist(c(tax$country_label, lapply(ac$countries, function(x) c(x$names, x$adjectives))))),
-         any_exact = compile(unlist(lapply(ac$countries, function(x) c(x$exact, x$actors))), TRUE))
+         any_exact = compile(unlist(lapply(ac$countries, function(x) c(x$exact, x$actors))), TRUE),
+         actors = compile(unlist(lapply(ac$countries, function(x) x$actors)), TRUE))   # leaders and parties only, written exactly so
   }
 
   # ---- one work ---------------------------------------------------------------
@@ -132,6 +139,21 @@ local({
       def <- k$topic[[tag]]
       ft <- hits(blank(t_low, def$not), def$rx); fa <- hits(blank(a_low, def$not), def$rx)
       if (length(ft) >= 1 || length(fa) >= 2) {
+        # The second test, for a tag whose phrases stand in almost every text on populism (phrases.yml, since version 6:
+        # "Parties, Leaders and Movements"). The title must not be about voters, and the title or the abstract must show
+        # that the work is about the parties, leaders or movements themselves. A work that fails keeps its other tags.
+        if (!is.null(def$second)) {
+          s2 <- def$second; why <- NULL
+          if (length(hits(t_low, s2$title_blocks)) == 0) {
+            n_ph <- length(hits(a_low, s2$abstract_phrases)); n_ct <- length(hits(a_low, s2$abstract_counter))
+            if (length(hits(t_low, s2$title_words)) > 0) why <- "a party word in the title"
+            else if (length(hits(t_case, k$actors)) > 0) why <- "a leader or a party named in the title"
+            else if (length(hits(t_low, s2$title_families)) > 0 && !(n_ct >= 3 && n_ct >= n_ph)) why <- "a party family in the title"
+            else if (n_ph >= 2 && n_ph > n_ct) why <- "the abstract speaks of parties more than of voters"
+          }
+          if (is.null(why)) next
+          ev[[length(ev) + 1]] <- c(tag, "rule", paste0("second test passed: ", why))
+        }
         tags <- c(tags, tag)
         if (length(ft) >= 1) add(tag, "title", ft)
         if (length(fa) >= 2) add(tag, "abstract", fa)
