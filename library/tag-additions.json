@@ -1,0 +1,3510 @@
+[
+ {
+  "id": "2ERIIFJD",
+  "bucket": "M",
+  "tags": [
+   "region:europe",
+   "region:north-america",
+   "topic:international"
+  ]
+ },
+ {
+  "id": "2F9ST64T",
+  "bucket": "T",
+  "tags": [
+   "region:global"
+  ]
+ },
+ {
+  "id": "2FAFGSDL",
+  "bucket": "M",
+  "tags": [
+   "country:india",
+   "region:asia-pacific",
+   "topic:parties",
+   "topic:voters",
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "2S7JTMTA",
+  "bucket": "T",
+  "tags": [
+   "topic:spatial",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "2TH7IEGJ",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "2TLM479G",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "2YQ3WAJ6",
+  "bucket": "M",
+  "tags": [
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "2ZSEDTRZ",
+  "bucket": "M",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "32MSBXB5",
+  "bucket": "M",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "34HCFDQT",
+  "bucket": "T",
+  "tags": [
+   "country:france",
+   "region:europe",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "35FPJB5E",
+  "bucket": "M",
+  "tags": [
+   "country:brazil",
+   "region:latin-america"
+  ]
+ },
+ {
+  "id": "35S6ILHM",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "39LBWCJV",
+  "bucket": "M",
+  "tags": [
+   "topic:spatial",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "3BQI4KME",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "3C3RWB9D",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "approach:discursive"
+  ]
+ },
+ {
+  "id": "3CAW2ELT",
+  "bucket": "M",
+  "tags": [
+   "country:russia",
+   "country:italy",
+   "region:europe",
+   "region:latin-america"
+  ]
+ },
+ {
+  "id": "3CGL83HT",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "3GSHTKJN",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "3H3P5SKB",
+  "bucket": "T",
+  "tags": [
+   "topic:government",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "3HANG3E6",
+  "bucket": "M",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "3I8IWR5S",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "3M8SWAUB",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "3UWR5FNQ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "3VUS6XSQ",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "3WPAR6LC",
+  "bucket": "M",
+  "tags": [
+   "country:russia",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "3XMQDPPG",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "452JGCFY",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "45KKAIJG",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "45UUZS7I",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "493D2WU5",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "4FHB6YWF",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "4I4KGF8R",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "4KD7T4RH",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "4RFZ23SD",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "4WKU39NR",
+  "bucket": "T",
+  "tags": [
+   "approach:performative",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "4XXL9U9V",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "4XXZ8B9S",
+  "bucket": "T",
+  "tags": [
+   "topic:government",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "55UZG3DJ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "5692WHF2",
+  "bucket": "M",
+  "tags": [
+   "country:canada",
+   "region:north-america",
+   "topic:economy-welfare",
+   "topic:government"
+  ]
+ },
+ {
+  "id": "5CNGA3BV",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "5CVRIAVN",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "6BT6MEJB",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "6D28WRVP",
+  "bucket": "M",
+  "tags": [
+   "topic:economy-welfare",
+   "topic:migration"
+  ]
+ },
+ {
+  "id": "6H3XSGPI",
+  "bucket": "M",
+  "tags": [
+   "region:europe",
+   "region:north-america",
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "6KLS578L",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "6KVRBB7R",
+  "bucket": "M",
+  "tags": [
+   "approach:discursive",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "6V4G2H56",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "6Z3LNVGI",
+  "bucket": "M",
+  "tags": [
+   "country:brazil",
+   "country:united-states",
+   "region:latin-america",
+   "region:north-america",
+   "topic:government",
+   "topic:democracy-institutions",
+   "method:qualitative"
+  ]
+ },
+ {
+  "id": "6ZYNPZXY",
+  "bucket": "M",
+  "tags": [
+   "country:netherlands",
+   "region:europe",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "72RQH6WU",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "76FC7PH6",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "77CRIC6V",
+  "bucket": "T",
+  "tags": [
+   "topic:government"
+  ]
+ },
+ {
+  "id": "78HFTVRP",
+  "bucket": "T",
+  "tags": [
+   "country:germany",
+   "country:france",
+   "region:europe",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "78IL3LU3",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "7BCIC94T",
+  "bucket": "M",
+  "tags": [
+   "country:turkey",
+   "region:europe",
+   "topic:media-communication",
+   "approach:discursive"
+  ]
+ },
+ {
+  "id": "7D3793KC",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "7DXJLSSJ",
+  "bucket": "M",
+  "tags": [
+   "topic:economy-welfare",
+   "topic:international"
+  ]
+ },
+ {
+  "id": "7E96Z4Q8",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "7FK577N5",
+  "bucket": "M",
+  "tags": [
+   "topic:spatial",
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "7GXDRLGQ",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:voters",
+   "topic:democracy-institutions",
+   "method:quantitative",
+   "method:survey"
+  ]
+ },
+ {
+  "id": "7K2W3B5S",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "7LDACRBM",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "7NACHSED",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "7PLR2E2L",
+  "bucket": "M",
+  "tags": [
+   "country:turkey",
+   "region:europe",
+   "topic:government"
+  ]
+ },
+ {
+  "id": "7U3BA2NV",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "7Z6MSPYQ",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "7ZMLT83M",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "84KVH45X",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:economy-welfare",
+   "method:quantitative"
+  ]
+ },
+ {
+  "id": "856GT3QG",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "8979PF7Q",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "8BQ4TRP9",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "8N352A3H",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "8N46NFIZ",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "8UWNGXHE",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "94PJPPED",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "97TLNSKB",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:economy-welfare",
+   "method:quantitative"
+  ]
+ },
+ {
+  "id": "97ZMP5CZ",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "9BDIPKZE",
+  "bucket": "M",
+  "tags": [
+   "topic:media-communication",
+   "approach:discursive",
+   "method:qualitative"
+  ]
+ },
+ {
+  "id": "9CL5BU4K",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "9EVIKJAN",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "9JXMR7B9",
+  "bucket": "M",
+  "tags": [
+   "country:brazil",
+   "region:latin-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "9LB46NSQ",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "country:brazil",
+   "region:north-america",
+   "region:latin-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "9LP365GP",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "9NP2GFMC",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "9SSZYTJN",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "9XPQMR8Z",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "9ZSSIDP8",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "A33R6QNN",
+  "bucket": "M",
+  "tags": [
+   "country:germany",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "A3BUF2H4",
+  "bucket": "T",
+  "tags": [
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "A3RNZ628",
+  "bucket": "M",
+  "tags": [
+   "country:philippines",
+   "region:asia-pacific",
+   "topic:government",
+   "method:qualitative"
+  ]
+ },
+ {
+  "id": "A4HLPSBC",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "A5LLYES3",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "A74B8SYA",
+  "bucket": "M",
+  "tags": [
+   "country:ecuador",
+   "region:latin-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "A7AQ86DI",
+  "bucket": "T",
+  "tags": [
+   "country:russia",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "A7HPGGCR",
+  "bucket": "M",
+  "tags": [
+   "region:europe",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "A8ANE2LX",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "method:experiment"
+  ]
+ },
+ {
+  "id": "AB2XZ7EM",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "ACSN4ZSC",
+  "bucket": "T",
+  "tags": [
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "ACZJSE87",
+  "bucket": "T",
+  "tags": [
+   "topic:government"
+  ]
+ },
+ {
+  "id": "AEN5ZBXB",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "AJF4IRND",
+  "bucket": "T",
+  "tags": [
+   "topic:government",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "AQWCUWD7",
+  "bucket": "T",
+  "tags": [
+   "approach:ideational",
+   "topic:parties",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "AS7UFJM3",
+  "bucket": "T",
+  "tags": [
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "AVVBIQZS",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "AZ52T74B",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "B35TANHZ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "B3NXH3NU",
+  "bucket": "M",
+  "tags": [
+   "region:europe",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "B4BFL25U",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "BC3DMAQS",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "BE2QNGRK",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "BG266GND",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "BG5TP22X",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "BJV39VMR",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "topic:parties",
+   "method:quantitative"
+  ]
+ },
+ {
+  "id": "BKN4875Q",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "BLUXWFYP",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "BNDCK92S",
+  "bucket": "M",
+  "tags": [
+   "region:europe",
+   "region:north-america",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "BPZBGJG8",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "BRJWFDZA",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "BSLF3CTM",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "BT9XQNKR",
+  "bucket": "M",
+  "tags": [
+   "country:italy",
+   "region:europe",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "BXW7C7YW",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "BYXVIT8K",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "C3E5VF8F",
+  "bucket": "M",
+  "tags": [
+   "country:australia",
+   "region:asia-pacific",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "C66M94GY",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "CD37PPFF",
+  "bucket": "M",
+  "tags": [
+   "region:latin-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "CERDNN5P",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "CFRJHGSR",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "country:united-kingdom",
+   "region:north-america",
+   "region:europe",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "CHD49SJC",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:gender",
+   "approach:discursive",
+   "method:qualitative"
+  ]
+ },
+ {
+  "id": "CJ9DWZJ7",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "CKZH343T",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "CPFHDMTI",
+  "bucket": "M",
+  "tags": [
+   "topic:parties",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "CRPRKK7B",
+  "bucket": "M",
+  "tags": [
+   "country:hungary",
+   "region:europe",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "CS7YC2EW",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication",
+   "approach:discursive"
+  ]
+ },
+ {
+  "id": "CWDMHYBP",
+  "bucket": "T",
+  "tags": [
+   "approach:ideational",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "CYEW3AMJ",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "D29NKIJ9",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "D55XVACP",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "D6AH4S7E",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "D8BSLZXY",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "method:quantitative",
+   "method:survey"
+  ]
+ },
+ {
+  "id": "D9I76EUX",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "D9PY5ACK",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "DBE2I4RQ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "DEN4L3WQ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "DF8L3X4A",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "DFMWLUMQ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "DGGNPW7R",
+  "bucket": "M",
+  "tags": [
+   "topic:media-communication",
+   "approach:discursive"
+  ]
+ },
+ {
+  "id": "DHAD56WK",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "DQ995DAC",
+  "bucket": "M",
+  "tags": [
+   "country:india",
+   "region:asia-pacific",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "DSJ6BPT7",
+  "bucket": "M",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe",
+   "approach:discursive",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "DT258375",
+  "bucket": "M",
+  "tags": [
+   "country:france",
+   "country:belgium",
+   "country:netherlands",
+   "region:europe",
+   "topic:voters",
+   "method:quantitative",
+   "method:survey"
+  ]
+ },
+ {
+  "id": "DTETLNEW",
+  "bucket": "T",
+  "tags": [
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "DUP5EHL6",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "DXFLZEKU",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "DZ6XBEVL",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "DZZVQ4RF",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "E382586I",
+  "bucket": "M",
+  "tags": [
+   "country:sweden",
+   "region:europe",
+   "topic:migration",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "E46CHZU7",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "E56FDME2",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:international"
+  ]
+ },
+ {
+  "id": "ECZMCBIY",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "ED3ZM9HZ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "EK63A89C",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "EN3MD3FS",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "ENIHUKBX",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "ENPPV5A7",
+  "bucket": "M",
+  "tags": [
+   "country:netherlands",
+   "region:europe",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "ETKP2SV5",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "EVWSBLMP",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "F3US2II9",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "F63RQF4B",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "F8IBE9DV",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "F9YACRMA",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "FAAYW6SZ",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:democracy-institutions",
+   "method:quantitative"
+  ]
+ },
+ {
+  "id": "FBSDZZWM",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "FT5AF49E",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "FTCEPHBC",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "FWS2W62I",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "G57NXA6M",
+  "bucket": "T",
+  "tags": [
+   "country:russia",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "G57RXYJE",
+  "bucket": "T",
+  "tags": [
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "G5ZLXINP",
+  "bucket": "M",
+  "tags": [
+   "topic:government",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "G6A3NLPE",
+  "bucket": "T",
+  "tags": [
+   "country:nigeria",
+   "region:sub-saharan-africa",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "G7MGASJ6",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "G7X7JZZ5",
+  "bucket": "M",
+  "tags": [
+   "country:france",
+   "region:europe",
+   "approach:discursive"
+  ]
+ },
+ {
+  "id": "G8EGHNDJ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "G9HMAPMJ",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "G9J2ACVE",
+  "bucket": "M",
+  "tags": [
+   "topic:parties",
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "GC6W476X",
+  "bucket": "M",
+  "tags": [
+   "country:ecuador",
+   "region:latin-america",
+   "topic:parties",
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "GE7L2TH2",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "GHESKQRY",
+  "bucket": "M",
+  "tags": [
+   "country:romania",
+   "region:europe",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "GIVUXSDH",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "GM8CR8MB",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "GMR7NKL5",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "GQN224BG",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "GVQA4SNS",
+  "bucket": "M",
+  "tags": [
+   "country:brazil",
+   "region:latin-america",
+   "topic:spatial",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "GWRK4M5R",
+  "bucket": "T",
+  "tags": [
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "GYYZ5A6T",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "GZ4I6RAW",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "H3ANLLAJ",
+  "bucket": "T",
+  "tags": [
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "H5TF5CP9",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "H85HAA6Y",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "HCKGB3KL",
+  "bucket": "T",
+  "tags": [
+   "approach:political-strategic",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "HJRJESM6",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "HQDT79ID",
+  "bucket": "T",
+  "tags": [
+   "country:south-africa",
+   "region:sub-saharan-africa"
+  ]
+ },
+ {
+  "id": "HTLX6T34",
+  "bucket": "M",
+  "tags": [
+   "country:zimbabwe",
+   "region:sub-saharan-africa"
+  ]
+ },
+ {
+  "id": "HUKWG7D7",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "HVBARU4Q",
+  "bucket": "T",
+  "tags": [
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "I3QZ7UMN",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "I4GMD9MW",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "I7XC7NY9",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "I9ZCEJRN",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "IBQILHUS",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "ICYMFKSG",
+  "bucket": "T",
+  "tags": [
+   "country:russia",
+   "country:india",
+   "region:europe",
+   "region:asia-pacific",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "ID4QIGJS",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "IMMZXDGN",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "IRXXZ5P2",
+  "bucket": "T",
+  "tags": [
+   "approach:ideational",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "IYX493QW",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "J3MI8FLU",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "J4R5TULE",
+  "bucket": "T",
+  "tags": [
+   "topic:international"
+  ]
+ },
+ {
+  "id": "J5ERYT6W",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "J6P4DNVW",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "J6STQZB4",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "J75ZTVW2",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "J7BZSQWH",
+  "bucket": "T",
+  "tags": [
+   "country:russia",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "J7R2KHC5",
+  "bucket": "M",
+  "tags": [
+   "topic:government"
+  ]
+ },
+ {
+  "id": "JD9BCSQT",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "JJGVV9EZ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "JMHMDHIF",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "JNHUCSPQ",
+  "bucket": "T",
+  "tags": [
+   "country:russia",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "JSDJAGJ7",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "JT3TN36Y",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "JV5ZQSTX",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "JXEDPDHM",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "K474W9TM",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "K4XVJG4X",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "K5L26YLD",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "K7ZD54EZ",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "K99N7VTN",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "KCLYZR27",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "KDKTENWL",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "KM969X85",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "KV8IT6M2",
+  "bucket": "T",
+  "tags": [
+   "approach:discursive",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "KXDCA7UP",
+  "bucket": "M",
+  "tags": [
+   "country:finland",
+   "region:europe",
+   "approach:discursive",
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "L42ESGL9",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "L4DIG97F",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "L5E3BCPJ",
+  "bucket": "M",
+  "tags": [
+   "country:canada",
+   "region:north-america",
+   "topic:parties",
+   "approach:discursive"
+  ]
+ },
+ {
+  "id": "L5VGYTLQ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "L6GPAEZD",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare",
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "LC8U7P88",
+  "bucket": "M",
+  "tags": [
+   "country:serbia",
+   "region:europe",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "LCMJU244",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "LDRNFQES",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "LER69CTL",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "LG8LG4Z2",
+  "bucket": "T",
+  "tags": [
+   "country:india",
+   "region:asia-pacific",
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "LH36QH5C",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "LM9HNN4T",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "LREWQKBL",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "M22PFC5G",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "M3AXHIFW",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "M886Z7AT",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "MCMHITKN",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "MCTNERS8",
+  "bucket": "M",
+  "tags": [
+   "country:australia",
+   "region:asia-pacific",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "MIM6X9NI",
+  "bucket": "M",
+  "tags": [
+   "country:mexico",
+   "region:latin-america"
+  ]
+ },
+ {
+  "id": "MIMP349M",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "MNDXA7YF",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "MPU26CAY",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "MQGGJPAR",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "MU8HVUVX",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "MVX42VCR",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "N5TT8PKZ",
+  "bucket": "T",
+  "tags": [
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "N62FHZEH",
+  "bucket": "M",
+  "tags": [
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "N6R4WIYV",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "N7FG34LA",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "N8GYIEUJ",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "NC4GABBY",
+  "bucket": "M",
+  "tags": [
+   "country:thailand",
+   "region:asia-pacific",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "NCQ48RQ7",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:international"
+  ]
+ },
+ {
+  "id": "NCTT6H2H",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "NE2DT7BG",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "NF6DFSS4",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "NJ225EW8",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "NJ5GCXNF",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "method:quantitative",
+   "method:survey"
+  ]
+ },
+ {
+  "id": "NJUTCZ4F",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "NKR2PD24",
+  "bucket": "M",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "NQNN5KP4",
+  "bucket": "T",
+  "tags": [
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "NXV3PLVG",
+  "bucket": "T",
+  "tags": [
+   "topic:parties",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "P3BRX8U7",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "P4XCV386",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "P4YCJKGD",
+  "bucket": "T",
+  "tags": [
+   "region:europe",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "P65EKF3Y",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "P8ICK7I8",
+  "bucket": "T",
+  "tags": [
+   "region:europe",
+   "region:north-america",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "PBL64YW9",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "PED2DIRP",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "PEQHU9A9",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:religion",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "PEXHGZ4K",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "PJE5FSGI",
+  "bucket": "T",
+  "tags": [
+   "approach:discursive",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "PKTK9RUC",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "PL53HUJN",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "PMYRCT4Z",
+  "bucket": "M",
+  "tags": [
+   "country:germany",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "PRNY7AWA",
+  "bucket": "M",
+  "tags": [
+   "country:turkey",
+   "region:europe",
+   "topic:spatial",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "PTDHF8G9",
+  "bucket": "M",
+  "tags": [
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "PVBGEQH2",
+  "bucket": "T",
+  "tags": [
+   "country:russia",
+   "region:europe",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "PYZAIZEL",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "PZN6W7Q5",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:gender",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "Q5SSTLH3",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "Q62JNLUW",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "Q64VXTEI",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QAPRCHUT",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QDF3FXN4",
+  "bucket": "M",
+  "tags": [
+   "country:canada",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "QEU5DDVY",
+  "bucket": "M",
+  "tags": [
+   "topic:government"
+  ]
+ },
+ {
+  "id": "QEXCFRPP",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "country:sweden",
+   "country:india",
+   "country:china",
+   "region:north-america",
+   "region:europe",
+   "region:asia-pacific"
+  ]
+ },
+ {
+  "id": "QF3PSGPL",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "QI9BWJDB",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "QIEW7GP3",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "QIR25QCH",
+  "bucket": "M",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QKYMUTRE",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QNMRYMZ4",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "QRXRIDCV",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QSALNRQG",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QSKRTYP9",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QT9T8XZX",
+  "bucket": "T",
+  "tags": [
+   "approach:discursive",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QTQ7BGU3",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "QUD8N98W",
+  "bucket": "T",
+  "tags": [
+   "region:latin-america"
+  ]
+ },
+ {
+  "id": "QW2NS2M2",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "QW64PFXZ",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "QWEK6PSN",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "QYWS6XU8",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "R9BUH7LC",
+  "bucket": "T",
+  "tags": [
+   "region:latin-america",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "RA65TDF4",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "RBRSZJRM",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "RFSSJ34B",
+  "bucket": "T",
+  "tags": [
+   "topic:international"
+  ]
+ },
+ {
+  "id": "RHRI5X6E",
+  "bucket": "M",
+  "tags": [
+   "topic:media-communication",
+   "approach:discursive",
+   "method:qualitative"
+  ]
+ },
+ {
+  "id": "RKGV2IQK",
+  "bucket": "M",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "RNNJTNZK",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "RR4LHBVR",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "RTU3CDUB",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "RUJA4ZFM",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "RUW473TB",
+  "bucket": "M",
+  "tags": [
+   "country:czech-republic",
+   "region:europe",
+   "topic:media-communication",
+   "approach:discursive"
+  ]
+ },
+ {
+  "id": "RY4KZF2P",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "S3QUSYP4",
+  "bucket": "T",
+  "tags": [
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "S5USWATR",
+  "bucket": "M",
+  "tags": [
+   "country:spain",
+   "region:europe",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "S5VRPHNB",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "S73UPYKC",
+  "bucket": "M",
+  "tags": [
+   "country:australia",
+   "region:asia-pacific"
+  ]
+ },
+ {
+  "id": "S8CD6NR2",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "S96W9LP7",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "SCEJ4GCV",
+  "bucket": "M",
+  "tags": [
+   "country:netherlands",
+   "region:europe",
+   "topic:parties",
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "SFEXUBHV",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "SNBC93F3",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "SRHCTXQ3",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "SRVJGKFH",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "country:united-kingdom",
+   "region:north-america",
+   "region:europe",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "STQMP5ZJ",
+  "bucket": "M",
+  "tags": [
+   "topic:economy-welfare",
+   "method:quantitative"
+  ]
+ },
+ {
+  "id": "SWFCJCU9",
+  "bucket": "M",
+  "tags": [
+   "country:congo-democratic-republic",
+   "region:sub-saharan-africa",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "SXZ4YYDT",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "SYFB8DIQ",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "T6IP52SL",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "T6RXUEXE",
+  "bucket": "T",
+  "tags": [
+   "approach:discursive",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "TA7LBA8Y",
+  "bucket": "T",
+  "tags": [
+   "approach:ideational",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "TDNVA7YV",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "TDX4QTMA",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "TEI879T5",
+  "bucket": "T",
+  "tags": [
+   "approach:performative",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "TEPFTVJY",
+  "bucket": "T",
+  "tags": [
+   "topic:voters"
+  ]
+ },
+ {
+  "id": "TFV5FLYP",
+  "bucket": "T",
+  "tags": [
+   "country:canada",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "THDIQECW",
+  "bucket": "M",
+  "tags": [
+   "country:turkey",
+   "region:europe",
+   "topic:media-communication",
+   "method:qualitative"
+  ]
+ },
+ {
+  "id": "TL6XE5EH",
+  "bucket": "M",
+  "tags": [
+   "country:bosnia-and-herzegovina",
+   "region:europe",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "TL9CDR3X",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "TLDBTD2V",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "TSDLL646",
+  "bucket": "T",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "TSYDGSKI",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "U2AXNDAD",
+  "bucket": "M",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "U6RYD9U9",
+  "bucket": "M",
+  "tags": [
+   "country:spain",
+   "region:europe",
+   "approach:discursive",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "U8YUFJMH",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "U9ABKJNU",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "U9J8GDAH",
+  "bucket": "M",
+  "tags": [
+   "region:latin-america",
+   "topic:foreign-policy"
+  ]
+ },
+ {
+  "id": "UAGHJ58M",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "UAQH4LZT",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "UCK9PCGR",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "UCSGGYUH",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "UETGAHE9",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "UGQXSZEL",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "UI4LPD87",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "UIDNBVAS",
+  "bucket": "M",
+  "tags": [
+   "country:serbia",
+   "region:europe"
+  ]
+ },
+ {
+  "id": "UMNBVLSQ",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "UMURKADS",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "UNJFQZIS",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "UNVKSSJD",
+  "bucket": "M",
+  "tags": [
+   "country:turkey",
+   "region:europe",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "UPBK5SAQ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "URAVZHNQ",
+  "bucket": "M",
+  "tags": [
+   "country:italy",
+   "region:europe",
+   "topic:parties",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "USCTIT9L",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "USHCVQFE",
+  "bucket": "M",
+  "tags": [
+   "region:global",
+   "topic:international"
+  ]
+ },
+ {
+  "id": "UU5KEZBY",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "UZZZZJJU",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "V3T29WB6",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "V5KIF7I7",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "V66NXQYH",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "V88PQRWZ",
+  "bucket": "T",
+  "tags": [
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "V8ZTLRB2",
+  "bucket": "M",
+  "tags": [
+   "country:argentina",
+   "country:brazil",
+   "country:united-states",
+   "region:latin-america",
+   "region:north-america",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "V9ZB2ZXZ",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "VBGJLDRR",
+  "bucket": "X",
+  "tags": []
+ },
+ {
+  "id": "VBNBE4ST",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "VBPH4CAE",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "VDKU633L",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "VFERLFKT",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "VHMJJB83",
+  "bucket": "M",
+  "tags": [
+   "country:poland",
+   "region:europe",
+   "topic:economy-welfare",
+   "topic:government"
+  ]
+ },
+ {
+  "id": "VRLDGEZM",
+  "bucket": "T",
+  "tags": [
+   "topic:international",
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "VTWBWBTA",
+  "bucket": "M",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "VU49VV6J",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:gender",
+   "method:quantitative"
+  ]
+ },
+ {
+  "id": "VZ3DTDBU",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "W32YV9W2",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "W435CC46",
+  "bucket": "M",
+  "tags": [
+   "topic:spatial",
+   "topic:other"
+  ]
+ },
+ {
+  "id": "W5BNKSEF",
+  "bucket": "M",
+  "tags": [
+   "topic:voters",
+   "topic:democracy-institutions",
+   "method:quantitative"
+  ]
+ },
+ {
+  "id": "WBPGFXU6",
+  "bucket": "T",
+  "tags": [
+   "topic:defence-security"
+  ]
+ },
+ {
+  "id": "WDMX7ZH4",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "WDU5DP24",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "WJEFBQ48",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "WJUPLWRL",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "WKF9YK3D",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "WM4YSN5X",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "WNYFII4Q",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "WPRGLYAP",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "WRKXSHPK",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "WUCS7BD5",
+  "bucket": "M",
+  "tags": [
+   "topic:spatial"
+  ]
+ },
+ {
+  "id": "X2VIEB3N",
+  "bucket": "M",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe",
+   "topic:parties",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "X3SVQQBX",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "X4CXMLM3",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "X95GTJ9D",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "XABB3BGR",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "XCEKRU5F",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "XE3J7NMQ",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "XGN2I6LJ",
+  "bucket": "M",
+  "tags": [
+   "topic:media-communication",
+   "topic:voters",
+   "method:experiment"
+  ]
+ },
+ {
+  "id": "XGT2TE4H",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "XIWRXHNU",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "XLGS66ID",
+  "bucket": "M",
+  "tags": [
+   "country:australia",
+   "region:asia-pacific",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "XTKRJDGC",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "XURYAYXL",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america"
+  ]
+ },
+ {
+  "id": "XWX5CM8S",
+  "bucket": "M",
+  "tags": [
+   "country:france",
+   "region:europe",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "XZWP4VPW",
+  "bucket": "T",
+  "tags": [
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "Y47L6HUR",
+  "bucket": "M",
+  "tags": [
+   "country:united-kingdom",
+   "region:europe",
+   "topic:media-communication",
+   "topic:gender"
+  ]
+ },
+ {
+  "id": "Y686U5ER",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "Y6K5GR9P",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "YDMWXPIG",
+  "bucket": "M",
+  "tags": [
+   "country:netherlands",
+   "region:europe",
+   "topic:spatial",
+   "topic:government"
+  ]
+ },
+ {
+  "id": "YDUGFMLL",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "YECYXJGK",
+  "bucket": "T",
+  "tags": [
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "YERDUT2I",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "YEZPCFFB",
+  "bucket": "M",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:parties"
+  ]
+ },
+ {
+  "id": "YKFTRDXH",
+  "bucket": "T",
+  "tags": [
+   "topic:international",
+   "topic:foreign-policy"
+  ]
+ },
+ {
+  "id": "YS2XAW6H",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "Z4YVSFIK",
+  "bucket": "T",
+  "tags": [
+   "approach:discursive",
+   "topic:economy-welfare"
+  ]
+ },
+ {
+  "id": "Z65PPISN",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions",
+   "topic:media-communication"
+  ]
+ },
+ {
+  "id": "Z69ZTCES",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "Z6ICE7DA",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "Z9CYYKQT",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "ZCAJAKW6",
+  "bucket": "M",
+  "tags": [
+   "country:india",
+   "region:asia-pacific",
+   "topic:economy-welfare",
+   "topic:government"
+  ]
+ },
+ {
+  "id": "ZDS5NECV",
+  "bucket": "M",
+  "tags": [
+   "topic:international",
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "ZFS9W8CE",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "ZFYRT2KV",
+  "bucket": "T",
+  "tags": [
+   "topic:religion"
+  ]
+ },
+ {
+  "id": "ZISS69VD",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "ZMZ52F44",
+  "bucket": "T",
+  "tags": [
+   "topic:democracy-institutions"
+  ]
+ },
+ {
+  "id": "ZNZQ8LPB",
+  "bucket": "T",
+  "tags": [
+   "topic:other"
+  ]
+ },
+ {
+  "id": "ZU5YFWIK",
+  "bucket": "T",
+  "tags": [
+   "country:united-states",
+   "region:north-america",
+   "topic:media-communication"
+  ]
+ }
+]
