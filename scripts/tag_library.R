@@ -42,7 +42,11 @@ local({
 
   SCRIPT_VERSION <- "2026-10-02.6"
   GROUP_ID       <- "6697881"   # PopuliVerse Library on zotero.org
-  BATCH_FILE     <- NULL        # NULL = the newest file in library/batches/
+  # Which batch to write. NULL = the newest file in library/batches/. To choose another,
+  # set it in the console before running the script, and it holds until you close RStudio:
+  #     Sys.setenv(PV_BATCH = "library/batches/batch-01.yml")
+  # Sys.setenv(PV_BATCH = "") puts it back to the newest.
+  BATCH_FILE     <- { b <- Sys.getenv("PV_BATCH"); if (nzchar(b)) b else NULL }
 
   # The two settings below exist for automated tests only.
   API_BASE   <- Sys.getenv("ZOTERO_API_BASE", "https://api.zotero.org")

@@ -5,8 +5,8 @@
 # batch-08-evidence.csv. Written by the script; do not edit by hand.
 
 batch: 8
-date: "2026-10-02"
-phrases_version: 4
+date: "2026-10-05"
+phrases_version: 7
 
 works:
   - cite: "Buarque 2021"
@@ -98,6 +98,8 @@ works:
     tags:
       - "approach:ideational"
       - "topic:voters"
+      - "region:europe"
+      - "country:belgium"
       - "type:article"
       - "oa:yes"
 
@@ -284,7 +286,10 @@ works:
     ref: "W3148213093"
     tags:
       - "approach:other"
-      - "topic:parties"
+      - "region:global"
+      - "country:united-kingdom"
+      - "country:brazil"
+      - "country:israel"
       - "type:article"
       - "oa:yes"
 
@@ -310,6 +315,8 @@ works:
       - "approach:measurement"
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:czech-republic"
       - "method:mixed"
       - "type:article"
 
@@ -349,6 +356,8 @@ works:
     published: "2021-10-26"
     ref: "W3211274931"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Stefancik et al. 2021"
@@ -383,7 +392,6 @@ works:
     published: "2021-10-06"
     ref: "W3202640375"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "region:europe"
       - "country:greece"
@@ -411,6 +419,10 @@ works:
     tags:
       - "topic:media-communication"
       - "topic:migration"
+      - "region:global"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "country:australia"
       - "type:article"
       - "oa:yes"
 
@@ -422,7 +434,6 @@ works:
     ref: "W4242874628"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:voters"
       - "type:article"
       - "oa:yes"
@@ -446,6 +457,8 @@ works:
     ref: "W3145434009"
     tags:
       - "topic:media-communication"
+      - "region:asia-pacific"
+      - "country:philippines"
       - "method:qualitative"
       - "type:article"
 
@@ -456,7 +469,6 @@ works:
     published: "2021-04-01"
     ref: "W3150886221"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "topic:economy-welfare"
       - "region:europe"
@@ -544,7 +556,6 @@ works:
     published: "2021-01-01"
     ref: "W3204968157"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:turkey"
       - "method:qualitative"
@@ -574,6 +585,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -599,7 +612,6 @@ works:
     published: "2021-01-12"
     ref: "W3119964691"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:migration"
       - "region:north-america"
@@ -626,7 +638,6 @@ works:
     published: "2021-03-10"
     ref: "W3133913466"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:france"
@@ -642,7 +653,6 @@ works:
     published: "2021-05-18"
     ref: "W3160985989"
     tags:
-      - "topic:defence-security"
       - "region:asia-pacific"
       - "country:philippines"
       - "method:quantitative"
@@ -669,7 +679,6 @@ works:
     published: "2021-07-27"
     ref: "W3186178174"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:spatial"
       - "topic:economy-welfare"
@@ -776,6 +785,10 @@ works:
     tags:
       - "approach:discursive"
       - "topic:religion"
+      - "region:asia-pacific"
+      - "region:sub-saharan-africa"
+      - "country:india"
+      - "country:ethiopia"
       - "type:article"
       - "oa:yes"
 
@@ -797,7 +810,6 @@ works:
     published: "2021-01-17"
     ref: "W3124857344"
     tags:
-      - "topic:parties"
       - "region:mena"
       - "country:israel"
       - "type:article"
@@ -820,7 +832,6 @@ works:
     published: "2021-04-06"
     ref: "W3146384721"
     tags:
-      - "topic:parties"
       - "topic:religion"
       - "region:europe"
       - "region:north-america"
@@ -932,10 +943,8 @@ works:
     published: "2021-06-15"
     ref: "W3166057605"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "method:experiment"
       - "type:article"
 
@@ -1040,6 +1049,8 @@ works:
     published: "2021-02-21"
     ref: "W3130008204"
     tags:
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -1135,6 +1146,11 @@ works:
     published: "2021-10-01"
     ref: "W3207770601"
     tags:
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:turkey"
+      - "country:china"
+      - "country:india"
       - "type:article"
       - "oa:yes"
 
@@ -1146,6 +1162,9 @@ works:
     ref: "W4210901030"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:austria"
+      - "country:italy"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -1157,7 +1176,6 @@ works:
     published: "2021-01-09"
     ref: "W3118771409"
     tags:
-      - "topic:media-communication"
       - "region:europe"
       - "country:united-kingdom"
       - "type:article"
@@ -1193,7 +1211,6 @@ works:
     published: "2021-04-24"
     ref: "W3157359178"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -1206,7 +1223,6 @@ works:
     ref: "W3158474859"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -1267,7 +1283,6 @@ works:
     published: "2021-09-05"
     ref: "W3196938573"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Lamour 2021"
@@ -1278,10 +1293,10 @@ works:
     ref: "W3200249677"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
+      - "country:luxembourg"
       - "type:article"
       - "oa:yes"
 
@@ -1352,7 +1367,6 @@ works:
     published: "2021-01-22"
     ref: "W3123671926"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
@@ -1464,7 +1478,6 @@ works:
     ref: "W3174695757"
     tags:
       - "topic:international"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:europe"
       - "country:united-kingdom"
@@ -1494,6 +1507,11 @@ works:
       - "approach:political-strategic"
       - "approach:performative"
       - "topic:religion"
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:france"
+      - "country:turkey"
+      - "country:india"
       - "type:article"
 
   - cite: "Hofmann et al. 2021"
@@ -1516,6 +1534,8 @@ works:
     tags:
       - "topic:government"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "method:survey"
       - "type:article"
 
@@ -1604,7 +1624,6 @@ works:
     published: "2021-07-14"
     ref: "W3182686211"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:migration"
       - "region:europe"
@@ -1678,7 +1697,6 @@ works:
     ref: "W3210963729"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:europe"
@@ -1694,7 +1712,6 @@ works:
     ref: "W3210966408"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "type:article"
 
@@ -1770,7 +1787,6 @@ works:
     published: "2021-07-27"
     ref: "W3183603699"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Benedek 2021"
@@ -1780,7 +1796,6 @@ works:
     published: "2021-06-01"
     ref: "W3188956046"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -1927,7 +1942,6 @@ works:
     published: "2021-03-18"
     ref: "W3137093836"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
@@ -1995,6 +2009,9 @@ works:
     tags:
       - "topic:international"
       - "region:europe"
+      - "country:france"
+      - "country:poland"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -2005,7 +2022,6 @@ works:
     published: "2021-08-12"
     ref: "W3194058746"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "type:article"
@@ -2057,7 +2073,6 @@ works:
     published: "2021-10-21"
     ref: "W3210779364"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "region:latin-america"
@@ -2074,6 +2089,8 @@ works:
     ref: "W4232038131"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:ireland"
       - "type:book"
 
   - cite: "Ginsburgh et al. 2021"
@@ -2095,7 +2112,6 @@ works:
     published: "2021-01-19"
     ref: "W3121569245"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "region:europe"
       - "country:turkey"
@@ -2176,7 +2192,6 @@ works:
     published: "2021-06-18"
     ref: "W3173562381"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "region:europe"
       - "country:france"
@@ -2213,9 +2228,11 @@ works:
     published: "2021-08-06"
     ref: "W3192956026"
     tags:
-      - "topic:parties"
       - "topic:religion"
       - "region:europe"
+      - "region:north-america"
+      - "country:italy"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Jami and Kemmelmeier 2021"
@@ -2332,10 +2349,13 @@ works:
     published: "2021-07-03"
     ref: "W3176258966"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "topic:democracy-institutions"
+      - "region:global"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "country:australia"
       - "type:article"
 
   - cite: "Katsourides and Pachita 2021"
@@ -2360,7 +2380,6 @@ works:
     tags:
       - "approach:performative"
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:europe"
       - "country:romania"
@@ -2400,6 +2419,9 @@ works:
     tags:
       - "topic:parties"
       - "region:asia-pacific"
+      - "country:india"
+      - "country:philippines"
+      - "country:singapore"
       - "type:article"
 
   - cite: "Kellner 2021"
@@ -2423,7 +2445,6 @@ works:
     tags:
       - "approach:discursive"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
       - "country:sweden"
@@ -2544,8 +2565,9 @@ works:
     published: "2021-08-17"
     ref: "W3195013481"
     tags:
-      - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
       - "type:article"
 
   - cite: "Grainger-Brown 2021"
@@ -2650,7 +2672,6 @@ works:
     ref: "W4200236506"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -2674,7 +2695,6 @@ works:
     published: "2021-01-14"
     ref: "W3125824040"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:democracy-institutions"
       - "region:north-america"
@@ -2708,7 +2728,6 @@ works:
     ref: "W3157150816"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "region:europe"
       - "region:asia-pacific"
       - "country:finland"
@@ -2722,9 +2741,10 @@ works:
     published: "2021-04-26"
     ref: "W3157383755"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Stopler 2021"
@@ -2734,7 +2754,6 @@ works:
     published: "2021-03-31"
     ref: "W3163391647"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "topic:democracy-institutions"
       - "type:article"
@@ -2747,7 +2766,6 @@ works:
     published: "2021-06-01"
     ref: "W3166077818"
     tags:
-      - "topic:parties"
       - "region:latin-america"
       - "country:ecuador"
       - "type:article"
@@ -2793,6 +2811,8 @@ works:
       - "topic:parties"
       - "topic:religion"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:turkey"
       - "type:article"
 
   - cite: "Abdeslam 2021"
@@ -2828,6 +2848,8 @@ works:
     ref: "W3174706574"
     tags:
       - "topic:parties"
+      - "region:sub-saharan-africa"
+      - "country:south-africa"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -2875,7 +2897,11 @@ works:
     tags:
       - "approach:performative"
       - "topic:media-communication"
-      - "region:global"
+      - "region:latin-america"
+      - "region:asia-pacific"
+      - "country:honduras"
+      - "country:bangladesh"
+      - "country:philippines"
       - "type:article"
 
   - cite: "Ramos et al. 2021"
@@ -2960,6 +2986,8 @@ works:
     ref: "W3204819820"
     tags:
       - "topic:religion"
+      - "region:asia-pacific"
+      - "country:myanmar"
       - "type:article"
       - "oa:yes"
 
@@ -3058,8 +3086,9 @@ works:
     published: "2021-04-01"
     ref: "W4235227844"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:france"
       - "type:article"
       - "oa:yes"
 
@@ -3095,6 +3124,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:finland"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -3127,6 +3158,8 @@ works:
     published: "2021-04-30"
     ref: "W3158882939"
     tags:
+      - "region:asia-pacific"
+      - "country:india"
       - "type:article"
       - "oa:yes"
 
@@ -3138,7 +3171,8 @@ works:
     ref: "W3158888010"
     tags:
       - "topic:voters"
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:switzerland"
       - "type:article"
 
   - cite: "Stathi and Guerra 2021"
@@ -3345,6 +3379,8 @@ works:
     ref: "W3136413503"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:czech-republic"
       - "type:article"
 
   - cite: "Badano and Nuti 2021"
@@ -3368,8 +3404,9 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "region:europe"
+      - "country:greece"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -3490,6 +3527,10 @@ works:
     published: "2021-10-29"
     ref: "W3210612119"
     tags:
+      - "region:europe"
+      - "country:armenia"
+      - "country:russia"
+      - "country:ukraine"
       - "type:article"
 
   - cite: "Buzogány et al. 2021"
@@ -3516,6 +3557,8 @@ works:
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Ratna et al. 2021"
@@ -3590,7 +3633,6 @@ works:
     published: "2021-03-01"
     ref: "W3135082912"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:france"
@@ -3604,6 +3646,9 @@ works:
     ref: "W3157207892"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:austria"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -3896,7 +3941,6 @@ works:
     ref: "W3119741672"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -3941,6 +3985,8 @@ works:
     ref: "W3134688396"
     tags:
       - "topic:economy-welfare"
+      - "region:latin-america"
+      - "country:costa-rica"
       - "type:article"
       - "oa:yes"
 
@@ -3980,7 +4026,6 @@ works:
     ref: "W3162974484"
     tags:
       - "topic:defence-security"
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:religion"
       - "region:europe"
@@ -4045,8 +4090,9 @@ works:
     published: "2021-07-26"
     ref: "W3185406140"
     tags:
-      - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "method:qta"
       - "type:article"
 
@@ -4058,6 +4104,8 @@ works:
     ref: "W3189853001"
     tags:
       - "topic:religion"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Ahmad 2021"
@@ -4092,7 +4140,6 @@ works:
     published: "2021-01-02"
     ref: "W3197328892"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "type:article"
 
@@ -4104,6 +4151,8 @@ works:
     ref: "W3197427126"
     tags:
       - "topic:parties"
+      - "region:asia-pacific"
+      - "country:australia"
       - "type:article"
 
   - cite: "Bolgherini et al. 2021"
@@ -4144,8 +4193,6 @@ works:
     published: "2021-12-01"
     ref: "W4200202251"
     tags:
-      - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:spain"
       - "type:article"
@@ -4182,6 +4229,8 @@ works:
     ref: "W4206218608"
     tags:
       - "approach:performative"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -4203,7 +4252,6 @@ works:
     tags:
       - "approach:ideational"
       - "topic:international"
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:gender"
       - "topic:migration"
@@ -4220,6 +4268,8 @@ works:
     ref: "W3135682331"
     tags:
       - "approach:discursive"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Carrigan 2021"
@@ -4248,7 +4298,6 @@ works:
     published: "2021-03-26"
     ref: "W3161386477"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "topic:democracy-institutions"
       - "type:article"
@@ -4261,7 +4310,6 @@ works:
     published: "2021-03-22"
     ref: "W3162342646"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Newth 2021"
@@ -4306,18 +4354,6 @@ works:
       - "country:greece"
       - "type:article"
 
-  - cite: "UNGUREANU and PINTOR 2021"
-    doi: "10.3828/catr.35.4"
-    title: "THE BATTLE FOR RE-IMAGINING CATALONIA: CINEMATIC POPULISM, MYTH-MAKING, AND CATHEDRAL OF THE SEA (JORDI FRADES, 2018)"
-    year: 2021
-    published: "2021-06-01"
-    ref: "W3178105874"
-    tags:
-      - "region:europe"
-      - "country:spain"
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Masaru 2021"
     doi: "10.1080/13439006.2021.1921360"
     title: "Presidency of Donald Trump and American Democracy: Populist Messages, Political Sectarianism, and Negative Partisanship"
@@ -4358,6 +4394,8 @@ works:
       - "topic:parties"
       - "topic:economy-welfare"
       - "topic:gender"
+      - "region:europe"
+      - "country:poland"
       - "type:book"
       - "oa:yes"
 
@@ -4431,6 +4469,8 @@ works:
     ref: "W3211419505"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:ukraine"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -4454,6 +4494,7 @@ works:
       - "topic:religion"
       - "topic:migration"
       - "region:europe"
+      - "country:serbia"
       - "method:qualitative"
       - "type:article"
 
@@ -4464,7 +4505,6 @@ works:
     published: "2021-12-13"
     ref: "W4205267815"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "type:article"
 
@@ -4689,7 +4729,6 @@ works:
     published: "2021-04-01"
     ref: "W3161082700"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "DeDominicis 2021"
@@ -4725,6 +4764,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:greece"
       - "type:article"
 
   - cite: "Hogg 2021"
@@ -4788,7 +4829,6 @@ works:
     published: "2021-07-20"
     ref: "W3183333534"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "topic:gender"
       - "topic:religion"
@@ -4823,7 +4863,6 @@ works:
     published: "2021-05-04"
     ref: "W3190014152"
     tags:
-      - "topic:media-communication"
       - "topic:gender"
       - "region:europe"
       - "country:croatia"
@@ -4836,8 +4875,9 @@ works:
     published: "2021-04-03"
     ref: "W3192331049"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Peetz 2021"
@@ -4848,7 +4888,6 @@ works:
     ref: "W3194730446"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "method:qualitative"
@@ -4896,6 +4935,8 @@ works:
     published: "2021-11-29"
     ref: "W3215357240"
     tags:
+      - "region:europe"
+      - "country:russia"
       - "type:article"
 
   - cite: "Churche and Findlay 2021"
@@ -4905,6 +4946,8 @@ works:
     published: "2021-12-22"
     ref: "W4200065642"
     tags:
+      - "region:asia-pacific"
+      - "country:australia"
       - "type:article"
 
   - cite: "Borgersen 2021"
@@ -4969,7 +5012,6 @@ works:
     published: "2021-10-02"
     ref: "W4213115632"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "type:article"
 
@@ -5008,18 +5050,6 @@ works:
       - "topic:religion"
       - "topic:migration"
       - "type:book-review"
-
-  - cite: "NTOMBA 2021"
-    doi: "10.2307/j.ctv2tr4wh7"
-    title: "Michael Sata: Portrait of a Populist"
-    year: 2021
-    published: "2021-12-17"
-    ref: "W4290838829"
-    tags:
-      - "region:sub-saharan-africa"
-      - "country:zambia"
-      - "type:book"
-      - "todo:check-record"
 
   - cite: "Ardag and Thomeczek 2021"
     doi: "10.1002/jts5.70"
@@ -5148,7 +5178,6 @@ works:
     ref: "W3130789953"
     tags:
       - "topic:government"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -5182,6 +5211,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Page and Gilens 2021"
@@ -5706,7 +5737,6 @@ works:
     published: "2021-10-21"
     ref: "W3208027693"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "region:europe"
       - "type:book-review"
@@ -5771,6 +5801,8 @@ works:
       - "approach:discursive"
       - "topic:migration"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:czech-republic"
       - "type:article"
 
   - cite: "Shybunko 2021"
@@ -5830,7 +5862,6 @@ works:
     published: "2021-12-01"
     ref: "W4200528317"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:book-review"
@@ -5842,7 +5873,6 @@ works:
     published: "2021-12-30"
     ref: "W4205521574"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "region:europe"
       - "region:latin-america"
@@ -5857,7 +5887,6 @@ works:
     ref: "W4206456946"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "type:article"
       - "oa:yes"
 
@@ -5917,7 +5946,6 @@ works:
     published: "2021-11-01"
     ref: "W4285334656"
     tags:
-      - "topic:defence-security"
       - "region:latin-america"
       - "country:cuba"
       - "type:article"
@@ -5940,6 +5968,11 @@ works:
     ref: "W4297879161"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:latin-america"
+      - "country:italy"
+      - "country:turkey"
+      - "country:brazil"
       - "type:book"
 
   - cite: "von der Heydt-Coca 2021"
@@ -5959,7 +5992,6 @@ works:
     published: "2020-12-17"
     ref: "W3116967502"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "region:europe"
       - "type:book-review"
@@ -5971,7 +6003,6 @@ works:
     published: "2020-12-17"
     ref: "W3111497926"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "region:europe"
       - "type:book-review"
@@ -6054,7 +6085,6 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "topic:migration"
       - "region:north-america"
       - "country:canada"
@@ -6095,7 +6125,6 @@ works:
     published: "2020-04-21"
     ref: "W3019596914"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "region:global"
       - "country:italy"
@@ -6109,7 +6138,6 @@ works:
     published: "2020-06-18"
     ref: "W3036738465"
     tags:
-      - "topic:parties"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -6134,7 +6162,6 @@ works:
     published: "2020-12-17"
     ref: "W3110759161"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "type:article"
       - "oa:yes"
@@ -6211,6 +6238,8 @@ works:
       - "approach:discursive"
       - "topic:parties"
       - "region:europe"
+      - "country:italy"
+      - "country:switzerland"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -6224,6 +6253,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:spatial"
+      - "region:europe"
+      - "country:spain"
       - "type:article"
       - "oa:yes"
 
@@ -6327,7 +6358,6 @@ works:
     ref: "W3018981247"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "method:qta"
@@ -6342,6 +6372,11 @@ works:
     tags:
       - "topic:voters"
       - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:netherlands"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -6380,6 +6415,10 @@ works:
     tags:
       - "topic:gender"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "region:asia-pacific"
+      - "country:united-states"
+      - "country:india"
       - "type:article"
 
   - cite: "Fougère and Barthold 2020"
@@ -6403,7 +6442,6 @@ works:
     published: "2020-01-10"
     ref: "W2998992220"
     tags:
-      - "topic:parties"
       - "topic:religion"
       - "region:europe"
       - "country:germany"
@@ -6419,6 +6457,10 @@ works:
       - "topic:spatial"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
+      - "region:global"
+      - "country:russia"
+      - "country:chile"
+      - "country:indonesia"
       - "type:article"
 
   - cite: "Lamour 2020"
@@ -6432,6 +6474,7 @@ works:
       - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
+      - "country:hungary"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -6454,7 +6497,6 @@ works:
     published: "2020-03-09"
     ref: "W3010656941"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "method:experiment"
@@ -6504,7 +6546,6 @@ works:
     published: "2020-11-05"
     ref: "W3091143421"
     tags:
-      - "topic:defence-security"
       - "topic:religion"
       - "region:asia-pacific"
       - "country:india"
@@ -6528,7 +6569,6 @@ works:
     published: "2020-11-08"
     ref: "W3099996120"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:media-communication"
       - "region:europe"
@@ -6574,6 +6614,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:migration"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Delledonne et al. 2020"
@@ -6596,7 +6638,6 @@ works:
     published: "2020-07-02"
     ref: "W3041952222"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:asia-pacific"
@@ -6612,7 +6653,8 @@ works:
     ref: "W3087733775"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -6690,7 +6732,6 @@ works:
     published: "2020-02-06"
     ref: "W3004852497"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Miao 2020"
@@ -6733,6 +6774,8 @@ works:
     published: "2020-06-01"
     ref: "W3033646564"
     tags:
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -6743,7 +6786,6 @@ works:
     published: "2020-07-30"
     ref: "W3046669800"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:latin-america"
       - "country:brazil"
@@ -6761,20 +6803,6 @@ works:
       - "country:italy"
       - "type:article"
       - "oa:yes"
-
-  - cite: "JÄGER 2020"
-    doi: "10.1017/s0018246x20000527"
-    title: "STATE AND CORPORATION IN AMERICAN POPULIST POLITICAL PHILOSOPHY, 1877–1902"
-    year: 2020
-    published: "2020-12-03"
-    ref: "W3109708051"
-    tags:
-      - "topic:parties"
-      - "region:north-america"
-      - "country:united-states"
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
 
   - cite: "Glied 2020"
     doi: "10.2478/pce-2020-0002"
@@ -6874,7 +6902,6 @@ works:
     published: "2020-10-01"
     ref: "W3095501072"
     tags:
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:europe"
       - "type:article"
@@ -6919,6 +6946,10 @@ works:
     published: "2020-03-24"
     ref: "W3013825649"
     tags:
+      - "region:europe"
+      - "region:north-america"
+      - "country:france"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -6954,7 +6985,6 @@ works:
     published: "2020-10-14"
     ref: "W3093429451"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -7009,7 +7039,6 @@ works:
     published: "2020-01-01"
     ref: "W3004114893"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:greece"
@@ -7084,7 +7113,6 @@ works:
     published: "2020-04-30"
     ref: "W3022750312"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "type:article"
@@ -7111,6 +7139,7 @@ works:
     tags:
       - "topic:economy-welfare"
       - "region:europe"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -7220,7 +7249,6 @@ works:
     ref: "W3000825232"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:gender"
       - "region:europe"
       - "country:austria"
@@ -7329,7 +7357,8 @@ works:
     published: "2020-10-20"
     ref: "W3106774300"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "country:italy"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -7424,7 +7453,6 @@ works:
     published: "2020-07-23"
     ref: "W3045052632"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:asia-pacific"
@@ -7475,7 +7503,6 @@ works:
     ref: "W2999181147"
     tags:
       - "approach:performative"
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Milner 2020"
@@ -7485,7 +7512,6 @@ works:
     published: "2020-03-05"
     ref: "W3009738855"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:north-america"
       - "country:united-states"
@@ -7501,7 +7527,6 @@ works:
     tags:
       - "approach:discursive"
       - "approach:performative"
-      - "topic:parties"
       - "type:article"
 
   - cite: "Cozzaglio 2020"
@@ -7511,6 +7536,8 @@ works:
     published: "2020-03-24"
     ref: "W3014043876"
     tags:
+      - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Rostbøll 2020"
@@ -7546,6 +7573,8 @@ works:
     ref: "W3036377977"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Nyenhuis 2020"
@@ -7555,7 +7584,6 @@ works:
     published: "2020-06-29"
     ref: "W3040178932"
     tags:
-      - "topic:media-communication"
       - "region:sub-saharan-africa"
       - "country:south-africa"
       - "type:article"
@@ -7618,6 +7646,11 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:canada"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -7832,6 +7865,10 @@ works:
     ref: "W3041180431"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "region:asia-pacific"
+      - "country:united-states"
+      - "country:sri-lanka"
       - "type:article"
 
   - cite: "Ahmad 2020"
@@ -7909,7 +7946,6 @@ works:
     tags:
       - "approach:discursive"
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "country:poland"
       - "type:article"
@@ -7948,6 +7984,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:government"
+      - "region:europe"
+      - "country:greece"
       - "type:article"
       - "todo:check-record"
 
@@ -7997,7 +8035,6 @@ works:
     ref: "W3045574421"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
       - "country:germany"
@@ -8077,7 +8114,6 @@ works:
     published: "2020-08-04"
     ref: "W3082811238"
     tags:
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:mena"
       - "country:israel"
@@ -8112,7 +8148,6 @@ works:
     published: "2020-12-13"
     ref: "W3113070503"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "topic:economy-welfare"
       - "region:europe"
@@ -8166,11 +8201,12 @@ works:
     published: "2020-09-14"
     ref: "W3153675329"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
       - "region:europe"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -8253,6 +8289,7 @@ works:
       - "topic:international"
       - "topic:religion"
       - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Dewi and Senior Researcher at the Centre for Political Studies, Indonesian Institute of Sciences (LIPI), Jakarta. Postal address: Widya Graha 3rd Floor, Jl. Gatot Subroto No. 10, Jakarta Selatan 12710, Indonesia 2020"
@@ -8297,8 +8334,8 @@ works:
     tags:
       - "topic:international"
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
+      - "country:united-kingdom"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -8358,6 +8395,8 @@ works:
     ref: "W3000878152"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:sweden"
       - "type:article"
       - "oa:yes"
 
@@ -8377,6 +8416,8 @@ works:
     published: "2020-03-20"
     ref: "W3011377903"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Gianolla 2020"
@@ -8402,16 +8443,6 @@ works:
       - "country:united-states"
       - "type:article"
 
-  - cite: "BALLANTINE 2020"
-    doi: "10.1017/s1478572220000043"
-    title: "Against Populism: Music, Classification, Genre"
-    year: 2020
-    published: "2020-04-17"
-    ref: "W3016304125"
-    tags:
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Szelewa 2020"
     doi: "10.1177/1367549420921400"
     title: "Recurring ideas: Searching for the roots of right-wing populism in Eastern Europe"
@@ -8419,7 +8450,6 @@ works:
     published: "2020-05-27"
     ref: "W3031725768"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "region:europe"
       - "type:article"
@@ -8433,6 +8463,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:indonesia"
       - "type:article"
       - "oa:yes"
 
@@ -8565,7 +8597,6 @@ works:
     ref: "W3110995477"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:religion"
       - "region:europe"
       - "country:romania"
@@ -8676,7 +8707,6 @@ works:
     published: "2020-05-24"
     ref: "W3023448795"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "region:north-america"
       - "country:united-kingdom"
@@ -8718,7 +8748,6 @@ works:
     published: "2020-07-10"
     ref: "W3041219527"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "region:europe"
       - "country:italy"
@@ -8769,8 +8798,9 @@ works:
     published: "2020-07-26"
     ref: "W3045654071"
     tags:
-      - "topic:media-communication"
       - "topic:gender"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -8803,7 +8833,8 @@ works:
     published: "2020-08-07"
     ref: "W3047767393"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Blunkett and Flinders 2020"
@@ -8883,6 +8914,8 @@ works:
     ref: "W4250706036"
     tags:
       - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Fratzscher 2020"
@@ -8893,6 +8926,8 @@ works:
     ref: "W3004211530"
     tags:
       - "topic:economy-welfare"
+      - "region:asia-pacific"
+      - "country:china"
       - "type:article"
       - "oa:yes"
 
@@ -8903,6 +8938,8 @@ works:
     published: "2020-02-10"
     ref: "W3005629345"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Meade and Kiely 2020"
@@ -8989,6 +9026,8 @@ works:
     tags:
       - "approach:performative"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -9030,20 +9069,6 @@ works:
       - "region:europe"
       - "country:greece"
       - "type:article"
-
-  - cite: "STEIGERWALD ILLE 2020"
-    doi: "10.1017/s1752196320000322"
-    title: "Negotiating Convention: Pop-Ups and Populism at the San Francisco Opera"
-    year: 2020
-    published: "2020-11-01"
-    ref: "W3108150074"
-    tags:
-      - "approach:performative"
-      - "region:north-america"
-      - "country:united-states"
-      - "method:qualitative"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Correoso-Rodenas and Jaquero-Esparcia 2020"
     doi: "10.5325/edgallpoerev.21.2.0249"
@@ -9196,6 +9221,9 @@ works:
     ref: "W3085844264"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:italy"
+      - "country:poland"
       - "type:article"
 
   - cite: "Felder et al. 2020"
@@ -9208,6 +9236,7 @@ works:
       - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -9218,7 +9247,6 @@ works:
     published: "2020-09-15"
     ref: "W3089344129"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:europe"
@@ -9233,7 +9261,6 @@ works:
     published: "2020-05-03"
     ref: "W3091614754"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Anastasiou 2020"
@@ -9252,7 +9279,6 @@ works:
     published: "2020-12-31"
     ref: "W3107091703"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "topic:migration"
       - "type:article"
@@ -9402,7 +9428,6 @@ works:
     published: "2020-03-14"
     ref: "W3021683425"
     tags:
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -9444,6 +9469,8 @@ works:
     ref: "W3036504288"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:turkey"
       - "type:article"
 
   - cite: "Ciccariello-Maher 2020"
@@ -9497,6 +9524,8 @@ works:
     published: "2020-07-29"
     ref: "W3045873754"
     tags:
+      - "region:europe"
+      - "country:czech-republic"
       - "type:article"
 
   - cite: "Cervera-Marzal 2020"
@@ -9541,6 +9570,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -9561,6 +9592,8 @@ works:
     ref: "W3107229879"
     tags:
       - "topic:religion"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Voorpostel et al. 2020"
@@ -9602,6 +9635,8 @@ works:
     published: "2020-10-15"
     ref: "W3129544378"
     tags:
+      - "region:europe"
+      - "country:hungary"
       - "type:article"
       - "oa:yes"
 
@@ -9639,7 +9674,6 @@ works:
     published: "2020-02-17"
     ref: "W3009286782"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:article"
 
@@ -9709,6 +9743,8 @@ works:
     ref: "W3040264379"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "King 2020"
@@ -9718,7 +9754,6 @@ works:
     published: "2020-09-29"
     ref: "W3089774954"
     tags:
-      - "topic:parties"
       - "region:north-america"
       - "country:canada"
       - "method:qualitative"
@@ -9771,7 +9806,6 @@ works:
     published: "2020-01-01"
     ref: "W3113494029"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Zappe 2020"
@@ -9902,7 +9936,6 @@ works:
       - "approach:performative"
       - "topic:government"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:asia-pacific"
       - "country:philippines"
@@ -9917,7 +9950,6 @@ works:
     ref: "W3003864210"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:government"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
@@ -9933,7 +9965,6 @@ works:
     published: "2020-01-30"
     ref: "W3003971320"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -10110,7 +10141,9 @@ works:
       - "topic:economy-welfare"
       - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:north-america"
       - "region:latin-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -10156,7 +10189,9 @@ works:
     ref: "W3092177483"
     tags:
       - "approach:discursive"
+      - "region:mena"
       - "region:sub-saharan-africa"
+      - "country:jordan"
       - "type:article"
 
   - cite: "Titlestad 2020"
@@ -10176,7 +10211,6 @@ works:
     published: "2020-10-21"
     ref: "W3094529937"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:czech-republic"
       - "country:estonia"
@@ -10207,6 +10241,8 @@ works:
     ref: "W3109012946"
     tags:
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:france"
       - "type:article"
 
   - cite: "Marker 2020"
@@ -10217,8 +10253,9 @@ works:
     ref: "W3110337090"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:denmark"
       - "type:article"
 
   - cite: "O’Byrne 2020"
@@ -10250,7 +10287,6 @@ works:
     published: "2020-12-01"
     ref: "W3150282658"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "topic:economy-welfare"
       - "region:europe"
@@ -10352,16 +10388,6 @@ works:
       - "region:latin-america"
       - "type:book-review"
 
-  - cite: "WINBERG 2020"
-    doi: "10.1111/1468-229x.12941"
-    title: "Blue‐Collar Conservatism: Frank Rizzo's Philadelphia and Populist Politics. By Timothy J. Lombardo. University of Pennsylvania Press. 2018. 328pp. $37.50/£29.99."
-    year: 2020
-    published: "2020-03-16"
-    ref: "W3010744655"
-    tags:
-      - "type:book-review"
-      - "todo:check-record"
-
   - cite: "McNicoll 2020"
     doi: "10.1111/padr.12328"
     title: "EricKaufmannWhiteshift: Populism, Immigration, and the Future of White MajoritiesNew York: Abrams Press, 2019. 618 p. $35.00."
@@ -10406,7 +10432,8 @@ works:
     published: "2020-03-01"
     ref: "W3016119143"
     tags:
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
       - "type:article"
 
   - cite: "Finkelstein 2020"
@@ -10473,18 +10500,10 @@ works:
     published: "2020-07-02"
     ref: "W3033208993"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
-
-  - cite: "FENDLER 2020"
-    doi: "10.1111/1467-9752.12437"
-    title: "An Information Reformation? Research Expertise in a Populist Context"
-    year: 2020
-    published: "2020-06-01"
-    ref: "W3033915891"
-    tags:
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Hallin 2020"
     doi: "10.1177/1077699020925444"
@@ -10534,7 +10553,6 @@ works:
     published: "2020-06-25"
     ref: "W3038921233"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:serbia"
@@ -10560,6 +10578,8 @@ works:
     published: "2020-01-01"
     ref: "W3041429555"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Yunqin 2020"
@@ -10591,6 +10611,7 @@ works:
     tags:
       - "topic:international"
       - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Kabakchieva 2020"
@@ -10613,6 +10634,8 @@ works:
     ref: "W3045544367"
     tags:
       - "topic:gender"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Wehrs 2020"
@@ -10656,19 +10679,6 @@ works:
       - "region:latin-america"
       - "country:venezuela"
       - "type:book-review"
-
-  - cite: "Potamianos 2020"
-    doi: "10.14321/jstudradi.14.2.0127"
-    title: "Populism in Greece? Right, Left, and Laclau’s “Jacobinism” in the Years of the Goudi Coup, 1908–1910"
-    year: 2020
-    published: "2020-07-01"
-    ref: "W3048933270"
-    tags:
-      - "approach:discursive"
-      - "topic:media-communication"
-      - "region:europe"
-      - "country:greece"
-      - "type:article"
 
   - cite: "Gray 2020"
     doi: "10.1017/s0040557420000356"
@@ -10754,6 +10764,8 @@ works:
     published: "2020-01-02"
     ref: "W3092515168"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Riley 2020"
@@ -10807,7 +10819,6 @@ works:
     published: "2020-12-01"
     ref: "W3110857072"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "topic:economy-welfare"
       - "topic:gender"
@@ -10824,7 +10835,6 @@ works:
     published: "2020-08-25"
     ref: "W3114477107"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "type:article"
 
@@ -10863,6 +10873,8 @@ works:
     ref: "W3155660906"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Strønen 2020"
@@ -10902,7 +10914,6 @@ works:
     published: "2020-11-13"
     ref: "W3206330898"
     tags:
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "type:book"
@@ -11095,7 +11106,6 @@ works:
     ref: "W2911031457"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "region:europe"
       - "country:slovakia"
       - "type:article"
@@ -11107,6 +11117,9 @@ works:
     published: "2019-02-01"
     ref: "W2912464930"
     tags:
+      - "region:europe"
+      - "country:hungary"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Gebhardt 2019"
@@ -11156,6 +11169,9 @@ works:
     ref: "W2914673238"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:belgium"
+      - "country:france"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -11199,7 +11215,6 @@ works:
     published: "2019-05-22"
     ref: "W2946077048"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:turkey"
       - "type:article"
@@ -11211,7 +11226,6 @@ works:
     published: "2019-06-03"
     ref: "W2948882729"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "region:latin-america"
@@ -11229,6 +11243,9 @@ works:
     tags:
       - "topic:parties"
       - "region:europe"
+      - "country:bulgaria"
+      - "country:moldova"
+      - "country:romania"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -11322,7 +11339,6 @@ works:
     ref: "W2923799352"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "region:europe"
@@ -11336,9 +11352,10 @@ works:
     published: "2019-04-01"
     ref: "W2927484652"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:canada"
       - "method:survey"
       - "type:article"
 
@@ -11386,10 +11403,8 @@ works:
     published: "2019-07-08"
     ref: "W2958855124"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
       - "country:france"
@@ -11405,7 +11420,6 @@ works:
     ref: "W2974053094"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
@@ -11555,7 +11569,6 @@ works:
     published: "2019-10-09"
     ref: "W2979700697"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:religion"
       - "topic:migration"
@@ -11630,7 +11643,6 @@ works:
     published: "2019-06-05"
     ref: "W4286620138"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "method:mixed"
@@ -11715,7 +11727,6 @@ works:
     published: "2019-11-21"
     ref: "W2990588492"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:europe"
@@ -11798,7 +11809,6 @@ works:
     published: "2019-09-25"
     ref: "W2975837445"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "method:survey"
       - "type:article"
@@ -11856,6 +11866,8 @@ works:
     ref: "W2929641017"
     tags:
       - "topic:gender"
+      - "region:asia-pacific"
+      - "country:australia"
       - "type:article"
 
   - cite: "Montiel et al. 2019"
@@ -11958,17 +11970,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "ALTERIO 2019"
-    doi: "10.1017/s2045381719000029"
-    title: "Reactive vs structural approach: A public law response to populism"
-    year: 2019
-    published: "2019-06-13"
-    ref: "W2949473301"
-    tags:
-      - "topic:democracy-institutions"
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Blokker and Anselmi 2019"
     doi: "10.4324/9781351115742"
     title: "Multiple Populisms: Italy as Democracy’s Mirror"
@@ -11989,7 +11990,6 @@ works:
     tags:
       - "topic:defence-security"
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "region:north-america"
       - "type:article"
@@ -12002,7 +12002,6 @@ works:
     ref: "W2981604761"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "region:north-america"
@@ -12130,6 +12129,8 @@ works:
     ref: "W2994849883"
     tags:
       - "topic:international"
+      - "region:asia-pacific"
+      - "country:china"
       - "method:qualitative"
       - "type:article"
 
@@ -12248,7 +12249,6 @@ works:
     published: "2019-04-03"
     ref: "W2940594750"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "type:article"
@@ -12271,6 +12271,8 @@ works:
     ref: "W2944143252"
     tags:
       - "topic:migration"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -12318,7 +12320,6 @@ works:
     published: "2019-11-25"
     ref: "W2991648761"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "region:europe"
       - "country:slovakia"
@@ -12384,6 +12385,8 @@ works:
     published: "2019-03-20"
     ref: "W2924361549"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Bentley et al. 2019"
@@ -12463,6 +12466,8 @@ works:
       - "topic:voters"
       - "topic:media-communication"
       - "topic:migration"
+      - "region:europe"
+      - "country:austria"
       - "method:quantitative"
       - "method:survey"
       - "type:article"
@@ -12474,7 +12479,6 @@ works:
     published: "2019-12-17"
     ref: "W2990024047"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:gender"
       - "type:book"
@@ -12516,7 +12520,6 @@ works:
     published: "2019-01-02"
     ref: "W2911984920"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "type:article"
 
@@ -12554,7 +12557,6 @@ works:
     tags:
       - "approach:performative"
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "topic:economy-welfare"
@@ -12603,7 +12605,6 @@ works:
     published: "2019-02-06"
     ref: "W2914086170"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:mena"
       - "country:iran"
@@ -12617,7 +12618,6 @@ works:
     published: "2019-01-01"
     ref: "W2937142256"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -12643,7 +12643,6 @@ works:
     published: "2019-07-10"
     ref: "W2961781050"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:germany"
@@ -12723,7 +12722,6 @@ works:
     published: "2019-12-14"
     ref: "W2995411682"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:gender"
       - "region:north-america"
@@ -12774,7 +12772,6 @@ works:
     published: "2019-02-20"
     ref: "W2916482275"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -12810,7 +12807,6 @@ works:
     published: "2019-07-03"
     ref: "W2965420117"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:spatial"
       - "region:europe"
@@ -12897,7 +12893,6 @@ works:
     published: "2019-04-15"
     ref: "W4229822181"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:germany"
@@ -12912,6 +12907,9 @@ works:
     tags:
       - "topic:parties"
       - "region:europe"
+      - "country:denmark"
+      - "country:finland"
+      - "country:sweden"
       - "type:article"
       - "oa:yes"
 
@@ -12922,7 +12920,6 @@ works:
     published: "2019-05-20"
     ref: "W2945735000"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "region:latin-america"
       - "country:turkey"
@@ -12937,7 +12934,6 @@ works:
     published: "2019-04-03"
     ref: "W2949054881"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:united-kingdom"
@@ -12962,8 +12958,11 @@ works:
     published: "2019-08-01"
     ref: "W2965639950"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Talani and Rosina 2019"
@@ -12974,7 +12973,6 @@ works:
     ref: "W2969572630"
     tags:
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
       - "type:book"
@@ -12998,6 +12996,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
       - "type:article"
       - "oa:yes"
 
@@ -13080,6 +13080,10 @@ works:
     ref: "W2968550444"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "region:mena"
+      - "country:serbia"
+      - "country:israel"
       - "method:experiment"
       - "type:article"
 
@@ -13273,6 +13277,9 @@ works:
     ref: "W2969298025"
     tags:
       - "region:latin-america"
+      - "country:bolivia"
+      - "country:ecuador"
+      - "country:venezuela"
       - "type:article"
 
   - cite: "Nandy 2019"
@@ -13366,7 +13373,6 @@ works:
     ref: "W3012214047"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:poland"
@@ -13381,7 +13387,6 @@ works:
     ref: "W4206512376"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "type:book"
 
@@ -13545,6 +13550,8 @@ works:
     published: "2019-09-14"
     ref: "W3003933788"
     tags:
+      - "region:asia-pacific"
+      - "country:india"
       - "type:article"
 
   - cite: "Azkune Torres 2019"
@@ -13564,7 +13571,6 @@ works:
     published: "2019-12-01"
     ref: "W3036948226"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:germany"
       - "type:article"
@@ -13578,6 +13584,10 @@ works:
     tags:
       - "approach:performative"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:argentina"
       - "type:article"
 
   - cite: "Patch 2019"
@@ -13588,6 +13598,8 @@ works:
     ref: "W2914549927"
     tags:
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Monro 2019"
@@ -13647,6 +13659,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Miller-Idriss 2019"
@@ -13776,7 +13790,6 @@ works:
     published: "2019-09-18"
     ref: "W2974000637"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "method:survey"
@@ -13842,7 +13855,6 @@ works:
     ref: "W3011642027"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
       - "type:article"
@@ -13856,6 +13868,10 @@ works:
     ref: "W3048560567"
     tags:
       - "topic:migration"
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:mexico"
       - "type:article"
 
   - cite: "Schmidt 2019"
@@ -13865,7 +13881,6 @@ works:
     published: "2019-01-18"
     ref: "W2911718645"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "type:article"
 
@@ -13885,6 +13900,10 @@ works:
     published: "2019-05-07"
     ref: "W2947009030"
     tags:
+      - "region:global"
+      - "country:united-kingdom"
+      - "country:united-states"
+      - "country:south-korea"
       - "type:article"
 
   - cite: "Mjelde 2019"
@@ -13945,6 +13964,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Hawes 2019"
@@ -14008,6 +14029,8 @@ works:
       - "topic:voters"
       - "topic:religion"
       - "topic:migration"
+      - "region:north-america"
+      - "country:united-states"
       - "method:quantitative"
       - "type:article"
 
@@ -14088,7 +14111,6 @@ works:
     published: "2019-11-17"
     ref: "W2987851327"
     tags:
-      - "topic:media-communication"
       - "topic:migration"
       - "region:asia-pacific"
       - "country:japan"
@@ -14164,7 +14186,8 @@ works:
     published: "2019-11-17"
     ref: "W3014051641"
     tags:
-      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Schober 2019"
@@ -14184,7 +14207,6 @@ works:
     ref: "W3018945752"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:europe"
       - "region:north-america"
@@ -14233,6 +14255,9 @@ works:
     ref: "W4256359275"
     tags:
       - "topic:parties"
+      - "region:asia-pacific"
+      - "country:china"
+      - "country:singapore"
       - "type:book"
 
   - cite: "Al-Astewani 2019"
@@ -14244,6 +14269,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:religion"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Gill 2019"
@@ -14298,7 +14325,6 @@ works:
     published: "2019-02-17"
     ref: "W2935995624"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "region:north-america"
       - "country:united-states"
@@ -14408,7 +14434,9 @@ works:
     tags:
       - "approach:discursive"
       - "topic:democracy-institutions"
-      - "region:mena"
+      - "region:global"
+      - "country:united-states"
+      - "country:south-africa"
       - "type:article"
 
   - cite: "Rhodes-Purdy 2019"
@@ -14510,7 +14538,6 @@ works:
     published: "2019-03-18"
     ref: "W2921570417"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -14586,11 +14613,14 @@ works:
     published: "2019-07-01"
     ref: "W2957926096"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:germany"
+      - "country:poland"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Birmingham 2019"
@@ -14609,19 +14639,9 @@ works:
     published: "2019-07-01"
     ref: "W2962111436"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
-
-  - cite: "Emil PAIN 2019"
-    doi: "10.21557/ssc.53833414"
-    title: "Ethnic Negativism in the Age of Populism: The Case of Russia"
-    year: 2019
-    published: "2019-03-31"
-    ref: "W2965527786"
-    tags:
-      - "region:europe"
-      - "country:russia"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Swartz 2019"
     doi: "10.1080/15570274.2019.1644014"
@@ -14722,7 +14742,6 @@ works:
     published: "2019-12-01"
     ref: "W3001902328"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Ribeiro and Zelizer 2020"
@@ -15009,6 +15028,8 @@ works:
     ref: "W2947396364"
     tags:
       - "region:latin-america"
+      - "region:asia-pacific"
+      - "country:south-korea"
       - "type:article"
 
   - cite: "Darrow 2019"
@@ -15110,7 +15131,6 @@ works:
     published: "2019-07-01"
     ref: "W2959098471"
     tags:
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -15122,7 +15142,6 @@ works:
     published: "2019-07-01"
     ref: "W2959279919"
     tags:
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -15215,7 +15234,6 @@ works:
     published: "2019-07-03"
     ref: "W2969322863"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:article"
 
@@ -15287,7 +15305,6 @@ works:
     published: "2019-09-16"
     ref: "W2974165665"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -15401,7 +15418,6 @@ works:
     ref: "W2982440038"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "type:article"
 
   - cite: "Jones 2019"
@@ -15633,17 +15649,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "RITCHIE 2019"
-    doi: "10.2307/jj.21995736"
-    title: "Inclusive Populism: Creating Citizens in the Global Age"
-    year: 2019
-    published: "2019-09-30"
-    ref: "W4404686881"
-    tags:
-      - "topic:voters"
-      - "type:book"
-      - "todo:check-record"
-
   - cite: "Paul et al. 2019"
     doi: "10.33675/978-3-8253-7894-3"
     title: "The Comeback of Populism"
@@ -15681,10 +15686,11 @@ works:
     published: "2018-02-01"
     ref: "W2792911429"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "topic:democracy-institutions"
       - "region:europe"
+      - "country:hungary"
+      - "country:poland"
       - "type:article"
       - "oa:yes"
 
@@ -15729,6 +15735,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:gender"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Wood et al. 2018"
@@ -15738,7 +15746,6 @@ works:
     published: "2018-08-30"
     ref: "W2889459890"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:asia-pacific"
       - "country:australia"
@@ -15803,7 +15810,6 @@ works:
     published: "2018-01-01"
     ref: "W2801105045"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:italy"
       - "type:article"
@@ -15816,7 +15822,6 @@ works:
     published: "2018-05-04"
     ref: "W2807466103"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Auers 2018"
@@ -15890,6 +15895,8 @@ works:
     published: "2018-01-31"
     ref: "W2785932213"
     tags:
+      - "region:latin-america"
+      - "country:venezuela"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -15983,7 +15990,6 @@ works:
     published: "2018-11-19"
     ref: "W2901160859"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -15997,18 +16003,6 @@ works:
       - "region:sub-saharan-africa"
       - "country:south-africa"
       - "type:article"
-
-  - cite: "BONNER 2018"
-    doi: "10.1111/blar.12744"
-    title: "Media and Punitive Populism in A rgentina and C hile"
-    year: 2018
-    published: "2018-03-30"
-    ref: "W2795187047"
-    tags:
-      - "topic:media-communication"
-      - "method:qualitative"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Hoekman and Nelson 2018"
     doi: "10.1057/s42214-018-0003-2"
@@ -16039,7 +16033,6 @@ works:
     ref: "W2885387513"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "region:europe"
       - "country:turkey"
@@ -16068,7 +16061,6 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:latin-america"
       - "country:venezuela"
       - "method:qta"
@@ -16134,7 +16126,6 @@ works:
     tags:
       - "topic:international"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:europe"
       - "country:hungary"
       - "type:article"
@@ -16159,6 +16150,8 @@ works:
     ref: "W2900345579"
     tags:
       - "topic:migration"
+      - "region:europe"
+      - "country:czech-republic"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -16171,10 +16164,10 @@ works:
     ref: "W2795669408"
     tags:
       - "topic:defence-security"
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
+      - "country:france"
       - "method:mixed"
       - "type:article"
 
@@ -16185,8 +16178,9 @@ works:
     published: "2018-04-03"
     ref: "W2801830229"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -16220,7 +16214,11 @@ works:
     published: "2018-10-01"
     ref: "W2903806983"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:canada"
+      - "country:united-states"
       - "method:qualitative"
       - "type:article"
 
@@ -16232,7 +16230,6 @@ works:
     ref: "W2910884191"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:cyprus"
       - "country:greece"
@@ -16371,6 +16368,8 @@ works:
     ref: "W2811068256"
     tags:
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:slovakia"
       - "type:article"
 
   - cite: "Ellner 2018"
@@ -16403,7 +16402,6 @@ works:
     published: "2018-11-02"
     ref: "W2898715578"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:latin-america"
@@ -16468,6 +16466,9 @@ works:
     ref: "W2900601658"
     tags:
       - "region:sub-saharan-africa"
+      - "country:namibia"
+      - "country:south-africa"
+      - "country:zimbabwe"
       - "type:article"
 
   - cite: "Breeze 2018"
@@ -16478,6 +16479,8 @@ works:
     ref: "W2799883361"
     tags:
       - "approach:performative"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -16537,6 +16540,8 @@ works:
     ref: "W2894852710"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:canada"
       - "type:article"
       - "oa:yes"
 
@@ -16615,7 +16620,6 @@ works:
     published: "2018-08-08"
     ref: "W2885177163"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Noble and Ottmann 2018"
@@ -16670,7 +16674,6 @@ works:
     ref: "W2884350467"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:religion"
       - "region:europe"
       - "region:asia-pacific"
@@ -16717,8 +16720,9 @@ works:
     ref: "W2905389000"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:netherlands"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -16821,7 +16825,6 @@ works:
     published: "2018-12-01"
     ref: "W2905522509"
     tags:
-      - "topic:defence-security"
       - "type:article"
 
   - cite: "Ben Eklof and Tatiana Saburova 2018"
@@ -16860,6 +16863,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Bang and Marsh 2018"
@@ -16930,6 +16935,8 @@ works:
     published: "2018-01-01"
     ref: "W2801423190"
     tags:
+      - "region:europe"
+      - "country:portugal"
       - "type:article"
       - "oa:yes"
 
@@ -16951,7 +16958,6 @@ works:
     published: "2018-12-17"
     ref: "W2903809841"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "region:north-america"
@@ -17002,7 +17008,6 @@ works:
     published: "2018-12-01"
     ref: "W2912887337"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "type:article"
@@ -17016,7 +17021,6 @@ works:
     ref: "W2789564549"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -17111,7 +17115,6 @@ works:
     published: "2018-11-19"
     ref: "W2901945432"
     tags:
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:asia-pacific"
       - "country:philippines"
@@ -17251,6 +17254,8 @@ works:
     published: "2018-12-12"
     ref: "W2903900996"
     tags:
+      - "region:asia-pacific"
+      - "country:new-zealand"
       - "type:article"
 
   - cite: "Doyle White 2019"
@@ -17347,6 +17352,8 @@ works:
     tags:
       - "topic:democracy-institutions"
       - "region:asia-pacific"
+      - "country:singapore"
+      - "country:thailand"
       - "type:article"
 
   - cite: "Coffé 2018"
@@ -17381,7 +17388,6 @@ works:
     published: "2018-12-04"
     ref: "W2941223822"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:france"
@@ -17450,9 +17456,10 @@ works:
     published: "2018-07-03"
     ref: "W2886362988"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:religion"
+      - "region:europe"
+      - "country:greece"
       - "type:article"
 
   - cite: "Alquesta 2018"
@@ -17482,7 +17489,6 @@ works:
     published: "2018-10-10"
     ref: "W2897620152"
     tags:
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "type:book"
@@ -17495,6 +17501,10 @@ works:
     ref: "W2898312869"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:france"
+      - "country:germany"
+      - "country:italy"
       - "type:book"
 
   - cite: "Klikauer 2018"
@@ -17602,6 +17612,7 @@ works:
     ref: "W4254396603"
     tags:
       - "region:europe"
+      - "country:hungary"
       - "type:book"
 
   - cite: "Daigle et al. 2019"
@@ -17691,6 +17702,8 @@ works:
     published: "2018-05-04"
     ref: "W2806117379"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -17878,7 +17891,6 @@ works:
     published: "2018-04-05"
     ref: "W2795978267"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Field 2018"
@@ -17918,6 +17930,8 @@ works:
     ref: "W2811009254"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -18038,7 +18052,6 @@ works:
     ref: "W2791957389"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Walti 2018"
@@ -18101,7 +18114,6 @@ works:
     ref: "W2802156791"
     tags:
       - "topic:foreign-policy"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:north-america"
       - "country:united-states"
@@ -18324,16 +18336,6 @@ works:
     tags:
       - "type:book-review"
 
-  - cite: "PAPAIOANNOU 2018"
-    doi: "10.1111/2057-1615.12231"
-    title: "How populists thrive when times are hard"
-    year: 2018
-    published: "2018-05-01"
-    ref: "W2887702851"
-    tags:
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Hayes 2018"
     doi: "10.1177/0275074018795300"
     title: "Book Review: The new economic populism: How states respond to economic inequality"
@@ -18414,7 +18416,6 @@ works:
     published: "2018-10-22"
     ref: "W2896084743"
     tags:
-      - "topic:parties"
       - "type:book"
 
   - cite: "Desmond and Rogers M 2018"
@@ -18518,6 +18519,8 @@ works:
     ref: "W2903862868"
     tags:
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Mahoney 2018"
@@ -18582,6 +18585,7 @@ works:
     tags:
       - "topic:international"
       - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -18696,7 +18700,6 @@ works:
     published: "2017-05-10"
     ref: "W2613764912"
     tags:
-      - "topic:parties"
       - "type:book-review"
 
   - cite: "Woods 2017"
@@ -18729,7 +18732,6 @@ works:
     published: "2017-10-01"
     ref: "W2766185220"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:europe"
@@ -18767,6 +18769,8 @@ works:
     published: "2017-06-01"
     ref: "W2621068647"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Doyle 2017"
@@ -18785,7 +18789,6 @@ works:
     published: "2017-02-01"
     ref: "W2594852208"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:bulgaria"
@@ -18811,7 +18814,6 @@ works:
     published: "2017-06-22"
     ref: "W2677930507"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "region:europe"
@@ -18937,6 +18939,8 @@ works:
       - "topic:international"
       - "topic:democracy-institutions"
       - "region:europe"
+      - "country:hungary"
+      - "country:poland"
       - "type:article"
       - "oa:yes"
 
@@ -19001,17 +19005,6 @@ works:
     tags:
       - "topic:economy-welfare"
       - "type:article"
-
-  - cite: "BECKER 2017"
-    doi: "10.1017/s0022216x1700116x"
-    title: "General Alberto Enríquez Gallo: Soldier, Populist, Leftist"
-    year: 2017
-    published: "2017-10-03"
-    ref: "W2761598529"
-    tags:
-      - "topic:parties"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Chryssogelos 2017"
     doi: "10.1177/0192512117702524"
@@ -19137,6 +19130,8 @@ works:
     ref: "W2735092734"
     tags:
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:france"
       - "type:article"
       - "oa:yes"
 
@@ -19261,7 +19256,6 @@ works:
     published: "2017-04-01"
     ref: "W2605495241"
     tags:
-      - "topic:defence-security"
       - "topic:economy-welfare"
       - "topic:religion"
       - "region:europe"
@@ -19297,7 +19291,6 @@ works:
     published: "2017-05-15"
     ref: "W2615706212"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:france"
       - "method:qualitative"
@@ -19375,6 +19368,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -19385,7 +19380,6 @@ works:
     published: "2017-06-28"
     ref: "W2610452341"
     tags:
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -19456,7 +19450,6 @@ works:
     ref: "W2587452119"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:france"
@@ -19524,17 +19517,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "JESSEN 2017"
-    doi: "10.2307/j.ctt1sq5w0g"
-    title: "Populism and Imperialism: Politics, Culture, and Foreign Policy in the American West, 1890-1900"
-    year: 2017
-    published: "2017-07-21"
-    ref: "W4246232047"
-    tags:
-      - "topic:foreign-policy"
-      - "type:book"
-      - "todo:check-record"
-
   - cite: "Pantazopoulos 2017"
     doi: "10.3817/0317178202"
     title: "The National-Populist Illusion as a “Pathology” of Politics: The Greek Case and Beyond"
@@ -19555,6 +19537,8 @@ works:
     ref: "W2616085610"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -19597,7 +19581,6 @@ works:
     published: "2017-01-01"
     ref: "W2770362534"
     tags:
-      - "topic:media-communication"
       - "topic:religion"
       - "region:north-america"
       - "country:canada"
@@ -19613,6 +19596,7 @@ works:
       - "topic:international"
       - "topic:parties"
       - "region:europe"
+      - "country:france"
       - "type:article"
 
   - cite: "Hustvedt 2017"
@@ -19647,7 +19631,6 @@ works:
     ref: "W2766757176"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -19696,7 +19679,6 @@ works:
     published: "2017-12-01"
     ref: "W2783098603"
     tags:
-      - "topic:defence-security"
       - "region:latin-america"
       - "country:brazil"
       - "type:article"
@@ -19803,7 +19785,6 @@ works:
     published: "2017-04-25"
     ref: "W2608078498"
     tags:
-      - "topic:parties"
       - "type:book-review"
 
   - cite: "Markou 2017"
@@ -19855,17 +19836,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "NÁLLIM 2017"
-    doi: "10.1017/s0022216x17000578"
-    title: "John Abromeit , Bridget María Chesterton , Gary Marotta and York Norman (eds.), Transformations of Populism in Europe and the Americas: History and Recent Tendencies (London: Bloomsbury Academic Publishing, 2016), pp. x + 354, £70.00, hb."
-    year: 2017
-    published: "2017-07-20"
-    ref: "W2736908731"
-    tags:
-      - "region:europe"
-      - "type:book-review"
-      - "todo:check-record"
-
   - cite: "Aronoff 2017"
     doi: "10.1353/dss.2017.0073"
     title: "Bringing Power to the People: The Unlikely Case for Utility Populism"
@@ -19894,8 +19864,8 @@ works:
     published: "2017-09-26"
     ref: "W2760215849"
     tags:
-      - "topic:parties"
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Eklof and Saburova 2017"
@@ -19909,16 +19879,6 @@ works:
       - "country:russia"
       - "type:article"
       - "oa:yes"
-      - "todo:check-record"
-
-  - cite: "JONES 2017"
-    doi: "10.1017/s0047279417000897"
-    title: "Paolo Gerbaudo (2017), The Mask and the Flag: Populism, Citizenism and Global Protest, London: Hurst Publishers, £14.99, pp. 320, pbk."
-    year: 2017
-    published: "2017-12-18"
-    ref: "W2772335522"
-    tags:
-      - "type:book-review"
       - "todo:check-record"
 
   - cite: "Franko and Witko 2017"
@@ -19978,18 +19938,6 @@ works:
     tags:
       - "topic:religion"
       - "type:article"
-
-  - cite: "GARGARELLA 2017"
-    doi: "10.1017/s0022216x17000244"
-    title: "Federico Finchelstein , The Ideological Origins of the Dirty War: Fascism, Populism, and Dictatorship in Twentieth Century Argentina (Oxford and New York: Oxford University Press, 2014), pp. xi + 214, £37.99, hb."
-    year: 2017
-    published: "2017-03-29"
-    ref: "W2603456108"
-    tags:
-      - "region:latin-america"
-      - "country:argentina"
-      - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Dwyer 2017"
     doi: "10.1093/ahr/122.2.552a"
@@ -20236,7 +20184,6 @@ works:
     published: "2017-10-05"
     ref: "W2761638061"
     tags:
-      - "topic:parties"
       - "type:book-review"
 
   - cite: "Andrews 2017"
@@ -20255,7 +20202,6 @@ works:
     published: "2017-11-13"
     ref: "W2769608526"
     tags:
-      - "topic:parties"
       - "type:book-review"
 
   - cite: "Nichols 2017"
@@ -20413,6 +20359,8 @@ works:
     published: "2017-09-21"
     ref: "W4239982675"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Kenny 2017"
@@ -20445,6 +20393,8 @@ works:
     ref: "W4248311563"
     tags:
       - "topic:migration"
+      - "region:europe"
+      - "country:germany"
       - "type:book"
 
   - cite: "Formisano 2017"
@@ -20454,7 +20404,8 @@ works:
     published: "2017-04-20"
     ref: "W4250586193"
     tags:
-      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Kenny 2017"
@@ -20467,6 +20418,7 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "region:global"
+      - "country:india"
       - "type:book"
 
   - cite: "Franko and Witko 2017"
@@ -20539,16 +20491,6 @@ works:
       - "country:thailand"
       - "type:article"
 
-  - cite: "Patch 2016"
-    doi: "10.5406/americanmusic.34.3.0365"
-    title: "Notes on Deconstructing the Populism: Music on the Campaign Trail, 2012 and 2016"
-    year: 2016
-    published: "2016-10-01"
-    ref: "W2532039948"
-    tags:
-      - "topic:media-communication"
-      - "type:article"
-
   - cite: "Way 2016"
     doi: "10.1075/jlp.15.4.03way"
     title: "Protest music, populism, politics and authenticity: The limits and potential of popular music’s articulation of subversive politics"
@@ -20556,6 +20498,8 @@ works:
     published: "2016-10-07"
     ref: "W2529579041"
     tags:
+      - "region:europe"
+      - "country:turkey"
       - "type:article"
 
   - cite: "Tarchi 2016"
@@ -20581,20 +20525,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "SAMET 2016"
-    doi: "10.1017/s0022216x16000419"
-    title: "The Denouncers: Populism and the Press in Venezuela"
-    year: 2016
-    published: "2016-06-09"
-    ref: "W2409677733"
-    tags:
-      - "topic:media-communication"
-      - "region:latin-america"
-      - "country:venezuela"
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
-
   - cite: "Adamson 2016"
     doi: "10.3726/978-3-653-05733-1"
     title: "Populist Parties and the Failure of the Political Elites"
@@ -20603,6 +20533,8 @@ works:
     ref: "W2485599375"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:austria"
       - "type:book"
 
   - cite: "Kenneth White 2016"
@@ -20638,7 +20570,6 @@ works:
     published: "2016-12-31"
     ref: "W2565504953"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "method:mixed"
@@ -20664,7 +20595,6 @@ works:
     published: "2016-01-01"
     ref: "W2553819578"
     tags:
-      - "topic:media-communication"
       - "type:book"
 
   - cite: "Dorlach 2016"
@@ -20712,6 +20642,8 @@ works:
     published: "2016-05-27"
     ref: "W2396893975"
     tags:
+      - "region:europe"
+      - "country:norway"
       - "type:article"
 
   - cite: "Cantamutto 2016"
@@ -20796,6 +20728,8 @@ works:
     published: "2016-03-01"
     ref: "W2460359860"
     tags:
+      - "region:latin-america"
+      - "country:brazil"
       - "type:article"
       - "oa:yes"
 
@@ -20863,7 +20797,6 @@ works:
     published: "2016-10-16"
     ref: "W2534158936"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
@@ -20878,7 +20811,6 @@ works:
     published: "2016-06-01"
     ref: "W2610331151"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -20894,7 +20826,6 @@ works:
     ref: "W2475085331"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
       - "country:finland"
@@ -20965,7 +20896,6 @@ works:
     published: "2016-09-01"
     ref: "W2520822867"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Bute 2016"
@@ -20997,6 +20927,8 @@ works:
     published: "2016-10-01"
     ref: "W2547235486"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Huang and Terra 2016"
@@ -21029,7 +20961,6 @@ works:
     tags:
       - "topic:international"
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:romania"
       - "type:article"
@@ -21093,7 +21024,6 @@ works:
     tags:
       - "approach:discursive"
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "type:article"
       - "oa:yes"
@@ -21218,6 +21148,9 @@ works:
       - "topic:economy-welfare"
       - "region:europe"
       - "region:asia-pacific"
+      - "country:russia"
+      - "country:turkey"
+      - "country:united-kingdom"
       - "type:book"
       - "oa:yes"
 
@@ -21419,7 +21352,6 @@ works:
     published: "2016-10-01"
     ref: "W2547704660"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Hamby 2016"
@@ -21446,17 +21378,6 @@ works:
       - "region:europe"
       - "type:book-review"
 
-  - cite: "MOSOBALAJE 2016"
-    doi: "10.1163/18757421-90000396"
-    title: "The Transition from a Mythopoeic to a Populist Aesthetic in Selected Political Plays of Wole Soyinka"
-    year: 2016
-    published: "2016-08-22"
-    ref: "W2747259840"
-    tags:
-      - "topic:defence-security"
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Taras 2016"
     doi: "10.3368/sca.88.3.0328"
     title: "Culture, Health, and Religion at the Millennium: Sweden Unparadised; Anders Hellström.Trust Us: Reproducing the Nation and the Scandi navian Nationalist Populist Parties"
@@ -21469,16 +21390,6 @@ works:
       - "region:europe"
       - "country:sweden"
       - "type:book-review"
-
-  - cite: "McCutcheon 2016"
-    doi: "10.4135/cqresrre20160909"
-    title: "Populism and Party Politics"
-    year: 2016
-    published: "2016-01-01"
-    ref: "W4391385626"
-    tags:
-      - "topic:parties"
-      - "type:book"
 
   - cite: "Harmer 2015"
     doi: "10.1080/14682745.2015.1051363"
@@ -21562,20 +21473,6 @@ works:
       - "country:poland"
       - "type:article"
 
-  - cite: "LINDGREN 2015"
-    doi: "10.1017/s1468109915000328"
-    title: "Developing Japanese Populism Research through Readings Of European Populist Radical Right Studies: Populism As An Ideological Concept, Classifications Of Politicians And Explanations For Political Success"
-    year: 2015
-    published: "2015-10-28"
-    ref: "W2606529788"
-    tags:
-      - "topic:parties"
-      - "region:europe"
-      - "region:asia-pacific"
-      - "country:japan"
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Shroufi 2015"
     doi: "10.1177/0306396815595799"
     title: "The Gates of Jerusalem: European revisionism and the populist radical Right"
@@ -21622,6 +21519,8 @@ works:
     ref: "W2249722574"
     tags:
       - "topic:religion"
+      - "region:mena"
+      - "country:syria"
       - "type:article"
 
   - cite: "Passarelli 2015"
@@ -21662,19 +21561,6 @@ works:
     tags:
       - "type:article"
 
-  - cite: "BERLINER 2015"
-    doi: "10.5406/amerlitereal.47.3.0219"
-    title: "The Landscapes of Hamlin Garland and the American Populists"
-    year: 2015
-    published: "2015-02-27"
-    ref: "W2087404627"
-    tags:
-      - "topic:parties"
-      - "region:north-america"
-      - "country:united-states"
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Chwalisz 2015"
     doi: "10.1111/j.2050-5876.2015.00865.x"
     title: "The prairie populist: How Stephen Harper transformed Canada"
@@ -21696,7 +21582,6 @@ works:
     ref: "W2207810601"
     tags:
       - "topic:defence-security"
-      - "topic:parties"
       - "region:europe"
       - "country:russia"
       - "type:article"
@@ -21735,7 +21620,6 @@ works:
     published: "2015-04-18"
     ref: "W2077561944"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -21747,16 +21631,6 @@ works:
     ref: "W2321644537"
     tags:
       - "type:article"
-
-  - cite: "RONIGER 2015"
-    doi: "10.1017/s0022216x15000723"
-    title: "Carlos de la Torre (ed.), The Promise and Perils of Populism: Global Perspectives (Lexington, KY: University Press of Kentucky, 2015), p. viii + 474, $30.00, pb."
-    year: 2015
-    published: "2015-07-03"
-    ref: "W1443534158"
-    tags:
-      - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Berecz 2015"
     doi: "10.1163/18763332-03901009"
@@ -21777,7 +21651,6 @@ works:
     published: "2015-10-21"
     ref: "W2179773074"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -21809,7 +21682,6 @@ works:
     published: "2015-07-01"
     ref: "W2577537292"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -22016,7 +21888,6 @@ works:
     published: "2014-07-17"
     ref: "W1965657823"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -22036,7 +21907,6 @@ works:
     published: "2014-04-03"
     ref: "W2041514945"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:book-review"
 
@@ -22079,7 +21949,6 @@ works:
     published: "2014-05-04"
     ref: "W2035037217"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:romania"
@@ -22142,6 +22011,9 @@ works:
     tags:
       - "topic:parties"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:austria"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -22198,24 +22070,9 @@ works:
     ref: "W1973560056"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "region:europe"
       - "country:finland"
       - "type:article"
-
-  - cite: "WEATHERS 2014"
-    doi: "10.1093/ssjj/jyt029"
-    title: "Reformer or Destroyer? Hashimoto Toru and Populist Neoliberal Politics in Japan"
-    year: 2014
-    published: "2014-01-01"
-    ref: "W2017410552"
-    tags:
-      - "approach:performative"
-      - "topic:economy-welfare"
-      - "region:asia-pacific"
-      - "country:japan"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Grabbe and Groot 2014"
     doi: "10.1080/03932729.2014.961768"
@@ -22225,7 +22082,6 @@ works:
     ref: "W2037031725"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "region:europe"
@@ -22394,6 +22250,8 @@ works:
     ref: "W4401267002"
     tags:
       - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Khorana 2014"
@@ -22492,9 +22350,10 @@ works:
     ref: "W2327912744"
     tags:
       - "topic:defence-security"
-      - "topic:parties"
       - "topic:spatial"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "van Kessel 2014"
@@ -22523,7 +22382,6 @@ works:
     published: "2014-12-01"
     ref: "W2029610593"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -22538,18 +22396,6 @@ works:
       - "region:asia-pacific"
       - "country:philippines"
       - "type:book-review"
-
-  - cite: "UDDHAMMAR 2014"
-    doi: "10.1017/s0022278x14000482"
-    title: "Urban Poverty and Party Populism in African Democracies by Danielle Resnick Cambridge: Cambridge University Press, 2013. Pp. 336. £65·00 (hbk)"
-    year: 2014
-    published: "2014-11-10"
-    ref: "W1990113370"
-    tags:
-      - "topic:parties"
-      - "region:sub-saharan-africa"
-      - "type:book-review"
-      - "todo:check-record"
 
   - cite: "te Slaa 2014"
     doi: "10.1163/22116257-00301007"
@@ -22571,16 +22417,6 @@ works:
       - "type:book-review"
       - "oa:yes"
 
-  - cite: "CAMERON 2014"
-    doi: "10.1017/s0022216x14001187"
-    title: "Carlos de la Torre and Cynthia J. Arnson (eds.), Latin American Populism in the Twenty-First Century (Washington, DC: Woodrow Wilson Center Press, and Baltimore, MD: Johns Hopkins University Press, 2013), pp. xii+398, £15.50, pb."
-    year: 2014
-    published: "2014-10-03"
-    ref: "W2054087574"
-    tags:
-      - "type:book-review"
-      - "todo:check-record"
-
   - cite: "Zulianello 2014"
     doi: "10.1111/1478-9302.12053_74"
     title: "Book Review: Comparative: Populism in Europe and the Americas: Threat or Corrective for Democracy?"
@@ -22599,18 +22435,6 @@ works:
     ref: "W2125786096"
     tags:
       - "type:book-review"
-
-  - cite: "SHERMER 2014"
-    doi: "10.1017/s0018246x1400034x"
-    title: "WHO IS WAGGING WHOM? POWER AND THE NEW HISTORY OF AMERICAN POPULISM"
-    year: 2014
-    published: "2014-08-14"
-    ref: "W2168435026"
-    tags:
-      - "region:north-america"
-      - "country:united-states"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Caprio 2014"
     doi: "10.1093/ahr/119.3.877"
@@ -22669,6 +22493,8 @@ works:
     published: "2014-06-17"
     ref: "W2941308839"
     tags:
+      - "region:europe"
+      - "country:germany"
       - "type:book"
 
   - cite: "Zúquete 2014"
@@ -22733,7 +22559,6 @@ works:
     published: "2013-06-25"
     ref: "W2097186121"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:media-communication"
       - "region:asia-pacific"
@@ -22749,21 +22574,9 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:europe"
       - "country:finland"
       - "type:article"
-
-  - cite: "BRETT 2013"
-    doi: "10.1111/j.1467-923x.2013.12030.x"
-    title: "What's an Elite to Do? The Threat of Populism from Left, Right and Centre"
-    year: 2013
-    published: "2013-10-01"
-    ref: "W2065119199"
-    tags:
-      - "topic:parties"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Solty 2013"
     doi: "10.1080/19187033.2013.11674983"
@@ -22773,6 +22586,8 @@ works:
     ref: "W1787226892"
     tags:
       - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Jordan 2013"
@@ -22847,7 +22662,6 @@ works:
     published: "2013-09-01"
     ref: "W2113958529"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Fabbrini and Lazar 2013"
@@ -22993,6 +22807,8 @@ works:
     published: "2013-03-01"
     ref: "W1967294412"
     tags:
+      - "region:europe"
+      - "country:netherlands"
       - "method:qualitative"
       - "type:article"
 
@@ -23034,18 +22850,6 @@ works:
     tags:
       - "type:article"
       - "oa:yes"
-
-  - cite: "LINKE 2013"
-    doi: "10.1111/amet.12029_6"
-    title: "Headlines of Nation, Subtexts of Class: Working‐Class Populism and the Return of the Repressed in Neoliberal Europe. DonKalb and GáborHalmai, eds. New York: Berghahn, 2011. 222 pp."
-    year: 2013
-    published: "2013-05-01"
-    ref: "W2083766242"
-    tags:
-      - "topic:economy-welfare"
-      - "region:europe"
-      - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Botero 2013"
     doi: "10.1093/es/kht080"
@@ -23134,16 +22938,6 @@ works:
       - "country:france"
       - "country:australia"
       - "type:book-review"
-
-  - cite: "POSTEL 2013"
-    doi: "10.1017/s0021875813000467"
-    title: "James M. Beeby (ed.), Populism in the South Revisited: New Interpretations and New Departures (Jackson: University Press of Mississippi, 2012, $60.00). Pp. 247. isbn 978 1 61703 225 7."
-    year: 2013
-    published: "2013-04-17"
-    ref: "W2085813556"
-    tags:
-      - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Auers 2013"
     doi: "10.1111/1478-9302.12028_113"
@@ -23275,7 +23069,6 @@ works:
     published: "2012-12-01"
     ref: "W2035781815"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "type:article"
 
@@ -23418,7 +23211,6 @@ works:
     ref: "W1979969314"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Gaonkar 2012"
@@ -23430,7 +23222,6 @@ works:
     tags:
       - "approach:discursive"
       - "approach:performative"
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Heap and Smithson 2012"
@@ -23440,7 +23231,8 @@ works:
     published: "2012-01-13"
     ref: "W1997858259"
     tags:
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Minnite 2012"
@@ -23450,7 +23242,6 @@ works:
     published: "2012-12-01"
     ref: "W2005901722"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
@@ -23509,6 +23300,8 @@ works:
     published: "2012-08-24"
     ref: "W2323351686"
     tags:
+      - "region:europe"
+      - "country:france"
       - "type:article"
 
   - cite: "Bass 2012"
@@ -23519,19 +23312,6 @@ works:
     ref: "W1599484319"
     tags:
       - "type:article"
-
-  - cite: "IORIS 2012"
-    doi: "10.1017/s0022216x1200003x"
-    title: "‘Fifty Years in Five’ and What's in It for Us? Development Promotion, Populism, Industrial Workers andCarestiain 1950s Brazil"
-    year: 2012
-    published: "2012-05-01"
-    ref: "W2067324539"
-    tags:
-      - "topic:economy-welfare"
-      - "region:latin-america"
-      - "country:brazil"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Morris 2012"
     doi: "10.1215/10679847-1471374"
@@ -23562,7 +23342,6 @@ works:
     published: "2012-12-01"
     ref: "W117248894"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "topic:economy-welfare"
@@ -23579,6 +23358,8 @@ works:
     ref: "W1505414427"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Maloy 2012"
@@ -23667,16 +23448,6 @@ works:
       - "topic:gender"
       - "region:latin-america"
       - "type:book-review"
-
-  - cite: "BANGSTAD 2012"
-    doi: "10.1111/j.1469-8676.2012.00202_9.x"
-    title: "The annoying difference: the emergence of Danish neonationalism, neoracism, and populism in the post-1989 world by Hervik, Peter"
-    year: 2012
-    published: "2012-05-01"
-    ref: "W1998068130"
-    tags:
-      - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Goede 2012"
     doi: "10.1108/14468951211262288"
@@ -23793,18 +23564,6 @@ works:
       - "country:mexico"
       - "type:book-review"
 
-  - cite: "SMITH 2012"
-    doi: "10.1017/s0022216x11001416"
-    title: "Amelia M. Kiddle and Maria L. O. Muñoz (eds.), Populism in 20th Century Mexico: The Presidencies of Lázaro Cárdenas and Luis Echeverría (Tucson, AZ: University of Arizona Press, 2010), pp. xiii + 296, $55.00, hb."
-    year: 2012
-    published: "2012-02-01"
-    ref: "W2324405202"
-    tags:
-      - "region:latin-america"
-      - "country:mexico"
-      - "type:book-review"
-      - "todo:check-record"
-
   - cite: "Schwartz 2012"
     doi: "10.1086/664192"
     title: "The Louisiana Populist Movement, 1881–1900. By Donna A. Barnes. Baton Rouge: Louisiana State University Press, 2011. Pp. xii+319. $45.00."
@@ -23889,7 +23648,6 @@ works:
     ref: "W2014660034"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "region:europe"
       - "country:greece"
       - "type:article"
@@ -23956,6 +23714,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Martinez Barahona and Linares Lejarraga 2011"
@@ -24051,7 +23811,6 @@ works:
     published: "2011-07-01"
     ref: "W1999383694"
     tags:
-      - "topic:parties"
       - "region:latin-america"
       - "type:article"
 
@@ -24071,6 +23830,8 @@ works:
     published: "2011-08-12"
     ref: "W2017351136"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Johnston 2011"
@@ -24109,6 +23870,8 @@ works:
     ref: "W4388507297"
     tags:
       - "topic:international"
+      - "region:europe"
+      - "country:portugal"
       - "type:article"
       - "oa:yes"
 
@@ -24133,6 +23896,8 @@ works:
       - "topic:parties"
       - "topic:economy-welfare"
       - "topic:religion"
+      - "region:latin-america"
+      - "country:mexico"
       - "type:article"
 
   - cite: "Summerhill 2011"
@@ -24209,18 +23974,6 @@ works:
     tags:
       - "topic:parties"
       - "type:book-review"
-
-  - cite: "KIDDLE 2011"
-    doi: "10.1017/s0022216x11000836"
-    title: "Karen Kampwirth (ed.), Gender and Populism in Latin America: Passionate Politics (University Park, PA: Penn State University Press, 2010), pp. xiv+254, $65.00, hb."
-    year: 2011
-    published: "2011-11-01"
-    ref: "W2334608552"
-    tags:
-      - "topic:gender"
-      - "region:latin-america"
-      - "type:book-review"
-      - "todo:check-record"
 
   - cite: "Vacs 2011"
     doi: "10.1017/s1531426x00010153"
@@ -24372,20 +24125,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "BRYAN 2010"
-    doi: "10.1080/10301763.2010.10669402"
-    title: "AUSTRALIAN POPULISM AND THE GLOBAL FINANCIAL CRISIS: FINDING A PLACE FOR LABOUR"
-    year: 2010
-    published: "2010-04-01"
-    ref: "W2005710653"
-    tags:
-      - "topic:economy-welfare"
-      - "topic:media-communication"
-      - "region:asia-pacific"
-      - "country:australia"
-      - "type:article"
-      - "todo:check-record"
-
   - cite: "Marples 2010"
     doi: "10.1080/00905992.2010.498471"
     title: "Stalin: authoritarian populist or great Russian chauvinist?"
@@ -24394,6 +24133,8 @@ works:
     ref: "W2013146153"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:russia"
       - "type:article"
 
   - cite: "Brandenberger 2010"
@@ -24403,7 +24144,6 @@ works:
     published: "2010-07-29"
     ref: "W1976049172"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:russia"
       - "type:article"
@@ -24515,19 +24255,6 @@ works:
     tags:
       - "type:book-review"
 
-  - cite: "GOTT 2010"
-    doi: "10.1017/s0022216x10001628"
-    title: "Barry Cannon, Hugo Chávez and the Bolivarian Revolution: Populism and Democracy in a Globalised Age (Manchester and New York: Manchester University Press, 2009), pp. xiv+235, £14.99, pb."
-    year: 2010
-    published: "2010-11-01"
-    ref: "W2110223586"
-    tags:
-      - "topic:democracy-institutions"
-      - "region:latin-america"
-      - "country:venezuela"
-      - "type:book-review"
-      - "todo:check-record"
-
   - cite: "van Kessel 2010"
     doi: "10.1177/13540688100160020703"
     title: "Book Review: Daniele Albertazzi and Duncan McDonnell (eds), Twenty-First Century Populism: The Spectre of Western European Democracy. Basingstoke: Palgrave Macmillan, 2007. £50.00 (hbk), 264 pp. ISBN 023001349X"
@@ -24625,18 +24352,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "Dorraj and Dodson 2009"
-    doi: "10.1215/1089201x-2008-049"
-    title: "Neo-Populism in Comparative Perspective: Iran and Venezuela"
-    year: 2009
-    published: "2009-03-26"
-    ref: "W2041199162"
-    tags:
-      - "region:global"
-      - "country:venezuela"
-      - "country:iran"
-      - "type:article"
-
   - cite: "Busby 2009"
     doi: "10.1057/9780230244283"
     title: "Marketing the Populist Politician"
@@ -24689,6 +24404,7 @@ works:
     tags:
       - "topic:economy-welfare"
       - "region:latin-america"
+      - "country:chile"
       - "type:article"
 
   - cite: "De Cleen 2009"
@@ -24733,6 +24449,7 @@ works:
       - "approach:discursive"
       - "topic:parties"
       - "region:latin-america"
+      - "country:mexico"
       - "type:article"
 
   - cite: "Demont-Heinrich 2009"
@@ -24787,6 +24504,8 @@ works:
     published: "2009-03-01"
     ref: "W1983308376"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Hunt 2009"
@@ -24972,19 +24691,6 @@ works:
     tags:
       - "type:book-review"
 
-  - cite: "DOWNS 2009"
-    doi: "10.1111/j.1468-5965.2009.02038_8.x"
-    title: "Illiberal Politics in Neoliberal Times: Culture, Security and Populism in the New Europe – By M. Berezin"
-    year: 2009
-    published: "2009-10-20"
-    ref: "W2055367749"
-    tags:
-      - "topic:economy-welfare"
-      - "topic:democracy-institutions"
-      - "region:europe"
-      - "type:book-review"
-      - "todo:check-record"
-
   - cite: "Whitehead 2009"
     doi: "10.1093/bjc/azp012"
     title: "Penal Populism, Sentencing Councils and Sentencing Policy. Edited by Arie Freiberg and Karen Gelb (Cullompton, Devon: Willan Publishing, 2008, 248pp. 25.00 pb)"
@@ -25160,29 +24866,6 @@ works:
       - "country:romania"
       - "type:article"
 
-  - cite: "ANSARI 2008"
-    doi: "10.1111/j.1468-2346.2008.00732.x"
-    title: "Iran under Ahmadinejad: populism and its malcontents"
-    year: 2008
-    published: "2008-07-01"
-    ref: "W2028731122"
-    tags:
-      - "topic:religion"
-      - "region:mena"
-      - "country:iran"
-      - "type:article"
-      - "todo:check-record"
-
-  - cite: "Harp and Creech 2008"
-    doi: "10.2307/27650195"
-    title: "Righteous Indignation: Religion and the Populist Revolution"
-    year: 2008
-    published: "2008-05-01"
-    ref: "W638885420"
-    tags:
-      - "topic:religion"
-      - "type:book-review"
-
   - cite: "Miller and Hild 2008"
     doi: "10.2307/27650194"
     title: "Greenbackers, Knights of Labor, and Populists: Farmer-Labor Insurgency in the Late-Nineteenth-Century South"
@@ -25209,7 +24892,6 @@ works:
     published: "2008-05-01"
     ref: "W1977000123"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:austria"
       - "type:article"
@@ -25226,20 +24908,6 @@ works:
       - "country:taiwan"
       - "method:survey"
       - "type:article"
-
-  - cite: "HIRANO 2008"
-    doi: "10.3162/036298008783743282"
-    title: "Third Parties, Elections, and Roll‐Call Votes: The Populist Party and the Late Nineteenth‐Century U.S. Congress"
-    year: 2008
-    published: "2008-02-01"
-    ref: "W1965945825"
-    tags:
-      - "topic:parties"
-      - "region:north-america"
-      - "country:united-states"
-      - "method:quantitative"
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Spanakos 2008"
     doi: "10.1080/07393140802493308"
@@ -25260,6 +24928,8 @@ works:
     published: "2008-11-01"
     ref: "W2107077745"
     tags:
+      - "region:north-america"
+      - "country:canada"
       - "type:article"
 
   - cite: "Linden 2008"
@@ -25313,7 +24983,8 @@ works:
     ref: "W1622000515"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Sellars 2008"
@@ -25367,6 +25038,8 @@ works:
     ref: "W2135730348"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "McMath et al. 2008"
@@ -25418,6 +25091,8 @@ works:
     ref: "W2094878863"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Hanley 2008"
@@ -25439,6 +25114,8 @@ works:
     ref: "W2317062588"
     tags:
       - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Ingram 2008"

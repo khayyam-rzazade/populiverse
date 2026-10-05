@@ -5,8 +5,8 @@
 # batch-09-evidence.csv. Written by the script; do not edit by hand.
 
 batch: 9
-date: "2026-10-02"
-phrases_version: 5
+date: "2026-10-05"
+phrases_version: 7
 
 works:
   - cite: "Salamey and Pearson 2007"
@@ -151,7 +151,6 @@ works:
     published: "2007-05-01"
     ref: "W1971916410"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Foley 2007"
@@ -208,6 +207,8 @@ works:
     published: "2007-01-01"
     ref: "W2480327401"
     tags:
+      - "region:europe"
+      - "country:turkey"
       - "type:article"
 
   - cite: "Keetley 2007"
@@ -366,6 +367,8 @@ works:
     published: "2006-04-01"
     ref: "W2031394558"
     tags:
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -598,6 +601,8 @@ works:
     ref: "W2021962979"
     tags:
       - "topic:religion"
+      - "region:mena"
+      - "country:syria"
       - "type:article"
 
   - cite: "Chiantera-Stutte 2005"
@@ -651,6 +656,8 @@ works:
       - "topic:gender"
       - "topic:religion"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
       - "type:article"
       - "oa:yes"
 
@@ -756,7 +763,6 @@ works:
     published: "2004-11-24"
     ref: "W1975205906"
     tags:
-      - "topic:media-communication"
       - "type:article"
       - "oa:yes"
 
@@ -823,6 +829,8 @@ works:
     published: "2004-11-01"
     ref: "W2119759199"
     tags:
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Stead 2004"
@@ -1041,7 +1049,6 @@ works:
     published: "2003-12-01"
     ref: "W1974994878"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Steinert 2003"
@@ -1127,6 +1134,8 @@ works:
     published: "2003-04-17"
     ref: "W2118870498"
     tags:
+      - "region:europe"
+      - "country:germany"
       - "type:article"
 
   - cite: "Etkind 2003"
@@ -1320,6 +1329,7 @@ works:
     ref: "W2156535001"
     tags:
       - "region:europe"
+      - "country:austria"
       - "type:article"
 
   - cite: "Varley 2002"
@@ -1341,6 +1351,8 @@ works:
     published: "2002-01-01"
     ref: "W585504220"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Tjeldvoll 2002"
@@ -1463,6 +1475,7 @@ works:
     tags:
       - "topic:economy-welfare"
       - "region:asia-pacific"
+      - "country:thailand"
       - "type:article"
 
   - cite: "Hughes 2001"
@@ -1496,6 +1509,8 @@ works:
     published: "2001-09-01"
     ref: "W2028165529"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -1819,7 +1834,6 @@ works:
     published: "1999-11-01"
     ref: "W1992851827"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "de la Torre 1999"
@@ -1919,6 +1933,8 @@ works:
     tags:
       - "topic:parties"
       - "region:latin-america"
+      - "country:brazil"
+      - "country:ecuador"
       - "type:article"
       - "oa:yes"
 
@@ -1929,6 +1945,8 @@ works:
     published: "1998-12-01"
     ref: "W2105665404"
     tags:
+      - "region:europe"
+      - "country:netherlands"
       - "type:article"
 
   - cite: "Baumann 1998"
@@ -1938,6 +1956,8 @@ works:
     published: "1998-07-01"
     ref: "W2133066010"
     tags:
+      - "region:asia-pacific"
+      - "country:india"
       - "type:article"
 
   - cite: "Wright 1998"
@@ -2405,6 +2425,8 @@ works:
     tags:
       - "topic:international"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Xiao and Heisey 1996"
@@ -2415,6 +2437,8 @@ works:
     ref: "W2001847257"
     tags:
       - "topic:gender"
+      - "region:asia-pacific"
+      - "country:china"
       - "type:article"
 
   - cite: "Watts 1996"
@@ -2425,6 +2449,8 @@ works:
     ref: "W2166995543"
     tags:
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:turkey"
       - "type:article"
 
   - cite: "Merkl 1996"
@@ -2572,6 +2598,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Bentley 1995"
@@ -2749,7 +2777,6 @@ works:
     published: "1994-03-01"
     ref: "W2323743219"
     tags:
-      - "topic:media-communication"
       - "topic:religion"
       - "region:north-america"
       - "country:united-states"
@@ -2773,7 +2800,6 @@ works:
     published: "1994-10-01"
     ref: "W2083174703"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:latin-america"
       - "country:bolivia"
@@ -3081,6 +3107,8 @@ works:
     ref: "W2320426135"
     tags:
       - "topic:defence-security"
+      - "region:europe"
+      - "country:russia"
       - "type:article"
 
   - cite: "Epstein 1993"
@@ -3131,7 +3159,6 @@ works:
     published: "1993-01-01"
     ref: "W1969183759"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Sigelman 1993"
@@ -3399,7 +3426,6 @@ works:
     published: "1990-01-01"
     ref: "W2061730106"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Bond 1990"
@@ -3819,6 +3845,11 @@ works:
     published: "1987-08-01"
     ref: "W2112196980"
     tags:
+      - "region:north-america"
+      - "region:sub-saharan-africa"
+      - "country:united-states"
+      - "country:benin"
+      - "country:nigeria"
       - "type:article"
 
   - cite: "Shields 1987"
@@ -3840,7 +3871,6 @@ works:
     published: "1987-03-01"
     ref: "W1966920588"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "type:article"
@@ -3945,7 +3975,6 @@ works:
     ref: "W2046643512"
     tags:
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Boratav 1986"
@@ -4326,7 +4355,9 @@ works:
     published: "1983-06-01"
     ref: "W1981715225"
     tags:
+      - "region:north-america"
       - "region:sub-saharan-africa"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Martz 1983"
@@ -4358,6 +4389,8 @@ works:
     ref: "W2140362156"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Kann 1983"
@@ -5055,7 +5088,9 @@ works:
     published: "1977-11-01"
     ref: "W2143017233"
     tags:
+      - "region:europe"
       - "region:latin-america"
+      - "country:russia"
       - "type:article"
 
   - cite: "Erlich 1977"
@@ -5065,7 +5100,6 @@ works:
     published: "1977-04-01"
     ref: "W2034132065"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Kofi 1977"
@@ -5448,8 +5482,9 @@ works:
     published: "1974-01-01"
     ref: "W2163833060"
     tags:
-      - "topic:defence-security"
       - "topic:democracy-institutions"
+      - "region:latin-america"
+      - "country:chile"
       - "type:article"
 
   - cite: "Burke and Malloy 1974"
@@ -5824,6 +5859,8 @@ works:
     tags:
       - "topic:religion"
       - "region:latin-america"
+      - "country:chile"
+      - "country:colombia"
       - "type:article"
 
   - cite: "Bicha 1967"

@@ -4,8 +4,8 @@
 # batch-02-evidence.csv. Written by the script; do not edit by hand.
 
 batch: 2
-date: "2026-10-01"
-phrases_version: 1
+date: "2026-10-05"
+phrases_version: 7
 
 works:
   - cite: "Abadi et al. 2024"
@@ -40,6 +40,8 @@ works:
     tags:
       - "topic:international"
       - "topic:voters"
+      - "region:europe"
+      - "country:russia"
       - "type:article"
       - "oa:yes"
 
@@ -241,6 +243,8 @@ works:
       - "topic:parties"
       - "topic:government"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:hungary"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -267,6 +271,8 @@ works:
     year: 2020
     ref: "H0064"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -288,8 +294,11 @@ works:
     year: 2021
     ref: "H0066"
     tags:
-      - "topic:defence-security"
       - "topic:democracy-institutions"
+      - "region:global"
+      - "country:turkey"
+      - "country:venezuela"
+      - "country:thailand"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -353,6 +362,8 @@ works:
     year: 2021
     ref: "H0081"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -417,6 +428,9 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:austria"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -438,7 +452,6 @@ works:
     year: 2022
     ref: "H0098"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:france"
@@ -452,7 +465,6 @@ works:
     year: 2022
     ref: "H0099"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:france"
       - "type:article"
@@ -466,7 +478,6 @@ works:
     tags:
       - "approach:discursive"
       - "approach:performative"
-      - "topic:parties"
       - "region:north-america"
       - "country:united-states"
       - "method:qta"
@@ -478,7 +489,6 @@ works:
     year: 2017
     ref: "H0102"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "topic:democracy-institutions"
@@ -573,6 +583,8 @@ works:
     tags:
       - "topic:religion"
       - "region:europe"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Brubaker 2017"
@@ -625,6 +637,8 @@ works:
     tags:
       - "approach:discursive"
       - "topic:parties"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -706,7 +720,6 @@ works:
       - "topic:foreign-policy"
       - "topic:defence-security"
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:germany"
       - "type:article"
@@ -743,6 +756,8 @@ works:
     ref: "H0156"
     tags:
       - "topic:foreign-policy"
+      - "region:europe"
+      - "country:poland"
       - "type:article"
       - "oa:yes"
 
@@ -831,7 +846,6 @@ works:
     year: 2021
     ref: "H0178"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "type:article"
 
@@ -855,6 +869,8 @@ works:
       - "topic:parties"
       - "topic:government"
       - "topic:migration"
+      - "region:europe"
+      - "country:italy"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -865,7 +881,6 @@ works:
     year: 2018
     ref: "H0184"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:asia-pacific"
@@ -929,6 +944,10 @@ works:
       - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
+      - "region:europe"
+      - "country:austria"
+      - "country:germany"
+      - "country:sweden"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -985,7 +1004,6 @@ works:
     ref: "H0230"
     tags:
       - "topic:foreign-policy"
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:italy"
@@ -1054,7 +1072,6 @@ works:
     ref: "H0253"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "region:europe"
       - "country:united-kingdom"
       - "type:article"
@@ -1101,7 +1118,6 @@ works:
     ref: "H0261"
     tags:
       - "topic:foreign-policy"
-      - "topic:parties"
       - "region:latin-america"
       - "country:brazil"
       - "type:article"
@@ -1310,8 +1326,10 @@ works:
     tags:
       - "approach:ideational"
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
+      - "country:czech-republic"
+      - "country:poland"
+      - "country:slovakia"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -1337,6 +1355,10 @@ works:
     tags:
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -1571,22 +1593,12 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "Germani 1978"
-    doi: "10.2307/2513934"
-    title: "Authoritarianism, Fascism, and National Populism."
-    year: 1978
-    ref: "H0358"
-    tags:
-      - "topic:democracy-institutions"
-      - "type:article"
-
   - cite: "Gidron et al. 2017"
     doi: "10.1111/1468-4446.12319"
     title: "The politics of social status: economic and cultural roots of the populist right"
     year: 2017
     ref: "H0361"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "method:survey"
@@ -1600,7 +1612,6 @@ works:
     ref: "H0363"
     tags:
       - "topic:foreign-policy"
-      - "topic:parties"
       - "region:europe"
       - "country:italy"
       - "type:article"
@@ -1689,6 +1700,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:migration"
+      - "region:europe"
+      - "country:austria"
       - "type:article"
       - "oa:yes"
 
@@ -1712,7 +1725,9 @@ works:
     year: 2017
     ref: "H0383"
     tags:
-      - "region:global"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
       - "type:article"
 
   - cite: "Guderjan et al. 2018"
@@ -1774,7 +1789,6 @@ works:
     ref: "H0401"
     tags:
       - "topic:defence-security"
-      - "topic:parties"
       - "type:article"
 
   - cite: "Hall 2021"
@@ -1785,7 +1799,6 @@ works:
     tags:
       - "topic:foreign-policy"
       - "topic:government"
-      - "topic:media-communication"
       - "topic:religion"
       - "region:north-america"
       - "country:united-states"
@@ -1832,8 +1845,9 @@ works:
     ref: "H0411"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:greece"
       - "method:survey"
       - "method:experiment"
       - "type:article"
@@ -1870,6 +1884,10 @@ works:
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -1952,7 +1970,6 @@ works:
     year: 2019
     ref: "H0440"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "method:mixed"
@@ -1987,7 +2004,6 @@ works:
     year: 2020
     ref: "H0449"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "region:north-america"
@@ -2004,6 +2020,8 @@ works:
     ref: "H0450"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:austria"
       - "method:quantitative"
       - "method:survey"
       - "type:article"
@@ -2055,6 +2073,8 @@ works:
     tags:
       - "topic:international"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -2064,6 +2084,10 @@ works:
     year: 2018
     ref: "H0477"
     tags:
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -2073,6 +2097,10 @@ works:
     year: 2021
     ref: "H0478"
     tags:
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -2112,7 +2140,6 @@ works:
     ref: "H0482"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:poland"
       - "type:article"
@@ -2133,7 +2160,6 @@ works:
     year: 2021
     ref: "H0484"
     tags:
-      - "topic:media-communication"
       - "region:europe"
       - "region:north-america"
       - "type:article"
@@ -2146,7 +2172,8 @@ works:
     tags:
       - "approach:discursive"
       - "topic:foreign-policy"
-      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "method:qualitative"
       - "type:article"
 
@@ -2314,21 +2341,12 @@ works:
       - "method:qualitative"
       - "type:article"
 
-  - cite: "Kazin 1998"
-    doi: "10.2307/2211330"
-    title: "The Populist Persuasion: An American History."
-    year: 1998
-    ref: "H0521"
-    tags:
-      - "type:article"
-
   - cite: "Kemahlıoğlu et al. 2021"
     doi: "10.1080/13608746.2021.1985497"
     title: "Surviving the Covid-19 Pandemic under Right-wing Populist Rule: Turkey in the First Phase"
     year: 2021
     ref: "H0523"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "region:europe"
       - "country:turkey"
@@ -2471,7 +2489,6 @@ works:
     ref: "H0559"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:gender"
       - "region:europe"
       - "country:poland"
@@ -2538,7 +2555,6 @@ works:
     ref: "H0571"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -2616,7 +2632,6 @@ works:
     tags:
       - "topic:defence-security"
       - "topic:parties"
-      - "topic:media-communication"
       - "region:global"
       - "country:united-states"
       - "type:article"
@@ -2668,7 +2683,6 @@ works:
     tags:
       - "topic:foreign-policy"
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "country:germany"
       - "method:qualitative"
@@ -2706,7 +2720,6 @@ works:
     year: 2018
     ref: "H0612"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "type:article"
       - "oa:yes"
@@ -2717,8 +2730,9 @@ works:
     year: 2016
     ref: "H0615"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Lutz 2018"
@@ -2798,6 +2812,7 @@ works:
     tags:
       - "topic:parties"
       - "region:latin-america"
+      - "country:bolivia"
       - "type:article"
 
   - cite: "Magcamit 2017"
@@ -2837,6 +2852,9 @@ works:
     ref: "H0636"
     tags:
       - "region:europe"
+      - "country:estonia"
+      - "country:russia"
+      - "country:ukraine"
       - "type:book"
 
   - cite: "Mansbridge et al. 2019"
@@ -2845,7 +2863,6 @@ works:
     year: 2019
     ref: "H0638"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "region:north-america"
       - "country:spain"
@@ -2883,6 +2900,8 @@ works:
     ref: "H0645"
     tags:
       - "approach:discursive"
+      - "region:europe"
+      - "country:greece"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -2906,7 +2925,6 @@ works:
     year: 2024
     ref: "H0650"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "type:article"
@@ -3007,7 +3025,6 @@ works:
     year: 2021
     ref: "H0679"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
@@ -3023,7 +3040,6 @@ works:
     ref: "H0681"
     tags:
       - "topic:voters"
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Miller-Idriss 2019"
@@ -3163,11 +3179,11 @@ works:
       - "topic:parties"
       - "type:book"
 
-  - cite: "Müller 2017"
+  - cite: "Müller 2016"
     doi: "10.9783/9780812293784"
-    title: "What Is Populism? London: Penguin Books"
-    year: 2017
-    ref: "H0725"
+    title: "What Is Populism?"
+    year: 2016
+    ref: "H0722"
     tags:
       - "topic:democracy-institutions"
       - "region:north-america"
@@ -3272,9 +3288,7 @@ works:
     year: 2016
     ref: "H0761"
     tags:
-      - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -3396,7 +3410,6 @@ works:
     year: 2018
     ref: "H0794"
     tags:
-      - "topic:parties"
       - "topic:religion"
       - "region:europe"
       - "country:turkey"
@@ -3411,6 +3424,8 @@ works:
       - "topic:international"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:china"
       - "type:article"
 
   - cite: "Piazza 2023"
@@ -3546,7 +3561,6 @@ works:
     ref: "H0840"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "method:quantitative"
@@ -3605,7 +3619,6 @@ works:
     year: 2021
     ref: "H0858"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:north-america"
       - "country:united-states"
@@ -3672,6 +3685,8 @@ works:
     ref: "H0873"
     tags:
       - "approach:political-strategic"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -3706,7 +3721,6 @@ works:
     ref: "H0879"
     tags:
       - "topic:foreign-policy"
-      - "topic:media-communication"
       - "region:latin-america"
       - "country:venezuela"
       - "method:quantitative"
@@ -3862,6 +3876,10 @@ works:
     tags:
       - "topic:international"
       - "topic:parties"
+      - "region:global"
+      - "country:hungary"
+      - "country:venezuela"
+      - "country:philippines"
       - "type:article"
       - "oa:yes"
 
@@ -3903,7 +3921,6 @@ works:
     year: 2019
     ref: "H0939"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -4129,7 +4146,6 @@ works:
     year: 2021
     ref: "H1003"
     tags:
-      - "topic:defence-security"
       - "topic:democracy-institutions"
       - "region:asia-pacific"
       - "country:philippines"
@@ -4143,6 +4159,11 @@ works:
     tags:
       - "topic:foreign-policy"
       - "topic:parties"
+      - "region:europe"
+      - "region:north-america"
+      - "country:georgia"
+      - "country:romania"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Turcu et al. 2023"
@@ -4151,7 +4172,6 @@ works:
     year: 2023
     ref: "H1014"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "type:article"
 
@@ -4182,6 +4202,9 @@ works:
     tags:
       - "topic:democracy-institutions"
       - "region:europe"
+      - "country:czech-republic"
+      - "country:hungary"
+      - "country:poland"
       - "type:article"
 
   - cite: "Vachudova 2021"
@@ -4285,6 +4308,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Waisbord 2018"
@@ -4377,7 +4402,6 @@ works:
     ref: "H1075"
     tags:
       - "topic:foreign-policy"
-      - "topic:media-communication"
       - "region:latin-america"
       - "country:argentina"
       - "country:venezuela"
@@ -4452,7 +4476,6 @@ works:
     year: 2015
     ref: "H1098"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "type:book"
 
@@ -4503,6 +4526,8 @@ works:
     tags:
       - "approach:discursive"
       - "topic:defence-security"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -4615,6 +4640,9 @@ works:
     tags:
       - "topic:parties"
       - "region:europe"
+      - "country:france"
+      - "country:germany"
+      - "country:italy"
       - "type:article"
 
   - cite: "Zaslove 2011"

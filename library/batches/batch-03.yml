@@ -4,12 +4,12 @@
 # batch-03-evidence.csv. Written by the script; do not edit by hand.
 
 batch: 3
-date: "2026-10-01"
-phrases_version: 1
+date: "2026-10-05"
+phrases_version: 7
 
 note: "Record made from the reference list of the Routledge Handbook of Populism and Foreign Policy (2025); not yet checked against the publication."
 
-# Records of an earlier batch that are not the works cited: to be moved to the bin in Zotero.
+# Records of the Library to be moved to the bin in Zotero by hand (the reason is given for each).
 remove:
   - key: "T8Q2ZF89"
     why: "a review of Germani 1978 in The Hispanic American Historical Review, not the book"
@@ -241,7 +241,6 @@ works:
     ref: "H0291"
     tags:
       - "type:article"
-      - "oa:yes"
       - "todo:check-outlet"
       - "todo:check-record"
     create:
@@ -699,7 +698,6 @@ works:
     year: 1995
     ref: "H0975"
     tags:
-      - "topic:parties"
       - "type:book"
       - "todo:check-record"
     create:
@@ -739,10 +737,10 @@ works:
     ref: "H1000"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:spain"
       - "type:article"
-      - "oa:yes"
       - "todo:check-record"
     create:
       itemType: journalArticle

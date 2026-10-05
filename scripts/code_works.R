@@ -27,7 +27,7 @@
 
 local({
 
-  SCRIPT_VERSION <- "2026-10-03.6"
+  SCRIPT_VERSION <- "2026-10-05.7"
   `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
   say <- function(...) cat(..., "\n", sep = "")
   halt <- function(...) stop(structure(class = c("pv_stop", "error", "condition"),
@@ -81,7 +81,8 @@ local({
     second <- function(s) if (is.null(s)) NULL else list(
       title_blocks = compile(s$title_blocks), title_words = compile(s$title_words), title_families = compile(s$title_families),
       abstract_phrases = compile(s$abstract_phrases), abstract_counter = compile(s$abstract_counter))
-    tagset <- function(group) lapply(group, function(def) list(rx = compile(def$phrases), not = compile(def$not), second = second(def$second_test)))
+    tagset <- function(group) lapply(group, function(def) list(rx = compile(def$phrases), not = compile(def$not),
+                                                              weak = unlist(def$weak), second = second(def$second_test)))
     # the names of every country as plain lower-case words, to see which name holds another one
     as_words <- function(x) tolower(trimws(gsub("\\s+", " ", gsub("[^A-Za-z0-9 ]+", " ", chartr(FROM, TO, x)))))
     own_names <- lapply(names(tax$country_label), function(tag) as_words(c(tax$country_label[[tag]], ac$countries[[tag]]$names)))
@@ -138,13 +139,24 @@ local({
     for (tag in names(k$topic)) {
       def <- k$topic[[tag]]
       ft <- hits(blank(t_low, def$not), def$rx); fa <- hits(blank(a_low, def$not), def$rx)
+      # A phrase listed under "weak" in phrases.yml is too general to carry the tag by itself
+      # ("war", "military"): in an abstract it is often said in passing. In a TITLE a word is there
+      # on purpose, so the rule leaves titles alone: "Populism and the Russian Civil War" is about a war.
+      if (length(def$weak) && length(fa) && all(fa %in% def$weak)) fa <- character()
       if (length(ft) >= 1 || length(fa) >= 2) {
         # The second test, for a tag whose phrases stand in almost every text on populism (phrases.yml, since version 6:
         # "Parties, Leaders and Movements"). The title must not be about voters, and the title or the abstract must show
         # that the work is about the parties, leaders or movements themselves. A work that fails keeps its other tags.
         if (!is.null(def$second)) {
           s2 <- def$second; why <- NULL
-          if (length(hits(t_low, s2$title_blocks)) == 0) {
+          # Until version 6 of phrases.yml any word about voters in the title blocked the tag. A title can
+          # be about both ("support for populist radical right parties"), so it blocks only when the title
+          # says nothing about parties at all.
+          blocked <- length(hits(t_low, s2$title_blocks)) > 0 &&
+                     length(hits(t_low, s2$title_words)) == 0 &&
+                     length(hits(t_low, s2$title_families)) == 0 &&
+                     length(hits(t_case, k$actors)) == 0
+          if (!blocked) {
             n_ph <- length(hits(a_low, s2$abstract_phrases)); n_ct <- length(hits(a_low, s2$abstract_counter))
             if (length(hits(t_low, s2$title_words)) > 0) why <- "a party word in the title"
             else if (length(hits(t_case, k$actors)) > 0) why <- "a leader or a party named in the title"
@@ -197,6 +209,7 @@ local({
       }
     }
     countries <- character(); c_ev <- list()
+    once <- character(); o_ev <- list()
     if (length(hits(paste(t_l, a_l), k$any_place)) || length(hits(paste(t_c, a_c), k$any_exact))) {
       for (cn in k$countries) {
         # a country whose name has another meaning: the name counts only next to one of its "needs" words
@@ -209,8 +222,17 @@ local({
         if (length(ft) >= 1 || length(fa) >= 2) {
           countries <- c(countries, cn$tag)
           c_ev[[cn$tag]] <- list(t = if (length(ft) >= 1) ft else character(), a = if (length(fa) >= 2) fa else character())
+        } else if (length(fa) == 1) {
+          once <- c(once, cn$tag); o_ev[[cn$tag]] <- fa
         }
       }
+    }
+    # One mention in the abstract is weak evidence, because a work often names another country in
+    # passing. But when no country is named twice, that single mention is usually the case the work
+    # studies, and the country was lost altogether. So it counts, for up to three countries.
+    if (length(countries) == 0 && length(once) >= 1 && length(once) <= 3) {
+      countries <- once
+      for (tg in once) c_ev[[tg]] <- list(t = character(), a = o_ev[[tg]])
     }
     from_countries <- unique(unname(tax$country_region[countries]))
     all_regions <- unique(c(regions, from_countries))

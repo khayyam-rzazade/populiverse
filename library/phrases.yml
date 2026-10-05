@@ -3,7 +3,10 @@
 # version 4, with batch 08: more wordings removed before "war" and before "interview" are looked for, and "opinion poll" no longer counts as a survey;
 # version 5, with batch 09, the works before 2008: wordings removed that gave a wrong tag there, among them "the Civil War" as a date,
 # a "regression" that is a decline, and a "populist president" of a trade union;
-# version 6: a second test for the tag "Parties, Leaders and Movements", see "HOW MUCH EVIDENCE IS NEEDED" and the tag itself).
+# version 6: a second test for the tag "Parties, Leaders and Movements", see "HOW MUCH EVIDENCE IS NEEDED" and the tag itself;
+# version 7, after the audit of 400 works of 5 October 2026: the second test of version 6 no longer blocks a title that
+# names a party, a party family or a leader; "rhetoric*" no longer gives "Media and Communication"; and a few phrases
+# too general to stand alone are listed under "weak", see "A PHRASE THAT CANNOT STAND ALONE").
 # It belongs with taxonomy.yml (the tags) and actors.yml (countries, leaders and parties).
 #
 # HOW IT WORKS
@@ -27,12 +30,20 @@
 #             speaks about the study itself (it contains one of the "study words").
 #             For a review article (see "review_titles") the title alone counts.
 #   Region and country are in actors.yml.
+#
+# A PHRASE THAT CANNOT STAND ALONE (since version 7)
+#   A tag may list some of its phrases again under "weak". A weak phrase is too general to carry
+#   the tag by itself: "war" and "military" stand in many texts that are not about defence. In an
+#   ABSTRACT such a phrase counts only when a phrase of the same tag that is not weak is found too.
+#   A TITLE is left alone: a word in a title is there on purpose, and "Populism and the Russian
+#   Civil War" is about a war. A weak phrase still counts towards the two needed in the abstract.
+#
 #   Three or more approaches found in one work become "Other or multiple".
 #   A work found to use mixed methods gets "Mixed methods" only, not also
 #   "Qualitative" or "Quantitative".
 
-version: 6
-date: "2026-10-03"
+version: 7
+date: "2026-10-05"
 
 # Outlets that may not be peer-reviewed. A work in one of them stays in the
 # Library and gets the note "todo:check-outlet" for the editor (never shown on
@@ -105,11 +116,17 @@ topic:
               "use of force", "nato", "nuclear weapon*", "nuclear deterrence", "nuclear proliferation", "war", "wars",
               "warfare", "terroris*", "peacekeeping", "peacemaking", "peace process*", "arms control", "arms export*",
               "securiti*ation", "securiti*ing", "security threat*"]
+    # Too general to carry the tag alone (version 7). Of the works holding this tag, 41 per cent rested
+    # on nothing but these two words: a conceptual history of the word populism, a book on zombie films.
+    weak: ["war", "wars", "military"]
     not: ["cold war", "culture war*", "trade war*", "class war*", "post war", "postwar", "world war", "inter war", "interwar",
           "war on science", "mention the war",
           # since version 4 (batch 08): a period, a figure of speech or a name, not a war
           "pre war", "prewar", "civil war era", "dirty war", "war on human rights", "cultural war*", "oil war*",
           "immigration war*", "wal mart wars",
+          # since version 7: more figures of speech
+          "ideological war*", "war of words", "war of position*", "war of ideas", "culture of war",
+          "war on drugs", "war on terror rhetoric", "waging war on", "at war with itself",
           # since version 5 (batch 09): the American Civil War named as a date or in the title of a book, and a figure of speech
           "the civil war", "war on the southern railway"]
   "topic:international":
@@ -129,7 +146,11 @@ topic:
     # THE SECOND TEST (since version 6, 2026-10-03). Words such as "party" and "radical right" stand in
     # almost every text on populism, so the phrases above gave this tag to many works that are about
     # voters or about something else. A work that passes the usual rule now keeps the tag only if
-    #   A. its TITLE holds none of the "title_blocks" (the title is not about voters or supporters), and
+    #   A. its TITLE is not about voters only. Until version 7 any "title_blocks" word blocked the tag,
+    #      which was wrong: a title can be about voters AND about parties ("support for populist radical
+    #      right parties"). Since version 7 a "title_blocks" word blocks the tag only when the title holds
+    #      no "title_words", no "title_families" and no leader or party of actors.yml. The audit of
+    #      5 October 2026 found 371 works had lost the tag wrongly this way. And
     #   B. one of these is true:
     #      1. the title holds one of the "title_words";
     #      2. the title names a leader or a party listed in actors.yml;
@@ -186,7 +207,10 @@ topic:
               "unemployment", "fiscal", "tariff*", "labour market*", "labor market*", "social polic*",
               "development aid", "development polic*", "foreign aid", "energy polic*", "energy transition"]
   "topic:media-communication":
-    phrases: ["media", "communication*", "rhetoric*", "twitter", "tweet*", "facebook", "social network*",
+    # "rhetoric*" was removed in version 7. It fired 582 times, third of all the phrases here, and the
+    # audit found it was the commonest single cause of a wrong tag: a rhetorical analysis of a
+    # parliamentary debate, a reading of Marlowe, a paper on Laclau. Rhetoric is not a medium.
+    phrases: ["media", "communication*", "twitter", "tweet*", "facebook", "social network*",
               "news coverage", "newspaper*", "journalis*", "disinformation", "misinformation", "fake news",
               "propaganda", "television", "press coverage", "public diplomacy", "framing", "frames"]
   "topic:gender":

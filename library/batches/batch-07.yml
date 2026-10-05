@@ -5,8 +5,8 @@
 # batch-07-evidence.csv. Written by the script; do not edit by hand.
 
 batch: 7
-date: "2026-10-02"
-phrases_version: 3
+date: "2026-10-05"
+phrases_version: 7
 
 works:
   - cite: "Haala 2024"
@@ -37,6 +37,8 @@ works:
     published: "2024-02-01"
     ref: "W4396972256"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -155,7 +157,6 @@ works:
     published: "2024-02-22"
     ref: "W4392043302"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "region:europe"
       - "country:turkey"
@@ -169,6 +170,10 @@ works:
     ref: "W4392806861"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "region:north-america"
+      - "country:switzerland"
+      - "country:united-states"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -190,7 +195,6 @@ works:
     published: "2024-08-08"
     ref: "W4401420368"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:spatial"
       - "topic:migration"
@@ -246,7 +250,6 @@ works:
     published: "2024-03-12"
     ref: "W4392707915"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:media-communication"
       - "region:europe"
@@ -272,6 +275,8 @@ works:
     ref: "W4390949076"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:hungary"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -309,7 +314,6 @@ works:
     ref: "W4394605031"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:religion"
       - "region:europe"
       - "country:turkey"
@@ -323,7 +327,6 @@ works:
     published: "2024-05-23"
     ref: "W4398267343"
     tags:
-      - "topic:parties"
       - "topic:religion"
       - "region:europe"
       - "region:asia-pacific"
@@ -337,7 +340,6 @@ works:
     published: "2024-05-24"
     ref: "W4398775167"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:poland"
@@ -390,7 +392,6 @@ works:
     published: "2024-09-11"
     ref: "W4403524608"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:gender"
       - "region:asia-pacific"
@@ -443,6 +444,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:migration"
+      - "region:europe"
+      - "country:spain"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -508,6 +511,7 @@ works:
       - "approach:measurement"
       - "topic:voters"
       - "region:latin-america"
+      - "country:ecuador"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -519,7 +523,6 @@ works:
     published: "2024-03-25"
     ref: "W4393197641"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "method:survey"
@@ -532,9 +535,10 @@ works:
     published: "2024-03-28"
     ref: "W4393262814"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:turkey"
       - "method:survey"
       - "method:experiment"
       - "type:article"
@@ -548,7 +552,6 @@ works:
     ref: "W4393989703"
     tags:
       - "topic:voters"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -563,6 +566,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:belgium"
       - "method:survey"
       - "type:article"
 
@@ -638,6 +643,8 @@ works:
     ref: "W4391277882"
     tags:
       - "topic:government"
+      - "region:latin-america"
+      - "country:brazil"
       - "method:survey"
       - "type:article"
 
@@ -649,7 +656,8 @@ works:
     ref: "W4391879597"
     tags:
       - "approach:discursive"
-      - "topic:parties"
+      - "region:europe"
+      - "country:finland"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -715,7 +723,6 @@ works:
     published: "2024-08-05"
     ref: "W4401339890"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "region:europe"
       - "region:mena"
@@ -731,6 +738,8 @@ works:
     published: "2024-01-01"
     ref: "W4401441662"
     tags:
+      - "region:europe"
+      - "country:germany"
       - "method:experiment"
       - "type:article"
 
@@ -772,7 +781,6 @@ works:
     ref: "W4402468441"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:government"
       - "topic:media-communication"
       - "region:global"
@@ -826,7 +834,6 @@ works:
     published: "2024-10-23"
     ref: "W4403692898"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -842,7 +849,6 @@ works:
     published: "2024-09-01"
     ref: "W4404142567"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "region:europe"
       - "country:poland"
@@ -896,7 +902,6 @@ works:
     ref: "W4391508089"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Duina and Zhou 2024"
@@ -922,7 +927,6 @@ works:
     published: "2024-03-07"
     ref: "W4392545187"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -1059,6 +1063,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:media-communication"
+      - "region:mena"
+      - "country:israel"
       - "method:mixed"
       - "type:article"
       - "oa:yes"
@@ -1106,7 +1112,8 @@ works:
     published: "2024-09-17"
     ref: "W4402554518"
     tags:
-      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Batel et al. 2024"
@@ -1119,7 +1126,6 @@ works:
       - "topic:parties"
       - "topic:spatial"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
       - "country:portugal"
@@ -1147,6 +1153,8 @@ works:
     tags:
       - "approach:discursive"
       - "topic:democracy-institutions"
+      - "region:asia-pacific"
+      - "country:philippines"
       - "type:article"
       - "oa:yes"
 
@@ -1160,6 +1168,8 @@ works:
       - "approach:political-strategic"
       - "topic:government"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -1296,6 +1306,9 @@ works:
       - "approach:discursive"
       - "topic:parties"
       - "region:europe"
+      - "country:czech-republic"
+      - "country:germany"
+      - "country:netherlands"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -1307,7 +1320,6 @@ works:
     published: "2024-11-05"
     ref: "W4404060683"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -1336,7 +1348,6 @@ works:
     published: "2024-11-30"
     ref: "W4404884494"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
@@ -1352,7 +1363,6 @@ works:
     ref: "W4405445030"
     tags:
       - "approach:other"
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "type:article"
       - "oa:yes"
@@ -1377,6 +1387,8 @@ works:
     ref: "W4390978704"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -1461,7 +1473,8 @@ works:
     published: "2024-04-24"
     ref: "W4395074060"
     tags:
-      - "region:global"
+      - "region:europe"
+      - "country:albania"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -1488,8 +1501,9 @@ works:
     published: "2024-06-28"
     ref: "W4400110883"
     tags:
-      - "topic:parties"
       - "topic:spatial"
+      - "region:europe"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -1524,8 +1538,9 @@ works:
     ref: "W4400961121"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -1620,7 +1635,6 @@ works:
     published: "2024-12-13"
     ref: "W4405368728"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:romania"
@@ -1678,7 +1692,6 @@ works:
     ref: "W4396905332"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:sweden"
       - "method:qta"
@@ -1759,6 +1772,8 @@ works:
       - "topic:religion"
       - "topic:migration"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
       - "type:article"
       - "oa:yes"
 
@@ -1785,7 +1800,6 @@ works:
     tags:
       - "topic:foreign-policy"
       - "topic:defence-security"
-      - "topic:parties"
       - "region:europe"
       - "country:turkey"
       - "method:qualitative"
@@ -1812,7 +1826,6 @@ works:
     ref: "W4405541713"
     tags:
       - "approach:political-strategic"
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "topic:democracy-institutions"
@@ -1863,6 +1876,8 @@ works:
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:europe"
+      - "country:hungary"
+      - "country:lithuania"
       - "type:article"
       - "oa:yes"
 
@@ -1902,6 +1917,9 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:netherlands"
+      - "country:sweden"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -1923,7 +1941,6 @@ works:
     published: "2024-02-17"
     ref: "W4391915525"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "topic:economy-welfare"
       - "region:europe"
@@ -1940,7 +1957,6 @@ works:
     ref: "W4392385814"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:france"
       - "type:article"
@@ -1953,9 +1969,11 @@ works:
     published: "2024-01-31"
     ref: "W4392788538"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:austria"
+      - "country:germany"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -1981,7 +1999,8 @@ works:
     published: "2024-04-10"
     ref: "W4394690815"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "country:netherlands"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -1993,9 +2012,7 @@ works:
     published: "2024-04-15"
     ref: "W4394850314"
     tags:
-      - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "method:survey"
@@ -2040,7 +2057,6 @@ works:
     ref: "W4398142236"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "method:quantitative"
@@ -2113,10 +2129,8 @@ works:
     ref: "W4401038246"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "region:europe"
       - "region:north-america"
       - "country:germany"
@@ -2158,7 +2172,6 @@ works:
     ref: "W4401978392"
     tags:
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "type:article"
       - "oa:yes"
 
@@ -2193,7 +2206,6 @@ works:
     published: "2024-10-16"
     ref: "W4403460182"
     tags:
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:latin-america"
       - "country:brazil"
@@ -2259,6 +2271,8 @@ works:
     ref: "W4391319971"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:netherlands"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -2326,7 +2340,6 @@ works:
     published: "2024-03-22"
     ref: "W4393111791"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:europe"
@@ -2340,8 +2353,9 @@ works:
     published: "2024-03-28"
     ref: "W4393316017"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -2414,6 +2428,9 @@ works:
     ref: "W4400111528"
     tags:
       - "region:europe"
+      - "country:france"
+      - "country:hungary"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Miller 2024"
@@ -2423,7 +2440,6 @@ works:
     published: "2024-07-02"
     ref: "W4400479356"
     tags:
-      - "topic:media-communication"
       - "topic:gender"
       - "type:article"
 
@@ -2451,6 +2467,10 @@ works:
       - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
+      - "region:europe"
+      - "country:greece"
+      - "country:romania"
+      - "country:sweden"
       - "type:article"
       - "oa:yes"
 
@@ -2491,7 +2511,6 @@ works:
     ref: "W4404225248"
     tags:
       - "topic:voters"
-      - "topic:media-communication"
       - "method:qta"
       - "type:article"
       - "oa:yes"
@@ -2533,7 +2552,6 @@ works:
     ref: "W4405758974"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -2561,7 +2579,6 @@ works:
     published: "2024-01-02"
     ref: "W4391789011"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "type:article"
 
@@ -2630,6 +2647,7 @@ works:
     tags:
       - "topic:voters"
       - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Piterová and Loziak 2024"
@@ -2641,6 +2659,8 @@ works:
     tags:
       - "approach:measurement"
       - "topic:voters"
+      - "region:europe"
+      - "country:slovakia"
       - "type:article"
       - "oa:yes"
 
@@ -2651,7 +2671,6 @@ works:
     published: "2024-05-27"
     ref: "W4399044959"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:gender"
       - "topic:migration"
@@ -2698,7 +2717,6 @@ works:
     published: "2024-05-09"
     ref: "W4399793438"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -2904,7 +2922,6 @@ works:
     published: "2024-04-02"
     ref: "W4404051469"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:gender"
       - "region:europe"
@@ -2919,7 +2936,6 @@ works:
     published: "2024-11-26"
     ref: "W4404727081"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:gender"
       - "region:latin-america"
@@ -2964,6 +2980,8 @@ works:
     ref: "W4405639923"
     tags:
       - "topic:spatial"
+      - "region:europe"
+      - "country:sweden"
       - "type:article"
       - "oa:yes"
 
@@ -3044,7 +3062,6 @@ works:
     published: "2024-02-27"
     ref: "W4392186849"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "method:survey"
       - "type:article"
@@ -3083,7 +3100,6 @@ works:
     published: "2024-01-01"
     ref: "W4392712140"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "region:north-america"
@@ -3111,7 +3127,6 @@ works:
     published: "2024-04-09"
     ref: "W4394607011"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "type:article"
 
@@ -3132,6 +3147,8 @@ works:
     ref: "W4394850565"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -3157,7 +3174,6 @@ works:
     published: "2024-04-04"
     ref: "W4395084052"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "region:latin-america"
@@ -3227,6 +3243,10 @@ works:
     ref: "W4399296536"
     tags:
       - "topic:democracy-institutions"
+      - "region:global"
+      - "country:colombia"
+      - "country:indonesia"
+      - "country:south-africa"
       - "type:article"
       - "oa:yes"
 
@@ -3272,7 +3292,6 @@ works:
     ref: "W4400523682"
     tags:
       - "topic:voters"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -3327,7 +3346,6 @@ works:
     published: "2024-08-22"
     ref: "W4401731172"
     tags:
-      - "topic:media-communication"
       - "region:latin-america"
       - "country:venezuela"
       - "type:article"
@@ -3339,10 +3357,11 @@ works:
     published: "2024-08-20"
     ref: "W4401973730"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "method:qualitative"
       - "type:book"
       - "oa:yes"
@@ -3356,6 +3375,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:migration"
+      - "region:europe"
+      - "country:turkey"
       - "type:article"
       - "oa:yes"
 
@@ -3366,7 +3387,6 @@ works:
     published: "2024-08-29"
     ref: "W4401998928"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:sweden"
@@ -3382,7 +3402,6 @@ works:
     published: "2024-09-11"
     ref: "W4402496981"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "topic:democracy-institutions"
@@ -3779,6 +3798,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:media-communication"
+      - "region:mena"
+      - "country:iran"
       - "type:article"
       - "oa:yes"
 
@@ -3839,9 +3860,7 @@ works:
     published: "2024-05-22"
     ref: "W4398210342"
     tags:
-      - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:europe"
       - "country:germany"
       - "method:qualitative"
@@ -3885,6 +3904,9 @@ works:
       - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
+      - "country:france"
+      - "country:italy"
+      - "country:spain"
       - "method:qta"
       - "type:article"
       - "oa:yes"
@@ -3979,7 +4001,6 @@ works:
     published: "2024-07-14"
     ref: "W4400618923"
     tags:
-      - "topic:media-communication"
       - "topic:migration"
       - "type:article"
       - "oa:yes"
@@ -4007,6 +4028,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:asia-pacific"
+      - "country:japan"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -4045,7 +4068,6 @@ works:
     published: "2024-08-19"
     ref: "W4401700008"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "type:article"
 
@@ -4056,7 +4078,6 @@ works:
     published: "2024-08-21"
     ref: "W4401747502"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:gender"
       - "region:europe"
@@ -4095,7 +4116,6 @@ works:
     ref: "W4402311772"
     tags:
       - "approach:measurement"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:north-america"
@@ -4112,6 +4132,8 @@ works:
     ref: "W4402412365"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:netherlands"
       - "method:qualitative"
       - "method:survey"
       - "type:article"
@@ -4124,7 +4146,6 @@ works:
     published: "2024-09-11"
     ref: "W4402456137"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "method:survey"
@@ -4169,7 +4190,6 @@ works:
     published: "2024-10-07"
     ref: "W4403193410"
     tags:
-      - "topic:parties"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -4181,7 +4201,6 @@ works:
     published: "2024-10-24"
     ref: "W4403736450"
     tags:
-      - "topic:media-communication"
       - "type:book"
 
   - cite: "Wiesehomeier and Ruth-Lovell 2024"
@@ -4324,7 +4343,6 @@ works:
     published: "2024-12-11"
     ref: "W4405281000"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "region:europe"
       - "country:finland"
@@ -4372,6 +4390,10 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "region:north-america"
+      - "country:germany"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Komlos 2024"
@@ -4381,7 +4403,6 @@ works:
     published: "2024-01-01"
     ref: "W4405868497"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "type:book"
 
@@ -4392,7 +4413,6 @@ works:
     published: "2024-04-02"
     ref: "W4406189076"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:italy"
@@ -4474,7 +4494,6 @@ works:
     published: "2024-01-01"
     ref: "W4391166403"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "region:north-america"
@@ -4553,6 +4572,8 @@ works:
     ref: "W4392086724"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:france"
       - "type:article"
       - "oa:yes"
 
@@ -4577,7 +4598,6 @@ works:
     published: "2024-03-21"
     ref: "W4393091069"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
@@ -4622,6 +4642,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:north-america"
+      - "country:canada"
       - "type:article"
       - "oa:yes"
 
@@ -4634,6 +4656,8 @@ works:
     tags:
       - "approach:economic"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:czech-republic"
       - "type:article"
 
   - cite: "Guiso and Pasquinucci 2024"
@@ -4681,7 +4705,6 @@ works:
     published: "2024-05-12"
     ref: "W4396870011"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "region:europe"
@@ -4783,7 +4806,6 @@ works:
     published: "2024-07-03"
     ref: "W4400302795"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "type:article"
@@ -4796,6 +4818,8 @@ works:
     published: "2024-07-02"
     ref: "W4400313193"
     tags:
+      - "region:asia-pacific"
+      - "country:india"
       - "type:article"
 
   - cite: "Gárdos-Orosz 2024"
@@ -4843,7 +4867,6 @@ works:
     published: "2024-08-03"
     ref: "W4401298633"
     tags:
-      - "topic:defence-security"
       - "topic:democracy-institutions"
       - "type:article"
 
@@ -4854,7 +4877,6 @@ works:
     published: "2024-08-05"
     ref: "W4401342712"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "type:article"
@@ -4868,8 +4890,6 @@ works:
     ref: "W4401420964"
     tags:
       - "approach:performative"
-      - "topic:parties"
-      - "topic:media-communication"
       - "method:quantitative"
       - "method:qta"
       - "type:article"
@@ -4882,7 +4902,6 @@ works:
     published: "2024-08-11"
     ref: "W4401490282"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "region:europe"
@@ -4971,7 +4990,6 @@ works:
     ref: "W4402542104"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -5006,7 +5024,6 @@ works:
     published: "2024-10-04"
     ref: "W4403128724"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:north-america"
       - "country:united-states"
@@ -5049,6 +5066,8 @@ works:
     tags:
       - "topic:defence-security"
       - "topic:parties"
+      - "region:europe"
+      - "country:russia"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -5077,6 +5096,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -5087,7 +5108,6 @@ works:
     published: "2024-10-17"
     ref: "W4403479209"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:gender"
       - "region:europe"
@@ -5105,6 +5125,9 @@ works:
     tags:
       - "topic:voters"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:austria"
+      - "country:germany"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -5247,7 +5270,6 @@ works:
     ref: "W4404942704"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "region:asia-pacific"
       - "country:philippines"
       - "method:qualitative"
@@ -5261,6 +5283,8 @@ works:
     ref: "W4405111355"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:finland"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -5364,7 +5388,6 @@ works:
     published: "2024-12-21"
     ref: "W4408333778"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "topic:democracy-institutions"
@@ -5409,6 +5432,8 @@ works:
     ref: "W4391353045"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -5511,7 +5536,6 @@ works:
     published: "2024-03-11"
     ref: "W4392639575"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "type:article"
       - "oa:yes"
@@ -5549,8 +5573,10 @@ works:
     published: "2024-03-20"
     ref: "W4392976491"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
+      - "country:switzerland"
       - "method:qta"
       - "type:article"
       - "oa:yes"
@@ -5576,6 +5602,8 @@ works:
     tags:
       - "topic:media-communication"
       - "topic:migration"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
 
   - cite: "Kuranchie 2024"
@@ -5614,7 +5642,6 @@ works:
     ref: "W4394622117"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:migration"
       - "region:europe"
       - "country:italy"
@@ -5667,8 +5694,9 @@ works:
     tags:
       - "topic:defence-security"
       - "topic:parties"
-      - "topic:media-communication"
-      - "region:global"
+      - "region:asia-pacific"
+      - "country:india"
+      - "country:japan"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -5681,7 +5709,11 @@ works:
     ref: "W4396222676"
     tags:
       - "topic:democracy-institutions"
+      - "region:north-america"
       - "region:latin-america"
+      - "country:united-states"
+      - "country:brazil"
+      - "country:venezuela"
       - "type:article"
       - "oa:yes"
 
@@ -5729,6 +5761,7 @@ works:
     tags:
       - "topic:democracy-institutions"
       - "region:europe"
+      - "country:poland"
       - "type:article"
 
   - cite: "Zubčić and Giacomini 2024"
@@ -5748,7 +5781,8 @@ works:
     published: "2024-06-13"
     ref: "W4399648167"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "country:france"
       - "type:article"
       - "oa:yes"
 
@@ -5786,7 +5820,6 @@ works:
     published: "2024-06-21"
     ref: "W4399880826"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "method:survey"
       - "type:article"
@@ -5829,7 +5862,6 @@ works:
     published: "2024-07-22"
     ref: "W4400877039"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "type:article"
@@ -5867,7 +5899,6 @@ works:
     published: "2024-07-15"
     ref: "W4401175888"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:global"
       - "country:turkey"
@@ -5956,7 +5987,6 @@ works:
     ref: "W4401979528"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:religion"
       - "region:europe"
       - "country:hungary"
@@ -5970,7 +6000,8 @@ works:
     published: "2024-08-31"
     ref: "W4402082343"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "country:sweden"
       - "type:article"
 
   - cite: "McGuire and González-Ruibal 2025"
@@ -5991,6 +6022,9 @@ works:
     tags:
       - "topic:media-communication"
       - "region:europe"
+      - "country:france"
+      - "country:italy"
+      - "country:spain"
       - "type:article"
       - "oa:yes"
 
@@ -6122,6 +6156,8 @@ works:
     tags:
       - "approach:performative"
       - "topic:voters"
+      - "region:europe"
+      - "country:spain"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -6134,6 +6170,8 @@ works:
     ref: "W4403207446"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:finland"
       - "type:article"
       - "oa:yes"
 
@@ -6162,7 +6200,6 @@ works:
     ref: "W4403456194"
     tags:
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "region:sub-saharan-africa"
       - "country:uganda"
       - "type:article"
@@ -6211,7 +6248,6 @@ works:
     published: "2024-10-29"
     ref: "W4403850776"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:democracy-institutions"
       - "type:article"
@@ -6265,7 +6301,6 @@ works:
     published: "2024-11-11"
     ref: "W4404246719"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:asia-pacific"
       - "country:india"
@@ -6280,7 +6315,6 @@ works:
     ref: "W4404286055"
     tags:
       - "approach:discursive"
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -6343,7 +6377,6 @@ works:
     published: "2024-11-01"
     ref: "W4404586849"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "type:article"
 
@@ -6354,6 +6387,8 @@ works:
     published: "2024-11-25"
     ref: "W4404671950"
     tags:
+      - "region:europe"
+      - "country:greece"
       - "type:article"
       - "oa:yes"
 
@@ -6379,7 +6414,6 @@ works:
     tags:
       - "topic:foreign-policy"
       - "topic:international"
-      - "topic:parties"
       - "topic:government"
       - "region:europe"
       - "country:hungary"
@@ -6393,10 +6427,11 @@ works:
     published: "2024-11-01"
     ref: "W4405177715"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Coronado 2024"
@@ -6406,7 +6441,6 @@ works:
     published: "2024-11-01"
     ref: "W4405241914"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
@@ -6434,7 +6468,6 @@ works:
     ref: "W4405531735"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -6512,7 +6545,8 @@ works:
     published: "2024-01-01"
     ref: "W4406608303"
     tags:
-      - "topic:parties"
+      - "region:latin-america"
+      - "country:brazil"
       - "type:article"
       - "oa:yes"
 
@@ -6537,7 +6571,6 @@ works:
     published: "2024-12-16"
     ref: "W4407139351"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
@@ -6573,7 +6606,6 @@ works:
     ref: "W4407608627"
     tags:
       - "topic:government"
-      - "topic:media-communication"
       - "region:asia-pacific"
       - "region:sub-saharan-africa"
       - "country:china"
@@ -6590,6 +6622,8 @@ works:
     ref: "W4407646018"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -6639,7 +6673,6 @@ works:
     published: "2024-06-01"
     ref: "W4413252582"
     tags:
-      - "topic:media-communication"
       - "region:asia-pacific"
       - "country:philippines"
       - "method:qualitative"
@@ -6858,6 +6891,8 @@ works:
     tags:
       - "topic:parties"
       - "region:europe"
+      - "region:north-america"
+      - "country:united-states"
       - "method:quantitative"
       - "method:survey"
       - "type:article"
@@ -6901,6 +6936,8 @@ works:
     ref: "W4392740578"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:france"
       - "type:article"
 
   - cite: "Forkert and Nahaboo 2024"
@@ -7060,8 +7097,8 @@ works:
     ref: "W4393990444"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
+      - "country:ukraine"
       - "type:article"
 
   - cite: "Otova 2024"
@@ -7209,7 +7246,6 @@ works:
     published: "2024-05-01"
     ref: "W4398144718"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "type:article"
       - "oa:yes"
@@ -7234,7 +7270,6 @@ works:
     ref: "W4398252457"
     tags:
       - "approach:other"
-      - "topic:media-communication"
       - "type:article"
       - "oa:yes"
 
@@ -7268,6 +7303,8 @@ works:
     published: "2024-01-01"
     ref: "W4399012861"
     tags:
+      - "region:latin-america"
+      - "country:mexico"
       - "type:article"
 
   - cite: "Institut Agama Islam Negeri Kudus et al. 2024"
@@ -7726,17 +7763,11 @@ works:
     ref: "W4402771685"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:latin-america"
+      - "country:hungary"
+      - "country:bolivia"
       - "type:article"
-
-  - cite: "Fyodor GAYDA 2024"
-    doi: "10.21557/ssc.99327915"
-    title: "The Burden of Responsibility: Its Alternatives in the Ideological Transformation of Populism (Narodnichestvo) in the 1880s"
-    year: 2024
-    published: "2024-09-16"
-    ref: "W4402809153"
-    tags:
-      - "type:article"
-      - "todo:check-record"
 
   - cite: "Nielsen 2024"
     doi: "10.1080/00472336.2024.2408772"
@@ -7814,9 +7845,7 @@ works:
     published: "2024-10-15"
     ref: "W4403409784"
     tags:
-      - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "topic:gender"
       - "region:europe"
       - "country:finland"
@@ -7853,6 +7882,8 @@ works:
     published: "2024-09-01"
     ref: "W4403566956"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Mochahary and K. K. 2024"
@@ -7988,6 +8019,8 @@ works:
     published: "2024-11-12"
     ref: "W4404254087"
     tags:
+      - "region:asia-pacific"
+      - "country:china"
       - "method:qualitative"
       - "method:qta"
       - "type:article"
@@ -8012,6 +8045,8 @@ works:
     ref: "W4404373683"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
 
   - cite: "Cabeza Pérez 2024"
@@ -8070,6 +8105,7 @@ works:
     tags:
       - "topic:international"
       - "region:latin-america"
+      - "country:venezuela"
       - "type:article"
 
   - cite: "Colacel 2024"
@@ -8079,7 +8115,6 @@ works:
     published: "2024-01-01"
     ref: "W4404885158"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:moldova"
@@ -8116,7 +8151,6 @@ works:
     published: "2024-11-01"
     ref: "W4405089255"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:gender"
       - "topic:democracy-institutions"
@@ -8157,7 +8191,6 @@ works:
     ref: "W4405242113"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:latin-america"
       - "country:venezuela"
       - "type:article"
@@ -8242,7 +8275,6 @@ works:
     ref: "W4405623673"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:poland"
       - "type:article"
@@ -8346,7 +8378,6 @@ works:
       - "topic:international"
       - "topic:parties"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "region:europe"
       - "method:qta"
       - "type:article"
@@ -8430,7 +8461,6 @@ works:
     published: "2024-01-01"
     ref: "W4410965905"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:bulgaria"
@@ -8461,20 +8491,6 @@ works:
       - "country:france"
       - "type:article"
 
-  - cite: "Paris Institute of Political Studies (SciencesPo) and Gordadze 2024"
-    doi: "10.62343/geopolitics.2024.10.3"
-    title: "From “Free Money for All!” to “SOS! LGBT are Coming!” - Georgian Dream's Drift from Social Populism to Nativist Ethnonationalism"
-    year: 2024
-    published: "2024-09-04"
-    ref: "W4414663376"
-    tags:
-      - "topic:gender"
-      - "topic:migration"
-      - "region:europe"
-      - "country:georgia"
-      - "type:article"
-      - "oa:yes"
-
   - cite: "Ladia 2024"
     doi: "10.1163/2165025x-bja10058"
     title: "Rhetorical Resistance to Macho Populism: The Grassroots Feminist Rhetoric in the COVID-19 Policy Speeches of Philippine Vice President Leni Robredo"
@@ -8483,7 +8499,6 @@ works:
     ref: "W7214229665"
     tags:
       - "topic:government"
-      - "topic:media-communication"
       - "topic:gender"
       - "region:asia-pacific"
       - "country:philippines"
@@ -8642,7 +8657,6 @@ works:
     ref: "W4376116539"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -8696,7 +8710,6 @@ works:
     published: "2023-08-08"
     ref: "W4385705662"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:germany"
       - "method:qta"
@@ -8726,7 +8739,7 @@ works:
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
-      - "country:spain"
+      - "country:switzerland"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -8741,6 +8754,10 @@ works:
       - "topic:voters"
       - "topic:government"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
+      - "country:turkey"
       - "method:quantitative"
       - "method:survey"
       - "type:article"
@@ -8835,6 +8852,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:migration"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -8845,7 +8864,6 @@ works:
     published: "2023-02-16"
     ref: "W4321096746"
     tags:
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:europe"
       - "country:poland"
@@ -8871,7 +8889,6 @@ works:
     published: "2023-05-26"
     ref: "W4378388926"
     tags:
-      - "topic:parties"
       - "region:latin-america"
       - "type:book"
 
@@ -8909,8 +8926,8 @@ works:
     published: "2023-11-23"
     ref: "W4388929052"
     tags:
-      - "topic:parties"
-      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -9027,7 +9044,6 @@ works:
     published: "2023-10-31"
     ref: "W4388046491"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "type:article"
       - "oa:yes"
@@ -9056,6 +9072,8 @@ works:
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
+      - "region:europe"
+      - "country:finland"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -9116,6 +9134,9 @@ works:
     tags:
       - "topic:voters"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
+      - "country:poland"
       - "type:article"
       - "oa:yes"
 
@@ -9143,9 +9164,11 @@ works:
     published: "2023-08-04"
     ref: "W4386644912"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
+      - "country:hungary"
+      - "country:italy"
+      - "country:poland"
       - "type:article"
       - "oa:yes"
 
@@ -9169,6 +9192,10 @@ works:
     published: "2023-01-31"
     ref: "W4318826010"
     tags:
+      - "region:north-america"
+      - "region:latin-america"
+      - "country:united-states"
+      - "country:brazil"
       - "type:article"
 
   - cite: "Battista 2023"
@@ -9232,7 +9259,6 @@ works:
     published: "2023-11-29"
     ref: "W4389143022"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:poland"
@@ -9246,7 +9272,6 @@ works:
     published: "2023-03-16"
     ref: "W3113427285"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:austria"
@@ -9286,7 +9311,6 @@ works:
     published: "2023-06-06"
     ref: "W4379512517"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:north-america"
@@ -9302,7 +9326,6 @@ works:
     ref: "W4385578179"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:sweden"
       - "type:article"
@@ -9392,6 +9415,8 @@ works:
     ref: "W4385233923"
     tags:
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:canada"
       - "method:qualitative"
       - "type:article"
 
@@ -9438,7 +9463,6 @@ works:
     published: "2023-11-23"
     ref: "W4388948970"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "type:article"
@@ -9525,7 +9549,6 @@ works:
     published: "2023-07-11"
     ref: "W4383956950"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "method:qualitative"
       - "type:article"
@@ -9540,6 +9563,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -9550,7 +9575,6 @@ works:
     published: "2023-09-16"
     ref: "W4386807343"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:netherlands"
       - "method:quantitative"
@@ -9566,6 +9590,10 @@ works:
     tags:
       - "topic:parties"
       - "topic:religion"
+      - "region:north-america"
+      - "region:asia-pacific"
+      - "country:united-states"
+      - "country:india"
       - "type:article"
       - "oa:yes"
 
@@ -9671,7 +9699,9 @@ works:
       - "topic:economy-welfare"
       - "topic:gender"
       - "topic:religion"
+      - "region:north-america"
       - "region:asia-pacific"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Schimpf et al. 2023"
@@ -9682,6 +9712,8 @@ works:
     ref: "W4387459434"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -9734,6 +9766,9 @@ works:
     published: "2023-01-04"
     ref: "W4313593030"
     tags:
+      - "region:europe"
+      - "country:croatia"
+      - "country:italy"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -9778,20 +9813,6 @@ works:
       - "country:turkey"
       - "type:book"
 
-  - cite: "BELLAMY 2023"
-    doi: "10.1111/jols.12401"
-    title: "Political constitutionalism and populism"
-    year: 2023
-    published: "2023-01-23"
-    ref: "W4319793758"
-    tags:
-      - "approach:other"
-      - "topic:parties"
-      - "topic:democracy-institutions"
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
-
   - cite: "López Ortega 2023"
     doi: "10.1080/17457289.2023.2189728"
     title: "The personality is political (especially for populists)"
@@ -9799,7 +9820,6 @@ works:
     published: "2023-03-16"
     ref: "W4327544603"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:spain"
@@ -9814,7 +9834,6 @@ works:
     published: "2023-06-12"
     ref: "W4380369711"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -9939,7 +9958,6 @@ works:
     ref: "W4323660940"
     tags:
       - "topic:voters"
-      - "topic:media-communication"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -9992,8 +10010,9 @@ works:
     published: "2023-05-31"
     ref: "W4378951538"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Grbeša and Šalaj 2023"
@@ -10004,7 +10023,6 @@ works:
     ref: "W4379982997"
     tags:
       - "approach:political-strategic"
-      - "topic:parties"
       - "region:europe"
       - "country:croatia"
       - "type:article"
@@ -10071,6 +10089,8 @@ works:
     tags:
       - "topic:gender"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -10109,7 +10129,6 @@ works:
     published: "2023-12-18"
     ref: "W4389941281"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:czech-republic"
       - "type:article"
@@ -10162,6 +10181,8 @@ works:
     ref: "W4319081122"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -10172,6 +10193,8 @@ works:
     published: "2023-02-21"
     ref: "W4321453489"
     tags:
+      - "region:sub-saharan-africa"
+      - "country:south-africa"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -10198,6 +10221,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:france"
       - "type:article"
       - "oa:yes"
 
@@ -10241,7 +10266,6 @@ works:
     published: "2023-05-15"
     ref: "W4376645781"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
@@ -10268,6 +10292,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:government"
+      - "region:europe"
+      - "country:austria"
       - "type:article"
 
   - cite: "Müller 2023"
@@ -10289,7 +10315,6 @@ works:
     published: "2023-10-08"
     ref: "W4387454679"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "topic:religion"
       - "region:europe"
@@ -10320,6 +10345,8 @@ works:
     ref: "W4389050839"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:spain"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -10355,7 +10382,6 @@ works:
     ref: "W4319788221"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -10386,6 +10412,9 @@ works:
       - "topic:gender"
       - "topic:religion"
       - "region:europe"
+      - "country:france"
+      - "country:sweden"
+      - "country:turkey"
       - "type:article"
       - "oa:yes"
 
@@ -10398,6 +10427,8 @@ works:
     tags:
       - "topic:religion"
       - "topic:migration"
+      - "region:asia-pacific"
+      - "country:india"
       - "type:article"
 
   - cite: "Mazzoleni et al. 2023"
@@ -10408,9 +10439,9 @@ works:
     ref: "W4321225288"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
+      - "country:switzerland"
       - "type:book"
       - "oa:yes"
 
@@ -10449,7 +10480,6 @@ works:
     ref: "W4327863122"
     tags:
       - "approach:discursive"
-      - "topic:media-communication"
       - "region:global"
       - "country:turkey"
       - "country:united-states"
@@ -10508,7 +10538,6 @@ works:
     published: "2023-04-27"
     ref: "W4367181234"
     tags:
-      - "topic:defence-security"
       - "topic:international"
       - "region:europe"
       - "country:russia"
@@ -10556,6 +10585,8 @@ works:
       - "topic:voters"
       - "topic:media-communication"
       - "topic:migration"
+      - "region:europe"
+      - "country:czech-republic"
       - "type:article"
       - "oa:yes"
 
@@ -10569,6 +10600,8 @@ works:
       - "approach:discursive"
       - "topic:parties"
       - "topic:migration"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Sorace 2023"
@@ -10710,6 +10743,8 @@ works:
     ref: "W4327545617"
     tags:
       - "approach:discursive"
+      - "region:asia-pacific"
+      - "country:bangladesh"
       - "type:article"
 
   - cite: "Bjånesøy 2023"
@@ -10733,8 +10768,9 @@ works:
     published: "2023-04-08"
     ref: "W4362721848"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:italy"
       - "method:survey"
       - "method:experiment"
       - "type:article"
@@ -10749,6 +10785,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:spain"
       - "method:survey"
       - "type:article"
 
@@ -10784,7 +10822,6 @@ works:
     ref: "W4380028466"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "region:asia-pacific"
@@ -10798,7 +10835,6 @@ works:
     published: "2023-06-11"
     ref: "W4380263705"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "type:article"
@@ -10835,7 +10871,6 @@ works:
     published: "2023-04-01"
     ref: "W4380789937"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:latin-america"
       - "country:brazil"
@@ -10850,7 +10885,6 @@ works:
     ref: "W4381928994"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:religion"
       - "region:asia-pacific"
       - "country:indonesia"
@@ -10880,7 +10914,6 @@ works:
     ref: "W4385837662"
     tags:
       - "approach:economic"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -10933,7 +10966,6 @@ works:
     published: "2023-09-14"
     ref: "W4386750413"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:turkey"
@@ -11015,6 +11047,8 @@ works:
       - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
+      - "country:germany"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -11025,8 +11059,9 @@ works:
     published: "2023-12-25"
     ref: "W4390205423"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Schwörer and Fernández-García 2023"
@@ -11040,18 +11075,6 @@ works:
       - "topic:economy-welfare"
       - "region:europe"
       - "type:article"
-
-  - cite: "ÇAKMAKLI et al. 2023"
-    doi: "10.1111/obes.12591"
-    title: "Do Financial Markets Respond to Populist Rhetoric?"
-    year: 2023
-    published: "2023-12-29"
-    ref: "W4390450021"
-    tags:
-      - "topic:media-communication"
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
 
   - cite: "Kusz 2023"
     doi: "10.5406/21558450.50.2.04"
@@ -11073,8 +11096,9 @@ works:
     published: "2023-02-02"
     ref: "W4318993697"
     tags:
-      - "topic:parties"
       - "topic:migration"
+      - "region:europe"
+      - "country:germany"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -11108,7 +11132,6 @@ works:
     ref: "W4323313716"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:media-communication"
       - "region:latin-america"
       - "country:bolivia"
@@ -11137,6 +11160,8 @@ works:
     published: "2023-04-02"
     ref: "W4362298149"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Bartul 2023"
@@ -11166,8 +11191,9 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:north-america"
+      - "country:united-states"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -11179,7 +11205,6 @@ works:
     published: "2023-04-24"
     ref: "W4366827261"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:germany"
@@ -11197,6 +11222,10 @@ works:
     tags:
       - "topic:parties"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -11235,7 +11264,6 @@ works:
     published: "2023-08-10"
     ref: "W4385720322"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:asia-pacific"
       - "country:australia"
@@ -11262,7 +11290,6 @@ works:
     published: "2023-09-11"
     ref: "W4386590265"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "topic:democracy-institutions"
       - "type:article"
@@ -11289,6 +11316,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:czech-republic"
       - "type:article"
       - "oa:yes"
 
@@ -11381,7 +11410,6 @@ works:
     published: "2023-11-23"
     ref: "W4388939473"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "method:mixed"
       - "type:article"
@@ -11436,6 +11464,7 @@ works:
       - "topic:voters"
       - "region:europe"
       - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -11472,7 +11501,6 @@ works:
     published: "2023-12-28"
     ref: "W4390344482"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:democracy-institutions"
       - "region:north-america"
@@ -11489,7 +11517,6 @@ works:
     tags:
       - "topic:international"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:europe"
       - "country:poland"
       - "type:article"
@@ -11528,7 +11555,6 @@ works:
     published: "2023-02-03"
     ref: "W4319080261"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:democracy-institutions"
       - "type:article"
@@ -11581,6 +11607,9 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:greece"
+      - "country:spain"
       - "type:article"
       - "oa:yes"
 
@@ -11641,6 +11670,8 @@ works:
     ref: "W4361282468"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -11737,6 +11768,9 @@ works:
       - "approach:ideational"
       - "topic:parties"
       - "region:europe"
+      - "country:france"
+      - "country:germany"
+      - "country:spain"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -11749,9 +11783,7 @@ works:
     ref: "W4385249021"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "region:europe"
       - "region:asia-pacific"
       - "country:kyrgyzstan"
@@ -11781,7 +11813,10 @@ works:
     published: "2023-08-14"
     ref: "W4385797409"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -11808,7 +11843,6 @@ works:
     ref: "W4385996331"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
@@ -11822,7 +11856,6 @@ works:
     published: "2023-09-04"
     ref: "W4386423465"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:mena"
       - "country:tunisia"
@@ -11838,6 +11871,7 @@ works:
     tags:
       - "topic:international"
       - "region:europe"
+      - "country:czech-republic"
       - "type:article"
 
   - cite: "Koliska et al. 2023"
@@ -11863,7 +11897,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:portugal"
       - "method:survey"
       - "method:experiment"
       - "type:article"
@@ -11888,6 +11923,8 @@ works:
     ref: "W4387876622"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:austria"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -11900,6 +11937,8 @@ works:
     ref: "W4388467417"
     tags:
       - "topic:voters"
+      - "region:north-america"
+      - "country:united-states"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -11989,7 +12028,6 @@ works:
     published: "2023-10-02"
     ref: "W4400780478"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:democracy-institutions"
       - "region:europe"
@@ -12005,7 +12043,10 @@ works:
     published: "2023-01-05"
     ref: "W4313561304"
     tags:
-      - "topic:parties"
+      - "region:europe"
+      - "country:belgium"
+      - "country:france"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -12038,7 +12079,6 @@ works:
     ref: "W4319923038"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:italy"
       - "type:article"
@@ -12081,7 +12121,6 @@ works:
     ref: "W4321368967"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "region:europe"
       - "country:greece"
       - "country:turkey"
@@ -12106,6 +12145,8 @@ works:
       - "topic:voters"
       - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:slovenia"
       - "type:article"
       - "oa:yes"
 
@@ -12220,6 +12261,8 @@ works:
     ref: "W4385442939"
     tags:
       - "topic:voters"
+      - "region:north-america"
+      - "country:united-states"
       - "method:quantitative"
       - "method:survey"
       - "type:article"
@@ -12252,6 +12295,8 @@ works:
     ref: "W4386140924"
     tags:
       - "topic:religion"
+      - "region:asia-pacific"
+      - "country:indonesia"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -12266,6 +12311,7 @@ works:
       - "topic:parties"
       - "topic:migration"
       - "region:europe"
+      - "country:norway"
       - "type:article"
       - "oa:yes"
 
@@ -12285,7 +12331,6 @@ works:
     published: "2023-10-02"
     ref: "W4387268007"
     tags:
-      - "topic:parties"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -12327,6 +12372,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "method:survey"
       - "method:experiment"
       - "type:article"
@@ -12363,6 +12410,8 @@ works:
     ref: "W4388398431"
     tags:
       - "topic:economy-welfare"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -12373,7 +12422,6 @@ works:
     published: "2023-11-15"
     ref: "W4388686339"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:gender"
@@ -12420,7 +12468,6 @@ works:
     ref: "W4388976917"
     tags:
       - "approach:discursive"
-      - "topic:defence-security"
       - "topic:international"
       - "topic:voters"
       - "region:europe"
@@ -12455,6 +12502,7 @@ works:
       - "topic:media-communication"
       - "topic:religion"
       - "region:europe"
+      - "country:finland"
       - "type:article"
       - "oa:yes"
 
@@ -12481,6 +12529,8 @@ works:
     ref: "W4390224459"
     tags:
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:greece"
       - "type:article"
 
   - cite: "Ruddock 2023"
@@ -12552,7 +12602,6 @@ works:
     published: "2023-01-06"
     ref: "W4313597204"
     tags:
-      - "topic:parties"
       - "type:article"
 
   - cite: "Dalingwater 2023"
@@ -12621,6 +12670,8 @@ works:
     published: "2023-03-16"
     ref: "W4327582728"
     tags:
+      - "region:asia-pacific"
+      - "country:china"
       - "method:mixed"
       - "type:article"
       - "oa:yes"
@@ -12632,6 +12683,8 @@ works:
     published: "2023-02-13"
     ref: "W4327863117"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -12642,7 +12695,6 @@ works:
     published: "2023-01-01"
     ref: "W4327884407"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:latin-america"
       - "country:peru"
@@ -12703,9 +12755,10 @@ works:
     published: "2023-05-10"
     ref: "W4376107699"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
 
   - cite: "Shakeel and Peterson 2023"
@@ -12860,7 +12913,6 @@ works:
     published: "2023-09-14"
     ref: "W4386742005"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "topic:media-communication"
@@ -12917,7 +12969,6 @@ works:
     published: "2023-10-03"
     ref: "W4387306386"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:france"
       - "method:qualitative"
@@ -12932,7 +12983,6 @@ works:
     ref: "W4387361183"
     tags:
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "type:article"
       - "oa:yes"
 
@@ -12943,7 +12993,6 @@ works:
     published: "2023-01-01"
     ref: "W4387851172"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:poland"
@@ -12984,7 +13033,6 @@ works:
     published: "2023-11-23"
     ref: "W4388942380"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "method:qualitative"
       - "type:article"
@@ -12999,7 +13047,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:poland"
       - "method:qualitative"
       - "type:article"
 
@@ -13066,6 +13115,8 @@ works:
     published: "2023-12-17"
     ref: "W4389915032"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -13092,7 +13143,6 @@ works:
     published: "2023-01-01"
     ref: "W4318482492"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "region:europe"
       - "country:poland"
@@ -13296,6 +13346,9 @@ works:
     tags:
       - "topic:parties"
       - "region:europe"
+      - "region:north-america"
+      - "country:italy"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Yusupova and Matveev 2023"
@@ -13327,6 +13380,8 @@ works:
     published: "2023-07-03"
     ref: "W4383371571"
     tags:
+      - "region:asia-pacific"
+      - "country:thailand"
       - "type:article"
 
   - cite: "Shein and Ryzhkin 2023"
@@ -13408,7 +13463,6 @@ works:
     published: "2023-08-14"
     ref: "W4385808797"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
@@ -13439,7 +13493,6 @@ works:
     published: "2023-09-02"
     ref: "W4386390719"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:germany"
       - "type:article"
@@ -13568,7 +13621,6 @@ works:
     ref: "W4389135141"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:slovakia"
       - "method:qualitative"
@@ -13597,7 +13649,6 @@ works:
     published: "2023-12-01"
     ref: "W4389243015"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "topic:religion"
       - "region:europe"
@@ -13797,16 +13848,6 @@ works:
       - "region:latin-america"
       - "type:article"
 
-  - cite: "MUNCK et al. 2023"
-    doi: "10.2307/jj.1357295"
-    title: "Populism: Latin American Perspectives"
-    year: 2023
-    published: "2023-03-09"
-    ref: "W4360605874"
-    tags:
-      - "type:book"
-      - "todo:check-record"
-
   - cite: "Pucheta et al. 2023"
     doi: "10.54648/ijcl2023003"
     title: "Right-Wing Populism and the Deconstruction of Labour Laws in the Americas: Old Wine into New Wineskins"
@@ -13814,7 +13855,6 @@ works:
     published: "2023-03-01"
     ref: "W4360609531"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -13848,7 +13888,6 @@ works:
     published: "2023-03-23"
     ref: "W4360616099"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "type:article"
@@ -13877,6 +13916,8 @@ works:
       - "approach:economic"
       - "topic:voters"
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:ukraine"
       - "method:survey"
       - "type:article"
       - "todo:check-record"
@@ -13941,7 +13982,6 @@ works:
     published: "2023-04-28"
     ref: "W4367307621"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:government"
       - "region:europe"
@@ -13973,21 +14013,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "Corvinus University and COSSU 2023"
-    doi: "10.24193/ojmne.2023.41.05"
-    title: "THE ECONOMIC EFFECT OF POPULIST RHETORIC IN HUNGARY"
-    year: 2023
-    published: "2023-04-27"
-    ref: "W4367853792"
-    tags:
-      - "topic:economy-welfare"
-      - "topic:media-communication"
-      - "region:europe"
-      - "country:hungary"
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
-
   - cite: "Kim 2023"
     doi: "10.1080/00344893.2023.2210141"
     title: "On Populism and Class Politics: The Polish Union of Labour and the Workers’ Party of Belgium"
@@ -14009,7 +14034,6 @@ works:
     ref: "W4376878317"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:italy"
       - "type:article"
@@ -14021,19 +14045,8 @@ works:
     published: "2023-05-23"
     ref: "W4377861669"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "method:experiment"
-      - "type:article"
-      - "oa:yes"
-
-  - cite: "Ambrozy 2023"
-    doi: "10.2478/ejis-2023-0007"
-    title: "The Covid-19 Pandemic in the Light of Populism"
-    year: 2023
-    published: "2023-04-01"
-    ref: "W4378084746"
-    tags:
       - "type:article"
       - "oa:yes"
 
@@ -14096,7 +14109,8 @@ works:
     published: "2023-07-25"
     ref: "W4385237754"
     tags:
-      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "method:quantitative"
       - "method:survey"
       - "type:article"
@@ -14120,7 +14134,6 @@ works:
     published: "2023-06-01"
     ref: "W4385272924"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:sub-saharan-africa"
       - "country:south-africa"
@@ -14158,6 +14171,8 @@ works:
     tags:
       - "approach:performative"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:turkey"
       - "method:qualitative"
       - "type:article"
 
@@ -14168,7 +14183,6 @@ works:
     published: "2023-08-06"
     ref: "W4385634225"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
       - "region:europe"
@@ -14203,7 +14217,6 @@ works:
     published: "2023-08-28"
     ref: "W4386220420"
     tags:
-      - "topic:media-communication"
       - "region:asia-pacific"
       - "country:japan"
       - "type:article"
@@ -14302,6 +14315,7 @@ works:
       - "topic:international"
       - "topic:government"
       - "region:europe"
+      - "country:czech-republic"
       - "type:article"
 
   - cite: "Kerner 2023"
@@ -14311,7 +14325,6 @@ works:
     published: "2023-11-09"
     ref: "W4388570704"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "topic:religion"
       - "type:article"
@@ -14325,7 +14338,6 @@ works:
     ref: "W4388865417"
     tags:
       - "topic:foreign-policy"
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:article"
@@ -14337,8 +14349,9 @@ works:
     published: "2023-11-26"
     ref: "W4389055693"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:belgium"
       - "type:article"
 
   - cite: "Schmid 2024"
@@ -14479,17 +14492,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "OMER and LUPO 2023"
-    doi: "10.2307/jj.21995875"
-    title: "Religion, Populism, and Modernity: Confronting White Christian Nationalism and Racism"
-    year: 2023
-    published: "2023-09-15"
-    ref: "W4404481073"
-    tags:
-      - "topic:religion"
-      - "type:book"
-      - "todo:check-record"
-
   - cite: "Aligica 2023"
     doi: "10.5325/goodsociety.32.1-2.0116"
     title: "“DOUBLE ALIENATION” AND DEMOCRATIC REGRESSION: The democratic regression: The political causes of authoritarian populism . Armin Schäfer and Michael Zürn, Polity Press, 2024"
@@ -14498,12 +14500,12 @@ works:
     ref: "W4411179616"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:media-communication"
       - "topic:democracy-institutions"
       - "region:europe"
+      - "country:switzerland"
       - "method:quantitative"
       - "type:article"
 
@@ -14525,7 +14527,6 @@ works:
     published: "2023-01-24"
     ref: "W4317896905"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "country:turkey"
@@ -14538,7 +14539,6 @@ works:
     published: "2023-01-01"
     ref: "W4318214457"
     tags:
-      - "topic:defence-security"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -14668,6 +14668,8 @@ works:
     published: "2023-03-01"
     ref: "W4328097659"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Fatubun 2023"
@@ -14781,7 +14783,6 @@ works:
     ref: "W4366316452"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:religion"
       - "region:north-america"
       - "country:united-states"
@@ -14870,7 +14871,6 @@ works:
     published: "2023-05-19"
     ref: "W4377091702"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:book-review"
@@ -14988,7 +14988,6 @@ works:
     published: "2023-01-01"
     ref: "W4380904433"
     tags:
-      - "topic:parties"
       - "topic:religion"
       - "type:book-review"
 
@@ -15179,7 +15178,6 @@ works:
     tags:
       - "topic:foreign-policy"
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "country:turkey"
       - "method:qualitative"
@@ -15228,18 +15226,6 @@ works:
       - "method:qualitative"
       - "type:article"
 
-  - cite: "HIDALGO 2023"
-    doi: "10.2307/jj.5274069"
-    title: "Performing Populism: Visions of Spanish Politics from 15-M to Podemos"
-    year: 2023
-    published: "2023-10-12"
-    ref: "W4387591450"
-    tags:
-      - "region:europe"
-      - "country:spain"
-      - "type:book"
-      - "todo:check-record"
-
   - cite: "Kim 2023"
     doi: "10.1080/14742837.2023.2267997"
     title: "Review essay: (Left) populism and radical democracy today"
@@ -15248,17 +15234,6 @@ works:
     ref: "W4387603380"
     tags:
       - "type:book-review"
-
-  - cite: "S. Gavrilova 2023"
-    doi: "10.21557/iaf.88282404"
-    title: "A New Right-Wing Italy and Prospects for Italian Populism"
-    year: 2023
-    published: "2023-10-16"
-    ref: "W4387684397"
-    tags:
-      - "region:europe"
-      - "country:italy"
-      - "type:article"
 
   - cite: "Wills 2023"
     doi: "10.1080/1474225x.2023.2269692"
@@ -15352,7 +15327,6 @@ works:
     published: "2023-11-12"
     ref: "W4388611289"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:germany"
       - "type:article"
@@ -15437,6 +15411,10 @@ works:
     published: "2023-12-01"
     ref: "W4389242774"
     tags:
+      - "region:europe"
+      - "region:asia-pacific"
+      - "country:united-kingdom"
+      - "country:china"
       - "type:article"
 
   - cite: "Roitman et al. 2023"
@@ -15824,7 +15802,6 @@ works:
     published: "2022-06-29"
     ref: "W4293251369"
     tags:
-      - "topic:media-communication"
       - "region:latin-america"
       - "country:ecuador"
       - "type:article"
@@ -15838,7 +15815,8 @@ works:
     ref: "W4296347322"
     tags:
       - "approach:performative"
-      - "topic:parties"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -15866,8 +15844,9 @@ works:
     published: "2022-01-24"
     ref: "W4206920260"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -15879,8 +15858,9 @@ works:
     published: "2022-03-10"
     ref: "W4221081328"
     tags:
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -16021,6 +16001,9 @@ works:
     tags:
       - "topic:government"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "country:hungary"
+      - "country:poland"
       - "type:book"
 
   - cite: "von Bülow and Abers 2022"
@@ -16141,6 +16124,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Walker and Roberts-Miller 2022"
@@ -16150,7 +16135,6 @@ works:
     published: "2022-10-02"
     ref: "W4309767130"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:book-review"
@@ -16162,7 +16146,6 @@ works:
     published: "2022-11-28"
     ref: "W4310035733"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:czech-republic"
@@ -16189,6 +16172,8 @@ works:
     ref: "W4311114153"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:netherlands"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -16256,7 +16241,6 @@ works:
     ref: "W4212945926"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:religion"
       - "topic:migration"
       - "region:europe"
@@ -16298,7 +16282,6 @@ works:
     published: "2022-06-30"
     ref: "W4283781377"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "topic:economy-welfare"
       - "region:europe"
@@ -16357,6 +16340,10 @@ works:
     tags:
       - "topic:parties"
       - "topic:migration"
+      - "region:europe"
+      - "country:austria"
+      - "country:germany"
+      - "country:spain"
       - "type:article"
       - "oa:yes"
 
@@ -16400,7 +16387,6 @@ works:
     published: "2022-04-16"
     ref: "W4224238907"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "topic:religion"
       - "region:europe"
@@ -16506,18 +16492,6 @@ works:
       - "country:russia"
       - "type:book"
 
-  - cite: "TIETJEN 2022"
-    doi: "10.1017/apa.2021.56"
-    title: "The Affects of Populism"
-    year: 2022
-    published: "2022-04-12"
-    ref: "W4223580537"
-    tags:
-      - "approach:discursive"
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
-
   - cite: "Yerly 2022"
     doi: "10.1111/spsr.12516"
     title: "Right‐Wing Populist Parties' Bordering Narratives in Times of Crisis: Anti‐Immigration Discourse in the Genevan Borderland during the COVID ‐19 Pandemic"
@@ -16596,7 +16570,6 @@ works:
       - "topic:foreign-policy"
       - "topic:parties"
       - "topic:government"
-      - "topic:media-communication"
       - "region:north-america"
       - "region:latin-america"
       - "country:united-states"
@@ -16629,6 +16602,7 @@ works:
       - "topic:foreign-policy"
       - "topic:parties"
       - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Griffini 2022"
@@ -16652,7 +16626,6 @@ works:
     published: "2022-10-05"
     ref: "W4302283156"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:hungary"
       - "country:poland"
@@ -16666,7 +16639,6 @@ works:
     ref: "W4307101862"
     tags:
       - "topic:foreign-policy"
-      - "topic:media-communication"
       - "region:north-america"
       - "region:asia-pacific"
       - "country:united-states"
@@ -16705,6 +16677,8 @@ works:
     published: "2022-12-19"
     ref: "W4312050655"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -16741,7 +16715,6 @@ works:
     published: "2022-02-15"
     ref: "W4213247163"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "region:north-america"
@@ -16772,7 +16745,6 @@ works:
     published: "2022-03-25"
     ref: "W4229015005"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:united-kingdom"
       - "type:article"
@@ -16882,6 +16854,8 @@ works:
     ref: "W4307644633"
     tags:
       - "approach:performative"
+      - "region:europe"
+      - "country:greece"
       - "type:article"
       - "oa:yes"
 
@@ -16909,19 +16883,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "Netanyahu and Susanto 2022"
-    doi: "10.47655/dialog.v45i2.664"
-    title: "Sustainability of Interreligious Dialogue in Indonesia under the Phenomenon of Intolerance by Islamic Populists"
-    year: 2022
-    published: "2022-12-29"
-    ref: "W4313326783"
-    tags:
-      - "topic:religion"
-      - "region:asia-pacific"
-      - "country:indonesia"
-      - "type:article"
-      - "oa:yes"
-
   - cite: "Öztürk et al. 2022"
     doi: "10.1080/1070289x.2022.2029067"
     title: "The veil as an object of right-wing populist politics: a comparative perspective of Turkey, Sweden, and France"
@@ -16929,7 +16890,6 @@ works:
     published: "2022-01-30"
     ref: "W4210280865"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "topic:religion"
       - "region:europe"
@@ -16961,7 +16921,6 @@ works:
     published: "2022-03-05"
     ref: "W4220889091"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
@@ -16993,6 +16952,8 @@ works:
     published: "2022-05-25"
     ref: "W4281487059"
     tags:
+      - "region:europe"
+      - "country:spain"
       - "type:article"
       - "oa:yes"
 
@@ -17005,6 +16966,8 @@ works:
     tags:
       - "topic:international"
       - "region:europe"
+      - "country:germany"
+      - "country:poland"
       - "type:article"
       - "oa:yes"
 
@@ -17028,7 +16991,6 @@ works:
     published: "2022-09-07"
     ref: "W4295106591"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:poland"
       - "type:article"
@@ -17042,7 +17004,6 @@ works:
     ref: "W4205758141"
     tags:
       - "approach:performative"
-      - "topic:media-communication"
       - "topic:gender"
       - "topic:migration"
       - "region:asia-pacific"
@@ -17127,7 +17088,6 @@ works:
     published: "2022-06-29"
     ref: "W4283728630"
     tags:
-      - "topic:parties"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -17192,9 +17152,7 @@ works:
     published: "2022-10-20"
     ref: "W4309874445"
     tags:
-      - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "topic:religion"
       - "region:europe"
       - "region:north-america"
@@ -17209,7 +17167,6 @@ works:
     published: "2022-12-13"
     ref: "W4311258072"
     tags:
-      - "topic:parties"
       - "region:latin-america"
       - "country:brazil"
       - "method:quantitative"
@@ -17313,7 +17270,6 @@ works:
     published: "2022-08-31"
     ref: "W4294142962"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:religion"
       - "topic:democracy-institutions"
@@ -17422,8 +17378,9 @@ works:
     tags:
       - "approach:ideational"
       - "approach:measurement"
-      - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -17436,7 +17393,6 @@ works:
     tags:
       - "approach:other"
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -17462,6 +17418,8 @@ works:
     ref: "W4220767797"
     tags:
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -17486,7 +17444,6 @@ works:
     published: "2022-04-11"
     ref: "W4223515821"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:migration"
@@ -17501,7 +17458,6 @@ works:
     published: "2022-04-27"
     ref: "W4224936580"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:media-communication"
@@ -17537,7 +17493,6 @@ works:
     published: "2022-05-19"
     ref: "W4280510211"
     tags:
-      - "topic:parties"
       - "topic:spatial"
       - "topic:economy-welfare"
       - "region:north-america"
@@ -17552,7 +17507,6 @@ works:
     published: "2022-05-12"
     ref: "W4280553220"
     tags:
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -17590,7 +17544,6 @@ works:
     published: "2022-08-25"
     ref: "W4293034575"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:turkey"
       - "type:article"
@@ -17643,7 +17596,6 @@ works:
     published: "2022-11-25"
     ref: "W4310274496"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:poland"
       - "method:quantitative"
@@ -17688,7 +17640,6 @@ works:
     ref: "W4213215152"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "topic:democracy-institutions"
       - "method:quantitative"
       - "type:article"
@@ -17799,6 +17750,8 @@ works:
     tags:
       - "approach:other"
       - "topic:parties"
+      - "region:europe"
+      - "country:italy"
       - "method:qualitative"
       - "type:article"
 
@@ -17838,7 +17791,6 @@ works:
     published: "2022-11-29"
     ref: "W4310216696"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:migration"
       - "method:quantitative"
@@ -17892,7 +17844,6 @@ works:
     published: "2022-12-09"
     ref: "W4312011288"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -17964,7 +17915,6 @@ works:
     ref: "W4213350474"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:france"
       - "type:article"
@@ -18195,7 +18145,6 @@ works:
     ref: "W4210685140"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:europe"
       - "country:france"
       - "type:article"
@@ -18462,7 +18411,6 @@ works:
     published: "2022-12-28"
     ref: "W4313233132"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "method:survey"
@@ -18525,7 +18473,6 @@ works:
     published: "2022-03-22"
     ref: "W4220802850"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "type:article"
@@ -18552,7 +18499,6 @@ works:
     ref: "W4225008512"
     tags:
       - "approach:other"
-      - "topic:parties"
       - "type:article"
       - "oa:yes"
 
@@ -18565,6 +18511,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:netherlands"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -18591,6 +18539,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -18602,6 +18552,8 @@ works:
     ref: "W4287981260"
     tags:
       - "approach:performative"
+      - "region:north-america"
+      - "country:united-states"
       - "method:qualitative"
       - "type:book"
 
@@ -18615,6 +18567,8 @@ works:
       - "topic:international"
       - "topic:voters"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Blokker 2022"
@@ -18688,6 +18642,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:voters"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -18722,7 +18678,6 @@ works:
     published: "2022-12-01"
     ref: "W4317513130"
     tags:
-      - "topic:parties"
       - "topic:government"
       - "region:mena"
       - "country:israel"
@@ -18748,7 +18703,6 @@ works:
     published: "2022-01-04"
     ref: "W4205798209"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "method:qualitative"
       - "type:article"
@@ -18817,6 +18771,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:government"
+      - "region:europe"
+      - "country:finland"
       - "type:article"
       - "oa:yes"
 
@@ -18840,7 +18796,6 @@ works:
     published: "2022-05-17"
     ref: "W4280641516"
     tags:
-      - "topic:defence-security"
       - "topic:economy-welfare"
       - "topic:migration"
       - "region:mena"
@@ -18879,7 +18834,6 @@ works:
     ref: "W4283829465"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:global"
       - "type:book"
       - "oa:yes"
@@ -18893,6 +18847,8 @@ works:
     tags:
       - "topic:economy-welfare"
       - "topic:religion"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Miller and Zissimos 2022"
@@ -18929,7 +18885,6 @@ works:
     published: "2022-07-22"
     ref: "W4286670679"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:asia-pacific"
       - "country:india"
@@ -18943,7 +18898,6 @@ works:
     published: "2022-07-25"
     ref: "W4287147715"
     tags:
-      - "topic:defence-security"
       - "topic:parties"
       - "topic:democracy-institutions"
       - "region:europe"
@@ -18988,7 +18942,6 @@ works:
     published: "2022-01-01"
     ref: "W4295872732"
     tags:
-      - "topic:media-communication"
       - "region:north-america"
       - "country:united-states"
       - "type:book-review"
@@ -19054,6 +19007,8 @@ works:
       - "topic:economy-welfare"
       - "topic:democracy-institutions"
       - "region:europe"
+      - "country:greece"
+      - "country:hungary"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -19077,6 +19032,8 @@ works:
     ref: "W4310216219"
     tags:
       - "topic:gender"
+      - "region:europe"
+      - "country:czech-republic"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -19089,6 +19046,8 @@ works:
     ref: "W4310913469"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:spain"
       - "type:book"
 
   - cite: "Giorgi and Loner 2022"
@@ -19099,6 +19058,8 @@ works:
     ref: "W4311872408"
     tags:
       - "topic:gender"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
 
   - cite: "Erez 2022"
@@ -19132,9 +19093,9 @@ works:
     published: "2022-01-01"
     ref: "W4391259601"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "region:europe"
+      - "country:hungary"
       - "type:book"
       - "oa:yes"
 
@@ -19248,6 +19209,11 @@ works:
     tags:
       - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:latin-america"
+      - "country:hungary"
+      - "country:guatemala"
+      - "country:nicaragua"
       - "type:article"
       - "oa:yes"
 
@@ -19304,6 +19270,8 @@ works:
     published: "2022-05-02"
     ref: "W4285187391"
     tags:
+      - "region:europe"
+      - "country:france"
       - "type:article"
 
   - cite: "Conger 2022"
@@ -19322,7 +19290,6 @@ works:
     published: "2022-08-08"
     ref: "W4290730333"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "method:experiment"
@@ -19336,7 +19303,6 @@ works:
     published: "2022-06-08"
     ref: "W4293077290"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "method:survey"
       - "type:article"
@@ -19386,17 +19352,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "Featherstone 2022"
-    doi: "10.3898/soun:81.02.2022"
-    title: "Culture wars and the making of authoritarian populism: articulations of spatial division and popular consent"
-    year: 2022
-    published: "2022-10-01"
-    ref: "W4306958333"
-    tags:
-      - "topic:spatial"
-      - "topic:democracy-institutions"
-      - "type:article"
-
   - cite: "Stockemer and Normandin 2022"
     doi: "10.1080/0031322x.2022.2071291"
     title: "Men and women voters of the populist radical right: are they like apples and oranges?"
@@ -19404,7 +19359,6 @@ works:
     published: "2022-01-01"
     ref: "W4307389029"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "topic:gender"
@@ -19430,7 +19384,6 @@ works:
     published: "2022-12-02"
     ref: "W4310945519"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "method:experiment"
       - "type:article"
@@ -19451,21 +19404,6 @@ works:
       - "type:article"
       - "oa:yes"
 
-  - cite: "BRETTER 2022"
-    doi: "10.47743/ejes-2022-si10"
-    title: "Comparative populism: Romania and Hungary"
-    year: 2022
-    published: "2022-01-01"
-    ref: "W4312883317"
-    tags:
-      - "topic:democracy-institutions"
-      - "region:europe"
-      - "country:hungary"
-      - "country:romania"
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
-
   - cite: "Rubio-Arostegui and Rius-Ulldemolins 2022"
     doi: "10.1080/09548963.2021.2021778"
     title: "Left cultural populism and podemos: is it possible to newly orient cultural policy in Spain?"
@@ -19473,7 +19411,6 @@ works:
     published: "2022-01-07"
     ref: "W4205355544"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:spain"
       - "type:article"
@@ -19485,7 +19422,6 @@ works:
     published: "2022-01-01"
     ref: "W4207045984"
     tags:
-      - "topic:media-communication"
       - "type:book"
 
   - cite: "Jensen 2022"
@@ -19522,7 +19458,6 @@ works:
     ref: "W4213138749"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "region:europe"
       - "type:article"
       - "oa:yes"
@@ -19550,6 +19485,8 @@ works:
     ref: "W4220730460"
     tags:
       - "topic:economy-welfare"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:book"
 
   - cite: "Hungler 2022"
@@ -19630,7 +19567,6 @@ works:
     ref: "W4283019932"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:migration"
       - "region:europe"
@@ -19669,6 +19605,8 @@ works:
     tags:
       - "topic:international"
       - "topic:migration"
+      - "region:europe"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -19692,9 +19630,10 @@ works:
     published: "2022-04-28"
     ref: "W4293239931"
     tags:
-      - "topic:parties"
       - "topic:economy-welfare"
       - "topic:religion"
+      - "region:north-america"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Buggle and Vlachos 2022"
@@ -19704,7 +19643,8 @@ works:
     published: "2022-09-04"
     ref: "W4295353197"
     tags:
-      - "topic:parties"
+      - "region:north-america"
+      - "country:united-states"
       - "method:quantitative"
       - "type:article"
 
@@ -19774,7 +19714,6 @@ works:
     published: "2022-11-29"
     ref: "W4310217049"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "type:article"
       - "oa:yes"
@@ -19953,7 +19892,6 @@ works:
     ref: "W4229020544"
     tags:
       - "approach:ideational"
-      - "topic:parties"
       - "topic:voters"
       - "region:latin-america"
       - "country:argentina"
@@ -20017,6 +19955,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:religion"
+      - "region:europe"
+      - "country:moldova"
       - "type:article"
       - "oa:yes"
 
@@ -20038,6 +19978,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:spatial"
+      - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
       - "oa:yes"
 
@@ -20080,8 +20022,9 @@ works:
     published: "2022-05-09"
     ref: "W4294096121"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:canada"
       - "type:article"
 
   - cite: "Sonin 2022"
@@ -20134,6 +20077,7 @@ works:
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
+      - "country:netherlands"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -20171,8 +20115,10 @@ works:
     ref: "W4298005049"
     tags:
       - "approach:performative"
-      - "topic:media-communication"
+      - "region:north-america"
       - "region:sub-saharan-africa"
+      - "country:united-states"
+      - "country:ghana"
       - "method:qualitative"
       - "type:book"
 
@@ -20209,7 +20155,6 @@ works:
     published: "2022-10-01"
     ref: "W4307358449"
     tags:
-      - "topic:parties"
       - "region:latin-america"
       - "country:chile"
       - "type:article"
@@ -20257,9 +20202,7 @@ works:
     published: "2022-12-20"
     ref: "W4313447226"
     tags:
-      - "topic:parties"
       - "topic:voters"
-      - "topic:media-communication"
       - "topic:migration"
       - "type:article"
       - "oa:yes"
@@ -20281,7 +20224,6 @@ works:
     published: "2022-12-01"
     ref: "W4323788803"
     tags:
-      - "topic:parties"
       - "topic:democracy-institutions"
       - "region:sub-saharan-africa"
       - "country:ghana"
@@ -20296,7 +20238,6 @@ works:
     ref: "W4205449858"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:north-america"
       - "region:mena"
       - "country:united-states"
@@ -20323,6 +20264,8 @@ works:
     published: "2022-01-11"
     ref: "W4206231902"
     tags:
+      - "region:europe"
+      - "country:romania"
       - "type:article"
 
   - cite: "Ozdemir and Jacob 2022"
@@ -20333,7 +20276,6 @@ works:
     ref: "W4206897043"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:germany"
@@ -20349,7 +20291,6 @@ works:
     published: "2022-01-01"
     ref: "W4206931646"
     tags:
-      - "topic:media-communication"
       - "region:asia-pacific"
       - "country:philippines"
       - "method:qualitative"
@@ -20477,7 +20418,6 @@ works:
     ref: "W4283798323"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "region:latin-america"
       - "country:argentina"
       - "country:venezuela"
@@ -20516,7 +20456,6 @@ works:
     published: "2022-08-01"
     ref: "W4289525315"
     tags:
-      - "topic:parties"
       - "topic:migration"
       - "type:article"
       - "oa:yes"
@@ -20587,7 +20526,6 @@ works:
     ref: "W4300962304"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -20614,6 +20552,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:norway"
       - "type:article"
 
   - cite: "Riley et al. 2022"
@@ -20670,7 +20610,6 @@ works:
     tags:
       - "topic:voters"
       - "topic:economy-welfare"
-      - "topic:media-communication"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -20751,6 +20690,7 @@ works:
     ref: "W4312170915"
     tags:
       - "region:europe"
+      - "country:denmark"
       - "type:article"
       - "oa:yes"
 
@@ -20770,7 +20710,6 @@ works:
     published: "2022-12-19"
     ref: "W4313406184"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "region:mena"
       - "country:turkey"
@@ -20859,7 +20798,6 @@ works:
     published: "2022-04-19"
     ref: "W4224299140"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:poland"
       - "type:article"
@@ -20887,20 +20825,6 @@ works:
       - "topic:democracy-institutions"
       - "type:book"
       - "oa:yes"
-
-  - cite: "Prentoulis et al. 2022"
-    doi: "10.3898/soun.80.09.2022"
-    title: "Reflections on the spaces of populist politics in Europe"
-    year: 2022
-    published: "2022-05-01"
-    ref: "W4281680344"
-    tags:
-      - "topic:parties"
-      - "topic:economy-welfare"
-      - "region:europe"
-      - "country:greece"
-      - "country:spain"
-      - "type:article"
 
   - cite: "Knight Abowitz and Sellers 2022"
     doi: "10.1080/00933104.2022.2078939"
@@ -20975,6 +20899,7 @@ works:
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
+      - "country:czech-republic"
       - "type:article"
       - "oa:yes"
 
@@ -21008,7 +20933,6 @@ works:
     published: "2022-06-01"
     ref: "W4288072145"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:north-america"
       - "country:united-states"
@@ -21023,6 +20947,8 @@ works:
     published: "2022-07-01"
     ref: "W4289794147"
     tags:
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Szente and Gárdos-Orosz 2022"
@@ -21093,22 +21019,6 @@ works:
     tags:
       - "region:north-america"
       - "country:united-states"
-      - "type:article"
-
-  - cite: "Prentoulis 2022"
-    doi: "10.3898/soun:81.06.2022"
-    title: "From austerity to Brexit: the failed populist moment in the UK"
-    year: 2022
-    published: "2022-10-01"
-    ref: "W4306957365"
-    tags:
-      - "topic:international"
-      - "topic:parties"
-      - "topic:economy-welfare"
-      - "region:europe"
-      - "country:greece"
-      - "country:spain"
-      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Andreas 2022"
@@ -21228,7 +21138,6 @@ works:
     published: "2022-10-20"
     ref: "W4389183381"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:croatia"
       - "method:qualitative"
@@ -21260,17 +21169,6 @@ works:
       - "type:book-review"
       - "oa:yes"
 
-  - cite: "REED 2022"
-    doi: "10.1017/s0021875821001298"
-    title: "Sleepwalking, Class Mobility, and the Search for the Social Origins of Populism in Charles Brockden Brown's Edgar Huntly"
-    year: 2022
-    published: "2022-01-10"
-    ref: "W4206238036"
-    tags:
-      - "type:article"
-      - "oa:yes"
-      - "todo:check-record"
-
   - cite: "Thunberg 2022"
     doi: "10.1080/07343469.2021.2016109"
     title: "Presidents, Populism, and the Crisis of Democracy: Howell, William G., and Terry M. Moe. Chicago, IL: University of Chicago Press, 2020. 267 Pages. $95 (Hardcover); $18 (Softcover)"
@@ -21287,7 +21185,6 @@ works:
     published: "2022-01-23"
     ref: "W4206965359"
     tags:
-      - "method:qualitative"
       - "type:article"
       - "todo:check-record"
 
@@ -21363,7 +21260,6 @@ works:
     tags:
       - "region:europe"
       - "country:italy"
-      - "method:qualitative"
       - "type:article"
 
   - cite: "de Jonge 2022"
@@ -21384,6 +21280,7 @@ works:
     ref: "W4213257234"
     tags:
       - "region:europe"
+      - "country:united-kingdom"
       - "type:article"
 
   - cite: "Bílková 2022"
@@ -21412,7 +21309,9 @@ works:
     published: "2022-02-28"
     ref: "W4214937920"
     tags:
-      - "topic:media-communication"
+      - "region:europe"
+      - "country:croatia"
+      - "country:serbia"
       - "type:article"
       - "oa:yes"
 
@@ -21424,7 +21323,6 @@ works:
     ref: "W4224017328"
     tags:
       - "topic:international"
-      - "topic:parties"
       - "topic:economy-welfare"
       - "region:europe"
       - "type:article"
@@ -21437,6 +21335,8 @@ works:
     ref: "W4225383725"
     tags:
       - "topic:religion"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Szymanowski 2022"
@@ -21493,8 +21393,9 @@ works:
     published: "2022-06-01"
     ref: "W4281631649"
     tags:
-      - "topic:parties"
       - "topic:religion"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -21573,7 +21474,6 @@ works:
     published: "2022-06-30"
     ref: "W4283742366"
     tags:
-      - "topic:defence-security"
       - "type:article"
 
   - cite: "Sirotová and Michvocíková 2022"
@@ -21675,7 +21575,6 @@ works:
     published: "2022-06-01"
     ref: "W4288072061"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:austria"
@@ -21689,7 +21588,6 @@ works:
     published: "2022-07-27"
     ref: "W4288077845"
     tags:
-      - "topic:parties"
       - "type:book-review"
 
   - cite: "Dodds 2022"
@@ -21832,7 +21730,6 @@ works:
     published: "2022-09-20"
     ref: "W4296482383"
     tags:
-      - "topic:parties"
       - "topic:gender"
       - "region:europe"
       - "country:hungary"
@@ -21872,6 +21769,7 @@ works:
     ref: "W4297831243"
     tags:
       - "region:global"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -21938,7 +21836,6 @@ works:
     published: "2022-10-07"
     ref: "W4307281231"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "country:turkey"
       - "type:article"
@@ -21966,6 +21863,8 @@ works:
       - "approach:performative"
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:romania"
       - "type:article"
 
   - cite: "Meijen 2022"
@@ -22026,6 +21925,10 @@ works:
     tags:
       - "approach:performative"
       - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:book"
 
   - cite: "Weinstock 2022"
@@ -22175,21 +22078,6 @@ works:
       - "topic:government"
       - "region:latin-america"
       - "country:brazil"
-      - "type:article"
-
-  - cite: "Keoppen 2022"
-    doi: "10.14321/rhetpublaffa.25.4.0127"
-    title: "Intellectual Populism: Democracy, Inquiry, and the People"
-    year: 2022
-    published: "2022-12-01"
-    ref: "W4362683573"
-    tags:
-      - "topic:media-communication"
-      - "topic:religion"
-      - "region:north-america"
-      - "region:asia-pacific"
-      - "country:united-states"
-      - "country:india"
       - "type:article"
 
   - cite: "Henderson 2022"

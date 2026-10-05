@@ -4,8 +4,8 @@
 # batch-04-evidence.csv. Written by the script; do not edit by hand.
 
 batch: 4
-date: "2026-10-01"
-phrases_version: 2
+date: "2026-10-05"
+phrases_version: 7
 
 note: "Record made from the reference list of a review article of 2026 (Bliuc et al.; Tóth et al.; Yilmaz et al.); not yet checked against the publication."
 
@@ -30,7 +30,6 @@ works:
     year: 2022
     ref: "S0003"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "method:qualitative"
@@ -101,7 +100,6 @@ works:
     ref: "S0007"
     tags:
       - "approach:performative"
-      - "topic:media-communication"
       - "region:europe"
       - "country:turkey"
       - "type:article"
@@ -134,7 +132,6 @@ works:
     year: 2021
     ref: "S0013"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:turkey"
@@ -308,7 +305,6 @@ works:
     year: 2020
     ref: "S0026"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
@@ -326,7 +322,6 @@ works:
     ref: "S0028"
     tags:
       - "approach:performative"
-      - "topic:parties"
       - "topic:media-communication"
       - "region:europe"
       - "country:turkey"
@@ -389,6 +384,8 @@ works:
     year: 2019
     ref: "S0033"
     tags:
+      - "region:europe"
+      - "country:czech-republic"
       - "type:article"
 
   - cite: "Caiani 2020"
@@ -450,6 +447,10 @@ works:
     ref: "S0037"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -475,7 +476,6 @@ works:
     year: 2021
     ref: "S0040"
     tags:
-      - "topic:media-communication"
       - "type:article"
 
   - cite: "Cassell 2021"
@@ -673,11 +673,13 @@ works:
 
   - cite: "Egelhofer and S 2021"
     doi: "10.1075/jlp.20081.ege"
-    title: "Delegitimizing the media?: Analyzing politicians’ media criticism on social media"
+    title: "Delegitimizing the media?: Analyzing politicians’ media criticism on social media"
     year: 2021
     ref: "S0061"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -702,7 +704,6 @@ works:
     year: 2022
     ref: "S0063"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "region:europe"
       - "country:turkey"
@@ -719,6 +720,8 @@ works:
       - "approach:measurement"
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:united-kingdom"
       - "method:qualitative"
       - "type:article"
 
@@ -762,7 +765,10 @@ works:
     ref: "S0069"
     tags:
       - "approach:performative"
-      - "topic:parties"
+      - "region:europe"
+      - "country:austria"
+      - "country:france"
+      - "country:italy"
       - "type:article"
       - "oa:yes"
 
@@ -809,7 +815,6 @@ works:
     year: 2015
     ref: "S0072"
     tags:
-      - "topic:parties"
       - "region:europe"
       - "region:latin-america"
       - "country:france"
@@ -928,6 +933,9 @@ works:
     tags:
       - "topic:voters"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:italy"
+      - "country:portugal"
       - "method:survey"
       - "type:article"
       - "oa:yes"
@@ -1066,6 +1074,9 @@ works:
     tags:
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:austria"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -1094,6 +1105,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:netherlands"
       - "method:qualitative"
       - "type:article"
       - "oa:yes"
@@ -1127,10 +1140,11 @@ works:
     year: 2020
     ref: "S0105"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "topic:migration"
+      - "region:europe"
+      - "country:austria"
       - "type:article"
       - "oa:yes"
 
@@ -1180,6 +1194,10 @@ works:
     ref: "S0113"
     tags:
       - "topic:media-communication"
+      - "region:europe"
+      - "country:austria"
+      - "country:netherlands"
+      - "country:sweden"
       - "method:quantitative"
       - "type:article"
 
@@ -1242,7 +1260,6 @@ works:
     year: 2023
     ref: "S0118"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "type:article"
       - "oa:yes"
@@ -1278,7 +1295,6 @@ works:
     year: 2017
     ref: "S0122"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "type:article"
 
@@ -1339,8 +1355,8 @@ works:
     year: 2020
     ref: "S0127"
     tags:
-      - "topic:parties"
-      - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -1448,6 +1464,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:norway"
       - "type:article"
       - "oa:yes"
 
@@ -1535,6 +1553,8 @@ works:
     ref: "S0146"
     tags:
       - "topic:voters"
+      - "region:europe"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -1561,6 +1581,8 @@ works:
     ref: "S0149"
     tags:
       - "topic:parties"
+      - "region:europe"
+      - "country:germany"
       - "type:article"
       - "oa:yes"
 
@@ -1579,12 +1601,13 @@ works:
 
   - cite: "McLamore and ÖM 2020"
     doi: "10.1111/asap.12212"
-    title: "Social Representations of Sociopolitical Groups on r/The_Donald and Emergent Conflict Narratives: A Qualitative Content Analysis "
+    title: "Social Representations of Sociopolitical Groups on r/The_Donald and Emergent Conflict Narratives: A Qualitative Content Analysis"
     year: 2020
     ref: "S0151"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "method:qualitative"
       - "type:article"
 
@@ -1652,7 +1675,6 @@ works:
     year: 2023
     ref: "S0157"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "region:north-america"
       - "country:canada"
@@ -1668,6 +1690,8 @@ works:
     tags:
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:germany"
       - "method:experiment"
       - "type:article"
       - "oa:yes"
@@ -1698,6 +1722,10 @@ works:
     ref: "S0160"
     tags:
       - "approach:ideational"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Müller et al. 2017"
@@ -1765,7 +1793,6 @@ works:
     ref: "S0173"
     tags:
       - "topic:parties"
-      - "topic:media-communication"
       - "method:quantitative"
       - "type:article"
       - "oa:yes"
@@ -1819,7 +1846,6 @@ works:
     year: 2020
     ref: "S0178"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "topic:migration"
@@ -1891,7 +1917,8 @@ works:
     ref: "S0183"
     tags:
       - "approach:performative"
-      - "topic:parties"
+      - "region:europe"
+      - "country:spain"
       - "type:article"
       - "oa:yes"
 
@@ -1914,23 +1941,27 @@ works:
     year: 2020
     ref: "S0185"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:media-communication"
       - "region:europe"
+      - "country:germany"
+      - "country:italy"
       - "method:survey"
       - "type:article"
       - "oa:yes"
 
   - cite: "Schmuck 2020"
     doi: "10.1080/1369118x.2019.1588909"
-    title: "Closer to the people: A comparative content analysis of populist communication on social networking sites in pre- and post-Election periods"
+    title: "Closer to the people: A comparative content analysis of populist communication on social networking sites in pre- and post-Election periods"
     year: 2020
     ref: "S0186"
     tags:
       - "approach:discursive"
       - "topic:parties"
       - "topic:media-communication"
+      - "region:europe"
+      - "country:austria"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -1940,7 +1971,6 @@ works:
     year: 2021
     ref: "S0187"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:economy-welfare"
       - "region:europe"
@@ -1957,7 +1987,6 @@ works:
     ref: "S0188"
     tags:
       - "topic:voters"
-      - "topic:media-communication"
       - "type:article"
       - "oa:yes"
 
@@ -2041,7 +2070,6 @@ works:
     year: 2021
     ref: "S0194"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:religion"
       - "region:latin-america"
@@ -2058,6 +2086,8 @@ works:
       - "topic:parties"
       - "topic:voters"
       - "topic:migration"
+      - "region:europe"
+      - "country:netherlands"
       - "type:article"
       - "oa:yes"
 
@@ -2082,6 +2112,10 @@ works:
     tags:
       - "topic:media-communication"
       - "topic:democracy-institutions"
+      - "region:europe"
+      - "region:north-america"
+      - "country:united-kingdom"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -2143,7 +2177,6 @@ works:
     year: 2021
     ref: "S0206"
     tags:
-      - "topic:parties"
       - "topic:voters"
       - "topic:migration"
       - "region:europe"
@@ -2214,6 +2247,8 @@ works:
     ref: "S0218"
     tags:
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
       - "oa:yes"
 
@@ -2296,6 +2331,8 @@ works:
     tags:
       - "topic:voters"
       - "topic:media-communication"
+      - "region:north-america"
+      - "country:united-states"
       - "type:article"
 
   - cite: "Yilmaz and D 2026"
@@ -2314,7 +2351,6 @@ works:
     year: 2022
     ref: "S0230"
     tags:
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:gender"
       - "type:article"
@@ -2341,7 +2377,6 @@ works:
     tags:
       - "approach:discursive"
       - "topic:international"
-      - "topic:parties"
       - "topic:media-communication"
       - "topic:religion"
       - "topic:migration"
