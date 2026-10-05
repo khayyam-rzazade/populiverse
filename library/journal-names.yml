@@ -1,0 +1,112 @@
+# Journal names that arrived in more than one spelling.
+#
+# Set "keep" to the journal's real name, as the journal itself writes it.
+# Do not go by whichever spelling is commoner here: that only shows how the
+# metadata happened to land. Leave keep as ? to pass a journal over for now.
+#
+# Then: ZOTERO_API_KEY=... python3 scripts/tidy_journals.py --apply
+#
+# CHECKED against the ISSN register: Communication Culture & Critique,
+# Enterprise & Society, Journal of Elections Public Opinion and Parties,
+# Rhetoric & Public Affairs.
+# NOT CHECKED, my judgement only: the eight where the question is a leading
+# "The". Change any of them if you know better. Nothing here is final: if a
+# name turns out wrong, edit this file and run it again.
+
+- group: acta politologica
+  keep: Acta Politologica
+  #   1x  Acta Politologica
+  #   1x  ACTA POLITOLOGICA
+
+- group: british journal of criminology
+  keep: The British Journal of Criminology
+  #   3x  British Journal of Criminology
+  #   3x  The British Journal of Criminology
+
+- group: communication culture and critique
+  keep: Communication, Culture & Critique
+  #   8x  Communication, Culture and Critique
+  #   2x  Communication, Culture & Critique
+
+# Left alone on purpose. Not a spelling problem: the journal was renamed
+# twice, so the right name depends on the year. Handled separately.
+- group: east european politics and societies
+  keep: ?
+  #  19x  East European Politics and Societies: and Cultures
+  #   5x  East European Politics and Societies
+  #   1x  East European Politics & Societies
+
+- group: enterprise and society
+  keep: Enterprise & Society
+  #   2x  Enterprise & Society
+  #   2x  Enterprise and Society
+
+- group: foreign affairs
+  keep: Foreign Affairs
+  #   4x  Foreign Affairs
+  #   1x  FOREIGN AFFAIRS
+
+- group: geopolitics
+  keep: Geopolitics
+  #   3x  Geopolitics
+  #   1x  GEOpolitics
+
+- group: international journal of constitutional law
+  keep: International Journal of Constitutional Law
+  #  26x  International Journal of Constitutional Law
+  #   1x  International Journal Of Constitutional Law
+
+- group: journal of american history
+  keep: The Journal of American History
+  #  21x  Journal of American History
+  #   3x  The Journal of American History
+
+- group: journal of elections public opinion and parties
+  keep: Journal of Elections, Public Opinion and Parties
+  #  18x  Journal of Elections, Public Opinion and Parties
+  #   2x  Journal of Elections, Public Opinion & Parties
+
+- group: journal of peasant studies
+  keep: The Journal of Peasant Studies
+  #  27x  The Journal of Peasant Studies
+  #   3x  Journal of Peasant Studies
+
+- group: journal of southern history
+  keep: The Journal of Southern History
+  #   3x  The Journal of Southern History
+  #   3x  Journal of Southern History
+
+- group: law and ethics of human rights
+  keep: The Law & Ethics of Human Rights
+  #   2x  The Law & Ethics of Human Rights
+  #   1x  Law & Ethics of Human Rights
+
+- group: plos one
+  keep: PLOS ONE
+  #  10x  PLOS ONE
+  #   2x  PLOS One
+
+- group: rhetoric and public affairs
+  keep: Rhetoric & Public Affairs
+  #   3x  Rhetoric and Public Affairs
+  #   1x  Rhetoric & Public Affairs
+
+- group: russian review
+  keep: The Russian Review
+  #   5x  The Russian Review
+  #   1x  Russian Review
+
+- group: slavonic and east european review
+  keep: The Slavonic and East European Review
+  #   2x  Slavonic and East European Review
+  #   1x  The Slavonic and East European Review
+
+- group: studies in comparative international development
+  keep: Studies in Comparative International Development
+  #  11x  Studies in Comparative International Development
+  #   3x  Studies In Comparative International Development
+
+- group: western historical quarterly
+  keep: The Western Historical Quarterly
+  #   5x  The Western Historical Quarterly
+  #   5x  Western Historical Quarterly
