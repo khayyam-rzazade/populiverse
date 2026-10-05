@@ -28,6 +28,7 @@ resources:
     <button type="button" class="pv-lib-link" id="pv-cite-copy" hidden>Copy citation</button>
     <button type="button" class="pv-lib-link" id="pv-cite-bib" hidden>Copy BibTeX</button>
   </p>
+  <p class="pv-cite-how"><a href="#how-built">How Populi<em>Verse</em> Library Is Built</a></p>
 </div>
 <script>
 // Fills in today's date and makes the two "copy" buttons work. Without JavaScript
@@ -89,7 +90,7 @@ resources:
 <script src="library.js" defer></script>
 ```
 
-::: {.pv-prose}
+::: {#how-built .pv-prose}
 
 ## How It Is Organised
 
@@ -146,6 +147,8 @@ The Library is not complete. If a work is missing or wrongly tagged, or if you s
 ## How the Tags Are Given
 
 A tag is given only when the work's own title or abstract supports it. The wordings that count are public: the [phrases for approaches, topics and methods](https://github.com/khayyam-rzazade/populiverse/blob/main/library/phrases.yml) and the [names of countries, leaders and parties](https://github.com/khayyam-rzazade/populiverse/blob/main/library/actors.yml). Nothing is guessed. A missing tag means "not stated in the title or the abstract", not "does not apply".
+
+The tags are given by a script, not by hand. The editor checks them at random, not every work.
 
 ## What Each Entry Gives You
 

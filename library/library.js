@@ -432,7 +432,7 @@
     var box = el("input", { type: "checkbox", id: id, onchange: function () { toggle(k, value); } });
     var count = el("span", { class: "pv-lib-n" });
     var row = el("li", { class: "pv-lib-option" }, [el("label", { for: id }, [box, el("span", { class: "pv-lib-optname", text: text }), count])]);
-    return { key: k, value: value, row: row, box: box, count: count };
+    return { key: k, value: value, text: text, row: row, box: box, count: count };
   }
 
   function group(title, key, open, inner) {
@@ -441,9 +441,83 @@
     return g;
   }
 
+  // ---------------------------------------------------------------- the two long lists
+
+  // Countries and journals run to hundreds of choices, the journals to well over a
+  // thousand. Each of those two lists gets a box to type in, and until a word is typed
+  // it shows only the choices with the most works, with "Show all" underneath.
+  var NARROW_TOP = 20;
+
+  function narrowed(key, noun, listEl, options) {
+    var id = "pv-narrow-" + key;
+    var input = el("input", { type: "search", id: id, autocomplete: "off", spellcheck: "false",
+                              placeholder: "Type to narrow" });
+    var more = el("button", { type: "button", class: "pv-lib-link pv-lib-showall" });
+    var none = el("p", { class: "pv-lib-nomatch", text: "Nothing matches.", hidden: true });
+    var n = ui.narrow[key] = { q: "", all: false, input: input, more: more, none: none, options: options, noun: noun };
+    var timer = null;
+    input.addEventListener("input", function () {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(function () { n.q = fold(input.value.trim()); narrow(key); }, 150);
+    });
+    more.addEventListener("click", function () { n.all = !n.all; narrow(key); });
+    return el("div", { class: "pv-lib-long" }, [
+      el("div", { class: "pv-lib-narrow" }, [
+        el("label", { for: id, class: "pv-lib-offscreen", text: "Narrow the list of " + noun }), input
+      ]),
+      listEl, more, none
+    ]);
+  }
+
+  // How many works the NARROW_TOP-th commonest choice has: the line a choice has to
+  // reach to be shown before "Show all" is clicked.
+  function cutoff(options, k) {
+    var counts = [], i, n;
+    for (i = 0; i < options.length; i++) { n = options[i].shown || 0; if (n > 0) counts.push(n); }
+    if (counts.length <= k) return 1;
+    counts.sort(function (a, b) { return b - a; });
+    return counts[k - 1];
+  }
+
+  // Decides which rows of one long list are seen. Called after the counts are written,
+  // because with nothing typed the choices shown are the ones with the most works.
+  function narrow(key) {
+    var n = ui.narrow[key];
+    if (!n) return;
+    var seen = 0, i, o, show;
+    if (n.q) {
+      for (i = 0; i < n.options.length; i++) {
+        o = n.options[i];
+        show = fold(o.text).indexOf(n.q) >= 0;
+        o.row.hidden = !show;
+        if (show) seen++;
+      }
+      n.more.hidden = true;
+    } else if (n.all) {
+      for (i = 0; i < n.options.length; i++) n.options[i].row.hidden = false;
+      seen = n.options.length;
+      n.more.hidden = false;
+      n.more.textContent = "Show fewer";
+    } else {
+      var line = cutoff(n.options, NARROW_TOP), room = NARROW_TOP;
+      for (i = 0; i < n.options.length; i++) {
+        o = n.options[i];
+        // anything already ticked stays in sight, whatever its place in the order
+        show = o.box.checked || (room > 0 && (o.shown || 0) >= line);
+        if (show && !o.box.checked) room--;
+        o.row.hidden = !show;
+        if (show) seen++;
+      }
+      n.more.hidden = n.options.length <= NARROW_TOP;
+      n.more.textContent = "Show all " + n.options.length + " " + n.noun;
+    }
+    n.none.hidden = seen > 0;
+  }
+
   function build() {
     ui.options = [];
     ui.groups = {};
+    ui.narrow = {};
 
     // search and order
     ui.search = el("input", { type: "search", id: "pv-lib-q", autocomplete: "off", spellcheck: "false",
@@ -472,9 +546,11 @@
       }
       if (!tags.length) return;
       var list = el("ul", { class: "pv-lib-options" });
-      tags.forEach(function (t) { var o = optionRow(g.key, t.tag, t.label); ui.options.push(o); list.appendChild(o.row); });
+      var rows = [];
+      tags.forEach(function (t) { var o = optionRow(g.key, t.tag, t.label); ui.options.push(o); rows.push(o); list.appendChild(o.row); });
       var title = (taxonomy[g.key] && taxonomy[g.key].label) || g.key;
-      ui.groups[g.key] = group(title, g.key, g.open || state.sel[g.key].size > 0, list);
+      var inner = g.key === "country" ? narrowed("country", "countries", list, rows) : list;
+      ui.groups[g.key] = group(title, g.key, g.open || state.sel[g.key].size > 0, inner);
       groups.push(ui.groups[g.key]);
     });
 
@@ -498,8 +574,10 @@
       .sort(function (a, b) { return a.localeCompare(b); });
     if (journals.length) {
       var jl = el("ul", { class: "pv-lib-options" });
-      journals.forEach(function (j) { var o = optionRow("journal", j, j); ui.options.push(o); jl.appendChild(o.row); });
-      ui.groups.journal = group("Journal", "journal", state.sel.journal.size > 0, jl);
+      var jrows = [];
+      journals.forEach(function (j) { var o = optionRow("journal", j, j); ui.options.push(o); jrows.push(o); jl.appendChild(o.row); });
+      ui.groups.journal = group("Journal", "journal", state.sel.journal.size > 0,
+                                narrowed("journal", "journals", jl, jrows));
       groups.push(ui.groups.journal);
     }
 
@@ -592,6 +670,8 @@
       if (o.shown !== n) { o.shown = n; o.count.textContent = n; }
       o.row.classList.toggle("is-empty", n === 0 && !on);
     });
+    // the two long lists are narrowed after the counts, not before
+    Object.keys(ui.narrow).forEach(narrow);
     var free = pool("oa").filter(function (w) { return w.e.oa; }).length;
     ui.oaCount.textContent = free;
     ui.oa.disabled = free === 0 && !state.oa;

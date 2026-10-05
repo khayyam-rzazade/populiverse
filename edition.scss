@@ -370,6 +370,13 @@ main.content h3 {
   overflow-wrap: anywhere;
 }
 
+// The line under "How to cite" that goes down to the explanation
+.pv-cite-how {
+  padding-top: 0.25rem;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
 .pv-cite-example {
   max-width: 50rem;
   margin: 0 0 1rem;
@@ -1129,6 +1136,31 @@ $pv-faint: #6E6E6B;       // choices that match nothing, and the hint in the sea
 
 .pv-lib-option.is-empty .pv-lib-n {
   color: $pv-faint;
+}
+
+// The two long lists, countries and journals: a box to type in, and only the
+// choices with the most works until "Show all" is clicked
+.pv-lib-narrow {
+  margin: 0 0 0.625rem;
+}
+
+.pv-lib .pv-lib-narrow input[type="search"] {
+  min-height: 2.375rem;
+  font-size: 0.9375rem;
+}
+
+.pv-lib-showall {
+  display: block;
+  min-height: 0;
+  margin: 0 0 1.125rem;
+  font-style: italic;
+}
+
+.pv-lib-nomatch {
+  margin: 0 0 1.125rem;
+  color: $pv-muted;
+  font-size: 0.875rem;
+  font-style: italic;
 }
 
 .pv-lib-years {
