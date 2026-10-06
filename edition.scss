@@ -884,9 +884,32 @@ footer.footer .nav-footer::before {
   margin-right: auto;
 }
 
+// On Home the newsletter sits in a framed box, so the sign-up stands out
+.pv-home main.content .pv-newsletter {
+  margin: 2rem 0;
+  padding: 3rem 1.5rem;
+  border: 2px solid $pv-ink;
+}
+
 .pv-home main.content .pv-newsletter h2 {
-  font-style: italic;
-  font-size: 1.5rem;
+  font-size: 1.875rem;
+}
+
+// The Subscribe button: as large and bold as the Library button on Home, but without its
+// arrow, so that one stays the main way into the site
+.pv-button-big {
+  min-height: 3.75rem;
+  padding: 0 2.25rem;
+  border: 2px solid $pv-ink;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.pv-button-big:hover,
+.pv-button-big:focus {
+  background: $pv-paper;
+  color: $pv-ink;
 }
 
 // On Home, each item of the two axis lists is a link into the Library's filter.

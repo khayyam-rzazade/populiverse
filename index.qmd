@@ -185,5 +185,5 @@ The first issue, 2026/1, is planned for December 2026.
 
 One email a month with the latest issues: a short summary and a link to each.
 
-[Subscribe](https://stats.sender.net/forms/erkOWk/view){.pv-button}
+[Subscribe](https://stats.sender.net/forms/erkOWk/view){.pv-button .pv-button-big}
 :::
