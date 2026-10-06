@@ -1,0 +1,74 @@
+---
+title: "Advisory Board"
+description: "Scholars who advise the editor on the direction of PopuliVerse."
+body-classes: pv-centred
+---
+
+<!--
+The members, in alphabetical order of surname, so that no one comes first.
+Every entry has the same lines, in the same order:
+  1. the name, linked to the member's own page (first name, then surname)
+  2. the institution
+  3. the position
+  4. the research focus
+To add a member, copy one entry from ::: {.pv-member} to its closing :::
+and put it in its alphabetical place.
+-->
+
+::: {.pv-board .column-page}
+
+::: {.pv-member}
+[[Fabrizio]{.pv-member-first} [Coticchia]{.pv-member-last}](https://fabriziocoticchia.weebly.com)
+
+[University of Genoa]{.pv-member-place}
+
+[Professor of Political Science]{.pv-member-role}
+
+[Foreign and defence policy, security studies]{.pv-member-focus}
+:::
+
+::: {.pv-member}
+[[Christian]{.pv-member-first} [Lequesne]{.pv-member-last}](https://www.sciencespo.fr/ceri/en/directory/lequesne-christian/)
+
+[Sciences Po]{.pv-member-place}
+
+[Professor of Political Science]{.pv-member-role}
+
+[European studies and diplomacy]{.pv-member-focus}
+:::
+
+::: {.pv-member}
+[[Benjamin]{.pv-member-first} [Moffitt]{.pv-member-last}](https://research.monash.edu/en/persons/benjamin-moffitt/)
+
+[Monash University]{.pv-member-place}
+
+[Senior Lecturer in Politics and International Relations]{.pv-member-role}
+
+[Populism, radical and reactionary politics, visual politics]{.pv-member-focus}
+:::
+
+::: {.pv-member}
+[[Mattia]{.pv-member-first} [Sguazzini]{.pv-member-last}](https://rubrica.unige.it/personale/UEJPXl5v)
+
+[University of Genoa]{.pv-member-place}
+
+[Postdoctoral Researcher]{.pv-member-role}
+
+[EU cybersecurity policy, strategic narratives, civil–military relations]{.pv-member-focus}
+:::
+
+::: {.pv-member}
+[[Leslie]{.pv-member-first} [Wehner]{.pv-member-last}](https://researchportal.bath.ac.uk/en/persons/leslie-wehner/)
+
+[University of Bath]{.pv-member-place}
+
+[Professor of International Relations]{.pv-member-role}
+
+[Foreign policy analysis, populism and foreign policy, Latin America]{.pv-member-focus}
+:::
+
+:::
+
+::: {.pv-board-note}
+What PopuliVerse publishes is the editor's choice and responsibility. Members take part in their own name, not on behalf of their institutions.
+:::

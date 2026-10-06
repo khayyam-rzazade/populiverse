@@ -64,6 +64,8 @@ website:
         menu:
           - text: "About Populi*Verse*"
             href: about/about.qmd
+          - text: "Advisory Board"
+            href: about/advisory-board.qmd
           - text: "Editor"
             href: about/editor.qmd
           - text: "How to Contribute"

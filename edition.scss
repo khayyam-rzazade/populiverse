@@ -912,6 +912,145 @@ footer.footer .nav-footer::before {
   color: $pv-ink;
 }
 
+// Pages set in the centre, like the masthead above them (Newsletter, Advisory Board):
+// add "body-classes: pv-centred" at the top of the page, and the title and the line
+// under it sit in the middle. Anything wrapped in ::: {.pv-centre} does too, such as
+// the Subscribe button.
+.pv-centred #title-block-header.quarto-title-block.default {
+  text-align: center;
+}
+
+.pv-centre {
+  text-align: center;
+}
+
+// ---------------------------------------------------------------- Advisory Board
+// The members side by side, in alphabetical order: three to a row on wide screens
+// with the last row centred, two on tablets, one on phones. Every entry is built the
+// same way and sits under the double rule of the masthead: the first name in italic,
+// the surname large and upright (like Populi and Verse in the wordmark), then the
+// position, the institution and the research focus.
+
+.pv-board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.5rem 2.5rem;
+  margin: 0.5rem 0 0;
+}
+
+.pv-member {
+  flex: 0 1 100%;
+  padding-top: 1.75rem;
+  border-top: 3px double $pv-ink;
+  text-align: center;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-member {
+    flex-basis: calc((100% - 2.5rem) / 2);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .pv-member {
+    flex-basis: calc((100% - 5rem) / 3);
+  }
+}
+
+main.content .pv-member p {
+  margin: 0;
+}
+
+// The name links to the member's own page. The underline under the surname is
+// faint, like the tags in the Library, and darkens under the pointer.
+.pv-member a {
+  display: inline-block;
+  color: $pv-ink;
+  text-decoration: none;
+}
+
+// Lines that wrap are split evenly, so no word is left alone on a line
+.pv-member-role,
+.pv-member-focus,
+main.content .pv-board-note {
+  text-wrap: balance;
+}
+
+.pv-member-first {
+  display: block;
+  color: $pv-muted;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.pv-member-last {
+  display: block;
+  margin-top: 0.125rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-color: $pv-hairline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.pv-member a:hover .pv-member-last,
+.pv-member a:focus-visible .pv-member-last {
+  text-decoration-color: $pv-ink;
+}
+
+.pv-member-place {
+  display: block;
+  margin-top: 1.125rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.pv-member-role {
+  display: block;
+  margin-top: 0.125rem;
+  color: $pv-muted;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+// Side by side, every position gets the room of two lines, so the short rules and
+// the research focus line up across a row even when one position runs longer
+@include media-breakpoint-up(md) {
+  .pv-member-role {
+    min-height: 3em;
+  }
+}
+
+// A short rule sets the research focus apart from the position
+.pv-member-focus {
+  display: block;
+  max-width: 17rem;
+  margin: 1.25rem auto 0;
+  color: $pv-muted;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.pv-member-focus::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  margin: 0 auto 1.125rem;
+  border-top: 1px solid $pv-ink;
+}
+
+// The line under the members: who answers for what is published
+main.content .pv-board-note {
+  max-width: 34rem;
+  margin: 4.5rem auto 0;
+  color: $pv-muted;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
 // On Home, each item of the two axis lists is a link into the Library's filter.
 // The underline is faint, like the tags in the Library, and darkens on hover.
 .pv-home .pv-axis li a {
