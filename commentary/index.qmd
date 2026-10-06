@@ -27,7 +27,11 @@ The first issue, 2026/1, is planned for December 2026. The next, 2027/1, follows
 
 ## Call for Commentary
 
-Commentary starts with invited pieces. Other scholars are welcome too: read the guidelines below, then [submit your piece](#submit).
+Commentary starts with invited pieces. Other scholars are welcome too: read the guidelines below, then submit your piece through the form. It asks for your details, your piece as a file and the Author's Declaration.
+
+[Open the submission form](https://tally.so/r/jaO0lY){.pv-button .pv-button-big}
+
+If the form does not suit you, email your piece to editor@populiverse.com, with the declaration below copied into the message.
 
 ## Guidelines
 
@@ -35,7 +39,7 @@ Commentary starts with invited pieces. Other scholars are welcome too: read the 
 
 **What to write.** Your view on a question about populism or populist actors: an opinion, an argument, an approach. No partisan advocacy.
 
-**Length.** 800 to 1,500 words. The length is flexible.
+**Length.** 500 to 1,500 words. The length is flexible.
 
 **Pitch.** Each piece opens with a pitch of 50 to 100 words that says what it argues. It is printed at the top of the piece. Nothing has to be sent beforehand.
 
@@ -45,21 +49,13 @@ Commentary starts with invited pieces. Other scholars are welcome too: read the 
 
 **Review.** Pieces are reviewed by the editor. Commentary is not peer-reviewed.
 
-**What you send.** The piece, your affiliation, your ORCID iD and the declaration below, through the [submission form](#submit).
+**What you send.** The piece, your affiliation, your ORCID iD and the declaration below, through the [submission form](#call-for-commentary).
 
 **Cost.** None.
 
 **How a piece is published.** As a web page and as a typeset PDF, with its own DOI. It is also collected in the PDF of its issue.
 
 **After publication.** Corrections and the right of reply are set out in the [editorial policy](../about/editorial-policy.qmd).
-
-## Submit
-
-The form asks for your details, your piece as a file and the Author's Declaration below.
-
-[Open the submission form](https://tally.so/r/jaO0lY){.pv-button}
-
-If the form does not suit you, email your piece to editor@populiverse.com, with the declaration below copied into the message.
 
 ## The Author's Declaration
 
