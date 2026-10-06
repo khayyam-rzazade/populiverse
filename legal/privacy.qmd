@@ -3,7 +3,7 @@ title: "Privacy"
 description: "What personal data PopuliVerse handles, and what it does not."
 ---
 
-Last updated: 1 October 2026
+Last updated: 6 October 2026
 
 PopuliVerse collects as little personal data as it can. The site has no user accounts, no comments section, no advertising and no cookies.
 
@@ -19,13 +19,13 @@ Khayyam RZAZADE, editor of PopuliVerse. Contact: editor@populiverse.com
 
 **Everything else.** All other things the pages need, the typeface included, are served from this site itself.
 
-## When You Write to the Editor
+## When You Write, Subscribe or Submit
 
 **Email.** Messages to editor@populiverse.com are forwarded through Cloudflare to the editor's inbox. A message is kept for as long as it takes to deal with it.
 
-**Newsletter.** If you ask to be told about new issues, the editor keeps your email address on his list and uses it only for that. To be taken off the list, write to the same address.
+**Newsletter.** The newsletter is sent with Sender, an email service based in Lithuania, in the EU. If you sign up, Sender keeps your email address for the editor, and it is used only to send you the monthly newsletter. Every newsletter has a link to unsubscribe, or you can write to the editor.
 
-**Commentary authors.** An author's name, affiliation and ORCID iD are published with the piece and deposited with it in Zenodo.
+**Commentary authors.** Pieces are submitted through a form run by Tally, a form service based in Belgium, in the EU. Tally keeps what you send, your details and your file, for the editor. An author's name, affiliation and ORCID iD are published with the piece and deposited with it in Zenodo.
 
 ## Your Rights
 

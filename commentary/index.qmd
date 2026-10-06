@@ -27,7 +27,7 @@ The first issue, 2026/1, is planned for December 2026. The next, 2027/1, follows
 
 ## Call for Commentary
 
-Commentary starts with invited pieces. Other scholars are welcome too: send your piece to the editor at editor@populiverse.com
+Commentary starts with invited pieces. Other scholars are welcome too: read the guidelines below, then [submit your piece](#submit).
 
 ## Guidelines
 
@@ -37,7 +37,7 @@ Commentary starts with invited pieces. Other scholars are welcome too: send your
 
 **Length.** 800 to 1,500 words. The length is flexible.
 
-**Pitch.** Each piece opens with a pitch of 100 to 150 words that says what it argues. It is printed at the top of the piece. Nothing has to be sent beforehand.
+**Pitch.** Each piece opens with a pitch of 50 to 100 words that says what it argues. It is printed at the top of the piece. Nothing has to be sent beforehand.
 
 **Sources.** You choose the form: links in the text, author-date references, a reference list at the end, or none. The editor may ask for a source for a factual claim.
 
@@ -45,7 +45,7 @@ Commentary starts with invited pieces. Other scholars are welcome too: send your
 
 **Review.** Pieces are reviewed by the editor. Commentary is not peer-reviewed.
 
-**What you send.** The piece, your affiliation, your ORCID iD and the declaration below, in one email to editor@populiverse.com
+**What you send.** The piece, your affiliation, your ORCID iD and the declaration below, through the [submission form](#submit).
 
 **Cost.** None.
 
@@ -53,9 +53,17 @@ Commentary starts with invited pieces. Other scholars are welcome too: send your
 
 **After publication.** Corrections and the right of reply are set out in the [editorial policy](../about/editorial-policy.qmd).
 
+## Submit
+
+The form asks for your details, your piece as a file and the Author's Declaration below.
+
+[Open the submission form](https://tally.so/r/jaO0lY){.pv-button}
+
+If the form does not suit you, email your piece to editor@populiverse.com, with the declaration below copied into the message.
+
 ## The Author's Declaration
 
-Copy the lines below into your email. In each group, keep the one line that applies to you.
+In the form, you choose one line in each group. If you send your piece by email instead, copy the lines below into it and keep the one line in each group that applies to you.
 
 **1. The piece**
 

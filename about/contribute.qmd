@@ -13,7 +13,7 @@ The Library lives in a public Zotero group, "PopuliVerse Library". Scholars who 
 
 ## Write for Commentary
 
-Commentary publishes pieces of 800 to 1,500 words by PhD holders and doctoral candidates. See the [call and the guidelines](../commentary/index.qmd#call-for-commentary).
+Commentary publishes pieces of 800 to 1,500 words by PhD holders and doctoral candidates. See the [call, the guidelines and the submission form](../commentary/index.qmd#call-for-commentary).
 
 ## Report an Error or Ask for a Reply
 
