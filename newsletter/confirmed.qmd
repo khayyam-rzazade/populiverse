@@ -1,0 +1,11 @@
+---
+title: "You're Subscribed"
+description: "Thank you for joining the PopuliVerse newsletter."
+search: false
+---
+
+<!-- The page the button in the confirmation email leads to. It is not in the menu. -->
+
+Thank you. You will get one email a month with the latest issues.
+
+[Read the Monitor](../monitor/index.qmd){.pv-button .pv-button-big}

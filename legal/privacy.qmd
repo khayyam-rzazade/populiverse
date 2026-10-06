@@ -23,7 +23,7 @@ Khayyam RZAZADE, editor of PopuliVerse. Contact: editor@populiverse.com
 
 **Email.** Messages to editor@populiverse.com are forwarded through Cloudflare to the editor's inbox. A message is kept for as long as it takes to deal with it.
 
-**Newsletter.** The newsletter is sent with Sender, an email service based in Lithuania, in the EU. If you sign up, Sender keeps your email address for the editor, and it is used only to send you the monthly newsletter. Every newsletter has a link to unsubscribe, or you can write to the editor.
+**Newsletter.** The newsletter is sent with Sender, an email service based in Lithuania, in the EU. If you sign up, Sender keeps your email address for the editor, and it is used only to send you the monthly newsletter. Sender notes whether its emails are opened and which links are clicked; your confirmation is recorded that way. Every newsletter has a link to unsubscribe, or you can write to the editor.
 
 **Commentary authors.** Pieces are submitted through a form run by Tally, a form service based in Belgium, in the EU. Tally keeps what you send, your details and your file, for the editor. An author's name, affiliation and ORCID iD are published with the piece and deposited with it in Zenodo.
 
