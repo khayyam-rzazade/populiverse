@@ -1,10 +1,10 @@
 ---
 title: "Newsletter"
-description: "One email for each new issue."
+description: "One email a month with the latest issues."
 ---
 
-Readers on the list get one email when a new issue of the Monitor or of Commentary is out: a short summary and a link to the full issue on this site. Nothing else is sent.
+Once a month, readers on the list get one email: a short summary of the new Monitor issue and a link to it on this site. When a Commentary issue comes out, the same email announces it too. Nothing else is sent.
 
-To join the list, write to the editor: editor@populiverse.com
+[Subscribe](https://stats.sender.net/forms/erkOWk/view){.pv-button}
 
-The editor keeps the list himself. Your address is used only for these emails. To leave the list, write to the same address. See the [privacy page](../legal/privacy.qmd).
+You confirm with one click in an email, and every newsletter has a link to unsubscribe. The list is kept with Sender, an email service in the EU, and your address is used only for this newsletter. See the [privacy page](../legal/privacy.qmd).
