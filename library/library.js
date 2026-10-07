@@ -1,8 +1,10 @@
 /* PopuliVerse Library: the page that lists the works.
  *
- * It reads library.json (written by the nightly sync), then draws the search
- * box, the filters with their counts and the list of works. It uses no outside
- * library and loads nothing from any other server.
+ * It reads the light list of works (written by the nightly sync), then draws the
+ * search box, the filters with their counts and the list of works. The abstracts
+ * and the BibTeX entries are a second, much larger file, fetched only when a
+ * visitor first searches, opens an abstract or asks for BibTeX. It uses no
+ * outside library and loads nothing from any other server.
  *
  * What a visitor can do:
  *   - search in titles, authors, journals, abstracts and tags;
@@ -23,13 +25,15 @@
 
   // The data comes in two steps, so that the list shows quickly:
   //   SOURCE  the list itself (titles, authors, journals, tags, citations)
-  //   TEXT    the abstracts and the BibTeX entries, loaded right after, in the background
+  //   TEXT    the abstracts and the BibTeX entries, fetched only when first needed
   //   FULL    the one complete file: the way back if the light list cannot be loaded
   // scripts/split_library.py makes SOURCE and TEXT from FULL every night.
   var SOURCE = root.getAttribute("data-source") || "library.json";
   var TEXT = root.getAttribute("data-text") || "";
   var FULL = root.getAttribute("data-full") || "";
-  var textState = "none";           // "none": one file held everything; then "loading", "ready" or "failed"
+  var textState = "none";           // "none": one file held everything. When there is a TEXT file:
+                                    // "idle" (not asked for yet), then "loading", "ready" or "failed".
+  var textWaiters = [];             // what to do as soon as the abstracts and BibTeX are here
   var byId = {};                    // id of a work -> the work
   var ZOTERO = root.getAttribute("data-zotero") || "";
   var PAGE_SIZE = 50;               // works drawn at first; "Show more" adds as many again
@@ -140,9 +144,46 @@
       if (t.bibtex) w.e.bibtex = t.bibtex;
     });
     textState = "ready";
+    flushWaiters();
     if (state.q) { refresh(false); return; }       // a search is on: its results now count the abstracts too
     fillText();
   }
+
+  // Everything that was waiting for the abstracts and the BibTeX runs once, in order.
+  function flushWaiters() {
+    var waiting = textWaiters;
+    textWaiters = [];
+    waiting.forEach(function (cb) { try { cb(); } catch (err) { complain(err); } });
+  }
+
+  // The abstracts and the BibTeX entries sit in a separate file, several times the
+  // size of the list itself. It is fetched the first time a visitor actually needs
+  // it: a search (which looks inside abstracts), an "Abstract" button, or any
+  // BibTeX. Someone who opens the Library, reads the list and leaves never
+  // downloads it at all.
+  function needText() {
+    if (textState !== "idle") return;
+    textState = "loading";
+    fillText();
+    getJSON(TEXT).then(attachText).catch(function (err) {
+      complain(err);
+      textState = "failed";
+      flushWaiters();
+      fillText();
+    });
+  }
+
+  // Runs cb straight away if the text is settled; otherwise asks for the file and
+  // runs cb once it has arrived (or once it is clear that it will not).
+  function whenText(cb) {
+    if (textState === "ready" || textState === "failed" || textState === "none") { cb(); return; }
+    textWaiters.push(cb);
+    needText();
+  }
+
+  // Whether a work has BibTeX at all, and whether its button should be live.
+  function bibPossible(e) { return !!(e.bibtex || e.has_bibtex === true); }
+  function bibLive(e) { return bibPossible(e) && textState !== "failed"; }
 
   function waitingText() {
     return textState === "failed" ? "The abstract could not be loaded. Reload the page in a moment."
@@ -157,10 +198,13 @@
       p.textContent = (w && w.e.abstract) || waitingText();
     });
     Array.prototype.forEach.call(ui.list.querySelectorAll("button[data-bib]"), function (b) {
+      if (b.hasAttribute("data-busy")) return;     // it is fetching: leave it as it is
       var w = byId[b.getAttribute("data-bib")];
-      b.disabled = !(w && w.e.bibtex);
+      b.disabled = !(w && bibLive(w.e));
     });
-    if (ui.bib) ui.bib.disabled = !current().some(function (w) { return w.e.bibtex; });
+    if (ui.bib && !ui.bib.hasAttribute("data-busy")) {
+      ui.bib.disabled = !current().some(function (w) { return bibLive(w.e); });
+    }
   }
 
   // ---------------------------------------------------------------- the page address
@@ -277,12 +321,24 @@
     return out;
   }
 
+  // A work's web address comes from Zotero. Everything the page links to must be
+  // an ordinary web address: anything else (a "javascript:" address, say) is shown
+  // as plain text instead of as a link, so that a bad entry can never become a
+  // link that does something when it is clicked.
+  function webAddress(url) {
+    if (typeof url !== "string") return null;
+    var clean = url.trim();
+    return /^https?:\/\//i.test(clean) ? clean : null;
+  }
+
   function linkify(text, to) {
     var re = /https?:\/\/[^\s<>"]+/g, last = 0, m;
     while ((m = re.exec(text))) {
       var url = m[0].replace(/[.,;:)]+$/, "");
+      var link = webAddress(url);
       to.appendChild(document.createTextNode(text.slice(last, m.index)));
-      to.appendChild(el("a", { href: url, target: "_blank", rel: "noopener", text: url }));
+      to.appendChild(link ? el("a", { href: link, target: "_blank", rel: "noopener", text: link })
+                          : document.createTextNode(url));
       last = m.index + url.length;
     }
     to.appendChild(document.createTextNode(text.slice(last)));
@@ -293,8 +349,10 @@
     var cite = el("p", { class: "pv-lib-cite" });
     cite.appendChild(citation(e.citation || e.title));
     if (!/https?:\/\//.test(e.citation || "") && e.url) {
+      var link = webAddress(e.url);
       cite.appendChild(document.createTextNode(" "));
-      cite.appendChild(el("a", { href: e.url, target: "_blank", rel: "noopener", text: e.url }));
+      cite.appendChild(link ? el("a", { href: link, target: "_blank", rel: "noopener", text: link })
+                            : el("span", { class: "pv-lib-oa", text: String(e.url) }));
     }
     // a review of a book carries the book's title: the entry says that it is a review
     if (e.type === "type:book-review") { cite.appendChild(document.createTextNode(" ")); cite.appendChild(el("span", { class: "pv-lib-oa", text: nameOf(e.type) })); }
@@ -329,15 +387,31 @@
           abstract.hidden = !open;
           ev.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
           ev.currentTarget.textContent = open ? "Hide abstract" : "Abstract";
+          if (!open) return;                         // it was just closed
+          if (e.abstract) { abstract.textContent = e.abstract; return; }
+          abstract.textContent = waitingText();
+          whenText(function () { abstract.textContent = e.abstract || waitingText(); });
         }
       }));
     }
     if (e.bibtex || e.has_bibtex === true) {
       var bib = el("button", {
         type: "button", class: "pv-lib-link", text: "Copy BibTeX", "data-bib": e.id,
-        onclick: function (ev) { if (e.bibtex) copy(e.bibtex, ev.currentTarget, "Copy BibTeX", "BibTeX copied"); }
+        onclick: function (ev) {
+          var button = ev.currentTarget;
+          if (e.bibtex) { copy(e.bibtex, button, "Copy BibTeX", "BibTeX copied"); return; }
+          button.disabled = true;
+          button.setAttribute("data-busy", "1");
+          button.textContent = "Loading\u2026";
+          whenText(function () {
+            button.removeAttribute("data-busy");
+            button.textContent = "Copy BibTeX";
+            button.disabled = !bibLive(e);
+            if (e.bibtex) copy(e.bibtex, button, "Copy BibTeX", "BibTeX copied");
+          });
+        }
       });
-      bib.disabled = !e.bibtex;                     // switched on when the BibTeX entries have arrived
+      bib.disabled = !bibLive(e);                   // off only once the BibTeX is known not to come
       actions.appendChild(bib);
     }
     return el("li", { class: "pv-lib-entry", id: "work-" + e.id }, [cite, tags.childNodes.length ? tags : null,
@@ -525,6 +599,7 @@
     var timer = null;
     ui.search.addEventListener("input", function () {
       window.clearTimeout(timer);
+      if (ui.search.value.trim()) needText();        // the search looks inside abstracts
       timer = window.setTimeout(function () { state.q = ui.search.value.trim(); refresh(true); }, 180);
     });
     ui.sort = el("select", { id: "pv-lib-sort", onchange: function () { state.sort = ui.sort.value; refresh(true); } },
@@ -601,11 +676,28 @@
 
     // the line above the list: how many, and what can be done with them
     ui.count = el("p", { class: "pv-lib-count", role: "status", "aria-live": "polite" });
+    // Shown only while someone searches before the abstracts have arrived, so that a
+    // count that grows a moment later does not look like a fault.
+    ui.pending = el("p", { class: "pv-lib-pending", hidden: true,
+                           text: "Searching titles, authors, journals and tags. Abstracts are still loading\u2026" });
     ui.clear = el("button", { type: "button", class: "pv-lib-link", text: "Clear filters", onclick: clearAll });
-    ui.bib = el("button", { type: "button", class: "pv-lib-link", text: "Download BibTeX", onclick: function () {
-      var list = current().filter(function (w) { return w.e.bibtex; });
-      download("populiverse-library-" + today() + ".bib", "application/x-bibtex;charset=utf-8",
-               list.map(function (w) { return w.e.bibtex; }).join("\n\n") + "\n");
+    ui.bib = el("button", { type: "button", class: "pv-lib-link", text: "Download BibTeX", onclick: function (ev) {
+      var button = ev.currentTarget;
+      var give = function () {
+        var list = current().filter(function (w) { return w.e.bibtex; });
+        download("populiverse-library-" + today() + ".bib", "application/x-bibtex;charset=utf-8",
+                 list.map(function (w) { return w.e.bibtex; }).join("\n\n") + "\n");
+      };
+      if (textState === "ready" || textState === "none") { give(); return; }
+      button.disabled = true;
+      button.setAttribute("data-busy", "1");
+      button.textContent = "Loading\u2026";
+      whenText(function () {
+        button.removeAttribute("data-busy");
+        button.textContent = "Download BibTeX";
+        button.disabled = !current().some(function (w) { return bibLive(w.e); });
+        if (textState !== "failed") give();
+      });
     } });
     ui.csv = el("button", { type: "button", class: "pv-lib-link", text: "Download CSV", onclick: function () {
       download("populiverse-library-" + today() + ".csv", "text/csv;charset=utf-8", csv(current()));
@@ -624,6 +716,7 @@
 
     var results = el("section", { class: "pv-lib-results", "aria-label": "Works in the Library" }, [
       el("div", { class: "pv-lib-head" }, [el("div", { class: "pv-lib-headleft" }, [ui.count, ui.clear]), ui.tools]),
+      ui.pending,
       ui.status, ui.list, ui.empty, ui.more
     ]);
 
@@ -692,7 +785,10 @@
       : list.length + " of " + plural(works.length, "work", "works");
     ui.clear.hidden = active === 0;
     ui.tools.hidden = list.length === 0;
-    ui.bib.disabled = !list.some(function (w) { return w.e.bibtex; });
+    ui.pending.hidden = !(state.q && (textState === "idle" || textState === "loading"));
+    if (!ui.bib.hasAttribute("data-busy")) {
+      ui.bib.disabled = !list.some(function (w) { return bibLive(w.e); });
+    }
     ui.filtersTitle.textContent = active ? "Filters (" + active + " in use)" : "Filters";
 
     writeAddress();
@@ -730,14 +826,11 @@
 
   getJSON(SOURCE)
     .then(function (data) {
+      if (TEXT) textState = "idle";                 // fetched when a visitor first needs it
       start(data);
-      if (!TEXT) return;                            // one file held everything
-      textState = "loading";
-      getJSON(TEXT).then(attachText).catch(function (err) {
-        complain(err);
-        textState = "failed";
-        fillText();
-      });
+      // A visitor who arrives on a search or filter link is about to search, so the
+      // text is worth having right away; otherwise nothing is downloaded until asked.
+      if (TEXT && state.q) needText();
     })
     .catch(function (err) {
       complain(err);

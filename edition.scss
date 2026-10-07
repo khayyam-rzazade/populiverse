@@ -1362,6 +1362,14 @@ $pv-faint: #6E6E6B;       // choices that match nothing, and the hint in the sea
   font-style: italic;
 }
 
+// Shown only while someone searches before the abstracts have been fetched.
+.pv-lib-pending {
+  margin: 0.25rem 0 0;
+  font-size: 0.9375rem;
+  font-style: italic;
+  opacity: 0.75;
+}
+
 .pv-lib-tools {
   display: flex;
   flex-wrap: wrap;

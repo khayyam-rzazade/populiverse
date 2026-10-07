@@ -1,6 +1,6 @@
 ---
 title: "Resources"
-description: "Datasets, hubs, journals, tools, networks, jobs and grants for research on populism."
+description: "Datasets, hubs, journals, tools, networks, method schools, jobs and grants for research on populism."
 ---
 
 Each link goes to the project's own site. A line with a plus sign opens a list.
@@ -84,25 +84,39 @@ Six ways to measure populism in speeches, manifestos and posts, each in the arti
 <details class="pv-fold">
 <summary>Networks and Groups</summary>
 
-[ECPR Standing Group on Extremism & Democracy](https://standinggroups.ecpr.eu/extremismanddemocracy/)
+[ECPR Standing Group on Extremism & Democracy](https://ecpr.eu/group/extremism-democracy)
 : The group of the European Consortium for Political Research for scholars of extremism, radicalism and populism, founded in 1999. Its newsletter is e-Extreme.
 
 [PSA Populism Specialist Group](https://psapopulism.org/)
-: The group of the Political Studies Association for the study of populist discourses, movements and parties.
+: The group of the Political Studies Association for the study of populist discourses, movements and parties. It runs a workshop every year and a podcast, and was the association's specialist group of the year in 2025.
+
+[IDEoPOP Doctoral Network](https://ideopop.populism-internationalrelations.com/)
+: A network of seven universities, funded by the European Union, training doctoral researchers on how populism shapes international politics. The universities are Freiburg, Sciences Po Paris, Gothenburg, Bilkent, Genoa, Jagiellonian and Bath.
+
+[Center for Research on Extremism (C-REX)](https://www.sv.uio.no/c-rex/english/)
+: A centre at the University of Oslo, and a network of researchers across countries, on the far right, hate crime and political violence.
 
 </details>
 
 <details class="pv-fold">
-<summary>Summer Schools and Workshops</summary>
+<summary>Method Schools in the Social Sciences</summary>
 
-[Summer School on Concepts and Methods for Research on Far-Right Politics](https://standinggroups.ecpr.eu/extremismanddemocracy/)
-: Held every two years since 2018, with the ECPR Standing Group on Extremism & Democracy.
+Where to learn the methods behind this kind of research. Each school takes researchers from any country, and most teach online as well as in person.
 
-[ECPS Academy Summer School](https://www.populismstudies.org)
-: The summer school of the European Center for Populism Studies.
+[ECPR Methods School](https://ecpr.eu/methodsschool)
+: Qualitative and quantitative training from the European Consortium for Political Research, as a summer school at a European university and a winter school online.
 
-[Annual workshop of the PSA Populism Specialist Group](https://psapopulism.org/)
-: One workshop every year, and panels at the annual conference of the Political Studies Association.
+[MethodsNET Summer School](https://methodsnet.org)
+: Three weeks of social research methods every summer, held with the Central European University in Vienna.
+
+[Konstanz Methods Excellence Workshops (KOMEX)](https://afww.uni-konstanz.de/en/komex/konstanz-methods-excellence-workshops)
+: Short and longer courses every February at the University of Konstanz, with MethodsNET, in person and online, with fellowships for some applicants.
+
+[Summer School in Social Sciences Methods](https://www.ssm.usi.ch/en)
+: Two weeks each August at the Università della Svizzera italiana in Lugano, with FORS, the Swiss centre for social science research. It has run for thirty years.
+
+[ICPSR Summer Program](https://www.icpsr.umich.edu/web/pages/sumprog/)
+: Statistics and quantitative methods at the University of Michigan, running since 1963, in person and online.
 
 </details>
 
@@ -114,8 +128,11 @@ Six ways to measure populism in speeches, manifestos and posts, each in the arti
 [EURAXESS](https://euraxess.ec.europa.eu/jobs)
 : The European Commission's portal of research jobs, funding and fellowships across Europe. Hosts that support applications for MSCA Postdoctoral Fellowships advertise there too.
 
-[APSA eJobs](https://www.apsanet.org/jobs)
-: The job board of the American Political Science Association.
+[jobs.ac.uk](https://www.jobs.ac.uk)
+: The largest board of academic posts in the United Kingdom, which also carries jobs elsewhere in Europe and beyond, from doctoral studentships to professorships.
+
+[Academic Positions](https://academicpositions.com)
+: Doctoral, postdoctoral and faculty posts across Europe. Free to search, with alerts by email.
 
 </details>
 

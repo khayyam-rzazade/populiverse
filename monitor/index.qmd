@@ -19,7 +19,7 @@ include-in-header:
       "description": "A monthly digest of what populist actors did around the world.",
       "inLanguage": "en-GB",
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "editor": { "@type": "Person", "name": "Khayyam Rzazade", "url": "https://populiverse.com/about/editor.html" },
+      "editor": { "@type": "Person", "name": "Khayyam RZAZADE", "url": "https://populiverse.com/about/editor.html" },
       "publisher": { "@type": "Organization", "name": "PopuliVerse", "url": "https://populiverse.com/" }
     }
     </script>

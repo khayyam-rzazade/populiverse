@@ -16,9 +16,11 @@ include-in-header:
       "url": "https://populiverse.com/",
       "description": "PopuliVerse is one place to study populism, to follow what populist actors do around the world and to publish short scholarly commentary.",
       "inLanguage": "en-GB",
-      "editor": { "@type": "Person", "name": "Khayyam Rzazade", "url": "https://populiverse.com/about/editor.html" },
+      "editor": { "@type": "Person", "name": "Khayyam RZAZADE", "url": "https://populiverse.com/about/editor.html" },
       "sameAs": [
-        "https://www.linkedin.com/company/146682198/",
+        "https://www.linkedin.com/company/populiverse/",
+        "https://bsky.app/profile/populiverse.bsky.social",
+        "https://www.instagram.com/populiverse/",
         "https://zenodo.org/communities/populiverse/",
         "https://www.zotero.org/groups/6697881/populiverse_library",
         "https://github.com/khayyam-rzazade/populiverse"

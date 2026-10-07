@@ -1,6 +1,9 @@
 ---
 title: "Licence"
+description: "How you may reuse what PopuliVerse publishes, and what the Library's tags are not covered by."
 ---
+
+Last updated: 7 October 2026
 
 PopuliVerse Monitor and PopuliVerse Commentary are published under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0).
 

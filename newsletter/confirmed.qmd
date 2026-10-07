@@ -2,6 +2,13 @@
 title: "You're Subscribed"
 description: "Thank you for joining the PopuliVerse newsletter."
 search: false
+# This page only makes sense straight after the sign-up form. It is kept out of
+# Google and out of sitemap.xml (scripts/finish_site.py) so that it never turns
+# up as a search result on its own.
+format:
+  html:
+    include-in-header:
+      text: '<meta name="robots" content="noindex, follow">'
 ---
 
 <!-- The page the button in the confirmation email leads to. It is not in the menu. -->

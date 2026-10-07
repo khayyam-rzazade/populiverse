@@ -7,6 +7,10 @@ project:
   render:
     - "*.qmd"
     - "!drafts/"
+  # After every render: takes the two newsletter pages out of sitemap.xml and
+  # writes robots.txt with a User-agent line. See scripts/finish_site.py.
+  post-render:
+    - python3 scripts/finish_site.py
   # The typeface files are copied into the built site as they are.
   resources:
     - "fonts/"
@@ -87,6 +91,12 @@ website:
       - text: "Licence"
         href: legal/licence.qmd
     right:
+      - text: "LinkedIn"
+        href: "https://www.linkedin.com/company/populiverse/"
+      - text: "Bluesky"
+        href: "https://bsky.app/profile/populiverse.bsky.social"
+      - text: "Instagram"
+        href: "https://www.instagram.com/populiverse/"
       - text: "Contact"
         href: about/about.qmd#contact
 

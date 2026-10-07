@@ -2,6 +2,13 @@
 title: "Almost There"
 description: "Check your inbox to confirm your subscription."
 search: false
+# This page only makes sense straight after the sign-up form. It is kept out of
+# Google and out of sitemap.xml (scripts/finish_site.py) so that it never turns
+# up as a search result on its own.
+format:
+  html:
+    include-in-header:
+      text: '<meta name="robots" content="noindex, follow">'
 ---
 
 <!-- The page the sign-up form sends readers to after they subscribe. It is not in the menu. -->
