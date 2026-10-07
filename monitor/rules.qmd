@@ -130,4 +130,4 @@ A published PDF is never changed silently. Corrections and the right of reply fo
 ## Changes to These Rules {#changes}
 
 Version 1.4, 3 October 2026
-: The page is shorter and plainer. One rule changed: for an actor that is in no dataset, a peer-reviewed publication that classifies it as partially populist is now enough. Issue 2026/1 follows version 1.3. Versions 1.0 to 1.3, of 1 and 2 October 2026, are kept in the site's [public repository](https://github.com/khayyam-rzazade/populiverse/commits/main/monitor/rules.qmd).
+: The page is shorter and plainer. One rule changed: for an actor that is in no dataset, a peer-reviewed publication that classifies it as partially populist is now enough. Issue 2026/1 follows version 1.3. Versions 1.0 to 1.3 are of 1 and 2 October 2026.

@@ -22,8 +22,7 @@ include-in-header:
         "https://bsky.app/profile/populiverse.bsky.social",
         "https://www.instagram.com/populiverse/",
         "https://zenodo.org/communities/populiverse/",
-        "https://www.zotero.org/groups/6697881/populiverse_library",
-        "https://github.com/khayyam-rzazade/populiverse"
+        "https://www.zotero.org/groups/6697881/populiverse_library"
       ]
     }
     </script>

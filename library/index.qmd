@@ -146,7 +146,7 @@ The Library is not complete. If a work is missing or wrongly tagged, or if you s
 
 ## How the Tags Are Given
 
-A tag is given only when the work's own title or abstract supports it. The wordings that count are public: the [phrases for approaches, topics and methods](https://github.com/khayyam-rzazade/populiverse/blob/main/library/phrases.yml) and the [names of countries, leaders and parties](https://github.com/khayyam-rzazade/populiverse/blob/main/library/actors.yml). Nothing is guessed. A missing tag means "not stated in the title or the abstract", not "does not apply".
+A tag is given only when the work's own title or abstract supports it. The wordings that count are public, with the codebook, as a citable dataset: [PopuliVerse Library: The Tagging Rules](https://doi.org/10.5281/zenodo.23224055), on Zenodo. Nothing is guessed. A missing tag means "not stated in the title or the abstract", not "does not apply".
 
 The tags are given by a script, not by hand. The editor checks them at random, not every work.
 
