@@ -194,6 +194,46 @@ main.content h3 {
   text-underline-offset: 0.45em;
 }
 
+// The three accounts, at the end of the group that begins with Newsletter.
+// They are meant to read as one thing with that word: a hairline sets them
+// apart, then the marks sit close together, at the weight of the label beside
+// them rather than louder than it.
+#quarto-header .navbar-nav .nav-item.compact .nav-link {
+  padding: 0 0.35rem;
+}
+
+// Each mark names itself to a screen reader, so the empty label beside it goes.
+#quarto-header .navbar-nav .nav-item.compact .menu-text {
+  display: none;
+}
+
+#quarto-header .navbar-nav .nav-item.compact .bi {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+// The hairline sits before the first mark, whichever one it is.
+#quarto-header .navbar-nav .nav-item:not(.compact) + .nav-item.compact .nav-link {
+  margin-left: 0.6rem;
+  padding-left: 0.95rem;
+  border-left: 1px solid $pv-hairline;
+}
+
+// On a phone the menu opens as a list. The word and the three marks stay on
+// one line there instead of each taking a row of its own.
+@include media-breakpoint-down(lg) {
+  #quarto-header .navbar-nav.ms-auto {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  #quarto-header .navbar-nav .nav-item:not(.compact) + .nav-item.compact .nav-link {
+    margin-left: 0.4rem;
+    padding-left: 0.75rem;
+  }
+}
+
 #quarto-header .dropdown-menu {
   margin-top: 0;
   padding: 0.25rem 0;

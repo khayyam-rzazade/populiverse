@@ -14,6 +14,8 @@ project:
   # The typeface files are copied into the built site as they are.
   resources:
     - "fonts/"
+    # The one rule about where a link opens. See the notes inside the file.
+    - "links.js"
     # The picture shown when a link to the site is shared (LinkedIn, messages).
     - "populiverse-card.png"
 
@@ -79,6 +81,17 @@ website:
     right:
       - text: "Newsletter"
         href: newsletter/index.qmd
+      # The three accounts, as small marks. The order is the same everywhere:
+      # LinkedIn, Bluesky, Instagram. Each one says what it is for a screen reader.
+      - icon: linkedin
+        href: "https://www.linkedin.com/company/populiverse/"
+        aria-label: "PopuliVerse on LinkedIn"
+      - icon: bluesky
+        href: "https://bsky.app/profile/populiverse.bsky.social"
+        aria-label: "PopuliVerse on Bluesky"
+      - icon: instagram
+        href: "https://www.instagram.com/populiverse/"
+        aria-label: "PopuliVerse on Instagram"
 
   # The strip at the bottom of every page.
   page-footer:
@@ -123,3 +136,5 @@ format:
     include-after-body:
       text: |
         <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6cc8cff09da149d49c01978ce7f11555"}'></script><!-- End Cloudflare Web Analytics -->
+        <!-- Where a link opens: outside the site, and our own PDFs, in a new tab. -->
+        <script src="/links.js" defer></script>
