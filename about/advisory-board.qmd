@@ -48,6 +48,16 @@ and put it in its alphabetical place.
 :::
 
 ::: {.pv-member}
+[[Andrea]{.pv-member-first} [Pető]{.pv-member-last}](https://people.ceu.edu/andrea_peto)
+
+[Central European University]{.pv-member-place}
+
+[Professor of Gender Studies]{.pv-member-role}
+
+[Gender and illiberalism, memory politics, far-right movements]{.pv-member-focus}
+:::
+
+::: {.pv-member}
 [[Mattia]{.pv-member-first} [Sguazzini]{.pv-member-last}](https://rubrica.unige.it/personale/UEJPXl5v)
 
 [University of Genoa]{.pv-member-place}
