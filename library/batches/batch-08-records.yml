@@ -1,4 +1,5 @@
 # Batch 08: what was decided by reading, not by the rules alone.
+# Checked by the editor on 9 October 2026: all 199 works listed under read and accepted in this file were read again and kept (library/batches/records-check-2026-10-09.csv).
 # Source: search 01 of OpenAlex (scripts/search_works.R, third version of the rules): journal articles,
 # reviews of books in journals, and books, in English, with a DOI, whose title names populism, published
 # 2008 to 2021. A piece in a journal counts when the journal is on the Scopus source list of August 2026
