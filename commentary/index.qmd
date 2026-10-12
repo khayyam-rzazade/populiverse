@@ -14,7 +14,7 @@ listing:
   date-format: "MMMM YYYY"
 ---
 
-Commentary publishes short pieces in which scholars comment on populism and populist actors: an opinion, an argument, a way of looking at a question. The editor reviews them. Commentary appears four times a year, and its issues are numbered by year.
+Commentary publishes short pieces in which scholars comment on populism and populist actors. An opinion, an argument, a way of looking at a question. The editor reviews them. Commentary appears four times a year, and its issues are numbered by year.
 
 ## Issues
 
@@ -27,7 +27,7 @@ The first issue, 2026/1, is planned for December 2026. The next, 2027/1, follows
 
 ## Call for Commentary
 
-Commentary starts with invited pieces. Other scholars are welcome too: read the guidelines below, then submit your piece through the form. It asks for your details, your piece as a file and the Author's Declaration.
+Commentary starts with invited pieces. Other scholars are welcome too. Read the guidelines below, then submit your piece through the form. It asks for your details, your piece as a file and the Author's Declaration.
 
 [Open the submission form](https://tally.so/r/jaO0lY){.pv-button .pv-button-big}
 
@@ -37,13 +37,13 @@ If the form does not suit you, email your piece to editor@populiverse.com, with 
 
 **Who can write.** PhD holders and doctoral candidates, with their affiliation stated. The editor decides what is published.
 
-**What to write.** Your view on a question about populism or populist actors: an opinion, an argument, an approach. No partisan advocacy.
+**What to write.** Your view on a question about populism or populist actors. An opinion, an argument, an approach. No partisan advocacy.
 
 **Length.** 500 to 1,500 words. The length is flexible.
 
 **Pitch.** Each piece opens with a pitch of 50 to 100 words that says what it argues. It is printed at the top of the piece. Nothing has to be sent beforehand.
 
-**Sources.** You choose the form: links in the text, author-date references, a reference list at the end, or none. The editor may ask for a source for a factual claim.
+**Sources.** You choose the form. Links in the text, author-date references, a reference list at the end, or none. The editor may ask for a source for a factual claim.
 
 **Whose views.** Every piece carries a line saying that the views are the author's own.
 
@@ -71,7 +71,7 @@ In the form, you choose one line in each group. If you send your piece by email 
 
 - were not used
 - were used for language only (spelling, grammar, translation)
-- were used in drafting; I have checked every sentence and I answer for the text
+- were used in drafting. I have checked every sentence and I answer for the text
 
 **3. Interests**
 
@@ -88,4 +88,4 @@ In the form, you choose one line in each group. If you send your piece by email 
 
 **5. The views in the piece are my own.**
 
-Keeping a line does not guarantee publication: the editor decides in each case. Authors keep the copyright in their pieces. What the licences allow is on the [licence page](../legal/licence.qmd).
+Keeping a line does not guarantee publication. The editor decides in each case. Authors keep the copyright in their pieces. What the licences allow is on the [licence page](../legal/licence.qmd).

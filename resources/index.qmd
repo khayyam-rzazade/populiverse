@@ -23,7 +23,7 @@ Each link goes to the project's own site. A line with a plus sign opens a list.
 : Expert estimates of where national parties in Europe stand on European integration, ideology and policy issues, in waves since 1999.
 
 [Populism and Political Parties Expert Survey (POPPA)](https://poppa-data.eu/)
-: Expert ratings of how populist the parties of Europe are: 312 parties in 31 countries in 2023, after a first round in 2018.
+: Expert ratings of how populist the parties of Europe are, with 312 parties in 31 countries in 2023, after a first round in 2018.
 
 [Global Party Survey](https://doi.org/10.1177/1354068820927686)
 : An expert survey of parties around the world that also rates how populist their rhetoric is. The link goes to the article that presents it (Norris 2020).

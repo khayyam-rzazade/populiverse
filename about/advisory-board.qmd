@@ -28,6 +28,16 @@ and put it in its alphabetical place.
 :::
 
 ::: {.pv-member}
+[[Sandra]{.pv-member-first} [Destradi]{.pv-member-last}](https://www.politik.uni-freiburg.de/professuren-en/internationale-beziehungen/professorin)
+
+[University of Freiburg]{.pv-member-place}
+
+[Professor of Political Science and Chair of International Relations]{.pv-member-role}
+
+[Populism and foreign policy, global governance and the Global South, emerging powers]{.pv-member-focus}
+:::
+
+::: {.pv-member}
 [[Christian]{.pv-member-first} [Lequesne]{.pv-member-last}](https://www.sciencespo.fr/ceri/en/directory/lequesne-christian/)
 
 [Sciences Po]{.pv-member-place}
@@ -64,7 +74,17 @@ and put it in its alphabetical place.
 
 [Postdoctoral Researcher]{.pv-member-role}
 
-[EU cybersecurity policy, strategic narratives, civil–military relations]{.pv-member-focus}
+[EU cybersecurity policy, strategic narratives, civil-military relations]{.pv-member-focus}
+:::
+
+::: {.pv-member}
+[[Daniel F.]{.pv-member-first} [Wajner]{.pv-member-last}](https://ef.huji.ac.il/node/3047956)
+
+[Hebrew University of Jerusalem]{.pv-member-place}
+
+[Lecturer (Assistant Professor), Department of International Relations]{.pv-member-role}
+
+[Populist foreign policies, international legitimacy, regional integration]{.pv-member-focus}
 :::
 
 ::: {.pv-member}

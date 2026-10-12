@@ -4,7 +4,7 @@ description: "One email a month with the latest issues."
 body-classes: pv-centred
 ---
 
-Once a month, readers on the list get one email: a short summary of the new Monitor issue and a link to it on this site. When a Commentary issue comes out, the same email announces it too. Nothing else is sent.
+Once a month, readers on the list get one email with a short summary of the new Monitor issue and a link to it on this site. When a Commentary issue comes out, the same email announces it too. Nothing else is sent.
 
 ::: {.pv-centre}
 [Subscribe](https://stats.sender.net/forms/erkOWk/view){.pv-button .pv-button-big}

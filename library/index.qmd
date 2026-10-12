@@ -120,7 +120,7 @@ Entries are tagged on two axes, where their own text supports it. The first says
 - [Parties, Leaders and Movements](?topic=parties): the supply side
 - [Voters and Attitudes](?topic=voters): the demand side
 - [Populists in Government](?topic=government)
-- [Spatial Populism](?topic=spatial): geography, urban–rural divides, regions
+- [Spatial Populism](?topic=spatial): geography, urban-rural divides, regions
 - [Economy and Welfare](?topic=economy-welfare)
 - [Media and Communication](?topic=media-communication)
 - [Gender](?topic=gender)
@@ -136,9 +136,9 @@ Entries can also be filtered by region, country, method, type of publication, ye
 
 ## What Goes In
 
-Works on populism, in English: journal articles, books and book reviews. Chapters and other kinds of work enter only when they have proved significant over time. The rule that anyone can check: "populism" or "populist" is in the title, or in the abstract when there is one.
+Works on populism, in English. Journal articles, books and book reviews. Chapters and other kinds of work enter only when they have proved significant over time. The rule that anyone can check is simple. "Populism" or "populist" is in the title, or in the abstract when there is one.
 
-Works enter in two ways: from the reference lists of handbooks and review articles, and from a search of the open catalogue OpenAlex by title.
+Works enter in two ways. They come from the reference lists of handbooks and review articles, and from a search of the open catalogue OpenAlex by title.
 
 From the search, a piece in a journal enters when Scopus covered the journal in the year of the work. There is no citation threshold. Every DOI is checked in a second catalogue, Crossref.
 
@@ -154,7 +154,7 @@ The tags are given by a script, not by hand. The editor checks them at random, n
 
 The full citation, the abstract when the publisher provides one, a link to the DOI or to an open-access copy, the tags, and a BibTeX reference in one click. The works shown can be downloaded as a BibTeX or a CSV file. PopuliVerse links to papers. It does not host them.
 
-If you use the Library in your research or teaching, please cite it: the reference stands at the top of this page. Cite the works themselves as usual: each entry gives its reference and its BibTeX.
+If you use the Library in your research or teaching, please cite it. The reference stands at the top of this page. Cite the works themselves as usual, as each entry gives its reference and its BibTeX.
 
 ## Suggest a Paper
 

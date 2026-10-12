@@ -50,13 +50,13 @@ Rzazade, Khayyam, ed. 2026. *PopuliVerse Monitor* 2026/1 (September 2026). <http
 
 To cite one item, add its title and the page of the PDF on which it stands.
 
-Issues are numbered by year, and the number follows the month covered: 2026/1 is September 2026, 2026/2 is October 2026. Each year starts again at 1: January 2027 is 2027/1. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).
+Issues are numbered by year, and the number follows the month covered. 2026/1 is September 2026 and 2026/2 is October 2026. Each year starts again at 1, so January 2027 is 2027/1. The Monitor is published under a [CC BY 4.0 licence](../legal/licence.qmd).
 
 ## What Is in an Issue
 
 1. **The month in brief.** A short picture of the month.
-2. **Around the world.** Six regions: Europe; North America; Latin America; Asia-Pacific; Middle East and North Africa; Sub-Saharan Africa. About four full items and a few one-line entries for each region. A full item says what happened, gives the background and says what comes next.
-3. **New research.** A short account of the works on populism published that month that are in the [Library](../library/index.qmd). The full list is one click away. On the web page of an issue this part stands first; in the PDF it is the last of the three.
+2. **Around the world.** Six regions. Europe, North America, Latin America, Asia-Pacific, Middle East and North Africa, and Sub-Saharan Africa. About four full items and a few one-line entries for each region. A full item says what happened, gives the background and says what comes next.
+3. **New research.** A short account of the works on populism published that month that are in the [Library](../library/index.qmd). The full list is one click away. On the web page of an issue this part stands first. In the PDF it is the last of the three.
 
 An issue has 15 pages at most. You can understand each event from the issue itself. The links are there as proof.
 
@@ -65,8 +65,8 @@ An issue has 15 pages at most. You can understand each event from the issue itse
 The Monitor follows written rules.
 
 - **Who is covered.** Actors that academic datasets classify as populist.
-- **What counts as news.** What these actors did, not what they said: elections, governments, laws, court rulings.
-- **Where the news comes from.** A fixed list of sources: nine news agencies, one specialist outlet for the European Union, regional sources and official records.
+- **What counts as news.** What these actors did, not what they said. Elections, governments, laws and court rulings.
+- **Where the news comes from.** A fixed list of sources. Nine news agencies, one specialist outlet for the European Union, regional sources and official records.
 - **How it is written.** From the reports only, in plain words, without judgement.
 - **Who decides.** The editor sets the rules, decides what goes into an issue and answers for every word.
 
@@ -74,4 +74,4 @@ The Monitor follows written rules.
 
 ## Web Page and PDF
 
-Every issue is published twice from the same text: as a web page and as a typeset PDF. The PDF is the version of record. The web page shows the PDF's page numbers in the margin, so a passage can be cited by page from either one. Each issue has its own DOI.
+Every issue is published twice from the same text, as a web page and as a typeset PDF. The PDF is the version of record. The web page shows the PDF's page numbers in the margin, so a passage can be cited by page from either one. Each issue has its own DOI.

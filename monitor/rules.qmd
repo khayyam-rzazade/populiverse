@@ -21,42 +21,42 @@ The Monitor describes what populist actors did around the world, month by month.
 
 ## What Is in an Issue
 
-Three parts: the month in brief; around the world, in six regions; new research. An issue has 15 pages at most.
+An issue has three parts. The month in brief, around the world in six regions, and new research. An issue has 15 pages at most.
 
 One story is one item, told as it stood at the end of the month, in 120 to 150 words. Under it stand the actor, with the dataset or the publication behind it, the sources, and a link to the research on the topic in the [Library](../library/index.qmd).
 
 A region where nothing met the rules says so. It is never padded.
 
-"New research" is a count, not a judgement: the works published that month that are in the Library, by their date of publication in the open catalogue OpenAlex. The full list is one click away.
+"New research" is a count, not a judgement. It lists the works published that month that are in the Library, by their date of publication in the open catalogue OpenAlex. The full list is one click away.
 
 ## Who Is Covered {#who}
 
-The Monitor does not decide who is populist. Research does. An actor is covered when one of these classifies it as populist:
+The Monitor does not decide who is populist. That is decided by scientific research. An actor is covered when one of these classifies it as populist:
 
 - **[The PopuList](https://popu-list.org)**, version 4.0: parties in 31 European countries. Its borderline cases are covered too, and marked.
-- **[The Global Populism Database](https://doi.org/10.7910/DVN/LFTQEZ)**, version 2.1: the speeches of presidents and prime ministers in 77 countries, graded from 0 to 2. A leader counts with an average of 0.5 or more in the latest term (0.5 rounds up to 1: clearly populist). The Monitor follows the leader and the party or government that the leader heads.
+- **[The Global Populism Database](https://doi.org/10.7910/DVN/LFTQEZ)**, version 2.1: the speeches of presidents and prime ministers in 77 countries, graded from 0 to 2. A leader counts with an average of 0.5 or more in the latest term (0.5 rounds up to 1, clearly populist). The Monitor follows the leader and the party or government that the leader heads.
 - **A peer-reviewed publication**, for an actor that is in no dataset. It is enough that the publication classifies the actor as partially populist. The reference is printed next to the name.
 
 An actor is followed in or out of parliament and government. Leaders who have died, parties that no longer exist and governments that a listed actor no longer heads are not followed.
 
 ## What Counts as News {#news}
 
-Actions, not words: elections; entering or leaving government; laws; foreign and defence policy moves; court rulings; party splits; changes of leader. No polls. No social media posts.
+Actions are considered as news, such as elections, entering or leaving government, laws, foreign and defence policy moves, court rulings, party splits or changes of leader. Polls and social media posts are not included.
 
-Any level counts: the government an actor leads, the party, its leader, a member of parliament or another representative; national, regional or local.
+Any level counts: the government an actor leads, the party, its leader, a member of parliament or another representative, national, regional or local.
 
-Left out: thin news, which no listed source reports solidly; court rulings and moves inside a party, unless they matter internationally; events that the actor did not bring about. An event abroad is filed under the actor's region.
+Left out ones are thin news, which no listed source reports solidly, and events that the actor did not bring about. Court rulings and moves inside a party are also left out, unless they matter internationally. An event abroad is filed under the actor's region.
 
 ## Sources {#sources}
 
-The list is fixed. A source that is not on it is not used. The Monitor does not claim that its sources are neutral: nobody can prove that. It shows which sources it uses, why, and where their limits are.
+The list is fixed. A source that is not on it is not used. The Monitor does not claim that its sources are neutral as nobody can prove that. It shows which sources it uses, why, and where their limits are.
 
 ### News Agencies
 
 An agency is on the list when it has a service in English and is not owned by a state. Agencies sell their reports to media on every side of politics: they report, they do not comment.
 
 Reuters
-: Thomson Reuters; bound by its Trust Principles since 1941. All regions.
+: Thomson Reuters, bound by its Trust Principles since 1941. All regions.
 
 Associated Press (AP)
 : A not-for-profit cooperative of news organisations in the United States. All regions.
@@ -71,7 +71,7 @@ ANSA
 : A cooperative of Italian newspaper publishers. Italy.
 
 PA Media
-: A private company; most of its shareholders are British newspaper publishers. The United Kingdom and Ireland.
+: A private company whose shareholders are mostly British newspaper publishers. The United Kingdom and Ireland.
 
 Press Trust of India (PTI)
 : A non-profit cooperative of Indian newspapers. India.
@@ -92,7 +92,7 @@ For the institutions of the European Union only. It mixes news with analysis, an
 
 For Latin America, Sub-Saharan Africa and the Middle East and North Africa, where most agencies are run by the state. A regional source is based in the region, is not owned by a state or a party, has published standards and publishes in English. There are at most three for each region, checked every year against the trust scores of the [Digital News Report](https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026) of the Reuters Institute.
 
-So far: News24, South Africa (Media24, part of Naspers); The Punch, Nigeria (the family of its founder); Buenos Aires Times, Argentina (Editorial Perfil).
+So far there are three. News24 in South Africa (Media24, part of Naspers), The Punch in Nigeria (the family of its founder) and Buenos Aires Times in Argentina (Editorial Perfil).
 
 ### Official Records
 
