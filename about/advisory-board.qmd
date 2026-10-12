@@ -28,7 +28,7 @@ and put it in its alphabetical place.
 :::
 
 ::: {.pv-member}
-[[Sandra]{.pv-member-first} [Destradi]{.pv-member-last}](https://www.politik.uni-freiburg.de/professuren-en/internationale-beziehungen/professorin)
+[[Sandra]{.pv-member-first} [Destradi]{.pv-member-last}](https://uni-freiburg.de/politik/startseite/einrichtung/internationale-beziehungen/prof-dr-sandra-destradi/)
 
 [University of Freiburg]{.pv-member-place}
 
