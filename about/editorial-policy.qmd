@@ -18,7 +18,7 @@ The editor decides what goes into the Monitor and answers for every issue. Comme
 
 ## Originality
 
-Commentary authors send a short declaration with their piece. The declaration says whether the piece is new, whether AI tools were used, and whether they have a tie to an actor discussed. Every piece goes through a similarity check and the editor's own read before it is published.
+Commentary authors send a short declaration with their piece. In it they confirm that the piece and its views are their own, and that the piece names any earlier version and any tie to an actor discussed. They also say whether AI tools were used. Every piece goes through a similarity check and the editor's own read before it is published.
 
 ## Use of AI
 

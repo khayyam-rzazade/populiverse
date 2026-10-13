@@ -27,11 +27,11 @@ The first issue, 2026/1, is planned for December 2026. The next, 2027/1, follows
 
 ## Call for Commentary
 
-Commentary starts with invited pieces. Other scholars are welcome too. Read the guidelines below, then submit your piece through the form. It asks for your details, your piece as a file and the Author's Declaration.
+Commentary starts with invited pieces. Other scholars are welcome too. Read the guidelines below, then submit your piece through the form. It asks for your details, your piece as a file and a short declaration.
 
 [Open the submission form](https://tally.so/r/jaO0lY){.pv-button .pv-button-big}
 
-If the form does not suit you, email your piece to editor@populiverse.com, with the declaration below copied into the message.
+If the form does not suit you, email your piece to editor@populiverse.com and copy the declaration below into the message.
 
 ## Guidelines
 
@@ -39,7 +39,9 @@ If the form does not suit you, email your piece to editor@populiverse.com, with 
 
 **What to write.** Your view on a question about populism or populist actors. An opinion, an argument, an approach. No partisan advocacy.
 
-**Length.** 500 to 1,500 words. The length is flexible.
+**Length.** Up to 1,500 words. About 1,000 is ideal.
+
+**How to write.** PopuliVerse wants to reach readers beyond universities. So where you can, please use plain words and short sentences.
 
 **Pitch.** Each piece opens with a pitch of 50 to 100 words that says what it argues. It is printed at the top of the piece. Nothing has to be sent beforehand.
 
@@ -49,7 +51,7 @@ If the form does not suit you, email your piece to editor@populiverse.com, with 
 
 **Review.** Pieces are reviewed by the editor. Commentary is not peer-reviewed.
 
-**What you send.** The piece, your affiliation, your ORCID iD and the declaration below, through the [submission form](#call-for-commentary).
+**What you send.** The piece, your affiliation and the short declaration below, through the [submission form](#call-for-commentary). Your ORCID iD is welcome but not required.
 
 **Cost.** None.
 
@@ -59,13 +61,11 @@ If the form does not suit you, email your piece to editor@populiverse.com, with 
 
 ## The Author's Declaration
 
-In the form, you choose one line in each group. If you send your piece by email instead, copy the lines below into it and keep the one line in each group that applies to you.
+The declaration has two parts. In the form, you tick the first and choose one line in the second. If you send your piece by email instead, copy the first line into the message and keep the one line of the second that applies to you.
 
 **1. The piece**
 
-- is new and has not been published
-- builds on work of mine that is published or under review, which I name in the piece
-- has appeared elsewhere, and I hold the right to republish it
+- I confirm that the piece and the views in it are my own, and that I name in it any earlier version and any tie to an actor I discuss.
 
 **2. AI tools**
 
@@ -73,19 +73,6 @@ In the form, you choose one line in each group. If you send your piece by email 
 - were used for language only (spelling, grammar, translation)
 - were used in drafting. I have checked every sentence and I answer for the text
 
-**3. Interests**
+Pieces are published under CC BY 4.0, so anyone may share and adapt them with credit to the author. If you would rather use CC BY-ND 4.0, which allows sharing but not changes, just say so to the editor.
 
-- I have no tie to any actor discussed in the piece
-- I am or was a member, adviser or employee of a party, government or organisation discussed
-- my work on this topic is or was funded by an actor discussed
-- I have another tie, which I name in one line
-
-**4. Licence**
-
-- CC BY 4.0: anyone may share and adapt the piece, with credit to me
-- CC BY-ND 4.0: anyone may share the piece, with credit to me, but not change it
-- Not sure: the editor applies the site's standard, CC BY 4.0
-
-**5. The views in the piece are my own.**
-
-Keeping a line does not guarantee publication. The editor decides in each case. Authors keep the copyright in their pieces. What the licences allow is on the [licence page](../legal/licence.qmd).
+Sending a piece does not guarantee publication. The editor decides in each case. Authors keep the copyright in their pieces. What the licences allow is on the [licence page](../legal/licence.qmd).
