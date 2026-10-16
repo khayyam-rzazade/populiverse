@@ -8,6 +8,8 @@ His doctoral research is funded by the European Union through the Marie Skłodow
 
 PopuliVerse is his own project and is independent. It is not part of his doctoral project, and it is neither funded nor endorsed by the University of Genoa or by the European Union.
 
+He also built [Logicers](https://logicers.com), a free site of intellectual games where anyone can make their own quiz and play it live with a big class, with friends or alone.
+
 ## Contact
 
 Write to the editor: editor@populiverse.com
