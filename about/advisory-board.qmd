@@ -38,6 +38,16 @@ and put it in its alphabetical place.
 :::
 
 ::: {.pv-member}
+[[Erin K.]{.pv-member-first} [Jenne]{.pv-member-last}](https://research.ceu.edu/en/persons/erin-kristin-jenne/)
+
+[Central European University]{.pv-member-place}
+
+[Professor of International Relations]{.pv-member-role}
+
+[Populism and nationalism, ethnic conflict, populist foreign policy]{.pv-member-focus}
+:::
+
+::: {.pv-member}
 [[Christian]{.pv-member-first} [Lequesne]{.pv-member-last}](https://www.sciencespo.fr/ceri/en/directory/lequesne-christian/)
 
 [Sciences Po]{.pv-member-place}
