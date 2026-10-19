@@ -3,7 +3,7 @@ title: "Privacy"
 description: "What personal data PopuliVerse handles, and what it does not."
 ---
 
-Last updated: 13 October 2026
+Last updated: 19 October 2026
 
 PopuliVerse collects as little personal data as it can. The site has no user accounts, no comments section, no advertising and no cookies.
 
@@ -15,7 +15,7 @@ Khayyam RZAZADE, editor of PopuliVerse. Contact: editor@populiverse.com
 
 **Hosting.** The site is hosted on GitHub Pages. To deliver the pages, GitHub processes technical data such as your IP address.
 
-**Visit statistics.** The site counts visits with Cloudflare Web Analytics. For this, each page loads one small script from Cloudflare. It sets no cookies and stores nothing in your browser.
+**Visit statistics.** The site counts visits in two ways. Cloudflare Web Analytics loads one small script on each page. It sets no cookies and stores nothing in your browser. A small counter run by the editor on Cloudflare adds one to a running total when you arrive, and your browser tab keeps your visit number until you close the tab, so you are counted once for each visit. The counter keeps the total and nothing about you.
 
 **Everything else.** All other things the pages need, the typeface included, are served from this site itself.
 

@@ -429,6 +429,56 @@ main.content h3 {
   margin-bottom: 0;
 }
 
+// The visit line on the About page: a quiet strip between two thin lines, in the
+// same manner as "How to cite". A small label above, then one sentence in which
+// the reader's number is set a little larger. It stays hidden (see counter.js)
+// until the visit number is high enough, and then fades in.
+.pv-visit {
+  margin: 1.75rem 0 2.25rem;
+  padding: 0.875rem 0 0.75rem;
+  border-top: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-visit[hidden] {
+  display: none;
+}
+
+.pv-visit > p {
+  margin: 0;
+}
+
+.pv-visit-label {
+  @include pv-label;
+  color: $pv-muted;
+}
+
+.pv-visit-text {
+  padding-top: 0.125rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.pv-visit-number {
+  font-size: 1.375rem;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.pv-visit-in {
+  animation: pv-visit-fade 0.9s ease-out both;
+}
+
+@keyframes pv-visit-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-visit-in {
+    animation: none;
+  }
+}
+
 // A list that opens with a click (the Resources page): one line with a plus sign,
 // between two thin lines; the list itself appears underneath
 .pv-fold {

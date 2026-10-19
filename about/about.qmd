@@ -4,6 +4,17 @@ title: "About PopuliVerse"
 
 PopuliVerse is the universe of populism. It is one place to study populism, to follow what populist actors do and to publish on it. It is in English, it is global in scope, it is academic in standard and it is readable by anyone.
 
+<!-- The visit line. It stays hidden until a reader's visit number reaches the
+     number set at the top of counter.js (now 1,000), then fills in by itself.
+     The page does not change in any other way. -->
+
+```{=html}
+<div class="pv-visit" id="pv-visit" hidden>
+  <p class="pv-visit-label">Thank you for reading</p>
+  <p class="pv-visit-text">Yours is visit number <span class="pv-visit-number"></span> to Populi<em>Verse</em>.</p>
+</div>
+```
+
 ## What Is Here
 
 [The Library](../library/index.qmd)

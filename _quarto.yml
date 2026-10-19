@@ -16,6 +16,8 @@ project:
     - "fonts/"
     # The one rule about where a link opens. See the notes inside the file.
     - "links.js"
+    # The visit counter's page script. See the notes inside the file.
+    - "counter.js"
     # The picture shown when a link to the site is shared (LinkedIn, messages).
     - "populiverse-card.png"
 
@@ -132,9 +134,13 @@ format:
     canonical-url: true
     email-obfuscation: javascript
     # The visit counter: Cloudflare Web Analytics. It sets no cookies.
-    # This one line is the only thing a page loads from another company.
+    # This one line is the only thing a page loads from another company. (The
+    # counter in counter.js talks to counter.populiverse.com, which is our own
+    # address, run on Cloudflare too.)
     include-after-body:
       text: |
         <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "6cc8cff09da149d49c01978ce7f11555"}'></script><!-- End Cloudflare Web Analytics -->
         <!-- Where a link opens: outside the site, and our own PDFs, in a new tab. -->
         <script src="/links.js" defer></script>
+        <!-- Our own visit counter: one number added per visit, see counter.js. -->
+        <script src="/counter.js" defer></script>
