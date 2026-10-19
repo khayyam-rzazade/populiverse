@@ -10,8 +10,8 @@ PopuliVerse is the universe of populism. It is one place to study populism, to f
 
 ```{=html}
 <div class="pv-visit" id="pv-visit" hidden>
-  <p class="pv-visit-label">Thank you for reading</p>
-  <p class="pv-visit-text">Yours is visit number <span class="pv-visit-number"></span> to Populi<em>Verse</em>.</p>
+  <p class="pv-visit-label">Thank you for visiting Populi<em>Verse</em>.</p>
+  <p class="pv-visit-text">Your visit is number <span class="pv-visit-number"></span>.</p>
 </div>
 ```
 

@@ -448,8 +448,11 @@ main.content h3 {
   margin: 0;
 }
 
+// A thank-you in ordinary lower case (not the small capitals of the menu), so
+// that the name PopuliVerse keeps its own spelling, with Verse in italics.
 .pv-visit-label {
-  @include pv-label;
+  font-size: 0.9375rem;
+  line-height: 1.6;
   color: $pv-muted;
 }
 
