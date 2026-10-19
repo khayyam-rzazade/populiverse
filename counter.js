@@ -22,7 +22,7 @@
 
   var API = "https://counter.populiverse.com";
   var KEY = "pv-visit";
-  var SHOW_FROM = 1000;
+  var SHOW_FROM = 1;
 
   // The browser tab's own memory. Some browsers refuse it. In that case the
   // visit is not counted at all, so a total is never inflated by page loads.
