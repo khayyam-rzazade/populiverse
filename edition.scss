@@ -1135,9 +1135,80 @@ main.content .pv-board-note {
   border-top: 1px solid $pv-ink;
 }
 
+// A member with two posts: the institution is a link to her page there, quiet like
+// the name, and the second post sits a little apart from the first
+.pv-member-posts a {
+  display: block;
+}
+
+.pv-member-posts a .pv-member-place {
+  text-decoration: underline;
+  text-decoration-color: $pv-hairline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.pv-member-posts a:hover .pv-member-place,
+.pv-member-posts a:focus-visible .pv-member-place {
+  text-decoration-color: $pv-ink;
+}
+
+.pv-member-place.pv-more {
+  margin-top: 0.875rem;
+}
+
+// On wide screens, five to a row. Every member is three rows tall (name, posts,
+// research focus) and the rows are shared along the board, so the names, the short
+// rules and the research lines line up across a row however many posts or lines a
+// member has. Where a browser cannot share rows, the three-to-a-row layout stays.
+@include media-breakpoint-up(xl) {
+  @supports (grid-template-rows: subgrid) {
+    .pv-board {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0 2rem;
+      margin-inline: -3.5rem;
+    }
+
+    .pv-member {
+      display: grid;
+      grid-row: span 3;
+      grid-template-rows: subgrid;
+      row-gap: 0;
+      margin-bottom: 3.5rem;
+    }
+
+    .pv-member-first {
+      font-size: 1rem;
+    }
+
+    .pv-member-last {
+      font-size: 1.625rem;
+    }
+
+    .pv-member-place {
+      margin-top: 1rem;
+      font-size: 0.9375rem;
+    }
+
+    .pv-member-place.pv-more {
+      margin-top: 0.75rem;
+    }
+
+    .pv-member-role {
+      min-height: 0;
+      font-size: 0.875rem;
+    }
+
+    .pv-member-focus {
+      font-size: 0.8125rem;
+    }
+  }
+}
+
 // The line under the members: who answers for what is published
 main.content .pv-board-note {
-  max-width: 34rem;
+  max-width: 56rem;
   margin: 4.5rem auto 0;
   color: $pv-muted;
   font-size: 0.9375rem;

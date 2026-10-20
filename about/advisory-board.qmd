@@ -6,11 +6,13 @@ body-classes: pv-centred
 
 <!--
 The members, in alphabetical order of surname, so that no one comes first.
-Every entry has the same lines, in the same order:
+Every entry has the same parts, in the same order:
   1. the name, linked to the member's own page (first name, then surname)
-  2. the institution
-  3. the position
-  4. the research focus
+  2. the posts, inside ::: {.pv-member-posts}: for each post the institution,
+     then the position. A member with two posts has two pairs; there each
+     institution is linked to the member's page at it, and the second
+     institution carries {.pv-member-place .pv-more}
+  3. the research focus
 To add a member, copy one entry from ::: {.pv-member} to its closing :::
 and put it in its alphabetical place.
 -->
@@ -20,9 +22,12 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Fabrizio]{.pv-member-first} [Coticchia]{.pv-member-last}](https://fabriziocoticchia.weebly.com)
 
+::: {.pv-member-posts}
 [University of Genoa]{.pv-member-place}
 
 [Professor of Political Science]{.pv-member-role}
+
+:::
 
 [Foreign and defence policy, security studies]{.pv-member-focus}
 :::
@@ -30,9 +35,12 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Sandra]{.pv-member-first} [Destradi]{.pv-member-last}](https://uni-freiburg.de/politik/startseite/einrichtung/internationale-beziehungen/prof-dr-sandra-destradi/)
 
+::: {.pv-member-posts}
 [University of Freiburg]{.pv-member-place}
 
 [Professor of Political Science and Chair of International Relations]{.pv-member-role}
+
+:::
 
 [Populism and foreign policy, global governance and the Global South, emerging powers]{.pv-member-focus}
 :::
@@ -40,9 +48,12 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Erin K.]{.pv-member-first} [Jenne]{.pv-member-last}](https://research.ceu.edu/en/persons/erin-kristin-jenne/)
 
+::: {.pv-member-posts}
 [Central European University]{.pv-member-place}
 
 [Professor of International Relations]{.pv-member-role}
+
+:::
 
 [Populism and nationalism, ethnic conflict, populist foreign policy]{.pv-member-focus}
 :::
@@ -50,9 +61,12 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Christian]{.pv-member-first} [Lequesne]{.pv-member-last}](https://www.sciencespo.fr/ceri/en/directory/lequesne-christian/)
 
+::: {.pv-member-posts}
 [Sciences Po]{.pv-member-place}
 
 [Professor of Political Science]{.pv-member-role}
+
+:::
 
 [European studies and diplomacy]{.pv-member-focus}
 :::
@@ -60,9 +74,12 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Benjamin]{.pv-member-first} [Moffitt]{.pv-member-last}](https://research.monash.edu/en/persons/benjamin-moffitt/)
 
+::: {.pv-member-posts}
 [Monash University]{.pv-member-place}
 
 [Senior Lecturer in Politics and International Relations]{.pv-member-role}
+
+:::
 
 [Populism, radical and reactionary politics, visual politics]{.pv-member-focus}
 :::
@@ -70,9 +87,12 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Andrea]{.pv-member-first} [Pető]{.pv-member-last}](https://people.ceu.edu/andrea_peto)
 
+::: {.pv-member-posts}
 [Central European University]{.pv-member-place}
 
 [Professor of Gender Studies]{.pv-member-role}
+
+:::
 
 [Gender and illiberalism, memory politics, far-right movements]{.pv-member-focus}
 :::
@@ -80,19 +100,42 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Mattia]{.pv-member-first} [Sguazzini]{.pv-member-last}](https://rubrica.unige.it/personale/UEJPXl5v)
 
+::: {.pv-member-posts}
 [University of Genoa]{.pv-member-place}
 
 [Postdoctoral Researcher]{.pv-member-role}
+
+:::
 
 [EU cybersecurity policy, strategic narratives, civil-military relations]{.pv-member-focus}
 :::
 
 ::: {.pv-member}
+[[Monika]{.pv-member-first} [Sus]{.pv-member-last}](https://www.eui.eu/people?id=monika-ewa-sus-1)
+
+::: {.pv-member-posts}
+[[European University Institute]{.pv-member-place}](https://www.eui.eu/people?id=monika-ewa-sus-1)
+
+[Part-time Professor]{.pv-member-role}
+
+[[Institute of Political Studies, Polish Academy of Sciences]{.pv-member-place .pv-more}](https://isppan.waw.pl/kadra/dr-hab-monika-sus/)
+
+[Associate Professor, Department of European Studies]{.pv-member-role}
+
+:::
+
+[European security architecture, EU foreign and security policy]{.pv-member-focus}
+:::
+
+::: {.pv-member}
 [[Daniel F.]{.pv-member-first} [Wajner]{.pv-member-last}](https://ef.huji.ac.il/node/3047956)
 
+::: {.pv-member-posts}
 [Hebrew University of Jerusalem]{.pv-member-place}
 
 [Lecturer (Assistant Professor), Department of International Relations]{.pv-member-role}
+
+:::
 
 [Populist foreign policies, international legitimacy, regional integration]{.pv-member-focus}
 :::
@@ -100,9 +143,12 @@ and put it in its alphabetical place.
 ::: {.pv-member}
 [[Leslie]{.pv-member-first} [Wehner]{.pv-member-last}](https://researchportal.bath.ac.uk/en/persons/leslie-wehner/)
 
+::: {.pv-member-posts}
 [University of Bath]{.pv-member-place}
 
 [Professor of International Relations]{.pv-member-role}
+
+:::
 
 [Foreign policy analysis, populism and foreign policy, Latin America]{.pv-member-focus}
 :::
