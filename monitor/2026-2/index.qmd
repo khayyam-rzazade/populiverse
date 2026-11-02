@@ -1,0 +1,264 @@
+---
+# ============================================================================
+# PopuliVerse Monitor: one issue.
+#
+# This first part, between the two lines of dashes, is the HEADER: the facts
+# about the issue. The TEXT of the issue starts below it.
+#
+# - Edit the text as you like. Keep the three lines under an item as they are
+#   built: each starts with *Actor:* (or *Actors:*), *Sources:* or
+#   *Research on this:*.
+# - In the header, change only what stands to the right of a colon.
+# - After any change, run scripts/make_issue.R (open it in RStudio and click
+#   "Source"). It makes the PDF again and brings the page numbers up to date.
+# - This issue has no "New research" part (the editor's decision for 2026/2).
+# - While this folder's name ends in "-draft", GitHub cannot see it.
+# ============================================================================
+
+title: "PopuliVerse Monitor 2026/2"
+subtitle: "October 2026"
+description: "What populist actors did around the world from 1 to 31 October 2026."
+
+issue: "2026/2"                      # the number of the issue
+period: "1 to 31 October 2026"       # the period covered
+rules-version: "1.4"                 # the version of the rules this issue follows
+author: "Khayyam Rzazade"            # the editor
+
+# ---- ON PUBLICATION DAY: fill in these two lines, between the quotation marks.
+date: "2026-11-02"        # the day of publication, as year-month-day
+doi: "10.5281/zenodo.23880551"         # the DOI reserved at Zenodo
+
+# ---- Leave these lines as they are.
+body-classes: pv-issue
+editor-label: "Editor"
+---
+
+## The month in brief
+
+In Brazil President Luiz Inácio Lula da Silva won a fourth term in the runoff against Flávio Bolsonaro, the son of former president Jair Bolsonaro. Flávio Bolsonaro refused to concede and left for the United States, which gave him and his family visas. In Israel the bloc of Prime Minister Benjamin Netanyahu finished ahead of the opposition in the election of 27 October but without a majority. Latvia First came second in Latvia's election. In the Czech Republic the movement of Prime Minister Andrej Babiš won no seat in the Senate election. In France Marine Le Pen launched her campaign for the presidential election of 2027.
+
+Governments led by actors on the Monitor's watchlist acted at home and abroad. The United States sanctioned the International Criminal Court and Rwanda's defence ministry, allowed imports of Russian diesel and sued California over mail-in ballots. Vladimir Putin agreed in principle to new three-way talks on Ukraine. Türkiye and Pakistan agreed with Saudi Arabia on the rapid deployment of forces to the kingdom, and Turkish prosecutors put the broadcaster Halk TV under a trustee. El Salvador sent soldiers to Haiti after President Nayib Bukele said that gangs were holding four Salvadorans hostage. Nicaragua left the Central American Parliament.
+
+In Poland, where Law and Justice is the largest opposition force, police secured the Constitutional Tribunal after the suspension of its president, and politicians of the party criticised the move. The International Criminal Court found Rodrigo Duterte, the former president of the Philippines, fit to stand trial. In Sub-Saharan Africa nothing met the Monitor's rules.
+
+## Around the world
+
+### Europe
+
+#### Russia: Putin agrees in principle to new talks on Ukraine and frees an American
+
+On 21 October President Vladimir Putin met the US envoy Steve Witkoff at the Constantine Palace in St Petersburg. The Kremlin said that the talks lasted about three hours. Putin's adviser Yuri Ushakov said that Putin agreed "in principle" to resume three-way talks between Russia, the United States and Ukraine after 10 November. He said that the talks would deal with security guarantees for Russia and Ukraine once the war ends. No such talks have been held since February. Russia released Stephen Hubbard, a retired American teacher imprisoned on charges of fighting as a mercenary in Ukraine. Witkoff said that it appeared to be a goodwill gesture by the Kremlin, after President Donald Trump asked Putin to free him. AAP reported that shortly after Putin agreed to resume the talks, Russia launched 21 ballistic missiles at Kyiv in three waves, killing at least two people, according to Ukraine's president, Volodymyr Zelenskyy.
+
+*Actors:* Vladimir Putin, president, and United Russia; Donald Trump, president of the United States (both Global Populism Database 2.1).
+*Sources:* AP, 21 October 2026 ([read in the copy of Hawaii News Now](https://www.hawaiinewsnow.com/2026/10/21/trump-envoy-witkoff-meets-putin-st-petersburg-ukraine-war-talks/)). AAP, with Reuters and EFE, 22 October 2026 ([read in the copy of The Canberra Times](https://www.canberratimes.com.au/story/9373029/russia-agrees-to-new-ukraine-peace-talks-in-principle/)).
+*Research on this:* [Library: foreign policy; defence and security; Russia](https://populiverse.com/library/?topic=foreign-policy,defence-security&country=russia)
+
+#### Türkiye: Türkiye and Pakistan agree with Saudi Arabia on the rapid deployment of forces
+
+On 5 October Türkiye, Pakistan and Saudi Arabia held an emergency meeting in Riyadh. In a joint statement they agreed to apply their collective defence commitments at once and to deploy the agreed forces and capabilities quickly in the kingdom. AFP reported that Türkiye and Pakistan will carry out a "rapid deployment" of troops. The statement noted recent attacks on Saudi Arabia, above all on Mecca and Medina, without naming the Houthis of Yemen. It did not say what role the troops would play. President Recep Tayyip Erdoğan signed the Mecca Joint Defence Agreement in August with Saudi Arabia's crown prince, Mohammed bin Salman, and Pakistan's prime minister, Shehbaz Sharif. It follows NATO's Article 5: an armed attack on one is an attack on all three. Türkiye's government sent the agreement to parliament for approval on 20 October. Foreign Minister Hakan Fidan said that Türkiye would not send troops into another country's territory to carry out an attack. Pakistan declined to give details, citing operational confidentiality.
+
+*Actor:* Recep Tayyip Erdoğan, president, and the Justice and Development Party (Global Populism Database 2.1).
+*Sources:* AFP, 5 October 2026 ([read in the copy of Gulf News](https://gulfnews.com/uae/turkey-pakistan-to-deploy-forces-to-saudi-amid-houthi-attacks-joint-statement-1.500699553)). AP, 21 October 2026 ([read in the copy of News4Jax](https://www.news4jax.com/business/2026/10/21/how-the-mecca-defense-agreement-between-turkey-pakistan-and-saudi-arabia-will-work/)).
+*Research on this:* [Library: foreign policy; defence and security; Turkey](https://populiverse.com/library/?topic=foreign-policy,defence-security&country=turkey)
+
+#### France: Marine Le Pen launches her presidential campaign
+
+On 25 October Marine Le Pen launched her campaign for the presidential election of 2027 at a rally in Orléans. The vote has two rounds, in April and May. Jordan Bardella was re-elected president of the National Rally (RN) and presented as her choice for prime minister. Le Pen promised to restore border controls, to expel foreign criminals automatically and to apply "zero tolerance" in policing. She promised spending restraint, lower taxes on business and less bureaucracy, and she rejected further increases in the retirement age. She did not call for France to leave the European Union, and said that she would reduce the influence of Brussels. Le Pen was convicted of embezzling European Parliament funds and is appealing. On 24 October more than 400,000 people marched in French cities against the rising cost of living, and police made more than 1,000 arrests, AFP reports. The same day 13,000 people marched in Orléans against the RN, by the police count, and twice that by the organisers' count.
+
+*Actor:* National Rally (The PopuList 4.0).
+*Sources:* Reuters, 25 October 2026 ([read in the copy of The Star](https://www.thestar.com.my/news/world/2026/10/26/france039s-le-pen-launches-presidential-bid-as-protests-rattle-the-nation)). AFP, 25 October 2026 ([read in the copy of Kuwait Times](https://kuwaittimes.com/article/52327/world/le-pen-launches-presidential-campaign-as-protests-grip-france/)).
+*Research on this:* [Library: parties, leaders and movements; voters and attitudes; France](https://populiverse.com/library/?topic=parties,voters&country=france)
+
+#### Poland: police secure the Constitutional Tribunal after its president is suspended
+
+On 30 October police secured Poland's Constitutional Tribunal in Warsaw, as dozens of protesters demonstrated against the suspension of the court's president, Bogdan Święczkowski. The suspension was published on the court's website at about 6 p.m. local time. The website went down soon after, and the AP could not verify the reasons given. Police said that they detained three people after some protesters breached the tribunal's fence and others threw objects at officers. President Karol Nawrocki, who was flying to Senegal, said that he turned his flight back because of the situation. Prime Minister Donald Tusk wrote: "Restoring the rule of law is our obligation." Politicians of Law and Justice (PiS), the largest opposition force, criticised the suspension. The former justice minister Zbigniew Ziobro called it "a blatant, criminal attack on the constitutional order" and urged resistance. Tusk's government came to power in 2023 with a promise to restore the independence of the judiciary. PiS led the country between 2015 and 2023. Critics accuse it of imposing political control over key judicial institutions, and its reforms led the EU to impose fines on Poland.
+
+*Actor:* Law and Justice (The PopuList 4.0).
+*Sources:* AP, 30 October 2026 ([read in the copy of La Nación](https://www.lanacion.com.ar/usa/police-secure-polands-constitutional-tribunal-as-protests-erupt-over-court-chiefs-suspension-nid30102026/)).
+*Research on this:* [Library: democracy and institutions; parties, leaders and movements; Poland](https://populiverse.com/library/?topic=democracy-institutions,parties&country=poland)
+
+#### Türkiye: police raid Halk TV, and prosecutors name a trustee
+
+On 14 October police raided the Istanbul office of Halk TV, a broadcaster close to the opposition. Its live broadcast was cut at 6:30 a.m. The Istanbul Chief Prosecutor's Office said that it was investigating the channel's chairman, Cafer Mahiroğlu, on suspicion of bribery, tender-rigging and laundering of assets derived from crime. It issued detention orders for 17 people, among them Mahiroğlu, and 11 were detained. Mahiroğlu is outside Türkiye and is being sought. Firms in which he is a partner or administrator were seized, and the Savings Deposit Insurance Fund (TMSF) was named trustee. Halk TV said that hundreds of police entered the building. Reuters counts Halk TV as the fifth major Turkish news outlet put under a trustee, after Flash TV, Eko Türk, Habertürk and Tele1. Özgür Özel, the chairman of the main opposition party, called the move an attempt to prevent people from accessing news.
+
+*Actor:* Recep Tayyip Erdoğan, president, and the Justice and Development Party (Global Populism Database 2.1).
+*Sources:* Reuters, 14 October 2026, two versions ([read in the copy of ThePrint](https://theprint.in/world/turkish-prosecutors-appoint-government-trustee-to-run-pro-opposition-halk-tv/3071203/); [read in the copy of The Star](https://www.thestar.com.my/news/world/2026/10/14/turkish-police-raid-office-of-opposition-tv-channel-the-broadcaster-says)).
+*Research on this:* [Library: media and communication; democracy and institutions; Turkey](https://populiverse.com/library/?topic=media-communication,democracy-institutions&country=turkey)
+
+**Also this month**
+
+- **Czech Republic.** In the Senate election, whose result came on 17 October, ANO, the movement of Prime Minister Andrej Babiš, won none of the 27 seats at stake and lost the one seat it held. Its two coalition partners also won none. With almost all votes counted, candidates linked to the opposition parties had won 22 seats, and the opposition kept control of the Senate. (AP, 17 October, [copy of ABC News](https://abcnews.com/International/wireStory/pro-western-opposition-wins-big-czech-senate-election-137347562))
+
+- **Latvia.** In the election of 3 October Latvia First came second with 17 of the 100 seats and 13.1 per cent of the vote. The United List of Prime Minister Andris Kulbergs won 42 seats. (AFP, 4 October, [copy of Kuwait Times](https://kuwaittimes.com/article/50905/world/latvian-pms-party-wins-record-42-seats-in-election/); Reuters, 4 October, [copy of The Star](https://www.thestar.com.my/news/world/2026/10/04/latvian-pm-on-track-to-lead-pro-ukraine-coalition-after-election-win))
+
+- **Bulgaria.** On 13 October drones hit two ships off the Bulgarian coast, and one of them sank. Bulgarian authorities had no clear evidence of who was responsible. Prime Minister Rumen Radev called the attacks "absolutely unacceptable" and said that Bulgaria was seeking NATO and EU assistance. The government's press office said that he told the Russian ambassador that the strikes favoured Russian interests. The ambassador said that she had no information from the Russian defence ministry and did not rule out a "provocation by a third party". (AP, 13 October, [copy of Click on Detroit](https://www.clickondetroit.com/news/world/2026/10/13/drones-hit-ships-in-black-sea-sinking-1-and-prompting-rescue-operations-bulgaria-says/))
+
+- **Italy.** On 22 October the government of Giorgia Meloni approved €106 million more in tax credits for truckers hit by fuel costs, and money for farmers and the fisheries sector, as truckers' protests in the south eased. It offered police escorts to trucks passing roadblocks. Meloni said that intimidation would not be tolerated. (Reuters, 22 October, [copy of Internazionale](https://www.internazionale.it/ultime-notizie-reuters/2026/10/22/southern-italy-truckers-ease-protests-as-government-lines-up-aid))
+
+- **Romania.** On 20 October parliament approved the government of Luca Niculescu, a diplomat with no party affiliation, with 280 votes. The Alliance for the Union of Romanians (AUR) did not support it and called it a "puppet government". (AFP, 20 October, [copy of Kuwait Times](https://kuwaittimes.com/article/51997/world/romanian-parliament-approves-pro-eu-govt-after-deadlock/))
+
+- **Switzerland.** On 2 October Guy Parmelin of the Swiss People's Party, the president of the Swiss Confederation, said that he will leave the Federal Council on 31 December. AFP writes that his successor will come from the same party. Parliament votes on 9 December. (AFP, 2 October, [copy of Arab News](https://www.arabnews.com/world/swiss-president-to-quit-government-3004262))
+
+### North America
+
+#### United States: sanctions on the International Criminal Court
+
+On 9 October Secretary of State Marco Rubio announced sanctions on the International Criminal Court (ICC). It was hours after Navi Pillay, a South African and a former ICC judge, was named winner of the Nobel Peace Prize. According to the AP, the sanctions block any assets that the court might have in US jurisdictions. Rubio said that the United States would ban transactions with the court. Companies and people in the United States that do business with it have six months to end that business. Earlier sanctions had named the court's prosecutors and judges. The Treasury issued four general licences that allow some transactions, on telecommunications, software, pension payments and detainees. Rubio said that the United States expects its allies, among them NATO members in Europe and Japan, to restrain the court. Otherwise, he said, it would go on taking the court apart "piece by piece". The ICC's deputy prosecutor, Nazhat Shameem Khan, condemned the sanctions. Washington objects to the court's arrest warrants for Israeli officials, among them Prime Minister Benjamin Netanyahu.
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* Reuters, 9 October 2026 ([read in the copy of Daily Maverick](https://dailymaverick.co.za/article/2026-10-09-us-imposes-sanctions-on-icc-hours-after-former-judge-wins-nobel-peace-prize)). AP, 9 October 2026 ([read in the copy of Spectrum News](https://spectrumlocalnews.com/us/snplus/international/2026/10/09/u-s--sanctions-international-criminal-court)).
+*Research on this:* [Library: the international sphere; foreign policy; democracy and institutions; United States](https://populiverse.com/library/?topic=international,foreign-policy,democracy-institutions&country=united-states)
+
+#### United States and Russia: Russian diesel for the American market
+
+On 9 October President Donald Trump said, after a phone call with President Vladimir Putin, that Russia would immediately supply more than 300,000 tons of diesel to the United States and the global market. He said that a further 500,000 tons would follow in November and 1,000,000 tons "immediately thereafter". The same day the Treasury issued a general licence that allows imports of Russian diesel until 7 April 2027. The United States has imposed sanctions on Russia's energy companies over its war on Ukraine. Diesel prices had risen by about 70 per cent since the United States and Israel went to war with Iran this year. The motoring association AAA put the national average at $6.28 a gallon on 8 October, ahead of the congressional elections of 3 November. AAP reported on 22 October that Moscow had announced it would resume diesel exports to the United States that Thursday, 22 October, with 40,000 tonnes of fuel dispatched and more to follow.
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* Reuters, 9 October 2026 ([read in the copy of Virginia Business](https://virginiabusiness.com/trump-russia-supply-300000-tons-diesel-fuel/)). AAP, with Reuters and EFE, 22 October 2026 ([read in the copy of The Canberra Times](https://www.canberratimes.com.au/story/9373029/russia-agrees-to-new-ukraine-peace-talks-in-principle/)).
+*Research on this:* [Library: foreign policy; economy and welfare; United States](https://populiverse.com/library/?topic=foreign-policy,economy-welfare&country=united-states)
+
+#### United States: Microsoft and other firms suspended from a green-card programme, and nine universities investigated
+
+On 8 October Vice President JD Vance announced that the government was suspending Microsoft and other firms from a programme that allows foreign workers to apply for green cards. He also named Adobe, Cognizant, Infosys, Tata, Wipro, HCL and Capgemini. Vance said that Microsoft had laid off 6,000 American workers the year before, while obtaining 6,300 H-1B visas and almost 3,000 green cards. Microsoft said that 80 per cent of its roughly 6,000 H-1B applications in the last fiscal year were to extend or change the status of existing employees. Vance also named nine universities for investigation into fraud in the J-1 exchange-visa programme: Harvard, Yale, Stanford, Brown, the University of Pittsburgh, UC Davis, Caltech, Arizona State and MIT. MIT, Brown and Pittsburgh said that they had received subpoenas. Hours after the announcement Trump gave Microsoft's chief executive, Satya Nadella, the National Medal of Technology and Innovation.
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* AP, 8 October 2026 ([read in the copy of The Atlanta Journal-Constitution](https://www.ajc.com/news/2026/10/microsoft-is-being-suspended-from-program-to-apply-for-green-cards-for-h-1b-visa-workers-vance-says/)). AFP, 9 October 2026 ([read in the copy of eNCA](https://www.enca.com/business/us-suspending-microsoft-visa-programme-vance)).
+*Research on this:* [Library: migration; populists in government; economy and welfare; United States](https://populiverse.com/library/?topic=migration,government,economy-welfare&country=united-states)
+
+#### United States: the Justice Department sues California over mail-in ballots
+
+On 15 October the Justice Department sued California election officials. It asked a judge to stop the state from counting, in the midterm elections of 3 November, the mail-in ballots of people whom the federal government flags as "likely" non-citizens, until their immigration status can be confirmed. The department said that California had missed a 48-hour deadline to review a list of 20,000 names. The list was sent on 13 October to the Los Angeles County registrar, Dean Logan. His office said that the list covers voters across the state and that he has no authority over ballots outside his county. California's secretary of state, Shirley Weber, said that the federal government had not supported its claim. She referred to a case in Nevada where nearly 16,000 flagged voters were all found to be citizens. The state's attorney general, Rob Bonta, said that state officials would not withhold ballots. California mails ballots to all registered voters.
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* AP, 15 October 2026 ([read in the copy of WDBJ7](https://www.wdbj7.com/2026/10/16/trump-administration-sues-california-block-state-counting-alleged-noncitizen-mail-in-ballots/?outputType=amp)).
+*Research on this:* [Library: democracy and institutions; populists in government; United States](https://populiverse.com/library/?topic=democracy-institutions,government&country=united-states)
+
+#### United States and Rwanda: sanctions on Rwanda's defence ministry
+
+On 28 October the US Treasury imposed sanctions on Rwanda's ministry of defence. It said that the ministry had "deployed thousands of troops" in the North Kivu and South Kivu provinces of eastern Congo. There, it said, the troops operate alongside the armed group M23 and provide it with military equipment, supplies, logistical support and training. The Treasury also said that Rwandan authorities had introduced advanced weaponry, including surface-to-air missile systems and jamming equipment, creating risks for civilian aviation. It also sanctioned a Rwandan financial institution, the Zigama Credit and Savings Society. Treasury Secretary Scott Bessent said: "Rwanda must halt its support for M23 and withdraw its troops from eastern DRC." Congo, the United States and UN experts accuse Rwanda of backing M23. Rwanda's government has consistently denied backing armed groups in Congo. Late last year the presidents of Congo and Rwanda signed a peace agreement in Washington, with Trump present. The AP reports that these efforts have so far had little impact on the ground, where fighting continues.
+
+*Actor:* Donald Trump, president, and his government (Global Populism Database 2.1).
+*Sources:* AP, 28 October 2026 ([read in the copy of La Nación](https://www.lanacion.com.ar/usa/us-imposes-sanctions-on-rwandan-defense-ministry-over-involvement-in-eastern-congo-conflict-nid28102026/)).
+*Research on this:* [Library: foreign policy; defence and security; United States](https://populiverse.com/library/?topic=foreign-policy,defence-security&country=united-states)
+
+**Also this month**
+
+- **United States and Ukraine.** On 23 October the White House said that the First Lady, Melania Trump, had brokered a local ceasefire in Oleshky, a city in the Russian-occupied part of the Kherson region, so that aid could arrive and civilians could leave. Ukraine's ombudsman, Dmytro Lubinets, said that it would start on 27 October. (AP, 23 October, [copy of FOX Carolina](https://www.foxcarolina.com/2026/10/23/white-house-announces-melania-trump-secures-ceasefire-russian-occupied-ukrainian-city/?outputType=amp))
+
+- **United States and Saudi Arabia.** On 21 October the State Department ordered non-emergency staff of the US embassy in Saudi Arabia and their families to leave the country. Its spokesman said that the Houthis had "increasingly engaged in hostilities" against Saudi Arabia. (AFP, 22 October, [copy of The Star](https://www.thestar.com.my/news/world/2026/10/22/washington-orders-us-embassy-staff-families-to-leave-saudi-arabia))
+
+- **United States.** On 7 October the Department of Homeland Security proposed that schools pay a fee of $70,000 for each new international student in the work programme known as OPT. It said that the fee responds to fraud and abuse. (AP, 7 October, [copy of WLOX](https://www.wlox.com/2026/10/08/trump-administration-proposes-70000-fee-international-students-work-us/))
+
+- **United States.** On 12 October federal agents searched the home of Representative Ilhan Omar, a Democrat, in the Washington area. The Justice Department said that the search was part of an ongoing federal criminal investigation. Omar called it an attempt to "target political enemies". (AAP, with Reuters, 13 October, [copy of The Canberra Times](https://www.canberratimes.com.au/story/9367208/us-agents-search-congresswoman-omars-home-in-probe/))
+
+### Latin America
+
+#### Brazil: Lula wins the runoff against Flávio Bolsonaro
+
+Brazil voted in the first round of its general election on 4 October. Flávio Bolsonaro of the Liberal Party, the son of former president Jair Bolsonaro, came first with 47 per cent. President Luiz Inácio Lula da Silva won 45 per cent. In the runoff on 25 October Lula won 51.8 per cent and Flávio Bolsonaro 48.2 per cent. Lula received more than 64.2 million votes, about 4.4 million more than his rival. It is his fourth term. Jair Bolsonaro is serving a 27-year sentence for an attempted coup. He named Flávio his political heir, and Flávio had promised to free him if elected. On 25 October, in a brief speech in Brasília, Flávio Bolsonaro refused to concede. He said that it was "impossible to recognise the results" and that he would ask for the election to be annulled. He called a two-hour extension of voting, ordered by the Supreme Court, "unacceptable". On 26 October his Liberal Party said that it acknowledged Lula's victory.
+
+*Actor:* Jair Bolsonaro, former president (Global Populism Database 2.1).
+*Sources:* AFP, 5 October 2026 ([read in the copy of Buenos Aires Times](https://batimes.com.ar/news/amp/latin-america/brazil-heads-to-run-off-as-flavio-bolsonaro-takes-first-place-finish-over-lula.phtml)) and 26 October 2026 ([read in the copy of Buenos Aires Times](https://batimes.com.ar/news/latin-america/lula-celebrates-election-win-as-brazil-markets-tumble.phtml)). Reuters, 27 October 2026 ([read in the copy of the Honolulu Star-Advertiser](https://www.staradvertiser.com/2026/10/27/breaking-news/flavio-bolsonaro-heads-to-u-s-after-losing-brazil-election/)). AP, 28 October 2026 ([read in the copy of Live 5 News](https://www.live5news.com/2026/10/28/defeated-presidential-candidate-flvio-bolsonaro-his-family-land-miami-after-leaving-brazil/)).
+*Research on this:* [Library: parties, leaders and movements; voters and attitudes; Brazil](https://populiverse.com/library/?topic=parties,voters&country=brazil)
+
+#### Brazil: Flávio Bolsonaro leaves for the United States, which gives his family visas
+
+On 26 October a Supreme Court justice, Alexandre de Moraes, ordered Flávio Bolsonaro to hand over all his passports within 24 hours, in a money-laundering investigation. He denies the allegations. On 27 October the State Department said that it would issue visas to him and his family. The same day Argentina's security ministry denied reports that he had entered Argentina, Buenos Aires Times reported. On 28 October the AP reported, citing Argentinian immigration officials, that the family had left Brazil late on 27 October, entered Argentina through a border checkpoint and boarded a private charter plane. They landed in Miami on 28 October. In a letter on X Bolsonaro called himself "the elected president", then deleted it and called himself the "leader". He wrote: "I did not flee Brazil." He thanked Trump for the visas and Argentina's president, Javier Milei, for helping him make the journey. Trump had called the election "rigged", without evidence, the AP says. Lula called the departure "shameful" and accused Washington of colluding with the Bolsonaros to return them to power.
+
+*Actor:* Jair Bolsonaro, former president (Global Populism Database 2.1).
+*Sources:* Reuters, 27 October 2026 ([read in the copy of the Honolulu Star-Advertiser](https://www.staradvertiser.com/2026/10/27/breaking-news/flavio-bolsonaro-heads-to-u-s-after-losing-brazil-election/)) and 28 October 2026 ([read in the copy of The Star](https://www.thestar.com.my/news/world/2026/10/28/flavio-bolsonaro-expected-to-land-in-miami-shortly-after-trump-offers-brazil-exit)). Buenos Aires Times, 27 October 2026 ([report](https://batimes.com.ar/news/latin-america/reports-flavio-bolsonaro-flees-to-united-states-after-brazil-election-defeat.phtml)). AP, 28 October 2026 ([read in the copy of Live 5 News](https://www.live5news.com/2026/10/28/defeated-presidential-candidate-flvio-bolsonaro-his-family-land-miami-after-leaving-brazil/)). AFP, 28 October 2026 ([read in the copy of Khaleej Times](https://www.khaleejtimes.com/world/americas/us-to-grant-flavio-bolsonaro-visa-as-he-flees-brazil-after-election-loss-2)).
+*Research on this:* [Library: parties, leaders and movements; democracy and institutions; Brazil](https://populiverse.com/library/?topic=parties,democracy-institutions&country=brazil)
+
+#### El Salvador: Bukele sends soldiers to Haiti to find four missing Salvadorans
+
+On 18 October gangs attacked an armoured vehicle near Port-au-Prince, also using explosives. Four Salvadoran members of the UN-backed Gang Suppression Force jumped from the burning vehicle and went missing. On 21 October President Nayib Bukele said that Haitian gangs were holding the four men hostage. He said that he had launched a military operation to bring them back unharmed. He said that the men were aviation technicians in a mission of pilots and technical staff whose main work is medical evacuation. On 22 October 100 Salvadoran special forces soldiers arrived in Haiti, and another 100 were to follow, officials told the AP. On 27 October a Haitian security official told Reuters that around 1,000 Salvadoran soldiers had been sent. Before the attack El Salvador had at least 124 troops in the force, according to a UN report. The force has about 2,000 troops, just over a third of its planned size. No group has claimed the attack.
+
+*Actor:* Nayib Bukele, president, and Nuevas Ideas (Global Populism Database 2.1).
+*Sources:* AP, 21 October 2026 ([read in the copy of The Atlanta Journal-Constitution](https://www.ajc.com/news/2026/10/bukele-says-military-operation-launched-to-rescue-salvadorans-held-by-gangs-in-haiti/)) and 22 October 2026 ([read in the copy of The Atlanta Journal-Constitution](https://www.ajc.com/news/2026/10/el-salvador-deploys-special-forces-to-haiti-to-help-find-4-missing-soldiers-who-came-under-attack/)). Reuters, 21 October 2026 ([read in the copy of ThePrint](https://theprint.in/world/el-salvador-says-haiti-gangs-holding-4-force-members-hostage-announces-new-rescue-mission/3078292/)) and 27 October 2026 ([read in the copy of The Star](https://www.thestar.com.my/news/world/2026/10/28/around-1000-soldiers-from-el-salvador-have-deployed-to-haiti-source-says)).
+*Research on this:* [Library: foreign policy; defence and security; Latin America](https://populiverse.com/library/?topic=foreign-policy,defence-security&region=latin-america)
+
+#### Nicaragua: the government leaves the Central American Parliament
+
+On 3 October Nicaragua's foreign ministry said that it was denouncing the treaty of 1987 that set up the Central American Parliament, the parliament of six countries. It said that it acted "in the full exercise of its sovereignty" and that the move would take immediate effect. The day before, the Organization of American States had called on Nicaragua to free political prisoners and restore civil liberties. Nicaragua left the Organization of American States in 2023. In 2025 it said that it would leave the UN Human Rights Council, after a UN report on rights violations. In July the government of Daniel Ortega and his wife, Rosario Murillo, said that the country would no longer hold elections. Ortega has held power without a break since 2007. The government did not answer a request for comment.
+
+*Actor:* Daniel Ortega, co-president (Global Populism Database 2.1).
+*Sources:* Reuters, 4 October 2026 ([read in the copy of Internazionale](https://www.internazionale.it/ultime-notizie-reuters/2026/10/04/nicaragua-announces-withdrawal-from-central-american-parliament)).
+*Research on this:* [Library: foreign policy; the international sphere; democracy and institutions; Nicaragua](https://populiverse.com/library/?topic=foreign-policy,international,democracy-institutions&country=nicaragua)
+
+**Also this month**
+
+- **Chile and Bolivia.** On 16 October President José Antonio Kast (populist radical right: Díaz, Rovira Kaltwasser and Zanotti 2023) made an official visit to La Paz, the first by a president of Chile in 71 years, he said. He and Bolivia's president, Rodrigo Paz, were due to sign agreements on mining and energy. The two countries have had no relations at ambassador level since 1978. (AP, 16 October, [copy of ABC News](https://abcnews.com/International/wireStory/chiles-president-makes-state-visit-bolivia-71-years-137322303); [copy of WLRN](https://www.wlrn.org/americas/2026-10-16/chiles-president-makes-first-state-visit-to-bolivia-in-71-years-as-region-shifts-right))
+
+- **Argentina.** On 2 October the government of President Javier Milei (partially populist: Sendra and Marcos-Marne 2024) said that it would offer citizenship to foreign investors, for a payment of $350,000 to the Treasury or the purchase of an $800,000 government bond. It said that the money would "continue strengthening the fiscal and financial position". (AFP, 2 October, [copy of Gulf News](https://gulfnews.com/world/americas/argentina-unveils-350000-investment-scheme-for-citizenship-1.500696574))
+
+### Asia-Pacific
+
+#### Philippines: the International Criminal Court finds Rodrigo Duterte fit to stand trial
+
+On 8 October the International Criminal Court (ICC) announced that its judges had found the former president of the Philippines, Rodrigo Duterte, 81, fit to stand trial. The ruling is dated 28 September. An independent panel of experts found that he can understand the charges, follow the proceedings and discuss his defence with his lawyers. The judges rejected his lawyers' request to drop the case on medical grounds, and a request to release him. Duterte faces charges of crimes against humanity, murder and attempted murder, over killings in his "war on drugs". He denies the charges. Estimates of the dead range from more than 6,000, the national police figure, to up to 30,000, the figure of rights groups. Duterte was arrested in March 2025 and taken to The Hague. His trial is due to open on 30 November.
+
+*Actor:* Rodrigo Duterte, former president (Global Populism Database 2.1).
+*Sources:* AP, 8 October 2026 ([read in the copy of Click on Detroit](https://www.clickondetroit.com/news/world/2026/10/08/international-criminal-court-judges-say-philippine-ex-president-rodrigo-duterte-fit-to-stand-trial/)).
+*Research on this:* [Library: the international sphere; democracy and institutions; Philippines](https://populiverse.com/library/?topic=international,democracy-institutions&country=philippines)
+
+#### India: police detain the leaders of a youth protest movement before a rally in New Delhi
+
+On 10 October police in New Delhi detained the founder of the Cockroach Janta Party, Abhijeet Dipke, and two of its leaders as their plane arrived from Mumbai, the party said. Police also detained scores of protesters. Two digital media outlets said that police had detained four of their reporters. Thousands of security personnel patrolled the city. Forty-five metro stations and markets were closed, and mobile internet was cut in the central business district. The movement had called a protest at Jantar Mantar, a site set aside for protests, to demand the resignation of the chief election commissioner, Gyanesh Kumar. Critics say that a revision of the voter lists favours the Bharatiya Janata Party of Prime Minister Narendra Modi. The Cockroach Janta Party called the detentions authoritarian. The police gave no immediate comment. On 11 October Dipke and two other leaders were released, his lawyer said.
+
+*Actor:* Narendra Modi, prime minister, and the Bharatiya Janata Party (Global Populism Database 2.1).
+*Sources:* AAP, with Reuters, 10 October 2026 ([read in the copy of The Leader](https://www.theleader.com.au/story/9366051/india-detains-youth-protest-leaders-to-defuse-rally/)). Reuters, 11 October 2026 ([read in the copy of The Star](https://www.thestar.com.my/news/world/2026/10/11/india039s-039cockroach039-movement-leader-released-from-detention-lawyer-says)).
+*Research on this:* [Library: democracy and institutions; media and communication; India](https://populiverse.com/library/?topic=democracy-institutions,media-communication&country=india)
+
+#### Indonesia: the government stops clearing forest for rice fields
+
+On 6 October Indonesia's climate envoy, Hashim Djojohadikusumo, said that the government would stop clearing forest for rice fields. He is the brother of President Prabowo Subianto (Aspinall 2015). The clearing was part of a programme of 2024 to end rice imports within five years by clearing three million hectares. Hashim said that there was no further need to expand rice growing in forest areas, because Indonesia had reached self-sufficiency in rice. The government will instead raise yields on existing farmland, for example with better seeds. According to the National Food Agency, Indonesia produced 34.71 million tonnes of rice in 2025, against a yearly demand of 31.19 million tonnes. How much forest had already been turned into rice fields is not known. The advocacy group Mighty Earth welcomed the decision.
+
+*Actor:* Prabowo Subianto, president, and his government (Aspinall 2015).
+*Sources:* AFP, 6 October 2026 ([read in the copy of The Star](https://www.thestar.com.my/aseanplus/aseanplus-news/2026/10/06/indonesia-says-will-halt-forest-destruction-for-rice-paddies)).
+*Research on this:* [Library: populists in government; economy and welfare; other; Indonesia](https://populiverse.com/library/?topic=government,economy-welfare,other&country=indonesia)
+
+**Also this month**
+
+- **Indonesia.** On 21 October Indonesia, Türkiye, Qatar and Pakistan signed a defence memorandum in Doha, on cooperation in military production, training, research and development, Türkiye's defence ministry said. (Reuters, 21 October, [copy of Internazionale](https://www.internazionale.it/ultime-notizie-reuters/2026/10/21/turkey-qatar-pakistan-indonesia-sign-defence-cooperation-accord-ankara-says))
+
+### Middle East and North Africa
+
+#### Israel: the election gives neither bloc a majority
+
+Israelis voted in a national election on 27 October, the first since Hamas's attack of 7 October 2023. By 8 p.m. more than 74 per cent of eligible voters had voted, the Central Elections Committee said, the highest at that hour in decades. Prime Minister Benjamin Netanyahu and his Likud party ran with their allies. His main rival was Gadi Eisenkot, a former military chief. A majority needs 61 of the 120 seats. With about half of the ballots counted on 28 October, Netanyahu's bloc had 55 seats, Eisenkot's bloc 49 and the Arab parties 16, AFP reported. Netanyahu called for a "strong government of the right". Eisenkot said: "The public has voted for change." He said that he would not govern with Arab lawmakers. Netanyahu stays caretaker prime minister until a new government is formed. He is on trial for corruption and is the subject of an international arrest warrant over alleged crimes against humanity in Gaza, which he denies.
+
+The final results of the Central Elections Committee were released early on 30 October, France 24 reported. Netanyahu's bloc won 53 of the 120 seats, and Likud stayed the largest party, with 27. The opposition bloc led by Eisenkot won 48 seats. The Arab parties, Raam and the Joint List, won 19.
+
+*Actor:* Benjamin Netanyahu, prime minister, and his government (Global Populism Database 2.1).
+*Sources:* AP, 27 October 2026 ([read in the copy of PBS NewsHour](https://www.pbs.org/newshour/world/no-clear-winner-in-israeli-election-exit-polls-indicate-as-netanyahus-fate-hangs-in-the-balance)). AFP, 28 October 2026 ([read in the copy of Gulf News](https://gulfnews.com/world/mena/netanyahu-bloc-leads-after-half-of-israeli-votes-counted-but-no-majority-1.500726578)). France 24, 30 October 2026 ([live page, final results](https://www.france24.com/en/middle-east/20261029-live-israeli-elections-are-coming-to-a-close-with-no-majority-to-be-seen)).
+*Research on this:* [Library: parties, leaders and movements; voters and attitudes; Israel](https://populiverse.com/library/?topic=parties,voters&country=israel)
+
+#### Israel: Netanyahu's office orders a closure of the West Bank after two soldiers are killed
+
+On 23 October two Palestinian gunmen from Hebron carried out an attack near the Yehuda Junction outside Hebron, the Israeli military said. Two soldiers were killed and three lightly wounded. Israeli troops killed both attackers. Netanyahu's office ordered the security forces to cordon off Hebron and to prepare a full closure of the West Bank. Netanyahu met his Security Cabinet and blamed Hamas, which praised the attack but did not claim it. He said that troops would enter the gunmen's neighbourhood, move residents out and search house by house. He said that he and Defence Minister Israel Katz were considering a very extensive army operation in the West Bank, of a kind not carried out since 1967, AFP reports. On the orders of Finance Minister Bezalel Smotrich the army began to demolish Palestinian-owned buildings near the site. Since October 2023 Israeli forces and settlers have killed 1,117 Palestinians in the West Bank, according to an AFP tally based on data from the Palestinian health ministry. At least 51 Israelis have been killed, according to Israeli figures.
+
+*Actor:* Benjamin Netanyahu, prime minister, and his government (Global Populism Database 2.1).
+*Sources:* AP, 23 October 2026 ([read in the copy of The Atlanta Journal-Constitution](https://www.ajc.com/news/2026/10/netanyahus-office-orders-closure-of-west-bank-after-soldiers-kill-2-men-in-behind-an-alleged-attack/)). AFP, 23 October 2026 ([read in the copy of Khaleej Times](https://www.khaleejtimes.com/mena/netanyahu-israel-preparing-full-closure-west-bank-response-to-attack)).
+*Research on this:* [Library: defence and security; populists in government; Israel](https://populiverse.com/library/?topic=defence-security,government&country=israel)
+
+#### Israel and Colombia: an embassy in Jerusalem, and a trade agreement restored
+
+On 14 October Colombia opened its embassy in Jerusalem, the tenth government to do so. The day before, the free trade agreement between the two countries was reinstated. Colombia's former president, Gustavo Petro, had ended it. Petro broke diplomatic relations with Israel in 2024 over its actions in Gaza. President Abelardo De La Espriella, a right-winger who took office in August 2026, reversed that break. Colombia's foreign minister, Omar Bula, called Israel a strategic partner. Israel's foreign minister, Gideon Saar, praised the move. The Palestinian vice president, Hussein Al Sheikh, condemned the opening. Most countries keep their embassies in Tel Aviv.
+
+*Actor:* the government of Benjamin Netanyahu (Global Populism Database 2.1).
+*Sources:* Reuters, 14 October 2026 ([read in the copy of Internazionale](https://www.internazionale.it/ultime-notizie-reuters/2026/10/14/colombia-opens-embassy-in-jerusalem-restores-free-trade-deal-with-israel)).
+*Research on this:* [Library: foreign policy; economy and welfare; Israel](https://populiverse.com/library/?topic=foreign-policy,economy-welfare&country=israel)
+
+**Also this month**
+
+- **Israel.** On 19 October police, with the army and the Shin Bet, said that they had arrested 10 suspects after settler attacks on Heidi Levine, a photojournalist of The Washington Post, and on French, Belgian and Polish diplomats in the West Bank. Netanyahu said that the diplomats had entered a sensitive area without coordinating with the military. (Reuters, 19 October, [copy of Internazionale](https://www.internazionale.it/ultime-notizie-reuters/2026/10/19/israel-police-arrest-suspects-over-settler-attacks-on-us-journalist-european-diplomats))
+
+### Sub-Saharan Africa
+
+Nothing met the Monitor's rules in this region in October 2026.
+
+## References for actors that are in no dataset
+
+- Aspinall, Edward. 2015. "Oligarchic Populism: Prabowo Subianto's Challenge to Indonesian Democracy." *Indonesia* 99: 1–28. [https://doi.org/10.5728/indonesia.99.0001](https://doi.org/10.5728/indonesia.99.0001)
+- Díaz, Camila, Cristóbal Rovira Kaltwasser, and Lisa Zanotti. 2023. "The Arrival of the Populist Radical Right in Chile: José Antonio Kast and the 'Partido Republicano'." *Journal of Language and Politics* 22 (3): 342–59. [https://doi.org/10.1075/jlp.22131.dia](https://doi.org/10.1075/jlp.22131.dia)
+- Sendra, Mariana, and Hugo Marcos-Marne. 2024. "Is Milei a Populist? People and Market in the New Radical Right in Argentina." *Contemporary Politics*. [https://doi.org/10.1080/13569775.2024.2311982](https://doi.org/10.1080/13569775.2024.2311982)
