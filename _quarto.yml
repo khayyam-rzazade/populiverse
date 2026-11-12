@@ -24,6 +24,9 @@ project:
     - "counter.js"
     # The picture shown when a link to the site is shared (LinkedIn, messages).
     - "populiverse-card.png"
+    # The script of "Actors in Monitor" and "Countries in Monitor", and of the
+    # upper part of each actor's and each country's page.
+    - "data/monitor-pages.js"
 
 lang: en-GB
 
@@ -70,6 +73,18 @@ website:
         href: monitor/index.qmd
       - text: "Commentary"
         href: commentary/index.qmd
+      # The data pages, and the pages of the actors and countries in the
+      # Monitor (written at every build; see scripts/make_pages.py)
+      - text: "Data"
+        menu:
+          - text: "Who Counts as Populist?"
+            href: data/who-counts.qmd
+          - text: "Populists in Power"
+            href: data/in-power.qmd
+          - text: "Actors in Monitor"
+            href: actors/index.qmd
+          - text: "Countries in Monitor"
+            href: countries/index.qmd
       - text: "Resources"
         href: resources/index.qmd
       - text: "About"

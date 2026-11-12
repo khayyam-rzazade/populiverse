@@ -1,0 +1,91 @@
+---
+title: "Populists in Power"
+pagetitle: "Populists in Power: A Map from 1990 to Today"
+description: "Where populists govern and since when, from 1990 to today, from research datasets and PopuliVerse Monitor."
+page-layout: full
+body-classes: pv-data
+google-scholar: false
+citation: false
+# in-power.json and sources.txt are written by scripts/make_data.py; monitor.json
+# at every build by scripts/make_pages.py. links.csv is the checked list of the
+# links that PopuliVerse made itself. The map is world.json, from Natural
+# Earth through the world-atlas package. D3 and TopoJSON are kept in vendor/.
+resources:
+  - pv-data.js
+  - in-power.js
+  - in-power.json
+  - monitor.json
+  - world.json
+  - sources.txt
+  - links.csv
+  - vendor/d3.min.js
+  - vendor/topojson-client.min.js
+  - vendor/LICENSE-d3.txt
+  - vendor/LICENSE-topojson-client.txt
+  - vendor/LICENSE-world-atlas.txt
+---
+
+::: {.pv-prose .pv-data-lede}
+Where do populists govern, and since when? The map follows them from 1990 to today. The years before the Monitor come from research datasets. Today comes from the Monitor.
+
+Move through the years, or press Play. Click a country, or choose it from the list, to see its governments and leaders.
+:::
+
+```{=html}
+<div id="ip-app" class="pv-ip" data-source="in-power.json" data-monitor="monitor.json" data-map="world.json">
+  <p class="pv-lib-loading">Loading the map…</p>
+  <noscript>
+    <div class="pv-lib-message">
+      <p>This page needs JavaScript. The data are also in <a href="in-power.json">one file</a>, with <a href="sources.txt">their sources and licences</a>.</p>
+    </div>
+  </noscript>
+</div>
+<script src="vendor/d3.min.js" defer></script>
+<script src="vendor/topojson-client.min.js" defer></script>
+<script src="pv-data.js" defer></script>
+<script src="in-power.js" defer></script>
+```
+
+::: {.pv-prose}
+
+## How This Page Works {#how}
+
+Each year shows the government on 1 July.
+
+In power means that a populist leads the government or is a partner in it. A party that supports a government from outside is shown, and not counted as in power.
+
+There are two views, and you can choose. Either view shows the stronger of the two.
+
+Parties in government come from PPEG, and The PopuList says which of them are populist. The two are linked through the IDs of Party Facts. In a few places an ID was missing or pointed to another party. There the link was made by hand, the reason was written down, and the party is marked "linked by Populi*Verse*". [The list of these links](#links) stands under the page's charts and can be downloaded. This view covers The PopuList's 31 European countries.
+
+Heads of government come from the Global Populism Database, which grades their speeches. A term with an average of 0.5 or more counts as populist. In the words of its paper, Hawkins et al. 2019, that is somewhat populist or above. A leader counts only where he or she heads the government. In PPEG's countries that is the person PPEG names for the cabinet, or the president where the cabinet is presidential. Elsewhere it is the leader the database holds. A president beside a prime minister is shown in the country's panel and not counted.
+
+Striped means a borderline case. The PopuList calls some parties borderline populist in some years. Where a country's place rests on such a party alone, the map and the chart show it striped.
+
+Not known means that a party in the government has no Party Facts ID and no checked link, so it cannot be looked up.
+
+Hatched means not covered. It never means none. The datasets end at different years. PPEG holds governments to 31 October 2025. The Global Populism Database grades a leader only for the terms it has coded, and for many countries its last term ended years ago. For the United States, for example, its last graded term is that of Donald Trump from 2017 to 2021. The map shows a year only where a dataset holds it. A country says why it is not covered when you point at it or open it.
+
+Today comes from the Monitor. It shows only the actors on the Monitor's list, each with the source that classes it, and whether they hold power as of its latest issue. An actor is on the list because a dataset or a study classed it at some time. For a leader, the page names the terms whose speeches were graded. Now is therefore not a new grading. A country without an actor is not a country without populists in power.
+
+## Sources and Licences {#sources}
+
+- [PPEG](https://doi.org/10.7910/DVN/5OAH7P), version 2025v1. Krause, Döring and Stoppe 2025. CC0. Governments to 31 October 2025.
+- [The PopuList](https://popu-list.org), version 4.0. Rooduijn et al. 2024, [British Journal of Political Science](https://doi.org/10.1017/S0007123423000431), and the dataset itself, [Rooduijn et al. 2023](https://doi.org/10.17605/OSF.IO/2EWKQ). No open licence. Both references are given, as its authors ask.
+- [Global Populism Database](https://doi.org/10.7910/DVN/LFTQEZ), version 2.1. Hawkins et al. 2019, the paper and the dataset. CC0. The file is of November 2025.
+- [Party Facts](https://doi.org/10.7910/DVN/TJINLQ), version 2023. Döring and Regel 2019, and Bederke, Döring and Regel 2023. CC0.
+- [Populi*Verse* Monitor](../monitor/index.qmd), for today.
+
+[Full references and licences](sources.txt). [The list of links made by Populi*Verse*](links.csv). The map is drawn from [Natural Earth](https://www.naturalearthdata.com), in the public domain, with [D3](https://d3js.org) and [TopoJSON](https://github.com/topojson/topojson-client), kept on this site.
+
+## How to Cite This Page {#cite}
+
+Rzazade, Khayyam, ed. 2026. "Populists in Power." Populi*Verse*. https://populiverse.com/data/in-power.html.
+
+Please cite the datasets too. Each country's panel lists them. A picture saved from this page carries its sources and this citation.
+
+:::
+
+::: {.pv-page-report}
+Found an error? Write to editor@populiverse.com.
+:::

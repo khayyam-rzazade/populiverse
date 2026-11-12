@@ -1,0 +1,86 @@
+---
+title: "Who Counts as Populist?"
+# The name in the browser tab and in search results
+pagetitle: "Who Counts as Populist? Four Datasets Side by Side"
+description: "What four research datasets say about who is populist, party by party and leader by leader, each in its own words."
+page-layout: full
+body-classes: pv-data
+google-scholar: false
+citation: false
+# The files the page needs next to it on the site. who-counts.json and
+# sources.txt are written by scripts/make_data.py (run by hand when a dataset
+# comes out in a new version); monitor.json is written at every build by
+# scripts/make_pages.py. links.csv is the checked list of the links that
+# PopuliVerse made itself. D3 is kept in vendor/, with its licence.
+resources:
+  - pv-data.js
+  - who-counts.js
+  - who-counts.json
+  - monitor.json
+  - sources.txt
+  - links.csv
+  - vendor/d3.min.js
+  - vendor/LICENSE-d3.txt
+---
+
+::: {.pv-prose .pv-data-lede}
+Researchers do not always agree on who is populist. Here four datasets speak side by side, each in its own words. Populi*Verse* adds no verdict of its own.
+
+Search for a party, a leader or a country. Click a name to see everything the datasets hold on it.
+:::
+
+```{=html}
+<div id="wc-app" class="pv-wc" data-source="who-counts.json" data-monitor="monitor.json">
+  <p class="pv-lib-loading">Loading the datasets…</p>
+  <noscript>
+    <div class="pv-lib-message">
+      <p>This page needs JavaScript. The data are also in <a href="who-counts.json">one file</a>, with <a href="sources.txt">their sources and licences</a>.</p>
+    </div>
+  </noscript>
+</div>
+<script src="vendor/d3.min.js" defer></script>
+<script src="pv-data.js" defer></script>
+<script src="who-counts.js" defer></script>
+```
+
+::: {.pv-prose}
+
+## How This Page Works {#how}
+
+Every verdict is the dataset's own. The PopuList classes parties in 31 European countries. The Global Party Survey asked experts about parties around the world in 2019. The Global Populism Database grades the speeches of presidents and prime ministers, term by term. V-Party gives each party a score at each election.
+
+The datasets are linked through the IDs of [Party Facts](https://partyfacts.herokuapp.com), the field's own way of linking parties across datasets. In a few places an ID was missing or pointed to another party. There the link was made by hand and the reason was written down. Such a row is marked "linked by Populi*Verse*". [The list of these links](#links) stands under the table and can be downloaded. A link is used only to find a party in The PopuList. It is never used to call a party not populist. Where there is no ID and no link, a row stands alone.
+
+The mark compares the datasets that give a verdict in their own categories, year by year. A leader's speeches are compared with the party in the same years. A borderline year of The PopuList counts as populist for the mark, and the label says borderline. V-Party gives a score and no category, so it is shown and never counted.
+
+For the Global Populism Database, the words for a term are those of its paper, Hawkins et al. 2019. An average below 0.5 is not populist. From 0.5 to 0.99 it is somewhat populist, from 1.0 to 1.49 populist, and from 1.5 very populist. On this page a term counts as populist from 0.5. The Monitor uses the same line. The database's file marks some terms as current. That was so in November 2025, when the file was made, and says nothing about today.
+
+The number "classed populist by at least one dataset" counts a party or a leader by its own verdict only. That is a populist label in The PopuList, a populist category in the survey, or a term of speeches at 0.5 or above.
+
+The Global Party Survey is read here from V-Party's file, which carries about half of its parties. "Not in the copy used" means only that.
+
+No entry and not covered never mean not populist. Independents and lists of others are left out, since they are not parties.
+
+The data change only when a dataset brings out a new version. They are listed below.
+
+## Sources and Licences {#sources}
+
+- [The PopuList](https://popu-list.org), version 4.0. Rooduijn et al. 2024, [British Journal of Political Science](https://doi.org/10.1017/S0007123423000431), and the dataset itself, [Rooduijn et al. 2023](https://doi.org/10.17605/OSF.IO/2EWKQ). No open licence. Both references are given, as its authors ask.
+- [Global Party Survey 2019](https://doi.org/10.7910/DVN/WMGTNS). Norris 2020. CC0. Here as V-Party carries it.
+- [Global Populism Database](https://doi.org/10.7910/DVN/LFTQEZ), version 2.1. Hawkins et al. 2019, the paper and the dataset. CC0.
+- [V-Party](https://doi.org/10.23696/vpartydsv2), version 2. Lindberg et al. 2022. V-Dem publishes its data under CC BY-SA 4.0. V-Party's own page names no licence. This site treats it as CC BY-SA 4.0, so a file or a picture of this page that carries its scores carries that licence too.
+- [Party Facts](https://doi.org/10.7910/DVN/TJINLQ), version 2023. Döring and Regel 2019, and Bederke, Döring and Regel 2023. CC0.
+
+[Full references and licences](sources.txt). [The list of links made by Populi*Verse*](links.csv). The page draws its charts with [D3](https://d3js.org), kept on this site.
+
+## How to Cite This Page {#cite}
+
+Rzazade, Khayyam, ed. 2026. "Who Counts as Populist?" Populi*Verse*. https://populiverse.com/data/who-counts.html.
+
+Please cite the datasets too. Each row's panel lists the ones it uses. A picture saved from this page carries its sources and this citation.
+
+:::
+
+::: {.pv-page-report}
+Found an error? Write to editor@populiverse.com.
+:::

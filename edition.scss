@@ -2194,3 +2194,1305 @@ main.content .pv-research-list li {
     display: none;
   }
 }
+
+// ---------------------------------------------------------------- The data pages
+// "Who Counts as Populist?" and "Populists in Power" (master plan, section 18,
+// rows of 2026-11-12). One hue for "populist", light to dark; grey for "not
+// populist"; slate for the survey's pluralist parties; stripes for "not covered".
+
+$pv-p3: #5E1A37;
+$pv-p2: #9C4E6E;
+$pv-p1: #D29BB1;
+$pv-none: #E4E2DC;
+$pv-s2: #7E9198;
+$pv-s1: #B9C4C8;
+
+.pv-data #quarto-content.page-columns {
+  display: block;
+}
+
+.pv-data main.content {
+  max-width: $pv-page-width;
+  margin: 0 auto;
+  padding: 0 $pv-page-gutter;
+}
+
+.pv-data #title-block-header.quarto-title-block.default {
+  margin: 0 0 1.25rem;
+  padding-top: 3rem;
+}
+
+.pv-data-lede p:first-child {
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+
+.pv-wc,
+.pv-ip {
+  margin: 2rem 0 4rem;
+}
+
+// The numbers at the top, each a filter
+.pv-wc-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 3px double $pv-ink;
+  border-bottom: 1px solid $pv-hairline;
+  margin-bottom: 1.75rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-wc-stats {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.pv-wc-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 1rem 1rem 1.125rem 0;
+  border: 0;
+  background: none;
+  color: $pv-ink;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pv-wc-stat:hover .pv-wc-stat-l,
+.pv-wc-stat:focus .pv-wc-stat-l {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pv-wc-stat-n {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.pv-wc-stat-l {
+  font-size: 0.8125rem;
+  color: $pv-muted;
+  line-height: 1.35;
+}
+
+// Search and filters
+.pv-wc-search {
+  margin-bottom: 1rem;
+}
+
+.pv-wc-label {
+  display: block;
+  @include pv-label;
+  font-size: 0.6875rem;
+  color: $pv-muted;
+  margin-bottom: 0.3rem;
+}
+
+.pv-wc-search input[type="search"] {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid $pv-ink;
+  background: #fff;
+  font-size: 1.125rem;
+  font-family: $pv-serif;
+}
+
+.pv-wc-filters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@include media-breakpoint-up(lg) {
+  .pv-wc-filters {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.pv-wc-field select,
+.pv-ip select,
+.pv-wc select {
+  width: 100%;
+  padding: 0.45rem 0.5rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+  font-family: $pv-serif;
+  font-size: 0.875rem;
+  color: $pv-ink;
+}
+
+.pv-wc-legend select {
+  width: auto;
+  display: inline-block;
+  margin-left: 0.35rem;
+}
+
+// The views and the tools above them
+.pv-wc-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  border-bottom: 1px solid $pv-ink;
+  margin-bottom: 0.75rem;
+}
+
+.pv-wc-tabs {
+  display: flex;
+  gap: 0;
+}
+
+.pv-wc-tab {
+  padding: 0.55rem 1rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  font-family: $pv-serif;
+  font-size: 0.9375rem;
+  color: $pv-muted;
+  cursor: pointer;
+}
+
+.pv-wc-tab.is-on {
+  color: $pv-ink;
+  border-bottom-color: $pv-ink;
+}
+
+.pv-wc-count {
+  margin: 0;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: $pv-muted;
+  flex: 1 1 auto;
+}
+
+.pv-wc-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  padding: 0.35rem 0;
+}
+
+.pv-wc-tools a.pv-lib-link {
+  margin: 0;
+  padding: 0;
+}
+
+.pv-wc-tools .pv-lib-link,
+.pv-dp .pv-lib-link {
+  font-size: 0.8125rem;
+}
+
+// A link and a button stand on one line: both centre their words
+.pv-wc-tools .pv-lib-link,
+.pv-links .pv-lib-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pv-wc-legend {
+  font-size: 0.8125rem;
+  color: $pv-muted;
+  margin-bottom: 0.75rem;
+}
+
+.pv-wc-legend p {
+  margin: 0;
+}
+
+.pv-wc-legend-note {
+  font-style: italic;
+}
+
+.pv-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 1rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-key {
+    white-space: nowrap;
+  }
+}
+
+.pv-key-sw {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex: none;
+}
+
+.pv-key-sw.is-hatch {
+  background: repeating-linear-gradient(45deg, #FCFCFB 0 3px, #CFCDC6 3px 4px);
+}
+
+.pv-key-sw.is-cross {
+  background:
+    repeating-linear-gradient(45deg, transparent 0 3px, #8E8B83 3px 4px),
+    repeating-linear-gradient(-45deg, #F1EFEA 0 3px, #8E8B83 3px 4px);
+}
+
+// A borderline case of The PopuList: stripes in the colour of the place
+.pv-key-sw.is-bl3 {
+  background: repeating-linear-gradient(45deg, $pv-p3 0 3px, $pv-paper 3px 6px);
+}
+
+.pv-key-sw.is-bl2 {
+  background: repeating-linear-gradient(45deg, $pv-p2 0 3px, $pv-paper 3px 6px);
+}
+
+.pv-key-sw.is-bl1 {
+  background: repeating-linear-gradient(45deg, $pv-p1 0 3px, $pv-paper 3px 6px);
+}
+
+.pv-key-dot {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: linear-gradient(90deg, #ccc, #222);
+}
+
+// Verdicts: small labels, never colour alone
+.pv-pill {
+  display: inline-block;
+  padding: 0.12rem 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.45;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.pv-pill.is-p3 { background: $pv-p3; color: #fff; }
+.pv-pill.is-p2 { background: $pv-p2; color: #fff; }
+.pv-pill.is-p1 { background: $pv-p1; color: $pv-ink; }
+.pv-pill.is-no { background: $pv-none; color: $pv-ink; }
+.pv-pill.is-s2 { background: $pv-s2; color: #fff; }
+.pv-pill.is-s1 { background: $pv-s1; color: $pv-ink; }
+.pv-pill.is-out { background: transparent; border-color: $pv-hairline; color: $pv-muted; }
+.pv-pill.is-agree { background: transparent; border-color: $pv-ink; color: $pv-ink; }
+.pv-pill.is-differ { background: $pv-ink; color: $pv-paper; }
+.pv-pill.is-bl {
+  background-image: repeating-linear-gradient(45deg, transparent 0 4px, rgba(255, 255, 255, 0.45) 4px 7px);
+}
+
+.pv-pill.is-cross {
+  color: $pv-ink;
+  background: repeating-linear-gradient(45deg, #F1EFEA 0 4px, #DEDBD3 4px 5px);
+}
+
+// The table
+.pv-wc-scroll {
+  overflow-x: auto;
+}
+
+// A chart wider than a phone scrolls inside its own box, not the page
+.pv-wc-chartbox,
+.pv-ip-counts {
+  -webkit-overflow-scrolling: touch;
+}
+
+.pv-wc-chartbox svg,
+.pv-ip-counts svg {
+  display: block;
+  max-width: none;
+}
+
+// A link that PopuliVerse made itself, marked wherever it is used
+.pv-linked {
+  font-size: 0.6875rem;
+  font-style: italic;
+  color: $pv-muted;
+  border-bottom: 1px dotted $pv-muted;
+  cursor: help;
+}
+
+.pv-wc-via.pv-linked {
+  display: inline-block;
+}
+
+.pv-dp-linked {
+  border-left: 2px solid $pv-ink;
+  padding-left: 0.6rem;
+}
+
+// ---------------------------------------------------------------- Actors in Monitor, Countries in Monitor
+// The cards, the timeline and the map of the two lists, and the upper part of
+// each actor's and each country's page (data/monitor-pages.js).
+
+.pv-ma-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 1.25rem;
+}
+
+.pv-ma-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1rem 0.9rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+  font-size: 0.875rem;
+}
+
+.pv-ma-card h3 {
+  margin: 0 !important;
+  font-size: 1.25rem;
+  font-style: normal !important;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.pv-ma-card h3 a {
+  text-decoration: none;
+}
+
+.pv-ma-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.pv-ma-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $pv-muted;
+}
+
+.pv-ma-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.35rem 0.6rem;
+}
+
+.pv-ma-why,
+.pv-ma-dim {
+  margin: 0;
+  font-size: 0.78rem;
+  color: $pv-muted;
+}
+
+.pv-ma-why {
+  font-style: italic;
+}
+
+.pv-ma-dsbox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ma-ds {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.5rem;
+}
+
+.pv-ma-ds .pv-ma-label {
+  flex: 0 0 5rem;
+}
+
+.pv-ma-meter {
+  display: inline-block;
+  width: 4.5rem;
+  height: 6px;
+  background: $pv-none;
+}
+
+.pv-ma-meter span {
+  display: block;
+  height: 6px;
+  background: #6B6964;
+}
+
+.pv-ma-strip svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.pv-ma-bar {
+  display: flex;
+  gap: 1px;
+  height: 8px;
+}
+
+.pv-ma-latest {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.pv-ma-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  font-size: 0.78rem;
+}
+
+.pv-ma-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.4rem;
+  margin: 0 0 0.9rem;
+  font-size: 0.8125rem;
+  color: $pv-muted;
+}
+
+.pv-ma-legend .pv-ma-label {
+  margin-right: 0.6rem;
+}
+
+.pv-ma-dotkey {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+}
+
+.pv-ma-table td {
+  vertical-align: top;
+}
+
+.pv-ma-table .pv-ma-dsbox {
+  border: 0;
+  padding: 0;
+}
+
+.pv-ma-table .pv-ma-strip,
+.pv-ma-table .pv-ma-bar {
+  width: 9.5rem;
+}
+
+.pv-ma-tl {
+  display: block;
+  max-width: none;
+}
+
+.pv-ma-maphead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem 1.25rem;
+  margin: 1.25rem 0 0.6rem;
+}
+
+.pv-ma-maphead .pv-ma-legend {
+  margin: 0;
+}
+
+.pv-ma-modes {
+  display: inline-flex;
+  border: 1px solid $pv-ink;
+}
+
+.pv-ma-modes button {
+  border: 0;
+  background: $pv-paper;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+
+.pv-ma-modes button.is-on {
+  background: $pv-ink;
+  color: $pv-paper;
+}
+
+.pv-ma-region {
+  margin-bottom: 2rem;
+}
+
+.pv-ma-region h2 {
+  margin: 0 0 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid $pv-ink;
+  font-size: 1.35rem;
+}
+
+.pv-ma-region h2 .pv-ma-dim {
+  font-style: italic;
+}
+
+// The upper part of one actor's or one country's page
+.pv-ma-one.is-on {
+  margin: 1.25rem 0 2rem;
+  padding: 1rem 0 0.25rem;
+  border-top: 3px double $pv-ink;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ma-one section {
+  margin-bottom: 1.25rem;
+}
+
+.pv-ma-one h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1.2rem;
+}
+
+.pv-ma-one .pv-ma-dsbox {
+  border: 0;
+  padding: 0.5rem 0 0;
+  font-size: 0.875rem;
+}
+
+.pv-ma-one .pv-ma-strip {
+  max-width: 45rem;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.pv-ma-kinds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-width: 30rem;
+  font-size: 0.85rem;
+}
+
+.pv-ma-kinds div {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pv-ma-kinds div > span:first-child {
+  flex: 0 0 9rem;
+}
+
+.pv-ma-kbar {
+  flex: 1 1 auto;
+  height: 9px;
+}
+
+.pv-ma-kbar span {
+  display: block;
+  height: 9px;
+}
+
+// The list of those links, under the table and under the map
+.pv-links {
+  margin-top: 2.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid $pv-ink;
+  font-size: 0.875rem;
+}
+
+.pv-links summary {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pv-links p {
+  max-width: 50rem;
+  margin: 0.75rem 0;
+}
+
+.pv-links-table td {
+  vertical-align: top;
+}
+
+.pv-links-kind {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: $pv-muted;
+}
+
+.pv-wc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.pv-wc-table th,
+.pv-wc-table td {
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  border-bottom: 1px solid $pv-hairline;
+  vertical-align: top;
+  text-align: left;
+}
+
+.pv-wc-table thead th {
+  @include pv-label;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: $pv-muted;
+  border-bottom: 1px solid $pv-ink;
+  white-space: nowrap;
+}
+
+.pv-wc-table tbody th {
+  font-weight: 400;
+  width: 28%;
+}
+
+.pv-wc-table tbody tr:hover {
+  background: #F4F3EF;
+}
+
+.pv-wc-name {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font-family: $pv-serif;
+  color: $pv-ink;
+  cursor: pointer;
+}
+
+.pv-wc-n {
+  display: block;
+  font-size: 0.9375rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: $pv-hairline;
+}
+
+.pv-wc-name:hover .pv-wc-n,
+.pv-wc-name:focus .pv-wc-n {
+  text-decoration-color: $pv-ink;
+}
+
+.pv-wc-meta {
+  display: block;
+  font-size: 0.75rem;
+  color: $pv-muted;
+}
+
+.pv-wc-mon {
+  display: inline-block;
+  margin-top: 0.25rem;
+  @include pv-label;
+  font-size: 0.625rem;
+  color: $pv-monitor;
+  border: 1px solid $pv-monitor;
+  padding: 0 0.3rem;
+}
+
+.pv-wc-via {
+  display: block;
+  font-size: 0.6875rem;
+  font-style: italic;
+  color: $pv-muted;
+  margin-top: 0.15rem;
+}
+
+.pv-wc-dash {
+  font-size: 0.75rem;
+  color: #8E8B83;
+  font-style: italic;
+}
+
+.pv-wc-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px;
+  max-width: 11rem;
+}
+
+.pv-chip {
+  display: inline-block;
+  width: 10px;
+  height: 14px;
+}
+
+.pv-chip.is-p3 { background: $pv-p3; }
+.pv-chip.is-p2 { background: $pv-p2; }
+.pv-chip.is-p1 { background: $pv-p1; }
+.pv-chip.is-no { background: $pv-none; outline: 1px solid #CFCDC6; outline-offset: -1px; }
+.pv-chip.is-out { background: transparent; outline: 1px dashed #CFCDC6; outline-offset: -1px; }
+
+.pv-wc-chiptext,
+.pv-wc-sparktext {
+  font-size: 0.75rem;
+  color: $pv-muted;
+  margin-left: 0.35rem;
+}
+
+.pv-wc-spark {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.pv-spark-mid { stroke: $pv-none; stroke-width: 1; }
+.pv-spark-line { fill: none; stroke: $pv-muted; stroke-width: 1.25; }
+.pv-spark-dot { fill: $pv-ink; }
+
+.pv-wc-more {
+  margin-top: 1.25rem;
+  border: 0;
+  cursor: pointer;
+  font-family: $pv-serif;
+}
+
+// Phones: the table becomes cards
+@include media-breakpoint-down(md) {
+  .pv-wc-table thead {
+    display: none;
+  }
+
+  .pv-wc-table,
+  .pv-wc-table tbody,
+  .pv-wc-table tr,
+  .pv-wc-table th,
+  .pv-wc-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .pv-wc-table tbody tr {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $pv-hairline;
+  }
+
+  .pv-wc-table tbody th,
+  .pv-wc-table td {
+    border: 0;
+    padding: 0.2rem 0;
+  }
+
+  .pv-wc-table tbody th {
+    width: 100%;
+    margin-bottom: 0.35rem;
+  }
+
+  // Two datasets side by side on a card
+  .pv-wc-table td {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+    padding-bottom: 0.45rem;
+  }
+
+  .pv-wc-table td::before {
+    content: attr(data-label);
+    display: block;
+    @include pv-label;
+    font-size: 0.625rem;
+    color: $pv-muted;
+  }
+}
+
+// Charts
+.pv-axis text,
+.pv-tl-meta {
+  font-size: 10px;
+  fill: $pv-muted;
+}
+
+.pv-axis-title {
+  font-style: italic;
+}
+
+.pv-grid {
+  stroke: #ECEBE7;
+  stroke-width: 1;
+}
+
+.pv-tl-name {
+  font-size: 12px;
+  fill: $pv-ink;
+}
+
+.pv-tl-hit {
+  fill: transparent;
+}
+
+.pv-tl-row:hover .pv-tl-hit {
+  fill: #F4F3EF;
+}
+
+.pv-median {
+  stroke: $pv-ink;
+  stroke-width: 2;
+}
+
+.pv-dot:hover {
+  stroke: $pv-ink;
+}
+
+// The hover box
+.pv-tip {
+  position: fixed;
+  z-index: 2100;
+  max-width: 19rem;
+  padding: 0.55rem 0.7rem;
+  background: $pv-ink;
+  color: $pv-paper;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  pointer-events: none;
+  display: none;
+}
+
+.pv-tip em {
+  color: #CFCDC6;
+}
+
+// The side panel
+.pv-dp-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 1060;
+  background: rgba(17, 17, 17, 0.18);
+}
+
+body > .pv-dp {
+  position: fixed;
+  z-index: 1070;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(32rem, 100%);
+  background: $pv-paper;
+  border-left: 1px solid $pv-ink;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.08);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.22s ease-out;
+  outline: none;
+}
+
+body > .pv-dp.is-in {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-dp {
+    transition: none;
+  }
+}
+
+body.pv-dp-open {
+  overflow: hidden;
+}
+
+.pv-dp-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 0.75rem;
+  background: $pv-paper;
+  border-bottom: 3px double $pv-ink;
+}
+
+.pv-dp-sub {
+  margin: 0 0 0.2rem;
+  @include pv-label;
+  font-size: 0.6875rem;
+  color: $pv-muted;
+}
+
+.pv-dp-title {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.pv-dp-close {
+  border: 0;
+  background: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  padding: 0 0.25rem;
+  color: $pv-ink;
+  cursor: pointer;
+}
+
+.pv-dp-body {
+  padding: 1rem 1.5rem 3rem;
+  font-size: 0.9375rem;
+}
+
+.pv-dp-aka {
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: $pv-muted;
+}
+
+.pv-dp-mon {
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid $pv-monitor;
+  background: #F2F4F4;
+}
+
+.pv-dp-mark {
+  margin: 0.75rem 0 1rem;
+}
+
+.pv-dp-mark p {
+  margin: 0.4rem 0 0;
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+.pv-dp-sec {
+  border-top: 1px solid $pv-hairline;
+  padding-top: 0.75rem;
+  margin-top: 1rem;
+}
+
+.pv-dp-sec > h3 {
+  @include pv-label;
+  font-size: 0.75rem;
+  font-style: normal;
+  margin: 0 0 0.6rem;
+  color: $pv-ink;
+}
+
+.pv-dp-strong {
+  margin: 0.4rem 0 0.2rem;
+}
+
+.pv-dp-list {
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+}
+
+.pv-dp-list li.is-pop {
+  font-weight: 700;
+}
+
+.pv-dp-note {
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: $pv-muted;
+}
+
+.pv-dp-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: $pv-serif;
+  color: $pv-ink;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  text-align: left;
+}
+
+.pv-dp-chart {
+  margin: 0.4rem 0 0.6rem;
+}
+
+.pv-dp-svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.pv-dp-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 7rem 2rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  margin: 0.25rem 0;
+}
+
+.pv-dp-bar-t {
+  height: 8px;
+  background: $pv-none;
+}
+
+.pv-dp-bar-f {
+  display: block;
+  height: 100%;
+  background: $pv-muted;
+}
+
+.pv-dp-bar-v {
+  text-align: right;
+}
+
+.pv-dp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.pv-dp-table th,
+.pv-dp-table td {
+  padding: 0.35rem 0.5rem 0.35rem 0;
+  border-bottom: 1px solid $pv-hairline;
+  text-align: left;
+  vertical-align: top;
+}
+
+.pv-dp-table th {
+  font-weight: 400;
+  color: $pv-muted;
+  font-size: 0.75rem;
+}
+
+.pv-dp-sp {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 22px;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-dp-sp-b {
+  display: inline-block;
+  width: 7px;
+  background: $pv-muted;
+}
+
+.pv-dp-sp-b.is-none {
+  height: 2px !important;
+  background: $pv-none;
+}
+
+.pv-dp-cites {
+  font-size: 0.75rem;
+  padding-left: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.pv-dp-party {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 3px double $pv-ink;
+  font-size: 0.875rem;
+}
+
+// Populists in Power
+.pv-ip-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 2rem;
+  align-items: end;
+  border-top: 3px double $pv-ink;
+  padding-top: 1rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ip-controls {
+    grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  }
+}
+
+.pv-ip-fields {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pv-ip-year {
+  margin: 0 0 0.25rem;
+}
+
+.pv-ip-year strong {
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-right: 0.35rem;
+}
+
+.pv-ip-year span {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: $pv-muted;
+}
+
+.pv-ip-slide {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pv-ip-slide input[type="range"] {
+  flex: 1 1 auto;
+  accent-color: $pv-ink;
+}
+
+.pv-ip-step,
+.pv-ip-play {
+  border: 1px solid $pv-ink;
+  background: $pv-paper;
+  font-family: $pv-serif;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  cursor: pointer;
+  color: $pv-ink;
+}
+
+.pv-ip-play {
+  min-width: 4.5rem;
+  background: $pv-ink;
+  color: $pv-paper;
+}
+
+.pv-ip-note {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 0.875rem;
+  font-style: italic;
+  color: $pv-muted;
+  max-width: 50rem;
+}
+
+.pv-ip-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0;
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+}
+
+.pv-ip-map {
+  width: 100%;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ip-svg {
+  display: block;
+}
+
+.pv-ip-sphere {
+  fill: #FFFFFF;
+  stroke: $pv-hairline;
+}
+
+.pv-ip-grat {
+  fill: none;
+  stroke: #F0EFEB;
+  stroke-width: 0.5;
+}
+
+.pv-ip-land {
+  stroke: $pv-paper;
+  stroke-width: 0.6;
+}
+
+.pv-ip-land.is-click,
+.pv-ip-dot {
+  cursor: pointer;
+}
+
+.pv-ip-land.is-click:hover,
+.pv-ip-land.is-click:focus,
+.pv-ip-dot:hover {
+  stroke: $pv-ink;
+  stroke-width: 1.2;
+  outline: none;
+}
+
+.pv-ip-dot {
+  stroke: $pv-ink;
+  stroke-width: 0.6;
+}
+
+.pv-ip-tools {
+  margin-bottom: 1.5rem;
+}
+
+.pv-ip-h {
+  margin-top: 2.5rem !important;
+}
+
+.pv-ip-sub {
+  font-size: 0.875rem;
+  color: $pv-muted;
+  font-style: italic;
+  max-width: 50rem;
+}
+
+.pv-ip-hit {
+  fill: transparent;
+}
+
+.pv-ip-col:hover .pv-ip-hit {
+  fill: rgba(17, 17, 17, 0.05);
+}
+
+.pv-ip-col.is-on .pv-ip-hit {
+  fill: none;
+  stroke: $pv-ink;
+  stroke-width: 1.5;
+}
+
+.pv-ip-lab {
+  font-size: 10px;
+  fill: $pv-muted;
+}
+
+.pv-ip-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 2.5rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ip-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.pv-ip-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-style: normal;
+  margin-top: 1rem;
+}
+
+.pv-ip-ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.pv-ip-ul li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ip-who {
+  display: block;
+  font-size: 0.75rem;
+  color: $pv-muted;
+}
+
+.pv-ip-cab {
+  margin-bottom: 0.6rem;
+}
+
+@media print {
+  .pv-wc-filters,
+  .pv-wc-tools,
+  .pv-ip-controls,
+  .pv-ip-tools {
+    display: none;
+  }
+}

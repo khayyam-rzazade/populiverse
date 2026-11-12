@@ -1,0 +1,50 @@
+PopuliVerse: the datasets behind "Who Counts as Populist?" and "Populists in Power"
+https://populiverse.com/data/
+Data files written on 2026-11-12 by scripts/make_data.py.
+
+Each verdict is the dataset's own, in its own words. PopuliVerse adds none. Cite the datasets you use.
+
+The PopuList 4.0
+  Populist, far-left and far-right parties in 31 European countries that won at least one seat or 2 per cent of the vote in a national parliamentary election since 1989
+  Cite: Rooduijn, M., Pirro, A. L. P., Halikiopoulou, D., Froio, C., Van Kessel, S., De Lange, S. L., Mudde, C., and Taggart, P. 2024. “The PopuList: A Database of Populist, Far-Left, and Far-Right Parties Using Expert-Informed Qualitative Comparative Classification (EiQCC).” British Journal of Political Science 54 (3): 969–978. https://doi.org/10.1017/S0007123423000431
+  Cite: The PopuList, version 4.0, 2026. https://popu-list.org. For the dataset itself its site still gives the reference of version 3.0: Rooduijn, M., Pirro, A. L. P., Halikiopoulou, D., Froio, C., Van Kessel, S., De Lange, S. L., Mudde, C., and Taggart, P. 2023. The PopuList 3.0: An Overview of Populist, Far-left and Far-right Parties in Europe. https://doi.org/10.17605/OSF.IO/2EWKQ
+  Licence: No open licence. Its authors ask for both references
+
+Global Populism Database 2.1
+  Speeches of presidents and prime ministers, up to four for each term, graded from 0 to 2. The four bands for a term's average are those of the paper
+  Cite: Hawkins, K. A., Aguilar, R., Castanho Silva, B., Jenne, E. K., Kocijan, B., and Rovira Kaltwasser, C. 2019. “Measuring Populist Discourse: The Global Populism Database.” Paper presented at the 2019 EPSA Annual Conference, Belfast, 20–22 June
+  Cite: Hawkins, K. A., Aguilar, R., Castanho Silva, B., Jenne, E. K., Kocijan, B., and Rovira Kaltwasser, C. 2019. Global Populism Database. Harvard Dataverse, V3 (files of version 2.1, 20 November 2025). https://doi.org/10.7910/DVN/LFTQEZ
+  Licence: CC0 1.0
+
+Global Party Survey 2019
+  Experts on 1,043 parties in 163 countries in 2019. Here only the parties that V-Party carries, about half of them, without independents
+  Cite: Norris, P. 2020. Global Party Survey, 2019. Harvard Dataverse, V3. https://doi.org/10.7910/DVN/WMGTNS. Here as V-Party, version 2, carries it
+  Licence: CC0 1.0
+
+V-Party, version 2
+  Expert scores for parties in 169 countries, at national elections from 1970 to 2019
+  Cite: Lindberg, S. I., Düpont, N., Higashijima, M., Kavasoglu, Y. B., Marquardt, K. L., Bernhard, M., Döring, H., Hicken, A., Laebens, M., Medzihorsky, J., Neundorf, A., Reuter, O. J., Ruth-Lovell, S., Weghorst, K. R., Wiesehomeier, N., Wright, J., Alizada, N., Bederke, P., Gastaldi, L., Grahn, S., Hindle, G., Ilchenko, N., von Römer, J., Wilson, S., Pemstein, D., and Seim, B. 2022. Varieties of Party Identity and Organization (V-Party) Dataset V2. Varieties of Democracy (V-Dem) Project. https://doi.org/10.23696/vpartydsv2
+  Licence: V-Dem publishes its dataset under CC BY-SA 4.0 (its FAQ). V-Party's own page names no licence. Treated here as CC BY-SA 4.0
+
+PPEG 2025v1
+  Governments in 73 democracies to 31 October 2025
+  Cite: Krause, W., Döring, R., Stoppe, J., and WZB Berlin. 2025. PPEG: Political Parties, Presidents, Elections and Governments, Version 2025v1. Harvard Dataverse, V1. https://doi.org/10.7910/DVN/5OAH7P
+  Licence: CC0 1.0
+
+Party Facts, Version 2023
+  The IDs that link a party across datasets
+  Cite: Döring, H., and Regel, S. 2019. “Party Facts: A Database of Political Parties Worldwide.” Party Politics 25 (2): 97–109. https://doi.org/10.1177/1354068818820671
+  Cite: Bederke, P., Döring, H., and Regel, S. 2023. Party Facts – Version 2023. Harvard Dataverse, V1. https://doi.org/10.7910/DVN/TJINLQ
+  Licence: CC0 1.0
+
+A file that carries the scores of V-Party is passed on under CC BY-SA 4.0.
+
+Links by PopuliVerse
+  The datasets are linked through Party Facts IDs. Where The PopuList and another dataset give
+  one party two IDs or none, or an ID in a source is wrong, a checked list says so:
+  https://populiverse.com/data/links.csv (35 lines, each with its reason). It is used only where
+  The PopuList itself holds the party, and never to call a party "not populist".
+
+To cite these pages:
+Rzazade, Khayyam, ed. 2026. "Who Counts as Populist?" PopuliVerse. https://populiverse.com/data/who-counts.html
+Rzazade, Khayyam, ed. 2026. "Populists in Power." PopuliVerse. https://populiverse.com/data/in-power.html

@@ -1,29 +1,29 @@
-id,name,kind,country,source,borderline,reference,library_search
-sweden-democrats,Sweden Democrats,party,sweden,The PopuList 4.0,no,,
-afd,Alternative for Germany,party,germany,The PopuList 4.0,no,,
-the-left-germany,The Left,party,germany,The PopuList 4.0,yes,,
-brothers-of-italy,Brothers of Italy,party,italy,The PopuList 4.0,no,,
-league-italy,League,party,italy,The PopuList 4.0,no,,
-forza-italia,Forza Italia,party,italy,The PopuList 4.0,yes,,
-swiss-peoples-party,Swiss People's Party,party,switzerland,The PopuList 4.0,no,,
-reform-uk,Reform UK,party,united-kingdom,The PopuList 4.0,no,,
-national-rally,National Rally,party,france,The PopuList 4.0,no,,
-slovenian-democratic-party,Slovenian Democratic Party,party,slovenia,The PopuList 4.0,no,,
-law-and-justice,Law and Justice,party,poland,The PopuList 4.0,no,,
-ano,ANO,party,czech-republic,The PopuList 4.0,no,,
-latvia-first,Latvia First,party,latvia,The PopuList 4.0,no,,
-progressive-bulgaria,Progressive Bulgaria,party,bulgaria,The PopuList 4.0,no,,
-aur,Alliance for the Union of Romanians,party,romania,The PopuList 4.0,no,,
-vladimir-putin,"Vladimir Putin, with United Russia",leader,russia,Global Populism Database 2.1,,,Putin
-donald-trump,Donald Trump,leader,united-states,Global Populism Database 2.1,,,Trump
-recep-tayyip-erdogan,"Recep Tayyip Erdoğan, with the Justice and Development Party",leader,turkey,Global Populism Database 2.1,,,Erdoğan
-daniel-ortega,Daniel Ortega,leader,nicaragua,Global Populism Database 2.1,,,Ortega
-nicolas-maduro,Nicolás Maduro,leader,venezuela,Global Populism Database 2.1,,,Maduro
-jair-bolsonaro,Jair Bolsonaro,leader,brazil,Global Populism Database 2.1,,,Bolsonaro
-nayib-bukele,"Nayib Bukele, with Nuevas Ideas",leader,el-salvador,Global Populism Database 2.1,,,Bukele
-benjamin-netanyahu,Benjamin Netanyahu,leader,israel,Global Populism Database 2.1,,,Netanyahu
-rodrigo-duterte,Rodrigo Duterte,leader,philippines,Global Populism Database 2.1,,,Duterte
-narendra-modi,"Narendra Modi, with the Bharatiya Janata Party",leader,india,Global Populism Database 2.1,,,Narendra Modi
-jose-antonio-kast,José Antonio Kast,leader,chile,"Díaz, Rovira Kaltwasser and Zanotti 2023",,https://doi.org/10.1075/jlp.22131.dia,Kast
-javier-milei,Javier Milei,leader,argentina,Sendra and Marcos-Marne 2024 (partially populist),,https://doi.org/10.1080/13569775.2024.2311982,Milei
-prabowo-subianto,Prabowo Subianto,leader,indonesia,Aspinall 2015,,https://doi.org/10.5728/indonesia.99.0001,Prabowo
+id,name,kind,country,source,borderline,reference,library_search,data_id,in_power,in_power_source
+sweden-democrats,Sweden Democrats,party,sweden,The PopuList 4.0,no,,,pf409,,"2026/1, item 1. Supported the government of Ulf Kristersson from outside until it resigned on 17 September 2026. That government stays in office as a caretaker (the Riksdag, 15 October and 3 November 2026), so the party holds no place in power today"
+afd,Alternative for Germany,party,germany,The PopuList 4.0,no,,,pf1976,,
+the-left-germany,The Left,party,germany,The PopuList 4.0,yes,,,pf86,,
+brothers-of-italy,Brothers of Italy,party,italy,The PopuList 4.0,no,,,pf2280,leads,"The government of Giorgia Meloni, since October 2022"
+league-italy,League,party,italy,The PopuList 4.0,no,,,pf1221,partner,"The government of Giorgia Meloni, since October 2022"
+forza-italia,Forza Italia,party,italy,The PopuList 4.0,yes,,,pf8058,partner,"The government of Giorgia Meloni, since October 2022"
+swiss-peoples-party,Swiss People's Party,party,switzerland,The PopuList 4.0,no,,,pf308,partner,"The Federal Council. 2026/2, entry Switzerland"
+reform-uk,Reform UK,party,united-kingdom,The PopuList 4.0,no,,,pf7364,,
+national-rally,National Rally,party,france,The PopuList 4.0,no,,,pf433,,
+slovenian-democratic-party,Slovenian Democratic Party,party,slovenia,The PopuList 4.0,no,,,pf472,leads,"Prime Minister Janez Janša, since June 2026. 2026/1, the item on Israel and Slovenia"
+law-and-justice,Law and Justice,party,poland,The PopuList 4.0,no,,,pf1565,,In opposition. The president of Poland is not counted
+ano,ANO,party,czech-republic,The PopuList 4.0,no,,,pf2141,leads,"Prime Minister Andrej Babiš. 2026/2, entry Czech Republic"
+latvia-first,Latvia First,party,latvia,The PopuList 4.0,no,,,pf9078,,"Not in the government of Andris Kulbergs (May 2026). 2026/2, entry Latvia"
+progressive-bulgaria,Progressive Bulgaria,party,bulgaria,The PopuList 4.0,no,,,pl-bulgaria-pb,leads,"Prime Minister Rumen Radev, since May 2026. 2026/2, entry Bulgaria"
+aur,Alliance for the Union of Romanians,party,romania,The PopuList 4.0,no,,,pf8983,,"Did not support the government of Luca Niculescu. 2026/2, entry Romania"
+vladimir-putin,"Vladimir Putin, with United Russia",leader,russia,Global Populism Database 2.1,,,Putin,gpd-russia-vladimir-putin,leads,President
+donald-trump,Donald Trump,leader,united-states,Global Populism Database 2.1,,,Trump,gpd-united-states-donald-trump,leads,"President, since January 2025"
+recep-tayyip-erdogan,"Recep Tayyip Erdoğan, with the Justice and Development Party",leader,turkey,Global Populism Database 2.1,,,Erdoğan,gpd-turkey-recep-t-erdogan,leads,President
+daniel-ortega,Daniel Ortega,leader,nicaragua,Global Populism Database 2.1,,,Ortega,gpd-nicaragua-daniel-ortega,leads,President
+nicolas-maduro,Nicolás Maduro,leader,venezuela,Global Populism Database 2.1,,,Maduro,gpd-venezuela-nicolas-maduro,,Out of office since January 2026
+jair-bolsonaro,Jair Bolsonaro,leader,brazil,Global Populism Database 2.1,,,Bolsonaro,gpd-brazil-jair-bolsonaro,,Out of office since January 2023
+nayib-bukele,"Nayib Bukele, with Nuevas Ideas",leader,el-salvador,Global Populism Database 2.1,,,Bukele,gpd-el-salvador-nayib-bukele,leads,President
+benjamin-netanyahu,Benjamin Netanyahu,leader,israel,Global Populism Database 2.1,,,Netanyahu,gpd-israel-benjamin-netanyahu,leads,"Caretaker prime minister after the election of 27 October. 2026/2, item 31"
+rodrigo-duterte,Rodrigo Duterte,leader,philippines,Global Populism Database 2.1,,,Duterte,gpd-philippines-rodrigo-duterte,,Out of office since June 2022
+narendra-modi,"Narendra Modi, with the Bharatiya Janata Party",leader,india,Global Populism Database 2.1,,,Narendra Modi,gpd-india-narendra-modi,leads,Prime Minister
+jose-antonio-kast,José Antonio Kast,leader,chile,"Díaz, Rovira Kaltwasser and Zanotti 2023",,https://doi.org/10.1075/jlp.22131.dia,Kast,,leads,"President, since March 2026"
+javier-milei,Javier Milei,leader,argentina,Sendra and Marcos-Marne 2024 (partially populist),,https://doi.org/10.1080/13569775.2024.2311982,Milei,,leads,"President, since December 2023"
+prabowo-subianto,Prabowo Subianto,leader,indonesia,Aspinall 2015,,https://doi.org/10.5728/indonesia.99.0001,Prabowo,pf4495,leads,"President, since October 2024. His party, Gerindra, in the data"

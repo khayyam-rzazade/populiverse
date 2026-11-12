@@ -13,6 +13,11 @@ What it reads:
   monitor/<issue>/index.qmd      the text of each published issue
   monitor/<issue>/...-items.csv  the tags of its items (written by Claude)
   library/taxonomy.yml           the names of countries and regions
+  data/countries.csv             the country codes the data pages use
+
+It also writes data/monitor.json, the Monitor's part of the two data pages
+("Who Counts as Populist?" and "Populists in Power"): the actors, who of them
+is in power today, and every item with its countries.
 
 Nothing has to be done by hand. When a new issue is published with its file
 of tags, its items appear on these pages at the next build. The pages are not
@@ -208,7 +213,7 @@ def item_line(it):
     return "- %s · %s · %s *(%s, item %d)*" % (when(it["date"], it["date_end"]), it["type"], what, it["issue"], it["n"])
 
 
-def page(title, description, body):
+def page(title, description, body, wide=False):
     return "\n".join([
         "---",
         "title: " + yaml_text(title),
@@ -216,6 +221,7 @@ def page(title, description, body):
         "google-scholar: false",
         "citation: false",
         "toc: false",
+    ] + (["page-layout: full", "body-classes: pv-data"] if wide else []) + [
         "---",
         "",
         MARK,
@@ -253,12 +259,131 @@ def remove_old(folder, written):
             os.remove(path)
 
 
+def app(kind, key="", world=False):
+    """The box that data/monitor-pages.js fills: on a list, the cards with search,
+    filters and views; on one actor's or one country's page, the datasets, the
+    items over time and the tools. Without JavaScript the plain page stays."""
+    out = ["```{=html}"]
+    if key:
+        out += ['<div class="pv-ma-one" data-%s="%s" data-monitor="../data/monitor.json"></div>' % (kind, key)]
+    else:
+        out += ['<div id="ma-app" class="pv-wc pv-ma" data-kind="%s" data-monitor="../data/monitor.json"%s>' % (
+            kind, ' data-map="../data/world.json"' if world else ""),
+            '  <p class="pv-lib-loading">Loading…</p>', "</div>"]
+    if world:
+        out += ['<script src="../data/vendor/d3.min.js" defer></script>',
+                '<script src="../data/vendor/topojson-client.min.js" defer></script>']
+    out += ['<script src="../data/pv-data.js" defer></script>',
+            '<script src="../data/monitor-pages.js" defer></script>', "```", ""]
+    return out
+
+
+POWER_WORDS = {
+    "leads": "Leads the government today.",
+    "partner": "In the government today, as a partner.",
+    "supports": "Supports the government from outside today.",
+}
+
+
+def dataset_words(actors):
+    """What the datasets say about each actor, in short, for the cards: read from
+    data/who-counts.json (written by scripts/make_data.py). Every verdict is the
+    dataset's own. Without that file the cards show none."""
+    import json
+    path = os.path.join(ROOT, "data", "who-counts.json")
+    if not os.path.exists(path):
+        return {}
+    by = {r["id"]: r for r in json.loads(read(path))["rows"]}
+    out = {}
+    for a in actors:
+        r = by.get(a.get("data_id", ""))
+        if not r:
+            continue
+        party = r
+        if r["k"] == "leader":
+            party = by.get(r["parties"][-1]) if r.get("parties") else None
+        d = {}
+        if party and party.get("pl"):
+            best = "Not populist"
+            for e in party["pl"]:
+                p = e["sets"].get("p")
+                if not (p and p["y"]):
+                    continue
+                if p["y"][1] < 2026:
+                    word = "Populist until %d" % p["y"][1]
+                else:
+                    nb = p.get("nb")
+                    word = "Populist" if nb and nb[0] <= 2026 <= nb[1] else "Borderline"
+                if best == "Not populist" or word == "Populist" or (word == "Borderline" and best != "Populist"):
+                    best = word
+            d["pl"] = best
+        if r["k"] == "leader" and r.get("gd"):
+            t = r["gd"][-1]
+            d["gd"] = [t[3][:4] if t[3] else t[1], t[4][:4] if t[4] else None, t[5], t[6], t[10]]
+        last = None
+        for v in (party or {}).get("vp", []):
+            for e in v["el"]:
+                if e[1] is not None and (not last or e[0] >= last[0]):
+                    last = e
+        if last:
+            d["vp"] = [last[0], last[1]]
+        out[a["id"]] = d
+    return out
+
+
+def write_monitor_json(issues, items, actors, iso_of, country=None, places=None):
+    """The Monitor's part of the data pages. Written again at every build."""
+    import json
+    last = issues[-1] if issues else None
+    words = dataset_words(actors)
+    country = country or {}
+    data = {
+        "issue": last["number"] if last else "",
+        "folder": last["folder"] if last else "",
+        "actors": [{
+            "id": a["id"], "name": a["name"], "kind": a["kind"], "iso": iso_of.get(a["country"], ""),
+            "data": a.get("data_id", ""), "power": a.get("in_power", ""), "why": a.get("in_power_source", ""),
+            # The source that classes the actor, shown beside "in power today" on the data pages
+            "src": a.get("source", ""), "bl": 1 if a.get("borderline", "") == "yes" else 0,
+            # For the cards of "Actors in Monitor": the country in words, and the datasets in short
+            "tag": a["country"], "c": country.get(a["country"], a["country"]), "ds": words.get(a["id"], {}),
+            "items": sum(1 for it in items if a["id"] in it["actors"]),
+        } for a in actors],
+        "items": [{
+            "issue": it["issue"], "folder": it["folder"], "n": it["n"], "title": it["title"],
+            "type": it["type"], "date": it["date"], "iso": [iso_of[c] for c in it["countries"] if c in iso_of],
+            "actors": it["actors"], "k": it["kind"],
+        } for it in items],
+        # The countries of the Monitor, for the map and the cards: name, number on the map,
+        # region, place, whether it is too small for the map, and the name of its page
+        "places": {r["iso3"]: [r["label"], r["num"], r["region"], float(r["lon"]) if r["lon"] else None,
+                               float(r["lat"]) if r["lat"] else None, 1 if r["dot"] == "1" else 0, r["tag"]]
+                   for r in (places or [])},
+    }
+    path = os.path.join(ROOT, "data", "monitor.json")
+    text = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    old = read(path) if os.path.exists(path) else None
+    if old != text:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(text)
+    # In a preview Quarto does not copy this file into the built site again, so
+    # the pages there would read the copy of the last full build. Where a built
+    # site exists, its copy is brought up to date here.
+    built = os.path.join(ROOT, "_site", "data", "monitor.json")
+    if os.path.isdir(os.path.dirname(built)) and (not os.path.exists(built) or read(built) != text):
+        with open(built, "w", encoding="utf-8") as f:
+            f.write(text)
+
+
 def main():
     country, region_of, region = taxonomy_names()
     actors = rows(os.path.join(ROOT, "monitor", "actors.csv"))
     by_id = {a["id"]: a for a in actors}
     issues = published_issues()
     items = [it for iss in issues for it in iss["items"]]
+    places = os.path.join(ROOT, "data", "countries.csv")
+    iso_of = {r["tag"]: r["iso3"] for r in rows(places)} if os.path.exists(places) else {}
+    latest = "PopuliVerse Monitor " + issues[-1]["number"] if issues else "the Monitor"
 
     unknown = sorted({a for it in items for a in it["actors"] if a not in by_id})
     if unknown:
@@ -294,22 +419,35 @@ def main():
             "[%s](../countries/%s.qmd) · %s" % (land, a["country"], source),
             ":::",
             "",
-            "## In the Monitor",
-            "",
-        ] + items_part(mine) + [
+        ]
+        if a.get("in_power") in POWER_WORDS:
+            body += [POWER_WORDS[a["in_power"]] + " As of " + latest + ".", ""]
+        body += app("actor", a["id"])
+        body += ["## In the Monitor", ""] + items_part(mine) + [
             "",
             "## In the Library",
             "",
             lib,
+            "",
+            "## In the Data",
+            "",
         ]
+        if a.get("data_id"):
+            body += ["- [What the datasets say](../data/who-counts.html#%s)" % a["data_id"]]
+        else:
+            body += ["- No dataset holds this actor yet. See [Who Counts as Populist?](../data/who-counts.qmd)"]
+        if a["country"] in iso_of:
+            body += ["- [%s in Populists in Power](../data/in-power.html#%s)" % (land, iso_of[a["country"]])]
         files[a["id"] + ".qmd"] = page(a["name"], "What PopuliVerse Monitor reported on %s." % a["name"], body)
         listing.append("- [%s](%s.qmd), %s. %d %s." % (a["name"], a["id"], land, len(mine), "item" if len(mine) == 1 else "items"))
-    files["index.qmd"] = page("Actors", "The populist actors in PopuliVerse Monitor.", [
-        "Every actor that has stood in an issue, with what the Monitor reported on it. "
+    files["index.qmd"] = page("Actors in Monitor", "The populist actors in PopuliVerse Monitor: why each is on the list, what the datasets say and what the Monitor reported.", [
+        "::: {.pv-prose .pv-data-lede}",
+        "Every actor that has stood in an issue of Populi*Verse* Monitor, with why it is on the list, what the datasets say about it and what the Monitor reported. "
         "The Monitor covers an actor when a dataset or a publication classifies it as populist. "
         "See [the rules](../monitor/rules.qmd#who).",
+        ":::",
         "",
-    ] + listing)
+    ] + app("actors") + ["## All Actors, A to Z {#all}", ""] + listing, wide=True)
     write_all(written, os.path.join(ROOT, "actors"), files)
 
     # ---- the countries
@@ -321,6 +459,8 @@ def main():
         mine = [it for it in items if c in it["countries"]]
         here = [a for a in actors if a["country"] == c]
         body = ["::: {.pv-label}", region.get(region_of.get(c, ""), ""), ":::", ""]
+        if c in iso_of:
+            body += app("country", iso_of[c])
         if here:
             body += ["## Covered Actors", ""]
             body += ["- [%s](../actors/%s.qmd)" % (a["name"], a["id"]) for a in sorted(here, key=lambda a: a["name"].lower())]
@@ -333,14 +473,18 @@ def main():
         ]
         files[c + ".qmd"] = page(country[c], "What PopuliVerse Monitor reported on %s." % country[c], body)
         listing.append("- [%s](%s.qmd). %d %s." % (country[c], c, len(mine), "item" if len(mine) == 1 else "items"))
-    files["index.qmd"] = page("Countries", "The countries in PopuliVerse Monitor.", [
-        "Every country that has stood in an issue, with what the Monitor reported on it.",
+    files["index.qmd"] = page("Countries in Monitor", "The countries in PopuliVerse Monitor: the actors followed in each, who holds power today and what the Monitor reported.", [
+        "::: {.pv-prose .pv-data-lede}",
+        "Every country that has stood in an issue of Populi*Verse* Monitor, with the actors followed there, who of them holds power today and what the Monitor reported.",
+        ":::",
         "",
-    ] + listing)
+    ] + app("countries", world=True) + ["## All Countries, A to Z {#all}", ""] + listing, wide=True)
     write_all(written, os.path.join(ROOT, "countries"), files)
 
     remove_old(os.path.join(ROOT, "actors"), written)
     remove_old(os.path.join(ROOT, "countries"), written)
+    place_rows = [r for r in (rows(os.path.join(ROOT, "data", "countries.csv")) if iso_of else []) if r["tag"] in places]
+    write_monitor_json(issues, items, actors, iso_of, country, place_rows)
     note("%d issues, %d items, %d actor pages, %d country pages." % (len(issues), len(items), len(actors), len(places)))
 
 
