@@ -50,3 +50,5 @@ Every item has a number and tags. They help to find and compare the items.
 3. The title decides. Its first action gives the type. For a one-line entry, its first sentence does.
 
 No tag says who was right or how much an event matters. The editor answers for every tag.
+
+Every item with its tags stands in one dataset, which you can filter, chart and download. [Events in Monitor](../data/events.qmd)

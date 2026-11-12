@@ -653,7 +653,8 @@ main.content dd {
 }
 
 // ---------------------------------------------------------------- Footer
-// Double rule, the editor line, then the four links in one row.
+// Double rule, the editor line, then the links in one row, wrapping when the
+// screen is too narrow to hold them.
 
 footer.footer .nav-footer {
   max-width: $pv-page-width;
@@ -687,7 +688,9 @@ footer.footer .nav-footer::before {
 
 .nav-footer .nav-footer-center,
 .nav-footer .nav-footer-right {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
   min-height: 0;
   margin: 0;
   font-size: 1em;
@@ -2624,6 +2627,15 @@ $pv-s1: #B9C4C8;
   height: auto;
 }
 
+.pv-ma-strip circle.is-link {
+  cursor: pointer;
+}
+
+.pv-ma-strip circle.is-link:hover {
+  stroke: $pv-ink;
+  stroke-width: 1.5;
+}
+
 .pv-ma-bar {
   display: flex;
   gap: 1px;
@@ -3486,6 +3498,55 @@ body.pv-dp-open {
 
 .pv-ip-cab {
   margin-bottom: 0.6rem;
+}
+
+// Events in Monitor: the Monitor as a dataset
+.pv-ev-stamp {
+  margin: -0.35rem 0 1.1rem;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: $pv-muted;
+}
+
+.pv-ev-chart,
+.pv-ev-bars {
+  display: block;
+  max-width: none;
+}
+
+.pv-ev-base {
+  stroke: $pv-ink;
+  stroke-width: 0.8;
+}
+
+.pv-ev-head {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  fill: $pv-ink;
+}
+
+.pv-ev-chart rect.is-click,
+.pv-ev-bars rect.is-click {
+  cursor: pointer;
+}
+
+.pv-ev-chart rect.is-click:hover,
+.pv-ev-chart rect.is-click:focus,
+.pv-ev-bars rect.is-click:hover,
+.pv-ev-bars rect.is-click:focus {
+  fill-opacity: 0.75;
+  outline: none;
+}
+
+.pv-ev-items {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.pv-ev-items li {
+  margin-bottom: 0.5rem;
 }
 
 @media print {

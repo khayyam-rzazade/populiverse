@@ -1,0 +1,84 @@
+---
+title: "Events in Monitor"
+pagetitle: "Events in Monitor: The Monitor as a Dataset"
+description: "Every item of PopuliVerse Monitor as a dataset. Filter the items, see them by month or by kind of news, download them and cite them."
+page-layout: full
+body-classes: pv-data
+google-scholar: false
+citation: false
+# monitor.json and events.csv are written by scripts/make_pages.py at every
+# build, from the published issues and their files of tags. This page draws its
+# charts without any outside library, so it loads no vendor file.
+resources:
+  - pv-data.js
+  - events.js
+  - events.csv
+  - monitor.json
+---
+
+::: {.pv-prose .pv-data-lede}
+Every item that has stood in an issue of Populi*Verse* Monitor, as a dataset. One row is one item, with its date, its type, its countries and its actors.
+
+Filter the items, see them by month or by kind of news, download what you see, and cite the page. The whole dataset is one file, a click away.
+:::
+
+```{=html}
+<div id="ev-app" class="pv-wc pv-ev" data-monitor="monitor.json">
+  <p class="pv-lib-loading">Loading the items…</p>
+  <noscript>
+    <div class="pv-lib-message">
+      <p>This page needs JavaScript for its filters and charts. The whole dataset is also <a href="events.csv">one file</a>, and every item stands in its <a href="../monitor/index.qmd">issue</a>.</p>
+    </div>
+  </noscript>
+</div>
+<script src="pv-data.js" defer></script>
+<script src="events.js" defer></script>
+```
+
+::: {.pv-prose}
+
+## How This Page Works {#how}
+
+One row is one item of the Monitor. Either a full item of about 130 words, or a one-line entry under "also this month".
+
+The date is the day of the action that gives the item its type. Where an item covers more than one day, the end date stands beside it. One item of issue 2026/1 carries a month and no day, and the dataset says so in its own column. From the next issue every item carries a full date.
+
+Every item has one type. The 14 types sit in six families, and Other. The types, their meanings and the rules are on [How the Items Are Tagged](../monitor/tagging.qmd).
+
+The countries are the countries in the item's title. The first is the actor's. The actors are the covered actors the item is about. Who is covered, and why, is in [the Monitor's rules](../monitor/rules.qmd#who).
+
+An item can name more than one country and more than one actor. A filter by country or by actor keeps every item that names it, so the parts of such a filter add up to more than the whole.
+
+A period is counted back from the month of the latest issue, not from today.
+
+Nothing on this page is counted or weighed beyond what the Monitor already holds. No number says how much an event matters.
+
+Every item's own sources stand in its issue. Click an item to read it there.
+
+## The Whole Dataset {#data}
+
+The whole dataset is one file. It is written again at every build, so the file is always what this page shows, and it grows with every issue. It holds nothing but its rows, so it opens straight in R, Python, Stata or a spreadsheet.
+
+[Download the whole dataset (CSV)](events.csv)
+
+Its columns are issue, item, date, date_end, date_precision, type, family, countries, country_codes, actors, item_kind, heading and link.
+
+The button "Download what you see" above gives only the items that pass your filters, with the filters written at the end of the file.
+
+## Sources and Licences {#sources}
+
+- Populi*Verse* Monitor, every published issue. The [rules](../monitor/rules.qmd) say who is covered and where the news comes from. [How the Items Are Tagged](../monitor/tagging.qmd) says what every tag means.
+- The items rest on the news reports named in each issue. Those reports belong to their publishers. This dataset holds none of their text, only the Monitor's own headings and tags.
+- The Monitor and this dataset are published under a [CC BY 4.0 licence](../legal/licence.qmd).
+
+## How to Cite This Page {#cite}
+
+Rzazade, Khayyam, ed. 2026. "Events in Monitor." Populi*Verse*. https://populiverse.com/data/events.html.
+
+Where you use one item, please cite its issue too. Each issue has its own DOI, and each item has a "Cite This Item" line. A picture saved from this page carries its sources and this citation.
+
+:::
+
+::: {.pv-page-report}
+Found an error? Write to editor@populiverse.com.
+:::

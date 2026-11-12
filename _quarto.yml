@@ -27,6 +27,8 @@ project:
     # The script of "Actors in Monitor" and "Countries in Monitor", and of the
     # upper part of each actor's and each country's page.
     - "data/monitor-pages.js"
+    # The script of "Events in Monitor", the Monitor as a dataset.
+    - "data/events.js"
 
 lang: en-GB
 
@@ -85,6 +87,8 @@ website:
             href: actors/index.qmd
           - text: "Countries in Monitor"
             href: countries/index.qmd
+          - text: "Events in Monitor"
+            href: data/events.qmd
       - text: "Resources"
         href: resources/index.qmd
       - text: "About"

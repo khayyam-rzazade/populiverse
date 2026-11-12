@@ -15,9 +15,12 @@ What it reads:
   library/taxonomy.yml           the names of countries and regions
   data/countries.csv             the country codes the data pages use
 
-It also writes data/monitor.json, the Monitor's part of the two data pages
-("Who Counts as Populist?" and "Populists in Power"): the actors, who of them
-is in power today, and every item with its countries.
+It also writes two data files:
+  data/monitor.json              the Monitor's part of the data pages: the actors,
+                                 who of them is in power today, and every item
+                                 with its countries
+  data/events.csv                the whole events dataset, one row per item, for
+                                 "Events in Monitor" (data/events.qmd)
 
 Nothing has to be done by hand. When a new issue is published with its file
 of tags, its items appear on these pages at the next build. The pages are not
@@ -41,6 +44,22 @@ MARK = "<!-- Written by scripts/make_pages.py at every build. Do not edit: chang
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
 EDITOR = "editor@populiverse.com"
+
+
+# The 14 event types in their six families, and "Other". The same table stands
+# on monitor/tagging.qmd and in data/events.js and data/monitor-pages.js.
+FAMILIES = {
+    "Election": "Votes", "Referendum": "Votes", "Campaign": "Votes",
+    "Office": "Office and Party", "Party": "Office and Party",
+    "Law": "Rules", "Measure": "Rules",
+    "Court": "Justice", "Police and Prosecutors": "Justice",
+    "Diplomacy": "Abroad", "Agreement": "Abroad", "Sanctions and Trade": "Abroad",
+    "Armed Forces": "Abroad", "Protest": "Street",
+}
+
+
+def family(kind):
+    return FAMILIES.get(kind, "Other")
 
 
 def note(msg):
@@ -92,7 +111,9 @@ def plain(md):
 
 
 def first_sentence(text):
-    m = re.match(r"^(.+?[.!?])(?=\s+[A-ZÀ-ɏ]|\s*$)", text)
+    # A sentence ends at a full stop followed by a capital, by an opening bracket
+    # (where the source credits of a one-line entry begin) or by the end of the text
+    m = re.match(r"^(.+?[.!?])(?=\s+[A-ZÀ-ɏ(]|\s*$)", text)
     return m.group(1) if m else text
 
 
@@ -349,30 +370,69 @@ def write_monitor_json(issues, items, actors, iso_of, country=None, places=None)
             "tag": a["country"], "c": country.get(a["country"], a["country"]), "ds": words.get(a["id"], {}),
             "items": sum(1 for it in items if a["id"] in it["actors"]),
         } for a in actors],
-        "items": [{
+        # An item: its issue and number, title, type, date (and end date where the
+        # tags give one), countries, actors, and whether it is a full item or a
+        # one-line entry
+        "items": [dict({
             "issue": it["issue"], "folder": it["folder"], "n": it["n"], "title": it["title"],
             "type": it["type"], "date": it["date"], "iso": [iso_of[c] for c in it["countries"] if c in iso_of],
             "actors": it["actors"], "k": it["kind"],
-        } for it in items],
+        }, **({"de": it["date_end"]} if it["date_end"] else {}),
+            **({"s": it["sentence"]} if it.get("sentence") else {})) for it in items],
         # The countries of the Monitor, for the map and the cards: name, number on the map,
         # region, place, whether it is too small for the map, and the name of its page
         "places": {r["iso3"]: [r["label"], r["num"], r["region"], float(r["lon"]) if r["lon"] else None,
                                float(r["lat"]) if r["lat"] else None, 1 if r["dot"] == "1" else 0, r["tag"]]
                    for r in (places or [])},
     }
-    path = os.path.join(ROOT, "data", "monitor.json")
-    text = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
-    old = read(path) if os.path.exists(path) else None
-    if old != text:
+    write_data("monitor.json", json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+
+
+def write_data(name, text):
+    """A file in data/, written again at every build, and its copy in a built site.
+
+    In a preview Quarto does not copy such a file into the built site again, so
+    the pages there would read the copy of the last full build. Where a built
+    site exists, its copy is brought up to date here."""
+    path = os.path.join(ROOT, "data", name)
+    if not os.path.exists(path) or read(path) != text:
         with open(path, "w", encoding="utf-8") as f:
             f.write(text)
-    # In a preview Quarto does not copy this file into the built site again, so
-    # the pages there would read the copy of the last full build. Where a built
-    # site exists, its copy is brought up to date here.
-    built = os.path.join(ROOT, "_site", "data", "monitor.json")
+    built = os.path.join(ROOT, "_site", "data", name)
     if os.path.isdir(os.path.dirname(built)) and (not os.path.exists(built) or read(built) != text):
         with open(built, "w", encoding="utf-8") as f:
             f.write(text)
+
+
+def write_events_csv(items, by_id, country, iso_of):
+    """The whole events dataset, one row per item of the Monitor.
+
+    Nothing but its rows, so that it opens straight in R, Python, Stata or a
+    spreadsheet. The date is the day of the action that gives the type; where an
+    item carries a month and no day, date_precision says so."""
+    import io
+    out = io.StringIO()
+    w = csv.writer(out, lineterminator="\r\n")
+    w.writerow(["issue", "item", "date", "date_end", "date_precision", "type", "family",
+                "countries", "country_codes", "actors", "item_kind", "heading", "link"])
+    for it in sorted(items, key=sort_key):
+        # A full item's heading is its title. A one-line entry's title is only the
+        # place, so its own sentence stands with it.
+        heading = it["title"]
+        if it["kind"] == "entry" and it.get("sentence"):
+            heading += ". " + it["sentence"]
+        w.writerow([
+            it["issue"], it["n"], it["date"], it["date_end"],
+            "month" if len(it["date"]) == 7 else "day",
+            it["type"], family(it["type"]),
+            "; ".join(country.get(c, c) for c in it["countries"]),
+            "; ".join(iso_of[c] for c in it["countries"] if c in iso_of),
+            "; ".join(by_id[a]["name"] if a in by_id else a for a in it["actors"]),
+            "one-line entry" if it["kind"] == "entry" else "full item",
+            heading,
+            "https://populiverse.com/monitor/%s/#item-%d" % (it["folder"], it["n"]),
+        ])
+    write_data("events.csv", out.getvalue())
 
 
 def main():
@@ -485,6 +545,7 @@ def main():
     remove_old(os.path.join(ROOT, "countries"), written)
     place_rows = [r for r in (rows(os.path.join(ROOT, "data", "countries.csv")) if iso_of else []) if r["tag"] in places]
     write_monitor_json(issues, items, actors, iso_of, country, place_rows)
+    write_events_csv(items, by_id, country, iso_of)
     note("%d issues, %d items, %d actor pages, %d country pages." % (len(issues), len(items), len(actors), len(places)))
 
 

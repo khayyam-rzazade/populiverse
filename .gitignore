@@ -13,10 +13,11 @@
 /drafts/
 
 # The actor and country pages: scripts/make_pages.py writes them at every build,
-# with the Monitor's part of the data pages
+# with the Monitor's part of the data pages and the events dataset
 /actors/
 /countries/
 /data/monitor.json
+/data/events.csv
 
 # macOS folder settings
 .DS_Store

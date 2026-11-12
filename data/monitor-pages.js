@@ -3,7 +3,14 @@
    scripts/make_pages.py writes at every build: the actors (with the source that
    classes each, who holds power today and what the datasets say, in short), the
    items with their dates and types, and the countries. Every verdict shown is
-   the dataset's own. Without JavaScript the plain pages stay as they are. */
+   the dataset's own. Without JavaScript the plain pages stay as they are.
+
+   On the two lists the cards come 20 at a time, with a button for the next 20,
+   and a period filter stands first, "Last 12 months", counted back from the
+   month of the latest issue. The period narrows everything on the page: the
+   numbers, the dots, the bars, the map, the order and the downloads. Every
+   actor and every country stays in the list; a card with nothing in the period
+   says so. */
 
 (function () {
   "use strict";
@@ -26,11 +33,24 @@
   var REG = { "europe": "Europe", "latin-america": "Latin America", "north-america": "North America", "asia-pacific": "Asia-Pacific", "mena": "Middle East and North Africa", "sub-saharan-africa": "Sub-Saharan Africa" };
   var POWER = { leads: "Leads the government", partner: "Partner in government", supports: "Supports from outside" };
   var SHADE = ["#F1EFEA", "#C5D0D3", "#8FA3A9", "#4A5F66", "#1D2B30"];
+  // The cards of a list, 20 at a time, and the periods, the first one first
+  var STEP = 20;
+  var SHORT = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  var PERIODS = [["12", "Last 12 months"], ["6", "Last 6 months"], ["24", "Last 24 months"], ["all", "All time"]];
 
   var M = null, ACTORS = [], PLACES = [], BYISO = {}, T0 = 0, T1 = 1, MONTHS = [];
+  // ALL holds every month the Monitor has, MONTHS the months of the period in
+  // view, ITEMS the items of that period, WORLD the map file
+  var ALL = [], ITEMS = [], PERIOD = "", WORLD = null;
 
-  PV.load((host || ones[0]).getAttribute("data-monitor")).then(function (m) {
-    M = m;
+  // The map file is read together with the Monitor's data, not after it, so that
+  // the map stands as soon as the cards do.
+  var mapUrl = host && window.d3 && window.topojson ? host.getAttribute("data-map") : "";
+  var jobs = [PV.load((host || ones[0]).getAttribute("data-monitor"))];
+  if (mapUrl) jobs.push(PV.load(mapUrl).catch(function () { return null; }));
+  Promise.all(jobs).then(function (res) {
+    M = res[0];
+    WORLD = res[1] || null;
     prepare();
     if (host) (host.getAttribute("data-kind") === "countries" ? countries : actors)();
     Array.prototype.forEach.call(ones, one);
@@ -54,14 +74,14 @@
     ACTORS = M.actors.map(function (a) {
       var p = M.places[a.iso];
       a.reg = p ? p[2] : "";
-      a.its = M.items.filter(function (it) { return it.actors.indexOf(a.id) >= 0; });
+      a.all = M.items.filter(function (it) { return it.actors.indexOf(a.id) >= 0; });
       a.find = PV.fold([a.name, a.c, a.src, REG[a.reg] || ""].join(" "));
       return a;
     });
     Object.keys(M.places).forEach(function (iso) {
       var p = M.places[iso];
       var c = { iso: iso, name: p[0], num: p[1], reg: p[2], lon: p[3], lat: p[4], dot: p[5], tag: p[6] };
-      c.its = M.items.filter(function (it) { return it.iso.indexOf(iso) >= 0; });
+      c.all = M.items.filter(function (it) { return it.iso.indexOf(iso) >= 0; });
       c.actors = ACTORS.filter(function (a) { return a.iso === iso; });
       c.power = c.actors.filter(function (a) { return a.power; });
       c.find = PV.fold([c.name, REG[c.reg] || ""].concat(c.actors.map(function (a) { return a.name; })).join(" "));
@@ -74,14 +94,42 @@
       var y = +a.slice(0, 4), mo = +a.slice(5, 7);
       while (true) {
         var key = y + "-" + (mo < 10 ? "0" : "") + mo;
-        MONTHS.push(key);
+        ALL.push(key);
         if (key >= b) break;
         mo += 1; if (mo > 12) { mo = 1; y += 1; }
       }
+    }
+    applyPeriod("");
+  }
+
+  function monthsBack(key, n) {
+    var y = +key.slice(0, 4), mo = +key.slice(5, 7) - (n - 1);
+    while (mo < 1) { mo += 12; y -= 1; }
+    return y + "-" + (mo < 10 ? "0" : "") + mo;
+  }
+
+  // The period in view. "" is all time. A period is counted back from the month
+  // of the latest issue, not from today, so that a late issue never empties the
+  // page. The axis covers the months of the period that the Monitor has.
+  function applyPeriod(p) {
+    // "all" and not an empty value, so that the address of the page carries it
+    PERIOD = /^\d+$/.test(p || "") ? p : "";
+    var cut = PERIOD && ALL.length ? monthsBack(ALL[ALL.length - 1], +PERIOD) : "";
+    var keep = function (it) { return !cut || it.date.slice(0, 7) >= cut; };
+    ITEMS = M.items.filter(keep);
+    ACTORS.forEach(function (a) { a.its = a.all.filter(keep); });
+    PLACES.forEach(function (c) { c.its = c.all.filter(keep); });
+    MONTHS = ALL.filter(function (m) { return !cut || m >= cut; });
+    if (MONTHS.length) {
       T0 = day(MONTHS[0] + "-01");
       var last = MONTHS[MONTHS.length - 1], ly = +last.slice(0, 4), lm = +last.slice(5, 7);
       T1 = Date.UTC(lm === 12 ? ly + 1 : ly, lm === 12 ? 0 : lm, 1) / 86400000;
     }
+  }
+
+  // The period in words, for a downloaded file
+  function periodNote() {
+    return (PERIOD ? "The items counted are those of the last " + PERIOD + " months, " : "The items counted are those of all time, ") + span() + ".";
   }
 
   function span() { return MONTHS.length ? PV.month(MONTHS[0]) + (MONTHS.length > 1 ? " to " + PV.month(MONTHS[MONTHS.length - 1]) : "") : ""; }
@@ -115,22 +163,46 @@
     return el("div", { class: "pv-ma-dsbox" }, rows);
   }
 
-  function strip(items, w, h, r) {
-    // The items over time, one dot each; a tick at the start of every month
+  function strip(items, w, h, r, names) {
+    // The items over time, one dot each, on the day of the action that gives the
+    // type. Dots of the same or nearby days stand in a column and never cover each
+    // other; the months are named under the line; a dot opens its item.
     w = w || 240; h = h || 26; r = r || 4;
+    names = names !== false;
+    var gap = 2 * r + 1, fs = Math.max(7, Math.round(r * 2));
     var x = function (d) { return r + 2 + (w - 2 * r - 4) * (day(d) - T0) / (T1 - T0); };
-    var s = '<svg viewBox="0 0 ' + w + " " + h + '" width="100%" role="img" aria-label="' + plural(items.length, "Monitor item", "Monitor items") + ", " + PV.esc(span()) + '">' +
-      '<line x1="0" x2="' + w + '" y1="' + (h - r - 2) + '" y2="' + (h - r - 2) + '" stroke="#D9D9D6"/>';
-    MONTHS.forEach(function (m, i) { if (i) s += '<line x1="' + x(m + "-01").toFixed(1) + '" x2="' + x(m + "-01").toFixed(1) + '" y1="2" y2="' + (h - 2) + '" stroke="#D9D9D6"/>'; });
-    var seen = {};
+    var placed = [], top = 0;
     items.forEach(function (it) {
-      var cx = x(it.date), k = Math.round(cx / (2 * r));
-      seen[k] = (seen[k] || 0) + 1;
-      var cy = Math.max(r, h - r - 2 - (seen[k] - 1) * (r + 1.5));
-      s += '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="' + r + '" fill="' + FC[fam(it.type)] + '" stroke="#FCFCFB"><title>' + PV.esc(when(it.date) + " · " + it.type + " · " + heading(it)) + "</title></circle>";
+      var cx = x(it.date), lv = 0;
+      while (placed.some(function (p) { return p.lv === lv && Math.abs(p.cx - cx) < gap; })) lv += 1;
+      placed.push({ it: it, cx: cx, lv: lv });
+      if (lv > top) top = lv;
+    });
+    var line = Math.max(h - r - 2, top * gap + r + 2);
+    var height = line + r + 2 + (names ? fs + 4 : 0);
+    var s = '<svg viewBox="0 0 ' + w + " " + height.toFixed(1) + '" width="100%" role="group" aria-label="' + plural(items.length, "Monitor item", "Monitor items") + ", " + PV.esc(span()) + '">' +
+      '<line x1="0" x2="' + w + '" y1="' + line + '" y2="' + line + '" stroke="#D9D9D6"/>';
+    var colW = (w - 2 * r - 4) / Math.max(1, MONTHS.length), every = Math.max(1, Math.ceil(fs * 4.6 / colW));
+    MONTHS.forEach(function (m, i) {
+      var x0 = x(m + "-01");
+      if (i) s += '<line x1="' + x0.toFixed(1) + '" x2="' + x0.toFixed(1) + '" y1="1" y2="' + (line + r + 1) + '" stroke="#D9D9D6"/>';
+      if (!names || i % every) return;
+      var label = SHORT[+m.slice(5, 7) - 1] + (i === 0 || m.slice(5, 7) === "01" ? " " + m.slice(0, 4) : "");
+      s += '<text x="' + (x0 + 2).toFixed(1) + '" y="' + (height - 3).toFixed(1) + '" font-size="' + fs + '" fill="#6B6B66">' + label + "</text>";
+    });
+    placed.forEach(function (p) {
+      var it = p.it, tip = PV.esc(when(it.date) + " · " + it.type + " · " + heading(it));
+      // A dot is not a link element, because the site's menu script reads every
+      // link of the page as text; a click on the dot opens the item instead
+      s += '<circle class="is-link" data-href="' + itemLink(it) + '" cx="' + p.cx.toFixed(1) + '" cy="' + (line - p.lv * gap).toFixed(1) +
+        '" r="' + r + '" fill="' + FC[fam(it.type)] + '" stroke="#FCFCFB"><title>' + tip + "</title></circle>";
     });
     var d = el("div", { class: "pv-ma-strip" });
     d.innerHTML = s + "</svg>";
+    d.addEventListener("click", function (e) {
+      var href = e.target && e.target.getAttribute ? e.target.getAttribute("data-href") : null;
+      if (href) window.location.href = href;
+    });
     return d;
   }
 
@@ -154,7 +226,9 @@
   }
 
   function inMonitor(items) {
-    var kids = [el("div", { class: "pv-ma-row" }, [label("In the Monitor"), el("span", { text: plural(items.length, "item", "items") })])];
+    var none = PERIOD ? "No item in this period" : "No item yet";
+    var kids = [el("div", { class: "pv-ma-row" }, [label("In the Monitor"),
+      el("span", { text: items.length ? plural(items.length, "item", "items") : none })])];
     if (items.length) {
       var last = items[items.length - 1];
       kids.push(strip(items), typeBar(items),
@@ -169,6 +243,17 @@
       b.addEventListener("click", function () { apply(t[2]); });
       return b;
     }));
+  }
+
+  function countText(n, total, one, many, shown) {
+    return plural(n, one, many) + (n < total ? " of " + total : "") +
+      (shown && shown < n ? ", showing the first " + shown : "");
+  }
+
+  function more(left, fn) {
+    var b = el("button", { type: "button", class: "pv-button pv-wc-more", text: "Show " + Math.min(STEP, left) + " more" });
+    b.addEventListener("click", fn);
+    return b;
   }
 
   function tool(text, fn) {
@@ -233,20 +318,16 @@
 
   function actors() {
     var TITLE = "Actors in Monitor", URL = SITE + "actors/";
-    var ui = {}, list = [];
-    var C = Controls({ q: "", kind: "", region: "", country: "", power: "", src: "", fam: "", sort: "items", view: "cards" }, run), S = C.S;
+    var ui = {}, list = [], shown = STEP;
+    var C = Controls({ q: "", period: "12", kind: "", region: "", country: "", power: "", src: "", fam: "", sort: "items", view: "cards" }, run), S = C.S;
     var srcs = {}, lands = {}, regs = {};
     ACTORS.forEach(function (a) { srcs[a.src] = 1; lands[a.iso] = a.c; if (a.reg) regs[a.reg] = 1; });
     host.innerHTML = "";
-    host.appendChild(tiles([
-      [ACTORS.length, "actors", {}],
-      [ACTORS.filter(function (a) { return a.kind === "party"; }).length, "parties", { kind: "party" }],
-      [ACTORS.filter(function (a) { return a.kind === "leader"; }).length, "leaders", { kind: "leader" }],
-      [ACTORS.filter(function (a) { return a.power; }).length, "in power today", { power: "any" }],
-      [M.items.length, "Monitor items", {}]
-    ], C.reset));
+    ui.stats = el("div");
+    host.appendChild(ui.stats);
     host.appendChild(C.search("An actor or a country"));
     host.appendChild(el("div", { class: "pv-wc-filters" }, [
+      C.select("period", "Period", PERIODS),
       C.select("kind", "Parties or leaders", [["", "Both"], ["party", "Parties"], ["leader", "Leaders"]]),
       C.select("region", "Region", [["", "All regions"]].concat(Object.keys(REG).filter(function (k) { return regs[k]; }).map(function (k) { return [k, REG[k]]; }))),
       C.select("country", "Country", [["", "All countries"]].concat(Object.keys(lands).sort(function (a, b) { return lands[a].localeCompare(lands[b]); }).map(function (k) { return [k, lands[k]]; }))),
@@ -268,7 +349,19 @@
     host.appendChild(ui.view);
     run();
 
+    function stats() {
+      ui.stats.innerHTML = "";
+      ui.stats.appendChild(tiles([
+        [ACTORS.length, "actors", {}],
+        [ACTORS.filter(function (a) { return a.kind === "party"; }).length, "parties", { kind: "party" }],
+        [ACTORS.filter(function (a) { return a.kind === "leader"; }).length, "leaders", { kind: "leader" }],
+        [ACTORS.filter(function (a) { return a.power; }).length, "in power today", { power: "any" }],
+        [ITEMS.length, ITEMS.length === 1 ? "Monitor item" : "Monitor items", {}]
+      ], C.reset));
+    }
+
     function run() {
+      applyPeriod(S.period);
       var q = C.words();
       list = ACTORS.filter(function (a) {
         if (S.kind && a.kind !== S.kind) return false;
@@ -289,21 +382,28 @@
         latest: function (a, b) { return latest(b).localeCompare(latest(a)) || a.name.localeCompare(b.name); }
       }[S.sort]);
       C.save();
+      stats();
       Array.prototype.forEach.call(ui.tabs.children, function (b) {
         var on = b.getAttribute("data-view") === S.view;
         b.classList.toggle("is-on", on);
         b.setAttribute("aria-selected", on ? "true" : "false");
       });
-      ui.count.textContent = plural(list.length, "actor", "actors") + (list.length < ACTORS.length ? " of " + ACTORS.length : "");
-      ui.view.innerHTML = "";
       ui.tools.innerHTML = "";
       ui.tools.appendChild(tool("Download the list (CSV)", listCsv));
-      ui.tools.appendChild(tool("Their items (CSV)", function () { itemsCsv("populiverse-monitor-items.csv", M.items.filter(function (it) { return list.some(function (a) { return it.actors.indexOf(a.id) >= 0; }); })); }));
+      ui.tools.appendChild(tool("Their items (CSV)", function () { itemsCsv("populiverse-monitor-items.csv", ITEMS.filter(function (it) { return list.some(function (a) { return it.actors.indexOf(a.id) >= 0; }); })); }));
       if (S.view === "timeline" && list.length) {
         ui.tools.appendChild(tool("Picture (PNG)", function (b) { PV.save.picture(b, "populiverse-actors-timeline", "png", figure); }));
         ui.tools.appendChild(tool("Picture (SVG)", function (b) { PV.save.picture(b, "populiverse-actors-timeline", "svg", figure); }));
       }
       ui.tools.appendChild(tool("Copy the link to this view", function (b) { PV.copy(window.location.href, b); }));
+      shown = STEP;
+      render();
+    }
+
+    // The cards come 20 at a time; the table and the timeline stand whole
+    function render() {
+      ui.count.textContent = countText(list.length, ACTORS.length, "actor", "actors", S.view === "cards" ? shown : 0);
+      ui.view.innerHTML = "";
       if (!list.length) { ui.view.appendChild(el("p", { class: "pv-lib-nomatch", text: "Nothing fits these filters." })); return; }
       if (S.view === "table") table();
       else if (S.view === "timeline") {
@@ -311,7 +411,10 @@
         ui.view.appendChild(box);
         timeline(box, Math.max(760, ui.view.clientWidth || 900), list, false);
         ui.view.appendChild(el("p", { class: "pv-ma-dim", text: "A dot is one item, on the day of the action that gives its type. Point at a dot for its heading and click it to read the item. Click a name to open the actor." }));
-      } else ui.view.appendChild(el("div", { class: "pv-ma-grid" }, list.map(card)));
+      } else {
+        ui.view.appendChild(el("div", { class: "pv-ma-grid" }, list.slice(0, shown).map(card)));
+        if (list.length > shown) ui.view.appendChild(more(list.length - shown, function () { shown += STEP; render(); }));
+      }
     }
 
     function card(a) {
@@ -332,7 +435,7 @@
           el("td", { "data-label": "On the list by", text: a.src + (a.bl ? ", borderline" : "") }),
           el("td", { "data-label": "Power today" }, [powerPill(a.power)]),
           el("td", { "data-label": "The datasets" }, [datasets(a)]),
-          el("td", { "data-label": "Items" }, [el("span", { text: String(a.its.length) }), strip(a.its, 150, 22, 3.5), typeBar(a.its)]),
+          el("td", { "data-label": "Items" }, [el("span", { text: String(a.its.length) }), strip(a.its, 150, 22, 3.5, false), typeBar(a.its)]),
           el("td", { "data-label": "Latest item" }, last ? [el("span", { class: "pv-ma-dim", text: when(last.date) + " · " }), el("a", { href: itemLink(last), text: cut(heading(last), 70) })] : [])
         ]));
       });
@@ -349,7 +452,7 @@
           d.gd ? d.gd[0] + "-" + (d.gd[4] ? "current in the file" : d.gd[1]) : "", d.gd ? d.gd[2] : "", d.gd ? PV.verdict.gpd(d.gd[3]).label.toLowerCase() : "",
           d.vp ? d.vp[0] : "", d.vp ? d.vp[1] : "", a.its.length, a.its.length ? a.its[0].date : "", a.its.length ? a.its[a.its.length - 1].date : "", URL + a.id + ".html"]);
       });
-      rows.push([], ["Power today as of PopuliVerse Monitor " + M.issue + ". Every verdict is the dataset's own; for a leader, The PopuList and V-Party speak of the party. Sources and licences: " + SITE + "data/sources.txt"], [PV.citation(TITLE, URL)]);
+      rows.push([], [periodNote()], ["Power today as of PopuliVerse Monitor " + M.issue + ". Every verdict is the dataset's own; for a leader, The PopuList and V-Party speak of the party. Sources and licences: " + SITE + "data/sources.txt"], [PV.citation(TITLE, URL)]);
       PV.save.csv("populiverse-actors-in-monitor.csv", rows);
     }
 
@@ -420,17 +523,13 @@
 
   function countries() {
     var TITLE = "Countries in Monitor", URL = SITE + "countries/";
-    var ui = {}, list = [], WORLD = null;
-    var C = Controls({ q: "", region: "", power: "", fam: "", sort: "items", map: "items" }, run), S = C.S;
+    var ui = {}, list = [], shown = STEP;
+    var C = Controls({ q: "", period: "12", region: "", power: "", fam: "", sort: "items", map: "items" }, run), S = C.S;
     var regs = {};
     PLACES.forEach(function (c) { if (c.reg) regs[c.reg] = 1; });
     host.innerHTML = "";
-    host.appendChild(tiles([
-      [PLACES.length, "countries", {}],
-      [PLACES.filter(function (c) { return c.actors.length; }).length, "with an actor on the list", { power: "listed" }],
-      [PLACES.filter(function (c) { return c.power.length; }).length, "with an actor in power today", { power: "any" }],
-      [M.items.length, "Monitor items", {}]
-    ], C.reset));
+    ui.stats = el("div");
+    host.appendChild(ui.stats);
     ui.modes = el("div", { class: "pv-ma-modes" }, [["items", "Monitor items"], ["power", "Actors in power today"]].map(function (m) {
       var b = el("button", { type: "button", "data-mode": m[0], text: m[1] });
       b.addEventListener("click", function () { S.map = m[0]; run(); });
@@ -444,6 +543,7 @@
     host.appendChild(ui.tools);
     host.appendChild(C.search("A country or an actor"));
     host.appendChild(el("div", { class: "pv-wc-filters" }, [
+      C.select("period", "Period", PERIODS),
       C.select("region", "Region", [["", "All regions"]].concat(Object.keys(REG).filter(function (k) { return regs[k]; }).map(function (k) { return [k, REG[k]]; }))),
       C.select("power", "Actors", [["", "All countries"], ["listed", "With an actor on the list"], ["any", "With an actor in power today"]]),
       C.select("fam", "Kind of news", [["", "Any"]].concat(FAMS.map(function (k) { return [k, k]; }))),
@@ -455,8 +555,16 @@
     ui.view = el("div", { class: "pv-wc-view" });
     host.appendChild(ui.view);
     run();
-    if (window.d3 && window.topojson && host.getAttribute("data-map")) {
-      PV.load(host.getAttribute("data-map")).then(function (w) { WORLD = w; drawMap(); window.addEventListener("resize", function () { drawMap(); }); });
+    if (WORLD) window.addEventListener("resize", function () { drawMap(); });
+
+    function stats() {
+      ui.stats.innerHTML = "";
+      ui.stats.appendChild(tiles([
+        [PLACES.length, "countries", {}],
+        [PLACES.filter(function (c) { return c.actors.length; }).length, "with an actor on the list", { power: "listed" }],
+        [PLACES.filter(function (c) { return c.power.length; }).length, "with an actor in power today", { power: "any" }],
+        [ITEMS.length, ITEMS.length === 1 ? "Monitor item" : "Monitor items", {}]
+      ], C.reset));
     }
 
     function powerOf(c) {
@@ -514,6 +622,7 @@
     }
 
     function run() {
+      applyPeriod(S.period);
       var q = C.words();
       list = PLACES.filter(function (c) {
         if (S.region && c.reg !== S.region) return false;
@@ -529,6 +638,7 @@
         latest: function (a, b) { return latest(b).localeCompare(latest(a)) || a.name.localeCompare(b.name); }
       }[S.sort]);
       C.save();
+      stats();
       Array.prototype.forEach.call(ui.modes.children, function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === S.map); });
       ui.key.innerHTML = "";
       mapKey().forEach(function (k) { ui.key.appendChild(el("span", { class: "pv-key" }, [el("span", { class: "pv-key-sw", style: "background:" + k[0] }), k[1]])); });
@@ -537,13 +647,20 @@
       ui.tools.appendChild(tool("Map as a picture (PNG)", function (b) { PV.save.picture(b, "populiverse-countries-in-monitor", "png", figure); }));
       ui.tools.appendChild(tool("Map (SVG)", function (b) { PV.save.picture(b, "populiverse-countries-in-monitor", "svg", figure); }));
       ui.tools.appendChild(tool("Download the list (CSV)", listCsv));
-      ui.tools.appendChild(tool("Their items (CSV)", function () { itemsCsv("populiverse-monitor-items.csv", M.items.filter(function (it) { return list.some(function (c) { return it.iso.indexOf(c.iso) >= 0; }); })); }));
+      ui.tools.appendChild(tool("Their items (CSV)", function () { itemsCsv("populiverse-monitor-items.csv", ITEMS.filter(function (it) { return list.some(function (c) { return it.iso.indexOf(c.iso) >= 0; }); })); }));
       ui.tools.appendChild(tool("Copy the link to this view", function (b) { PV.copy(window.location.href, b); }));
-      ui.count.textContent = plural(list.length, "country", "countries") + (list.length < PLACES.length ? " of " + PLACES.length : "");
+      shown = STEP;
+      render();
+    }
+
+    // The cards come 20 at a time, in the order chosen, grouped by region
+    function render() {
+      ui.count.textContent = countText(list.length, PLACES.length, "country", "countries", shown);
       ui.view.innerHTML = "";
       if (!list.length) { ui.view.appendChild(el("p", { class: "pv-lib-nomatch", text: "Nothing fits these filters." })); return; }
+      var first = list.slice(0, shown);
       Object.keys(REG).forEach(function (r) {
-        var cs = list.filter(function (c) { return c.reg === r; });
+        var cs = first.filter(function (c) { return c.reg === r; });
         if (!cs.length) return;
         var n = cs.reduce(function (s, c) { return s + c.its.length; }, 0);
         ui.view.appendChild(el("section", { class: "pv-ma-region" }, [
@@ -551,6 +668,7 @@
           el("div", { class: "pv-ma-grid" }, cs.map(card))
         ]));
       });
+      if (list.length > shown) ui.view.appendChild(more(list.length - shown, function () { shown += STEP; render(); }));
     }
 
     function card(c) {
@@ -574,7 +692,7 @@
           c.its.length ? c.its[0].date : "", c.its.length ? c.its[c.its.length - 1].date : "",
           FAMS.filter(function (f) { return k[f]; }).map(function (f) { return f + " " + k[f]; }).join("; "), URL + c.tag + ".html"]);
       });
-      rows.push([], ["Power today as of PopuliVerse Monitor " + M.issue + ". A country without an actor in power here is not a country without populists in power: only the actors on the Monitor's list are followed."], [PV.citation(TITLE, URL)]);
+      rows.push([], [periodNote()], ["Power today as of PopuliVerse Monitor " + M.issue + ". A country without an actor in power here is not a country without populists in power: only the actors on the Monitor's list are followed."], [PV.citation(TITLE, URL)]);
       PV.save.csv("populiverse-countries-in-monitor.csv", rows);
     }
 
@@ -589,7 +707,7 @@
         host: host,
         chart: function (holder, w) { return mapChart(holder, w, true); },
         title: S.map === "power" ? "Where an Actor on the Monitor's List Is in Power Today" : "The Countries in PopuliVerse Monitor, " + span(),
-        lines: [S.map === "power" ? "As of PopuliVerse Monitor " + M.issue + ". Only the actors on the Monitor's list are followed." : plural(PLACES.length, "country", "countries") + ", shaded by the number of items that name each. " + plural(M.items.length, "item", "items") + " in all; an item can name more than one country."],
+        lines: [S.map === "power" ? "As of PopuliVerse Monitor " + M.issue + ". Only the actors on the Monitor's list are followed." : plural(PLACES.length, "country", "countries") + ", shaded by the number of items that name each. " + plural(ITEMS.length, "item", "items") + " in all; an item can name more than one country."],
         legend: mapKey().map(function (k) { return { fill: k[0], label: k[1] }; }),
         lists: order.filter(function (k) { return groups[k]; }).map(function (k) {
           return { head: k + " (" + groups[k].length + ")", text: groups[k].sort(function (a, b) { return b.its.length - a.its.length || a.name.localeCompare(b.name); }).map(function (c) {
@@ -622,8 +740,8 @@
       var k = counts(items), max = Math.max.apply(null, FAMS.map(function (f) { return k[f] || 0; }));
       kids.push(el("section", {}, [
         el("h2", { text: "Over Time" }),
-        el("p", { class: "pv-ma-dim", text: plural(items.length, "item", "items") + " in the Monitor, " + span() + ". Each dot is one item; point at it for its heading." }),
-        strip(items, 720, 40, 6),
+        el("p", { class: "pv-ma-dim", text: plural(items.length, "item", "items") + " in the Monitor, " + span() + ". Each dot is one item. Point at it for its heading and click it to read the item." }),
+        strip(items, Math.max(280, Math.min(720, box.clientWidth || 720)), 40, 6),
         el("div", { class: "pv-ma-kinds" }, FAMS.filter(function (f) { return k[f]; }).map(function (f) {
           return el("div", {}, [el("span", { text: f }), el("span", { class: "pv-ma-kbar" }, [el("span", { style: "width:" + Math.round(100 * k[f] / max) + "%;background:" + FC[f] })]), el("span", { class: "pv-ma-dim", text: String(k[f]) })]);
         }))
