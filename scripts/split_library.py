@@ -65,7 +65,7 @@ def figures_text(entries, meta):
         "%s works · %s journals · %d countries · %s with an abstract · %s free to read"
         % (format(works, ","), format(journals, ","), countries, share(with_abstract), share(free)),
         "",
-        day + "New works are added every month.",
+        day + "New works are added every three months.",
         ":::",
         "",
     ])

@@ -62,6 +62,28 @@ def family(kind):
     return FAMILIES.get(kind, "Other")
 
 
+_WORKS = None
+
+
+def library_works():
+    """How many works of the Library carry each country tag, from library/library-list.json.
+
+    Counted again at every build, so the numbers follow the Library's last sync.
+    A country with no work is simply missing here and counts as 0."""
+    global _WORKS
+    if _WORKS is None:
+        import json
+        _WORKS = {}
+        path = os.path.join(ROOT, "library", "library-list.json")
+        if os.path.exists(path):
+            with open(path, encoding="utf-8") as f:
+                for e in json.load(f).get("entries", []):
+                    for tag in e.get("country", []):
+                        if tag.startswith("country:"):
+                            _WORKS[tag[8:]] = _WORKS.get(tag[8:], 0) + 1
+    return _WORKS
+
+
 def note(msg):
     print("make_pages: " + msg)
 
@@ -384,6 +406,8 @@ def write_monitor_json(issues, items, actors, iso_of, country=None, places=None)
         "places": {r["iso3"]: [r["label"], r["num"], r["region"], float(r["lon"]) if r["lon"] else None,
                                float(r["lat"]) if r["lat"] else None, 1 if r["dot"] == "1" else 0, r["tag"]]
                    for r in (places or [])},
+        # The number of Library works on each country, for the cards and their order
+        "works": {r["iso3"]: library_works().get(r["tag"], 0) for r in (places or [])},
     }
     write_data("monitor.json", json.dumps(data, ensure_ascii=False, separators=(",", ":")))
 
@@ -525,11 +549,13 @@ def main():
             body += ["## Covered Actors", ""]
             body += ["- [%s](../actors/%s.qmd)" % (a["name"], a["id"]) for a in sorted(here, key=lambda a: a["name"].lower())]
             body += [""]
+        n = library_works().get(c, 0)
         body += ["## In the Monitor", ""] + items_part(mine) + [
             "",
             "## In the Library",
             "",
-            "[Works on %s](../library/index.html?country=%s)" % (country[c], c),
+            ("[%d %s on %s](../library/index.html?country=%s)" % (n, "work" if n == 1 else "works", country[c], c))
+            if n else "The Library holds no work on %s yet." % country[c],
         ]
         files[c + ".qmd"] = page(country[c], "What PopuliVerse Monitor reported on %s." % country[c], body)
         listing.append("- [%s](%s.qmd). %d %s." % (country[c], c, len(mine), "item" if len(mine) == 1 else "items"))

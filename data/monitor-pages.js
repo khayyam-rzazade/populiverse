@@ -81,6 +81,7 @@
     Object.keys(M.places).forEach(function (iso) {
       var p = M.places[iso];
       var c = { iso: iso, name: p[0], num: p[1], reg: p[2], lon: p[3], lat: p[4], dot: p[5], tag: p[6] };
+      c.works = (M.works && M.works[iso]) || 0;
       c.all = M.items.filter(function (it) { return it.iso.indexOf(iso) >= 0; });
       c.actors = ACTORS.filter(function (a) { return a.iso === iso; });
       c.power = c.actors.filter(function (a) { return a.power; });
@@ -547,7 +548,7 @@
       C.select("region", "Region", [["", "All regions"]].concat(Object.keys(REG).filter(function (k) { return regs[k]; }).map(function (k) { return [k, REG[k]]; }))),
       C.select("power", "Actors", [["", "All countries"], ["listed", "With an actor on the list"], ["any", "With an actor in power today"]]),
       C.select("fam", "Kind of news", [["", "Any"]].concat(FAMS.map(function (k) { return [k, k]; }))),
-      C.select("sort", "Order", [["items", "Most reported first"], ["name", "Name"], ["latest", "Latest item first"]])
+      C.select("sort", "Order", [["items", "Most reported first"], ["name", "Name"], ["latest", "Latest item first"], ["works", "Fewest works in the Library first"]])
     ]));
     ui.count = el("p", { class: "pv-wc-count", "aria-live": "polite" });
     host.appendChild(el("div", { class: "pv-wc-head" }, [ui.count]));
@@ -635,8 +636,9 @@
       list.sort({
         items: function (a, b) { return b.its.length - a.its.length || a.name.localeCompare(b.name); },
         name: function (a, b) { return a.name.localeCompare(b.name); },
-        latest: function (a, b) { return latest(b).localeCompare(latest(a)) || a.name.localeCompare(b.name); }
-      }[S.sort]);
+        latest: function (a, b) { return latest(b).localeCompare(latest(a)) || a.name.localeCompare(b.name); },
+        works: function (a, b) { return a.works - b.works || b.its.length - a.its.length || a.name.localeCompare(b.name); }
+      }[S.sort] || function (a, b) { return b.its.length - a.its.length || a.name.localeCompare(b.name); });
       C.save();
       stats();
       Array.prototype.forEach.call(ui.modes.children, function (b) { b.classList.toggle("is-on", b.getAttribute("data-mode") === S.map); });
@@ -659,7 +661,10 @@
       ui.view.innerHTML = "";
       if (!list.length) { ui.view.appendChild(el("p", { class: "pv-lib-nomatch", text: "Nothing fits these filters." })); return; }
       var first = list.slice(0, shown);
-      Object.keys(REG).forEach(function (r) {
+      // "Fewest works in the Library first" is shown in one row of cards, so that
+      // the order across the regions stays as it is chosen
+      if (S.sort === "works") ui.view.appendChild(el("div", { class: "pv-ma-grid" }, first.map(card)));
+      else Object.keys(REG).forEach(function (r) {
         var cs = first.filter(function (c) { return c.reg === r; });
         if (!cs.length) return;
         var n = cs.reduce(function (s, c) { return s + c.its.length; }, 0);
@@ -679,20 +684,20 @@
           return el("div", { class: "pv-ma-ds" }, [el("a", { href: "../actors/" + a.id + ".html", text: a.name }), a.power ? powerPill(a.power) : null]);
         }) : [el("p", { class: "pv-ma-dim", text: "No actor on the Monitor's list." })]))
       ].concat(inMonitor(c.its)).concat([
-        el("p", { class: "pv-ma-links" }, [el("a", { href: "../data/in-power.html#" + c.iso, text: "In Populists in Power" }), el("a", { href: "../library/index.html?country=" + c.tag, text: "Works in the Library" })])
+        el("p", { class: "pv-ma-links" }, [el("a", { href: "../data/in-power.html#" + c.iso, text: "In Populists in Power" }), c.works ? el("a", { href: "../library/index.html?country=" + c.tag, text: plural(c.works, "work", "works") + " in the Library" }) : el("span", { class: "pv-ma-dim", text: "No work in the Library yet" })])
       ]));
     }
 
     function listCsv() {
-      var rows = [["country", "country_code", "region", "actors_followed", "actors_in_power_today", "items", "first_item", "latest_item", "kinds_of_news", "page"]];
+      var rows = [["country", "country_code", "region", "actors_followed", "actors_in_power_today", "items", "first_item", "latest_item", "kinds_of_news", "library_works", "page"]];
       list.forEach(function (c) {
         var k = counts(c.its);
         rows.push([c.name, c.iso, REG[c.reg] || "", c.actors.map(function (a) { return a.name; }).join("; "),
           c.power.map(function (a) { return a.name + " (" + a.power + ")"; }).join("; "), c.its.length,
           c.its.length ? c.its[0].date : "", c.its.length ? c.its[c.its.length - 1].date : "",
-          FAMS.filter(function (f) { return k[f]; }).map(function (f) { return f + " " + k[f]; }).join("; "), URL + c.tag + ".html"]);
+          FAMS.filter(function (f) { return k[f]; }).map(function (f) { return f + " " + k[f]; }).join("; "), c.works, URL + c.tag + ".html"]);
       });
-      rows.push([], [periodNote()], ["Power today as of PopuliVerse Monitor " + M.issue + ". A country without an actor in power here is not a country without populists in power: only the actors on the Monitor's list are followed."], [PV.citation(TITLE, URL)]);
+      rows.push([], [periodNote()], ["library_works: the works of the PopuliVerse Library tagged with the country, as of its last update."], ["Power today as of PopuliVerse Monitor " + M.issue + ". A country without an actor in power here is not a country without populists in power: only the actors on the Monitor's list are followed."], [PV.citation(TITLE, URL)]);
       PV.save.csv("populiverse-countries-in-monitor.csv", rows);
     }
 

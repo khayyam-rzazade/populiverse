@@ -3,5 +3,5 @@
 ::: {.pv-figures}
 8,032 works · 1,535 journals · 119 countries · 74% with an abstract · 44% free to read
 
-Updated 5 October 2026. New works are added every month.
+Updated 5 October 2026. New works are added every three months.
 :::
