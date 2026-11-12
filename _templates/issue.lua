@@ -28,6 +28,9 @@
 --      "Cite This Item", and its type and date from the issue's file of tags
 --      (populiverse-monitor-2026-2-items.csv), when that file fits the text.
 --      In the PDF the number stands in front of each item (from 2026/3).
+--      Next to "Cite This Item" stands "Report an Error" (2026-11-12).
+--   8. The sources of the issue: the facts at the top of the web page say
+--      which sources the items cite, and in how many items (2026-11-12).
 --
 -- It only acts on a page whose header has the line "issue:". Every other
 -- page of the site passes through untouched.
@@ -698,6 +701,11 @@ local function item_line(info, it)
       .. '<button type="button" class="pv-lib-link" data-copy="link" hidden>Copy link</button></p>',
     "</div>",
     "</details>",
+    '<details class="pv-item-report">',
+    "<summary>Report an Error</summary>",
+    '<div class="pv-cite"><p>Write to editor@populiverse.com and name issue ' .. html_escape(info.number)
+      .. ", item " .. it.n .. ".</p></div>",
+    "</details>",
     "</div>",
   }
   return pandoc.RawBlock("html", table.concat(h, "\n"))
@@ -846,6 +854,75 @@ local function typst_items(doc)
       return entry
     end,
   })
+end
+
+-- ------------------------------------------------- 8: the sources of the issue
+
+-- The source that a reference names first: "AP, 21 October 2026" -> "AP". A
+-- second copy of the same report ("copy of WLRN") is not a source of its own.
+local function source_names(text, names)
+  text = text:gsub("%b()", "")
+  for part in (text .. "."):gmatch("([^%.;]+)") do
+    local name = part:match("^%s*([^,]+)")
+    if name then
+      name = squeeze(name)
+      local low = name:lower()
+      -- a part that starts with a date continues the source before it:
+      -- "Buenos Aires Times, 3 September 2026 (...); 6 September 2026 (...)"
+      if name ~= "" and not name:match("^%d") and not low:match("^copy of") and not low:match("^read in") then
+        names[name] = true
+      end
+    end
+  end
+end
+
+-- For every item, the sources it cites; then, for every source, the number of
+-- items that cite it. Read from the line "Sources:" under a full item and from
+-- the brackets at the end of an entry of "Also this month".
+local function source_mix(blocks)
+  local count = {}
+  local function add(names)
+    for name in pairs(names) do count[name] = (count[name] or 0) + 1 end
+  end
+  local function walk(bs)
+    for _, b in ipairs(bs) do
+      if b.t == "Div" and b.classes:includes("pv-meta-sources") then
+        local names = {}
+        source_names((stringify(b.content):gsub("^%s*Sources?:%s*", "")), names)
+        add(names)
+      elseif b.t == "Div" and b.classes:includes("pv-also") then
+        for _, inner in ipairs(b.content) do
+          if inner.t == "BulletList" then
+            for _, entry in ipairs(inner.content) do
+              local text = stringify(entry[1] or {})
+              local last = nil
+              for p in text:gmatch("%b()") do last = p end
+              if last then
+                local names = {}
+                source_names(last:sub(2, -2), names)
+                add(names)
+              end
+            end
+          end
+        end
+      elseif b.t == "Div" and not is_quarto_part(b) then
+        walk(b.content)
+      end
+    end
+  end
+  walk(blocks)
+  local list = {}
+  for name, n in pairs(count) do list[#list + 1] = { name = name, n = n } end
+  table.sort(list, function(a, b)
+    if a.n ~= b.n then return a.n > b.n end
+    return a.name < b.name
+  end)
+  if #list == 0 then return nil end
+  local parts = {}
+  for i, x in ipairs(list) do
+    parts[#parts + 1] = html_escape(x.name) .. (i == 1 and (" in " .. x.n .. (x.n == 1 and " item" or " items")) or (" " .. x.n))
+  end
+  return table.concat(parts, ", ")
 end
 
 -- ------------------------------------------------------------- the PDF
@@ -1021,6 +1098,7 @@ local function facts_block(info, has_pdf, state)
   if info.rules ~= "" then
     row("Rules", '<a href="../rules.html">Version ' .. html_escape(info.rules) .. "</a>")
   end
+  if info.sources_line then row("Sources", info.sources_line) end
   row(html_escape(info.editor_label), '<a href="../../about/editor.html">' .. html_escape(info.editor) .. "</a>")
   row("Published", info.date_long ~= "" and html_escape(info.date_long) or "<em>not yet</em>")
   if info.doi ~= "" then
@@ -1219,6 +1297,9 @@ local function make_html(doc, info)
 
   -- the items, their pages and their tags (7)
   local items = web_items(doc, info, state == "ok" and map or nil)
+
+  -- the sources that the items cite (8)
+  info.sources_line = source_mix(doc.blocks)
 
   doc = doc:walk({
     Link = function(l)

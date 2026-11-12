@@ -12,6 +12,10 @@
 # Drafts stay on this computer until publication day
 /drafts/
 
+# The actor and country pages: scripts/make_pages.py writes them at every build
+/actors/
+/countries/
+
 # macOS folder settings
 .DS_Store
 

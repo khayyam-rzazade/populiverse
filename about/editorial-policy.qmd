@@ -32,6 +32,8 @@ Every Monitor issue and every Commentary piece is published as a web page and as
 
 A published PDF is never changed silently. A correction is published as a new version at Zenodo, with a note on the web page.
 
+Every correction is listed here with its date. None so far.
+
 ## Right of Reply
 
 A person or party discussed in an issue may ask for a short reply. The editor decides. Accepted replies appear in the next issue.

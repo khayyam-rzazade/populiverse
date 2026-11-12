@@ -74,6 +74,8 @@ The Monitor follows written rules.
 
 Items have numbers and tags. [How the items are tagged](tagging.qmd)
 
+Every [actor](../actors/index.qmd) and every [country](../countries/index.qmd) has its own page with all its items.
+
 ## Web Page and PDF
 
 Every issue is published twice from the same text, as a web page and as a typeset PDF. The PDF is the version of record. The web page shows the PDF's page numbers in the margin, so a passage can be cited by page from either one. Each issue has its own DOI.

@@ -1819,16 +1819,16 @@ main.content .pv-issue-facts dd {
 }
 
 .pv-item-tags > span + span::before,
-.pv-item-tags > span + .pv-item-cite::before {
+.pv-item-tags > * + details::before {
   content: "\00B7";
   margin: 0 0.5em;
 }
 
-.pv-item-cite {
+.pv-item-tags > details {
   display: inline;
 }
 
-.pv-item-cite > summary {
+.pv-item-tags > details > summary {
   display: inline;
   cursor: pointer;
   text-decoration: underline;
@@ -1836,25 +1836,25 @@ main.content .pv-issue-facts dd {
   text-underline-offset: 0.2em;
 }
 
-.pv-item-cite > summary::-webkit-details-marker {
+.pv-item-tags > details > summary::-webkit-details-marker {
   display: none;
 }
 
-.pv-item-cite > summary:hover,
-.pv-item-cite > summary:focus-visible {
+.pv-item-tags > details > summary:hover,
+.pv-item-tags > details > summary:focus-visible {
   color: $pv-ink;
   text-decoration-color: $pv-ink;
 }
 
-.pv-item-cite[open] {
+.pv-item-tags > details[open] {
   flex-basis: 100%;
 }
 
-.pv-item-tags > span + .pv-item-cite[open]::before {
+.pv-item-tags > details[open]::before {
   content: none;
 }
 
-.pv-item-cite .pv-cite {
+.pv-item-tags .pv-cite {
   max-width: 50rem;
   margin: 0.5rem 0 0.25rem;
   padding: 0.75rem 1rem;
@@ -1863,12 +1863,19 @@ main.content .pv-issue-facts dd {
   overflow-wrap: anywhere;
 }
 
-.pv-item-cite .pv-cite > p:first-child {
+.pv-item-tags .pv-cite > p:first-child {
   margin-bottom: 0.25rem;
 }
 
 .pv-also li .pv-item-tags {
   margin-top: 0.15rem;
+}
+
+// The last line of an actor or country page
+.pv-page-report {
+  margin-top: 3rem;
+  color: $pv-muted;
+  font-size: 0.875rem;
 }
 
 // "Also this month" and its short entries
