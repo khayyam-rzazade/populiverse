@@ -1,0 +1,35 @@
+item,title,type,date,date_end,countries,actors
+1,Russia: Putin agrees in principle to new talks on Ukraine and frees an American,Diplomacy,2026-10-21,,russia,vladimir-putin; donald-trump
+2,Türkiye: Türkiye and Pakistan agree with Saudi Arabia on the rapid deployment of forces,Agreement,2026-10-05,,turkey,recep-tayyip-erdogan
+3,France: Marine Le Pen launches her presidential campaign,Campaign,2026-10-25,,france,national-rally
+4,Poland: police secure the Constitutional Tribunal after its president is suspended,Police and Prosecutors,2026-10-30,,poland,law-and-justice
+5,"Türkiye: police raid Halk TV, and prosecutors name a trustee",Police and Prosecutors,2026-10-14,,turkey,recep-tayyip-erdogan
+6,Czech Republic,Election,2026-10-17,,czech-republic,ano
+7,Latvia,Election,2026-10-03,,latvia,latvia-first
+8,Bulgaria,Armed Forces,2026-10-13,,bulgaria,progressive-bulgaria
+9,Italy,Measure,2026-10-22,,italy,brothers-of-italy; league-italy; forza-italia
+10,Romania,Office,2026-10-20,,romania,aur
+11,Switzerland,Office,2026-10-02,,switzerland,swiss-peoples-party
+12,United States: sanctions on the International Criminal Court,Sanctions and Trade,2026-10-09,,united-states,donald-trump
+13,United States and Russia: Russian diesel for the American market,Sanctions and Trade,2026-10-09,,united-states; russia,donald-trump
+14,"United States: Microsoft and other firms suspended from a green-card programme, and nine universities investigated",Measure,2026-10-08,,united-states,donald-trump
+15,United States: the Justice Department sues California over mail-in ballots,Court,2026-10-15,,united-states,donald-trump
+16,United States and Rwanda: sanctions on Rwanda's defence ministry,Sanctions and Trade,2026-10-28,,united-states; rwanda,donald-trump
+17,United States and Ukraine,Diplomacy,2026-10-23,,united-states; ukraine,donald-trump
+18,United States and Saudi Arabia,Measure,2026-10-21,,united-states; saudi-arabia,donald-trump
+19,United States,Measure,2026-10-07,,united-states,donald-trump
+20,United States,Police and Prosecutors,2026-10-12,,united-states,donald-trump
+21,Brazil: Lula wins the runoff against Flávio Bolsonaro,Election,2026-10-25,,brazil,jair-bolsonaro
+22,"Brazil: Flávio Bolsonaro leaves for the United States, which gives his family visas",Other,2026-10-27,2026-10-28,brazil; united-states,jair-bolsonaro
+23,El Salvador: Bukele sends soldiers to Haiti to find four missing Salvadorans,Armed Forces,2026-10-21,,el-salvador; haiti,nayib-bukele
+24,Nicaragua: the government leaves the Central American Parliament,Agreement,2026-10-03,,nicaragua,daniel-ortega
+25,Chile and Bolivia,Diplomacy,2026-10-16,,chile; bolivia,jose-antonio-kast
+26,Argentina,Measure,2026-10-02,,argentina,javier-milei
+27,Philippines: the International Criminal Court finds Rodrigo Duterte fit to stand trial,Court,2026-10-08,,philippines,rodrigo-duterte
+28,India: police detain the leaders of a youth protest movement before a rally in New Delhi,Police and Prosecutors,2026-10-10,,india,narendra-modi
+29,Indonesia: the government stops clearing forest for rice fields,Measure,2026-10-06,,indonesia,prabowo-subianto
+30,Indonesia,Agreement,2026-10-21,,indonesia,prabowo-subianto; recep-tayyip-erdogan
+31,Israel: the election gives neither bloc a majority,Election,2026-10-27,,israel,benjamin-netanyahu
+32,Israel: Netanyahu's office orders a closure of the West Bank after two soldiers are killed,Armed Forces,2026-10-23,,israel,benjamin-netanyahu
+33,"Israel and Colombia: an embassy in Jerusalem, and a trade agreement restored",Diplomacy,2026-10-14,,israel; colombia,benjamin-netanyahu
+34,Israel,Police and Prosecutors,2026-10-19,,israel,benjamin-netanyahu

@@ -1807,6 +1807,70 @@ main.content .pv-issue-facts dd {
   text-decoration-color: $pv-ink;
 }
 
+// The line under an item: its number, its type, its date and "Cite This Item"
+.pv-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 0.5rem 0 0;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.pv-item-tags > span + span::before,
+.pv-item-tags > span + .pv-item-cite::before {
+  content: "\00B7";
+  margin: 0 0.5em;
+}
+
+.pv-item-cite {
+  display: inline;
+}
+
+.pv-item-cite > summary {
+  display: inline;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: #B5B5B1;
+  text-underline-offset: 0.2em;
+}
+
+.pv-item-cite > summary::-webkit-details-marker {
+  display: none;
+}
+
+.pv-item-cite > summary:hover,
+.pv-item-cite > summary:focus-visible {
+  color: $pv-ink;
+  text-decoration-color: $pv-ink;
+}
+
+.pv-item-cite[open] {
+  flex-basis: 100%;
+}
+
+.pv-item-tags > span + .pv-item-cite[open]::before {
+  content: none;
+}
+
+.pv-item-cite .pv-cite {
+  max-width: 50rem;
+  margin: 0.5rem 0 0.25rem;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid $pv-hairline;
+  color: $pv-ink;
+  overflow-wrap: anywhere;
+}
+
+.pv-item-cite .pv-cite > p:first-child {
+  margin-bottom: 0.25rem;
+}
+
+.pv-also li .pv-item-tags {
+  margin-top: 0.15rem;
+}
+
 // "Also this month" and its short entries
 .pv-also-label {
   @include pv-label;

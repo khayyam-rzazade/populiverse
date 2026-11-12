@@ -10,7 +10,7 @@ toc: true
 <!-- EVERY CHANGE TO THE RULES: raise the version number and the date in the line below, and add an entry under "Changes to These Rules" at the end of the page. -->
 
 ::: {.pv-label}
-Rules, version 1.4 · 3 October 2026
+Rules, version 1.5 · 12 November 2026
 :::
 
 Each issue says which version of these rules it follows. Every change is listed [at the end of this page](#changes). A new dataset or source is added to this page first, then used.
@@ -24,6 +24,8 @@ The Monitor describes what populist actors did around the world, month by month.
 An issue has three parts. The month in brief, around the world in six regions, and new research. An issue has 15 pages at most.
 
 One story is one item, told as it stood at the end of the month, in 120 to 150 words. Under it stand the actor, with the dataset or the publication behind it, the sources, and a link to the research on the topic in the [Library](../library/index.qmd).
+
+Every item has a number and tags. See [How the Items Are Tagged](tagging.qmd).
 
 A region where nothing met the rules says so. It is never padded.
 
@@ -128,6 +130,9 @@ The editor sets the rules, decides what goes into an issue and answers for every
 A published PDF is never changed silently. Corrections and the right of reply follow the [editorial policy](../about/editorial-policy.qmd).
 
 ## Changes to These Rules {#changes}
+
+Version 1.5, 12 November 2026
+: No rule changed. Items now have numbers and [tags](tagging.qmd).
 
 Version 1.4, 3 October 2026
 : The page is shorter and plainer. One rule changed: for an actor that is in no dataset, a peer-reviewed publication that classifies it as partially populist is now enough. Issue 2026/1 follows version 1.3. Versions 1.0 to 1.3 are of 1 and 2 October 2026.

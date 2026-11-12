@@ -111,6 +111,10 @@ $endif$
 // the address of a source, printed as a footnote: links die, paper does not
 #let pvnote(u) = footnote(pvurl(u))
 
+// the number of an item, in front of its title or entry, so that a reference
+// to "item 3" can be found in the PDF (from issue 2026/3)
+#let pvno(n) = box(text(size: 7.3pt, weight: "regular", style: "normal", fill: muted, tracking: 0.04em, n)) + h(0.6em)
+
 // the small print under an item: actor, sources, research
 #let pvmeta(body) = block(above: 0.95em, below: 0pt, width: 100%)[
   #set text(size: 7.5pt, fill: muted, hyphenate: false)

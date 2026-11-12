@@ -22,6 +22,12 @@
 --      list is. On the web page the whole part stands first, before "The
 --      month in brief" (the editor, 2026-10-03); the PDF keeps the order of
 --      the text, in which it is the last of the three parts.
+--   7. The items (2026-11-12): every full item and every entry of "Also this
+--      month" is an item, numbered in reading order. On the web page each
+--      item gets its own address (#item-1), a small line with its number and
+--      "Cite This Item", and its type and date from the issue's file of tags
+--      (populiverse-monitor-2026-2-items.csv), when that file fits the text.
+--      In the PDF the number stands in front of each item (from 2026/3).
 --
 -- It only acts on a page whose header has the line "issue:". Every other
 -- page of the site passes through untouched.
@@ -118,7 +124,7 @@ end
 
 -- Reads a file of comma-separated values: the first line holds the names of
 -- the columns. Returns one table per line, with the column names as keys.
-local function read_csv(text)
+local function csv_records(text)
   text = text:gsub("^\239\187\191", "")
   local lines, line, field = {}, {}, {}
   local quoted = false
@@ -160,6 +166,15 @@ local function read_csv(text)
   for r = 2, #lines do
     local rec = {}
     for c, name in ipairs(head) do rec[name] = lines[r][c] or "" end
+    out[#out + 1] = rec
+  end
+  return out
+end
+
+-- The list of new research: only the lines that carry a reference and a DOI.
+local function read_csv(text)
+  local out = {}
+  for _, rec in ipairs(csv_records(text)) do
     if (rec.reference or "") ~= "" and (rec.doi or "") ~= "" then out[#out + 1] = rec end
   end
   return out
@@ -485,11 +500,352 @@ local function issue_info(meta)
   info.pdf = "populiverse-monitor-" .. info.slug .. ".pdf"
   info.pdf_url = info.url .. info.pdf
   info.research = "populiverse-monitor-" .. info.slug .. "-new-research.csv"
+  info.items = "populiverse-monitor-" .. info.slug .. "-items.csv"
   info.title = "PopuliVerse Monitor " .. info.number
   -- the family name first, as reference lists print it: "Rzazade, Khayyam"
   local first, last = info.editor:match("^(.-)%s+(%S+)$")
   if first then info.editor_inverted = last .. ", " .. first else info.editor_inverted = info.editor end
   return info
+end
+
+-- ------------------------------------------------- 7: the items
+
+-- The types of an item, as the page "How the Items Are Tagged" lists them.
+local ITEM_TYPES = {}
+for _, t in ipairs({ "Election", "Referendum", "Campaign", "Office", "Party", "Law", "Measure",
+  "Court", "Police and Prosecutors", "Diplomacy", "Agreement", "Sanctions and Trade",
+  "Armed Forces", "Protest", "Other" }) do
+  ITEM_TYPES[t] = true
+end
+
+-- the label of an entry of "Also this month": the words in bold at its start
+local function entry_label(block)
+  local first = block.content and block.content[1]
+  if first and first.t == "Strong" then
+    return (stringify(first):gsub("%s*%.%s*$", ""))
+  end
+  return (stringify(block.content or {}):gsub("^%s+", ""))
+end
+
+local function squeeze(s)
+  return ((s or ""):gsub("%s+", " "):gsub("^ ", ""):gsub(" $", ""))
+end
+
+-- A title as it is compared with the file of tags: without signs, so that
+-- typed and curly quotation marks, apostrophes and dashes count the same.
+local function title_key(s)
+  s = (s or ""):gsub("\226\128[\144-\159]", ""):gsub("[\33-\47\58-\64\91-\96\123-\126]", "")
+  return squeeze(s):lower()
+end
+
+-- Goes through the items in reading order: a heading of the fourth level is a
+-- full item, an entry of a list under "Also this month" is a one-line item.
+-- act.head(item, heading) and act.entry(item, entry) may give back a changed
+-- heading or entry; act.after(item) may give a block that goes at the end of
+-- a full item, after its three lines of small print.
+local function walk_items(blocks, act, st)
+  st = st or { n = 0 }
+  local out = List()
+  local pending = nil
+  local function flush()
+    if pending then
+      local extra = act.after and act.after(pending)
+      if extra then out:insert(extra) end
+      pending = nil
+    end
+  end
+  for _, b in ipairs(blocks) do
+    if b.t == "Header" then
+      flush()
+      if b.level == 4 then
+        st.n = st.n + 1
+        pending = { n = st.n, kind = "full", title = squeeze(stringify(b.content)) }
+        if act.head then b = act.head(pending, b) or b end
+      end
+      out:insert(b)
+    elseif b.t == "Div" and b.classes:includes("pv-item-meta") then
+      out:insert(b)
+      flush()
+    elseif b.t == "Div" and b.classes:includes("pv-also") then
+      flush()
+      local content = List()
+      for _, inner in ipairs(b.content) do
+        if inner.t == "BulletList" then
+          local entries = inner.content
+          for j = 1, #entries do
+            local entry = entries[j]
+            local first = entry[1]
+            if first and (first.t == "Plain" or first.t == "Para") then
+              st.n = st.n + 1
+              local it = { n = st.n, kind = "entry", title = squeeze(entry_label(first)) }
+              if act.entry then entries[j] = act.entry(it, entry) or entry end
+            end
+          end
+          inner.content = entries
+        end
+        content:insert(inner)
+      end
+      b.content = content
+      out:insert(b)
+    elseif b.t == "Div" and not is_quarto_part(b) then
+      flush()
+      b.content = walk_items(b.content, act, st)
+      out:insert(b)
+    else
+      if is_quarto_part(b) then flush() end
+      out:insert(b)
+    end
+  end
+  flush()
+  return out
+end
+
+-- The issue's file of tags, if it fits the items of the text: one line for
+-- each item, in the same order and with the same title. Otherwise nil, and a
+-- note in the log of the build: the page then shows no tags at all.
+local function read_tags(info, items)
+  local raw = read_file(pandoc.path.join({ input_dir(), info.items }))
+  if not raw then return nil end
+  local rows = csv_records(raw)
+  local problem = nil
+  if #rows ~= #items then
+    problem = "it has " .. #rows .. " lines and the text has " .. #items .. " items"
+  else
+    for i, it in ipairs(items) do
+      local r = rows[i]
+      if tonumber(r.item) ~= i then
+        problem = "line " .. i .. " has the number " .. (r.item or "")
+      elseif title_key(r.title) ~= title_key(it.title) then
+        problem = "item " .. i .. " is \"" .. it.title .. "\" in the text and \"" .. squeeze(r.title) .. "\" in the file"
+      elseif not ITEM_TYPES[squeeze(r.type)] then
+        problem = "item " .. i .. " has the type \"" .. (r.type or "") .. "\", which is not in the list"
+      elseif not (r.date or ""):match("^%d%d%d%d%-%d%d") then
+        problem = "item " .. i .. " has no date"
+      end
+      if problem then break end
+    end
+  end
+  if problem then
+    io.stderr:write("\n[PopuliVerse] " .. info.title .. ": the file " .. info.items
+      .. " does not fit the text (" .. problem .. "). The tags are left out. Please tell Claude.\n\n")
+    return nil
+  end
+  return rows
+end
+
+-- "2026-10-21" -> "21 October 2026"; with a last day: "27 to 28 October 2026";
+-- "2026-09" -> "September 2026"
+local function item_date(first, last)
+  local y, m, d = (first or ""):match("^(%d%d%d%d)%-(%d%d)%-?(%d*)$")
+  if not y then return "" end
+  y, m = tonumber(y), tonumber(m)
+  if not MONTHS[m] then return "" end
+  if d == "" then return MONTHS[m] .. " " .. y end
+  d = tonumber(d)
+  local y2, m2, d2 = (last or ""):match("^(%d%d%d%d)%-(%d%d)%-(%d%d)$")
+  if not y2 then return string.format("%d %s %d", d, MONTHS[m], y) end
+  y2, m2, d2 = tonumber(y2), tonumber(m2), tonumber(d2)
+  if y2 == y and m2 == m then return string.format("%d to %d %s %d", d, d2, MONTHS[m], y) end
+  if y2 == y then return string.format("%d %s to %d %s %d", d, MONTHS[m], d2, MONTHS[m2], y) end
+  return string.format("%d %s %d to %d %s %d", d, MONTHS[m], y, d2, MONTHS[m2], y2)
+end
+
+-- The reference of one item: the issue's reference with the item's title, its
+-- number and its page in the PDF.
+local function item_reference(info, it)
+  local title = it.kind == "entry" and ("Also this month: " .. it.title) or it.title
+  local where = info.doi ~= "" and ("https://doi.org/" .. info.doi) or info.url
+  local tail = "item " .. it.n .. (it.page and (", p. " .. it.page) or "")
+  local close = title:match("[%.%?!]$") and "" or "."
+  local plain = info.editor_inverted .. ", ed. " .. info.year .. ". \226\128\156" .. title .. close .. "\226\128\157 "
+    .. "PopuliVerse Monitor " .. info.number .. " (" .. info.month .. "), " .. tail .. ". " .. where .. "."
+  local html = html_escape(info.editor_inverted) .. ", ed. " .. info.year .. ". \226\128\156" .. html_escape(title) .. close
+    .. "\226\128\157 <em>PopuliVerse Monitor</em> " .. html_escape(info.number) .. " (" .. html_escape(info.month) .. "), "
+    .. tail .. ". " .. html_escape(where) .. "."
+  local link = info.url .. "#item-" .. it.n
+  local bib = "@misc{populiverse_monitor_" .. info.slug:gsub("-", "_") .. "_item_" .. it.n .. ",\n"
+    .. "  editor = {" .. info.editor_inverted .. "},\n"
+    .. "  title = {{" .. title .. "}},\n"
+    .. "  year = {" .. info.year .. "},\n"
+    .. "  howpublished = {{PopuliVerse} Monitor, no. " .. info.number .. " (" .. info.month .. "), item " .. it.n .. "},\n"
+    .. (it.page and ("  pages = {" .. it.page .. "},\n") or "")
+    .. (info.doi ~= "" and ("  doi = {" .. info.doi .. "},\n") or "")
+    .. "  url = {" .. link .. "}\n"
+    .. "}\n"
+  return plain, html, bib, link
+end
+
+-- the small line under an item on the web page
+local function item_line(info, it)
+  local parts = { '<span class="pv-item-no">Item ' .. it.n .. "</span>" }
+  if it.tags then
+    parts[#parts + 1] = '<span class="pv-item-type">' .. html_escape(squeeze(it.tags.type)) .. "</span>"
+    local when = item_date(squeeze(it.tags.date), squeeze(it.tags.date_end))
+    if when ~= "" then parts[#parts + 1] = '<span class="pv-item-date">' .. when .. "</span>" end
+  end
+  local plain, html, bib, link = item_reference(info, it)
+  local h = {
+    '<div class="pv-item-tags">',
+    table.concat(parts, ""),
+    '<details class="pv-item-cite" data-cite="' .. html_escape(plain) .. '" data-bib="' .. html_escape(bib)
+      .. '" data-link="' .. html_escape(link) .. '">',
+    "<summary>Cite This Item</summary>",
+    '<div class="pv-cite">',
+    "<p>" .. html .. "</p>",
+    '<p class="pv-lib-tools">'
+      .. '<button type="button" class="pv-lib-link" data-copy="cite" hidden>Copy citation</button> '
+      .. '<button type="button" class="pv-lib-link" data-copy="bib" hidden>Copy BibTeX</button> '
+      .. '<button type="button" class="pv-lib-link" data-copy="link" hidden>Copy link</button></p>',
+    "</div>",
+    "</details>",
+    "</div>",
+  }
+  return pandoc.RawBlock("html", table.concat(h, "\n"))
+end
+
+-- Makes the "copy" buttons of every item work. Without JavaScript the
+-- reference stays readable and the buttons stay hidden.
+local ITEM_SCRIPT = [[
+<script>
+(function () {
+  function copy(text, button) {
+    var label = button.textContent;
+    function done(ok) {
+      button.textContent = ok ? "Copied" : "Could not copy";
+      window.setTimeout(function () { button.textContent = label; }, 2000);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+      return;
+    }
+    try {
+      var area = document.createElement("textarea");
+      area.value = text; area.setAttribute("readonly", ""); area.style.position = "fixed"; area.style.opacity = "0";
+      document.body.appendChild(area); area.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(area); done(ok);
+    } catch (e) { done(false); }
+  }
+  var boxes = document.querySelectorAll(".pv-item-cite");
+  for (var i = 0; i < boxes.length; i++) {
+    (function (box) {
+      var buttons = box.querySelectorAll("button[data-copy]");
+      for (var j = 0; j < buttons.length; j++) {
+        (function (button) {
+          button.hidden = false;
+          button.addEventListener("click", function () {
+            copy(box.getAttribute("data-" + button.getAttribute("data-copy")) || "", button);
+          });
+        })(buttons[j]);
+      }
+    })(boxes[i]);
+  }
+})();
+</script>
+]]
+
+-- The web page, first step: the items, with the page of the PDF on which each
+-- begins, read from the same marks as the page numbers in the margin (map:
+-- the content of pages.json, or nil), and their tags. This runs before
+-- anything is added to the page, so that the blocks are still those of the PDF.
+local function web_items(doc, info, map)
+  -- 1. the items, with the fingerprint of the first block of each
+  local items = {}
+  local function first_fp(b)
+    local st = { k = 0, at_start = true, words = {} }
+    scan(b.content, st, nil)
+    return fingerprint(st.words)
+  end
+  walk_items(doc.blocks, {
+    head = function(it, h) it.fp = first_fp(h); items[#items + 1] = it end,
+    entry = function(it, entry) it.fp = first_fp(entry[1]); items[#items + 1] = it end,
+  })
+  if #items == 0 then return nil end
+
+  -- 2. the page of the PDF on which each item begins
+  if map then
+    local starts = {}
+    for _, s in ipairs(map.starts) do
+      starts[s.key] = starts[s.key] or {}
+      starts[s.key][tonumber(s.word)] = tonumber(s.page)
+    end
+    local seq, cur = {}, nil
+    number_blocks(doc.blocks, function(b, key)
+      local here = starts[key]
+      if here and here[1] then cur = here[1] end
+      seq[#seq + 1] = { fp = key:match("^([^:]+)"), page = cur }
+      if here then
+        for w, p in pairs(here) do
+          if w > 1 and (cur == nil or p > cur) then cur = p end
+        end
+      end
+      return nil
+    end)
+    local pos = 0
+    for _, it in ipairs(items) do
+      for j = pos + 1, #seq do
+        if seq[j].fp == it.fp then
+          if seq[j].page then it.page = string.format("%d", math.floor(seq[j].page)) end
+          pos = j
+          break
+        end
+      end
+    end
+  end
+
+  -- 3. the tags, when the file fits the text
+  local rows = read_tags(info, items)
+  if rows then
+    for i, it in ipairs(items) do it.tags = rows[i] end
+  end
+  return items
+end
+
+-- The web page, second step: the address, the line and the reference of
+-- every item go into the page. This runs after the other parts are in place
+-- (new blocks would move the place that "New research" has kept).
+local function web_items_insert(doc, info, items)
+  local function anchor(n)
+    return pandoc.RawInline("html", '<span id="item-' .. n .. '" class="pv-item-anchor"></span>')
+  end
+  doc.blocks = walk_items(doc.blocks, {
+    head = function(it, h)
+      h.content:insert(1, anchor(it.n))
+      return h
+    end,
+    after = function(it)
+      return item_line(info, items[it.n])
+    end,
+    entry = function(it, entry)
+      local first = entry[1]
+      first.content:insert(1, anchor(it.n))
+      entry[1] = first
+      local blocks = List({ first })
+      blocks:insert(item_line(info, items[it.n]))
+      for x = 2, #entry do blocks:insert(entry[x]) end
+      return blocks
+    end,
+  })
+  return pandoc.RawBlock("html", ITEM_SCRIPT)
+end
+
+-- The PDF: the number in front of every item.
+local function typst_items(doc)
+  local function number(n)
+    return pandoc.RawInline("typst", '#pvno("' .. n .. '");')
+  end
+  doc.blocks = walk_items(doc.blocks, {
+    head = function(it, h)
+      h.content:insert(1, number(it.n))
+      return h
+    end,
+    entry = function(it, entry)
+      local first = entry[1]
+      first.content:insert(1, number(it.n))
+      entry[1] = first
+      return entry
+    end,
+  })
 end
 
 -- ------------------------------------------------------------- the PDF
@@ -529,6 +885,9 @@ local function make_typst(doc, info)
     end
     doc.blocks:insert(info.research_place, raw_typst_block(line .. "]"))
   end
+
+  -- the number in front of every item (7)
+  typst_items(doc)
 
   doc = doc:walk({
     -- the headings start one step down in the text ("##"); in the PDF the
@@ -727,7 +1086,7 @@ local function cite_block(info, pages)
     '<button type="button" class="pv-lib-link" id="pv-cite-bib" hidden>Copy BibTeX</button>',
     "</p>",
     "</div>",
-    '<p class="pv-issue-note">To cite one item, add its title and the page of the PDF on which it stands.</p>',
+    '<p class="pv-issue-note">To cite one item, use “Cite This Item” under it.</p>',
     "<script>",
     "// Makes the two \"copy\" buttons work. Without JavaScript the citation stays readable and the buttons stay hidden.",
     "(function () {",
@@ -858,6 +1217,9 @@ local function make_html(doc, info)
       .. "The page numbers are left out. Run scripts/make_issue.R.\n\n")
   end
 
+  -- the items, their pages and their tags (7)
+  local items = web_items(doc, info, state == "ok" and map or nil)
+
   doc = doc:walk({
     Link = function(l)
       -- a link into the site's own Library works on any copy of the site
@@ -878,9 +1240,13 @@ local function make_html(doc, info)
   -- on the web page the part "New research" stands first (not in the PDF)
   research_first(doc.blocks, is_quarto_part)
 
+  -- the items: their addresses, lines and references (7)
+  local item_script = items and web_items_insert(doc, info, items) or nil
+
   local last = #doc.blocks
   while last > 0 and is_quarto_part(doc.blocks[last]) do last = last - 1 end
   doc.blocks:insert(last + 1, cite_block(info, state == "ok" and map.pages or nil))
+  if item_script then doc.blocks:insert(last + 2, item_script) end
   doc.blocks:insert(1, facts_block(info, has_pdf, state))
 
   -- what Google Scholar reads; only once the issue is published

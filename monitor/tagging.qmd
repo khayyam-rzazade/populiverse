@@ -1,0 +1,52 @@
+---
+title: "How the Items Are Tagged"
+description: "The number, date, countries, actors and type of each item of the Monitor."
+# This page explains the tags. It is not an issue, so the issue settings are switched off here.
+google-scholar: false
+citation: false
+toc: false
+---
+
+<!-- EVERY CHANGE TO THE TAGS: raise the version number and the date in the line below. -->
+
+::: {.pv-label}
+Tags, version 1.0 · 12 November 2026
+:::
+
+Every item has a number and tags. They help to find and compare the items.
+
+## What an Item Has
+
+- **Number.** Items are numbered in the order of the issue, one-line entries included.
+- **Date.** The day of the event.
+- **Countries.** The countries in its title. The first is the actor's.
+- **Actors.** The covered actors it is about.
+- **Type.** The kind of action.
+
+## Types
+
+| Family | Type | Meaning |
+|---|---|---|
+| Votes | Election | An election is held or its result comes, at any level. |
+| | Referendum | Voters decide a question. |
+| | Campaign | A campaign starts, an election authority decides who may run, or a vote is coming. |
+| Office and Party | Office | A government is formed or falls. Someone takes or leaves office. |
+| | Party | A party changes its leader, splits, merges or is founded. |
+| Rules | Law | Parliament votes on a law or the constitution. |
+| | Measure | A decree, an order, a rule or a spending decision of a government, also when only announced. |
+| Justice | Court | A court rules, hears a case or receives one. |
+| | Police and Prosecutors | An investigation, a search, a raid, an arrest or charges. |
+| Abroad | Diplomacy | Visits, meetings, talks or mediation between states. An embassy opens or closes. |
+| | Agreement | States sign, restore or leave an agreement, or join or leave an international body. |
+| | Sanctions and Trade | Sanctions, tariffs or trade bans, imposed or lifted. |
+| | Armed Forces | A strike, an operation, troops sent or withdrawn, or a measure the army carries out. |
+| Street | Protest | A demonstration, a strike or a blockade. |
+| Other | Other | Nothing else fits. |
+
+## Rules
+
+1. One item, one type.
+2. The type is the kind of action, not its topic. The topic is in the item's link to the [Library](../library/index.qmd).
+3. The title decides. Its first action gives the type. For a one-line entry, its first sentence does.
+
+No tag says who was right or how much an event matters. The editor answers for every tag.

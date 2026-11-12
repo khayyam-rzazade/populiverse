@@ -1,0 +1,28 @@
+item,title,type,date,date_end,countries,actors
+1,"Sweden: the opposition wins the election, and the Sweden Democrats lose seats",Election,2026-09-13,,sweden,sweden-democrats
+2,Germany: the AfD wins the state election in Saxony-Anhalt,Election,2026-09-06,,germany,afd; the-left-germany
+3,Russia: United Russia wins 349 of the 450 seats in the State Duma,Election,2026-09-18,2026-09-20,russia,vladimir-putin
+4,Italy: a decree limits the share of pupils with little Italian and bans face veils in schools,Measure,2026-09-24,,italy,brothers-of-italy; league-italy; forza-italia
+5,Switzerland: voters reject the neutrality initiative backed by the Swiss People's Party,Referendum,2026-09-27,,switzerland,swiss-peoples-party
+6,United Kingdom,Police and Prosecutors,2026-09-09,,united-kingdom,reform-uk
+7,France,Election,2026-09-27,,france,national-rally
+8,Russia and Germany,Measure,2026-09-28,,russia; germany,vladimir-putin
+9,"United States and Iran: strikes on tankers, then a first meeting at the United Nations",Armed Forces,2026-09-05,,united-states; iran,donald-trump
+10,"United States, Russia and Ukraine: envoys in Moscow and Kyiv; a sanctions law is signed",Diplomacy,2026-09-05,2026-09-06,united-states; russia; ukraine,donald-trump; vladimir-putin
+11,"United States, Denmark and Greenland: a security agreement is signed",Agreement,2026-09-22,,united-states; denmark,donald-trump
+12,United States and China: tariff cuts and a dialogue on artificial intelligence,Sanctions and Trade,2026-09-23,2026-09-25,united-states; china,donald-trump
+13,United States and Canada: import bans in the trade war,Sanctions and Trade,2026-09-08,,united-states; canada,donald-trump
+14,United States and Iraq: the last American troops leave,Armed Forces,2026-09-30,,united-states; iraq,donald-trump
+15,United States and Venezuela,Diplomacy,2026-09-22,,united-states; venezuela,donald-trump
+16,United States,Measure,2026-09-18,,united-states,donald-trump
+17,United States,Court,2026-09-02,,united-states,donald-trump
+18,Nicaragua: a reform that bars opposition parties from elections passes its first vote,Law,2026-09-01,,nicaragua,daniel-ortega
+19,Nicaragua: hearings in its case against Germany at the International Court of Justice,Court,2026-09-07,,nicaragua; germany,daniel-ortega
+20,Chile: no official event on the anniversary of the 1973 coup,Other,2026-09-11,,chile,jose-antonio-kast
+21,Chile and Argentina: Kast backs Argentina's claim to the Malvinas; a shipping route to the islands is planned,Diplomacy,2026-09-03,,chile; argentina,jose-antonio-kast
+22,Venezuela,Court,2026-09-02,,venezuela,nicolas-maduro
+23,Brazil,Campaign,2026-09,,brazil,jair-bolsonaro
+24,Israel and the United Kingdom: Israel closes the British consulate in East Jerusalem,Diplomacy,2026-09-08,,israel; united-kingdom,benjamin-netanyahu
+25,Israel and Slovenia: Israel opens its first embassy in Ljubljana,Diplomacy,2026-09-09,,israel; slovenia,benjamin-netanyahu; slovenian-democratic-party
+26,"Israel and Lebanon: detainees released in a deal, and the talks go on",Diplomacy,2026-09-03,2026-09-04,israel; lebanon,benjamin-netanyahu
+27,Israel,Campaign,2026-09-23,,israel,benjamin-netanyahu

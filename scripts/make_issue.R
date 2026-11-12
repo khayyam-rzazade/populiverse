@@ -17,7 +17,9 @@
 #      (populiverse-monitor-2026-1-new-research.csv), it counts the works in it
 #      and checks that the Library has them.
 #   4. It builds the issue's web page once, so that you can look at both.
-#   5. It prints a short report.
+#   5. It prints a short report. It also checks the issue's file of tags
+#      (populiverse-monitor-2026-3-items.csv), which Claude writes once the
+#      text is final: one line for each item, with the same titles.
 #   6. If the header of the issue has a date and a DOI, it asks whether to
 #      publish. On "yes" it takes the ending "-draft" away from the folder's
 #      name. Only then can GitHub see the issue.
@@ -211,6 +213,48 @@ local({
     }
   }
 
+  # ---- the items, and the file of tags that Claude writes for them
+  # An item is a full item (a heading "####") or an entry of "Also this month"
+  # (a line "- **Country.** ..."), counted in the order of the text.
+  items_name <- paste0("populiverse-monitor-", slug, "-items.csv")
+  items_file <- file.path(folder, items_name)
+  titles <- character(0)
+  in_region <- FALSE
+  in_also <- FALSE
+  for (l in body) {
+    if (grepl("^### ", l)) {
+      in_region <- TRUE; in_also <- FALSE
+    } else if (grepl("^## ", l)) {
+      in_region <- FALSE; in_also <- FALSE
+    } else if (grepl("^#### ", l)) {
+      titles <- c(titles, trimws(sub("^#### ", "", l))); in_also <- FALSE
+    } else if (in_region && grepl("^\\*\\*Also this month\\*\\*\\s*$", trimws(l), ignore.case = TRUE)) {
+      in_also <- TRUE
+    } else if (in_also && grepl("^- ", l)) {
+      titles <- c(titles, trimws(sub("^- \\*\\*(.+?)\\.?\\*\\*.*$", "\\1", l, perl = TRUE)))
+    } else if (in_also && nzchar(trimws(l))) {
+      in_also <- FALSE
+    }
+  }
+  squeeze <- function(x) gsub("\\s+", " ", trimws(x))
+  tags_state <- "none"      # none: no file yet; ok: it fits; otherwise what does not fit
+  if (file.exists(items_file)) {
+    tags <- tryCatch(utils::read.csv(items_file, stringsAsFactors = FALSE, check.names = FALSE,
+                                     encoding = "UTF-8", colClasses = "character"),
+                     error = function(e) NULL)
+    if (is.null(tags) || !all(c("item", "title", "type", "date") %in% names(tags))) {
+      tags_state <- "the file cannot be read"
+    } else if (nrow(tags) != length(titles)) {
+      tags_state <- paste0("the file has ", nrow(tags), " lines and the text has ", length(titles), " items")
+    } else {
+      differ <- which(squeeze(tags$title) != squeeze(titles))
+      tags_state <- if (length(differ)) {
+        paste0("item ", differ[1], " is \"", titles[differ[1]], "\" in the text and \"",
+               tags$title[differ[1]], "\" in the file")
+      } else "ok"
+    }
+  }
+
   # ---- the list of the month's new research, if the issue has one
   list_n <- NA
   list_in_library <- NA
@@ -235,6 +279,11 @@ local({
   say("Published:  ", if (nzchar(date)) date else "no date yet")
   say("DOI:        ", if (nzchar(doi)) doi else "no DOI yet")
   say("Full items: ", length(starts))
+  say("Items:      ", length(titles), " (full items and entries of \"Also this month\", numbered in this order)")
+  say("Tags:       ", switch(tags_state,
+                             none = "none yet (Claude writes them once the text is final)",
+                             ok = paste0("they fit the text (", items_name, ")"),
+                             paste0("they do not fit: ", tags_state)))
   if (!is.na(list_n)) say("New research: ", list_n, " works in the list (", list_name, ")")
   if (pages > MAX_PAGES) {
     say("")
@@ -250,6 +299,11 @@ local({
     say("NOTE: the Library on this computer holds ", list_in_library, " of the ", list_n, " works in the list of new research.")
     say("      The text says that the Library holds them all. Wait until the Library has taken them in,")
     say("      click \"Pull origin\" in GitHub Desktop, and run this script again before you publish.")
+  }
+  if (!(tags_state %in% c("none", "ok"))) {
+    say("")
+    say("NOTE: the file of tags does not fit the text. Please ask Claude to bring the tags up to date.")
+    say("      The issue cannot be published until they fit.")
   }
   if (!web_ok) {
     say("")
@@ -290,6 +344,10 @@ local({
     return(invisible(NULL))
   }
 
+  if (!(tags_state %in% c("none", "ok"))) {
+    stop_plain("The file of tags (", items_name, ") does not fit the text: ", tags_state,
+               ". Please ask Claude to bring the tags up to date, then run this script again.")
+  }
   target <- file.path("monitor", slug)
   if (file.exists(target)) {
     stop_plain("There is already a folder ", target, ". A published issue is frozen. Please tell Claude.")
