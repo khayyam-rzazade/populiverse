@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Two last touches to the built site, run by Quarto after every render.
 
-1. sitemap.xml: the two newsletter pages are taken out. They only make sense
-   straight after someone signs up, and a search result that lands a stranger on
-   "You're Subscribed" helps nobody. Both pages also carry a noindex tag of their
-   own, set in their .qmd files; this keeps them out of the list we hand Google
-   in the first place.
+1. sitemap.xml: the two newsletter pages and the Workspace's pages are taken
+   out. The newsletter pages only make sense straight after someone signs up,
+   and a search result that lands a stranger on "You're Subscribed" helps
+   nobody. The Workspace's pages are personal. All of them also carry a noindex
+   tag of their own, set in their .qmd files; this keeps them out of the list we
+   hand Google in the first place.
 
 2. robots.txt: Quarto writes only the line that points to the sitemap. Some
    crawlers expect a "User-agent" line before anything else and ignore a file
@@ -21,8 +22,11 @@ import sys
 
 OUT = os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", "_site")
 
-# Pages kept out of sitemap.xml, as they appear in the built site.
-HIDE = ("/newsletter/thanks.html", "/newsletter/confirmed.html")
+# Pages kept out of sitemap.xml, as they appear in the built site. The
+# Workspace's pages are personal and closed until the trial; they also carry a
+# noindex tag of their own.
+HIDE = ("/newsletter/thanks.html", "/newsletter/confirmed.html",
+        "/workspace/", "/workspace/index.html", "/workspace/account.html", "/workspace/desk.html")
 
 ROBOTS = """User-agent: *
 Allow: /
@@ -47,14 +51,14 @@ def trim_sitemap():
         (dropped if any(address.endswith(h) for h in HIDE) else kept).append(block)
 
     if not dropped:
-        print("finish_site: sitemap.xml already holds no newsletter pages.")
+        print("finish_site: sitemap.xml already holds none of the hidden pages.")
         return
 
     head = xml.split("<url>", 1)[0]
     tail = "</urlset>\n"
     with open(path, "w", encoding="utf-8") as f:
         f.write(head + "\n".join(kept) + "\n" + tail)
-    print("finish_site: sitemap.xml now lists %d pages (%d newsletter page(s) taken out)."
+    print("finish_site: sitemap.xml now lists %d pages (%d hidden page(s) taken out)."
           % (len(kept), len(dropped)))
 
 

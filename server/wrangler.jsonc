@@ -1,0 +1,49 @@
+// The Researcher's Workspace: one small server (a Worker) and one database (D1)
+// at Cloudflare. Master plan, section 9 and section 18 (stage 2, batch 1).
+//
+// No key stands in this file. The keys are kept in the repository's secret
+// settings at GitHub and handed to Cloudflare by .github/workflows/server.yml.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "populiverse-workspace",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // The server answers at api.populiverse.com. Cloudflare makes the address
+  // and its certificate on the first deploy.
+  "routes": [{ "pattern": "api.populiverse.com", "custom_domain": true }],
+  "workers_dev": false,
+
+  // The database. The workflow writes the real ID in place of the placeholder
+  // from the GitHub variable D1_DATABASE_ID; the tests use a local copy.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "populiverse-workspace",
+      "database_id": "__D1_DATABASE_ID__",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  // Sign-in codes go out through Cloudflare's Email Service, from one address only.
+  "send_email": [
+    { "name": "EMAIL", "allowed_sender_addresses": ["signin@populiverse.com"] }
+  ],
+
+  // Every night: guests unused for 30 days, accounts unused for two years.
+  "triggers": { "crons": ["17 3 * * *"] },
+
+  // Plain settings, not secrets.
+  "vars": {
+    "SITE_ORIGIN": "https://populiverse.com",
+    "BASE_URL": "https://api.populiverse.com",
+    "EDITOR_EMAIL": "editor@populiverse.com",
+    "MAIL_FROM": "signin@populiverse.com"
+  },
+
+  // Cloudflare keeps the server's own error lines for a few days. The log of
+  // every request is off, since a request's address can carry the words searched
+  // in the Notebook (Fable's review, fix c).
+  "observability": { "enabled": true, "logs": { "invocation_logs": false } }
+}

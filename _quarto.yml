@@ -7,6 +7,8 @@ project:
   render:
     - "*.qmd"
     - "!drafts/"
+    # The Workspace's server is code for Cloudflare, not pages of the site.
+    - "!server/"
   # Before every render: writes the actor and country pages from the Monitor's
   # tags. See scripts/make_pages.py.
   pre-render:

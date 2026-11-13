@@ -3,9 +3,9 @@ title: "Privacy"
 description: "What personal data PopuliVerse handles, and what it does not."
 ---
 
-Last updated: 19 October 2026
+Last updated: 13 November 2026
 
-PopuliVerse collects as little personal data as it can. The site has no user accounts, no comments section, no advertising and no cookies.
+PopuliVerse collects as little personal data as it can. Reading the site needs no account. There is no comments section and no advertising.
 
 ## Who Is Responsible
 
@@ -17,7 +17,33 @@ Khayyam RZAZADE, editor of PopuliVerse. Contact: editor@populiverse.com
 
 **Visit statistics.** The site counts visits in two ways. Cloudflare Web Analytics loads one small script on each page. It sets no cookies and stores nothing in your browser. A small counter run by the editor on Cloudflare adds one to a running total when you arrive, and your browser tab keeps your visit number until you close the tab, so you are counted once for each visit. The counter keeps the total and nothing about you.
 
-**Everything else.** All other things the pages need, the typeface included, are served from this site itself.
+**Everything else.** All other things the pages need, the typeface included, are served from this site itself. Reading the site sets no cookies.
+
+## The Workspace
+
+The Workspace is a place of your own on the site. Using it is up to you. You can try it as a guest or keep your work in an account.
+
+**What an account holds.** Your email, your name and your institution. Your position and your field, if you give them. Your ORCID iD, if you connect it. The pages you write. The day you signed up and the day you last used it.
+
+**A guest.** A guest gives no name and no email. The pages are stored like an account's and can be opened from that browser only. They are lost when you sign out, clear the browser or change device, and are deleted 30 days after your last visit.
+
+**Where it is kept.** In a database the editor runs on his own account at Cloudflare, a company based in the United States. The sign-in codes are sent by Cloudflare's email service. Cloudflare keeps backups of the database for 30 days and short technical records of requests for a few days.
+
+**What the editor counts.** The editor counts accounts and how they are used: how many people sign up, from which institutions and countries, in which positions and fields.
+
+**Signing in.** There are no passwords. You sign in with a code sent to your email, or with ORCID once you have connected it. ORCID tells the Workspace your ORCID iD and your name, and nothing else.
+
+**Against misuse.** With each sign-in, a guest's too, the Workspace keeps the IP address and the type of browser until a week after the sign-in ends. It counts the codes asked for an address for one day.
+
+**Your institution.** When you look up your institution, the letters you type go to ROR, the open registry of research institutions, through the Workspace. Nothing else about you goes with them.
+
+**One cookie.** When you sign in, or start as a guest, the Workspace sets one cookie that keeps you signed in. It holds a random key and nothing about you. It lasts 30 days after your last visit. The Workspace cannot work without it, so there is no cookie banner. While you sign in with ORCID, a second cookie lives for five minutes.
+
+**The newsletter box.** If you tick it when you sign up, your email and name go to Sender for the newsletter (see below). The box is never ticked for you.
+
+**Download and delete.** On your account page, Download Everything gives you one file with your account and all your pages. Delete My Account deletes the account and every page at once. The backups at Cloudflare are gone 30 days later. Deleting the account does not end the newsletter: use the link in any newsletter for that.
+
+**Accounts no longer used.** An account is kept as long as it is used. After two years without a sign-in, the Workspace sends one email. If the account is still not used 30 days later, it is deleted with everything in it.
 
 ## When You Write, Subscribe or Submit
 
@@ -29,7 +55,7 @@ Khayyam RZAZADE, editor of PopuliVerse. Contact: editor@populiverse.com
 
 ## Your Rights
 
-You can ask to see, correct or delete the personal data held about you. Write to the address above.
+You can ask to see, correct or delete the personal data held about you. Write to the address above. In the Workspace you can also download or delete it yourself, on your account page.
 
 ## Changes to This Page
 

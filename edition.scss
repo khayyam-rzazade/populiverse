@@ -3557,3 +3557,690 @@ body.pv-dp-open {
     display: none;
   }
 }
+
+// ---------------------------------------------------------------- Workspace
+// The Researcher's Workspace (master plan, section 18, stage 2, batch 1):
+// workspace/index.qmd (the doors and the Notebook), account.qmd and desk.qmd,
+// drawn by workspace/workspace.js and workspace/desk.js. Same paper, ink and
+// type as the rest of the site; the only colours are the muted slate steps.
+
+.pv-ws-app {
+  margin: 0 0 4rem;
+}
+
+.pv-ws-app .pv-name em {
+  font-style: italic;
+}
+
+.pv-ws-note {
+  margin: 0 0 1.5rem;
+  padding: 0.875rem 1.125rem;
+  border-left: 3px solid $pv-ink;
+  background: #fff;
+  font-size: 0.9375rem;
+}
+
+.pv-ws-note.is-error {
+  border-left-color: $pv-commentary;
+}
+
+.pv-ws-small,
+.pv-ws-hint {
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+.pv-ws-hint {
+  margin: 0.35rem 0 0;
+}
+
+.pv-ws-app .pv-ws-h {
+  @include pv-label;
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+// The doors: three cards side by side, one under the other on a phone
+.pv-ws-lede {
+  max-width: 44rem;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.pv-ws-doors {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+@include media-breakpoint-up(lg) {
+  .pv-ws-doors {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+.pv-ws-door {
+  padding: 1.5rem 1.5rem 1.75rem;
+  border-top: 3px double $pv-ink;
+  background: #fff;
+  border-left: 1px solid $pv-hairline;
+  border-right: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-app .pv-ws-door h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  border: 0;
+}
+
+.pv-ws-door > p {
+  font-size: 0.9375rem;
+  color: $pv-muted;
+}
+
+.pv-ws-door .pv-button,
+.pv-ws-app button.pv-button {
+  border: 0;
+  cursor: pointer;
+  font-family: $pv-serif;
+}
+
+.pv-ws-app button.pv-button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pv-ws-ghost.pv-button {
+  background: $pv-paper;
+  color: $pv-ink;
+  box-shadow: inset 0 0 0 1px $pv-ink;
+}
+
+.pv-ws-ghost.pv-button:hover,
+.pv-ws-ghost.pv-button:focus {
+  background: $pv-ink;
+  color: $pv-paper;
+}
+
+// Forms
+.pv-ws-form input[type="email"],
+.pv-ws-form input[type="text"],
+.pv-ws-form select,
+.pv-ws-access textarea {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid $pv-ink;
+  border-radius: 0;
+  background: #fff;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.pv-ws-form input#ws-code {
+  max-width: 12rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.3em;
+}
+
+.pv-ws-form .pv-button {
+  margin-top: 0.75rem;
+}
+
+.pv-ws-field {
+  margin-bottom: 1.25rem;
+}
+
+.pv-ws-field-error {
+  min-height: 0;
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: $pv-commentary;
+}
+
+.pv-ws-field-error:empty {
+  display: none;
+}
+
+.pv-ws-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 1.25rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ws-pair {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pv-ws-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.pv-ws-check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.3rem;
+  accent-color: $pv-ink;
+  flex: none;
+}
+
+.pv-ws-narrow {
+  max-width: 40rem;
+}
+
+// The institution search
+.pv-ws-inst {
+  position: relative;
+}
+
+.pv-ws-inst select {
+  margin-top: 0.5rem;
+}
+
+.pv-ws-picked {
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+}
+
+.pv-ws-suggest {
+  position: absolute;
+  z-index: 20;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid $pv-ink;
+  border-top: 0;
+  max-height: 18rem;
+  overflow-y: auto;
+}
+
+.pv-ws-suggest li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+  border-top: 1px solid $pv-hairline;
+}
+
+.pv-ws-suggest li:hover,
+.pv-ws-suggest li:focus {
+  background: $pv-paper;
+  outline: none;
+  text-decoration: underline;
+}
+
+.pv-ws-suggest-where {
+  font-size: 0.8125rem;
+  color: $pv-muted;
+}
+
+// The bar on top of every workspace page
+.pv-ws-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding: 0.75rem 0;
+  margin-bottom: 1.5rem;
+  border-top: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+  font-size: 0.9375rem;
+}
+
+.pv-ws-bar-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pv-ws-bar .pv-lib-link {
+  min-height: 0;
+  font-size: 0.9375rem;
+}
+
+.pv-ws-dot {
+  color: $pv-muted;
+}
+
+.pv-ws-guest {
+  margin: -0.5rem 0 1.75rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid $pv-ink;
+  background: #fff;
+}
+
+.pv-ws-guest p {
+  margin: 0 0 0.75rem;
+}
+
+.pv-ws-guest-signup {
+  margin-top: 1rem;
+}
+
+// The Notebook: the list of pages, and the open page
+.pv-ws-notebook {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ws-notebook {
+    grid-template-columns: minmax(15rem, 20rem) 1fr;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .pv-ws-notebook.is-open .pv-ws-side {
+    display: none;
+  }
+  .pv-ws-notebook:not(.is-open) .pv-ws-editor {
+    display: none;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ws-backlist {
+    display: none;
+  }
+}
+
+// On a phone the list may shrink, and long titles wrap (Fable's review, fix f)
+.pv-ws-side {
+  min-width: 0;
+}
+
+.pv-ws-side-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pv-ws-app .pv-ws-side-head .pv-ws-h {
+  margin: 0;
+}
+
+.pv-ws-side-head .pv-button {
+  min-height: 2.5rem;
+  padding: 0 1.1rem;
+}
+
+.pv-ws-side input[type="search"] {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+  font-family: $pv-serif;
+  font-size: 0.9375rem;
+}
+
+.pv-ws-count {
+  margin: 0.5rem 0;
+  font-size: 0.8125rem;
+  color: $pv-muted;
+}
+
+.pv-ws-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid $pv-ink;
+}
+
+.pv-ws-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.75rem 0.5rem 0.75rem 0.75rem;
+  border: 0;
+  border-bottom: 1px solid $pv-hairline;
+  border-left: 3px solid transparent;
+  background: none;
+  text-align: left;
+  font-family: $pv-serif;
+  color: $pv-ink;
+  cursor: pointer;
+}
+
+.pv-ws-item:hover {
+  background: #fff;
+}
+
+.pv-ws-item.is-open {
+  background: #fff;
+  border-left-color: $pv-ink;
+}
+
+.pv-ws-item-t {
+  font-size: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.pv-ws-item-s {
+  font-size: 0.8125rem;
+  color: $pv-muted;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pv-ws-item-d {
+  font-size: 0.75rem;
+  color: $pv-muted;
+  margin-top: 0.2rem;
+}
+
+.pv-ws-empty {
+  padding: 0.75rem 0;
+  color: $pv-muted;
+  font-style: italic;
+  list-style: none;
+}
+
+.pv-ws-blank {
+  padding: 3rem 2rem;
+  border: 1px dashed $pv-hairline;
+  text-align: center;
+  color: $pv-muted;
+}
+
+.pv-ws-blank-t {
+  font-size: 1.25rem;
+  color: $pv-ink;
+}
+
+.pv-ws-editor-head,
+.pv-ws-editor-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 1.75rem;
+}
+
+.pv-ws-status,
+.pv-ws-dates {
+  font-size: 0.8125rem;
+  color: $pv-muted;
+}
+
+.pv-ws-editor-head .pv-ws-status {
+  margin-left: auto;
+}
+
+.pv-ws-title {
+  display: block;
+  width: 100%;
+  padding: 0.4rem 0;
+  border: 0;
+  border-bottom: 1px solid $pv-hairline;
+  background: transparent;
+  font-family: $pv-serif;
+  font-size: 1.75rem;
+  line-height: 1.3;
+  color: $pv-ink;
+}
+
+.pv-ws-title:focus,
+.pv-ws-body:focus {
+  outline: none;
+  border-color: $pv-ink;
+}
+
+.pv-ws-body {
+  display: block;
+  width: 100%;
+  min-height: 60vh;
+  margin: 1rem 0 0.75rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+  font-family: $pv-serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: $pv-ink;
+  resize: vertical;
+}
+
+// The account page and the desk
+.pv-ws-section {
+  margin: 0 0 2.75rem;
+  padding-top: 1.25rem;
+  border-top: 3px double $pv-ink;
+  max-width: 48rem;
+}
+
+.pv-ws-desk .pv-ws-section {
+  max-width: none;
+}
+
+.pv-ws-saved {
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+.pv-ws-danger.pv-button {
+  background: $pv-commentary;
+}
+
+.pv-ws-danger.pv-button:hover {
+  background: $pv-ink;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ws-tiles.pv-wc-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .pv-ws-tiles.pv-wc-stats {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.pv-ws-tiles .pv-wc-stat {
+  cursor: default;
+}
+
+.pv-ws-chart-wrap {
+  overflow-x: auto;
+}
+
+.pv-ws-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: $pv-serif;
+}
+
+.pv-ws-hit:hover rect:not([fill="transparent"]) {
+  opacity: 0.85;
+}
+
+.pv-ws-legend {
+  font-size: 0.8125rem;
+  color: $pv-muted;
+}
+
+.pv-ws-key {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: 0 0.35rem -0.1rem 0;
+  border-radius: 2px;
+}
+
+.pv-ws-details-t summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pv-ws-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.pv-ws-table th {
+  @include pv-label;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: $pv-muted;
+  text-align: left;
+  border-bottom: 1px solid $pv-ink;
+  padding: 0.4rem 0.5rem 0.4rem 0;
+}
+
+.pv-ws-table td {
+  padding: 0.45rem 0.5rem 0.45rem 0;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-table .is-n {
+  text-align: right;
+}
+
+.pv-ws-map {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@include media-breakpoint-up(lg) {
+  .pv-ws-map {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+.pv-ws-rank {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid $pv-ink;
+}
+
+.pv-ws-rank li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid $pv-hairline;
+  font-size: 0.9375rem;
+}
+
+.pv-ws-bars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-ws-bars li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 13rem) 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.3rem 0;
+  font-size: 0.875rem;
+}
+
+.pv-ws-bars-track {
+  height: 0.75rem;
+  background: $pv-none;
+}
+
+.pv-ws-bars-fill {
+  display: block;
+  height: 100%;
+  background: $pv-monitor;
+  border-radius: 0 2px 2px 0;
+}
+
+.pv-ws-bars-n {
+  color: $pv-muted;
+  font-variant-numeric: tabular-nums;
+}
+
+.pv-ws-access-state {
+  font-size: 1.0625rem;
+}
+
+.pv-ws-access textarea {
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+}
+
+.pv-ws-gap {
+  margin-top: 1.75rem;
+}
+
+.pv-ws-invites {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid $pv-hairline;
+}
+
+.pv-ws-invites li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid $pv-hairline;
+  font-size: 0.9375rem;
+}
+
+.pv-ws-invites li > span:first-child {
+  flex: 1 1 14rem;
+}
+
+.pv-ws-invites .pv-lib-link {
+  min-height: 0;
+}
+
+.pv-ws-promise {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid $pv-hairline;
+  font-style: italic;
+  color: $pv-muted;
+}
+
+.pv-ws-tip {
+  position: fixed;
+  z-index: 1000;
+  max-width: 18rem;
+  padding: 0.45rem 0.65rem;
+  background: $pv-ink;
+  color: $pv-paper;
+  font-family: $pv-serif;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  pointer-events: none;
+}

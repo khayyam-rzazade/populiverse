@@ -31,3 +31,8 @@
 # scripts/make_issue.R takes the ending away on publication day.
 /monitor/*-draft/
 /commentary/*-draft/
+
+# The Workspace's server: the tools it installs and the local copies its tests
+# make. GitHub installs the tools itself, from server/package-lock.json.
+/server/node_modules/
+/server/.wrangler/
