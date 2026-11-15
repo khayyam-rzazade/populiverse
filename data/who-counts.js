@@ -215,7 +215,7 @@
       ui.tabs.appendChild(b);
     });
     ui.count = el("p", { class: "pv-wc-count", "aria-live": "polite" });
-    ui.tools = el("div", { class: "pv-wc-tools" });
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Who Counts as Populist?");
     app.appendChild(el("div", { class: "pv-wc-head" }, [ui.tabs, ui.count, ui.tools]));
     ui.legend = el("div", { class: "pv-wc-legend" });
     app.appendChild(ui.legend);
@@ -469,6 +469,9 @@
       b3.addEventListener("click", function () { PV.save.picture(b3, picture.name, "svg", picture.make); });
       ui.tools.appendChild(b2);
       ui.tools.appendChild(b3);
+      // This chart can be sent to Write, where it goes into a draft with its
+      // source line and the numbers of today (batch 3; keep.js draws it).
+      PV.figureMaker(ui.tools, picture.make);
     }
     ui.tools.appendChild(el("a", { class: "pv-lib-link", href: "sources.txt", download: "populiverse-data-sources.txt", text: "Sources and licences" }));
     var link = el("button", { type: "button", class: "pv-lib-link", text: "Copy the link to this view" });

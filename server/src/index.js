@@ -137,7 +137,10 @@ export async function gate(request, env, auth, access) {
   if (!guest) {
     profile = await env.DB.prepare("SELECT * FROM profile WHERE user_id = ?").bind(user.id).first();
   }
-  const finished = guest || !!profile?.completed_at;
+  // An account is finished once it has given its institution and its surname.
+  // An account from before the surname was asked has a profile but no surname:
+  // it is asked once, at its next sign-in (Fable's check, point 16).
+  const finished = guest || (!!profile?.completed_at && !!profile?.surname);
   const editor = !guest && finished && user.emailVerified && isEditorEmail(env, user.email);
 
   const who = { userId: user.id, guest, finished, editor, user, session: found.session, profile };

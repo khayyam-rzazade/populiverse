@@ -321,6 +321,14 @@
     return out;
   }
 
+  // The same reference with its marks taken off, for places that show words
+  // only. The text is read, never put back into the page.
+  function plainWords(html) {
+    var box = document.createElement("template");
+    box.innerHTML = html || "";
+    return (box.content.textContent || "").replace(/\s+/g, " ").trim();
+  }
+
   // A work's web address comes from Zotero. Everything the page links to must be
   // an ordinary web address: anything else (a "javascript:" address, say) is shown
   // as plain text instead of as a link, so that a bad entry can never become a
@@ -414,8 +422,29 @@
       bib.disabled = !bibLive(e);                   // off only once the BibTeX is known not to come
       actions.appendChild(bib);
     }
-    return el("li", { class: "pv-lib-entry", id: "work-" + e.id }, [cite, tags.childNodes.length ? tags : null,
-                                                                    actions.childNodes.length ? actions : null, abstract]);
+    // What "Save" and "Note" keep: the work, under the Library's own id
+    // (master plan, section 18, stage 2, batch 2). keep.js reads these marks
+    // and puts its two buttons into the line of actions.
+    if (!actions.childNodes.length) actions = el("p", { class: "pv-lib-actions" });
+    actions.setAttribute("data-keep-tools", "");
+    var entry = el("li", { class: "pv-lib-entry", id: "work-" + e.id }, [cite, tags.childNodes.length ? tags : null,
+                                                                        actions, abstract]);
+    entry.setAttribute("data-keep-kind", "work");
+    entry.setAttribute("data-keep-ref", String(e.id));
+    // The line the shelf shows is the reference in plain words: the marks that
+    // set a journal or a book title in italics are not words and must not show
+    // up as any. The reference itself, with those marks, goes in its own mark,
+    // from which Write builds its reference list (batch 3).
+    entry.setAttribute("data-keep-title", plainWords(e.citation || e.title || "").slice(0, 600));
+    entry.setAttribute("data-keep-cite", String(e.citation || e.title || "").slice(0, 2000));
+    entry.setAttribute("data-keep-url", webAddress(e.url || "") || (e.doi ? "https://doi.org/" + e.doi : ""));
+    // The short form a cite shows in a draft, "Mudde 2004": the author's short
+    // form and the year, as the list behind "@" in Write holds them (Fable's
+    // check of batches 2 and 3, point 5).
+    entry.setAttribute("data-keep-extra", [e.byline || "", e.year || ""].join(" ").trim().slice(0, 300));
+    if (typeof e.year === "number") entry.setAttribute("data-keep-year", String(e.year));
+    if (abstract) entry.setAttribute("data-keep-abstract", "abs-" + e.id);
+    return entry;
   }
 
   // ---------------------------------------------------------------- copy and download

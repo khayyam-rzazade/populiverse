@@ -1,5 +1,4 @@
 ---
-title: "Your Account"
 pagetitle: "Your Account: Workspace"
 page-layout: full
 body-classes: pv-data pv-ws

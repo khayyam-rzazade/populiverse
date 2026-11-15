@@ -1,5 +1,4 @@
 ---
-title: "Workspace"
 pagetitle: "Workspace"
 page-layout: full
 body-classes: pv-data pv-ws
@@ -8,20 +7,24 @@ google-scholar: false
 citation: false
 # The Researcher's Workspace (master plan, section 18, stage 2). Closed until the
 # trial: not in the menu, not for search engines. The page talks to the server
-# at api.populiverse.com (folder server/ of the repository). On the editor's Mac
-# the preview shows the pages, and says that sign-in works on populiverse.com.
+# at api.populiverse.com (folder server/ of the repository). Signed out it shows
+# the three doors; signed in it shows the shelf. On the editor's Mac the preview
+# shows the pages, and says that sign-in works on populiverse.com.
+# No title above the tabs (the row of 2026-11-13 on the mockup, point 6).
 include-in-header:
   - text: '<meta name="robots" content="noindex, nofollow">'
 resources:
   - workspace.js
+  - write.js
 ---
 
 ```{=html}
-<div id="ws-app" class="pv-ws-app" data-view="home">
-  <p class="pv-lib-loading">Loading the workspace…</p>
+<div id="ws-app" class="pv-ws-app" data-view="shelf">
+  <p class="pv-lib-loading">Loading your shelf…</p>
   <noscript>
     <div class="pv-lib-message"><p>The workspace needs JavaScript to run.</p></div>
   </noscript>
 </div>
 <script src="workspace.js" defer></script>
+<script src="write.js" defer></script>
 ```

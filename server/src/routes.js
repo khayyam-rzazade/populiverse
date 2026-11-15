@@ -5,6 +5,9 @@
 
 import { json } from "./util.js";
 import { notebook } from "./notebook.js";
+import { keep } from "./keep.js";
+import { projects } from "./projects.js";
+import { write } from "./write.js";
 import { account } from "./account.js";
 import { desk } from "./desk.js";
 import { isOpen } from "./settings.js";
@@ -25,6 +28,39 @@ export const ROUTES = [
   { method: "GET", path: "/api/pages/:id", access: "member", handler: notebook.get },
   { method: "PATCH", path: "/api/pages/:id", access: "member", handler: notebook.update },
   { method: "DELETE", path: "/api/pages/:id", access: "member", handler: notebook.remove },
+
+  // What a reader keeps: saved things, notes, tags, reading status, marks.
+  { method: "GET", path: "/api/keep", access: "member", handler: keep.list },
+  { method: "POST", path: "/api/keep/mine", access: "member", handler: keep.mine },
+  { method: "POST", path: "/api/keep", access: "member", handler: keep.save },
+  { method: "DELETE", path: "/api/keep", access: "member", handler: keep.remove },
+  { method: "POST", path: "/api/keep/note", access: "member", handler: keep.note },
+  { method: "POST", path: "/api/keep/tag", access: "member", handler: keep.tag },
+  { method: "POST", path: "/api/keep/status", access: "member", handler: keep.status },
+  { method: "POST", path: "/api/keep/mark", access: "member", handler: keep.mark },
+  { method: "GET", path: "/api/notes", access: "member", handler: keep.notes },
+
+  // Projects: the list, one project as one view, and what is in it.
+  { method: "GET", path: "/api/projects", access: "member", handler: projects.list },
+  { method: "POST", path: "/api/projects", access: "member", handler: projects.create },
+  { method: "GET", path: "/api/projects/:id", access: "member", handler: projects.get },
+  { method: "PATCH", path: "/api/projects/:id", access: "member", handler: projects.update },
+  { method: "DELETE", path: "/api/projects/:id", access: "member", handler: projects.remove },
+  { method: "POST", path: "/api/projects/:id/things", access: "member", handler: projects.addThing },
+  { method: "DELETE", path: "/api/projects/:id/things", access: "member", handler: projects.removeThing },
+
+  // Write: drafts, the figures sent from the Data pages, and the references.
+  { method: "GET", path: "/api/drafts", access: "member", handler: write.list },
+  { method: "POST", path: "/api/drafts", access: "member", handler: write.create },
+  { method: "GET", path: "/api/drafts/:id", access: "member", handler: write.get },
+  { method: "PATCH", path: "/api/drafts/:id", access: "member", handler: write.update },
+  { method: "DELETE", path: "/api/drafts/:id", access: "member", handler: write.remove },
+  { method: "GET", path: "/api/figures", access: "member", handler: write.figures },
+  { method: "POST", path: "/api/figures", access: "member", handler: write.addFigure },
+  { method: "GET", path: "/api/figures/:id", access: "member", handler: write.figure },
+  { method: "DELETE", path: "/api/figures/:id", access: "member", handler: write.removeFigure },
+  { method: "POST", path: "/api/write/cites", access: "member", handler: write.cites },
+  { method: "GET", path: "/api/write/bibliography", access: "member", handler: write.bibliography },
 
   { method: "GET", path: "/api/desk/summary", access: "editor", handler: desk.summary },
   { method: "GET", path: "/api/desk/accounts.csv", access: "editor", handler: desk.accountsCsv },

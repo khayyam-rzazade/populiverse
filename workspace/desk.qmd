@@ -1,5 +1,4 @@
 ---
-title: "Your Desk"
 pagetitle: "Your Desk: Workspace"
 page-layout: full
 body-classes: pv-data pv-ws

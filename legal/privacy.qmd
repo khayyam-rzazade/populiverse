@@ -23,9 +23,9 @@ Khayyam RZAZADE, editor of PopuliVerse. Contact: editor@populiverse.com
 
 The Workspace is a place of your own on the site. Using it is up to you. You can try it as a guest or keep your work in an account.
 
-**What an account holds.** Your email, your name and your institution. Your position and your field, if you give them. Your ORCID iD, if you connect it. The pages you write. The day you signed up and the day you last used it.
+**What an account holds.** Your email, your name and your institution. Your position and your field, if you give them. Your ORCID iD, if you connect it. The pages you write and the drafts you write. Your projects, each with its title, its question and what you put in it. What you save on the site, which can be a work, a Monitor item, an actor, a country or a chart, and with each of them the note you write on it, the tags you give it, whether you have read it and the passages you mark in it. For a work you save, the abstract as the Library had it that day, so that the passages you mark have a text to sit in. For each thing you save, the reference the site itself gives for it, which is what a draft's reference list is built from. A chart you send to Write is kept as the picture the page drew that day, with that page's own source line. The day you signed up and the day you last used it.
 
-**A guest.** A guest gives no name and no email. The pages are stored like an account's and can be opened from that browser only. They are lost when you sign out, clear the browser or change device, and are deleted 30 days after your last visit.
+**A guest.** A guest gives no name and no email. The work is stored like an account's and can be opened from that browser only. It is lost when you sign out, clear the browser or change device, and is deleted 30 days after your last visit. A guest keeps at most 50 saved things, 20 pages, 3 projects, 3 drafts and 3 charts sent to Write.
 
 **Where it is kept.** In a database the editor runs on his own account at Cloudflare, a company based in the United States. The sign-in codes are sent by Cloudflare's email service. Cloudflare keeps backups of the database for 30 days and short technical records of requests for a few days.
 
@@ -39,9 +39,11 @@ The Workspace is a place of your own on the site. Using it is up to you. You can
 
 **One cookie.** When you sign in, or start as a guest, the Workspace sets one cookie that keeps you signed in. It holds a random key and nothing about you. It lasts 30 days after your last visit. The Workspace cannot work without it, so there is no cookie banner. While you sign in with ORCID, a second cookie lives for five minutes.
 
+**One mark in your browser.** Signing in also leaves one plain mark in that browser, so that the pages of the site know to show Save and Note. It says that someone is signed in here, and nothing else. Signing out takes it away. While it is not there, no page of the site asks the Workspace anything.
+
 **The newsletter box.** If you tick it when you sign up, your email and name go to Sender for the newsletter (see below). The box is never ticked for you.
 
-**Download and delete.** On your account page, Download Everything gives you one file with your account and all your pages. Delete My Account deletes the account and every page at once. The backups at Cloudflare are gone 30 days later. Deleting the account does not end the newsletter: use the link in any newsletter for that.
+**Download and delete.** On your account page, Download Everything gives you one file with your account, your shelf, your notes, all your pages, your drafts, your projects and the charts you sent to Write. Delete My Account deletes the account and everything in it at once. The backups at Cloudflare are gone 30 days later. Deleting the account does not end the newsletter: use the link in any newsletter for that.
 
 **Accounts no longer used.** An account is kept as long as it is used. After two years without a sign-in, the Workspace sends one email. If the account is still not used 30 days later, it is deleted with everything in it.
 

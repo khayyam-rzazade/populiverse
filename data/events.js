@@ -156,7 +156,7 @@
       return b;
     }));
     ui.count = el("p", { class: "pv-wc-count", "aria-live": "polite" });
-    ui.tools = el("div", { class: "pv-wc-tools" });
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Events in Monitor");
     host.appendChild(el("div", { class: "pv-wc-head" }, [ui.tabs, ui.count, ui.tools]));
     host.appendChild(legend());
     ui.view = el("div", { class: "pv-wc-view" });
@@ -262,6 +262,7 @@
     if (S.view !== "table" && list.length) {
       ui.tools.appendChild(tool("Picture (PNG)", function (b) { PV.save.picture(b, "populiverse-events-in-monitor", "png", figure); }));
       ui.tools.appendChild(tool("Picture (SVG)", function (b) { PV.save.picture(b, "populiverse-events-in-monitor", "svg", figure); }));
+      PV.figureMaker(ui.tools, figure);
     }
     ui.tools.appendChild(tool("Copy the link to this view", function (b) { PV.copy(window.location.href, b); }));
     ui.tools.appendChild(tool("Copy the citation", function (b) { PV.copy(PV.citation(TITLE, URL), b); }));
@@ -435,6 +436,19 @@
 
   // ============================================================ the table
 
+  // The cell that carries "Save" and "Note" for the item behind a row.
+  function keepCell(e) {
+    var cell = el("td", { class: "pv-keep-cell" });
+    cell.setAttribute("data-keep-kind", "item");
+    cell.setAttribute("data-keep-ref", e.folder + ":" + e.n);
+    cell.setAttribute("data-keep-title", cut(heading(e), 300));
+    cell.setAttribute("data-keep-extra", e.issue + ", item " + e.n + " \u00b7 " + when(e.date));
+    cell.setAttribute("data-keep-url", e.link);
+    if (e.iso && e.iso.length === 1) cell.setAttribute("data-keep-country", e.iso[0]);
+    cell.setAttribute("data-keep-tools", "");
+    return cell;
+  }
+
   function table() {
     var tb = el("tbody");
     list.slice(0, shown).forEach(function (e) {
@@ -454,11 +468,15 @@
         el("td", { "data-label": "Actors" }, e.actors.length ? e.actors.map(function (a, k) {
           return el("span", {}, [k ? el("span", { text: ", " }) : null,
             ACT[a] ? el("a", { href: "../actors/" + a + ".html", text: ACT[a].name }) : el("span", { text: a })]);
-        }) : [el("span", { class: "pv-ma-dim", text: "—" })])
+        }) : [el("span", { class: "pv-ma-dim", text: "—" })]),
+        // "Save" and "Note" on a row keep the Monitor item behind the row, not
+        // the row (master plan, section 18, stage 2, batch 2).
+        keepCell(e)
       ]));
     });
     ui.view.appendChild(el("div", { class: "pv-wc-scroll" }, [el("table", { class: "pv-wc-table pv-ev-table" }, [
-      el("thead", {}, [el("tr", {}, ["Item", "Date", "Type", "Countries", "Actors"].map(function (h) { return el("th", { scope: "col", text: h }); }))]),
+      el("thead", {}, [el("tr", {}, ["Item", "Date", "Type", "Countries", "Actors"].map(function (h) { return el("th", { scope: "col", text: h }); })
+        .concat([el("th", { scope: "col", class: "pv-keep-cell" }, [el("span", { class: "pv-lib-offscreen", text: "Keep" })])]))]),
       tb
     ])]));
     if (list.length > shown) {

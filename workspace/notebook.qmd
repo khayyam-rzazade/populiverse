@@ -1,0 +1,33 @@
+---
+pagetitle: "Your Notebook: Workspace"
+page-layout: full
+body-classes: pv-data pv-ws
+search: false
+google-scholar: false
+citation: false
+# The Notebook: free pages the reader writes for themselves (batch 1). From
+# batch 3 its pages take the five formats and "@" to cite, in the same editor as
+# Write; a page written before that opens unchanged.
+include-in-header:
+  - text: |
+      <meta name="robots" content="noindex, nofollow">
+      <link rel="stylesheet" href="vendor/quill.core.css">
+resources:
+  - workspace.js
+  - write.js
+  - editor.js
+  - vendor/
+---
+
+```{=html}
+<div id="ws-app" class="pv-ws-app" data-view="notebook">
+  <p class="pv-lib-loading">Loading your notebook…</p>
+  <noscript>
+    <div class="pv-lib-message"><p>The workspace needs JavaScript to run.</p></div>
+  </noscript>
+</div>
+<script src="vendor/quill.js" defer></script>
+<script src="editor.js" defer></script>
+<script src="workspace.js" defer></script>
+<script src="write.js" defer></script>
+```

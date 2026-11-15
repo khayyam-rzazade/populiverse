@@ -1,0 +1,35 @@
+---
+pagetitle: "Write: Workspace"
+page-layout: full
+body-classes: pv-data pv-ws
+search: false
+google-scholar: false
+citation: false
+# Write: drafts, with the same editor as the Notebook, "@" to cite, a chart or
+# table sent from a Data page, a reference list that builds itself in Chicago
+# author-date, and an export to Word (master plan, section 18, stage 2, batch 3).
+# The editor (Quill) and the Word library (docx) are open libraries kept in this
+# site's own folder; no page here calls another site.
+include-in-header:
+  - text: |
+      <meta name="robots" content="noindex, nofollow">
+      <link rel="stylesheet" href="vendor/quill.core.css">
+resources:
+  - workspace.js
+  - write.js
+  - editor.js
+  - vendor/
+---
+
+```{=html}
+<div id="ws-app" class="pv-ws-app" data-view="write">
+  <p class="pv-lib-loading">Loading your drafts…</p>
+  <noscript>
+    <div class="pv-lib-message"><p>The workspace needs JavaScript to run.</p></div>
+  </noscript>
+</div>
+<script src="vendor/quill.js" defer></script>
+<script src="editor.js" defer></script>
+<script src="workspace.js" defer></script>
+<script src="write.js" defer></script>
+```

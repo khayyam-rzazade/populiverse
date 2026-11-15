@@ -12,10 +12,17 @@
    crawlers expect a "User-agent" line before anything else and ignore a file
    without one, so the file is rewritten with that line in front.
 
+3. library/library-cite.json: a small list of the Library, made from the
+   Library's own file, so that typing "@" in Write can look a work up without
+   fetching the whole Library. One line per work: its id, its short form, its
+   year, the reference the Library holds, and its address. Nothing is written
+   here that the Library does not already hold.
+
 Nothing else in _site is touched. If a file is missing the script says so and
 lets the build carry on: neither change is worth failing a deploy over.
 """
 
+import json
 import os
 import re
 import sys
@@ -26,7 +33,9 @@ OUT = os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", "_site")
 # Workspace's pages are personal and closed until the trial; they also carry a
 # noindex tag of their own.
 HIDE = ("/newsletter/thanks.html", "/newsletter/confirmed.html",
-        "/workspace/", "/workspace/index.html", "/workspace/account.html", "/workspace/desk.html")
+        "/workspace/", "/workspace/index.html", "/workspace/notes.html",
+        "/workspace/notebook.html", "/workspace/write.html", "/workspace/projects.html",
+        "/workspace/tools.html", "/workspace/account.html", "/workspace/desk.html")
 
 ROBOTS = """User-agent: *
 Allow: /
@@ -69,9 +78,31 @@ def write_robots():
     print("finish_site: robots.txt written with a User-agent line.")
 
 
+def write_library_cite():
+    """The small list of the Library that the "@" in Write looks through."""
+    source = os.path.join(OUT, "library", "library-list.json")
+    if not os.path.exists(source):
+        print("finish_site: no library-list.json, so no library-cite.json.")
+        return
+    with open(source, encoding="utf-8") as f:
+        data = json.load(f)
+    works = []
+    for e in data.get("entries", []):
+        works.append([e.get("id", ""), e.get("byline", "") or "", e.get("year", "") or "",
+                      e.get("citation", "") or "", e.get("url", "") or ""])
+    out = os.path.join(OUT, "library", "library-cite.json")
+    with open(out, "w", encoding="utf-8") as f:
+        json.dump({"works": works}, f, ensure_ascii=False, separators=(",", ":"))
+    print("finish_site: library-cite.json written with %d works." % len(works))
+
+
 if __name__ == "__main__":
     if not os.path.isdir(OUT):
         print("finish_site: %s is not there, nothing to do." % OUT)
         sys.exit(0)
     trim_sitemap()
     write_robots()
+    try:
+        write_library_cite()
+    except Exception as err:  # a build is not worth failing over this
+        print("finish_site: library-cite.json could not be written (%s)." % err)

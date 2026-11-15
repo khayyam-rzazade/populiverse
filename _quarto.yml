@@ -23,7 +23,13 @@ project:
     # The one rule about where a link opens. See the notes inside the file.
     - "links.js"
     # The visit counter's page script. See the notes inside the file.
-    - "counter.js"
+    # The slash at the start means the file in the top folder only, so the
+    # server's own files of the same name (server/src/) are never copied.
+    - "/counter.js"
+    # "Save" and "Note" on the things of the site. The script does nothing at
+    # all unless the browser carries the mark the Workspace leaves when a person
+    # signs in. See the notes inside the file.
+    - "/keep.js"
     # The picture shown when a link to the site is shared (LinkedIn, messages).
     - "populiverse-card.png"
     # The script of "Actors in Monitor" and "Countries in Monitor", and of the
@@ -169,3 +175,5 @@ format:
         <script src="/links.js" defer></script>
         <!-- Our own visit counter: one number added per visit, see counter.js. -->
         <script src="/counter.js" defer></script>
+        <!-- "Save" and "Note" for a reader who is signed in, see keep.js. -->
+        <script src="/keep.js" defer></script>

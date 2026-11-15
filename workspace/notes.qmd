@@ -1,0 +1,25 @@
+---
+pagetitle: "Your Notes: Workspace"
+page-layout: full
+body-classes: pv-data pv-ws
+search: false
+google-scholar: false
+citation: false
+# Every note the reader has written, with search, order and filter.
+include-in-header:
+  - text: '<meta name="robots" content="noindex, nofollow">'
+resources:
+  - workspace.js
+  - write.js
+---
+
+```{=html}
+<div id="ws-app" class="pv-ws-app" data-view="notes">
+  <p class="pv-lib-loading">Loading your notes…</p>
+  <noscript>
+    <div class="pv-lib-message"><p>The workspace needs JavaScript to run.</p></div>
+  </noscript>
+</div>
+<script src="workspace.js" defer></script>
+<script src="write.js" defer></script>
+```

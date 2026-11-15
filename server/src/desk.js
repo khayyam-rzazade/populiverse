@@ -35,7 +35,7 @@ function csvCell(v) {
 
 async function accountRows(env) {
   const { results } = await env.DB.prepare(
-    `SELECT u.id, u.name, u.email, u.createdAt AS created, p.institution, p.ror_id, p.country, p.position, p.field,
+    `SELECT u.id, u.name, p.first_name, p.middle_name, p.surname, u.email, u.createdAt AS created, p.institution, p.ror_id, p.country, p.position, p.field,
             p.newsletter, p.newsletter_at, p.newsletter_sent_at, p.newsletter_error, p.completed_at, p.last_seen_at,
             (SELECT a.accountId FROM account a WHERE a.userId = u.id AND a.providerId = 'orcid') AS orcid
        FROM "user" u LEFT JOIN profile p ON p.user_id = u.id
@@ -100,14 +100,16 @@ export const desk = {
   async accountsCsv({ env }) {
     const rows = await accountRows(env);
     const head = [
-      "name", "email", "institution", "ror_id", "country", "position", "field", "orcid",
+      "first_name", "middle_name", "surname", "email", "institution", "ror_id", "country", "position", "field", "orcid",
       "newsletter", "newsletter_ticked", "newsletter_sent", "signed_up", "finished", "last_seen"
     ];
     const lines = [head.join(",")];
     for (const r of rows) {
       lines.push(
         [
-          r.name, r.email, r.institution, r.ror_id ? `https://ror.org/${r.ror_id}` : "", r.country, r.position, r.field,
+          // An account that has not yet been asked for its surname keeps its
+          // one name line in first_name until it is.
+          r.first_name || r.name, r.middle_name, r.surname, r.email, r.institution, r.ror_id ? `https://ror.org/${r.ror_id}` : "", r.country, r.position, r.field,
           r.orcid ? `https://orcid.org/${r.orcid}` : "", r.newsletter ? "yes" : "no", r.newsletter_at, r.newsletter_sent_at,
           r.created, r.completed_at, r.last_seen_at
         ]

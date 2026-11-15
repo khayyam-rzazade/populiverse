@@ -343,7 +343,7 @@
       return b;
     }));
     ui.count = el("p", { class: "pv-wc-count", "aria-live": "polite" });
-    ui.tools = el("div", { class: "pv-wc-tools" });
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Actors in Monitor");
     host.appendChild(el("div", { class: "pv-wc-head" }, [ui.tabs, ui.count, ui.tools]));
     host.appendChild(legend());
     ui.view = el("div", { class: "pv-wc-view" });
@@ -395,6 +395,7 @@
       if (S.view === "timeline" && list.length) {
         ui.tools.appendChild(tool("Picture (PNG)", function (b) { PV.save.picture(b, "populiverse-actors-timeline", "png", figure); }));
         ui.tools.appendChild(tool("Picture (SVG)", function (b) { PV.save.picture(b, "populiverse-actors-timeline", "svg", figure); }));
+        PV.figureMaker(ui.tools, figure);
       }
       ui.tools.appendChild(tool("Copy the link to this view", function (b) { PV.copy(window.location.href, b); }));
       shown = STEP;
@@ -538,7 +539,7 @@
     }));
     ui.key = el("p", { class: "pv-ma-legend" });
     ui.map = el("div", { class: "pv-ip-map" });
-    ui.tools = el("div", { class: "pv-wc-tools" });
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "map", "Countries in Monitor: the map");
     host.appendChild(el("div", { class: "pv-ma-maphead" }, [ui.modes, ui.key]));
     host.appendChild(ui.map);
     host.appendChild(ui.tools);
@@ -648,6 +649,7 @@
       ui.tools.innerHTML = "";
       ui.tools.appendChild(tool("Map as a picture (PNG)", function (b) { PV.save.picture(b, "populiverse-countries-in-monitor", "png", figure); }));
       ui.tools.appendChild(tool("Map (SVG)", function (b) { PV.save.picture(b, "populiverse-countries-in-monitor", "svg", figure); }));
+      PV.figureMaker(ui.tools, figure);
       ui.tools.appendChild(tool("Download the list (CSV)", listCsv));
       ui.tools.appendChild(tool("Their items (CSV)", function () { itemsCsv("populiverse-monitor-items.csv", ITEMS.filter(function (it) { return list.some(function (c) { return it.iso.indexOf(c.iso) >= 0; }); })); }));
       ui.tools.appendChild(tool("Copy the link to this view", function (b) { PV.copy(window.location.href, b); }));
@@ -736,6 +738,22 @@
     if (!a && !c) return;
     var name = a ? a.name : c.name, url = SITE + (a ? "actors/" + a.id : "countries/" + c.tag) + ".html";
     var kids = [];
+    // "Save" and "Note" under the name: to save an actor or a country is to
+    // follow it (master plan, section 18, stage 2, batch 2). keep.js reads
+    // these marks and draws the two buttons here.
+    var keep = el("p", { class: "pv-keep-row" });
+    keep.setAttribute("data-keep-kind", a ? "actor" : "country");
+    keep.setAttribute("data-keep-ref", a ? a.id : c.iso);
+    keep.setAttribute("data-keep-title", name);
+    keep.setAttribute("data-keep-url", url);
+    keep.setAttribute("data-keep-tools", "");
+    if (a) {
+      keep.setAttribute("data-keep-extra", (a.kind === "leader" ? "Leader" : "Party") + (a.c ? " \u00b7 " + a.c : ""));
+      if (a.iso) keep.setAttribute("data-keep-country", a.iso);
+    } else {
+      keep.setAttribute("data-keep-country", c.iso);
+    }
+    kids.push(keep);
     if (a) kids.push(el("section", {}, [el("h2", { text: "In the Datasets" }), a.bl ? el("p", {}, [PV.pill("On the list as a borderline case", "is-out")]) : null, datasets(a, true)]));
     else if (c.actors.length) kids.push(el("section", {}, [el("h2", { text: "Actors Followed Here" }), el("div", { class: "pv-ma-grid" }, c.actors.map(function (x) {
       return el("article", { class: "pv-ma-card" }, [el("div", { class: "pv-ma-row" }, [label(x.kind === "leader" ? "Leader" : "Party"), powerPill(x.power)]),

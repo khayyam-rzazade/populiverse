@@ -4244,3 +4244,1747 @@ body.pv-dp-open {
   line-height: 1.4;
   pointer-events: none;
 }
+
+// ---------------------------------------------------------------- Save and Note
+// "Save" and "Note" on the things of the site, and the Shelf and the Notes of
+// the Workspace (master plan, section 18, stage 2, batch 2). The same paper,
+// ink, hairlines and slate as the rest; the only colours are the three slate
+// steps of the reading bar and the pale slate of a marked passage.
+
+$pv-read-1: #B9C4C8;   // to read
+$pv-read-2: #7E9198;   // reading
+$pv-read-3: $pv-monitor; // read
+$pv-read-0: #E4E2DC;   // the track under them
+$pv-marked: #DCE3E5;   // a passage marked in an abstract
+
+// ---- on the pages of the site
+
+.pv-keep {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 1.5rem;
+}
+
+.pv-keep-b {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: $pv-ink;
+  font: inherit;
+  font-size: 0.875rem;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.pv-keep-b:hover {
+  color: $pv-muted;
+}
+
+.pv-keep-b.is-on {
+  font-weight: 700;
+}
+
+// A dot stands between the two buttons only where the line is made of dots:
+// under a Monitor item and in the cell of a wide table.
+.pv-keep-dot {
+  display: none;
+}
+
+// In the line under a Monitor item the two buttons read as the line's own
+// links: inline, small and muted, with a dot before them and between them.
+.pv-item-tags .pv-keep {
+  display: inline;
+  font-size: 0.8125rem;
+}
+
+.pv-item-tags .pv-keep::before {
+  content: "\00B7";
+  margin: 0 0.5em;
+  color: $pv-muted;
+}
+
+.pv-item-tags .pv-keep-dot {
+  display: inline;
+  margin: 0 0.5em;
+  color: $pv-muted;
+}
+
+.pv-item-tags .pv-keep-b {
+  display: inline;
+  min-height: 0;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+  text-decoration-color: #B5B5B1;
+}
+
+.pv-item-tags .pv-keep-b:hover,
+.pv-item-tags .pv-keep-b.is-on {
+  color: $pv-ink;
+  text-decoration-color: $pv-ink;
+}
+
+.pv-item-tags .pv-keep-box,
+.pv-item-tags .pv-keep-line {
+  flex-basis: 100%;
+}
+
+// The first line of the note, above the buttons
+.pv-keep-line {
+  max-width: 45rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  color: $pv-muted;
+}
+
+.pv-lib-entry .pv-keep-line {
+  padding-left: 1.75rem;
+}
+
+.pv-keep-label {
+  @include pv-label;
+  display: inline-block;
+  margin-right: 0.625rem;
+  font-size: 0.6875rem;
+}
+
+.pv-keep-box {
+  max-width: 45rem;
+  margin: 0.375rem 0 0.5rem;
+  padding: 1rem 1.25rem 1.125rem;
+  border: 1px solid $pv-ink;
+  background: #fff;
+}
+
+.pv-lib-entry .pv-keep-box {
+  margin-left: 1.75rem;
+}
+
+.pv-keep-box label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.pv-keep-box textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.625rem 0.8125rem;
+  border: 1px solid $pv-ink;
+  border-radius: 0;
+  background: #fff;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.pv-keep-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin: 0.75rem 0 0;
+}
+
+.pv-keep-lede {
+  margin: 0 0 0.875rem;
+}
+
+.pv-keep-ghost.pv-button {
+  background: $pv-paper;
+  color: $pv-ink;
+  box-shadow: inset 0 0 0 1px $pv-ink;
+}
+
+.pv-keep-said,
+.pv-keep-error {
+  display: block;
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+.pv-keep-error:empty {
+  display: none;
+}
+
+.pv-keep-ask {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 1.25rem;
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+// In a wide table the two buttons stay in view while the table scrolls
+.pv-keep-cell {
+  position: sticky;
+  right: 0;
+  background: $pv-paper;
+  border-left: 1px solid $pv-hairline;
+  padding: 0 0 0 0.75rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pv-keep-cell .pv-keep-b {
+  min-height: 2.75rem;
+  font-size: 0.8125rem;
+  color: $pv-muted;
+  text-decoration-color: #B5B5B1;
+}
+
+.pv-keep-cell .pv-keep-b.is-on {
+  color: $pv-ink;
+}
+
+.pv-keep-cell .pv-keep {
+  display: inline;
+}
+
+.pv-keep-cell .pv-keep-b {
+  display: inline;
+  min-height: 0;
+}
+
+.pv-keep-cell .pv-keep-dot {
+  display: inline;
+  margin: 0 0.5em;
+  color: $pv-muted;
+}
+
+.pv-keep-cell .pv-keep-box {
+  position: static;
+  max-width: 20rem;
+  white-space: normal;
+  text-align: left;
+}
+
+// The guest's strip: the sentence and the button side by side (the canvas,
+// screen 8); one under the other on a phone.
+.pv-ws-guest {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 2rem;
+}
+
+.pv-ws-app .pv-ws-guest > p {
+  flex: 1 1 26rem;
+  margin: 0;
+}
+
+.pv-ws-guest-signup {
+  flex-basis: 100%;
+}
+
+// On a phone the site's wide tables become cards (above): there the two
+// buttons stand on a line of their own at the foot of the card, since nothing
+// scrolls sideways for them to stay in view of.
+@include media-breakpoint-down(md) {
+  .pv-wc-table td.pv-keep-cell {
+    display: block;
+    position: static;
+    width: 100%;
+    padding: 0.25rem 0 0;
+    border-left: 0;
+    text-align: left;
+  }
+
+  .pv-wc-table td.pv-keep-cell::before {
+    content: none;
+  }
+}
+
+// ---- the head of the Workspace: the tabs
+
+.pv-ws-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-tablist {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-ws-tab {
+  display: flex;
+  align-items: center;
+  min-height: 3.125rem;
+  @include pv-label;
+  color: $pv-ink;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pv-ws-tab:hover {
+  color: $pv-muted;
+}
+
+.pv-ws-tab.is-on {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.45em;
+}
+
+.pv-ws-who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+// ---- the kinds of thing on the shelf
+
+.pv-ws-kinds {
+  margin: -0.75rem 0 1.25rem;
+  overflow-x: auto;
+}
+
+.pv-ws-kinds-row {
+  display: flex;
+  gap: 0 2rem;
+}
+
+.pv-ws-kind {
+  appearance: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0 0.4375rem;
+  min-height: 2.75rem;
+  padding: 0.625rem 0 0;
+  background: none;
+  border: 0;
+  color: $pv-ink;
+  font: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pv-ws-kind:hover {
+  color: $pv-muted;
+}
+
+.pv-ws-kind.is-on {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.4em;
+  cursor: default;
+}
+
+.pv-ws-kind-n {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: $pv-muted;
+}
+
+// ---- search and order, then filters on the left and the list on the right
+
+.pv-ws-find {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 2.5rem;
+  align-items: end;
+  padding-bottom: 1.75rem;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ws-find {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.pv-ws-pick label {
+  display: block;
+  margin-bottom: 0.3125rem;
+  color: $pv-muted;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.pv-ws-pick input[type="search"],
+.pv-ws-pick select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 2.875rem;
+  padding: 0 0.75rem;
+  background: $pv-paper;
+  border: 1px solid $pv-ink;
+  border-radius: 0;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 1rem;
+}
+
+.pv-ws-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 3px double $pv-ink;
+}
+
+.pv-ws-side-wrap {
+  flex: 1 1 15rem;
+  max-width: 17rem;
+  min-width: 0;
+}
+
+.pv-ws-main {
+  flex: 999 1 35rem;
+  min-width: 0;
+}
+
+.pv-ws-fold {
+  display: none;
+}
+
+.pv-ws-group {
+  padding: 0.375rem 0 0.75rem;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-app .pv-ws-group-h {
+  margin: 0 0 0.25rem;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.pv-ws-opt {
+  display: flex;
+  align-items: baseline;
+  gap: 0 0.625rem;
+  min-height: 2rem;
+  padding: 0.25rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.pv-ws-opt input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  accent-color: $pv-ink;
+  transform: translateY(2px);
+}
+
+.pv-ws-opt-n {
+  flex: 1 1 auto;
+  overflow-wrap: anywhere;
+}
+
+.pv-ws-opt-c {
+  color: $pv-muted;
+  font-size: 0.8125rem;
+}
+
+.pv-ws-head-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $pv-ink;
+}
+
+.pv-ws-count-line {
+  margin: 0;
+  font-size: 1.1875rem;
+  font-style: italic;
+}
+
+.pv-ws-shelf-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0;
+}
+
+// ---- the reading bar, which is also the filter
+
+.pv-ws-reading {
+  padding: 1rem 0 0;
+}
+
+.pv-ws-read {
+  display: flex;
+  height: 0.75rem;
+  background: $pv-read-0;
+}
+
+.pv-ws-read-part.is-to-read { background: $pv-read-1; }
+.pv-ws-read-part.is-reading { background: $pv-read-2; }
+.pv-ws-read-part.is-read    { background: $pv-read-3; }
+
+.pv-ws-read-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+  margin: 0;
+}
+
+.pv-ws-read-keys .pv-lib-link.is-on {
+  font-weight: 700;
+}
+
+.pv-ws-swatch {
+  display: inline-block;
+  width: 0.6875rem;
+  height: 0.6875rem;
+  margin-right: 0.4375rem;
+  background: $pv-read-1;
+}
+
+.pv-ws-swatch.is-reading { background: $pv-read-2; }
+.pv-ws-swatch.is-read    { background: $pv-read-3; }
+
+// ---- one thing on the shelf
+
+.pv-ws-things,
+.pv-ws-notes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid $pv-hairline;
+}
+
+.pv-ws-thing,
+.pv-ws-note-item {
+  padding: 1.375rem 0 0.75rem;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-cite {
+  max-width: 50rem;
+  margin: 0;
+  padding-left: 1.75rem;
+  text-indent: -1.75rem;
+  line-height: 1.65;
+}
+
+.pv-ws-thing-t {
+  max-width: 50rem;
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.pv-ws-kind-label {
+  @include pv-label;
+  margin: 0 0 0.25rem;
+  font-size: 0.6875rem;
+  color: $pv-muted;
+}
+
+.pv-ws-thing-m {
+  max-width: 50rem;
+  margin: 0.25rem 0 0;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+
+.pv-ws-x {
+  color: $pv-muted;
+  text-decoration-color: #B5B5B1;
+}
+
+.pv-ws-x:hover {
+  color: $pv-ink;
+}
+
+.pv-ws-note-line {
+  max-width: 45rem;
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  color: $pv-muted;
+}
+
+.pv-ws-label-s {
+  @include pv-label;
+  display: inline-block;
+  margin-right: 0.625rem;
+  font-size: 0.6875rem;
+}
+
+.pv-ws-thing-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+  margin-top: 0.25rem;
+}
+
+.pv-ws-thing-end {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin-left: auto;
+}
+
+.pv-ws-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0 0.25rem;
+  min-height: 1.75rem;
+  padding: 0 0.3125rem 0 0.5625rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+  font-size: 0.8125rem;
+}
+
+.pv-ws-chip-x {
+  appearance: none;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: $pv-muted;
+  font: inherit;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.pv-ws-chip-x:hover {
+  color: $pv-ink;
+}
+
+.pv-ws-tagform {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.875rem;
+}
+
+.pv-ws-tagform input[type="text"] {
+  min-height: 2.25rem;
+  padding: 0 0.5rem;
+  border: 1px solid $pv-ink;
+  border-radius: 0;
+  background: #fff;
+  font-family: $pv-serif;
+  font-size: 0.9375rem;
+}
+
+.pv-ws-ask {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 1.25rem;
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+.pv-ws-notebox {
+  max-width: 45rem;
+  margin: 0.5rem 0 0.75rem;
+  padding: 1rem 1.25rem 1.125rem;
+  border: 1px solid $pv-ink;
+  background: #fff;
+}
+
+.pv-ws-notebox textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  padding: 0.625rem 0.8125rem;
+  border: 1px solid $pv-ink;
+  border-radius: 0;
+  background: #fff;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  resize: vertical;
+}
+
+.pv-ws-notebox-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin: 0.75rem 0 0;
+}
+
+// ---- the abstract, and the passages marked in it
+
+.pv-ws-abstract {
+  max-width: 46rem;
+  margin: 0.5rem 0 0.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+}
+
+.pv-ws-mark {
+  appearance: none;
+  padding: 1px 2px;
+  border: 0;
+  border-radius: 0;
+  background: $pv-marked;
+  box-shadow: inset 0 -2px 0 $pv-monitor;
+  color: $pv-ink;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pv-ws-mark:hover {
+  box-shadow: inset 0 -2px 0 $pv-ink;
+}
+
+.pv-ws-abs-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: $pv-muted;
+}
+
+.pv-ws-markask {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.pv-ws-lost {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+.pv-ws-lost-one {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 1rem;
+}
+
+// ---- the notes
+
+.pv-ws-note-src {
+  margin: 0;
+  font-size: 0.875rem;
+  color: $pv-muted;
+  line-height: 1.55;
+}
+
+.pv-ws-note-src a {
+  color: $pv-muted;
+  text-decoration-color: #B5B5B1;
+}
+
+.pv-ws-note-src a:hover {
+  color: $pv-ink;
+}
+
+.pv-ws-note-words {
+  max-width: 46rem;
+  margin: 0.625rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.pv-ws-note-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.8125rem;
+  color: $pv-muted;
+}
+
+.pv-ws-blank-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 1.75rem;
+  margin: 0.75rem 0 0;
+}
+
+// ---- on a phone (390 pixels): the drawn board of the canvas
+@include media-breakpoint-down(md) {
+  .pv-ws-head {
+    gap: 0;
+  }
+
+  .pv-ws-tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .pv-ws-who {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  // The filters fold behind one line, as in the Library
+  .pv-ws-fold {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 3rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid $pv-hairline;
+    color: $pv-ink;
+    font: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .pv-ws-fold-mark {
+    font-size: 1.125rem;
+    color: $pv-muted;
+  }
+
+  .pv-ws-side-wrap {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+
+  .pv-ws-side-filters {
+    display: none;
+  }
+
+  .pv-ws-side-filters.is-open {
+    display: block;
+    padding-bottom: 0.75rem;
+  }
+
+  .pv-ws-shelf {
+    gap: 0.75rem 0;
+  }
+
+  .pv-ws-thing-end {
+    margin-left: 0;
+    gap: 0 1.125rem;
+  }
+
+  .pv-ws-cite {
+    padding-left: 1.25rem;
+    text-indent: -1.25rem;
+  }
+
+  .pv-keep-line,
+  .pv-lib-entry .pv-keep-line {
+    padding-left: 1.25rem;
+  }
+
+  .pv-lib-entry .pv-keep-box {
+    margin-left: 0;
+    max-width: none;
+  }
+
+  .pv-keep-box .pv-keep-do {
+    flex: 1 1 10rem;
+    justify-content: center;
+  }
+}
+
+// ===========================================================================
+// Write, Projects, Tools and the shared editor (stage 2, batch 3)
+// ===========================================================================
+
+// ---- the editor itself
+//
+// The editor is Quill, kept in workspace/vendor/. Its own style sheet
+// (quill.core.css) does the least a working editor needs; the look is set here,
+// in the Edition way: paper, ink, hairlines and square corners.
+
+.pv-ed {
+  position: relative;
+}
+
+.pv-ed-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1rem 0 0;
+}
+
+.pv-ed-b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  margin-left: -1px;
+  padding: 0 0.625rem;
+  border: 1px solid $pv-hairline;
+  background: $pv-paper;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.pv-ed-b:first-child {
+  margin-left: 0;
+}
+
+.pv-ed-b:hover,
+.pv-ed-b:focus-visible {
+  background: #fff;
+  border-color: $pv-ink;
+  position: relative;
+}
+
+.pv-ed-b.is-on {
+  background: $pv-ink;
+  border-color: $pv-ink;
+  color: $pv-paper;
+  position: relative;
+}
+
+.pv-ed-wide {
+  margin-left: 0.75rem;
+}
+
+.pv-ed-hint {
+  margin-left: 1rem;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+  font-style: italic;
+}
+
+// The line that shows when the caret stands at a cite.
+.pv-ed-cite {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+  margin: 0.5rem 0 0;
+  padding: 0.375rem 0.75rem;
+  border-left: 3px solid $pv-monitor;
+  background: #fff;
+  font-size: 0.875rem;
+}
+
+.pv-ed-cite-t {
+  font-weight: 700;
+}
+
+.pv-ed .ql-container {
+  box-sizing: border-box;
+  margin: 0.625rem 0 0.75rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+  font-family: $pv-serif;
+  font-size: 1.0625rem;
+}
+
+.pv-ed .ql-editor {
+  min-height: 26rem;
+  padding: 2rem 2.5rem 1.75rem;
+  line-height: 1.8;
+}
+
+.pv-ed .ql-editor > * {
+  max-width: 46rem;
+}
+
+.pv-ed .ql-editor.ql-blank::before {
+  left: 2.5rem;
+  right: 2.5rem;
+  color: $pv-faint;
+  font-style: italic;
+}
+
+.pv-ed .ql-editor h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pv-ed .ql-editor blockquote {
+  margin: 0 0 1rem;
+  padding: 0.125rem 0 0.125rem 1.25rem;
+  border-left: 1px solid $pv-ink;
+  font-size: 1rem;
+}
+
+.pv-ed .ql-editor ul {
+  padding-left: 1.375rem;
+}
+
+// A cite: a link to the work or the Monitor item it names.
+a.pv-cite,
+.pv-ws-refs a.pv-cite {
+  color: $pv-ink;
+  text-decoration: underline dotted $pv-monitor;
+  text-underline-offset: 0.25em;
+  white-space: nowrap;
+}
+
+// A figure: the picture a Data page drew, with that page's own source line.
+.pv-ed .ql-editor figure.pv-figure {
+  counter-increment: pv-figure;
+  margin: 1.75rem 0 1.5rem;
+  padding: 1.25rem 1.375rem 0.875rem;
+  border: 1px solid $pv-hairline;
+  background: $pv-paper;
+}
+
+.pv-ed .ql-editor {
+  counter-reset: pv-figure;
+}
+
+.pv-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pv-figure-cap {
+  margin: 0 0 0.875rem;
+  font-size: 0.9375rem;
+}
+
+.pv-figure-cap::before {
+  content: "Figure " counter(pv-figure) ". ";
+  font-weight: 700;
+}
+
+.pv-figure-src {
+  margin: 0.625rem 0 0;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+// ---- the list that "@" opens
+.pv-ed-pick {
+  position: absolute;
+  z-index: 20;
+  left: 1.5rem;
+  right: 1.5rem;
+  max-width: 34rem;
+  max-height: 20rem;
+  overflow-y: auto;
+  border: 1px solid $pv-ink;
+  background: #fff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.pv-ed-pick-h {
+  display: block;
+  padding: 0.5rem 0.875rem 0.3125rem;
+  border-bottom: 1px solid $pv-hairline;
+  background: $pv-paper;
+  color: $pv-muted;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pv-ed-pick-n,
+.pv-ed-pick-k {
+  display: block;
+  padding: 0.375rem 0.875rem;
+  color: $pv-muted;
+  font-size: 0.75rem;
+}
+
+.pv-ed-pick-o {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5rem 0.875rem;
+  border: 0;
+  border-bottom: 1px solid $pv-hairline;
+  background: #fff;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 0.875rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pv-ed-pick-o small {
+  color: $pv-muted;
+  font-size: 0.75rem;
+}
+
+.pv-ed-pick-o:hover,
+.pv-ed-pick-o.is-on {
+  background: #F4F3EF;
+}
+
+// ---- Write
+.pv-ws-write .pv-ws-side {
+  max-width: 17rem;
+}
+
+.pv-ws-head-end,
+.pv-ws-foot-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  margin-left: auto;
+}
+
+.pv-ws-editor-head {
+  gap: 0.25rem 1.25rem;
+}
+
+.pv-ws-pick-in {
+  display: inline-flex;
+  align-items: center;
+  gap: 0 0.5rem;
+}
+
+.pv-ws-pick-s {
+  min-height: 2.75rem;
+  padding: 0 0.5rem;
+  border: 1px solid $pv-hairline;
+  border-radius: 0;
+  background: #fff;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 0.875rem;
+}
+
+.pv-ws-side-pick {
+  display: flex;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin-top: 0.625rem;
+}
+
+.pv-ws-side-pick .pv-ws-pick-s {
+  flex: 1;
+  min-width: 0;
+}
+
+// ---- the reference list, under the draft
+.pv-ws-refs {
+  max-width: 50rem;
+  margin: 0.5rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 3px double $pv-ink;
+}
+
+.pv-ws-refs:empty {
+  border-top: 0;
+  padding-top: 0;
+  margin: 0;
+}
+
+.pv-ws-app .pv-ws-refs-h {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.pv-ws-ref {
+  margin: 0 0 0.5rem;
+  padding-left: 1.5rem;
+  text-indent: -1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.pv-ws-ref.is-gone {
+  color: $pv-muted;
+}
+
+.pv-ws-refs-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+  margin: 0.375rem 0 0;
+  color: $pv-muted;
+  font-size: 0.8125rem;
+}
+
+// ---- a chart or table, picked in Write
+.pv-ws-figbox {
+  max-width: 34rem;
+}
+
+.pv-ws-figlist {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-ws-figlist li {
+  display: flex;
+  align-items: center;
+  gap: 0 1rem;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-figlist .pv-ws-item {
+  border-bottom: 0;
+}
+
+// ---- Projects
+.pv-ws-projects-head {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid $pv-ink;
+}
+
+.pv-ws-projects {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-ws-project {
+  display: block;
+  padding: 1.25rem 0 1.125rem;
+  border-bottom: 1px solid $pv-hairline;
+  color: $pv-ink;
+  text-decoration: none;
+}
+
+.pv-ws-project:hover {
+  background: #fff;
+}
+
+.pv-ws-project-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 1.5rem;
+}
+
+.pv-ws-project-t {
+  font-size: 1.375rem;
+  line-height: 1.35;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.pv-ws-project-q {
+  display: block;
+  max-width: 50rem;
+  margin-top: 0.25rem;
+  color: $pv-muted;
+  font-size: 1.0625rem;
+  font-style: italic;
+}
+
+.pv-ws-project-n {
+  display: block;
+  margin-top: 0.375rem;
+}
+
+.pv-ws-start {
+  max-width: 46rem;
+  margin-top: 2.5rem;
+  padding: 1.5rem 1.75rem 1.75rem;
+  border-top: 3px double $pv-ink;
+  border-left: 1px solid $pv-hairline;
+  border-right: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+  background: #fff;
+}
+
+.pv-ws-fl {
+  display: block;
+  margin-bottom: 0.3125rem;
+  color: $pv-muted;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.pv-ws-in {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 2.875rem;
+  margin-bottom: 0.875rem;
+  padding: 0 0.75rem;
+  border: 1px solid $pv-ink;
+  border-radius: 0;
+  background: #fff;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 1rem;
+}
+
+// ---- one project
+.pv-ws-crumb {
+  margin: 0;
+  color: $pv-muted;
+  font-size: 0.875rem;
+}
+
+.pv-ws-app .pv-ws-project-h {
+  margin: 0.375rem 0 0;
+  font-size: 2rem;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.pv-ws-qbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  margin: 1.125rem 0 2rem;
+  padding: 0.875rem 0 1rem;
+  border-top: 1px solid $pv-ink;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-q {
+  flex: 1 1 26rem;
+  margin: 0;
+  font-size: 1.3125rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.pv-ws-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 1.5rem;
+}
+
+.pv-ws-panel {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.375rem 0.625rem;
+  border-top: 3px double $pv-ink;
+  border-left: 1px solid $pv-hairline;
+  border-right: 1px solid $pv-hairline;
+  border-bottom: 1px solid $pv-hairline;
+  background: #fff;
+}
+
+.pv-ws-phead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.pv-ws-app .pv-ws-phead h3 {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.pv-ws-phead span {
+  color: $pv-muted;
+  font-size: 0.8125rem;
+}
+
+.pv-ws-pbody > .pv-ws-prow:first-child {
+  border-top: 1px solid $pv-ink;
+}
+
+.pv-ws-prow {
+  padding: 0.4375rem 0;
+  border-bottom: 1px solid $pv-hairline;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.pv-ws-prow-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 0.75rem;
+}
+
+.pv-ws-prow-t {
+  margin: 0;
+  font-size: 1.1875rem;
+  line-height: 1.4;
+}
+
+.pv-ws-prow.pv-ws-cite {
+  padding-left: 1.25rem;
+  text-indent: -1.25rem;
+}
+
+.pv-ws-pfoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+  margin: auto 0 0;
+  padding-top: 0.5rem;
+}
+
+.pv-ws-read-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  margin: 0.375rem 0 0.625rem;
+}
+
+.pv-ws-project-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0 1.25rem;
+  margin: 1rem 0 0;
+}
+
+// ---- the events of a project, filled from the Monitor
+.pv-ws-dots {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  row-gap: 0.375rem;
+  align-items: center;
+  font-size: 0.8125rem;
+}
+
+.pv-ws-dots-n {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pv-ws-lane {
+  position: relative;
+  display: block;
+  height: 1.375rem;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-dot-m {
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  box-sizing: border-box;
+  border: 1.5px solid $pv-monitor;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.pv-ws-dot-m.is-mine {
+  background: $pv-monitor;
+}
+
+.pv-ws-dots-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+  margin: 0.625rem 0 0;
+}
+
+.pv-ws-key {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 0.375rem;
+  box-sizing: border-box;
+  border: 1.5px solid $pv-monitor;
+  border-radius: 50%;
+}
+
+.pv-ws-key.is-mine {
+  background: $pv-monitor;
+}
+
+// ---- a thing's projects, and the control that adds it to one
+.pv-ws-thing-p {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 0.5rem;
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+}
+
+.pv-ws-projbox {
+  max-width: 26rem;
+  margin: 0.375rem 0 0.5rem;
+  padding: 0.875rem 1rem 0.75rem;
+  border: 1px solid $pv-ink;
+  background: #fff;
+}
+
+.pv-ws-sent {
+  margin-left: 0.5rem;
+  font-size: 0.875rem;
+}
+
+// ---- Tools
+.pv-ws-tool {
+  max-width: 46rem;
+  margin-top: 0.75rem;
+  padding: 1.125rem 0 1rem;
+  border-top: 1px solid $pv-ink;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-app .pv-ws-tool-h {
+  margin: 0 0 0.375rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.pv-ws-tool-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  margin: 0.5rem 0 0;
+}
+
+.pv-ws-tools-foot {
+  max-width: 46rem;
+  margin-top: 1.25rem;
+}
+
+// ---- on a phone (390 pixels)
+@include media-breakpoint-down(md) {
+  .pv-ed .ql-editor {
+    min-height: 18rem;
+    padding: 1.125rem 1.125rem 1rem;
+  }
+
+  .pv-ed .ql-editor.ql-blank::before {
+    left: 1.125rem;
+    right: 1.125rem;
+  }
+
+  .pv-ed-bar {
+    gap: 0.25rem 0;
+  }
+
+  .pv-ed-wide {
+    margin-left: 0;
+  }
+
+  .pv-ed-hint {
+    display: none;
+  }
+
+  .pv-ed-pick {
+    left: 0;
+    right: 0;
+    max-width: none;
+  }
+
+  .pv-ws-write .pv-ws-side {
+    max-width: none;
+  }
+
+  .pv-ws-head-end,
+  .pv-ws-foot-end {
+    margin-left: 0;
+  }
+
+  .pv-ws-panels {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .pv-ws-dots {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+
+  .pv-ws-refs {
+    max-width: none;
+  }
+
+  .pv-ws-figbox,
+  .pv-ws-projbox {
+    max-width: none;
+  }
+
+  .pv-ws-in,
+  .pv-ws-pick-s {
+    font-size: 1rem;
+  }
+}
+
+// ---- Fable's check of batches 2 and 3: points 11 and 12 (master plan, section 18)
+
+// Long addresses and long titles wrap, on a phone and on a wide screen alike,
+// and no picker is ever wider than its place.
+.pv-ws-ref,
+.pv-ws-cite,
+.pv-ws-thing,
+.pv-ws-note-item,
+.pv-ws-prow,
+.pv-ws-project,
+.pv-ws-q,
+.pv-ws-app .pv-ws-project-h,
+.pv-ws-crumb,
+.pv-ws-item,
+.pv-ed .ql-editor,
+.pv-figure-src,
+.pv-ws-adding {
+  overflow-wrap: anywhere;
+}
+
+.pv-ws-notebook {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ws-notebook {
+    grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
+  }
+}
+
+.pv-ws-notebook > *,
+.pv-ws-shelf > *,
+.pv-ws-main,
+.pv-ws-panels > *,
+.pv-ws-editor,
+.pv-ws-side {
+  min-width: 0;
+}
+
+.pv-ws-pick-s {
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.pv-ws-pick-in {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.pv-ws-pick-in .pv-ws-pick-s {
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 18rem;
+}
+
+.pv-ws-editor-head {
+  flex-wrap: wrap;
+}
+
+.pv-ws-editor-foot {
+  flex-wrap: wrap;
+}
+
+// The crumb above a project: "All Projects / [Title]", with its spaces.
+.pv-ws-crumb .pv-ws-dot {
+  margin: 0 0.375rem;
+}
+
+// A note stands under its label in the Notes panel of a project.
+.pv-ws-prow-l,
+.pv-ws-prow-note {
+  display: block;
+}
+
+// The Events panel: a case's name does not run into the first dot, and the
+// two dates stand under the lines of dots.
+.pv-ws-lane {
+  margin: 0 0.375rem 0 0.75rem;
+}
+
+.pv-ws-dots-dates {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 1rem;
+  margin: 0.125rem 0.375rem 0 0.75rem;
+  color: $pv-muted;
+  white-space: nowrap;
+}
+
+// The name in three boxes.
+.pv-ws-names {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 1rem;
+}
+
+@include media-breakpoint-down(md) {
+  .pv-ws-names {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// The shelf, ready to add to a project.
+.pv-ws-adding {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.25rem;
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid $pv-ink;
+  background: #fff;
+}
+
+.pv-ws-add-here {
+  min-height: 2.25rem;
+  padding: 0 0.875rem;
+  font-size: 0.875rem;
+}
+
+.pv-ws-in-project {
+  color: $pv-muted;
+}
+
+// On a phone a picker takes the line it stands on, and no more.
+@include media-breakpoint-down(md) {
+  .pv-ws-pick-in {
+    display: flex;
+    width: 100%;
+  }
+
+  .pv-ws-pick-in .pv-ws-pick-s {
+    flex: 1 1 0;
+    width: 0;
+    max-width: none;
+  }
+}

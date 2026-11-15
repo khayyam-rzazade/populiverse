@@ -681,14 +681,28 @@ end
 -- the small line under an item on the web page
 local function item_line(info, it)
   local parts = { '<span class="pv-item-no">Item ' .. it.n .. "</span>" }
+  local when = ""
   if it.tags then
     parts[#parts + 1] = '<span class="pv-item-type">' .. html_escape(squeeze(it.tags.type)) .. "</span>"
-    local when = item_date(squeeze(it.tags.date), squeeze(it.tags.date_end))
+    when = item_date(squeeze(it.tags.date), squeeze(it.tags.date_end))
     if when ~= "" then parts[#parts + 1] = '<span class="pv-item-date">' .. when .. "</span>" end
   end
   local plain, html, bib, link = item_reference(info, it)
+  -- What "Save" and "Note" keep: the item, under its issue folder and number
+  -- (master plan, section 18, stage 2, batch 2). keep.js reads these marks.
+  local heading = it.kind == "entry" and ("Also this month: " .. it.title) or it.title
+  local keep = ' data-keep-kind="item"'
+    .. ' data-keep-ref="' .. html_escape(info.slug .. ":" .. it.n) .. '"'
+    .. ' data-keep-title="' .. html_escape(heading) .. '"'
+    .. ' data-keep-extra="' .. html_escape("Monitor " .. info.number .. ", item " .. it.n .. (when ~= "" and (" \194\183 " .. when) or "")) .. '"'
+    .. ' data-keep-url="' .. html_escape(link) .. '"'
+    -- The item's own reference and BibTeX, the ones "Cite This Item" gives, so
+    -- that a draft in Write cites it exactly as this page does (batch 3).
+    .. ' data-keep-cite="' .. html_escape(plain) .. '"'
+    .. ' data-keep-bib="' .. html_escape(bib) .. '"'
+    .. ' data-keep-tools'
   local h = {
-    '<div class="pv-item-tags">',
+    '<div class="pv-item-tags"' .. keep .. ">",
     table.concat(parts, ""),
     '<details class="pv-item-cite" data-cite="' .. html_escape(plain) .. '" data-bib="' .. html_escape(bib)
       .. '" data-link="' .. html_escape(link) .. '">',

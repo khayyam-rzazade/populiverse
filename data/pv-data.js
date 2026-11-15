@@ -123,6 +123,7 @@
       var q = p.toString();
       var url = window.location.pathname + (q ? "?" + q : "") + (keepHash === false ? "" : window.location.hash);
       try { window.history.replaceState(null, "", url); } catch (e) { /* a page opened from a file */ }
+      try { document.dispatchEvent(new CustomEvent("pv:view")); } catch (e) {}
     },
     hash: function (h) {
       var url = window.location.pathname + window.location.search + (h ? "#" + h : "");
@@ -180,6 +181,33 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && panel) PV.panel.close();
   });
+
+  // Marks a row of a chart's own tools as a thing that can be saved and noted:
+  // the Data page, the chart's own name and the filters standing in the address
+  // (master plan, section 18, stage 2, batch 2; keep.js draws the buttons).
+  PV.keepChart = function (tools, name, title) {
+    if (!tools) return tools;
+    var page = (window.location.pathname.split("/").pop() || "index").replace(/\.html$/, "");
+    tools.setAttribute("data-keep-kind", "chart");
+    tools.setAttribute("data-keep-ref", page + "#" + name);
+    tools.setAttribute("data-keep-query", "");
+    tools.setAttribute("data-keep-title", title);
+    // The reference of the chart is this page's own "How to cite" line, so that
+    // a draft in Write cites it exactly as the page does (batch 3).
+    tools.setAttribute("data-keep-cite", PV.citation(title, window.location.href.split("#")[0]));
+    tools.setAttribute("data-keep-tools", "");
+    return tools;
+  };
+
+  // Tells keep.js that this chart can be sent to Write. `make` is the same
+  // description of the picture that the page already hands to PV.save.picture,
+  // so what reaches a draft is the picture the page itself draws (batch 3).
+  PV.figureMaker = function (tools, make) {
+    if (!tools) return tools;
+    tools.__pvFigure = make;
+    tools.setAttribute("data-keep-figure", "");
+    return tools;
+  };
 
   PV.section = function (body, title, kids, note) {
     var s = PV.el("section", { class: "pv-dp-sec" }, [PV.el("h3", { text: title })].concat(kids || []));
@@ -488,6 +516,48 @@
       img.onerror = function () { URL.revokeObjectURL(url); done(); button.textContent = "Could not draw the picture"; };
       img.src = url;
     }).catch(function () { done(); button.textContent = "Could not draw the picture"; });
+  };
+
+  // The same picture, as a PNG the page can hand on (to Write, batch 3). The
+  // description comes from the page, so the picture, its source lines and its
+  // "How to cite" line are the page's own, and the numbers in it are those of
+  // today.
+  PV.figurePng = function (make) {
+    var o = make();
+    return PV.figure(o).then(function (fig) {
+      return new Promise(function (done, fail) {
+        var url = URL.createObjectURL(new Blob([fig.text], { type: "image/svg+xml" }));
+        var img = new Image();
+        img.onload = function () {
+          // A short wait lets the browser take up the typeface inside the picture
+          window.setTimeout(function () {
+            // Whole numbers on both halves: a canvas and the server take no
+            // other (Fable's check of batches 2 and 3, point 7).
+            var wide = Math.max(1, Math.round(fig.width));
+            var tall = Math.max(1, Math.round(fig.height));
+            var c = document.createElement("canvas");
+            c.width = wide;
+            c.height = tall;
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, c.width, c.height);
+            ctx.drawImage(img, 0, 0, c.width, c.height);
+            URL.revokeObjectURL(url);
+            done({
+              picture: c.toDataURL("image/png"),
+              width: wide,
+              height: tall,
+              title: o.title || "",
+              source: (o.sources || []).join(" "),
+              cite: o.cite || "",
+              day: PV.today()
+            });
+          }, 300);
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); fail(new Error("picture")); };
+        img.src = url;
+      });
+    });
   };
 
   // The lines under every picture and in every download

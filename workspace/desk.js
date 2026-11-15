@@ -42,7 +42,7 @@
     }
 
     var root = h("div", { class: "pv-ws-desk" });
-    ctx.show(W.topBar(me, "desk"), root);
+    ctx.show(W.head(me, "desk"), root);
     load();
 
     function load() {

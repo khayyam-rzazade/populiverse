@@ -46,10 +46,11 @@ export async function rorRecord(env, id) {
 // ---------------------------------------------------------------- Sender
 
 // Adds a person who ticked the box to the newsletter group. Their email was
-// proved by the sign-in code, and the tick is their consent.
-export async function addToNewsletter(env, email, name) {
+// proved by the sign-in code, and the tick is their consent. The first name
+// and the surname go as they were typed, not guessed from one line (Fable's
+// check, point 16).
+export async function addToNewsletter(env, email, firstName, surname) {
   if (!env.SENDER_API_KEY || !env.SENDER_GROUP_ID) return { ok: false, error: "Sender is not set up" };
-  const parts = String(name || "").trim().split(/\s+/);
   const res = await fetch("https://api.sender.net/v2/subscribers", {
     method: "POST",
     headers: {
@@ -59,8 +60,8 @@ export async function addToNewsletter(env, email, name) {
     },
     body: JSON.stringify({
       email,
-      firstname: parts[0] || "",
-      lastname: parts.slice(1).join(" "),
+      firstname: String(firstName || ""),
+      lastname: String(surname || ""),
       groups: [env.SENDER_GROUP_ID],
       trigger_automation: false
     })

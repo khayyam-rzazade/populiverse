@@ -118,12 +118,13 @@ export function createAuth(env) {
       anonymous({
         emailDomainName: "guest.populiverse.invalid",
         generateName: () => "Guest",
-        // A guest who signs in or signs up keeps every page; the empty guest is
-        // then removed by the library.
+        // A guest who signs in or signs up keeps everything; the empty guest is
+        // then removed by the library (Fable's check of batches 2 and 3, point 3).
         async onLinkAccount({ anonymousUser, newUser }) {
-          await env.DB.prepare("UPDATE notebook_page SET user_id = ? WHERE user_id = ?")
-            .bind(newUser.user.id, anonymousUser.user.id)
-            .run();
+          const from = anonymousUser?.user?.id;
+          const to = newUser?.user?.id;
+          if (!from || !to || from === to || newUser.user.isAnonymous) return;
+          await env.DB.batch(moveGuest(env.DB, from, to));
         }
       }),
 
@@ -169,4 +170,62 @@ export function createAuth(env) {
       })
     ]
   });
+}
+
+// Everything a guest keeps moves to the account, in one step. Where the account
+// already keeps the same thing, the account's row stays and takes from the
+// guest's what it lacks: the note if it has none, the tags, the passages it
+// does not have yet, and the reading status if it has none. A project of the
+// guest that held the thing now holds the account's row. Then the rest moves as
+// it is. Nothing is dropped for a limit in this move.
+export function moveGuest(db, from, to) {
+  // The guest's rows that the account keeps too, as pairs: guest's id, account's id.
+  const both = `SELECT g.id AS gid, a.id AS aid FROM kept g
+                  JOIN kept a ON a.user_id = ?2 AND a.kind = g.kind AND a.ref = g.ref
+                 WHERE g.user_id = ?1`;
+  const twin = (col) => `(SELECT a.id FROM kept g JOIN kept a ON a.user_id = ?2 AND a.kind = g.kind AND a.ref = g.ref
+                            WHERE g.user_id = ?1 AND g.id = ${col})`;
+  return [
+    // The note, where the account has none.
+    db.prepare(
+      `INSERT INTO note (kept_id, user_id, body, created_at, updated_at)
+       SELECT b.aid, ?2, n.body, n.created_at, n.updated_at FROM note n JOIN (${both}) b ON b.gid = n.kept_id
+        WHERE n.user_id = ?1
+       ON CONFLICT (kept_id) DO NOTHING`
+    ).bind(from, to),
+    // The tags.
+    db.prepare(
+      `INSERT INTO tag (kept_id, user_id, name, added_at)
+       SELECT b.aid, ?2, t.name, t.added_at FROM tag t JOIN (${both}) b ON b.gid = t.kept_id
+        WHERE t.user_id = ?1
+       ON CONFLICT (kept_id, name) DO NOTHING`
+    ).bind(from, to),
+    // The passages the account does not have yet.
+    db.prepare(
+      `UPDATE mark SET user_id = ?2, kept_id = ${twin("mark.kept_id")}
+        WHERE user_id = ?1 AND kept_id IN (SELECT gid FROM (${both}))
+          AND NOT EXISTS (SELECT 1 FROM mark m2 WHERE m2.user_id = ?2 AND m2.kept_id = ${twin("mark.kept_id")}
+                            AND m2.at = mark.at AND m2.text = mark.text)`
+    ).bind(from, to),
+    // The reading status, where the account has none.
+    db.prepare(
+      `UPDATE kept SET status = (SELECT g.status FROM kept g WHERE g.user_id = ?1 AND g.kind = kept.kind AND g.ref = kept.ref)
+        WHERE user_id = ?2 AND status IS NULL
+          AND EXISTS (SELECT 1 FROM kept g WHERE g.user_id = ?1 AND g.kind = kept.kind AND g.ref = kept.ref AND g.status IS NOT NULL)`
+    ).bind(from, to),
+    // A guest's project that held the thing now holds the account's row.
+    db.prepare(
+      `UPDATE project_thing SET kept_id = ${twin("project_thing.kept_id")}
+        WHERE user_id = ?1 AND kept_id IN (SELECT gid FROM (${both}))`
+    ).bind(from, to),
+    // What is left of those twin rows of the guest goes.
+    db.prepare(`DELETE FROM mark WHERE user_id = ?1 AND kept_id IN (SELECT gid FROM (${both}))`).bind(from, to),
+    db.prepare(`DELETE FROM tag WHERE user_id = ?1 AND kept_id IN (SELECT gid FROM (${both}))`).bind(from, to),
+    db.prepare(`DELETE FROM note WHERE user_id = ?1 AND kept_id IN (SELECT gid FROM (${both}))`).bind(from, to),
+    db.prepare(`DELETE FROM kept WHERE user_id = ?1 AND id IN (SELECT gid FROM (${both}))`).bind(from, to),
+    // Everything else moves as it is.
+    ...["kept", "note", "tag", "mark", "project", "project_thing", "draft", "figure", "notebook_page"].map((t) =>
+      db.prepare(`UPDATE ${t} SET user_id = ?2 WHERE user_id = ?1`).bind(from, to)
+    )
+  ];
 }

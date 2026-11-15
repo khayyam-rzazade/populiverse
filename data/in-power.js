@@ -280,14 +280,14 @@
     // Map
     ui.map = el("div", { class: "pv-ip-map" });
     app.appendChild(ui.map);
-    ui.tools = el("div", { class: "pv-wc-tools pv-ip-tools" });
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools pv-ip-tools" }), "map", "Populists in Power: the map");
     app.appendChild(ui.tools);
     // Counts by year
     app.appendChild(el("h2", { class: "pv-ip-h", text: "Year by Year" }));
     app.appendChild(el("p", { class: "pv-ip-sub", text: "Countries by the place populists held in their government on 1 July. The height of a bar is the number of countries the data cover that year, so it changes. Click a year to see it on the map." }));
     ui.counts = el("div", { class: "pv-ip-counts pv-wc-scroll" });
     app.appendChild(ui.counts);
-    ui.countTools = el("div", { class: "pv-wc-tools pv-ip-tools" });
+    ui.countTools = PV.keepChart(el("div", { class: "pv-wc-tools pv-ip-tools" }), "year-by-year", "Populists in Power: year by year");
     app.appendChild(ui.countTools);
     // The list of the year
     ui.listHead = el("h2", { class: "pv-ip-h" });
@@ -691,12 +691,14 @@
     var link = el("button", { type: "button", class: "pv-lib-link", text: "Copy the link to this view" });
     link.addEventListener("click", function () { PV.copy(window.location.href, link); });
     [png, svg, csv, el("a", { class: "pv-lib-link", href: "sources.txt", download: "populiverse-data-sources.txt", text: "Sources and licences" }), link].forEach(function (b) { ui.tools.appendChild(b); });
+    PV.figureMaker(ui.tools, mapFigure);
     var png2 = el("button", { type: "button", class: "pv-lib-link", text: "This chart as a picture (PNG)" });
     png2.addEventListener("click", function () { PV.save.picture(png2, "populiverse-in-power-years", "png", countsFigure); });
     var svg2 = el("button", { type: "button", class: "pv-lib-link", text: "This chart (SVG)" });
     svg2.addEventListener("click", function () { PV.save.picture(svg2, "populiverse-in-power-years", "svg", countsFigure); });
     ui.countTools.appendChild(png2);
     ui.countTools.appendChild(svg2);
+    PV.figureMaker(ui.countTools, countsFigure);
   }
 
   function word(s) { return s.v === null ? "not covered" : stateMeta(s.v).short.toLowerCase(); }

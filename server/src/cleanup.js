@@ -12,12 +12,14 @@
 import { sendDeletionWarning } from "./mail.js";
 import { isEditorEmail } from "./settings.js";
 import { emptyCounter } from "./counter.js";
+import { forgetRows } from "./keep.js";
 
 const DAY = 86400000;
 
 async function deleteUser(db, id) {
   await db.batch([
     db.prepare('DELETE FROM invite WHERE email = (SELECT lower(email) FROM "user" WHERE id = ?)').bind(id),
+    ...forgetRows(db, id),
     db.prepare("DELETE FROM notebook_page WHERE user_id = ?").bind(id),
     db.prepare("DELETE FROM profile WHERE user_id = ?").bind(id),
     db.prepare("DELETE FROM session WHERE userId = ?").bind(id),

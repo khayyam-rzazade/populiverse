@@ -47,5 +47,38 @@ export const LIMITS = {
   charsPerTitle: 200,
   charsPerName: 120,
   charsPerInstitution: 200,
-  invites: 500
+  invites: 500,
+  // What a reader keeps (batch 2). A guest's limit is there so that a script
+  // cannot fill the database (section 17, item 37).
+  keptPerAccount: 2000,
+  keptPerGuest: 50,
+  charsPerRef: 200,
+  charsPerCard: 600,
+  charsPerExtra: 300,
+  charsPerAbstract: 6000,
+  charsPerNote: 20000,
+  charsPerTag: 40,
+  tagsPerThing: 12,
+  charsPerMark: 1000,
+  marksPerWork: 50,
+  // Write, projects and the figures sent from the Data pages (batch 3).
+  projectsPerAccount: 200,
+  projectsPerGuest: 3,
+  thingsPerProject: 2000,
+  draftsPerAccount: 200,
+  draftsPerGuest: 3,
+  charsPerDraft: 400000,
+  charsPerQuestion: 600,
+  // A picture of a whole map, drawn 1200 wide with the typeface inside it, is
+  // the largest a Data page sends; the limit leaves room for it, and stays well
+  // under what one row of the database may hold (2 MB).
+  figuresPerAccount: 30,
+  figuresPerGuest: 3,
+  charsPerFigure: 900000,
+  charsPerSource: 2000,
+  charsPerCite: 2000,
+  charsPerBibtex: 4000,
+  // Cloudflare's database takes a LIKE pattern of at most 50 bytes, so what a
+  // reader searches for is cut to fit before it becomes one.
+  bytesPerPattern: 46
 };
