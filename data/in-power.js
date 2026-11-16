@@ -678,9 +678,26 @@
     };
   }
 
+  // The same filters, short, for the name of a saved view, as Events in Monitor
+  // does it, so that two saved views of different years or of a different
+  // dataset are told apart on the shelf (Fable's re-check of the trial build,
+  // point 4d). The map is of one year; the chart of the years is of all of
+  // them, so only the map is named by its year. "Now" comes from the Monitor's
+  // own list, where the choice of dataset does not apply.
+  var LENS_SHORT = { party: "Parties in Government", leader: "Heads of Government" };
+
+  function titleFilters(withYear) {
+    var bits = [];
+    if (withYear) bits.push(isNow() ? "Now" : S.year);
+    if (!(withYear && isNow()) && LENS_SHORT[S.lens]) bits.push("View: " + LENS_SHORT[S.lens]);
+    return bits.length ? " (" + bits.join("; ") + ")" : "";
+  }
+
   function drawTools() {
     ui.tools.innerHTML = "";
     ui.countTools.innerHTML = "";
+    ui.tools.setAttribute("data-keep-title", "Populists in Power: the map" + titleFilters(true));
+    ui.countTools.setAttribute("data-keep-title", "Populists in Power: year by year" + titleFilters(false));
     var stem = "populiverse-in-power-" + (isNow() ? "now" : S.year);
     var png = el("button", { type: "button", class: "pv-lib-link", text: "Map as a picture (PNG)" });
     png.addEventListener("click", function () { PV.save.picture(png, stem, "png", mapFigure); });

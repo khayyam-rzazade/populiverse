@@ -24,7 +24,7 @@
   })();
   var PAGES = { home: BASE, notes: BASE + "notes.html", notebook: BASE + "notebook.html",
     write: BASE + "write.html", projects: BASE + "projects.html", tools: BASE + "tools.html",
-    account: BASE + "account.html", desk: BASE + "desk.html" };
+    account: BASE + "account.html", desk: BASE + "desk.html", guide: BASE + "guide.html" };
   var app = document.getElementById("ws-app");
   if (!app) return;
   var VIEW = app.getAttribute("data-view");
@@ -159,8 +159,13 @@
     try { if (window.localStorage.getItem(TRIAL_MARK) === "hidden") return; } catch (e) { /* no storage: show it */ }
     var note = h("div", { class: "pv-ws-trial", role: "note" },
       h("p", { class: "pv-ws-trial-t" },
-        "The Workspace is new and we are still making it better. Everything you save stays yours and is not going anywhere. If something feels missing or awkward, ",
-        h("a", { href: "mailto:editor@populiverse.com" }, "write to the editor"),
+        // The address is shown plainly and is not a mail link, as everywhere
+        // else on the site: a mail link sometimes opens nothing, and a reader
+        // who cannot open it is left with no address at all (the site's rule of
+        // 1 October; Fable's re-check of the trial build, point 4f). It is kept
+        // on one line so it is not broken in two on a phone.
+        "The Workspace is new and we are still making it better. Everything you save stays yours and is not going anywhere. If something feels missing or awkward, write to the editor at ",
+        h("span", { style: "white-space: nowrap", text: "editor@populiverse.com" }),
         " and tell us what would help."),
       h("button", { class: "pv-lib-link pv-ws-trial-x", type: "button", "aria-label": "Hide this note", onclick: function () {
         try { window.localStorage.setItem(TRIAL_MARK, "hidden"); } catch (e) { /* hidden for this visit only */ }
@@ -266,6 +271,8 @@
         h("button", { class: "pv-button pv-ws-ghost", type: "button", disabled: inert, onclick: startGuest }, "Continue as a Guest")));
     }
     add(wrap, grid);
+    add(wrap, h("p", { class: "pv-ws-small" }, "New to the Workspace? ",
+      h("a", { href: PAGES.guide }, "How to Use Your Workspace"), "."));
     add(wrap, h("p", { class: "pv-ws-small" }, "No passwords. What an account holds is on the ",
       h("a", { href: "../legal/privacy.html" }, "Privacy page"), "."));
     return wrap;
@@ -540,7 +547,8 @@
         return i ? [h("span", { class: "pv-ws-dot", "aria-hidden": "true", text: "\u00b7" }), l] : l;
       }))),
       h("nav", { class: "pv-ws-tabs", "aria-label": "Workspace" }, list));
-    var out = [bar];
+    var out = [bar, h("p", { class: "pv-ws-small pv-ws-guide" },
+      h("a", { href: PAGES.guide }, "How to Use Your Workspace"))];
     if (me.guest) out.push(guestStrip(me, here));
     return out;
   }

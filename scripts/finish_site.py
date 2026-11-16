@@ -53,6 +53,15 @@ Allow: /
 Sitemap: https://populiverse.com/sitemap.xml
 """
 
+# The "Workspace" link in the masthead, on a page of the Workspace that is not
+# its front page. Quarto underlines a masthead word only on the exact page it
+# points at, which is right for Monitor or Library, where the link means that
+# section's front page and the other pages are separate things. The Workspace
+# is one place a reader stays inside for a whole session, so the word is
+# underlined on every page of it and the reader is never told they are
+# somewhere else (Fable's re-check of the trial build, point 4e).
+WS_LINK = re.compile(r'(<a\b[^>]*?\bclass=")nav-link(")([^>]*?\bhref="[^"]*workspace/index\.html")')
+
 
 def trim_sitemap():
     path = os.path.join(OUT, "sitemap.xml")
@@ -158,12 +167,47 @@ def stamp_files():
         print("finish_site: not found, so left as they were: %s" % ", ".join(sorted(missing)))
 
 
+def mark_workspace():
+    """Underlines "Workspace" in the masthead on every page of the Workspace."""
+    root = os.path.abspath(OUT)
+    folder = os.path.join(root, "workspace")
+    if not os.path.isdir(folder):
+        print("finish_site: no workspace folder, so no masthead word to mark.")
+        return
+    pages = marked = 0
+    for here, _dirs, files in os.walk(folder):
+        for name in files:
+            if not name.endswith(".html"):
+                continue
+            # Its own front page already has the word underlined, by Quarto.
+            if os.path.join(here, name) == os.path.join(folder, "index.html"):
+                continue
+            page = os.path.join(here, name)
+            with open(page, encoding="utf-8") as f:
+                html = f.read()
+            # A screen reader is told the same thing the underline shows. The
+            # word is "true" and not "page", since the link leads to the front
+            # page of the Workspace and the reader is on another page of it.
+            changed, n = WS_LINK.subn(r'\1nav-link active\2 aria-current="true"\3', html)
+            if n:
+                with open(page, "w", encoding="utf-8") as f:
+                    f.write(changed)
+                pages += 1
+                marked += n
+    print("finish_site: \"Workspace\" marked as the page you are on %d times, in %d pages."
+          % (marked, pages))
+
+
 if __name__ == "__main__":
     if not os.path.isdir(OUT):
         print("finish_site: %s is not there, nothing to do." % OUT)
         sys.exit(0)
     trim_sitemap()
     write_robots()
+    try:
+        mark_workspace()
+    except Exception as err:  # a build is not worth failing over this
+        print("finish_site: the masthead word could not be marked (%s)." % err)
     try:
         write_library_cite()
     except Exception as err:  # a build is not worth failing over this

@@ -1,0 +1,122 @@
+---
+title: "How to Use Your Workspace"
+description: "The Workspace of PopuliVerse in five steps, with pictures of the real screens."
+page-layout: full
+body-classes: pv-data
+google-scholar: false
+citation: false
+# The picture a shared link shows is the site's own card, as on every other
+# page. Without these two lines the page would hand out its first screenshot,
+# in a format that not every app can show.
+image: "/populiverse-card.png"
+image-alt: "PopuliVerse: The Universe of Populism"
+# The one page that shows a new reader what the Workspace does. Unlike the
+# Workspace's own pages it is open to everyone, so it carries no noindex and it
+# stands in the sitemap and in the site search.
+#
+# The pictures are the real screens, taken at 1280 pixels on a local copy of the
+# site and of the server, with a reader made for the pictures, so that no real
+# name and no real email is in any of them. The works, the Monitor items and the
+# chart are the real ones. How to take the pictures again after the screens
+# change is written in claude/workspace-guide-section18.md.
+#
+# The film at the top is fetched only for a reader who has not asked for less
+# motion. Until then, and with no JavaScript at all, the still stands in its
+# place (see .pv-guide-film in edition.scss). A film that plays by itself and
+# never ends needs a way to stop it, so a small button under it pauses it.
+resources:
+  - guide/
+---
+
+::: {.pv-prose}
+The Workspace is your own place on Populi*Verse*.
+:::
+
+```{=html}
+<figure class="pv-guide-film" id="pv-guide-film">
+  <video id="pv-guide-video" width="1120" height="700" muted loop playsinline preload="none"
+         poster="guide/flow-still.webp"
+         aria-label="The five steps one after another, from saving a work to exporting a draft to Word." hidden></video>
+  <img id="pv-guide-still" src="guide/flow-still.webp" width="1120" height="700"
+       alt="A draft in the Workspace called Populism and Defence Policy, with two citations in the text and a chart under them.">
+  <p class="pv-guide-film-tools" id="pv-guide-tools" hidden><button class="pv-lib-link" type="button" id="pv-guide-pause">Pause the Film</button></p>
+</figure>
+<script>
+(function () {
+  var film = document.getElementById("pv-guide-film");
+  if (!film) return;
+  var video = document.getElementById("pv-guide-video");
+  var still = document.getElementById("pv-guide-still");
+  // A reader who has asked for less motion keeps the still, and the film is
+  // never fetched. The same holds when there is no JavaScript.
+  var quiet = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (quiet) return;
+  video.muted = true;
+  video.setAttribute("muted", "");
+  video.autoplay = true;
+  video.preload = "auto";
+  video.src = "guide/flow.mp4";
+  video.hidden = false;
+  still.hidden = true;
+  // The film plays by itself and goes round without end, so the reader gets a
+  // button that stops it and starts it again. It shows only once the film runs.
+  var tools = document.getElementById("pv-guide-tools");
+  var pause = document.getElementById("pv-guide-pause");
+  if (pause) {
+    pause.addEventListener("click", function () {
+      if (video.paused) { video.play(); pause.textContent = "Pause the Film"; }
+      else { video.pause(); pause.textContent = "Play the Film"; }
+    });
+  }
+  function back() { video.hidden = true; still.hidden = false; if (tools) tools.hidden = true; }
+  var playing = video.play();
+  if (playing && playing.then) {
+    playing.then(function () { if (tools) tools.hidden = false; }, back);
+  } else if (tools) {
+    tools.hidden = false;
+  }
+})();
+</script>
+
+<ol class="pv-guide-steps" role="list">
+  <li>
+    <figure>
+      <img src="guide/step-1-save.webp" width="1800" height="1420" loading="lazy" decoding="async"
+           alt="The Library, filtered to Defence and Security and searched for NATO. Three works are listed, each with Abstract, Copy BibTeX, Save and Note under it. Under the third work, on NATO and populism, Save reads Saved.">
+      <figcaption>Save a work from the Library, a Monitor item or a chart.</figcaption>
+    </figure>
+  </li>
+  <li>
+    <figure>
+      <img src="guide/step-2-note.webp" width="1720" height="978" loading="lazy" decoding="async"
+           alt="A saved work on the shelf of the Workspace with its note box open. A note about the AfD and defence votes is typed in the box, with a Save Note button under it.">
+      <figcaption>Add a note to it.</figcaption>
+    </figure>
+  </li>
+  <li>
+    <figure>
+      <img src="guide/step-3-project.webp" width="1800" height="2347" loading="lazy" decoding="async"
+           alt="A project in the Workspace, under the board of the six tools. It is called Populism and Defence Policy, and its panels hold the question, three works under Literature, three things under Monitor Items and Charts, and one note.">
+      <figcaption>Put it in a project.</figcaption>
+    </figure>
+  </li>
+  <li>
+    <figure>
+      <img src="guide/step-4-write.webp" width="1800" height="1308" loading="lazy" decoding="async"
+           alt="A draft in Write. Three sentences carry two citations that the draft made itself, and under them stands Figure 1, a chart of the Monitor items from abroad, with its source line.">
+      <figcaption>Write a draft, cite with @, insert a chart.</figcaption>
+    </figure>
+  </li>
+  <li>
+    <figure>
+      <img src="guide/step-5-export.webp" width="1608" height="252" loading="lazy" decoding="async"
+           alt="The top of a draft in Write, showing the project it sits in, the word Saved, the Export to Word button, and the title of the draft.">
+      <figcaption>Export to Word.</figcaption>
+    </figure>
+  </li>
+</ol>
+```
+
+::: {.pv-guide-open}
+[Open your Workspace](index.qmd)
+:::

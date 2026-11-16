@@ -36,3 +36,9 @@
 # make. GitHub installs the tools itself, from server/package-lock.json.
 /server/node_modules/
 /server/.wrangler/
+
+# The settings a local server needs to run on this computer. They are secrets,
+# and the real ones live at Cloudflare, so this file must never be committed.
+# Note that the tests read it too, and the tests fail while it is there, so it
+# is moved aside before running them.
+/server/.dev.vars

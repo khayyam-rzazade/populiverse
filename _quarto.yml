@@ -97,8 +97,9 @@ website:
             href: countries/index.qmd
           - text: "Events in Monitor"
             href: data/events.qmd
-      - text: "Resources"
-        href: resources/index.qmd
+      # Resources sits under About, right after Editor. The page keeps its own
+      # address, /resources/, so every link to it from outside the site and
+      # every line of the sitemap still holds.
       - text: "About"
         menu:
           - text: "About Populi*Verse*"
@@ -107,6 +108,8 @@ website:
             href: about/advisory-board.qmd
           - text: "Editor"
             href: about/editor.qmd
+          - text: "Resources"
+            href: resources/index.qmd
           - text: "How to Contribute"
             href: about/contribute.qmd
           - text: "Editorial Policy"

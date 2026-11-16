@@ -257,7 +257,11 @@
       b.setAttribute("aria-selected", on ? "true" : "false");
     });
     ui.tools.innerHTML = "";
-    ui.tools.setAttribute("data-keep-title", TITLE + titleFilters(true));
+    // The name of a saved view also says which view it is, when it is not the
+    // first one, since each view is its own row on the shelf (Fable's check
+    // before the push of 16 November).
+    ui.tools.setAttribute("data-keep-title", TITLE + titleFilters(true,
+      S.view === "kinds" ? ["Kinds and Types"] : S.view === "table" ? ["Table"] : null));
     ui.tools.appendChild(tool("Download what you see (CSV)", csv));
     ui.tools.appendChild(el("a", { class: "pv-lib-link", href: "events.csv", download: "populiverse-monitor-events.csv", text: "The whole dataset (CSV)" }));
     var hasPicture = S.view !== "table" && list.length > 0;
@@ -514,8 +518,8 @@
   // a figure of a filtered view never carries the title of the whole Monitor
   // (the live check before the trial, point 3). The period stands in the title
   // of the view by month already, so it is named here only when asked.
-  function titleFilters(withPeriod) {
-    var bits = [];
+  function titleFilters(withPeriod, lead) {
+    var bits = lead ? lead.slice() : [];
     if (withPeriod && S.period) bits.push("Last " + S.period + " Months");
     if (S.fam) bits.push("Kind of News: " + S.fam);
     if (S.type) bits.push("Type: " + S.type);

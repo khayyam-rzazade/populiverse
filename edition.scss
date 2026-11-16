@@ -6125,3 +6125,89 @@ a.pv-cite,
   font-size: 0.875rem;
   line-height: 1.5;
 }
+
+// ---------------------------------------------------------------------------
+// How to Use Your Workspace (workspace/guide.qmd): one small silent film of the
+// whole flow, then five steps, each one picture and one line. The film is
+// fetched only for a reader who has not asked for less motion; until then, and
+// with no JavaScript, the still stands in its place.
+
+.pv-guide-film {
+  margin: 2rem 0 3.5rem;
+}
+
+.pv-guide-film video,
+.pv-guide-film img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid $pv-hairline;
+}
+
+// The button that pauses the film, close under it and small.
+.pv-guide-film-tools {
+  margin: 0.25rem 0 0;
+}
+
+// A reader who turns less motion on after the page has opened keeps the still.
+// The hidden mark is strong on this site (Bootstrap), so these say it stronger.
+@media (prefers-reduced-motion: reduce) {
+  .pv-guide-film video,
+  .pv-guide-film-tools {
+    display: none !important;
+  }
+
+  .pv-guide-film img[hidden] {
+    display: block !important;
+  }
+}
+
+.pv-guide-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: pv-guide;
+}
+
+.pv-guide-steps > li {
+  counter-increment: pv-guide;
+  margin: 0 0 3.5rem;
+}
+
+.pv-guide-steps figure {
+  margin: 0;
+}
+
+.pv-guide-steps img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid $pv-hairline;
+}
+
+.pv-guide-steps figcaption {
+  margin: 0.875rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.pv-guide-steps figcaption::before {
+  content: counter(pv-guide) ". ";
+  font-weight: 700;
+}
+
+.pv-guide-open {
+  margin: 0 0 4rem;
+}
+
+// The quiet line under the board of the six tools that leads to this page. It
+// takes the size and the colour of the session line above the board, so the two
+// quiet lines around the board speak in one voice.
+.pv-ws-guide {
+  margin: -1.25rem 0 1.75rem;
+  font-size: 0.8125rem;
+}
+
+.pv-ws-guide a {
+  color: $pv-muted;
+}

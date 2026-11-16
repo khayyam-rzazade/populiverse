@@ -390,6 +390,16 @@
         b.setAttribute("aria-selected", on ? "true" : "false");
       });
       ui.tools.innerHTML = "";
+      // A saved view carries its filters in its name, as Events in Monitor
+      // does, so that two saved views of different filters are told apart on
+      // the shelf (Fable's re-check of the trial build, point 4d).
+      // The name also says which view it is, and the period when it is not
+      // the usual one, since each of these is its own row on the shelf
+      // (Fable's check before the push of 16 November).
+      var lead = [];
+      if (S.view !== "cards") lead.push(S.view === "table" ? "Table" : "Timeline");
+      if (S.period !== "12") lead.push(S.period === "all" ? "All Time" : "Last " + S.period + " Months");
+      ui.tools.setAttribute("data-keep-title", "Actors in Monitor" + titleFilters(lead));
       ui.tools.appendChild(tool("Download the list (CSV)", listCsv));
       ui.tools.appendChild(tool("Their items (CSV)", function () { itemsCsv("populiverse-monitor-items.csv", ITEMS.filter(function (it) { return list.some(function (a) { return it.actors.indexOf(a.id) >= 0; }); })); }));
       var hasPicture = S.view === "timeline" && list.length > 0;
@@ -465,8 +475,8 @@
     // The filters in use, short, for the title of the picture: a figure of a
     // filtered view never carries the title of every actor (the live check
     // before the trial, point 3). The period stands in the title already.
-    function titleFilters() {
-      var bits = [];
+    function titleFilters(lead) {
+      var bits = lead ? lead.slice() : [];
       if (S.kind) bits.push(S.kind === "party" ? "Parties Only" : "Leaders Only");
       if (S.region) bits.push("Region: " + (REG[S.region] || S.region));
       if (S.country) bits.push("Country: " + (lands[S.country] || S.country));

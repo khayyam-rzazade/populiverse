@@ -308,6 +308,15 @@
     });
     ui.view.innerHTML = "";
     ui.tools.innerHTML = "";
+    // A saved view carries its filters in its name, as Events in Monitor does,
+    // so that two saved views of different filters are told apart on the shelf
+    // (Fable's re-check of the trial build, point 4d). The reference is left as
+    // the page's own, since the filters are the reader's choice and not a
+    // thing to cite.
+    // The name also says which view it is and, where it changes what is shown,
+    // that the list is of everyone, since each of these is its own row on the
+    // shelf (Fable's check before the push of 16 November).
+    ui.tools.setAttribute("data-keep-title", "Who Counts as Populist?" + titleFilters(keepLead()));
     ui.legend.innerHTML = "";
     if (S.view === "compare") {
       drawCompare();
@@ -336,8 +345,19 @@
   // The narrowing filters, short, for the title of a picture: a figure of a
   // filtered view says so in its title, not only in the line under it (the
   // live check before the trial, point 3).
-  function titleFilters() {
-    var bits = [];
+  // What the name of a saved view says before its filters: the view, when it
+  // is not the first one, and "everyone" where that widens the list. Compare
+  // takes every party whatever "Show" says, and a search looks in everyone.
+  function keepLead() {
+    var lead = [];
+    if (S.view === "timeline") lead.push("Timeline");
+    if (S.view === "compare") lead.push(S.group === "gs" ? "Compare with the Global Party Survey" : "Compare");
+    if (S.show === "all" && S.view !== "compare" && !S.q.trim()) lead.push("Everyone the Datasets Hold");
+    return lead;
+  }
+
+  function titleFilters(lead) {
+    var bits = lead ? lead.slice() : [];
     if (S.q.trim()) bits.push("Search: \u201c" + S.q.trim() + "\u201d");
     if (S.kind) bits.push(S.kind === "party" ? "Parties Only" : "Leaders Only");
     if (S.region) bits.push(REGIONS[S.region]);
