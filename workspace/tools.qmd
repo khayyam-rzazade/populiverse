@@ -6,12 +6,15 @@ search: false
 google-scholar: false
 citation: false
 # Tools: one plain list. Each tool joins the list when it is built, and also
-# opens from inside a project (batch 3).
+# opens from inside a project (batch 3). A tool names itself in the address,
+# and carries its whole view there, so that a link opens exactly what was seen
+# (batch 4, Part B).
 include-in-header:
   - text: '<meta name="robots" content="noindex, nofollow">'
 resources:
   - workspace.js
   - write.js
+  - tools.js
 ---
 
 ```{=html}
@@ -23,4 +26,5 @@ resources:
 </div>
 <script src="workspace.js" defer></script>
 <script src="write.js" defer></script>
+<script src="tools.js" defer></script>
 ```

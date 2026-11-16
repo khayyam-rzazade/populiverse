@@ -11,7 +11,8 @@ export const POSITIONS = [
   "Student",
   "Journalist",
   "Policy or NGO",
-  "Other"
+  "Other",
+  "Prefer Not to Respond"
 ];
 
 export const FIELDS = [
@@ -23,8 +24,18 @@ export const FIELDS = [
   "Economics",
   "Law",
   "Philosophy",
-  "Other"
+  "Other",
+  "Prefer Not to Respond"
 ];
+
+// The one answer of both lists that opens a box to type in. What is typed is
+// kept in its own column, beside the answer "Other" and never in place of it
+// (master plan, section 18, stage 2, batch 4, A3).
+export const OTHER = "Other";
+
+// The question every account answers: would you like to write for the
+// Commentary? The answer is kept in these words, as the lists above are.
+export const COMMENTARY = ["Yes", "Maybe Later", "No"];
 
 // Two-letter country codes (ISO 3166-1), for an institution typed by hand.
 export const COUNTRIES = new Set(
@@ -47,6 +58,10 @@ export const LIMITS = {
   charsPerTitle: 200,
   charsPerName: 120,
   charsPerInstitution: 200,
+  // The registration form of batch 4: one line of research interests, and the
+  // box that "Other" opens under a position or a field.
+  charsPerInterests: 200,
+  charsPerOther: 100,
   invites: 500,
   // What a reader keeps (batch 2). A guest's limit is there so that a script
   // cannot fill the database (section 17, item 37).
@@ -78,6 +93,12 @@ export const LIMITS = {
   charsPerSource: 2000,
   charsPerCite: 2000,
   charsPerBibtex: 4000,
+  // The reader's own events in a chronology (batch 4, Part B). A guest's limit
+  // is there so that a script cannot fill the database (section 17, item 37).
+  eventsPerAccount: 2000,
+  eventsPerGuest: 50,
+  charsPerEvent: 600,
+  charsPerEventSource: 300,
   // Cloudflare's database takes a LIKE pattern of at most 50 bytes, so what a
   // reader searches for is cut to fit before it becomes one.
   bytesPerPattern: 46

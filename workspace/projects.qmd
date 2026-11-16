@@ -12,6 +12,7 @@ include-in-header:
 resources:
   - workspace.js
   - write.js
+  - tools.js
 ---
 
 ```{=html}
@@ -23,4 +24,5 @@ resources:
 </div>
 <script src="workspace.js" defer></script>
 <script src="write.js" defer></script>
+<script src="tools.js" defer></script>
 ```

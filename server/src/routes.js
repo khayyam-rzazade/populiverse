@@ -8,6 +8,7 @@ import { notebook } from "./notebook.js";
 import { keep } from "./keep.js";
 import { projects } from "./projects.js";
 import { write } from "./write.js";
+import { events } from "./events.js";
 import { account } from "./account.js";
 import { desk } from "./desk.js";
 import { isOpen } from "./settings.js";
@@ -61,6 +62,12 @@ export const ROUTES = [
   { method: "DELETE", path: "/api/figures/:id", access: "member", handler: write.removeFigure },
   { method: "POST", path: "/api/write/cites", access: "member", handler: write.cites },
   { method: "GET", path: "/api/write/bibliography", access: "member", handler: write.bibliography },
+
+  // The reader's own events in a chronology (batch 4, Part B). Private to the
+  // person who wrote them; no other route reads this table.
+  { method: "GET", path: "/api/events", access: "member", handler: events.list },
+  { method: "POST", path: "/api/events", access: "member", handler: events.add },
+  { method: "DELETE", path: "/api/events/:id", access: "member", handler: events.remove },
 
   { method: "GET", path: "/api/desk/summary", access: "editor", handler: desk.summary },
   { method: "GET", path: "/api/desk/accounts.csv", access: "editor", handler: desk.accountsCsv },

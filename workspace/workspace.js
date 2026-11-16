@@ -30,9 +30,13 @@
   var VIEW = app.getAttribute("data-view");
 
   var POSITIONS = ["PhD Candidate", "Postdoctoral Researcher", "Lecturer or Assistant Professor", "Associate Professor", "Professor",
-    "Researcher Outside Academia", "Student", "Journalist", "Policy or NGO", "Other"];
+    "Researcher Outside Academia", "Student", "Journalist", "Policy or NGO", "Other", "Prefer Not to Respond"];
   var FIELDS = ["Political Science", "International Relations", "Sociology", "Communication and Media", "History", "Economics",
-    "Law", "Philosophy", "Other"];
+    "Law", "Philosophy", "Other", "Prefer Not to Respond"];
+  // The one answer that opens a box to type in, and the three answers to the
+  // question on the Commentary (master plan, section 18, stage 2, batch 4).
+  var OTHER = "Other";
+  var COMMENTARY = ["Yes", "Maybe Later", "No"];
   var COUNTRY_CODES = ("AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ " +
     "CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR " +
     "GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP " +
@@ -193,11 +197,12 @@
       }
       if (VIEW === "account") {
         if (!me) return show(message("Please sign in first."), back());
-        if (!me.guest && !me.finished) { location.href = PAGES.home; return; }
+        if (!me.guest && (!me.finished || me.needsAnswers)) { location.href = PAGES.home; return; }
         return account(me);
       }
       if (!me) return doors(status.open);
       if (!me.guest && !me.finished) return finish(me);
+      if (!me.guest && me.needsAnswers) return answers(me);
       if (VIEW === "notes") return notes(me);
       if (VIEW === "notebook") return notebook(me);
       // Write, Projects and Tools live in write.js, loaded beside this file.
@@ -444,8 +449,30 @@
     }
     drawInst();
 
-    var position = select("position", POSITIONS, me.position, "Position (if you wish)");
-    var fieldSel = select("field", FIELDS, me.field, "Field (if you wish)");
+    // Position and field are asked of everyone, and each list ends with
+    // "Prefer Not to Respond". "Other" opens a box to type in, and what is
+    // typed is kept beside the answer "Other" (batch 4, A3).
+    function listWithOther(id, label, list, answer, typed, what) {
+      var sel = select(id, list, answer, "Choose one");
+      var box = h("input", { type: "text", id: "ws-" + id + "Other", maxlength: "100", value: typed || "",
+        placeholder: "Please say what it is" });
+      var boxField = field(id + "Other", "Your " + what + ", in your own words", box);
+      function openOrShut() { boxField.hidden = sel.value !== OTHER; }
+      sel.addEventListener("change", openOrShut);
+      openOrShut();
+      return { sel: sel, box: box, parts: [field(id, label, sel), boxField], openOrShut: openOrShut };
+    }
+    var pos = listWithOther("position", "Position", POSITIONS, me.position, me.positionOther, "position");
+    var fld = listWithOther("field", "Field", FIELDS, me.field, me.fieldOther, "field");
+
+    // One line of research interests, not required, with one example under it
+    // (A1). It is not tied to the Library's topics.
+    var interests = h("input", { type: "text", id: "ws-interests", maxlength: "200", value: me.interests || "" });
+
+    // The one question that must be answered (A2). The line under it says who
+    // the Commentary is open to, in the words of the How to Contribute page,
+    // and that the editor may write to those who answer Yes or Maybe Later.
+    var commentary = select("commentary", COMMENTARY, me.commentary, "Choose one");
 
     // A field's red line goes as soon as the field is put right, not only at
     // the next press of the button (the live check before the trial, point 4).
@@ -456,8 +483,12 @@
     }
     firstName.addEventListener("input", function () { settle("firstName", LETTER.test(firstName.value)); });
     surname.addEventListener("input", function () { settle("surname", LETTER.test(surname.value)); });
-    position.addEventListener("change", function () { settle("position", true); });
-    fieldSel.addEventListener("change", function () { settle("field", true); });
+    pos.sel.addEventListener("change", function () { settle("position", !!pos.sel.value); settle("positionOther", true); });
+    fld.sel.addEventListener("change", function () { settle("field", !!fld.sel.value); settle("fieldOther", true); });
+    pos.box.addEventListener("input", function () { settle("positionOther", LETTER.test(pos.box.value)); });
+    fld.box.addEventListener("input", function () { settle("fieldOther", LETTER.test(fld.box.value)); });
+    commentary.addEventListener("change", function () { settle("commentary", !!commentary.value); });
+    interests.addEventListener("input", function () { settle("interests", interests.value.length <= 200); });
     // The institution box is drawn again as it changes; one listener on it
     // hears the typed name, the country and a pick from the list alike.
     function instDone() {
@@ -474,13 +505,27 @@
       e.preventDefault();
       Object.keys(errs).forEach(function (k) { errs[k].textContent = ""; });
       formErr.textContent = "";
-      var body = { firstName: firstName.value, middleName: middleName.value, surname: surname.value };
+      var body = {};
+      // The short form that asks an account from before for the new answers
+      // only sends those answers, so that nothing else of the account is
+      // asked again (A4).
+      if (!opts.answersOnly) {
+        body.firstName = firstName.value;
+        body.middleName = middleName.value;
+        body.surname = surname.value;
+      }
       if (!opts.nameOnly) {
-        body.position = position.value;
-        body.field = fieldSel.value;
-        if (inst.rorId) body.rorId = inst.rorId;
-        else { body.institution = inst.name; body.country = inst.country; }
-        if (news) body.newsletter = news.checked;
+        body.position = pos.sel.value;
+        body.positionOther = pos.box.value;
+        body.field = fld.sel.value;
+        body.fieldOther = fld.box.value;
+        body.interests = interests.value;
+        body.commentary = commentary.value;
+        if (!opts.answersOnly) {
+          if (inst.rorId) body.rorId = inst.rorId;
+          else { body.institution = inst.name; body.country = inst.country; }
+          if (news) body.newsletter = news.checked;
+        }
       }
       btn.disabled = true;
       api("/api/me", { method: "PATCH", body: body }).then(function (r) {
@@ -491,10 +536,14 @@
         if (!Object.keys(f).length) formErr.textContent = r.data.error || "That did not work. Please try again.";
       });
     } },
-      names,
-      opts.nameOnly ? null : field("institution", "Your institution", instBox),
-      opts.nameOnly ? null : h("div", { class: "pv-ws-pair" }, field("position", "Position", position), field("field", "Field", fieldSel)),
-      news && !opts.nameOnly ? h("p", { class: "pv-ws-check" }, news, h("label", { for: "ws-news" }, "Send me the monthly newsletter")) : null,
+      opts.answersOnly ? null : names,
+      opts.nameOnly || opts.answersOnly ? null : field("institution", "Your institution", instBox),
+      opts.nameOnly ? null : h("div", { class: "pv-ws-pair" }, h("div", null, pos.parts), h("div", null, fld.parts)),
+      opts.nameOnly ? null : field("interests", "Research interests (if you wish)", interests,
+        "One line, in your own words. For example, the radical right in Central and Eastern Europe."),
+      opts.nameOnly ? null : field("commentary", "Would you like to write for the Commentary?", commentary,
+        "Commentary publishes pieces of up to 1,500 words by PhD holders and doctoral candidates. If you answer Yes or Maybe Later, the editor may write to you about it."),
+      news && !opts.nameOnly && !opts.answersOnly ? h("p", { class: "pv-ws-check" }, news, h("label", { for: "ws-news" }, "Send me the monthly newsletter")) : null,
       formErr, btn);
     return form;
   }
@@ -512,8 +561,20 @@
     show(
       h("section", { class: "pv-ws-narrow" },
         h("h2", { class: "pv-ws-h", text: "Finish Your Account" }),
-        h("p", null, "Signed in as ", h("strong", { text: me.email }), ". Three things, and you are in."),
+        h("p", null, "Signed in as ", h("strong", { text: me.email }), ". A few things, and you are in."),
         detailsForm(me, { newsletter: true, button: "Finish", done: function () { location.href = PAGES.home + "?welcome=1"; } }),
+        h("p", { class: "pv-ws-small" }, "Not you? ", h("button", { class: "pv-lib-link", type: "button", onclick: signOut }, "Sign out"))));
+  }
+
+  // An account from before the form grew: the new answers, once, and nothing
+  // else of the account is asked again (master plan, section 18, stage 2,
+  // batch 4, A4). A guest is never asked.
+  function answers(me) {
+    show(
+      h("section", { class: "pv-ws-narrow" },
+        h("h2", { class: "pv-ws-h", text: "A Few More Answers" }),
+        h("p", null, "The form has grown a little since you signed up. Please answer these, and you are back in."),
+        detailsForm(me, { answersOnly: true, button: "Save", done: function () { location.href = PAGES.home; } }),
         h("p", { class: "pv-ws-small" }, "Not you? ", h("button", { class: "pv-lib-link", type: "button", onclick: signOut }, "Sign out"))));
   }
 

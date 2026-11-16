@@ -106,6 +106,8 @@ export class Browser {
   // The form has three boxes for the name (Fable's check of batches 2 and 3,
   // point 16). A name an older test gives here stands in First Name, with a
   // surname beside it, so that each test still asks what it asked before.
+  // From batch 4 the form also asks the question on the Commentary, which must
+  // be answered, so an answer stands here too, for the same reason.
   async finish(fields = {}) {
     const f = { ...fields };
     if (f.name !== undefined) {
@@ -114,7 +116,10 @@ export class Browser {
     }
     return this.json("/api/me", {
       method: "PATCH",
-      body: { firstName: "Test", surname: "Person", rorId: "0107c5v14", position: "Professor", field: "Political Science", ...f }
+      body: {
+        firstName: "Test", surname: "Person", rorId: "0107c5v14",
+        position: "Professor", field: "Political Science", commentary: "No", ...f
+      }
     });
   }
 

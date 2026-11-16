@@ -68,6 +68,10 @@
 
       var notes = [];
       if (d.unfinished) notes.push(d.unfinished + (d.unfinished === 1 ? " person has" : " people have") + " signed in with a code but not finished the account.");
+      if (d.commentaryUnanswered) {
+        notes.push(d.commentaryUnanswered + (d.commentaryUnanswered === 1 ? " account signed up" : " accounts signed up")
+          + " before the question on the Commentary was asked. Each one is asked at its next visit.");
+      }
       if (d.newsletterFailed) notes.push(d.newsletterFailed + " newsletter sign-up" + (d.newsletterFailed === 1 ? " did" : "s did") + " not reach Sender. They are marked in the download of the accounts.");
       notes.forEach(function (n) { root.appendChild(h("p", { class: "pv-ws-small", text: n })); });
 
@@ -77,11 +81,14 @@
       root.appendChild(h("div", { class: "pv-ws-pair" },
         block("Positions", null, bars(d.positions, d.accounts)),
         block("Fields", null, bars(d.fields, d.accounts))));
+      root.appendChild(block("Writing for the Commentary",
+        "The answers of the accounts, and then everyone who said Yes or Maybe Later. The newest answer stands first.",
+        [bars(d.commentary, d.accounts), writers(d.writers)]));
       root.appendChild(block("Who May Sign Up", null, access(d)));
       root.appendChild(block("The Accounts", null, h("p", null,
         h("button", { class: "pv-button", type: "button", onclick: downloadCsv }, "Download the Accounts"),
-        h("span", { class: "pv-ws-small", text: " One spreadsheet file: names, emails, institutions, positions, fields, ORCID and newsletter." }))));
-      root.appendChild(h("p", { class: "pv-ws-promise" }, "This desk counts accounts and use. It never shows what anyone writes: the server does not give it."));
+        h("span", { class: "pv-ws-small", text: " One spreadsheet file: names, emails, institutions, positions, fields, research interests, the answer on the Commentary, ORCID and newsletter." }))));
+      root.appendChild(h("p", { class: "pv-ws-promise" }, "This desk shows the accounts and how they are used. It never shows what anyone keeps or writes in the Workspace: the server does not give it."));
     }
 
     function block(title, lede, content) {
@@ -192,6 +199,29 @@
       }
       fill(15);
       return [table, rows.length > 15 ? h("p", null, h("button", { class: "pv-lib-link", type: "button", onclick: function () { fill(rows.length); this.remove(); } }, "Show all " + rows.length)) : null];
+    }
+
+    // Everyone who said Yes or Maybe Later, so that the editor can write to
+    // them (master plan, section 18, stage 2, batch 4, A5). An answer of
+    // "Other" shows what the person typed beside it.
+    function writers(rows) {
+      if (!rows || !rows.length) return h("p", { class: "pv-ws-small", text: "Nobody has said Yes or Maybe Later yet." });
+      function answerOf(answer, typed) {
+        if (!answer) return "";
+        return answer === "Other" && typed ? answer + " (" + typed + ")" : answer;
+      }
+      var tbody = h("tbody", null, rows.map(function (r) {
+        return h("tr", null,
+          h("td", { text: r.answer }),
+          h("td", null, h("span", { text: r.name }),
+            h("br"), h("span", { class: "pv-ws-small", text: r.email })),
+          h("td", { text: [r.institution, r.country ? countryName(r.country) : ""].filter(Boolean).join(", ") }),
+          h("td", { text: [answerOf(r.position, r.positionOther), answerOf(r.field, r.fieldOther)].filter(Boolean).join(", ") }),
+          h("td", { text: r.interests || "" }));
+      }));
+      return h("table", { class: "pv-ws-table" },
+        h("thead", null, h("tr", null, h("th", { text: "Answer" }), h("th", { text: "Who" }), h("th", { text: "Institution" }),
+          h("th", { text: "Position and field" }), h("th", { text: "Research interests" }))), tbody);
     }
 
     function bars(rows, total) {

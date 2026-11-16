@@ -3,12 +3,13 @@
 
 import { zipSync, strToU8 } from "fflate";
 import { json, readBody, now } from "./util.js";
-import { POSITIONS, FIELDS, COUNTRIES, LIMITS } from "./lists.js";
+import { POSITIONS, FIELDS, COUNTRIES, LIMITS, OTHER, COMMENTARY } from "./lists.js";
 import { rorRecord, ROR_ID, addToNewsletter } from "./outside.js";
 import { isOpen } from "./settings.js";
 import { everything, forgetRows } from "./keep.js";
 import { allProjects } from "./projects.js";
 import { allDrafts, allFigures, draftWords } from "./write.js";
+import { allEvents } from "./events.js";
 
 const FRESH_MINUTES = 15;
 
@@ -52,6 +53,17 @@ function oneLine(v, max) {
   return t.length > max ? null : t;
 }
 
+// A line a person types, made one clean line: control characters and runs of
+// space become one space, and the ends are trimmed. `false` means it is no
+// line at all, because it is not text or it is too long; an empty string means
+// nothing was typed. The two are never mistaken for each other (master plan,
+// section 18, stage 2, batch 4, A7).
+function line(v, max) {
+  if (typeof v !== "string") return false;
+  const t = v.replace(/[\u0000-\u001F\u007F]/g, " ").replace(/\s+/g, " ").trim();
+  return t.length > max ? false : t;
+}
+
 export const account = {
   async get({ env, who }) {
     const { n } = await env.DB.prepare("SELECT COUNT(*) AS n FROM notebook_page WHERE user_id = ?").bind(who.userId).first();
@@ -76,7 +88,15 @@ export const account = {
       rorId: p.ror_id || null,
       country: p.country || null,
       position: p.position || null,
+      positionOther: p.position_other || null,
       field: p.field || null,
+      fieldOther: p.field_other || null,
+      interests: p.interests || null,
+      commentary: p.commentary || null,
+      // An account from before the form grew: it is asked once, at this visit,
+      // for the answers of the new form only (batch 4, A4). A guest is not
+      // asked, and an account that has answered is never asked again.
+      needsAnswers: !who.guest && !!p.completed_at && !p.commentary,
       newsletter: !!p.newsletter,
       newsletterAt: p.newsletter_at || null,
       since: who.user.createdAt,
@@ -137,25 +157,76 @@ export const account = {
     }
     if (!institution) errors.institution = errors.institution || "Please give your institution.";
 
+    // Position, field and the question on the Commentary (batch 4, A2 and A3).
+    // All three are asked of a request that speaks of any of them, which is
+    // every sending of the form, and of an account that has answered before,
+    // so that an answer once given can never be emptied. A request that speaks
+    // of none of them leaves all three as they stand: that is how an account
+    // from before is asked for its name alone, and then for these answers (A4).
+    const asks = body.position !== undefined || body.field !== undefined || body.commentary !== undefined || !!p.commentary;
+    const fromList = (value, list, what) =>
+      value ? (list.includes(value) ? null : `Please pick a ${what} from the list.`) : asks ? `Please pick a ${what} from the list.` : null;
+
     const position = body.position === undefined ? p.position || null : body.position || null;
-    if (position && !POSITIONS.includes(position)) errors.position = "Please pick a position from the list.";
+    const positionBad = fromList(position, POSITIONS, "position");
+    if (positionBad) errors.position = positionBad;
     const field = body.field === undefined ? p.field || null : body.field || null;
-    if (field && !FIELDS.includes(field)) errors.field = "Please pick a field from the list.";
+    const fieldBad = fromList(field, FIELDS, "field");
+    if (fieldBad) errors.field = fieldBad;
+
+    // "Other" opens a box, and what is typed is kept beside the answer, never
+    // in place of it. A list answer that is not "Other" clears its box.
+    function typedOther(key, answer, stored, what) {
+      if (answer !== OTHER) return null;
+      const given = body[key] === undefined ? stored || "" : line(body[key], LIMITS.charsPerOther);
+      if (given === false) {
+        errors[key] = `Please say what it is in one line of ${LIMITS.charsPerOther} characters or fewer.`;
+        return null;
+      }
+      if (!given || !letter.test(given)) {
+        errors[key] = `Please say what your ${what} is.`;
+        return null;
+      }
+      return given;
+    }
+    const positionOther = positionBad ? p.position_other || null : typedOther("positionOther", position, p.position_other, "position");
+    const fieldOther = fieldBad ? p.field_other || null : typedOther("fieldOther", field, p.field_other, "field");
+
+    const commentary = body.commentary === undefined ? p.commentary || null : body.commentary || null;
+    if (commentary ? !COMMENTARY.includes(commentary) : asks) {
+      errors.commentary = "Please answer the question on writing for the Commentary.";
+    }
+
+    // Research interests: one line, and not required (A1).
+    let interests = p.interests || null;
+    if (body.interests !== undefined) {
+      const given = line(body.interests, LIMITS.charsPerInterests);
+      if (given === false) errors.interests = `Please write your research interests in one line of ${LIMITS.charsPerInterests} characters or fewer.`;
+      else interests = given || null;
+    }
 
     if (Object.keys(errors).length) return json({ error: "Please check the form.", fields: errors }, 400);
 
     const t = now();
+    // The day the answer on the Commentary was given, so that the editor can
+    // see who answered and when (A5).
+    const commentaryAt = commentary && commentary !== (p.commentary || null) ? t : p.commentary_at || null;
     const wantsNewsletter = body.newsletter === true && !p.newsletter;
     await env.DB.batch([
       env.DB.prepare('UPDATE "user" SET name = ?, updatedAt = ? WHERE id = ?').bind(name, t, who.userId),
       env.DB.prepare(
-        `INSERT INTO profile (user_id, first_name, middle_name, surname, institution, ror_id, country, position, field, completed_at, last_seen_at)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `INSERT INTO profile (user_id, first_name, middle_name, surname, institution, ror_id, country,
+                              position, position_other, field, field_other, interests, commentary, commentary_at,
+                              completed_at, last_seen_at)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
          ON CONFLICT(user_id) DO UPDATE SET first_name = excluded.first_name, middle_name = excluded.middle_name,
            surname = excluded.surname, institution = excluded.institution, ror_id = excluded.ror_id,
-           country = excluded.country, position = excluded.position, field = excluded.field,
+           country = excluded.country, position = excluded.position, position_other = excluded.position_other,
+           field = excluded.field, field_other = excluded.field_other, interests = excluded.interests,
+           commentary = excluded.commentary, commentary_at = excluded.commentary_at,
            completed_at = COALESCE(profile.completed_at, excluded.completed_at)`
-      ).bind(who.userId, firstName, middleName || null, surname, institution, rorId, country, position, field, t, t),
+      ).bind(who.userId, firstName, middleName || null, surname, institution, rorId, country,
+             position, positionOther, field, fieldOther, interests, commentary, commentaryAt, t, t),
       ...(wantsNewsletter
         ? [env.DB.prepare("UPDATE profile SET newsletter = 1, newsletter_at = ? WHERE user_id = ?").bind(t, who.userId)]
         : [])
@@ -229,7 +300,12 @@ export const account = {
           ror_id: p.ror_id || null,
           country: p.country || null,
           position: p.position || null,
+          position_other: p.position_other || null,
           field: p.field || null,
+          field_other: p.field_other || null,
+          research_interests: p.interests || null,
+          write_for_commentary: p.commentary || null,
+          write_for_commentary_answered: p.commentary_at || null,
           newsletter: !!p.newsletter,
           newsletter_ticked_at: p.newsletter_at || null,
           orcid: await orcidOf(env, who.userId),
@@ -240,6 +316,7 @@ export const account = {
     const projectList = await allProjects(env, who);
     const drafts = await allDrafts(env, who);
     const figures = await allFigures(env, who);
+    const ownEvents = await allEvents(env, who);
     const stamp = now().slice(0, 10);
     const files = {
       "README.txt": strToU8(
@@ -255,7 +332,9 @@ export const account = {
           `drafts/        one text file for each of your drafts\n` +
           `drafts.json    the same drafts as the editor stored them\n` +
           `figures/       one picture for each chart or table you sent to Write\n` +
-          `figures.json   the title, source and date of each of those pictures\n`
+          `figures.json   the title, source and date of each of those pictures\n` +
+          `events.json    the events you added yourself to a chronology, each with\n` +
+          `               its source and the actor or country it is on\n`
       ),
       "account.json": strToU8(JSON.stringify(accountData, null, 2)),
       "notebook.json": strToU8(JSON.stringify(pages, null, 2)),
@@ -272,6 +351,20 @@ export const account = {
             url: f.url,
             data_as_of: f.day,
             sent: f.created_at
+          })),
+          null,
+          2
+        )
+      ),
+      "events.json": strToU8(
+        JSON.stringify(
+          ownEvents.map((e) => ({
+            on: { kind: e.aboutKind, ref: e.aboutRef },
+            date: e.day,
+            what: e.what,
+            source: e.source,
+            added_by: "you",
+            added: e.added
           })),
           null,
           2

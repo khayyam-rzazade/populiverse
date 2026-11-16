@@ -1252,6 +1252,18 @@
       // Events: the Monitor's items of the cases, the saved ones filled
       add(grid, eventsPanel(cases, items, data, p).el);
 
+      // The tools, from inside the project (batch 4, Part B). The Chronology
+      // Maker opens on this project's own cases.
+      if (window.PVTools) {
+        var toolPanel = panel("Tools", String(1 + window.PVTools.count));
+        add(toolPanel.body,
+          h("p", { class: "pv-ws-small", text: "Every tool of the Tools tab also opens from here, on this project." }),
+          window.PVTools.fromProject(p.id),
+          h("p", { class: "pv-ws-tool-row" },
+            h("button", { class: "pv-lib-link", type: "button", onclick: function (e) { annotated(e.currentTarget, p.id); } }, "Annotated Bibliography")));
+        add(grid, toolPanel.el);
+      }
+
       // Every Monitor item and chart put into the project, also those that
       // name none of its cases (the live check before the trial, point 4).
       var saved = items.concat(charts);
@@ -1442,14 +1454,17 @@
     show(head(me, "tools"), body);
     api("/api/projects").then(function (r) {
       var list = (r.data && r.data.projects) || [];
+      var more = window.PVTools ? window.PVTools.board(list) : [];
+      var n = 1 + more.length;
       add(body,
-        h("p", { class: "pv-ws-count-line", text: "One tool so far." }),
+        h("p", { class: "pv-ws-count-line", text: n === 1 ? "One tool so far." : plural(n, "tool", "tools") + " so far." }),
         h("div", { class: "pv-ws-tool" },
           h("h3", { class: "pv-ws-tool-h", text: "Annotated Bibliography" }),
           h("p", { text: "Your works as a Word file, each with the reference the Library holds and your own note under it." }),
           h("p", { class: "pv-ws-tool-row" },
             h("button", { class: "pv-lib-link", type: "button", onclick: function (e) { annotated(e.currentTarget, null); } }, "From Your Shelf"),
             list.length ? projectButton(list) : null)),
+        more,
         h("p", { class: "pv-ws-small pv-ws-tools-foot", text: "More tools will come here. Each one also opens from inside a project." }));
     });
 
@@ -1484,7 +1499,12 @@
       var id = params.get("p");
       return id ? oneProject(me, id) : projectList(me);
     }
-    if (view === "tools") return tools(me);
+    if (view === "tools") {
+      // A tool names itself in the address, and carries its whole view there,
+      // so that a link opens exactly what was seen (batch 4, Part B).
+      if (window.PVTools && window.PVTools.openFromAddress(me)) return;
+      return tools(me);
+    }
   };
   window.PVCite = { pick: pickCites };
   window.PVWriteTools = { annotated: annotated, reference: reference, pieces: pieces, plainOf: plainOf };

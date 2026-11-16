@@ -6211,3 +6211,217 @@ a.pv-cite,
 .pv-ws-guide a {
   color: $pv-muted;
 }
+
+// ---- The three case tools (master plan, section 18, stage 2, batch 4, Part B)
+
+// A tool opens in place, on the Tools page, under a line back to the board.
+.pv-ws-tool-page {
+  margin-top: 0.5rem;
+}
+
+.pv-ws-lede-s {
+  max-width: 46rem;
+  margin: 0 0 1.25rem;
+}
+
+.pv-ws-select-form {
+  max-width: 46rem;
+  margin-bottom: 1.5rem;
+}
+
+// A long table of cases scrolls sideways rather than squeezing its words.
+.pv-ws-table-wrap {
+  overflow-x: auto;
+  margin: 0 0 0.5rem;
+}
+
+.pv-ws-table-wrap .pv-ws-table th,
+.pv-ws-table-wrap .pv-ws-table td {
+  padding-right: 1rem;
+  vertical-align: top;
+}
+
+.pv-ws-table-wrap .pv-ws-chrono,
+.pv-ws-table-wrap .pv-ws-years {
+  min-width: 34rem;
+}
+
+.pv-ws-table-wrap .pv-ws-cases {
+  min-width: 52rem;
+}
+
+// A row a reader added is marked as the reader's own, on screen as in every
+// file that leaves here. It is never mixed silently into the Monitor's items.
+.pv-ws-chrono tr.is-mine {
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.pv-ws-mine-mark {
+  @include pv-label;
+  font-size: 0.625rem;
+  color: $pv-muted;
+  white-space: nowrap;
+}
+
+.pv-ws-whatitis {
+  max-width: 46rem;
+  margin: 0 0 1rem;
+}
+
+.pv-ws-statement {
+  max-width: 46rem;
+}
+
+.pv-ws-statement-t {
+  padding: 0.875rem 1.125rem;
+  border-left: 3px solid $pv-ink;
+  background: #fff;
+}
+
+// ---- The Case File
+
+.pv-ws-casefile {
+  max-width: 46rem;
+}
+
+.pv-ws-cf-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.pv-ws-cf-sec {
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid $pv-hairline;
+}
+
+.pv-ws-cf-dl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+}
+
+@include media-breakpoint-up(md) {
+  .pv-ws-cf-dl {
+    grid-template-columns: 14rem 1fr;
+  }
+}
+
+.pv-ws-cf-dl dt {
+  @include pv-label;
+  font-size: 0.6875rem;
+  font-weight: 400;
+  color: $pv-muted;
+}
+
+.pv-ws-cf-dl dd {
+  margin: 0 0 0.5rem;
+}
+
+.pv-ws-cf-notes {
+  margin: 0;
+  padding-left: 1.125rem;
+}
+
+.pv-ws-cf-cite {
+  font-size: 0.9375rem;
+}
+
+// On a phone the three tables stand as the Data pages' tables do: one card for
+// each row, with the name of every column above its words, rather than ten
+// columns squeezed into 390 pixels.
+@include media-breakpoint-down(md) {
+  .pv-ws-table-wrap {
+    overflow-x: visible;
+  }
+
+  .pv-ws-table-wrap .pv-ws-cases,
+  .pv-ws-table-wrap .pv-ws-chrono,
+  .pv-ws-table-wrap .pv-ws-years {
+    min-width: 0;
+  }
+
+  .pv-ws-cases thead,
+  .pv-ws-chrono thead,
+  .pv-ws-years thead {
+    display: none;
+  }
+
+  .pv-ws-cases,
+  .pv-ws-cases tbody,
+  .pv-ws-cases tr,
+  .pv-ws-cases td,
+  .pv-ws-chrono,
+  .pv-ws-chrono tbody,
+  .pv-ws-chrono tr,
+  .pv-ws-chrono td,
+  .pv-ws-years,
+  .pv-ws-years tbody,
+  .pv-ws-years tr,
+  .pv-ws-years td {
+    display: block;
+    width: 100%;
+  }
+
+  .pv-ws-cases tbody tr,
+  .pv-ws-chrono tbody tr,
+  .pv-ws-years tbody tr {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid $pv-hairline;
+  }
+
+  .pv-ws-cases td,
+  .pv-ws-chrono td,
+  .pv-ws-years td {
+    border: 0;
+    padding: 0.2rem 0 0.45rem;
+  }
+
+  .pv-ws-cases td::before,
+  .pv-ws-chrono td::before,
+  .pv-ws-years td::before {
+    content: attr(data-label);
+    display: block;
+    @include pv-label;
+    font-size: 0.625rem;
+    color: $pv-muted;
+  }
+
+  // The year and its place read as one line, not as two cards.
+  .pv-ws-years td {
+    display: inline-block;
+    width: 49%;
+    vertical-align: top;
+  }
+}
+
+// A case file printed from the page: the briefing alone, on paper.
+@media print {
+  .pv-ws-noprint,
+  .pv-ws-trial,
+  .pv-ws-head,
+  .pv-ws-guide,
+  .pv-ws-tool-page > .pv-ws-small:first-child {
+    display: none !important;
+  }
+
+  .pv-ws-casefile {
+    max-width: none;
+  }
+
+  .pv-ws-cf-sec {
+    break-inside: avoid;
+  }
+
+  .pv-ws-table-wrap {
+    overflow-x: visible;
+  }
+}
+
+// A case that no dataset can judge for the years asked for stands under the
+// cases that matched, and is marked. It is never counted as none.
+.pv-ws-case-row.is-unjudged td {
+  color: $pv-muted;
+}
