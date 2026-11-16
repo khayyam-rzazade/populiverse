@@ -178,6 +178,12 @@ export const account = {
     // in place of it. A list answer that is not "Other" clears its box.
     function typedOther(key, answer, stored, what) {
       if (answer !== OTHER) return null;
+      // A request that speaks of none of the answers leaves the box as it
+      // stands too. An account from before batch 4 may hold "Other" with no
+      // box, because the old form had none, and it must still be able to give
+      // its surname before it is asked for these answers (Fable's check of
+      // batch 4, point 1).
+      if (!asks && body[key] === undefined) return stored || null;
       const given = body[key] === undefined ? stored || "" : line(body[key], LIMITS.charsPerOther);
       if (given === false) {
         errors[key] = `Please say what it is in one line of ${LIMITS.charsPerOther} characters or fewer.`;
