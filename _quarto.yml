@@ -134,7 +134,7 @@ website:
   # The strip at the bottom of every page.
   page-footer:
     left:
-      - text: "Editor: Khayyam RZAZADE"
+      - text: "Editor and Founder: Khayyam RZAZADE"
         href: about/editor.qmd
     center:
       - text: "Privacy"

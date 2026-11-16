@@ -33,11 +33,13 @@ PopuliVerse is the universe of populism. It is one place to study populism, to f
 
 Students and early-career researchers starting a literature review on populism. Scholars of populism who want a database and a regular update on populist actors. Journalists, policy staff and general readers who want to know what populists are doing, with sources.
 
-## Editor
+## Editor and Team
 
 Editor: [Khayyam RZAZADE](editor.qmd)
 
-PopuliVerse is independent. It is free to read and carries no advertising. It has no comments section and no user accounts.
+PopuliVerse is built, maintained and improved by a voluntary team, on the technical side and on the content, led by Khayyam RZAZADE.
+
+PopuliVerse is independent. It is free to read and carries no advertising. It has no comments section. The [Workspace](../workspace/index.qmd), where you can save and write, is the one place that asks you to sign in.
 
 How PopuliVerse works is set out in the [editorial policy](editorial-policy.qmd). To take part, see [how to contribute](contribute.qmd).
 

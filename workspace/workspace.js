@@ -532,11 +532,14 @@
     var who = me.guest
       ? h("span", null, "You are a ", h("strong", null, "guest"))
       : h("span", null, "Signed in as ", h("strong", { text: me.name }));
+    // Who is signed in comes first in the page, on its own quiet line, and the
+    // board of the six tools under it. The six are the work, so they are the
+    // loudest thing here and no longer share a line with the housekeeping.
     var bar = h("div", { class: "pv-ws-head" },
-      h("nav", { class: "pv-ws-tabs", "aria-label": "Workspace" }, list),
       h("p", { class: "pv-ws-who" }, who, h("span", { class: "pv-ws-bar-links" }, links.map(function (l, i) {
         return i ? [h("span", { class: "pv-ws-dot", "aria-hidden": "true", text: "\u00b7" }), l] : l;
-      }))));
+      }))),
+      h("nav", { class: "pv-ws-tabs", "aria-label": "Workspace" }, list));
     var out = [bar];
     if (me.guest) out.push(guestStrip(me, here));
     return out;

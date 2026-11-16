@@ -11,6 +11,8 @@ $pv-muted:      #4A4A4A;  // secondary text
 $pv-hairline:   #D9D9D6;  // thin dividing lines
 $pv-monitor:    #4A5F66;  // Monitor cover: slate
 $pv-commentary: #6B5060;  // Commentary cover: plum-grey
+$pv-workspace:  #5A6B50;  // Workspace board: moss. Bronze #6B5F4A is the warm one
+$pv-ws-tint:    #F1F3EE;  // the board the six tools sit on
 
 $pv-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
 $pv-page-width: 1280px;   // widest the masthead and the Home page get
@@ -4537,54 +4539,78 @@ $pv-marked: #DCE3E5;   // a passage marked in an abstract
   }
 }
 
-// ---- the head of the Workspace: the tabs
+// ---- the head of the Workspace: the board of the six tools
+//
+// The six are the researcher's instruments, so they are the loudest thing on
+// the page. Who is signed in is housekeeping, so it sits on its own quiet line
+// above them and no longer shares a line, or a size, with the tools.
 
 .pv-ws-head {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0 2rem;
+  flex-direction: column;
+  align-items: stretch;
   margin-bottom: 2rem;
-  border-bottom: 1px solid $pv-hairline;
+}
+
+// The session line: small, grey, out of the way of the work.
+.pv-ws-who {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0 0.625rem;
+  min-height: 1.875rem;
+  margin: 0 0 0.375rem;
+  font-size: 0.8125rem;
+  color: $pv-muted;
+}
+
+.pv-ws-who strong {
+  color: $pv-ink;
+}
+
+.pv-ws-who a {
+  color: $pv-muted;
+}
+
+// The board. The rule under it runs the width of the page, the tinted strip
+// only as far as the six tools, so the board reads as one instrument.
+.pv-ws-tabs {
+  border-bottom: 2px solid $pv-workspace;
 }
 
 .pv-ws-tablist {
   display: flex;
   flex-wrap: nowrap;
-  gap: 0 1.75rem;
+  gap: 0 0.25rem;
   margin: 0;
-  padding: 0;
+  padding: 0 0.375rem 0 0;
+  background: $pv-ws-tint;
   list-style: none;
 }
 
 .pv-ws-tab {
   display: flex;
   align-items: center;
-  min-height: 3.125rem;
-  @include pv-label;
+  min-height: 3.5rem;
+  padding: 0 1.375rem;
+  font-size: 0.9375rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   color: $pv-ink;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .pv-ws-tab:hover {
-  color: $pv-muted;
+  color: $pv-workspace;
 }
 
 .pv-ws-tab.is-on {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.45em;
-}
-
-.pv-ws-who {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0 0.5rem;
-  margin: 0;
-  font-size: 0.9375rem;
+  background: $pv-workspace;
+  color: $pv-paper;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 // ---- the kinds of thing on the shelf
@@ -5070,20 +5096,21 @@ $pv-marked: #DCE3E5;   // a passage marked in an abstract
 
 // ---- on a phone (390 pixels): the drawn board of the canvas
 @include media-breakpoint-down(md) {
-  .pv-ws-head {
-    gap: 0;
-  }
-
   .pv-ws-tabs {
     width: 100%;
     overflow-x: auto;
   }
 
+  // On a phone the session line reads from the left, like everything else.
   .pv-ws-who {
     width: 100%;
-    padding-bottom: 0.5rem;
-    font-size: 0.875rem;
+    justify-content: flex-start;
+    font-size: 0.8125rem;
   }
+
+  // The tools keep their width on a phone. Narrower ones let exactly three fit,
+  // which makes the board look complete and hides the other three; left as they
+  // are, the fourth is cut at the edge and the reader can see it slides.
 
   // The filters fold behind one line, as in the Library
   .pv-ws-fold {
