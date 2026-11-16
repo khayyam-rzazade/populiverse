@@ -148,6 +148,27 @@
     });
   }
 
+  // ------------------------------------------------------------ The trial note
+
+  // The Workspace is new. One quiet line at the top of its pages says so, in
+  // the editor's own words, with a way to write to him. It says nothing that
+  // could make anyone fear for their work. A reader can hide it, and this
+  // browser remembers that (master plan, section 18, the open trial).
+  var TRIAL_MARK = "pv-workspace-trial-note";
+  (function trialNote() {
+    try { if (window.localStorage.getItem(TRIAL_MARK) === "hidden") return; } catch (e) { /* no storage: show it */ }
+    var note = h("div", { class: "pv-ws-trial", role: "note" },
+      h("p", { class: "pv-ws-trial-t" },
+        "The Workspace is new and we are still making it better. Everything you save stays yours and is not going anywhere. If something feels missing or awkward, ",
+        h("a", { href: "mailto:editor@populiverse.com" }, "write to the editor"),
+        " and tell us what would help."),
+      h("button", { class: "pv-lib-link pv-ws-trial-x", type: "button", "aria-label": "Hide this note", onclick: function () {
+        try { window.localStorage.setItem(TRIAL_MARK, "hidden"); } catch (e) { /* hidden for this visit only */ }
+        if (note.parentNode) note.parentNode.removeChild(note);
+      } }, "Hide"));
+    app.parentNode.insertBefore(note, app);
+  })();
+
   // ------------------------------------------------------------ Start
 
   var params = new URLSearchParams(location.search);
@@ -206,19 +227,23 @@
 
   // ------------------------------------------------------------ The doors
 
+  // A try with ORCID that found no account comes back here with ?orcid=no. Its
+  // message stands inside the ORCID box, as an error, and the address is
+  // tidied so that a reload does not show it again (the live check before the
+  // trial, point 2c).
   function doors(open) {
     var notes = [];
-    if (params.get("orcid") === "no") {
-      notes.push(message(
-        "No account has this ORCID iD yet. Sign in or sign up with your email first. Then connect ORCID on your account page, and next time ORCID is enough.",
-        "error"
-      ));
+    var orcidRefused = params.get("orcid") === "no";
+    if (orcidRefused) {
+      try { history.replaceState(null, "", PAGES.home); } catch (e) {}
     }
     if (params.get("signedout")) notes.push(message("You are signed out."));
-    show(notes, doorsBlock(open, false));
+    show(notes, doorsBlock(open, false, orcidRefused));
+    var refused = app.querySelector(".pv-ws-door-error");
+    if (refused && refused.scrollIntoView) refused.scrollIntoView({ block: "center" });
   }
 
-  function doorsBlock(open, inert) {
+  function doorsBlock(open, inert, orcidRefused) {
     var wrap = h("div", { class: "pv-ws-doors-wrap" });
     add(wrap, h("p", { class: "pv-ws-lede" },
       "Your own place on ", pv(), ". Save a work, a Monitor item, an actor, a country or a chart, write a note on any of them, keep a notebook, and write a draft that cites them. A project holds it all in one view."));
@@ -227,8 +252,15 @@
     }
     var grid = h("div", { class: "pv-ws-doors" });
     grid.appendChild(emailDoor(inert, null));
-    grid.appendChild(door("Sign In with ORCID", "Once you have connected ORCID in your account, it is all you need.",
-      h("button", { class: "pv-button pv-ws-orcid", type: "button", disabled: inert, onclick: orcidSignIn }, "Continue with ORCID")));
+    var orcid = door("Sign In with ORCID",
+      "New here? Sign in with your email first, then connect ORCID on your account page. After that, ORCID is all you need.",
+      h("button", { class: "pv-button pv-ws-orcid", type: "button", disabled: inert, onclick: orcidSignIn }, "Continue with ORCID"));
+    if (orcidRefused) {
+      orcid.insertBefore(h("p", { class: "pv-ws-door-error", role: "alert" },
+        "No account has this ORCID iD yet. Sign in or sign up with your email first. Then connect ORCID on your account page, and next time ORCID is enough."),
+        orcid.lastChild);
+    }
+    grid.appendChild(orcid);
     if (open || inert) {
       grid.appendChild(door("Try It as a Guest", "No name, no email. Your work can be opened from this browser only, until you sign up.",
         h("button", { class: "pv-button pv-ws-ghost", type: "button", disabled: inert, onclick: startGuest }, "Continue as a Guest")));
@@ -407,6 +439,26 @@
 
     var position = select("position", POSITIONS, me.position, "Position (if you wish)");
     var fieldSel = select("field", FIELDS, me.field, "Field (if you wish)");
+
+    // A field's red line goes as soon as the field is put right, not only at
+    // the next press of the button (the live check before the trial, point 4).
+    // The server still checks everything when the form is sent.
+    var LETTER = /\p{L}/u;
+    function settle(id, ok) {
+      if (errs[id] && ok) errs[id].textContent = "";
+    }
+    firstName.addEventListener("input", function () { settle("firstName", LETTER.test(firstName.value)); });
+    surname.addEventListener("input", function () { settle("surname", LETTER.test(surname.value)); });
+    position.addEventListener("change", function () { settle("position", true); });
+    fieldSel.addEventListener("change", function () { settle("field", true); });
+    // The institution box is drawn again as it changes; one listener on it
+    // hears the typed name, the country and a pick from the list alike.
+    function instDone() {
+      return !!inst.rorId || (inst.typed && inst.name.trim().length >= 2 && !!inst.country);
+    }
+    instBox.addEventListener("input", function () { settle("institution", instDone()); });
+    instBox.addEventListener("change", function () { settle("institution", instDone()); });
+    instBox.addEventListener("click", function () { window.setTimeout(function () { settle("institution", instDone()); }, 0); });
     var news = opts.newsletter ? h("input", { type: "checkbox", id: "ws-news" }) : null;
     var formErr = h("p", { class: "pv-ws-field-error", "aria-live": "polite" });
     var btn = h("button", { class: "pv-button", type: "submit" }, opts.button);
@@ -605,30 +657,72 @@
         h("button", { class: "pv-button", type: "button", onclick: newPage }, "Start a Page")));
     }
 
+    // A page with no title and no words, that nobody has written in yet. "New
+    // Page" opens such a page of the same project rather than make one more,
+    // so that pressing it twice, or coming back to it, leaves no clutter of
+    // empty pages (the live check before the trial, point 3).
+    function untouched(into) {
+      return state.pages.filter(function (p) {
+        return !p.title && !p.chars && (p.project_id || null) === (into || null);
+      })[0] || null;
+    }
+
     function newPage() {
+      var into = params.get("project");
+      into = into && into !== "loose" ? into : null;
       flush().then(function () {
         // The open page leaves the screen at once, so nothing typed now lands in it.
         state.open = null;
         clear(editorEl);
         add(editorEl, h("p", { class: "pv-lib-loading", text: "Starting a new page…" }));
-        var into = params.get("project");
-        return api("/api/pages", { method: "POST", body: { title: "", body: "", words: "", project_id: into && into !== "loose" ? into : null } });
+        var spare = untouched(into);
+        if (spare) return { reuse: spare.id };
+        return api("/api/pages", { method: "POST", body: { title: "", body: "", words: "", project_id: into } });
       }).then(function (r) {
+        if (r.reuse) return openPage(r.reuse, true);
         if (!r.ok) { alertBox(r.data.error || "A new page could not be made."); return; }
         state.q = ""; search.value = "";
         return load().then(function () { draw(r.data.page, true); });
       });
     }
 
-    function openPage(id) {
-      flush().then(function () { return api("/api/pages/" + encodeURIComponent(id)); }).then(function (r) {
-        if (r.ok) draw(r.data.page, false);
-        else load();
+    // The address no longer names a page that is not open: the project is kept
+    // and the page dropped, so a reload shows the list and not an empty right
+    // half (Fable's re-check of the trial fixes, point 4a).
+    function tidy() {
+      var keepProject = params.get("project");
+      try {
+        history.replaceState(null, "", PAGES.notebook +
+          (keepProject ? "?project=" + encodeURIComponent(keepProject) : ""));
+      } catch (e) {}
+    }
+
+    function openPage(id, fresh) {
+      return flush().then(function () { return api("/api/pages/" + encodeURIComponent(id)); }).then(function (r) {
+        if (r.ok) return draw(r.data.page, !!fresh);
+        // A page that is not there any more, or never this reader's: the
+        // address is tidied and the reader is asked to pick one. Any other
+        // trouble leaves the address alone, so a moment without a connection
+        // does not lose the page the reader was on.
+        if (r.status === 404) {
+          state.open = null;
+          tidy();
+          return load().then(blank);
+        }
+        return load();
       });
     }
 
     var titleEl, editor, statusEl, projectRow;
     function draw(page, fresh) {
+      // The address names the page that is open, and no longer says "new", so
+      // a reload opens this page again instead of making another (the live
+      // check before the trial, point 3).
+      var keepProject = params.get("project");
+      try {
+        history.replaceState(null, "", PAGES.notebook + "?" + (keepProject ? "project=" + encodeURIComponent(keepProject) + "&" : "") +
+          "page=" + encodeURIComponent(page.id));
+      } catch (e) {}
       state.open = page;
       state.base = page.updated_at;
       state.dirty = false;
@@ -708,7 +802,7 @@
           state.base = r.data.updated_at;
           page.title = sent.title; page.body = sent.body; page.updated_at = r.data.updated_at;
           var item = state.pages.filter(function (p) { return p.id === page.id; })[0];
-          if (item) { item.title = sent.title; item.snippet = sent.words.slice(0, 240); item.updated_at = r.data.updated_at; }
+          if (item) { item.title = sent.title; item.snippet = sent.words.slice(0, 240); item.chars = sent.body.length; item.updated_at = r.data.updated_at; }
           state.pages.sort(function (a, b) { return a.updated_at < b.updated_at ? 1 : -1; });
           drawList();
           if (state.dirty) return flush();
@@ -737,6 +831,9 @@
           api("/api/pages/" + encodeURIComponent(state.open.id), { method: "DELETE" }).then(function (r) {
             if (!r.ok && r.status !== 404) { alertBox(r.data.error || "The page could not be deleted."); return; }
             state.open = null; state.dirty = false;
+            // The address stops naming the deleted page, so a reload shows the
+            // list (Fable's re-check of the trial fixes, point 4a).
+            tidy();
             load().then(blank);
           });
         } }, "Yes, delete"), " · ",
@@ -888,6 +985,9 @@
   function plural(n, one, many) { return n + " " + (n === 1 ? one : many); }
 
   var KINDS = [["work", "Works"], ["item", "Monitor Items"], ["actor", "Actors"], ["country", "Countries"], ["chart", "Charts"]];
+  // The same kinds inside a sentence: "3 Monitor items", "No works yet."
+  var ONE = { work: "work", item: "Monitor item", actor: "actor", country: "country", chart: "chart" };
+  var MANY = { work: "works", item: "Monitor items", actor: "actors", country: "countries", chart: "charts" };
   // The shelf's search box names the kind it searches (Fable's second run, point f).
   var SEARCH_LABEL = { work: "Search your works", item: "Search your Monitor items", actor: "Search your actors",
     country: "Search your countries", chart: "Search your charts" };
@@ -1024,9 +1124,10 @@
 
     function drawHead(d) {
       clear(ui.head);
-      var k = KINDS.filter(function (x) { return x[0] === state.kind; })[0] || ["", ""];
-      var many = k[1].toLowerCase();
-      var one = { work: "work", item: "Monitor item", actor: "actor", country: "country", chart: "chart" }[state.kind];
+      // "Monitor" keeps its capital in a count, as everywhere on the site (the
+      // live check before the trial, point 4).
+      var many = MANY[state.kind] || "things";
+      var one = ONE[state.kind] || "thing";
       var n = counts[state.kind] || 0;
       var filtered = state.q || state.status || state.tag || state.project;
       var shown = state.from + (d.things || []).length;
@@ -1140,7 +1241,7 @@
             h("a", { href: BASE + "../monitor/", text: "Open the Monitor" }),
             h("a", { href: BASE + "../data/events.html", text: "Open Data" })));
       }
-      var name = (KINDS.filter(function (k) { return k[0] === state.kind; })[0] || ["", ""])[1].toLowerCase();
+      var name = MANY[state.kind] || "things";
       return h("div", { class: "pv-ws-blank" }, h("p", { class: "pv-ws-blank-t", text: "No " + name + " yet." }),
         h("p", { text: "Press Save on one, and it is kept here." }));
     }

@@ -228,6 +228,12 @@ main.content h3 {
     flex-wrap: wrap;
   }
 
+  // The Workspace takes a line of its own, above Newsletter.
+  #quarto-header .navbar-nav.ms-auto > .nav-item:has(> .nav-link[href*="workspace/"]) {
+    order: -1;
+    flex-basis: 100%;
+  }
+
   #quarto-header .navbar-nav .nav-item:not(.compact) + .nav-item.compact .nav-link {
     margin-left: 0.4rem;
     padding-left: 0.75rem;
@@ -295,12 +301,35 @@ main.content h3 {
     border-bottom: 1px solid $pv-ink;
   }
 
+  // The group of Newsletter and the three accounts runs along the wordmark's
+  // row: Newsletter and the marks at its left, the Workspace at its right,
+  // beside the search. The wordmark and the search stand above the group, so
+  // that they keep their own clicks.
   #quarto-header .navbar-nav.ms-auto {
-    grid-area: aside;
-    justify-self: start;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: stretch;
     margin: 0 0 0 -1rem !important;
     max-height: none;
     overflow: visible;
+  }
+
+  #quarto-header .navbar-brand-container,
+  #quarto-header #quarto-search {
+    position: relative;
+    z-index: 2;
+  }
+
+  // A hairline between the Workspace and the search, as between Newsletter
+  // and the marks.
+  #quarto-header .navbar-nav.ms-auto > .nav-item:has(> .nav-link[href*="workspace/"]) {
+    margin-left: auto;
+    margin-right: 2.875rem;
+  }
+
+  #quarto-header .navbar-nav.ms-auto > .nav-item > .nav-link[href*="workspace/"] {
+    padding-right: 1.625rem;
+    border-right: 1px solid $pv-hairline;
   }
 }
 
@@ -5295,14 +5324,17 @@ a.pv-cite,
   word-break: break-word;
 }
 
-// ---- the list that "@" opens
+// ---- the list that "@" opens. editor.js sets its top and left, so that it
+// stands under the line being typed and inside the window.
 .pv-ed-pick {
   position: absolute;
   z-index: 20;
-  left: 1.5rem;
-  right: 1.5rem;
-  max-width: 34rem;
+  left: 0;
+  right: auto;
+  width: min(34rem, 100%);
+  max-width: 100%;
   max-height: 20rem;
+  overflow-x: hidden;
   overflow-y: auto;
   border: 1px solid $pv-ink;
   background: #fff;
@@ -5347,6 +5379,13 @@ a.pv-cite,
 .pv-ed-pick-o small {
   color: $pv-muted;
   font-size: 0.75rem;
+}
+
+// A long address, such as a DOI, wraps instead of being cut at the edge.
+.pv-ed-pick-o span,
+.pv-ed-pick-o small {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .pv-ed-pick-o:hover,
@@ -5812,9 +5851,7 @@ a.pv-cite,
   }
 
   .pv-ed-pick {
-    left: 0;
-    right: 0;
-    max-width: none;
+    width: 100%;
   }
 
   .pv-ws-write .pv-ws-side {
@@ -5987,4 +6024,77 @@ a.pv-cite,
     width: 0;
     max-width: none;
   }
+}
+
+// ---- The fixes after the live check before the trial (master plan, section 18)
+
+// Tools: the line beside "From a project…" says what is happening, then clears.
+.pv-ws-tool-row .pv-ws-pick-in {
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+
+.pv-ws-tool-said:empty {
+  display: none;
+}
+
+// A refused try with ORCID: its message stands inside the ORCID box, and reads
+// as an error, not as the quiet notes above the doors.
+.pv-ws-door > p.pv-ws-door-error {
+  margin: 0 0 1rem;
+  padding: 0.625rem 0.875rem;
+  border-left: 3px solid $pv-commentary;
+  background: #F6F1F3;
+  color: $pv-ink;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+// The small dot between the parts of a line ("13 October 2026 · 22 works on
+// Bulgaria") has its spaces, on the shelf and in a project.
+.pv-ws-thing-m .pv-ws-dot,
+.pv-ws-prow .pv-ws-dot {
+  margin: 0 0.375rem;
+}
+
+// The trial note: one quiet line at the top of the Workspace's pages, with a
+// way to write to the editor and a button to hide it (master plan, section 18).
+.pv-ws-trial {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.25rem;
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 0 0.625rem;
+  border-bottom: 1px solid $pv-hairline;
+  color: $pv-muted;
+  font-family: $pv-serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.pv-ws-trial-t {
+  margin: 0;
+  max-width: 60rem;
+}
+
+.pv-ws-trial a {
+  color: $pv-ink;
+}
+
+.pv-ws-trial-x.pv-lib-link {
+  flex: none;
+  font-size: 0.875rem;
+}
+
+@include media-breakpoint-down(md) {
+  .pv-ws-trial {
+    flex-wrap: wrap;
+  }
+}
+
+// A project's Literature panel: one short line a work.
+.pv-ws-lit {
+  font-size: 0.875rem;
+  line-height: 1.5;
 }

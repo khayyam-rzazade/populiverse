@@ -59,6 +59,56 @@ function limitOf(who) {
   return who.guest ? LIMITS.keptPerGuest : LIMITS.keptPerAccount;
 }
 
+// A few letters that keep no accent to take off, but stand for plain ones in
+// an alphabetical list.
+const PLAIN = { "ł": "l", "ø": "o", "đ": "d", "ð": "d", "þ": "th", "æ": "ae", "œ": "oe", "ß": "ss", "ı": "i", "ħ": "h" };
+
+// A thing's name folded for ordering (the live check before the trial, point
+// 4): marks such as <i> taken off, accents taken off, small letters, and no
+// quote or bracket in front, so that "Böller" stands with "Boller", before
+// "Bruno". It is only ever used to order a list, never shown.
+export function sortKey(name) {
+  return String(name || "")
+    .replace(/<[^>]*>/g, "")
+    .replace(/&[a-z0-9#]+;/gi, " ")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[łøđðþæœßıħ]/g, (c) => PLAIN[c])
+    .replace(/^[^\p{L}\p{N}]+/u, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, 200);
+}
+
+// What a thing is ordered by: the name the shelf shows, or the reference when
+// there is no name.
+function sortOf(title, cite) {
+  return sortKey(title || cite || "");
+}
+
+// The things a person saved before migration 0006 have no folded name yet. The
+// first time one of their lists is read in order, the names are made here, in
+// the same way as on saving, a hundred at a time. Afterwards this is one quick
+// question that finds nothing.
+export async function fillSortNames(env, who) {
+  for (let round = 0; round < 60; round++) {
+    const { results } = await env.DB.prepare(
+      "SELECT id, title, cite FROM kept WHERE user_id = ? AND sort_name IS NULL LIMIT 100"
+    )
+      .bind(who.userId)
+      .all();
+    const rows = results || [];
+    if (!rows.length) return;
+    await env.DB.batch(
+      rows.map((r) =>
+        env.DB.prepare("UPDATE kept SET sort_name = ? WHERE id = ? AND user_id = ?").bind(sortOf(r.title, r.cite), r.id, who.userId)
+      )
+    );
+    if (rows.length < 100) return;
+  }
+}
+
 async function used(env, who) {
   const row = await env.DB.prepare("SELECT COUNT(*) AS n FROM kept WHERE user_id = ?").bind(who.userId).first();
   return row.n;
@@ -86,11 +136,12 @@ async function put(env, who, kind, ref, c) {
        abstract = CASE WHEN ?6 <> '' THEN ?6 ELSE abstract END,
        cite = CASE WHEN ?7 <> '' THEN ?7 ELSE cite END,
        bibtex = CASE WHEN ?8 <> '' THEN ?8 ELSE bibtex END,
+       sort_name = CASE WHEN ?1 <> '' THEN ?13 ELSE sort_name END,
        updated_at = ?9
      WHERE user_id = ?10 AND kind = ?11 AND ref = ?12
      RETURNING *`
   )
-    .bind(c.title, c.extra, c.url, c.year, c.country, c.abstract, c.cite, c.bibtex, t, who.userId, kind, ref)
+    .bind(c.title, c.extra, c.url, c.year, c.country, c.abstract, c.cite, c.bibtex, t, who.userId, kind, ref, sortOf(c.title, c.cite))
     .first();
   if (row) return { row, fresh: false };
   const made = await putNew(env, who, kind, ref, c, limitOf(who));
@@ -119,13 +170,14 @@ function full(who, limit) {
 async function putNew(env, who, kind, ref, c, limit) {
   const t = now();
   return env.DB.prepare(
-    `INSERT INTO kept (id, user_id, kind, ref, title, extra, url, year, country, abstract, cite, bibtex, created_at, updated_at)
-     SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+    `INSERT INTO kept (id, user_id, kind, ref, title, extra, url, year, country, abstract, cite, bibtex, sort_name, created_at, updated_at)
+     SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
       WHERE (SELECT COUNT(*) FROM kept WHERE user_id = ?) < ?
      ON CONFLICT (user_id, kind, ref) DO NOTHING
      RETURNING *`
   )
-    .bind(crypto.randomUUID(), who.userId, kind, ref, c.title, c.extra, c.url, c.year, c.country, c.abstract, c.cite, c.bibtex, t, t, who.userId, limit)
+    .bind(crypto.randomUUID(), who.userId, kind, ref, c.title, c.extra, c.url, c.year, c.country, c.abstract, c.cite, c.bibtex,
+      sortOf(c.title, c.cite), t, t, who.userId, limit)
     .first();
 }
 
@@ -237,15 +289,18 @@ export const keep = {
         " OR EXISTS (SELECT 1 FROM tag t2 WHERE t2.kept_id = k.id AND t2.user_id = k.user_id AND t2.name LIKE ? ESCAPE '\\'))";
       args.push(pattern, pattern, pattern, pattern);
     }
+    // Names with accents stand where a reader looks for them (the live check
+    // before the trial, point 4).
     sql +=
       order === "author"
-        ? " ORDER BY k.title COLLATE NOCASE"
+        ? " ORDER BY k.sort_name, k.title COLLATE NOCASE"
         : order === "year"
-          ? " ORDER BY k.year DESC, k.title COLLATE NOCASE"
+          ? " ORDER BY k.year DESC, k.sort_name, k.title COLLATE NOCASE"
           : " ORDER BY k.created_at DESC";
     sql += " LIMIT ? OFFSET ?";
     args.push(PAGE + 1, from);
 
+    if (order !== "new") await fillSortNames(env, who);
     const { results } = await env.DB.prepare(sql).bind(...args).all();
     const rows = results || [];
     const more = rows.length > PAGE;
@@ -502,10 +557,11 @@ export const keep = {
       order === "old"
         ? " ORDER BY n.updated_at"
         : order === "kind"
-          ? " ORDER BY k.kind, k.title COLLATE NOCASE"
+          ? " ORDER BY k.kind, k.sort_name, k.title COLLATE NOCASE"
           : " ORDER BY n.updated_at DESC";
     sql += " LIMIT ? OFFSET ?";
     args.push(PAGE + 1, from);
+    if (order === "kind") await fillSortNames(env, who);
 
     const { results } = await env.DB.prepare(sql).bind(...args).all();
     const rows = results || [];

@@ -344,11 +344,13 @@
       shut = next > at && quill.getText(at, 1) === "@" ? at : -1;
     }
 
-    // A change that makes a new line: the Enter that makes it is not a search.
+    // A change that ends in a new line: the Enter that makes it is not a
+    // search. Pasted lines that end in "@word" are (the live check before the
+    // trial, point 4).
     function breaksLine(delta) {
-      return !!(delta && delta.ops && delta.ops.some(function (op) {
-        return typeof op.insert === "string" && op.insert.indexOf("\n") >= 0;
-      }));
+      var last = null;
+      (delta && delta.ops || []).forEach(function (op) { if (op.insert !== undefined) last = op.insert; });
+      return typeof last === "string" && /\n$/.test(last);
     }
 
     function drawPicker(groups) {
@@ -387,8 +389,34 @@
         picker.appendChild(h("span", { class: "pv-ed-pick-k", text: "↑ ↓ to move · Enter to cite · Esc to close" }));
       }
       shell.appendChild(picker);
+      place();
       pickerState.at = 0;
       mark(0);
+    }
+
+    // The list stands right under the line being typed, not under the whole
+    // box, and inside the window: where there is more room above the line
+    // than below it, it opens above (the live check before the trial, point 4).
+    function place() {
+      if (!picker) return;
+      var at = Math.min(pickerState.from + pickerState.length, Math.max(0, quill.getLength() - 1));
+      var b = quill.getBounds(at);
+      if (!b) return;
+      var box = paper.getBoundingClientRect();
+      var view = window.visualViewport;
+      var top = view ? view.offsetTop : 0;
+      var bottom = view ? view.offsetTop + view.height : window.innerHeight;
+      var lineTop = box.top + b.top, lineBottom = box.top + b.bottom;
+      var below = bottom - lineBottom - 12, above = lineTop - top - 12;
+      var want = Math.min(picker.scrollHeight, 320);
+      var down = below >= want || below >= above;
+      var room = Math.max(140, Math.min(320, down ? below : above));
+      picker.style.maxHeight = room + "px";
+      var tall = Math.min(picker.scrollHeight, room);
+      picker.style.top = Math.round(paper.offsetTop + (down ? b.bottom + 6 : b.top - tall - 6)) + "px";
+      var left = paper.offsetLeft + b.left - 12;
+      var most = shell.clientWidth - picker.offsetWidth;
+      picker.style.left = Math.round(Math.max(0, Math.min(left, most))) + "px";
     }
 
     function mark(i) {
@@ -442,14 +470,25 @@
       openPicker(at.from, at.length, at.words);
     }
 
+    // When words arrive in one piece (a paste, a phone keyboard, text dropped
+    // in), the editor moves the caret only after it has told of the change, so
+    // the "@" is looked for a moment later, where the caret has come to rest.
+    // Typing letter by letter works the same way (the live check before the
+    // trial, point 4).
+    var looking = 0;
+    function lookSoon() {
+      window.clearTimeout(looking);
+      looking = window.setTimeout(look, 0);
+    }
+
     quill.on("text-change", function (delta, old, source) {
       follow(delta);
       if (opts.onChange) opts.onChange();
       if (source === "user") {
         // When Enter makes a new line the caret has not moved yet, so the words
         // before it still end in "@ant": the list is closed, not looked for.
-        if (breaksLine(delta)) closePicker();
-        else look();
+        if (breaksLine(delta)) { window.clearTimeout(looking); closePicker(); }
+        else lookSoon();
       }
       marks();
     });

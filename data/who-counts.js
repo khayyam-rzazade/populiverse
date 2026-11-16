@@ -333,6 +333,21 @@
     return bits.length ? "Filters: " + bits.join("; ") + "." : "Filters: none.";
   }
 
+  // The narrowing filters, short, for the title of a picture: a figure of a
+  // filtered view says so in its title, not only in the line under it (the
+  // live check before the trial, point 3).
+  function titleFilters() {
+    var bits = [];
+    if (S.q.trim()) bits.push("Search: \u201c" + S.q.trim() + "\u201d");
+    if (S.kind) bits.push(S.kind === "party" ? "Parties Only" : "Leaders Only");
+    if (S.region) bits.push(REGIONS[S.region]);
+    if (S.country) bits.push(COUNTRY[S.country] || S.country);
+    if (S.mark) bits.push({ agree: "The Datasets Agree", differ: "The Datasets Differ", one: "One Dataset Only" }[S.mark] || S.mark);
+    if (S.ds) bits.push("Held by " + (S.ds === "pl" ? "The PopuList" : "the " + DATASETS[S.ds]).replace("the V-Party", "V-Party"));
+    if (S.mon) bits.push(S.mon === "1" ? "Followed by PopuliVerse Monitor" : "In Power Today, by PopuliVerse Monitor");
+    return bits.length ? " (" + bits.join("; ") + ")" : "";
+  }
+
   // ============================================================ the table
 
   function legendTable() {
@@ -469,10 +484,12 @@
       b3.addEventListener("click", function () { PV.save.picture(b3, picture.name, "svg", picture.make); });
       ui.tools.appendChild(b2);
       ui.tools.appendChild(b3);
-      // This chart can be sent to Write, where it goes into a draft with its
-      // source line and the numbers of today (batch 3; keep.js draws it).
-      PV.figureMaker(ui.tools, picture.make);
     }
+    // This chart can be sent to Write, where it goes into a draft with its
+    // source line and the numbers of today (batch 3; keep.js draws it). The
+    // Table has no picture of its own, so there the page forgets the timeline it
+    // drew before and "Send to Write" is not offered at all.
+    PV.figureMaker(ui.tools, picture ? picture.make : null);
     ui.tools.appendChild(el("a", { class: "pv-lib-link", href: "sources.txt", download: "populiverse-data-sources.txt", text: "Sources and licences" }));
     var link = el("button", { type: "button", class: "pv-lib-link", text: "Copy the link to this view" });
     link.addEventListener("click", function () { PV.copy(window.location.href, link); });
@@ -579,7 +596,7 @@
         return {
           host: app,
           chart: function (holder, w) { return timelineChart(holder, w, rows, true); },
-          title: "Who Counts as Populist? Four Datasets, Year by Year",
+          title: "Who Counts as Populist? Four Datasets, Year by Year" + titleFilters(),
           lines: [
             filterLine() + " " + rows.length + " of " + list.length + (list.length === 1 ? " party or leader" : " parties and leaders") + " shown, in the order “" + ui.f.sort.options[ui.f.sort.selectedIndex].text + "”.",
             "Each row has four lanes, from the top: " + LANES.join(", ") + ". A leader's row shows his or her party in the lanes of the parties."
@@ -714,7 +731,7 @@
         return {
           host: app,
           chart: function (holder, w) { return compareChart(holder, w, groups, pts, true); },
-          title: "V-Party's Populism Score, Set Against the Verdict of " + (S.group === "gs" ? "the Global Party Survey" : "The PopuList"),
+          title: "V-Party's Populism Score, Set Against the Verdict of " + (S.group === "gs" ? "the Global Party Survey" : "The PopuList") + titleFilters(),
           lines: [
             PV.thousands(pts.length) + " parties, each at its latest election in V-Party (1970 to 2019), grouped by the verdict of " + by + ". " + filterLine(true),
             S.group === "pl" ? "Parties in The PopuList's 31 European countries that V-Party saw at an election since 1989." : "Parties that the Global Party Survey holds in V-Party's copy of it."

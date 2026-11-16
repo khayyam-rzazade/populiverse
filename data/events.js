@@ -257,13 +257,18 @@
       b.setAttribute("aria-selected", on ? "true" : "false");
     });
     ui.tools.innerHTML = "";
+    ui.tools.setAttribute("data-keep-title", TITLE + titleFilters(true));
     ui.tools.appendChild(tool("Download what you see (CSV)", csv));
     ui.tools.appendChild(el("a", { class: "pv-lib-link", href: "events.csv", download: "populiverse-monitor-events.csv", text: "The whole dataset (CSV)" }));
-    if (S.view !== "table" && list.length) {
+    var hasPicture = S.view !== "table" && list.length > 0;
+    if (hasPicture) {
       ui.tools.appendChild(tool("Picture (PNG)", function (b) { PV.save.picture(b, "populiverse-events-in-monitor", "png", figure); }));
       ui.tools.appendChild(tool("Picture (SVG)", function (b) { PV.save.picture(b, "populiverse-events-in-monitor", "svg", figure); }));
-      PV.figureMaker(ui.tools, figure);
     }
+    // The Table and a view that nothing fits have no picture of their own, so
+    // there the page forgets the chart it drew before and "Send to Write" is not
+    // offered (Fable's re-check of the trial fixes, point 3).
+    PV.figureMaker(ui.tools, hasPicture ? figure : null);
     ui.tools.appendChild(tool("Copy the link to this view", function (b) { PV.copy(window.location.href, b); }));
     ui.tools.appendChild(tool("Copy the citation", function (b) { PV.copy(PV.citation(TITLE, URL), b); }));
     draw();
@@ -442,8 +447,11 @@
     cell.setAttribute("data-keep-kind", "item");
     cell.setAttribute("data-keep-ref", e.folder + ":" + e.n);
     cell.setAttribute("data-keep-title", cut(heading(e), 300));
-    cell.setAttribute("data-keep-extra", e.issue + ", item " + e.n + " \u00b7 " + when(e.date));
-    cell.setAttribute("data-keep-url", e.link);
+    // The same line and the same full address as on the item's own issue
+    // page, so that an item saved here is cited as its issue cites it:
+    // "PopuliVerse Monitor 2026/2, item 8".
+    cell.setAttribute("data-keep-extra", "Monitor " + e.issue + ", item " + e.n + " \u00b7 " + when(e.date));
+    cell.setAttribute("data-keep-url", SITE + "monitor/" + e.folder + "/#item-" + e.n);
     if (e.iso && e.iso.length === 1) cell.setAttribute("data-keep-country", e.iso[0]);
     cell.setAttribute("data-keep-tools", "");
     return cell;
@@ -502,6 +510,24 @@
     return bits.length ? "Filters: " + bits.join("; ") + "." : "No filter: every item of the Monitor.";
   }
 
+  // The same filters, short, for the title of a picture and of a saved view:
+  // a figure of a filtered view never carries the title of the whole Monitor
+  // (the live check before the trial, point 3). The period stands in the title
+  // of the view by month already, so it is named here only when asked.
+  function titleFilters(withPeriod) {
+    var bits = [];
+    if (withPeriod && S.period) bits.push("Last " + S.period + " Months");
+    if (S.fam) bits.push("Kind of News: " + S.fam);
+    if (S.type) bits.push("Type: " + S.type);
+    if (S.region) bits.push("Region: " + REG[S.region]);
+    if (S.country) bits.push("Country: " + (LAND[S.country] ? LAND[S.country].name : S.country));
+    if (S.actor) bits.push("Actor: " + (ACT[S.actor] ? ACT[S.actor].name : S.actor));
+    if (S.issue) bits.push("Issue " + S.issue);
+    if (S.kind) bits.push(S.kind === "full" ? "Full Items Only" : "One-Line Entries Only");
+    if (S.q.trim()) bits.push("Search: \u201c" + S.q.trim() + "\u201d");
+    return bits.length ? " (" + bits.join("; ") + ")" : "";
+  }
+
   function csv() {
     var rows = [["issue", "item", "date", "date_end", "date_precision", "type", "family", "countries", "country_codes",
       "actors", "item_kind", "heading", "link"]];
@@ -519,7 +545,7 @@
     return {
       host: host,
       chart: function (holder, w) { return mode ? months(holder, w, true) : bars(holder, w, true); },
-      title: mode ? "The Items of PopuliVerse Monitor by Month, " + span(AXIS) : "The Items of PopuliVerse Monitor by Kind of News and Type",
+      title: (mode ? "The Items of PopuliVerse Monitor by Month, " + span(AXIS) : "The Items of PopuliVerse Monitor by Kind of News and Type") + titleFilters(!mode),
       lines: [plural(list.length, "item", "items") + ", in the order “" + f.sort.options[f.sort.selectedIndex].text + "”.", filterLine()],
       legend: FAMS.map(function (k) { return { fill: FC[k], label: k }; }),
       notes: ["The kinds of news are the six families of the Monitor's event types, and Other. Every item has one type.",

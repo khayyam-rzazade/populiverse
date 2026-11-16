@@ -106,32 +106,49 @@
   }
 
   // One issue of the Monitor, read from its own page, so that an item's
-  // reference is the one the issue itself gives under "Cite This Item".
+  // reference is the one the issue itself gives under "Cite This Item". A page
+  // that could not be fetched is asked for again the next time; an issue that
+  // is not on the site is remembered as not there.
   var issues = {};
-  function issueItem(folder, n) {
+  function issuePage(folder) {
     if (!issues[folder]) {
       issues[folder] = fetch(BASE + "../monitor/" + encodeURIComponent(folder) + "/index.html", { cache: "force-cache" })
-        .then(function (r) { return r.ok ? r.text() : null; })
-        .then(function (html) {
-          if (!html) return null;
-          // Read in a page of its own, which runs nothing and shows nothing.
-          return new DOMParser().parseFromString(html, "text/html");
-        }, function () { return null; });
+        .then(function (r) {
+          if (r.status === 404) return null;
+          if (!r.ok) throw new Error("issue");
+          return r.text().then(function (html) {
+            // Read in a page of its own, which runs nothing and shows nothing.
+            return new DOMParser().parseFromString(html, "text/html");
+          });
+        });
+      issues[folder].catch(function () { delete issues[folder]; });
     }
-    return issues[folder].then(function (doc) {
-      if (!doc) return null;
-      var el = doc.querySelector('[data-keep-kind="item"][data-keep-ref="' + folder + ":" + n + '"]');
-      if (!el) return null;
+    return issues[folder];
+  }
+
+  // { card } when the issue holds the item, { missing: true } when it does not,
+  // { failed: true } when its page could not be fetched just now.
+  function issueCard(folder, n) {
+    return issuePage(folder).then(function (doc) {
+      var ref = folder + ":" + n;
+      var el = doc && doc.querySelector('[data-keep-kind="item"][data-keep-ref="' + CSS.escape(ref) + '"]');
+      if (!el) return { missing: true };
       return {
-        kind: "item",
-        ref: folder + ":" + n,
-        title: el.getAttribute("data-keep-title") || "",
-        extra: el.getAttribute("data-keep-extra") || "",
-        url: el.getAttribute("data-keep-url") || "",
-        cite: el.getAttribute("data-keep-cite") || "",
-        bibtex: el.getAttribute("data-keep-bib") || ""
+        card: {
+          kind: "item",
+          ref: ref,
+          title: el.getAttribute("data-keep-title") || "",
+          extra: el.getAttribute("data-keep-extra") || "",
+          url: el.getAttribute("data-keep-url") || "",
+          cite: el.getAttribute("data-keep-cite") || "",
+          bibtex: el.getAttribute("data-keep-bib") || ""
+        }
       };
-    });
+    }, function () { return { failed: true }; });
+  }
+
+  function issueItem(folder, n) {
+    return issueCard(folder, n).then(function (x) { return x.card || null; });
   }
 
   // The short form of a thing, "Mudde 2004", and the cite in the text,
@@ -144,7 +161,13 @@
       var who = plainOf(card.cite || card.title || "").split(/[,.]/)[0].trim();
       return [who, card.year || ""].join(" ").trim() || card.ref || "";
     }
-    if (kind === "item") return "PopuliVerse " + String(card.extra || "").split(" · ")[0];
+    if (kind === "item") {
+      var where = String(card.extra || "").split(" · ")[0];
+      // An item saved from Events in Monitor before 2026-11-15 carries
+      // "2026/2, item 8": it is cited as its issue cites it.
+      if (/^\d{4}\/\d+, item /.test(where)) where = "Monitor " + where;
+      return "PopuliVerse " + where;
+    }
     return card.title || card.ref || "";
   }
   function shortOf(kind, card) {
@@ -412,15 +435,29 @@
 
   // The works of the shelf, or of one project, each with the reference the
   // Library holds and the reader's own note under it, as a Word file.
+  // A button says what is happening on itself, and comes back to its own
+  // label after a few seconds.
   function annotated(button, project) {
     var label = button.textContent;
     button.disabled = true;
     button.textContent = "Making the Word file…";
-    function back(words) {
+    bibliographyFile(project).then(function (words) {
       button.disabled = false;
-      button.textContent = words || label;
-      if (words) window.setTimeout(function () { button.textContent = label; }, 3000);
-    }
+      button.textContent = words;
+      window.setTimeout(function () { button.textContent = label; }, 3000);
+    });
+  }
+
+  // Makes the file and saves it. Always answers with the words to show:
+  // "Downloaded", or why it could not be made. It never leaves anything behind
+  // on the page (the live check before the trial, point 2b).
+  function bibliographyFile(project) {
+    return new Promise(function (answer) {
+      makeBibliography(project, answer);
+    });
+  }
+
+  function makeBibliography(project, back) {
     api("/api/write/bibliography" + (project ? "?project=" + encodeURIComponent(project) : "")).then(function (r) {
       if (!r.ok) return back(r.data.error || "Could not be made");
       var works = r.data.works || [];
@@ -635,13 +672,19 @@
         h("button", { class: "pv-button", type: "button", onclick: function () { newDraft(null); } }, "Start a Draft")));
     }
 
+    // "New Draft" opens a loose draft that nobody has written in yet, if there
+    // is one, rather than make one more, so that empty drafts never pile up
+    // (the live check before the trial, point 3).
     function newDraft(projectId) {
       flush().then(function () {
         state.open = null;
         clear(paper);
         add(paper, h("p", { class: "pv-lib-loading", text: "Starting a draft…" }));
+        var spare = projectId ? null : state.drafts.filter(function (d) { return d.blank && !d.project_id; })[0];
+        if (spare) return { reuse: spare.id };
         return api("/api/drafts", { method: "POST", body: { title: "", project_id: projectId || null } });
       }).then(function (r) {
+        if (r.reuse) return openDraft(r.reuse, true);
         // The project has its draft already: that one opens.
         if (r.status === 409 && r.data.draft) return load().then(function () { return openDraft(r.data.draft); });
         if (!r.ok) { clear(paper); add(paper, message(r.data.error || "A draft could not be made.", "error")); return; }
@@ -753,7 +796,10 @@
           d.title = sent.title;
           d.words = r.data.words;
           var item = state.drafts.filter(function (x) { return x.id === d.id; })[0];
-          if (item) { item.title = sent.title; item.words = r.data.words; item.updated_at = r.data.updated_at; }
+          if (item) {
+            item.title = sent.title; item.words = r.data.words; item.updated_at = r.data.updated_at;
+            item.blank = !sent.title && !r.data.words && !editor.figures().length;
+          }
           state.drafts.sort(function (a, b) { return a.updated_at < b.updated_at ? 1 : -1; });
           drawList();
           if (state.dirty) return flush();
@@ -797,28 +843,78 @@
       });
       if (fresh.length) {
         var ed = editor;
+        var later = function () {
+          if (again) return;
+          again = window.setTimeout(function () {
+            again = null;
+            if (editor && editor === ed) fetchCards(editor.cites());
+          }, 4000);
+        };
         var job = api("/api/write/cites", { method: "POST", body: { refs: fresh.map(function (c) { return { kind: c.kind, ref: c.ref }; }) } })
           .then(function (r) {
-            fresh.forEach(function (c) { delete onTheWay[keyOf(c)]; });
             if (!r.ok) {
-              if (!again) {
-                again = window.setTimeout(function () {
-                  again = null;
-                  if (editor && editor === ed) fetchCards(editor.cites());
-                }, 4000);
-              }
+              fresh.forEach(function (c) { delete onTheWay[keyOf(c)]; });
+              later();
               return;
             }
-            (r.data.things || []).forEach(function (t) { state.cards[keyOf(t)] = t; delete gone[keyOf(t)]; });
-            fresh.forEach(function (c) { if (!state.cards[keyOf(c)]) gone[keyOf(c)] = true; });
-            drawRefs(true);
-            // The line under the buttons can now say whether there is a note.
-            if (editor) editor.redrawCaret();
+            var got = r.data.things || [];
+            return Promise.all(got.map(withIssueCite)).then(function (things) {
+              fresh.forEach(function (c) { delete onTheWay[keyOf(c)]; });
+              var answered = {};
+              got.forEach(function (t) { answered[keyOf(t)] = true; });
+              things.forEach(function (t) {
+                if (!t) return;
+                state.cards[keyOf(t)] = t;
+                delete gone[keyOf(t)];
+              });
+              // Only what the server says is not on the shelf is gone; an item
+              // whose issue could not be read just now is asked for again.
+              fresh.forEach(function (c) { if (!answered[keyOf(c)]) gone[keyOf(c)] = true; });
+              if (things.some(function (t) { return !t; })) later();
+              drawRefs(true);
+              // The line under the buttons can now say whether there is a note.
+              if (editor) editor.redrawCaret();
+            });
+          })
+          .catch(function () {
+            // Anything unforeseen: these cites are simply asked for again.
+            fresh.forEach(function (c) { delete onTheWay[keyOf(c)]; });
+            later();
           });
         fresh.forEach(function (c) { onTheWay[keyOf(c)] = job; });
         waits.push(job);
       }
       return Promise.all(waits);
+    }
+
+    // A Monitor item saved where its reference was not given (Events in
+    // Monitor) takes the reference its own issue gives under "Cite This Item",
+    // and the shelf keeps it from then on, so that no item a draft cites is
+    // ever left out of the reference list. Gives back the card, or null when
+    // the issue could not be read just now.
+    function withIssueCite(t) {
+      if (t.kind !== "item" || t.cite) return Promise.resolve(t);
+      var m = /^(\d{4}-\d+):(\d+)$/.exec(t.ref || "");
+      if (!m) return Promise.resolve(t);
+      return issueCard(m[1], m[2]).then(function (x) {
+        if (x.failed) return null;
+        if (!x.card || !x.card.cite) return t;
+        // The reference, the line and the full address come from the issue. The
+        // title the reader saved the item under is left alone: a one-line entry
+        // saved on Events in Monitor keeps its own words instead of taking the
+        // sub-heading of the issue. The save sends no title, and the server
+        // keeps the title it already has (Fable's re-check of the trial fixes,
+        // point 4b).
+        var card = Object.assign({}, x.card);
+        delete card.title;
+        api("/api/keep", { method: "POST", body: card });
+        return Object.assign({}, t, {
+          extra: x.card.extra || t.extra,
+          url: x.card.url || t.url,
+          cite: x.card.cite,
+          bibtex: x.card.bibtex || t.bibtex
+        });
+      });
     }
 
     // True when every cite of the draft is answered or gone.
@@ -907,9 +1003,18 @@
 
     // ---------------------------------------------------------- a chart or table
 
+    // The list opens right under the row of buttons, where the reader pressed
+    // "Insert a Chart or Table", and is brought into view; on a long draft it
+    // used to open at the very foot of the page (the live check before the
+    // trial, point 3). The chart goes in where the caret was.
     function insertFigure(ed) {
+      var open = paper.querySelector(".pv-ws-figbox");
+      if (open) { open.parentNode.removeChild(open); return; }
       var list = Object.keys(state.figures).map(function (k) { return state.figures[k]; });
-      var box = h("div", { class: "pv-keep-box pv-ws-figbox" });
+      var box = h("div", { class: "pv-keep-box pv-ws-figbox", role: "dialog", "aria-label": "Insert a Chart or Table" });
+      box.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && box.parentNode) { box.parentNode.removeChild(box); ed.focus(); }
+      });
       add(box, h("p", { class: "pv-keep-lede", text: "Insert a Chart or Table" }));
       if (!list.length) {
         add(box, h("p", { text: "Nothing sent yet. On a Data page, under a chart, press Send to Write. The picture and its numbers are then fixed at that day." }),
@@ -947,7 +1052,12 @@
         add(box, ul);
       }
       add(box, h("p", { class: "pv-keep-row" }, h("button", { class: "pv-keep-b", type: "button", onclick: function () { box.parentNode.removeChild(box); } }, "Close")));
-      paper.appendChild(box);
+      var bar = ed.shell && ed.shell.querySelector(".pv-ed-bar");
+      if (bar && bar.parentNode) bar.parentNode.insertBefore(box, bar.nextSibling);
+      else paper.appendChild(box);
+      if (box.scrollIntoView) box.scrollIntoView({ block: "nearest" });
+      var first = box.querySelector("button, a");
+      if (first && first.focus) first.focus({ preventScroll: true });
     }
 
     // ------------------------------------------------------------- to Word
@@ -1037,10 +1147,11 @@
                 plural(c.cases, "case", "cases"),
                 plural(c.works, "work", "works"),
                 plural(c.items, "Monitor item", "Monitor items"),
+                c.charts ? plural(c.charts, "chart", "charts") : null,
                 plural(c.notes, "note", "notes"),
                 plural(c.pages, "page", "pages"),
                 c.draft ? plural(c.draft.words, "word in the draft", "words in the draft") : "no draft"
-              ].join(" · ") }))));
+              ].filter(Boolean).join(" · ") }))));
           });
           add(body, ul);
         }
@@ -1090,6 +1201,7 @@
       var cases = things.filter(function (t) { return t.kind === "actor" || t.kind === "country"; });
       var works = things.filter(function (t) { return t.kind === "work"; });
       var items = things.filter(function (t) { return t.kind === "item"; });
+      var charts = things.filter(function (t) { return t.kind === "chart"; });
       var notes = things.filter(function (t) { return t.note; });
 
       add(body,
@@ -1122,13 +1234,16 @@
       add(casePanel.foot, h("a", { class: "pv-lib-link", href: PAGES.home + "?kind=actor&addto=" + encodeURIComponent(p.id), text: "Add a Case from Your Shelf" }));
       add(grid, casePanel.el);
 
-      // Literature
+      // Literature: one short line a work, so that the panel stays short; the
+      // whole references are on the shelf and in the Annotated Bibliography
+      // (the live check before the trial, point 4).
       var litPanel = panel("Literature", plural(works.length, "work", "works"));
       add(litPanel.body, readingBar(d.reading || {}));
-      works.slice(0, 6).forEach(function (t) {
-        add(litPanel.body, reference(h("p", { class: "pv-ws-prow pv-ws-cite" }), t.cite || t.title));
+      works.slice(0, 5).forEach(function (t) {
+        var whole = plainOf(t.cite || t.title);
+        add(litPanel.body, h("p", { class: "pv-ws-prow pv-ws-lit", title: whole, text: cut(whole, 110) }));
       });
-      if (works.length > 6) add(litPanel.body, h("p", { class: "pv-ws-small", text: "and " + (works.length - 6) + " more" }));
+      if (works.length > 5) add(litPanel.body, h("p", { class: "pv-ws-small", text: "and " + (works.length - 5) + " more" }));
       add(litPanel.foot,
         h("a", { class: "pv-lib-link", href: PAGES.home + "?project=" + encodeURIComponent(p.id), text: "Open on Your Shelf" }),
         h("button", { class: "pv-lib-link", type: "button", onclick: function (e) { annotated(e.currentTarget, p.id); } }, "Annotated Bibliography"));
@@ -1136,6 +1251,26 @@
 
       // Events: the Monitor's items of the cases, the saved ones filled
       add(grid, eventsPanel(cases, items, data, p).el);
+
+      // Every Monitor item and chart put into the project, also those that
+      // name none of its cases (the live check before the trial, point 4).
+      var saved = items.concat(charts);
+      var savedPanel = panel("Monitor Items and Charts", String(saved.length));
+      if (!saved.length) {
+        add(savedPanel.body, h("p", { class: "pv-ws-small", text: "Add a Monitor item or a chart from your shelf, and it shows here." }));
+      }
+      saved.slice(0, 6).forEach(function (t) {
+        var name = cut(t.title || t.ref, 110);
+        var where = t.kind === "chart" ? "Chart" : String(t.extra || "").split(" \u00b7 ")[0] || "Monitor item";
+        add(savedPanel.body, h("div", { class: "pv-ws-prow" },
+          t.url ? h("a", { class: "pv-ws-prow-l", href: t.url, text: name }) : h("span", { class: "pv-ws-prow-l", text: name }),
+          h("span", { class: "pv-ws-small pv-ws-prow-l", text: where })));
+      });
+      if (saved.length > 6) add(savedPanel.body, h("p", { class: "pv-ws-small", text: "and " + (saved.length - 6) + " more" }));
+      add(savedPanel.foot, h("a", { class: "pv-lib-link",
+        href: PAGES.home + "?kind=" + (items.length || !charts.length ? "item" : "chart") + "&project=" + encodeURIComponent(p.id),
+        text: "Open on Your Shelf" }));
+      add(grid, savedPanel.el);
 
       // Notes
       var notePanel = panel("Notes", String(notes.length));
@@ -1318,18 +1453,28 @@
         h("p", { class: "pv-ws-small pv-ws-tools-foot", text: "More tools will come here. Each one also opens from inside a project." }));
     });
 
+    // Picking a project makes its file at once. One quiet line beside the
+    // picker says what is happening and then clears; the picker goes back to
+    // its first line, ready for the next pick (the live check before the
+    // trial, point 2b).
     function projectButton(list) {
       var box = h("select", { class: "pv-ws-pick-s", "aria-label": "From a project" });
       add(box, h("option", { value: "", text: "From a project…" }));
       list.forEach(function (p) { add(box, h("option", { value: p.id, text: p.title })); });
+      var said = h("span", { class: "pv-ws-small pv-ws-tool-said", "aria-live": "polite" });
       box.addEventListener("change", function () {
         if (!box.value) return;
-        var said = h("button", { class: "pv-lib-link", type: "button" }, "Making the Word file…");
-        box.parentNode.appendChild(said);
-        annotated(said, box.value);
-        box.selectedIndex = 0;
+        var id = box.value;
+        box.disabled = true;
+        said.textContent = "Making the Word file…";
+        bibliographyFile(id).then(function (words) {
+          box.disabled = false;
+          box.selectedIndex = 0;
+          said.textContent = words;
+          window.setTimeout(function () { if (said.textContent === words) said.textContent = ""; }, 3000);
+        });
       });
-      return box;
+      return h("span", { class: "pv-ws-pick-in" }, box, said);
     }
   }
 

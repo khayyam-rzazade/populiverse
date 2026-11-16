@@ -125,6 +125,11 @@ website:
       - icon: instagram
         href: "https://www.instagram.com/populiverse/"
         aria-label: "PopuliVerse on Instagram"
+      # The Researcher's Workspace. On a wide screen it stands at the right of
+      # the wordmark, beside the search, as Newsletter stands at its left; on a
+      # phone it is the line above Newsletter in the menu (edition.scss).
+      - text: "Workspace"
+        href: workspace/index.qmd
 
   # The strip at the bottom of every page.
   page-footer:

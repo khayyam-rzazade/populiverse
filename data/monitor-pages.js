@@ -392,11 +392,15 @@
       ui.tools.innerHTML = "";
       ui.tools.appendChild(tool("Download the list (CSV)", listCsv));
       ui.tools.appendChild(tool("Their items (CSV)", function () { itemsCsv("populiverse-monitor-items.csv", ITEMS.filter(function (it) { return list.some(function (a) { return it.actors.indexOf(a.id) >= 0; }); })); }));
-      if (S.view === "timeline" && list.length) {
+      var hasPicture = S.view === "timeline" && list.length > 0;
+      if (hasPicture) {
         ui.tools.appendChild(tool("Picture (PNG)", function (b) { PV.save.picture(b, "populiverse-actors-timeline", "png", figure); }));
         ui.tools.appendChild(tool("Picture (SVG)", function (b) { PV.save.picture(b, "populiverse-actors-timeline", "svg", figure); }));
-        PV.figureMaker(ui.tools, figure);
       }
+      // The cards, the table and a view that nothing fits have no picture of
+      // their own, so there the page forgets the timeline it drew before and
+      // "Send to Write" is not offered (Fable's re-check, point 3).
+      PV.figureMaker(ui.tools, hasPicture ? figure : null);
       ui.tools.appendChild(tool("Copy the link to this view", function (b) { PV.copy(window.location.href, b); }));
       shown = STEP;
       render();
@@ -458,12 +462,27 @@
       PV.save.csv("populiverse-actors-in-monitor.csv", rows);
     }
 
+    // The filters in use, short, for the title of the picture: a figure of a
+    // filtered view never carries the title of every actor (the live check
+    // before the trial, point 3). The period stands in the title already.
+    function titleFilters() {
+      var bits = [];
+      if (S.kind) bits.push(S.kind === "party" ? "Parties Only" : "Leaders Only");
+      if (S.region) bits.push("Region: " + (REG[S.region] || S.region));
+      if (S.country) bits.push("Country: " + (lands[S.country] || S.country));
+      if (S.power) bits.push({ any: "In Power Today", leads: "Leading the Government", partner: "Partner in Government", none: "Not in Government" }[S.power] || S.power);
+      if (S.src) bits.push("On the List by " + S.src);
+      if (S.fam) bits.push("Kind of News: " + S.fam);
+      if (S.q.trim()) bits.push("Search: \u201c" + S.q.trim() + "\u201d");
+      return bits.length ? " (" + bits.join("; ") + ")" : "";
+    }
+
     function figure() {
       var shown = list;
       return {
         host: host,
         chart: function (holder, w) { return timeline(holder, w, shown, true); },
-        title: "The Actors in PopuliVerse Monitor, " + span(),
+        title: "The Actors in PopuliVerse Monitor, " + span() + titleFilters(),
         lines: [plural(shown.length, "actor", "actors") + (shown.length < ACTORS.length ? " of " + ACTORS.length : "") + ", each with its items in the Monitor. The number at the end of a row is the count of its items."],
         legend: FAMS.map(function (k) { return { fill: FC[k], dot: true, label: k }; }),
         notes: ["The kinds of news are the six families of the Monitor's event types, and Other."],

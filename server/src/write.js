@@ -12,6 +12,7 @@
 import { json, readBody, now, webAddress, inGroups } from "./util.js";
 import { LIMITS } from "./lists.js";
 import { ownProject } from "./projects.js";
+import { fillSortNames } from "./keep.js";
 
 const KINDS = new Set(["work", "item", "actor", "country", "chart"]);
 const FORMATS = new Set(["bold", "italic", "header", "blockquote", "list"]);
@@ -165,7 +166,8 @@ export const write = {
 
   async list({ env, who }) {
     const { results } = await env.DB.prepare(
-      `SELECT d.id, d.title, d.words, d.project_id, d.created_at, d.updated_at, p.title AS project_title
+      `SELECT d.id, d.title, d.words, d.project_id, d.created_at, d.updated_at, p.title AS project_title,
+              (d.title = '' AND d.words = 0 AND instr(d.body, 'pvfigure') = 0) AS blank
          FROM draft d LEFT JOIN project p ON p.id = d.project_id AND p.user_id = d.user_id
         WHERE d.user_id = ? ORDER BY d.updated_at DESC LIMIT ?`
     )
@@ -384,6 +386,7 @@ export const write = {
       if (!p) return json({ error: "No such project." }, 404);
       title = p.title;
     }
+    await fillSortNames(env, who);
     const { results } = await env.DB.prepare(
       `SELECT k.ref, k.title, k.extra, k.url, k.year, k.cite, k.status, n.body AS note
          FROM kept k LEFT JOIN note n ON n.kept_id = k.id AND n.user_id = k.user_id
@@ -391,7 +394,7 @@ export const write = {
         (project
           ? " AND EXISTS (SELECT 1 FROM project_thing pt WHERE pt.kept_id = k.id AND pt.user_id = k.user_id AND pt.project_id = ?)"
           : "") +
-        " ORDER BY COALESCE(NULLIF(k.cite, ''), k.title) COLLATE NOCASE LIMIT 2000"
+        " ORDER BY k.sort_name, COALESCE(NULLIF(k.cite, ''), k.title) COLLATE NOCASE LIMIT 2000"
     )
       .bind(who.userId, ...(project ? [project] : []))
       .all();

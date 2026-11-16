@@ -9,6 +9,7 @@
 
 import { json, readBody, now } from "./util.js";
 import { LIMITS } from "./lists.js";
+import { fillSortNames } from "./keep.js";
 
 // Plain one-line text: control characters become spaces, runs of space become
 // one space, and anything longer than the limit is refused.
@@ -122,6 +123,7 @@ export const projects = {
   async get({ env, params, who }) {
     const p = await mine(env, who, params.id);
     if (!p) return json({ error: "No such project." }, 404);
+    await fillSortNames(env, who);
     const [things, pages, draft] = await Promise.all([
       env.DB.prepare(
         `SELECT k.kind, k.ref, k.title, k.extra, k.url, k.year, k.country, k.status, k.cite,
@@ -130,7 +132,7 @@ export const projects = {
            JOIN kept k ON k.id = pt.kept_id AND k.user_id = pt.user_id
            LEFT JOIN note n ON n.kept_id = k.id AND n.user_id = k.user_id
           WHERE pt.user_id = ? AND pt.project_id = ?
-          ORDER BY k.kind, k.title COLLATE NOCASE
+          ORDER BY k.kind, k.sort_name, k.title COLLATE NOCASE
           LIMIT ?`
       )
         .bind(who.userId, p.id, LIMITS.thingsPerProject)

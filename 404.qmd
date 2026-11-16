@@ -1,0 +1,19 @@
+---
+title: "Page Not Found"
+description: "There is no page at this address on PopuliVerse."
+search: false
+google-scholar: false
+citation: false
+# GitHub Pages shows this page for any address of the site that has no page,
+# in place of GitHub's own (the live check before the trial, point 5). Quarto
+# writes its links from the top of the site, so they work at any address. It is
+# kept out of Google and out of sitemap.xml (scripts/finish_site.py).
+format:
+  html:
+    include-in-header:
+      text: '<meta name="robots" content="noindex, follow">'
+---
+
+It may have moved, or a letter may be wrong.
+
+[Home](index.qmd) · [Library](library/index.qmd) · [Monitor](monitor/index.qmd) · [Data](data/index.qmd)

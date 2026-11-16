@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Two last touches to the built site, run by Quarto after every render.
 
-1. sitemap.xml: the two newsletter pages and the Workspace's pages are taken
-   out. The newsletter pages only make sense straight after someone signs up,
+1. sitemap.xml: the two newsletter pages, the Workspace's pages and the page
+   for an address that does not exist (404.html) are taken out. The newsletter pages only make sense straight after someone signs up,
    and a search result that lands a stranger on "You're Subscribed" helps
    nobody. The Workspace's pages are personal. All of them also carry a noindex
    tag of their own, set in their .qmd files; this keeps them out of the list we
@@ -18,10 +18,20 @@
    year, the reference the Library holds, and its address. Nothing is written
    here that the Library does not already hold.
 
+4. Every script and style sheet of the site's own gets a fingerprint of its
+   content in its address: "keep.js" becomes "keep.js?v=1a2b3c4d5e". GitHub
+   Pages keeps a file for ten minutes in a reader's browser and cannot be told
+   otherwise, so a page could meet an old script for that long after a push.
+   With the fingerprint, a changed file has a new address and is fetched fresh
+   at once; an unchanged file keeps its address and stays in the browser (the
+   live check before the trial, point 2a). Files of other sites are not
+   touched, and neither is any address that already has a "?".
+
 Nothing else in _site is touched. If a file is missing the script says so and
-lets the build carry on: neither change is worth failing a deploy over.
+lets the build carry on: none of these changes is worth failing a deploy over.
 """
 
+import hashlib
 import json
 import os
 import re
@@ -32,7 +42,7 @@ OUT = os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", "_site")
 # Pages kept out of sitemap.xml, as they appear in the built site. The
 # Workspace's pages are personal and closed until the trial; they also carry a
 # noindex tag of their own.
-HIDE = ("/newsletter/thanks.html", "/newsletter/confirmed.html",
+HIDE = ("/404.html", "/newsletter/thanks.html", "/newsletter/confirmed.html",
         "/workspace/", "/workspace/index.html", "/workspace/notes.html",
         "/workspace/notebook.html", "/workspace/write.html", "/workspace/projects.html",
         "/workspace/tools.html", "/workspace/account.html", "/workspace/desk.html")
@@ -96,6 +106,58 @@ def write_library_cite():
     print("finish_site: library-cite.json written with %d works." % len(works))
 
 
+# A <script src="..."> or a <link href="..."> of a file on this site, with no
+# "?" or "#" in its address yet.
+OWN_FILE = re.compile(
+    r'(<(?:script|link)\b[^>]*?\b(?:src|href)=")([^"?#:]+\.(?:js|css))(")', re.I)
+
+
+def stamp_files():
+    """Puts each own script's and style sheet's fingerprint in its address."""
+    root = os.path.abspath(OUT)
+    prints = {}
+    missing = set()
+    pages = stamped = 0
+
+    def fingerprint(path):
+        if path not in prints:
+            with open(path, "rb") as f:
+                prints[path] = hashlib.sha256(f.read()).hexdigest()[:10]
+        return prints[path]
+
+    for folder, _dirs, files in os.walk(root):
+        for name in files:
+            if not name.endswith(".html"):
+                continue
+            page = os.path.join(folder, name)
+            with open(page, encoding="utf-8") as f:
+                html = f.read()
+
+            def stamp(m):
+                nonlocal stamped
+                address = m.group(2)
+                if address.startswith("//"):
+                    return m.group(0)
+                if address.startswith("/"):
+                    target = os.path.normpath(os.path.join(root, address.lstrip("/")))
+                else:
+                    target = os.path.normpath(os.path.join(folder, address))
+                if not target.startswith(root + os.sep) or not os.path.isfile(target):
+                    missing.add(address)
+                    return m.group(0)
+                stamped += 1
+                return m.group(1) + address + "?v=" + fingerprint(target) + m.group(3)
+
+            changed = OWN_FILE.sub(stamp, html)
+            if changed != html:
+                with open(page, "w", encoding="utf-8") as f:
+                    f.write(changed)
+                pages += 1
+    print("finish_site: %d addresses in %d pages now carry the fingerprint of their file." % (stamped, pages))
+    if missing:
+        print("finish_site: not found, so left as they were: %s" % ", ".join(sorted(missing)))
+
+
 if __name__ == "__main__":
     if not os.path.isdir(OUT):
         print("finish_site: %s is not there, nothing to do." % OUT)
@@ -106,3 +168,7 @@ if __name__ == "__main__":
         write_library_cite()
     except Exception as err:  # a build is not worth failing over this
         print("finish_site: library-cite.json could not be written (%s)." % err)
+    try:
+        stamp_files()
+    except Exception as err:  # a build is not worth failing over this
+        print("finish_site: the fingerprints could not be added (%s)." % err)

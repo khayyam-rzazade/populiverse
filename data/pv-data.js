@@ -202,8 +202,16 @@
   // Tells keep.js that this chart can be sent to Write. `make` is the same
   // description of the picture that the page already hands to PV.save.picture,
   // so what reaches a draft is the picture the page itself draws (batch 3).
+  // Called with nothing, it forgets the picture the page drew before, so that a
+  // view with no picture of its own never sends an older one under the title of
+  // the filters now on screen (Fable's re-check of the trial fixes, point 3).
   PV.figureMaker = function (tools, make) {
     if (!tools) return tools;
+    if (typeof make !== "function") {
+      delete tools.__pvFigure;
+      tools.removeAttribute("data-keep-figure");
+      return tools;
+    }
     tools.__pvFigure = make;
     tools.setAttribute("data-keep-figure", "");
     return tools;

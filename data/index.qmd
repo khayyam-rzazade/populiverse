@@ -1,0 +1,26 @@
+---
+title: "Data"
+description: "The data pages of PopuliVerse: who counts as populist, populists in power, and the actors, countries and events of PopuliVerse Monitor."
+google-scholar: false
+citation: false
+# The folder /data/ itself had no page, so its address answered with an error
+# (the live check before the trial, point 5). This page lists the five pages of
+# the Data menu, each in the words of its own description.
+---
+
+::: {.pv-prose}
+**[Who Counts as Populist?](who-counts.qmd)**\
+What four research datasets say about who is populist, party by party and leader by leader, each in its own words.
+
+**[Populists in Power](in-power.qmd)**\
+Where populists govern and since when, from 1990 to today, from research datasets and Populi*Verse* Monitor.
+
+**[Actors in Monitor](../actors/index.qmd)**\
+The populist actors in Populi*Verse* Monitor: why each is on the list, what the datasets say and what the Monitor reported.
+
+**[Countries in Monitor](../countries/index.qmd)**\
+The countries in Populi*Verse* Monitor: the actors followed in each, who holds power today and what the Monitor reported.
+
+**[Events in Monitor](events.qmd)**\
+Every item of Populi*Verse* Monitor as a dataset. Filter the items, see them by month or by kind of news, download them and cite them.
+:::

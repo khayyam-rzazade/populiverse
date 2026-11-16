@@ -3,7 +3,7 @@ title: "Privacy"
 description: "What personal data PopuliVerse handles, and what it does not."
 ---
 
-Last updated: 13 November 2026
+Last updated: 16 November 2026
 
 PopuliVerse collects as little personal data as it can. Reading the site needs no account. There is no comments section and no advertising.
 
@@ -39,7 +39,7 @@ The Workspace is a place of your own on the site. Using it is up to you. You can
 
 **One cookie.** When you sign in, or start as a guest, the Workspace sets one cookie that keeps you signed in. It holds a random key and nothing about you. It lasts 30 days after your last visit. The Workspace cannot work without it, so there is no cookie banner. While you sign in with ORCID, a second cookie lives for five minutes.
 
-**One mark in your browser.** Signing in also leaves one plain mark in that browser, so that the pages of the site know to show Save and Note. It says that someone is signed in here, and nothing else. Signing out takes it away. While it is not there, no page of the site asks the Workspace anything.
+**Marks in your browser.** Signing in also leaves one plain mark in that browser, so that the pages of the site know to show Save and Note. It says that someone is signed in here, and nothing else. Signing out takes it away. While it is not there, no page of the site asks the Workspace anything. Opening the Workspace leaves a second plain mark saying that the Workspace is open to everyone, which is how the other pages of the site know they can offer Save and Note before you sign in. If you hide the note at the top of the Workspace, that browser keeps a third mark so the note stays hidden. Neither of them says anything about you.
 
 **The newsletter box.** If you tick it when you sign up, your email and name go to Sender for the newsletter (see below). The box is never ticked for you.
 
