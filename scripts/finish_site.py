@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Two last touches to the built site, run by Quarto after every render.
 
-1. sitemap.xml: the two newsletter pages, the Workspace's pages and the page
+1. sitemap.xml: the two newsletter pages, the Workspace's own pages (not its
+   front door) and the page
    for an address that does not exist (404.html) are taken out. The newsletter pages only make sense straight after someone signs up,
    and a search result that lands a stranger on "You're Subscribed" helps
    nobody. The Workspace's pages are personal. All of them also carry a noindex
@@ -40,10 +41,11 @@ import sys
 OUT = os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", "_site")
 
 # Pages kept out of sitemap.xml, as they appear in the built site. The
-# Workspace's pages are personal and closed until the trial; they also carry a
-# noindex tag of their own.
+# Workspace's own pages show nothing without a sign-in; they also carry a
+# noindex tag of their own. Its front door, /workspace/, is listed since the
+# opening (the wrap-up before the opening, Part D).
 HIDE = ("/404.html", "/newsletter/thanks.html", "/newsletter/confirmed.html",
-        "/workspace/", "/workspace/index.html", "/workspace/notes.html",
+        "/workspace/notes.html",
         "/workspace/notebook.html", "/workspace/write.html", "/workspace/projects.html",
         "/workspace/tools.html", "/workspace/account.html", "/workspace/desk.html")
 

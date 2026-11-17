@@ -24,6 +24,12 @@ image-alt: "PopuliVerse: The Universe of Populism"
 # motion. Until then, and with no JavaScript at all, the still stands in its
 # place (see .pv-guide-film in edition.scss). A film that plays by itself and
 # never ends needs a way to stop it, so a small button under it pauses it.
+#
+# Under the five steps, "Also in Your Workspace" shows three more things, each
+# one picture and one line, with no number (the wrap-up before the opening,
+# Part C). Pictures 2 and 3 were taken again on 17 November 2026, when the
+# shelf had gained Abstract and the project its Tools panel; 1, 4 and 5 and the
+# film still matched the screens.
 resources:
   - guide/
 ---
@@ -88,15 +94,15 @@ The Workspace is your own place on Populi*Verse*.
   </li>
   <li>
     <figure>
-      <img src="guide/step-2-note.webp" width="1720" height="978" loading="lazy" decoding="async"
+      <img src="guide/step-2-note.webp" width="1710" height="960" loading="lazy" decoding="async"
            alt="A saved work on the shelf of the Workspace with its note box open. A note about the AfD and defence votes is typed in the box, with a Save Note button under it.">
       <figcaption>Add a note to it.</figcaption>
     </figure>
   </li>
   <li>
     <figure>
-      <img src="guide/step-3-project.webp" width="1800" height="2347" loading="lazy" decoding="async"
-           alt="A project in the Workspace, under the board of the six tools. It is called Populism and Defence Policy, and its panels hold the question, three works under Literature, three things under Monitor Items and Charts, and one note.">
+      <img src="guide/step-3-project.webp" width="1800" height="2384" loading="lazy" decoding="async"
+           alt="A project in the Workspace, under the board of the six tools. It is called Populism and Defence Policy, and its panels hold the question, three works under Literature, the four tools, three things under Monitor Items and Charts, and one note.">
       <figcaption>Put it in a project.</figcaption>
     </figure>
   </li>
@@ -115,6 +121,34 @@ The Workspace is your own place on Populi*Verse*.
     </figure>
   </li>
 </ol>
+```
+
+## Also in Your Workspace
+
+```{=html}
+<ul class="pv-guide-steps pv-guide-also" role="list">
+  <li>
+    <figure>
+      <img src="guide/also-new.webp" width="1200" height="583" loading="lazy" decoding="async"
+           alt="What Is New in the Workspace. Four items of PopuliVerse Monitor 2026/2 on Recep Tayyip Erdoğan and on Italy, each with its number and date.">
+      <figcaption>Save an actor or a country, and see what is new on it.</figcaption>
+    </figure>
+  </li>
+  <li>
+    <figure>
+      <img src="guide/also-tools.webp" width="1200" height="926" loading="lazy" decoding="async"
+           alt="The Tools tab of the Workspace with four tools, Annotated Bibliography, Case Selection, Chronology Maker and Case File, each with one line on what it does.">
+      <figcaption>Choose cases, build a chronology or make a case file with the tools.</figcaption>
+    </figure>
+  </li>
+  <li>
+    <figure>
+      <img src="guide/also-email.webp" width="1200" height="200" loading="lazy" decoding="async"
+           alt="The Email of What Is New on the account page, with its box ticked.">
+      <figcaption>Get an email when a new Monitor issue has something on what you follow.</figcaption>
+    </figure>
+  </li>
+</ul>
 ```
 
 ::: {.pv-guide-open}

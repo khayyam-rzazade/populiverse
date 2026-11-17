@@ -186,8 +186,14 @@
     if (!status) return VIEW === "shelf" ? preview() : previewOther();
     // The library answers "no session" without an error; only then ask for more.
     return api("/api/auth/get-session").then(function (s) {
+      // "Too many" is not "nobody": a network that asked too often in one
+      // minute is told so, and is not shown the sign-in doors as if the work
+      // were gone (Fable's check of the wrap-up, S1).
+      if (s.status === 429) return { status: 429, data: {} };
       return s.ok && s.data && s.data.user ? api("/api/me") : { status: 401, data: {} };
     }).then(function (r) {
+      // The marks of this browser stay as they are: nothing was learnt.
+      if (r.status === 429) return show(message("The Workspace is busy just now. Please reload in a moment.", "error"));
       var me = r.status === 200 ? r.data : null;
       remember(!!me, !!status.open);
       if (VIEW === "desk") {
@@ -256,7 +262,7 @@
   function doorsBlock(open, inert, orcidRefused) {
     var wrap = h("div", { class: "pv-ws-doors-wrap" });
     add(wrap, h("p", { class: "pv-ws-lede" },
-      "Your own place on ", pv(), ". Save a work, a Monitor item, an actor, a country or a chart, write a note on any of them, keep a notebook, and write a draft that cites them. A project holds it all in one view."));
+      "Your own place on ", pv(), ". Save what you read, add your notes, and write a draft that cites it. See what is new on the actors and countries you follow, and use tools that help you choose cases, build a chronology and make a bibliography."));
     if (!open && !inert) {
       add(wrap, message("The workspace is open by invitation for now. If you were invited, use the email the invitation went to."));
     }
@@ -301,7 +307,7 @@
       err.textContent = "";
       api("/api/auth/email-otp/send-verification-otp", { method: "POST", body: { email: email, type: "sign-in" } }).then(function (r) {
         btn.disabled = false;
-        if (r.status === 429) { err.textContent = "Too many codes asked for. Please try again later."; return; }
+        if (r.status === 429) { err.textContent = tooMany(r, "Too many codes were asked from your network in the last few minutes. Please wait a few minutes and try again."); return; }
         if (!r.ok) { err.textContent = r.data.error || r.data.message || "That did not work. Please try again."; return; }
         codeStep(box, email);
       });
@@ -325,7 +331,7 @@
       api("/api/auth/sign-in/email-otp", { method: "POST", body: { email: email, otp: code } }).then(function (r) {
         btn.disabled = false;
         if (r.ok) { location.href = PAGES.home; return; }
-        if (r.status === 429) err.textContent = "Too many tries. Please wait a few minutes, then ask for a new code.";
+        if (r.status === 429) err.textContent = tooMany(r, "Too many sign-ins were tried from your network in the last few minutes. Please wait a few minutes and try again.");
         else err.textContent = "That code did not work. It may be wrong, used or older than 10 minutes. Try again, or ask for a new one.";
         input.select();
       });
@@ -338,7 +344,7 @@
       h("p", { class: "pv-ws-small" },
         h("button", { class: "pv-lib-link", type: "button", onclick: function () {
           api("/api/auth/email-otp/send-verification-otp", { method: "POST", body: { email: email, type: "sign-in" } }).then(function (r) {
-            err.textContent = r.ok ? "A new code is on its way." : r.status === 429 ? "Too many codes asked for. Please try again later." : "That did not work.";
+            err.textContent = r.ok ? "A new code is on its way." : r.status === 429 ? tooMany(r, "Too many codes were asked from your network in the last few minutes. Please wait a few minutes and try again.") : "That did not work.";
           });
         } }, "Send a new code"),
         " · ",
@@ -354,19 +360,30 @@
       provider: "orcid", callbackURL: HERE + PAGES.home, errorCallbackURL: HERE + PAGES.home + "?orcid=no"
     } }).then(function (r) {
       if (r.ok && r.data.url) location.href = r.data.url;
-      else alertBox(r.data.error || "ORCID could not be reached. Please try again.");
+      else alertBox(r.status === 429 ? tooMany(r, "Too many people started with ORCID from your network in the last few minutes. Please wait a few minutes and try again.") : r.data.error || "ORCID could not be reached. Please try again.");
     });
   }
 
   function startGuest() {
     api("/api/auth/sign-in/anonymous", { method: "POST", body: {} }).then(function (r) {
       if (r.ok) location.href = PAGES.home;
-      else alertBox(r.status === 429 ? "Too many guests from here. Please try again later." : "The guest door is closed for now.");
+      else alertBox(r.status === 429 ? tooMany(r, "Too many people started as guests from your network in the last hour. Please try again later, or sign in with your email.") : "The guest door is closed for now.");
     });
   }
 
+  // The message stands at the top of the page, and is brought into view, so
+  // that a reader who pressed a button at the foot of a phone's screen sees it.
   function alertBox(text) {
-    app.insertBefore(message(text, "error"), app.firstChild);
+    var box = message(text, "error");
+    app.insertBefore(box, app.firstChild);
+    if (box.scrollIntoView) box.scrollIntoView({ block: "center" });
+  }
+
+  // The words when a limit is met (the wrap-up before the opening, Part B).
+  // The server's own counter for one email gives its own sentence; the limit
+  // by internet address, which a whole room shares, is said here plainly.
+  function tooMany(r, network) {
+    return r.data && r.data.error ? r.data.error : network;
   }
 
   // ------------------------------------------------------------ The account form
@@ -970,7 +987,7 @@
               provider: "orcid", callbackURL: HERE + PAGES.account + "?orcid=yes", errorCallbackURL: HERE + PAGES.account + "?orcid=no"
             } }).then(function (r) {
               if (r.ok && r.data.url) location.href = r.data.url;
-              else alertBox("ORCID could not be reached. Please try again.");
+              else alertBox(r.status === 429 ? tooMany(r, "Too many people connected ORCID from your network in the last few minutes. Please wait a few minutes and try again.") : "ORCID could not be reached. Please try again.");
             });
           } }, "Connect ORCID")]),
       section("Email of What Is New", [
@@ -1140,7 +1157,21 @@
     // Home stands there too (batch 5, Part B): what is new for what the reader
     // follows, above the shelf, under the board of the six tools.
     var top = first ? [homeBlock(me), cardDue(me) ? feedbackCard(me) : null] : null;
-    show(head(me, "shelf"), top, adding, kindsNav, ui.bar, ui.body);
+    // A new account's first arrival, straight after "Finish": one line on where
+    // to start, then the address is tidied so that a reload does not show it
+    // again. The Notebook drew this line when it was the first page; since
+    // batch 2 the shelf is, so it stands here (the wrap-up before the opening,
+    // Part A).
+    var welcome = null;
+    if (params.get("welcome")) {
+      if (!me.guest) welcome = h("div", { class: "pv-ws-note pv-ws-welcome", role: "status" },
+        "Your account is ready. Start in the ", h("a", { href: BASE + "../library/index.html" }, "Library"),
+        ", where Save keeps a work here, or read ", h("a", { href: PAGES.guide }, "How to Use Your Workspace"),
+        ". You can connect ORCID on your ", h("a", { href: PAGES.account }, "account page"),
+        ", so that next time ORCID is enough.");
+      try { history.replaceState(null, "", PAGES.home); } catch (e) { /* the line still shows */ }
+    }
+    show(head(me, "shelf"), welcome, top, adding, kindsNav, ui.bar, ui.body);
     projects().then(function () {
       var into = state.addto ? myProjects.filter(function (p) { return p.id === state.addto; })[0] : null;
       if (state.addto && !into) state.addto = "";

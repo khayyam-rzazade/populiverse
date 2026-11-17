@@ -100,7 +100,7 @@ async function handle(request, env, ctx) {
       if (!body || body.type !== "sign-in") return withCors(json({ error: "Not found." }, 404), env, origin);
       if (typeof body.email !== "string") return withCors(json({ error: "Please give a full email address." }, 400), env, origin);
       taken = await takeCode(env, body.email);
-      if (!taken) return withCors(json({ error: "Too many codes were asked for this address. Please try again later." }, 429), env, origin);
+      if (!taken) return withCors(json({ error: "Too many codes were asked for this email. Please try again later." }, 429), env, origin);
     }
     // The sign-in door takes the email and the code only, and refuses a
     // request with anything else (Fable's review, fix e).

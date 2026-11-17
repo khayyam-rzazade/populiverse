@@ -829,6 +829,21 @@ footer.footer .nav-footer::before {
   text-align: center;
 }
 
+// The short part on the Workspace (the wrap-up before the opening, Part E):
+// the button and the guide's link side by side, one under the other on a phone.
+.pv-section-intro.pv-workspace-intro {
+  margin-bottom: 0;
+}
+
+.pv-workspace-intro p:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin-bottom: 0;
+}
+
 // The row of figures under the Library's sentence on Home (library/_figures.md,
 // written by the nightly sync): quiet, a little smaller than the text.
 .pv-figures {
@@ -6198,6 +6213,12 @@ a.pv-cite,
 
 .pv-guide-open {
   margin: 0 0 4rem;
+}
+
+// "Also in Your Workspace", under the five steps: three more things, each one
+// picture and one line, with no number (the wrap-up before the opening, Part C).
+.pv-guide-also figcaption::before {
+  content: none;
 }
 
 // The quiet line under the board of the six tools that leads to this page. It

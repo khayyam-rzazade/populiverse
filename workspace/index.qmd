@@ -5,14 +5,17 @@ body-classes: pv-data pv-ws
 search: false
 google-scholar: false
 citation: false
-# The Researcher's Workspace (master plan, section 18, stage 2). Closed until the
-# trial: not in the menu, not for search engines. The page talks to the server
-# at api.populiverse.com (folder server/ of the repository). Signed out it shows
-# the three doors; signed in it shows the shelf. On the editor's Mac the preview
-# shows the pages, and says that sign-in works on populiverse.com.
-# No title above the tabs (the row of 2026-11-13 on the mockup, point 6).
-include-in-header:
-  - text: '<meta name="robots" content="noindex, nofollow">'
+description: "The PopuliVerse Workspace. Save works and Monitor items, add your notes, write drafts that cite them, follow populist actors and countries, and use tools for case studies."
+# The Researcher's Workspace (master plan, section 18, stage 2). The page talks
+# to the server at api.populiverse.com (folder server/ of the repository).
+# Signed out it shows the three doors; signed in it shows the shelf. On the
+# editor's Mac the preview shows the pages, and says that sign-in works on
+# populiverse.com. No title above the tabs (the row of 2026-11-13 on the
+# mockup, point 6).
+# For the opening this front door is open to search engines: it has a
+# description, no noindex, and it stands in the sitemap. The other seven pages
+# of the Workspace show nothing without a sign-in, so they stay hidden (the
+# wrap-up before the opening, Part D).
 resources:
   - workspace.js
   - write.js

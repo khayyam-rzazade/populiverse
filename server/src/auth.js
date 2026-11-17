@@ -59,17 +59,28 @@ export function createAuth(env) {
       }
     },
 
+    // The limits by internet address. A seminar room, a conference hall or a
+    // university can sit behind one address, so these are wide enough for a
+    // room: 30 codes and 60 tries in 10 minutes, 20 guests an hour, 30 starts
+    // with ORCID in 10 minutes (the wrap-up before the opening, Part B; before
+    // it, the sixth person in a room was stopped). Guessing is no easier: each
+    // email keeps its own counter of codes (counter.js: 5 an hour, 10 a day),
+    // and a code dies after 3 wrong tries. The question "am I signed in?",
+    // which every page of the Workspace asks once, guesses nothing, so a room
+    // may ask it 600 times a minute; at the 60 of every other door, a busy room
+    // would see the sign-in doors in place of its own work.
     rateLimit: {
       enabled: true,
       storage: "database",
       window: 60,
       max: 60,
       customRules: {
-        "/email-otp/send-verification-otp": { window: 10 * MINUTE, max: 5 },
-        "/sign-in/email-otp": { window: 10 * MINUTE, max: 10 },
-        "/sign-in/anonymous": { window: 60 * MINUTE, max: 10 },
-        "/sign-in/social": { window: 10 * MINUTE, max: 10 },
-        "/link-social": { window: 10 * MINUTE, max: 10 }
+        "/email-otp/send-verification-otp": { window: 10 * MINUTE, max: 30 },
+        "/sign-in/email-otp": { window: 10 * MINUTE, max: 60 },
+        "/sign-in/anonymous": { window: 60 * MINUTE, max: 20 },
+        "/sign-in/social": { window: 10 * MINUTE, max: 30 },
+        "/link-social": { window: 10 * MINUTE, max: 30 },
+        "/get-session": { window: MINUTE, max: 600 }
       }
     },
 

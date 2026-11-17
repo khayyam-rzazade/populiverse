@@ -179,6 +179,23 @@ The first issue, 2026/1, is planned for December 2026.
 
 :::
 
+<!-- ============================ Workspace ============================ -->
+<!-- A short part for the opening of the Workspace (the wrap-up before the
+     opening, Part E). The fuller part on all the functions of the site comes
+     at the end of the developments. -->
+
+::: {.pv-section}
+
+::: {.pv-section-intro .pv-workspace-intro}
+## The Workspace
+
+Your own place on PopuliVerse. Save works and Monitor items, add your notes, write a draft that cites them, and see what is new on the actors and countries you follow.
+
+[Open the Workspace](workspace/index.qmd){.pv-button} [How to Use Your Workspace](workspace/guide.qmd)
+:::
+
+:::
+
 <!-- ============================ Newsletter ============================ -->
 
 ::: {.pv-section .pv-newsletter}

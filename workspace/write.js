@@ -210,9 +210,10 @@
 
   // A draft, cut into paragraphs. The editor keeps a page as a list of pieces,
   // where the format of a paragraph sits on its line break.
-  function paragraphs(delta) {
+  function paragraphs(delta, letters) {
     var out = [];
     var runs = [];
+    letters = letters || {};
     (delta.ops || []).forEach(function (op) {
       if (op.insert && op.insert.pvfigure) {
         if (runs.length) { out.push({ runs: runs, block: {} }); runs = []; }
@@ -220,7 +221,8 @@
         return;
       }
       if (op.insert && op.insert.pvcite) {
-        runs.push({ text: op.insert.pvcite.text, cite: op.insert.pvcite });
+        var c = op.insert.pvcite;
+        runs.push({ text: window.PVEditor.citeWithLetter(c.text, letters[c.kind + "\u0000" + c.ref]), cite: c });
         return;
       }
       if (typeof op.insert !== "string") return;
@@ -262,7 +264,8 @@
         missing: !card,
         label: c.text,
         url: card ? card.url : c.url,
-        bibtex: card ? card.bibtex : ""
+        bibtex: card ? card.bibtex : "",
+        short: card && c.kind === "work" ? shortName("work", card) : ""
       });
     });
     var seen = {};
@@ -273,6 +276,49 @@
       out.push({ kind: "chart", ref: id, text: f.cite, missing: false, label: f.title, url: f.url, bibtex: "" });
     });
     out.sort(function (a, b) { return plainOf(a.text || a.label).localeCompare(plainOf(b.text || b.label), "en"); });
+    letter(out);
+    return out;
+  }
+
+  // Two works of one author and one year in one draft are told apart as
+  // Chicago author-date tells them: 2019a and 2019b, in the order of the
+  // reference list, in the cites in the text, in the reference list and in the
+  // Word file (the wrap-up before the opening, Part F). The letter is worked
+  // out each time the draft is drawn and is never stored, so a work has no
+  // letter where it stands alone. In the reference it goes after the year that
+  // follows the authors; where that one place cannot be found safely, or the
+  // cite in the text does not end in its year, the work keeps no letter. All
+  // 625 works of the Library that share author and year with another have
+  // that place (checked on 17 November 2026).
+  function yearEnd(ref, year) {
+    var m = /^([^“”"<>]*?\.) (\d{4})\.(?=\s|$)/.exec(ref || "");
+    if (!m || m[2] !== year) return -1;
+    var all = (String(ref).match(new RegExp("\\. " + year + "\\.(?=\\s|$)", "g")) || []).length;
+    return all === 1 ? m[1].length + 1 + year.length : -1;
+  }
+  function letter(refs) {
+    var groups = {};
+    refs.forEach(function (r) {
+      if (r.kind !== "work" || r.missing || !r.short) return;
+      (groups[r.short] = groups[r.short] || []).push(r);
+    });
+    Object.keys(groups).forEach(function (k) {
+      var g = groups[k];
+      if (g.length < 2 || g.length > 26) return;
+      var year = (/(\d{4})$/.exec(k) || [])[1];
+      g.forEach(function (r, i) {
+        var at = year ? yearEnd(r.text, year) : -1;
+        var l = String.fromCharCode(97 + i);
+        if (at < 0 || window.PVEditor.citeWithLetter(r.label, l) === r.label) return;
+        r.letter = l;
+        r.text = r.text.slice(0, at) + l + r.text.slice(at);
+      });
+    });
+  }
+  // The letters of a draft, by cite, for the text on screen and in Word.
+  function lettersOf(refs) {
+    var out = {};
+    refs.forEach(function (r) { if (r.letter) out[r.kind + "\u0000" + r.ref] = r.letter; });
     return out;
   }
 
@@ -927,6 +973,7 @@
       var cites = editor.cites();
       if (!quiet) fetchCards(cites);
       var refs = referencesOf(editor, state.cards, state.figures, gone);
+      editor.setLetters(lettersOf(refs));
       clear(refsEl);
       countEl.textContent =
         plural(editor.count(), "word", "words") +
@@ -1087,10 +1134,11 @@
         if (!ready) throw new Error("references");
         return withDocx();
       }).then(function (docx) {
+        var refs = referencesOf(editor, state.cards, state.figures, gone);
         var doc = wordDoc(docx, {
           title: titleEl.value || "Untitled",
-          blocks: paragraphs(editor.delta()),
-          references: referencesOf(editor, state.cards, state.figures, gone),
+          blocks: paragraphs(editor.delta(), lettersOf(refs)),
+          references: refs,
           figures: state.figures,
           foot: "Written in the PopuliVerse Workspace. populiverse.com"
         });

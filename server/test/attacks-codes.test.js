@@ -66,8 +66,12 @@ describe("Attacks on the sign-in codes", () => {
     const b = new Browser(makeWorld());
     await b.askCode("ada@example.org");
     const statuses = [];
-    for (let i = 0; i < 12; i++) statuses.push((await b.useCode("ada@example.org", String(100000 + i))).status);
+    // One address may try 60 times in 10 minutes since the limits were made
+    // wide enough for a room (the wrap-up before the opening, Part B); the code
+    // itself died after its third wrong try long before that.
+    for (let i = 0; i < 70; i++) statuses.push((await b.useCode("ada@example.org", String(100000 + i))).status);
     expect(statuses).toContain(429);
+    expect(statuses).not.toContain(200);
   });
 });
 

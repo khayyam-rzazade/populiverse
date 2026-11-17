@@ -39,6 +39,17 @@
     return /^https?:\/\//i.test(clean) ? clean : "";
   }
 
+  // A cite with its letter, "(Mudde 2004a)", when two works of one author and
+  // one year stand in one draft (the wrap-up before the opening, Part F). The
+  // letter goes after the year that ends the cite; a cite that does not end in
+  // a year keeps its words as they are. Only what is shown changes: the draft
+  // itself never keeps a letter.
+  function citeWithLetter(text, letter) {
+    var t = String(text || "");
+    if (!letter || !/^[a-z]$/.test(letter)) return t;
+    return /\d{4}\)$/.test(t) ? t.slice(0, -1) + letter + ")" : t;
+  }
+
   function textOf(v) {
     return String(v === null || v === undefined ? "" : v).replace(/[\u0000-\u001F\u007F]/g, " ").replace(/\s+/g, " ").trim();
   }
@@ -200,6 +211,7 @@
   // onCiteCaret (value or null), withFigure (a function that opens the picker),
   // label.
   function make(opts) {
+    var letters = {};
     register();
     var host = opts.host;
     clear(host);
@@ -289,7 +301,7 @@
       clear(caretBar);
       if (!found) { caretBar.hidden = true; return; }
       caretBar.hidden = false;
-      caretBar.appendChild(h("span", { class: "pv-ed-cite-t", text: found.value.text }));
+      caretBar.appendChild(h("span", { class: "pv-ed-cite-t", text: citeWithLetter(found.value.text, letters[found.value.kind + "\u0000" + found.value.ref]) }));
       if (webAddress(found.value.url)) {
         caretBar.appendChild(
           h("a", { class: "pv-ws-x", href: found.value.url, target: "_blank", rel: "noopener", text: "Open the work" })
@@ -608,6 +620,22 @@
         });
         return out;
       },
+      // Write hands over the letters of the draft each time it draws the
+      // references. Only the words a cite shows change, inside the cite; what
+      // the editor keeps of it stays as it was, so no change is made to the
+      // draft and nothing is saved for it.
+      setLetters: function (map) {
+        var before = JSON.stringify(letters);
+        letters = map || {};
+        Array.prototype.forEach.call(quill.root.querySelectorAll("a.pv-cite"), function (node) {
+          var inner = node.querySelector("span[contenteditable]");
+          if (!inner) return;
+          var shown = citeWithLetter(node.getAttribute("data-text"),
+            letters[node.getAttribute("data-kind") + "\u0000" + node.getAttribute("data-ref")]);
+          if (inner.textContent !== shown) inner.textContent = shown;
+        });
+        if (!caretBar.hidden && JSON.stringify(letters) !== before) drawCaretBar();
+      },
       caretBar: caretBar,
       redrawCaret: drawCaretBar
     };
@@ -627,6 +655,7 @@
     isDelta: isDelta,
     readStored: readStored,
     figureFoot: figureFoot,
-    webAddress: webAddress
+    webAddress: webAddress,
+    citeWithLetter: citeWithLetter
   };
 })();
