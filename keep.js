@@ -447,9 +447,8 @@
     });
   }
 
-  var painting = false;
+  var watcher = null;                  // watches the page for lists drawn again
   function paint(list) {
-    painting = true;
     list.forEach(draw);
     // A work saved before its abstract arrived: the abstract is sent once it is
     // on the page, so that passages can be marked on the shelf.
@@ -462,7 +461,10 @@
       mine.abstractSent = true;
       ask("/api/keep", { method: "POST", body: card });
     });
-    window.setTimeout(function () { painting = false; }, 0);
+    // What this script has just drawn is not news. It is taken off the
+    // watcher's list here and now, so that a list the page draws again right
+    // after (the Library, once its abstracts arrive) is never missed.
+    if (watcher) watcher.takeRecords();
   }
 
   // The Library, the Data pages and an actor's or a country's page draw their
@@ -480,12 +482,12 @@
   function watch() {
     var timer = null;
     var again = function () {
-      if (painting) return;
       window.clearTimeout(timer);
       timer = window.setTimeout(redraw, 150);
     };
     if (window.MutationObserver) {
-      new MutationObserver(again).observe(document.body, { childList: true, subtree: true });
+      watcher = new MutationObserver(again);
+      watcher.observe(document.body, { childList: true, subtree: true });
     }
     document.addEventListener("pv:view", again);
     window.addEventListener("popstate", again);
