@@ -13,6 +13,9 @@ import { account } from "./account.js";
 import { desk } from "./desk.js";
 import { isOpen } from "./settings.js";
 import { rorSearch } from "./outside.js";
+import { feedback, deskFeedback } from "./feedback.js";
+import { home } from "./home.js";
+import { digest } from "./digest.js";
 
 export const ROUTES = [
   { method: "GET", path: "/api/status", access: "public", handler: status },
@@ -23,6 +26,15 @@ export const ROUTES = [
   { method: "DELETE", path: "/api/me", access: "account-any", handler: account.remove },
   { method: "GET", path: "/api/me/export", access: "anyone-in", handler: account.exportAll },
   { method: "DELETE", path: "/api/me/orcid", access: "account", handler: account.unlinkOrcid },
+  // The newsletter button on Home and on the account page (batch 5, Part C).
+  { method: "POST", path: "/api/me/newsletter", access: "account", handler: account.joinNewsletter },
+
+  // The reader's own switch of the email of what is new (batch 5, Part D).
+  // A guest has no address, so only a finished account has it.
+  { method: "PATCH", path: "/api/me/email", access: "account", handler: digest.set },
+
+  // Home: what is new for what the reader follows (batch 5, Part B).
+  { method: "POST", path: "/api/home", access: "member", handler: home.visit },
 
   { method: "GET", path: "/api/pages", access: "member", handler: notebook.list },
   { method: "POST", path: "/api/pages", access: "member", handler: notebook.create },
@@ -69,7 +81,19 @@ export const ROUTES = [
   { method: "POST", path: "/api/events", access: "member", handler: events.add },
   { method: "DELETE", path: "/api/events/:id", access: "member", handler: events.remove },
 
+  // The feedback card (batch 5, Part A): a reader's own answer, "Not Now", and
+  // sending an answer. A guest is asked too; an unfinished account is not.
+  { method: "GET", path: "/api/feedback", access: "member", handler: feedback.get },
+  { method: "POST", path: "/api/feedback", access: "member", handler: feedback.answer },
+  { method: "POST", path: "/api/feedback/later", access: "member", handler: feedback.later },
+
   { method: "GET", path: "/api/desk/summary", access: "editor", handler: desk.summary },
+  { method: "GET", path: "/api/desk/feedback", access: "editor", handler: async ({ env }) => json(await deskFeedback(env)) },
+  // The main switch of the email of what is new, and the test the editor
+  // sends to himself first (batch 5, Part D).
+  { method: "GET", path: "/api/desk/digest", access: "editor", handler: async ({ env }) => json(await digest.status(env)) },
+  { method: "POST", path: "/api/desk/digest", access: "editor", handler: digest.setLive },
+  { method: "POST", path: "/api/desk/digest/test", access: "editor", handler: digest.test },
   { method: "GET", path: "/api/desk/accounts.csv", access: "editor", handler: desk.accountsCsv },
   { method: "GET", path: "/api/desk/invites", access: "editor", handler: desk.invites },
   { method: "POST", path: "/api/desk/invites", access: "editor", handler: desk.addInvites },

@@ -343,7 +343,9 @@
       return b;
     }));
     ui.count = el("p", { class: "pv-wc-count", "aria-live": "polite" });
-    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Actors in Monitor");
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Actors in Monitor",
+      // Everything in the address changes what is shown, except the order.
+      Object.keys(S).filter(function (k) { return k !== "sort"; }));
     host.appendChild(el("div", { class: "pv-wc-head" }, [ui.tabs, ui.count, ui.tools]));
     host.appendChild(legend());
     ui.view = el("div", { class: "pv-wc-view" });
@@ -568,7 +570,9 @@
     }));
     ui.key = el("p", { class: "pv-ma-legend" });
     ui.map = el("div", { class: "pv-ip-map" });
-    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "map", "Countries in Monitor: the map");
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "map", "Countries in Monitor: the map",
+      // Everything in the address changes what is shown, except the order.
+      Object.keys(S).filter(function (k) { return k !== "sort"; }));
     host.appendChild(el("div", { class: "pv-ma-maphead" }, [ui.modes, ui.key]));
     host.appendChild(ui.map);
     host.appendChild(ui.tools);

@@ -653,7 +653,10 @@
     if (S.power === "yes") crit.push("holding a place in government at the last issue of the Monitor, " + d.mon.issue);
     if (S.power === "no") crit.push("holding no place in government at the last issue of the Monitor, " + d.mon.issue);
     bits.push("The criteria were " + crit.join(", ") + ".");
-    bits.push("The verdicts are those of " + stamp(d).join(", ") + ", each dataset's own, and the places in government are those of Populists in Power as built on " + dayWords(d.power.built) + ".");
+    // PPEG gives governments and no verdict, so it is named for the places in
+    // government only (Fable's check of batch 4, point 15).
+    bits.push("The verdicts are those of " + stamp(d).slice(0, 4).join(", ") + ", each dataset's own, and the places in government are those of Populists in Power, which takes the governments from "
+      + d.power.sources.pp.name + ", as built on " + dayWords(d.power.built) + ".");
     bits.push((found.matched ? plural(found.matched, "case matched", "cases matched") : "No case matched") + " the criteria"
       + (found.notCovered
         ? ", and " + found.notCovered + (found.notCovered === 1 ? " further case" : " further cases")
@@ -709,13 +712,20 @@
         var id = pick.value;
         pick.disabled = true;
         said.textContent = "Adding " + plural(saveable.length, "case", "cases") + "…";
-        addCases(id, saveable).then(function (n) {
+        addCases(id, saveable).then(function (got) {
           pick.disabled = false;
           pick.selectedIndex = 0;
-          saying(said, n + (n === 1 ? " case added" : " cases added")
+          var words = got.done + (got.done === 1 ? " case added" : " cases added")
             + (saveable.length < found.rows.length
               ? ". " + (found.rows.length - saveable.length) + " of the cases have no page of their own on the site, so they are listed and downloaded but not kept."
-              : ""));
+              : "");
+          // A limit that stopped it is said, and the words stay until the
+          // reader acts (Fable's check of batch 4, point 15).
+          var stopped = [];
+          if (got.left) stopped.push(got.left + (got.left === 1 ? " case was" : " cases were") + " not added. " + got.why);
+          else if (got.cut) stopped.push("Only the first " + ADD_AT_ONCE + " cases are added at one time, so " + got.cut + " more were not.");
+          if (stopped.length) said.textContent = words.replace(/\.?$/, ".") + " " + stopped.join(" ");
+          else saying(said, words);
         }, function () { pick.disabled = false; saying(said, "They could not be added"); });
       });
       add(box, pick);
@@ -728,11 +738,20 @@
   // it sits beside everything else on the shelf and in the project. A case
   // with no page of its own on the site is listed and downloaded, and never
   // kept, so that nothing stands on a shelf leading nowhere.
+  var ADD_AT_ONCE = 200;
   function addCases(projectId, rows) {
     var done = 0;
-    var queue = rows.slice(0, 200);
+    var queue = rows.slice(0, ADD_AT_ONCE);
+    // What stopped it, if anything: the cases left out past the 200 taken at
+    // one time, and those a full shelf or a full project would not take.
+    var got = { cut: Math.max(0, rows.length - ADD_AT_ONCE), left: 0, why: "" };
+    function full(r) {
+      got.left = queue.length + 1;
+      got.why = (r.data && r.data.error) || "The limit was reached.";
+      queue = [];
+    }
     function next() {
-      if (!queue.length) return Promise.resolve(done);
+      if (!queue.length) { got.done = done; return Promise.resolve(got); }
       var r = queue.shift();
       // The very card the actor's or the country's own page saves
       // (data/monitor-pages.js), so that a case has one name on the shelf
@@ -743,11 +762,12 @@
         : { kind: "actor", ref: a.id, title: a.name, extra: (a.kind === "leader" ? "Leader" : "Party") + (a.c ? " \u00b7 " + a.c : ""),
             url: SITE + "actors/" + a.id + ".html", country: a.iso || "" };
       return api("/api/keep", { method: "POST", body: card }).then(function (saved) {
-        if (!saved.ok) return next();
+        if (!saved.ok) { if (saved.status === 409) full(saved); return next(); }
         return api("/api/projects/" + encodeURIComponent(projectId) + "/things", {
           method: "POST", body: { kind: card.kind, ref: card.ref }
         }).then(function (put) {
           if (put.ok) done++;
+          else if (put.status === 409) full(put);
           return next();
         });
       });
@@ -973,7 +993,7 @@
             })
           } }
         ],
-        foot: "Made with the Chronology Maker of the PopuliVerse Workspace. The items are those of the PopuliVerse Monitor, each with its issue and number; the rows marked as your own were added by you. populiverse.com"
+        foot: "Made with the Chronology Maker of the PopuliVerse Workspace. The items are those of the PopuliVerse Monitor, each with its issue and number. The rows marked as your own were added by you. populiverse.com"
       }, said);
     } }, "Word File for an Appendix");
 

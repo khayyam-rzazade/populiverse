@@ -10,6 +10,8 @@ import { everything, forgetRows } from "./keep.js";
 import { allProjects } from "./projects.js";
 import { allDrafts, allFigures, draftWords } from "./write.js";
 import { allEvents } from "./events.js";
+import { countDay, cardState, ownAnswer } from "./feedback.js";
+import { digestLive } from "./digest.js";
 
 const FRESH_MINUTES = 15;
 
@@ -66,6 +68,10 @@ function line(v, max) {
 
 export const account = {
   async get({ env, who }) {
+    // A day of use, for the feedback card (batch 5, Part A). Only a guest or a
+    // finished account uses the Workspace, so only they are counted.
+    if (who.finished) await countDay(env, who.userId);
+    const card = await cardState(env, who.userId);
     const { n } = await env.DB.prepare("SELECT COUNT(*) AS n FROM notebook_page WHERE user_id = ?").bind(who.userId).first();
     const kept = await env.DB.prepare("SELECT COUNT(*) AS n FROM kept WHERE user_id = ?").bind(who.userId).first();
     const notes = await env.DB.prepare("SELECT COUNT(*) AS n FROM note WHERE user_id = ?").bind(who.userId).first();
@@ -109,7 +115,14 @@ export const account = {
       keptLimit: who.guest ? LIMITS.keptPerGuest : LIMITS.keptPerAccount,
       projectLimit: who.guest ? LIMITS.projectsPerGuest : LIMITS.projectsPerAccount,
       draftLimit: who.guest ? LIMITS.draftsPerGuest : LIMITS.draftsPerAccount,
-      signedInAt: who.session.createdAt
+      signedInAt: who.session.createdAt,
+      // The email of what is new (batch 5, Part D): whether this reader asked
+      // for it, and whether the editor has started it.
+      emailOn: who.guest ? false : !!(await env.DB.prepare("SELECT wanted FROM digest WHERE user_id = ?").bind(who.userId).first())?.wanted,
+      emailLive: await digestLive(env.DB),
+      daysUsed: card.daysUsed,
+      cardLater: card.cardLater,
+      feedbackAt: card.feedbackAt
     });
   },
 
@@ -278,6 +291,28 @@ export const account = {
     return res;
   },
 
+  // The newsletter button (batch 5, Part C): the account's own address goes
+  // to Sender the way the box at registration sends it, so that Sender's own
+  // email follows. The box is set in the statement itself, so a second press,
+  // or two at once, never sends the address twice.
+  async joinNewsletter({ env, ctx, who }) {
+    const t = now();
+    const row = await env.DB.prepare(
+      "UPDATE profile SET newsletter = 1, newsletter_at = ? WHERE user_id = ? AND newsletter = 0 RETURNING user_id"
+    )
+      .bind(t, who.userId)
+      .first();
+    if (!row) return json({ newsletter: true, already: true });
+    const p = who.profile || {};
+    const job = addToNewsletter(env, who.user.email, p.first_name, p.surname).then((r) =>
+      env.DB.prepare("UPDATE profile SET newsletter_sent_at = ?, newsletter_error = ? WHERE user_id = ?")
+        .bind(r.ok ? now() : null, r.ok ? null : r.error, who.userId)
+        .run()
+    );
+    ctx?.waitUntil ? ctx.waitUntil(job) : await job;
+    return json({ newsletter: true, at: t });
+  },
+
   async unlinkOrcid({ env, who }) {
     await env.DB.prepare("DELETE FROM account WHERE userId = ? AND providerId = 'orcid'").bind(who.userId).run();
     return json({ orcid: null });
@@ -323,6 +358,19 @@ export const account = {
     const drafts = await allDrafts(env, who);
     const figures = await allFigures(env, who);
     const ownEvents = await allEvents(env, who);
+    const card = await cardState(env, who.userId);
+    const answer = await ownAnswer(env, who.userId);
+    // Home's day of the last visit and the email of what is new (batch 5,
+    // Parts B and D): what the Workspace keeps on them, without the key of
+    // the link that stops the email.
+    const mark = await env.DB.prepare("SELECT home_at, home_issue FROM home_mark WHERE user_id = ?").bind(who.userId).first();
+    const mail = await env.DB.prepare("SELECT wanted, wanted_at, sent_issue, sent_at FROM digest WHERE user_id = ?").bind(who.userId).first();
+    accountData.home_last_visit = mark ? { at: mark.home_at, newest_monitor_issue_then: mark.home_issue || null } : null;
+    if (!who.guest) {
+      accountData.email_of_what_is_new = mail
+        ? { on: !!mail.wanted, asked: mail.wanted_at || null, last_issue_sent: mail.sent_issue || null, last_sent: mail.sent_at || null }
+        : { on: false };
+    }
     const stamp = now().slice(0, 10);
     const files = {
       "README.txt": strToU8(
@@ -340,7 +388,9 @@ export const account = {
           `figures/       one picture for each chart or table you sent to Write\n` +
           `figures.json   the title, source and date of each of those pictures\n` +
           `events.json    the events you added yourself to a chronology, each with\n` +
-          `               its source and the actor or country it is on\n`
+          `               its source and the actor or country it is on\n` +
+          `feedback.json  your answer to the feedback card, if you gave one, and the\n` +
+          `               number of days you opened the Workspace\n`
       ),
       "account.json": strToU8(JSON.stringify(accountData, null, 2)),
       "notebook.json": strToU8(JSON.stringify(pages, null, 2)),
@@ -372,6 +422,26 @@ export const account = {
             added_by: "you",
             added: e.added
           })),
+          null,
+          2
+        )
+      ),
+      "feedback.json": strToU8(
+        JSON.stringify(
+          {
+            answer: answer
+              ? {
+                  how_useful: answer.score,
+                  uses_it_for: answer.uses,
+                  missing_or_awkward: answer.missing,
+                  would_like_to_help: answer.help,
+                  answered: answer.answered,
+                  last_changed: answer.changed
+                }
+              : null,
+            days_you_opened_the_workspace: card.daysUsed,
+            not_now_pressed: card.cardLater
+          },
           null,
           2
         )

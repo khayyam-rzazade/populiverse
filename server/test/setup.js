@@ -7,9 +7,10 @@ await applyD1Migrations(env.DB, env.TEST_MIGRATIONS);
 
 beforeEach(async () => {
   await env.DB.batch(
-    ["mark", "tag", "note", "own_event", "kept", "notebook_page", "profile", "session", "account", "verification", "rateLimit", "invite", "code_ask", '"user"'].map((t) =>
+    ["mark", "tag", "note", "own_event", "feedback", "feedback_card", "home_mark", "digest", "kept", "notebook_page", "profile", "session", "account", "verification", "rateLimit", "invite", "code_ask", '"user"'].map((t) =>
       env.DB.prepare(`DELETE FROM ${t}`)
     )
   );
   await env.DB.prepare("UPDATE setting SET value = 'no' WHERE key = 'open'").run();
+  await env.DB.prepare("DELETE FROM setting WHERE key LIKE 'digest%'").run();
 });

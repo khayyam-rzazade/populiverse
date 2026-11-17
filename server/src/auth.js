@@ -223,8 +223,25 @@ export function moveGuest(db, from, to) {
     db.prepare(`DELETE FROM tag WHERE user_id = ?1 AND kept_id IN (SELECT gid FROM (${both}))`).bind(from, to),
     db.prepare(`DELETE FROM note WHERE user_id = ?1 AND kept_id IN (SELECT gid FROM (${both}))`).bind(from, to),
     db.prepare(`DELETE FROM kept WHERE user_id = ?1 AND id IN (SELECT gid FROM (${both}))`).bind(from, to),
+    // The answer to the feedback card and the count of days (batch 5, Part A)
+    // move where the account has none of its own; the account's own stay.
+    db.prepare(
+      `UPDATE feedback SET user_id = ?2 WHERE user_id = ?1 AND NOT EXISTS (SELECT 1 FROM feedback WHERE user_id = ?2)`
+    ).bind(from, to),
+    db.prepare(
+      `UPDATE feedback_card SET user_id = ?2 WHERE user_id = ?1 AND NOT EXISTS (SELECT 1 FROM feedback_card WHERE user_id = ?2)`
+    ).bind(from, to),
+    db.prepare(`DELETE FROM feedback WHERE user_id = ?1`).bind(from),
+    db.prepare(`DELETE FROM feedback_card WHERE user_id = ?1`).bind(from),
+    // The day of a guest's last visit to Home (batch 5, Part B) moves too, so
+    // that what is new is still counted from it.
+    db.prepare(
+      `UPDATE home_mark SET user_id = ?2 WHERE user_id = ?1 AND NOT EXISTS (SELECT 1 FROM home_mark WHERE user_id = ?2)`
+    ).bind(from, to),
+    db.prepare(`DELETE FROM home_mark WHERE user_id = ?1`).bind(from),
     // Everything else moves as it is.
-    ...["kept", "note", "tag", "mark", "project", "project_thing", "draft", "figure", "notebook_page"].map((t) =>
+    // The guest's own chronology events move too (Fable's check of batch 5, F1).
+    ...["kept", "note", "tag", "mark", "project", "project_thing", "draft", "figure", "notebook_page", "own_event"].map((t) =>
       db.prepare(`UPDATE ${t} SET user_id = ?2 WHERE user_id = ?1`).bind(from, to)
     )
   ];

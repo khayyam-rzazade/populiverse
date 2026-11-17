@@ -46,13 +46,14 @@
     load();
 
     function load() {
-      api("/api/desk/summary").then(function (r) {
+      Promise.all([api("/api/desk/summary"), api("/api/desk/feedback")]).then(function (both) {
+        var r = both[0];
         if (!r.ok) { root.textContent = r.data.error || "The desk could not load."; return; }
-        draw(r.data);
+        draw(r.data, both[1].ok ? both[1].data : null);
       });
     }
 
-    function draw(d) {
+    function draw(d, fb) {
       while (root.firstChild) root.removeChild(root.firstChild);
       var tiles = [
         [d.accounts, "Accounts"],
@@ -81,9 +82,20 @@
       root.appendChild(h("div", { class: "pv-ws-pair" },
         block("Positions", null, bars(d.positions, d.accounts)),
         block("Fields", null, bars(d.fields, d.accounts))));
+      // The people who said Yes or Maybe Later stand in Who Wants to Help, in
+      // one list with those who ticked it on the feedback card (batch 5, A).
       root.appendChild(block("Writing for the Commentary",
-        "The answers of the accounts, and then everyone who said Yes or Maybe Later. The newest answer stands first.",
-        [bars(d.commentary, d.accounts), writers(d.writers)]));
+        "The answers given at registration. Everyone who said Yes or Maybe Later is in Who Wants to Help, below.",
+        bars(d.commentary, d.accounts)));
+      if (fb) {
+        root.appendChild(block("Who Wants to Help",
+          "The people who ticked a way to help on the feedback card. Writing for the Commentary also holds everyone who said Yes or Maybe Later at registration. The newest first.",
+          helpers(fb)));
+        root.appendChild(block("The Feedback Card", null, cardAnswers(fb)));
+        root.appendChild(block("The Email of What Is New", null, digestBlock()));
+      } else {
+        root.appendChild(block("Who Wants to Help", null, h("p", { class: "pv-ws-small", text: "The answers of the feedback card could not load. Please reload the page." })));
+      }
       root.appendChild(block("Who May Sign Up", null, access(d)));
       root.appendChild(block("The Accounts", null, h("p", null,
         h("button", { class: "pv-button", type: "button", onclick: downloadCsv }, "Download the Accounts"),
@@ -204,27 +216,166 @@
     // Everyone who said Yes or Maybe Later, so that the editor can write to
     // them (master plan, section 18, stage 2, batch 4, A5). An answer of
     // "Other" shows what the person typed beside it.
-    function writers(rows) {
-      if (!rows || !rows.length) return h("p", { class: "pv-ws-small", text: "Nobody has said Yes or Maybe Later yet." });
-      function answerOf(answer, typed) {
-        if (!answer) return "";
-        return answer === "Other" && typed ? answer + " (" + typed + ")" : answer;
-      }
+    function answerOf(answer, typed) {
+      if (!answer) return "";
+      return answer === "Other" && typed ? answer + " (" + typed + ")" : answer;
+    }
+    function dayOf(iso) { return iso ? W.DATE_LONG.format(new Date(iso)) : ""; }
+
+    // The people of one way to help, or of every way, as a table. On a phone
+    // each person stands as one card, as the tables of the tools do, and a
+    // long word never pushes the desk wider than the screen (Fable's check of
+    // batch 4, point 8).
+    function peopleTable(rows, all) {
       var tbody = h("tbody", null, rows.map(function (r) {
         return h("tr", null,
-          h("td", { "data-label": "Answer", text: r.answer }),
+          h("td", { "data-label": all ? "Ways to help" : "How they said so", text: all ? r.ways.join(", ") : r.said.join("; ") }),
           h("td", { "data-label": "Who" }, h("span", { text: r.name }),
             h("br"), h("span", { class: "pv-ws-small", text: r.email })),
           h("td", { "data-label": "Institution", text: [r.institution, r.country ? countryName(r.country) : ""].filter(Boolean).join(", ") }),
           h("td", { "data-label": "Position and field", text: [answerOf(r.position, r.positionOther), answerOf(r.field, r.fieldOther)].filter(Boolean).join(", ") }),
-          h("td", { "data-label": "Research interests", text: r.interests || "" }));
+          h("td", { "data-label": "Research interests", text: r.interests || "" }),
+          h("td", { "data-label": "Date", text: dayOf(r.at) }));
       }));
-      // On a phone each person stands as one card, as the tables of the tools
-      // do, and a long word never pushes the desk wider than the screen
-      // (Fable's check of batch 4, point 8).
       return h("table", { class: "pv-ws-table pv-ws-writers" },
-        h("thead", null, h("tr", null, h("th", { text: "Answer" }), h("th", { text: "Who" }), h("th", { text: "Institution" }),
-          h("th", { text: "Position and field" }), h("th", { text: "Research interests" }))), tbody);
+        h("thead", null, h("tr", null, h("th", { text: all ? "Ways to help" : "How they said so" }), h("th", { text: "Who" }),
+          h("th", { text: "Institution" }), h("th", { text: "Position and field" }), h("th", { text: "Research interests" }),
+          h("th", { text: "Date" }))), tbody);
+    }
+
+    // Who Wants to Help: pick one way and see only its people, or every way
+    // at once, each person once. The list shown can be downloaded.
+    function helpers(fb) {
+      var everyone = new Map();
+      fb.ways.forEach(function (w) {
+        w.people.forEach(function (p) {
+          var have = everyone.get(p.email) || Object.assign({}, p, { ways: [], at: "" });
+          have.ways.push(w.way);
+          if (String(p.at || "") > String(have.at || "")) have.at = p.at;
+          everyone.set(p.email, have);
+        });
+      });
+      var all = Array.from(everyone.values()).sort(function (a, b) { return String(b.at || "").localeCompare(String(a.at || "")); });
+      var pick = h("select", { id: "ws-help-way" },
+        h("option", { value: "", text: "Every way to help (" + all.length + ")" }),
+        fb.ways.map(function (w, i) { return h("option", { value: String(i), text: w.way + " (" + w.people.length + ")" }); }));
+      var out = h("div");
+      var dl = h("button", { class: "pv-button", type: "button" }, "Download This List");
+      function rowsNow() { return pick.value === "" ? all : fb.ways[Number(pick.value)].people; }
+      function draw() {
+        while (out.firstChild) out.removeChild(out.firstChild);
+        var rows = rowsNow();
+        out.appendChild(rows.length ? peopleTable(rows, pick.value === "")
+          : h("p", { class: "pv-ws-small", text: "Nobody yet." }));
+        dl.disabled = !rows.length;
+      }
+      pick.addEventListener("change", draw);
+      dl.addEventListener("click", function () {
+        var way = pick.value === "" ? "" : fb.ways[Number(pick.value)].way;
+        var head = ["way_to_help", "how_they_said_so", "name", "email", "institution", "country", "position", "field", "research_interests", "date"];
+        var lines = [head.join(",")].concat(rowsNow().map(function (r) {
+          return [way || r.ways.join("; "), way ? r.said.join("; ") : "", r.name, r.email, r.institution, r.country,
+            answerOf(r.position, r.positionOther), answerOf(r.field, r.fieldOther), r.interests, (r.at || "").slice(0, 10)].map(csvCell).join(",");
+        }));
+        var slug = way ? way.toLowerCase().replace(/[^a-z]+/g, "-").replace(/^-|-$/g, "") : "every-way";
+        saveFile("\ufeff" + lines.join("\r\n") + "\r\n", "populiverse-who-wants-to-help-" + slug + ".csv");
+      });
+      draw();
+      return [h("div", { class: "pv-ws-field" }, h("label", { for: "ws-help-way", class: "pv-wc-label", text: "Show" }), pick), out, h("p", null, dl)];
+    }
+
+    // A cell that starts like a formula is kept as text in a spreadsheet, as
+    // in the server's download of the accounts.
+    function csvCell(v) {
+      if (v === null || v === undefined) return "";
+      var t = String(v);
+      if (/^[=+\-@\t\r]/.test(t)) t = "'" + t;
+      return /[",\n\r]/.test(t) ? '"' + t.replace(/"/g, '""') + '"' : t;
+    }
+    function saveFile(text, name) {
+      var url = URL.createObjectURL(new Blob([text], { type: "text/csv;charset=utf-8" }));
+      var a = h("a", { href: url, download: name });
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 10000);
+    }
+
+    // The main switch of the email of what is new (batch 5, Part D). It is
+    // off until the editor turns it on, and it can be turned on only after
+    // he has sent one to himself, so nothing leaves before he has seen one.
+    function digestBlock() {
+      var box = h("div", { class: "pv-ws-access" });
+      function draw(st, msg, bad) {
+        while (box.firstChild) box.removeChild(box.firstChild);
+        box.appendChild(h("p", { class: "pv-ws-access-state", text: st.digestOn
+          ? "On. Each night the server looks for a new Monitor issue and writes to the readers who asked for it."
+          : "Off. No email of what is new leaves until you turn it on." }));
+        box.appendChild(h("p", { text: st.digestReaders + (st.digestReaders === 1 ? " reader has" : " readers have") + " asked for it." }));
+        if (st.digestLast) {
+          box.appendChild(h("p", { class: "pv-ws-small", text: "The last emails went out on " + dayOf(st.digestLast.at) + ", for PopuliVerse Monitor "
+            + st.digestLast.issue + ", to " + st.digestLast.sent + (st.digestLast.sent === 1 ? " reader." : " readers.") }));
+        }
+        var said = h("p", { class: bad ? "pv-ws-field-error" : "pv-ws-saved", "aria-live": "polite", text: msg || "" });
+        var test = h("button", { class: "pv-button", type: "button", onclick: function () {
+          test.disabled = true;
+          said.className = "pv-ws-saved";
+          said.textContent = "Sending\u2026";
+          api("/api/desk/digest/test", { method: "POST", body: {} }).then(function (r) {
+            if (r.ok) draw(r.data, "Sent to " + r.data.to + ". It is the email a reader gets, built for what you follow.");
+            else draw(st, r.data.error || "That did not work. Please try again.", true);
+          });
+        } }, "Send It to Me First");
+        var flip = h("button", { class: "pv-button" + (st.digestOn ? " pv-ws-ghost" : ""), type: "button", disabled: !st.digestOn && !st.digestTested, onclick: function () {
+          flip.disabled = true;
+          api("/api/desk/digest", { method: "POST", body: { on: !st.digestOn } }).then(function (r) {
+            if (r.ok) draw(r.data, r.data.digestOn ? "Turned on." : "Turned off.");
+            else draw(st, r.data.error || "That did not work. Please try again.", true);
+          });
+        } }, st.digestOn ? "Turn It Off" : "Turn It On");
+        box.appendChild(h("p", { class: "pv-ws-card-row" }, test, flip));
+        if (!st.digestOn && !st.digestTested) box.appendChild(h("p", { class: "pv-ws-small", text: "Send it to yourself first, and then it can be turned on." }));
+        box.appendChild(said);
+      }
+      api("/api/desk/digest").then(function (r) {
+        if (r.ok) draw(r.data);
+        else box.appendChild(h("p", { class: "pv-ws-small", text: "This could not load. Please reload the page." }));
+      });
+      return box;
+    }
+
+    // Every answer of the feedback card in full, newest first, with the
+    // counts of each question above them.
+    function cardAnswers(fb) {
+      if (!fb.total) {
+        return h("p", { class: "pv-ws-small", text: "Nobody has answered yet." + (fb.later ? " " + fb.later + (fb.later === 1 ? " reader" : " readers") + " pressed Not Now." : "") });
+      }
+      var sum = fb.answers.reduce(function (n, a) { return n + a.score; }, 0);
+      var lede = h("p", { class: "pv-ws-small", text: fb.total + (fb.total === 1 ? " answer" : " answers")
+        + (fb.guests ? ", " + fb.guests + " of them from " + (fb.guests === 1 ? "a guest" : "guests") : "")
+        + ". The mean score is " + (sum / fb.total).toFixed(1) + " of 5."
+        + (fb.later ? " " + fb.later + (fb.later === 1 ? " reader" : " readers") + " pressed Not Now." : "") });
+      function sub(title, content) { return h("div", { class: "pv-ws-sub" }, h("h3", { class: "pv-ws-sub-h", text: title }), content); }
+      var counts = h("div", { class: "pv-ws-pair" },
+        sub("How Useful", bars(fb.scores.filter(function (r) { return r.n; }), fb.total)),
+        sub("What They Use", bars(fb.uses.filter(function (r) { return r.n; }), fb.total)));
+      var helping = sub("Would Like to Help", bars(fb.help.filter(function (r) { return r.n; }), fb.total));
+      var list = h("ol", { class: "pv-ws-answers" });
+      function one(a) {
+        return h("li", null,
+          h("p", { class: "pv-ws-answer-who" },
+            h("strong", { text: a.guest ? "A guest" : a.name }), a.guest ? null : h("span", { class: "pv-ws-small", text: " " + a.email }),
+            h("span", { class: "pv-ws-small", text: " \u00b7 " + dayOf(a.at) + (a.changed ? ", changed" : "") })),
+          h("p", { text: "How useful: " + a.score + " of 5" }),
+          h("p", { text: "Uses it for: " + (a.uses.length ? a.uses.join(", ") : "nothing ticked") }),
+          h("p", { text: "Would like to help: " + (a.help.length ? a.help.join(", ") : "nothing ticked") }),
+          a.missing ? h("p", { class: "pv-ws-answer-text" }, h("span", { class: "pv-ws-small", text: "Missing or awkward: " }), h("span", { text: a.missing })) : null);
+      }
+      function fill(n) {
+        while (list.firstChild) list.removeChild(list.firstChild);
+        fb.answers.slice(0, n).forEach(function (a) { list.appendChild(one(a)); });
+      }
+      fill(20);
+      var more = fb.answers.length > 20 ? h("p", null, h("button", { class: "pv-lib-link", type: "button", onclick: function () { fill(fb.answers.length); this.remove(); } }, "Show all " + fb.answers.length)) : null;
+      return [lede, counts, helping, list, more];
     }
 
     function bars(rows, total) {

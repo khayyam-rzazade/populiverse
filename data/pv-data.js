@@ -185,17 +185,26 @@
   // Marks a row of a chart's own tools as a thing that can be saved and noted:
   // the Data page, the chart's own name and the filters standing in the address
   // (master plan, section 18, stage 2, batch 2; keep.js draws the buttons).
-  PV.keepChart = function (tools, name, title) {
+  // `counts` names the parts of the address that change what the chart shows,
+  // so that the order of a list, or a year a chart does not show, never makes
+  // one same view two rows on the shelf (batch 5, E2). PV.keepCounts changes
+  // them when they depend on the view.
+  PV.keepChart = function (tools, name, title, counts) {
     if (!tools) return tools;
     var page = (window.location.pathname.split("/").pop() || "index").replace(/\.html$/, "");
     tools.setAttribute("data-keep-kind", "chart");
     tools.setAttribute("data-keep-ref", page + "#" + name);
-    tools.setAttribute("data-keep-query", "");
+    tools.setAttribute("data-keep-query", (counts || []).join(","));
     tools.setAttribute("data-keep-title", title);
     // The reference of the chart is this page's own "How to cite" line, so that
     // a draft in Write cites it exactly as the page does (batch 3).
     tools.setAttribute("data-keep-cite", PV.citation(title, window.location.href.split("#")[0]));
     tools.setAttribute("data-keep-tools", "");
+    return tools;
+  };
+
+  PV.keepCounts = function (tools, counts) {
+    if (tools) tools.setAttribute("data-keep-query", (counts || []).join(","));
     return tools;
   };
 

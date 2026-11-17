@@ -37,6 +37,22 @@ export const OTHER = "Other";
 // Commentary? The answer is kept in these words, as the lists above are.
 export const COMMENTARY = ["Yes", "Maybe Later", "No"];
 
+// The feedback card (master plan, section 18, stage 2, batch 5, Part A). What
+// a reader may tick under "What do you use it for?" and "Would you like to help
+// PopuliVerse grow?", kept in these words.
+export const FEEDBACK_USES = ["The Library", "The Monitor", "The Commentary", "The Data Pages", "The Workspace"];
+export const HELP_NOT_NOW = "Not Now";
+export const HELP_COMMENTARY = "Write for the Commentary";
+export const FEEDBACK_HELP = [
+  HELP_COMMENTARY,
+  "Tell a Colleague or a Student",
+  "Cite It in My Work",
+  "Use It in My Teaching",
+  "Suggest Works the Library Lacks",
+  "Try New Tools Before They Open",
+  HELP_NOT_NOW
+];
+
 // Two-letter country codes (ISO 3166-1), for an institution typed by hand.
 export const COUNTRIES = new Set(
   (
@@ -99,6 +115,9 @@ export const LIMITS = {
   eventsPerGuest: 50,
   charsPerEvent: 600,
   charsPerEventSource: 300,
+  // The feedback card (batch 5, Part A): what a reader types under "What is
+  // missing or awkward?".
+  charsPerFeedback: 2000,
   // Cloudflare's database takes a LIKE pattern of at most 50 bytes, so what a
   // reader searches for is cut to fit before it becomes one.
   bytesPerPattern: 46

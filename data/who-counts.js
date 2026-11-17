@@ -215,7 +215,9 @@
       ui.tabs.appendChild(b);
     });
     ui.count = el("p", { class: "pv-wc-count", "aria-live": "polite" });
-    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Who Counts as Populist?");
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Who Counts as Populist?",
+      // Everything in the address changes what is shown, except the order.
+      Object.keys(DEFAULTS).filter(function (k) { return k !== "sort"; }));
     app.appendChild(el("div", { class: "pv-wc-head" }, [ui.tabs, ui.count, ui.tools]));
     ui.legend = el("div", { class: "pv-wc-legend" });
     app.appendChild(ui.legend);

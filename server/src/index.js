@@ -14,6 +14,7 @@ import { nightly } from "./cleanup.js";
 import { isEditorEmail } from "./settings.js";
 import { takeCode, giveBack } from "./counter.js";
 import { json } from "./util.js";
+import { sendDigests, stopPage } from "./digest.js";
 
 // The doors of the library the workspace uses. Nothing else of it is reachable.
 const AUTH_DOORS = new Set([
@@ -33,6 +34,9 @@ const AUTH_DOORS = new Set([
 // state, which only our sign-in could have made.
 const NO_ORIGIN_DOORS = new Set(["GET /api/auth/callback/orcid"]);
 
+// The link in the email of what is new: a key of 43 letters, digits, - and _.
+const STOP = /^\/api\/stop\/[A-Za-z0-9_-]{43}$/;
+
 export default {
   async fetch(request, env, ctx) {
     try {
@@ -44,8 +48,15 @@ export default {
     }
   },
 
+  // The nightly job: first the clean-up, then the email of what is new
+  // (batch 5, Part D). Each part runs even if the other fails.
   async scheduled(event, env, ctx) {
-    ctx.waitUntil(nightly(env));
+    ctx.waitUntil(
+      (async () => {
+        await nightly(env).catch((e) => console.error("nightly clean-up failed", e?.message));
+        await sendDigests(env).catch((e) => console.error("email of what is new failed", e?.message));
+      })()
+    );
   }
 };
 
@@ -62,6 +73,15 @@ async function handle(request, env, ctx) {
   if (request.method === "OPTIONS") {
     if (origin !== env.SITE_ORIGIN) return new Response(null, { status: 403 });
     return new Response(null, { status: 204, headers: cors(env) });
+  }
+
+  // The link that stops the email of what is new (batch 5, Part D) is opened
+  // from an email, so it carries no Origin of ours. It needs no sign-in. The
+  // link itself only shows a page with one button, since mail systems open
+  // every link in an email to scan it; the button, a POST from that page,
+  // stops that email and does nothing else (Fable's check of batch 5, F2).
+  if ((request.method === "GET" || request.method === "POST") && STOP.test(url.pathname)) {
+    return withCors(await stopPage(env, url.pathname.slice("/api/stop/".length), request.method === "POST"), env, null);
   }
 
   // 1. Only the site itself.

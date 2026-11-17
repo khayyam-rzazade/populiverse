@@ -73,11 +73,18 @@
   }
 
   // The filters standing in the address, in one fixed order, so that the same
-  // view of a chart is always the same thing.
-  function viewQuery() {
+  // view of a chart is always the same thing. A chart can name the parts of
+  // the address that change what it shows (`only`, a list joined by commas):
+  // then only those count, so one same view, in another order or at another
+  // year it does not show, is never a second row on the shelf (Fable's check
+  // of 16 November, point 8). A chart that names none counts them all, as
+  // before. A row saved before keeps its own reference and address, and opens
+  // as it always did.
+  function viewQuery(only) {
     var out = [];
+    var counts = only ? only.split(",") : null;
     new URLSearchParams(location.search).forEach(function (v, k) {
-      if (v !== "") out.push([k, v]);
+      if (v !== "" && (!counts || counts.indexOf(k) >= 0)) out.push([k, v]);
     });
     out.sort(function (a, b) { return a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0; });
     return out.map(function (p) { return p[0] + "=" + p[1]; }).join("&").slice(0, 160);
@@ -117,7 +124,7 @@
       var ref = el.getAttribute("data-keep-ref");
       if (!KINDS[kind] || !ref) continue;
       if (el.hasAttribute("data-keep-query")) {
-        var q = viewQuery();
+        var q = viewQuery(el.getAttribute("data-keep-query"));
         ref = ref + (q ? "?" + q : "");
       }
       out.push({

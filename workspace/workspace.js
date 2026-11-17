@@ -411,7 +411,7 @@
         var c = h("select", { id: "ws-country", onchange: function () { inst.country = c.value; } }, h("option", { value: "" }, "Country of the institution"));
         codes.forEach(function (code) { c.appendChild(h("option", { value: code, selected: code === inst.country }, countryName(code))); });
         add(instBox, t, c, h("p", { class: "pv-ws-hint" },
-          h("button", { class: "pv-lib-link", type: "button", onclick: function () { inst.typed = false; inst.name = ""; drawInst(); } }, "Search the list instead")));
+          h("button", { class: "pv-lib-link", type: "button", onclick: function () { inst.typed = false; inst.name = ""; drawInst(); focusInst(); } }, "Search the list instead")));
         return;
       }
       var q = h("input", { type: "text", id: "ws-institution", role: "combobox", "aria-expanded": "false", "aria-controls": "ws-inst-list",
@@ -445,7 +445,14 @@
         if (e.key === "ArrowUp") { e.preventDefault(); (cur.previousSibling || q).focus(); }
       });
       add(instBox, q, list, note, h("p", { class: "pv-ws-hint" }, "From ROR, the open list of research institutions. Not in the list? ",
-        h("button", { class: "pv-lib-link", type: "button", onclick: function () { inst.typed = true; inst.name = q.value; drawInst(); } }, "Type it yourself")));
+        h("button", { class: "pv-lib-link", type: "button", onclick: function () { inst.typed = true; inst.name = q.value; drawInst(); focusInst(); } }, "Type it yourself")));
+    }
+    // After "Type it yourself" or "Search the list instead" the box is drawn
+    // again, and the focus goes into it, where the reader has to type next
+    // (Fable's check of batch 4, point 15).
+    function focusInst() {
+      var box = document.getElementById("ws-institution");
+      if (box) box.focus();
     }
     drawInst();
 
@@ -534,6 +541,11 @@
         var f = r.data.fields || {};
         Object.keys(f).forEach(function (k) { (errs[k === "country" ? "institution" : k] || formErr).textContent = f[k]; });
         if (!Object.keys(f).length) formErr.textContent = r.data.error || "That did not work. Please try again.";
+        // The focus goes to the first field the server refused, in the order
+        // of the form (Fable's check of batch 4, point 15).
+        var firstBad = Array.prototype.filter.call(form.querySelectorAll(".pv-ws-field .pv-ws-field-error"), function (p) { return p.textContent; })[0];
+        var control = firstBad && firstBad.parentNode.querySelector("input, select, textarea, button");
+        if (control) control.focus();
       });
     } },
       opts.answersOnly ? null : names,
@@ -933,7 +945,10 @@
           + (me.notes || 0) + (me.notes === 1 ? " note" : " notes") + " and " + me.pages + (me.pages === 1 ? " page" : " pages")
           + " in this browser. Sign up to keep them for good." }),
         downloadButton()
-      ]));
+      ]),
+      // A guest is asked from the fifth day of use, as on the card (Fable's
+      // check of batch 5, F3).
+      (me.daysUsed || 0) >= CARD_DAYS || me.feedbackAt ? feedbackSection(me) : null);
       return show(blocks);
     }
 
@@ -958,9 +973,14 @@
               else alertBox("ORCID could not be reached. Please try again.");
             });
           } }, "Connect ORCID")]),
+      section("Email of What Is New", [
+        h("p", { text: "One plain email when a new Monitor issue has items on the actors and countries you follow, and none when it has nothing. Every email has a link that stops it." }),
+        emailSwitch(me)
+      ]),
       section("Newsletter", me.newsletter
         ? [h("p", { text: "You asked for the monthly newsletter on " + DATE_LONG.format(new Date(me.newsletterAt)) + ". Every newsletter has a link to unsubscribe." })]
-        : [h("p", null, "You are not on the newsletter list from here. See the ", h("a", { href: "../newsletter/index.html" }, "Newsletter page"), ".")]),
+        : newsletterButton(me)),
+      feedbackSection(me),
       section("Your Data", [
         h("p", { text: "One file with everything you keep here: your account, your shelf, your notes and a plain-text file for each page and each note. It opens without PopuliVerse." }),
         downloadButton()
@@ -1040,8 +1060,8 @@
   var siteData = null;
   function site() {
     if (siteData) return siteData;
-    siteData = fetch(BASE + "../data/monitor.json", { cache: "no-cache" })
-      .then(function (r) { return r.ok ? r.json() : null; })
+    // The same one fetch of the file that Home reads (batch 5, Part B).
+    siteData = monitorRaw()
       .then(function (d) {
         var out = { items: {}, actors: {}, places: {}, works: {} };
         if (!d) return out;
@@ -1112,7 +1132,15 @@
     });
     var kindsNav = h("nav", { class: "pv-ws-kinds", "aria-label": "Kind" });
     var adding = h("div");
-    show(head(me, "shelf"), adding, kindsNav, ui.bar, ui.body);
+    // The first page of the Workspace, as a reader first sees it (no kind, no
+    // project, nothing being added): the feedback card when it is due (batch
+    // 5, Part A). Any other view of the shelf shows the shelf alone, so every
+    // address a reader has saved or shared opens as before.
+    var first = !params.get("kind") && !state.project && !state.addto;
+    // Home stands there too (batch 5, Part B): what is new for what the reader
+    // follows, above the shelf, under the board of the six tools.
+    var top = first ? [homeBlock(me), cardDue(me) ? feedbackCard(me) : null] : null;
+    show(head(me, "shelf"), top, adding, kindsNav, ui.bar, ui.body);
     projects().then(function () {
       var into = state.addto ? myProjects.filter(function (p) { return p.id === state.addto; })[0] : null;
       if (state.addto && !into) state.addto = "";
@@ -1858,6 +1886,356 @@
         h("button", { class: "pv-lib-link", type: "button", onclick: function () { row.removeChild(ask); } }, "Keep"));
       row.appendChild(ask);
     }
+  }
+
+  // ------------------------------------------------------------ Home
+
+  // What a reader sees first in the Workspace answers one question: what is
+  // new for what I follow (master plan, section 18, stage 2, batch 5, Part B).
+  // To follow is to save: the actors and the countries on the shelf, which
+  // holds the cases of the reader's projects too. What is new is read from the
+  // files the site already publishes, so it says nothing the Monitor or the
+  // Library does not: the Monitor's items about them in the issues since the
+  // reader's last visit, and the works added to the Library on a followed
+  // country since that visit. The server keeps the day of that visit.
+  var monitorRawJob = null;
+  function monitorRaw() {
+    if (!monitorRawJob) {
+      monitorRawJob = fetch(BASE + "../data/monitor.json", { cache: "no-cache" })
+        .then(function (r) { return r.ok ? r.json() : null; }, function () { return null; });
+    }
+    return monitorRawJob;
+  }
+  function issueOrder(a, b) {
+    var x = String(a).split("-").map(Number), y = String(b).split("-").map(Number);
+    return (x[0] - y[0]) || (x[1] - y[1]);
+  }
+  var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  function itemDay(it) {
+    var m = /^(\d{4})-(\d{2})(?:-(\d{2}))?$/.exec(it.date || "");
+    if (!m) return "";
+    return (m[3] ? Number(m[3]) + " " : "") + MONTHS[Number(m[2]) - 1] + " " + m[1];
+  }
+  function itemHeading(it) { return it.k === "entry" && it.s ? it.title + ". " + it.s : it.title; }
+
+  function homeBlock(me) {
+    var box = h("section", { class: "pv-ws-home", "aria-labelledby": "ws-home-h" });
+    var news = h("div", { class: "pv-ws-home-new", "aria-live": "polite" }, h("p", { class: "pv-ws-small", text: "Looking for what is new\u2026" }));
+    var rest = h("div");
+    add(box, h("h2", { id: "ws-home-h", class: "pv-ws-h", text: "What Is New" }), news, rest);
+    monitorRaw().then(function (mon) {
+      return api("/api/home", { method: "POST", body: { issue: mon && mon.folder ? mon.folder : "" } }).then(function (r) {
+        if (!r.ok) { clear(news); add(news, h("p", { class: "pv-ws-small", text: "What is new could not be loaded just now." })); return; }
+        drawNews(news, r.data, mon);
+        add(rest, leftOff(r.data), stayInTouch(me));
+      });
+    });
+    return box;
+  }
+
+  function drawNews(news, d, mon) {
+    var follows = d.follows || [];
+    var name = {};
+    follows.forEach(function (f) { name[f.kind + ":" + f.ref] = f.title || f.ref; });
+    if (!follows.length) {
+      clear(news);
+      add(news, h("p", { text: "Save an actor or a country, and what the Monitor and the Library add on it will show here." }));
+      return;
+    }
+    var since = d.since && d.since.at ? d.since : null;
+    var after = since && since.issue ? since.issue : null;
+    var items = [];
+    if (mon && mon.items) {
+      items = mon.items.filter(function (it) {
+        var fresh = after ? issueOrder(it.folder, after) > 0 : it.folder === mon.folder;
+        return fresh && ((it.actors || []).some(function (a) { return name["actor:" + a]; }) ||
+          (it.iso || []).some(function (c) { return name["country:" + c]; }));
+      }).sort(function (a, b) { return issueOrder(a.folder, b.folder) || a.n - b.n; });
+    }
+    var when = since ? "since your last visit, on " + DATE_LONG.format(new Date(since.at)) : null;
+    var places = mon && mon.places ? mon.places : {};
+    var countries = follows.filter(function (f) { return f.kind === "country" && places[f.ref] && places[f.ref][6]; });
+    var works = countries.length ? libraryAdded(since ? since.at : d.joined, countries.map(function (f) { return places[f.ref][6]; })) : Promise.resolve(null);
+    works.then(function (counts) {
+      clear(news);
+      var lines = [];
+      if (items.length) {
+        lines.push(h("p", { text: plural(items.length, "Monitor item", "Monitor items") + " on what you follow, "
+          + (when || "in the newest issue, PopuliVerse Monitor " + mon.issue) + "." }));
+        lines.push(h("ul", { class: "pv-ws-home-items" }, items.map(function (it) {
+          var about = (it.actors || []).map(function (a) { return name["actor:" + a]; })
+            .concat((it.iso || []).map(function (c) { return name["country:" + c]; })).filter(Boolean);
+          return h("li", null,
+            h("a", { href: BASE + "../monitor/" + it.folder + "/#item-" + it.n, text: itemHeading(it) }),
+            h("span", { class: "pv-ws-home-ref", text: "PopuliVerse Monitor " + it.issue + ", item " + it.n
+              + (itemDay(it) ? " \u00b7 " + itemDay(it) : "") + (about.length ? " \u00b7 " + about.filter(function (x, i) { return about.indexOf(x) === i; }).join(", ") : "") }));
+        })));
+      }
+      var added = (countries || []).filter(function (f) { return counts && counts[places[f.ref][6]]; });
+      added.forEach(function (f) {
+        var tag = places[f.ref][6], n = counts[tag];
+        lines.push(h("p", { class: "pv-ws-home-works" },
+          h("a", { href: BASE + "../library/index.html?country=" + encodeURIComponent(tag) + "&sort=added",
+            text: plural(n, "work", "works") + " on " + (f.title || places[f.ref][0]) }),
+          " added to the Library " + (when || "since you joined") + "."));
+      });
+      if (!mon) lines.unshift(h("p", { class: "pv-ws-small", text: "The Monitor's list could not be read just now. Please reload the page in a moment." }));
+      else if (!lines.length) {
+        lines.push(h("p", { text: since ? "Nothing new on what you follow since your last visit."
+          : "Nothing on what you follow in the newest issue of the Monitor." }));
+      }
+      add(news, lines);
+    });
+  }
+
+  // How many works the Library added on each country since a day, read from
+  // the day each work was added, which the Library's own list carries. The
+  // list is fetched only for a reader who follows a country.
+  function libraryAdded(from, tags) {
+    return fetch(BASE + "../library/library-list.json").then(function (r) { return r.ok ? r.json() : null; }).then(function (lib) {
+      var out = {};
+      if (!lib || !lib.entries) return null;
+      var want = {};
+      tags.forEach(function (t) { want["country:" + t] = t; });
+      var since = from ? new Date(from).getTime() : 0;
+      lib.entries.forEach(function (e) {
+        if (!e.added || !(new Date(e.added).getTime() > since)) return;
+        (e.country || []).forEach(function (c) { if (want[c]) out[want[c]] = (out[want[c]] || 0) + 1; });
+      });
+      return out;
+    }, function () { return null; });
+  }
+
+  // Where the reader left off: the last draft and the last Notebook page.
+  function leftOff(d) {
+    var lines = [];
+    if (d.lastDraft) {
+      lines.push(h("p", null, "Your last draft ",
+        h("a", { href: PAGES.write + "?draft=" + encodeURIComponent(d.lastDraft.id), text: d.lastDraft.title || "Untitled" }),
+        ", changed " + DATE.format(new Date(d.lastDraft.updated_at)) + "."));
+    }
+    if (d.lastPage) {
+      lines.push(h("p", null, "Your last Notebook page ",
+        h("a", { href: PAGES.notebook + "?page=" + encodeURIComponent(d.lastPage.id), text: d.lastPage.title || "Untitled" }),
+        ", changed " + DATE.format(new Date(d.lastPage.updated_at)) + "."));
+    }
+    return lines.length ? h("div", { class: "pv-ws-home-left" }, h("h3", { class: "pv-ws-sub-h", text: "Where You Left Off" }), lines) : null;
+  }
+
+  // The switch of the email of what is new (batch 5, Part D), and the
+  // newsletter for a reader who is not on its list (batch 5, Part C).
+  function stayInTouch(me) {
+    var parts = [emailSwitch(me), !me.guest && me.newsletter ? null : newsletterButton(me)];
+    return parts.some(Boolean) ? h("div", { class: "pv-ws-home-keep" }, parts) : null;
+  }
+
+  // The reader's own switch, off until the reader turns it on. A guest has no
+  // address, so a guest has no switch.
+  var switches = 0;
+  function emailSwitch(me) {
+    if (me.guest) return null;
+    var id = "ws-email-new-" + (++switches);
+    var box = h("input", { type: "checkbox", id: id, checked: !!me.emailOn });
+    var said = h("p", { class: "pv-ws-saved", "aria-live": "polite" });
+    box.addEventListener("change", function () {
+      box.disabled = true;
+      api("/api/me/email", { method: "PATCH", body: { on: box.checked } }).then(function (r) {
+        box.disabled = false;
+        if (!r.ok) {
+          box.checked = !box.checked;
+          said.textContent = r.data.error || "That did not work. Please try again.";
+          return;
+        }
+        me.emailOn = box.checked;
+        said.textContent = box.checked ? "Saved. Every email has a link that stops it." : "Saved. No more emails of what is new.";
+      });
+    });
+    return h("div", { class: "pv-ws-email-switch" },
+      h("p", { class: "pv-ws-check" }, box, h("label", { for: id, text: "Email me when a new Monitor issue has something on what I follow" })),
+      me.emailLive ? null : h("p", { class: "pv-ws-small", text: "These emails have not started yet. Your choice is kept for when they do." }),
+      said);
+  }
+
+  // One line on what the newsletter is, so that it is never taken for the
+  // email of what is new, and one button that hands the account's address to
+  // the list, as the box at registration does. A guest has no address here,
+  // so a guest gets the Newsletter page.
+  var NEWSLETTER_LINE = "The newsletter is one email a month about the new Monitor issue, and about a new Commentary issue when one comes out.";
+  function newsletterButton(me) {
+    if (me.guest) {
+      return [h("p", null, NEWSLETTER_LINE + " ", h("a", { href: "../newsletter/index.html" }, "Sign up on the Newsletter page"), ".")];
+    }
+    var said = h("p", { class: "pv-ws-saved", "aria-live": "polite" });
+    var btn = h("button", { class: "pv-button", type: "button", onclick: function () {
+      btn.disabled = true;
+      api("/api/me/newsletter", { method: "POST", body: {} }).then(function (r) {
+        if (r.ok) {
+          me.newsletter = true;
+          clear(row);
+          add(row, h("p", { role: "status", tabindex: "-1", text: "Done. Your address " + me.email + " is on the newsletter list." }));
+          row.firstChild.focus();
+          return;
+        }
+        btn.disabled = false;
+        said.textContent = r.data.error || "That did not work. Please try again.";
+      });
+    } }, "Sign Up to the Newsletter");
+    var row = h("div", null, h("p", { text: NEWSLETTER_LINE }), h("p", null, btn), said);
+    return [row];
+  }
+
+  // ------------------------------------------------------------ The feedback card
+
+  // Four short questions, once a reader has opened the Workspace on five
+  // different days, a guest too (master plan, section 18, stage 2, batch 5,
+  // Part A). A quiet card on the first page, never a pop-up. "Not Now" is kept
+  // by the server, so it holds on every device. The answer goes to the editor
+  // in one email, and can be changed later from the account page. The lists
+  // are the server's own (server/src/lists.js); it accepts nothing else.
+  var CARD_DAYS = 5;
+  var USES = ["The Library", "The Monitor", "The Commentary", "The Data Pages", "The Workspace"];
+  var HELP = ["Write for the Commentary", "Tell a Colleague or a Student", "Cite It in My Work", "Use It in My Teaching",
+    "Suggest Works the Library Lacks", "Try New Tools Before They Open", "Not Now"];
+  var HELP_NOT_NOW = "Not Now";
+
+  function cardDue(me) {
+    return (me.guest || me.finished) && (me.daysUsed || 0) >= CARD_DAYS && !me.feedbackAt && !me.cardLater;
+  }
+
+  function feedbackCard(me) {
+    var box = h("section", { class: "pv-ws-card", "aria-labelledby": "ws-card-h" });
+    var title = function () { return h("h2", { id: "ws-card-h", class: "pv-ws-card-h", text: "How Is It Going?" }); };
+    function notNow() {
+      api("/api/feedback/later", { method: "POST", body: {} });
+      if (box.parentNode) box.parentNode.removeChild(box);
+    }
+    function shut() {
+      clear(box);
+      var open = h("button", { class: "pv-button", type: "button", onclick: function () {
+        clear(box);
+        add(box, title(), feedbackForm(me, null, function () {
+          clear(box);
+          var thanks = h("p", { class: "pv-ws-card-done", role: "status", tabindex: "-1", text: "Thank you. Your answer has reached the editor." });
+          add(box, thanks);
+          thanks.focus();
+        }, shut, "Cancel"));
+        var first = box.querySelector("input");
+        if (first) first.focus();
+      } }, "Answer Four Questions");
+      add(box, title(),
+        h("p", { text: "You have now used the Workspace on five different days. Would you tell us how it is going? There are four short questions." }),
+        h("p", { class: "pv-ws-card-row" }, open, h("button", { class: "pv-lib-link", type: "button", onclick: notNow }, "Not Now")));
+    }
+    shut();
+    return box;
+  }
+
+  // The four questions. `prior` is the reader's answer when it is changed.
+  function feedbackForm(me, prior, done, cancel, cancelLabel) {
+    prior = prior || {};
+    var errs = {};
+    function errLine(id) {
+      errs[id] = h("p", { class: "pv-ws-field-error", "aria-live": "polite" });
+      return errs[id];
+    }
+    function question(legend, hint, control, id) {
+      return h("fieldset", { class: "pv-ws-fb-q" }, h("legend", { class: "pv-wc-label", text: legend }),
+        hint ? h("p", { class: "pv-ws-hint", text: hint }) : null, control, errLine(id));
+    }
+    var radios = [];
+    var scale = h("div", { class: "pv-ws-scale" });
+    for (var i = 1; i <= 5; i++) {
+      var r = h("input", { type: "radio", name: "ws-fb-score", id: "ws-fb-score-" + i, value: String(i), checked: prior.score === i });
+      radios.push(r);
+      add(scale, h("span", { class: "pv-ws-scale-one" }, r, h("label", { for: "ws-fb-score-" + i, text: String(i) })));
+    }
+    radios.forEach(function (r) { r.addEventListener("change", function () { errs.score.textContent = ""; }); });
+    function boxes(id, list, have) {
+      var wrap = h("div", { class: "pv-ws-fb-boxes" });
+      var inputs = list.map(function (v, n) {
+        var c = h("input", { type: "checkbox", id: "ws-fb-" + id + "-" + n, value: v, checked: (have || []).indexOf(v) >= 0 });
+        add(wrap, h("p", { class: "pv-ws-check" }, c, h("label", { for: "ws-fb-" + id + "-" + n, text: v })));
+        return c;
+      });
+      return { el: wrap, inputs: inputs };
+    }
+    function ticked(group) {
+      return group.inputs.filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
+    }
+    var uses = boxes("uses", USES, prior.uses);
+    var help = boxes("help", HELP, prior.help);
+    // "Not Now" goes on its own, as the server asks.
+    help.inputs.forEach(function (c) {
+      c.addEventListener("change", function () {
+        if (!c.checked) return;
+        help.inputs.forEach(function (o) {
+          if (o !== c && (c.value === HELP_NOT_NOW || o.value === HELP_NOT_NOW)) o.checked = false;
+        });
+      });
+    });
+    var missing = h("textarea", { id: "ws-fb-missing", rows: "4", maxlength: "2000" });
+    missing.value = prior.missing || "";
+    var formErr = h("p", { class: "pv-ws-field-error", "aria-live": "polite" });
+    var send = h("button", { class: "pv-button", type: "submit" }, "Send");
+    var form = h("form", { class: "pv-ws-form pv-ws-fb", novalidate: true, onsubmit: function (e) {
+      e.preventDefault();
+      Object.keys(errs).forEach(function (k) { errs[k].textContent = ""; });
+      formErr.textContent = "";
+      var picked = radios.filter(function (r) { return r.checked; })[0];
+      if (!picked) {
+        errs.score.textContent = "Please pick a number from 1 to 5.";
+        radios[0].focus();
+        return;
+      }
+      send.disabled = true;
+      api("/api/feedback", { method: "POST", body: {
+        score: Number(picked.value), uses: ticked(uses), missing: missing.value, help: ticked(help)
+      } }).then(function (r) {
+        send.disabled = false;
+        if (r.ok) return done(r.data);
+        var f = r.data.fields || {};
+        Object.keys(f).forEach(function (k) { (errs[k] || formErr).textContent = f[k]; });
+        if (!Object.keys(f).length) formErr.textContent = r.data.error || "That did not work. Please try again.";
+        var first = { score: radios[0], uses: uses.inputs[0], missing: missing, help: help.inputs[0] }[Object.keys(f)[0]];
+        if (first) first.focus();
+      });
+    } },
+      question("How useful is PopuliVerse for your work?", "1 is not useful at all, 5 is very useful.", scale, "score"),
+      question("What do you use it for?", "Tick any that apply.", uses.el, "uses"),
+      h("div", { class: "pv-ws-field" }, h("label", { for: "ws-fb-missing", class: "pv-wc-label", text: "What is missing or awkward?" }), missing, errLine("missing")),
+      question("Would you like to help PopuliVerse grow?", "Tick any that apply.", help.el, "help"),
+      h("p", { class: "pv-ws-small", text: me.guest
+        ? "As a guest you give no name, so your answer is counted without one. If you sign up later, your answer goes with your account."
+        : "If you tick a way to help, the editor may write to you about it." }),
+      formErr,
+      h("p", { class: "pv-ws-card-row" }, send,
+        cancel ? h("button", { class: "pv-lib-link", type: "button", onclick: cancel }, cancelLabel || "Cancel") : null));
+    return form;
+  }
+
+  // On the account page the card can be opened again at any time, to answer
+  // or to change the answer.
+  function feedbackSection(me) {
+    var body = h("div");
+    function draw(answer, thanked) {
+      clear(body);
+      add(body,
+        h("p", { text: answer
+          ? "You answered on " + DATE_LONG.format(new Date(answer.changed)) + ". You can change your answer once a day."
+          : "Four short questions on how PopuliVerse works for you. The answer goes to the editor." }),
+        thanked ? h("p", { class: "pv-ws-saved", role: "status", text: "Thank you. Your answer has reached the editor." }) : null,
+        h("button", { class: "pv-button", type: "button", onclick: function () {
+          clear(body);
+          add(body, feedbackForm(me, answer, function () { load(true); }, function () { draw(answer); }, "Cancel"));
+          var first = body.querySelector("input");
+          if (first) first.focus();
+        } }, answer ? "Change Your Answer" : "Answer Four Questions"));
+    }
+    function load(thanked) {
+      api("/api/feedback").then(function (r) { draw(r.ok ? r.data.answer : null, thanked); });
+    }
+    load(false);
+    return section("Your Feedback", body);
   }
 
   // Shared with desk.js and with write.js (Write, Projects and Tools).

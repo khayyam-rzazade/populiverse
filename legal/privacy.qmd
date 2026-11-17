@@ -33,6 +33,12 @@ The Workspace is a place of your own on the site. Using it is up to you. You can
 
 **Writing for the Commentary.** When you sign up you answer one question, whether you would like to write for the Commentary. If you answer Yes or Maybe Later, the editor sees your name, your email, your institution, your position, your field and your research interests together with your answer, and may write to you about writing a piece. If you answer No, the answer is counted and nothing else happens. You can change the answer on your account page whenever you like.
 
+**The feedback card.** Once you have opened the Workspace on five different days, it asks you four short questions. To know when, it counts the days you open it, and it keeps the day you press Not Now so that the card does not come back by itself. If you answer, your answer is kept with your account and sent to the editor in one email with your name, your email, your institution, your position, your field and your research interests. A guest is asked too, and a guest's answer is sent without a name. If a guest signs up later, the answer goes with the account. If you tick a way to help, the editor may write to you about it. You can change your answer on your account page.
+
+**Home.** The first page of the Workspace shows what is new for the actors and countries you save. To know what is new, the Workspace keeps the day of your last visit and the newest Monitor issue of that day.
+
+**The email of what is new.** If you turn it on, the Workspace keeps that you asked for it and the last Monitor issue it sent you, so that no issue comes twice. When a new issue has items on the actors and countries you follow, one plain email goes to you through Cloudflare's email service, with nothing in it that tracks whether you open it. Every email has a link to a page where one button stops it without signing in, and you can also turn it off on your account page.
+
 **Signing in.** There are no passwords. You sign in with a code sent to your email, or with ORCID once you have connected it. ORCID tells the Workspace your ORCID iD and your name, and nothing else.
 
 **Against misuse.** With each sign-in, a guest's too, the Workspace keeps the IP address and the type of browser until a week after the sign-in ends. It counts the codes asked for an address for one day.
@@ -43,9 +49,9 @@ The Workspace is a place of your own on the site. Using it is up to you. You can
 
 **Marks in your browser.** Signing in also leaves one plain mark in that browser, so that the pages of the site know to show Save and Note. It says that someone is signed in here, and nothing else. Signing out takes it away. While it is not there, no page of the site asks the Workspace anything. Opening the Workspace leaves a second plain mark saying that the Workspace is open to everyone, which is how the other pages of the site know they can offer Save and Note before you sign in. If you hide the note at the top of the Workspace, that browser keeps a third mark so the note stays hidden. Neither of them says anything about you.
 
-**The newsletter box.** If you tick it when you sign up, your email and name go to Sender for the newsletter (see below). The box is never ticked for you.
+**The newsletter box.** If you tick it when you sign up, or press Sign Up to the Newsletter in the Workspace, your email and name go to Sender for the newsletter (see below). The box is never ticked for you.
 
-**Download and delete.** On your account page, Download Everything gives you one file with your account, your shelf, your notes, all your pages, your drafts, your projects, the charts you sent to Write and the events you added to a chronology. Delete My Account deletes the account and everything in it at once. The backups at Cloudflare are gone 30 days later. Deleting the account does not end the newsletter: use the link in any newsletter for that.
+**Download and delete.** On your account page, Download Everything gives you one file with your account, your shelf, your notes, all your pages, your drafts, your projects, the charts you sent to Write, the events you added to a chronology and your answer to the feedback card. Delete My Account deletes the account and everything in it at once. The backups at Cloudflare are gone 30 days later. Deleting the account does not end the newsletter: use the link in any newsletter for that.
 
 **Accounts no longer used.** An account is kept as long as it is used. After two years without a sign-in, the Workspace sends one email. If the account is still not used 30 days later, it is deleted with everything in it.
 

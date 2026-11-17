@@ -6264,8 +6264,14 @@ a.pv-cite,
   padding-right: 1rem;
 }
 
+// The first column holds the ways to help, or how the person said so, and
+// the last one a date (Fable's check of batch 5, S2).
 .pv-ws-writers th:first-child {
-  width: 6.5rem;
+  width: 11.5rem;
+}
+
+.pv-ws-writers th:last-child {
+  width: 8.5rem;
 }
 
 // A row a reader added is marked as the reader's own, on screen as in every
@@ -6471,4 +6477,194 @@ main.content .pv-ws-cf-dl dt {
 // cases that matched, and is marked. It is never counted as none.
 .pv-ws-case-row.is-unjudged td {
   color: $pv-muted;
+}
+
+// ---------------------------------------------------------------------------
+// Batch 5 (master plan, section 18, stage 2, batch 5)
+
+// Part A. The feedback card: a quiet box on the first page of the Workspace,
+// never a pop-up, with the same square corners and hairline as the rest.
+.pv-ws-card {
+  max-width: 48rem;
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.25rem 0.5rem;
+  border: 1px solid $pv-hairline;
+  background: #fff;
+}
+
+.pv-ws-app .pv-ws-card-h {
+  @include pv-label;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  border: 0;
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.pv-ws-card p {
+  max-width: 44rem;
+}
+
+.pv-ws-card-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.pv-ws-card-row .pv-button {
+  margin-top: 0;
+}
+
+.pv-ws-card-done {
+  margin: 0 0 0.5rem;
+}
+
+.pv-ws-fb-q {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.pv-ws-fb-q legend {
+  float: none;
+  width: auto;
+  padding: 0;
+}
+
+.pv-ws-fb textarea {
+  display: block;
+  width: 100%;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid $pv-ink;
+  border-radius: 0;
+  background: #fff;
+  color: $pv-ink;
+  font-family: $pv-serif;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.pv-ws-fb .pv-ws-check {
+  margin: 0.25rem 0;
+}
+
+.pv-ws-fb .pv-ws-check label {
+  min-height: 1.75rem;
+}
+
+// The scale from 1 to 5: five boxes in a row, each 44 pixels to tap.
+.pv-ws-scale {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.pv-ws-scale-one {
+  position: relative;
+}
+
+.pv-ws-scale-one input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.pv-ws-scale-one label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 1px solid $pv-ink;
+  background: #fff;
+  cursor: pointer;
+}
+
+.pv-ws-scale-one input:checked + label {
+  background: $pv-ink;
+  color: $pv-paper;
+}
+
+.pv-ws-scale-one input:focus-visible + label {
+  outline: 2px solid $pv-ink;
+  outline-offset: 2px;
+}
+
+// Your Desk: the answers of the card in full.
+.pv-ws-sub {
+  margin: 0 0 1.25rem;
+}
+
+.pv-ws-app .pv-ws-sub-h {
+  @include pv-label;
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  color: $pv-muted;
+}
+
+.pv-ws-answers {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-ws-answers > li {
+  padding: 0.75rem 0;
+  border-top: 1px solid $pv-hairline;
+  overflow-wrap: anywhere;
+}
+
+.pv-ws-answers p {
+  margin: 0 0 0.25rem;
+}
+
+.pv-ws-answer-text {
+  white-space: pre-wrap;
+}
+
+// Part B. Home: what is new for what the reader follows, above the shelf.
+.pv-ws-home {
+  max-width: 48rem;
+  margin: 0 0 1.75rem;
+}
+
+.pv-ws-home p {
+  margin: 0 0 0.5rem;
+}
+
+.pv-ws-home-items {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-ws-home-items li {
+  padding: 0.5rem 0;
+  border-top: 1px solid $pv-hairline;
+  overflow-wrap: anywhere;
+}
+
+.pv-ws-home-items li:last-child {
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-home-ref {
+  display: block;
+  font-size: 0.875rem;
+  color: $pv-muted;
+}
+
+.pv-ws-home-left,
+.pv-ws-home-keep {
+  margin-top: 1.25rem;
+}
+
+.pv-ws-home-keep .pv-button {
+  margin-top: 0;
 }

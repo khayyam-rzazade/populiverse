@@ -280,14 +280,16 @@
     // Map
     ui.map = el("div", { class: "pv-ip-map" });
     app.appendChild(ui.map);
-    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools pv-ip-tools" }), "map", "Populists in Power: the map");
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools pv-ip-tools" }), "map", "Populists in Power: the map", ["year", "lens"]);
     app.appendChild(ui.tools);
     // Counts by year
     app.appendChild(el("h2", { class: "pv-ip-h", text: "Year by Year" }));
     app.appendChild(el("p", { class: "pv-ip-sub", text: "Countries by the place populists held in their government on 1 July. The height of a bar is the number of countries the data cover that year, so it changes. Click a year to see it on the map." }));
     ui.counts = el("div", { class: "pv-ip-counts pv-wc-scroll" });
     app.appendChild(ui.counts);
-    ui.countTools = PV.keepChart(el("div", { class: "pv-wc-tools pv-ip-tools" }), "year-by-year", "Populists in Power: year by year");
+    ui.countTools = PV.keepChart(el("div", { class: "pv-wc-tools pv-ip-tools" }), "year-by-year", "Populists in Power: year by year",
+      // The chart shows every year, so the year picked for the map does not count.
+      ["lens"]);
     app.appendChild(ui.countTools);
     // The list of the year
     ui.listHead = el("h2", { class: "pv-ip-h" });
@@ -322,6 +324,10 @@
 
   function draw() {
     ui.slider.value = S.year;
+    // At Now the map is the Monitor's, whoever decides, so then only the year
+    // counts in the map's saved reference (batch 5, E2). Set before the
+    // address changes, since keep.js reads it when the address does.
+    PV.keepCounts(ui.tools, isNow() ? ["year"] : ["year", "lens"]);
     PV.state.set({ year: S.year === "2019" ? "" : S.year, lens: S.lens === "either" ? "" : S.lens });
     var y = +S.year;
     ui.yearLabel.innerHTML = y === NOW

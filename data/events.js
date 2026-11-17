@@ -156,7 +156,9 @@
       return b;
     }));
     ui.count = el("p", { class: "pv-wc-count", "aria-live": "polite" });
-    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Events in Monitor");
+    ui.tools = PV.keepChart(el("div", { class: "pv-wc-tools" }), "view", "Events in Monitor",
+      // Everything in the address changes what is shown, except the order.
+      Object.keys(DEF).filter(function (k) { return k !== "sort"; }));
     host.appendChild(el("div", { class: "pv-wc-head" }, [ui.tabs, ui.count, ui.tools]));
     host.appendChild(legend());
     ui.view = el("div", { class: "pv-wc-view" });

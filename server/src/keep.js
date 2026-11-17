@@ -632,6 +632,10 @@ export function forgetRows(db, id) {
     db.prepare("DELETE FROM draft WHERE user_id = ?").bind(id),
     db.prepare("DELETE FROM figure WHERE user_id = ?").bind(id),
     db.prepare("DELETE FROM own_event WHERE user_id = ?").bind(id),
+    db.prepare("DELETE FROM feedback WHERE user_id = ?").bind(id),
+    db.prepare("DELETE FROM feedback_card WHERE user_id = ?").bind(id),
+    db.prepare("DELETE FROM home_mark WHERE user_id = ?").bind(id),
+    db.prepare("DELETE FROM digest WHERE user_id = ?").bind(id),
     db.prepare("DELETE FROM kept WHERE user_id = ?").bind(id)
   ];
 }
