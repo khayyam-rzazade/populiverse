@@ -37,9 +37,10 @@
     : /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? "http://localhost:8787" : null;
   if (!API) return;
 
-  // The folder of the Workspace, from any page of the site.
+  // The folder of the Workspace, from any page of the site. An address that
+  // ends in a slash names a folder, and the folder counts as one level.
   var WS = (function () {
-    var depth = location.pathname.replace(/^\/|\/$/g, "").split("/").length - 1;
+    var depth = location.pathname.replace(/^\//, "").split("/").length - 1;
     return (depth ? new Array(depth + 1).join("../") : "") + "workspace/";
   })();
 
