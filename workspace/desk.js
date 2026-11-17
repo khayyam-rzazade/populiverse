@@ -212,14 +212,17 @@
       }
       var tbody = h("tbody", null, rows.map(function (r) {
         return h("tr", null,
-          h("td", { text: r.answer }),
-          h("td", null, h("span", { text: r.name }),
+          h("td", { "data-label": "Answer", text: r.answer }),
+          h("td", { "data-label": "Who" }, h("span", { text: r.name }),
             h("br"), h("span", { class: "pv-ws-small", text: r.email })),
-          h("td", { text: [r.institution, r.country ? countryName(r.country) : ""].filter(Boolean).join(", ") }),
-          h("td", { text: [answerOf(r.position, r.positionOther), answerOf(r.field, r.fieldOther)].filter(Boolean).join(", ") }),
-          h("td", { text: r.interests || "" }));
+          h("td", { "data-label": "Institution", text: [r.institution, r.country ? countryName(r.country) : ""].filter(Boolean).join(", ") }),
+          h("td", { "data-label": "Position and field", text: [answerOf(r.position, r.positionOther), answerOf(r.field, r.fieldOther)].filter(Boolean).join(", ") }),
+          h("td", { "data-label": "Research interests", text: r.interests || "" }));
       }));
-      return h("table", { class: "pv-ws-table" },
+      // On a phone each person stands as one card, as the tables of the tools
+      // do, and a long word never pushes the desk wider than the screen
+      // (Fable's check of batch 4, point 8).
+      return h("table", { class: "pv-ws-table pv-ws-writers" },
         h("thead", null, h("tr", null, h("th", { text: "Answer" }), h("th", { text: "Who" }), h("th", { text: "Institution" }),
           h("th", { text: "Position and field" }), h("th", { text: "Research interests" }))), tbody);
     }

@@ -6250,6 +6250,24 @@ a.pv-cite,
   min-width: 52rem;
 }
 
+// The desk's list of those who would write for the Commentary: five columns
+// that keep to the width of the page, whatever a person typed.
+.pv-ws-writers {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.pv-ws-writers th,
+.pv-ws-writers td {
+  overflow-wrap: anywhere;
+  vertical-align: top;
+  padding-right: 1rem;
+}
+
+.pv-ws-writers th:first-child {
+  width: 6.5rem;
+}
+
 // A row a reader added is marked as the reader's own, on screen as in every
 // file that leaves here. It is never mixed silently into the Monitor's items.
 .pv-ws-chrono tr.is-mine {
@@ -6320,6 +6338,17 @@ a.pv-cite,
   margin: 0 0 0.5rem;
 }
 
+// A label stands on the line of its own value. The site's general rule for a
+// list of terms puts a space above each term, which here pushed every label
+// one line below the value it names (Fable's check of batch 4, point 5).
+.pv-ws-cf-dl {
+  align-items: baseline;
+}
+
+main.content .pv-ws-cf-dl dt {
+  margin-top: 0;
+}
+
 .pv-ws-cf-notes {
   margin: 0;
   padding-left: 1.125rem;
@@ -6345,7 +6374,8 @@ a.pv-cite,
 
   .pv-ws-cases thead,
   .pv-ws-chrono thead,
-  .pv-ws-years thead {
+  .pv-ws-years thead,
+  .pv-ws-writers thead {
     display: none;
   }
 
@@ -6360,28 +6390,37 @@ a.pv-cite,
   .pv-ws-years,
   .pv-ws-years tbody,
   .pv-ws-years tr,
-  .pv-ws-years td {
+  .pv-ws-years td,
+  .pv-ws-writers,
+  .pv-ws-writers tbody,
+  .pv-ws-writers tr,
+  .pv-ws-writers td {
     display: block;
     width: 100%;
   }
 
   .pv-ws-cases tbody tr,
   .pv-ws-chrono tbody tr,
-  .pv-ws-years tbody tr {
+  .pv-ws-years tbody tr,
+  .pv-ws-writers tbody tr {
     padding: 0.75rem 0;
     border-bottom: 1px solid $pv-hairline;
   }
 
   .pv-ws-cases td,
   .pv-ws-chrono td,
-  .pv-ws-years td {
+  .pv-ws-years td,
+  .pv-ws-writers td {
     border: 0;
     padding: 0.2rem 0 0.45rem;
+    // A long address typed as a source breaks rather than widening the page.
+    overflow-wrap: anywhere;
   }
 
   .pv-ws-cases td::before,
   .pv-ws-chrono td::before,
-  .pv-ws-years td::before {
+  .pv-ws-years td::before,
+  .pv-ws-writers td::before {
     content: attr(data-label);
     display: block;
     @include pv-label;
@@ -6409,6 +6448,14 @@ a.pv-cite,
 
   .pv-ws-casefile {
     max-width: none;
+  }
+
+  // On paper a case file carries the name of the site and nothing to press.
+  body:has(.pv-ws-casefile) #quarto-back-to-top,
+  body:has(.pv-ws-casefile) #quarto-search,
+  body:has(.pv-ws-casefile) .navbar-toggler,
+  body:has(.pv-ws-casefile) .nav-footer {
+    display: none !important;
   }
 
   .pv-ws-cf-sec {

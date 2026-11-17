@@ -3,7 +3,7 @@ title: "Privacy"
 description: "What personal data PopuliVerse handles, and what it does not."
 ---
 
-Last updated: 16 November 2026
+Last updated: 17 November 2026
 
 PopuliVerse collects as little personal data as it can. Reading the site needs no account. There is no comments section and no advertising.
 
@@ -23,13 +23,13 @@ Khayyam RZAZADE, editor of PopuliVerse. Contact: editor@populiverse.com
 
 The Workspace is a place of your own on the site. Using it is up to you. You can try it as a guest or keep your work in an account.
 
-**What an account holds.** Your email, your name and your institution. Your position and your field, which can be Prefer Not to Respond, and the words you type if you choose Other. Your research interests in one line, if you write them. Your answer to the question on writing for the Commentary, and the day you answered it. Your ORCID iD, if you connect it. The pages you write and the drafts you write. Your projects, each with its title, its question and what you put in it. What you save on the site, which can be a work, a Monitor item, an actor, a country or a chart, and with each of them the note you write on it, the tags you give it, whether you have read it and the passages you mark in it. For a work you save, the abstract as the Library had it that day, so that the passages you mark have a text to sit in. For each thing you save, the reference the site itself gives for it, which is what a draft's reference list is built from. A chart you send to Write is kept as the picture the page drew that day, with that page's own source line. The day you signed up and the day you last used it.
+**What an account holds.** Your email, your name and your institution. Your position and your field, which can be Prefer Not to Respond, and the words you type if you choose Other. Your research interests in one line, if you write them. Your answer to the question on writing for the Commentary, and the day you answered it. Your ORCID iD, if you connect it. The pages you write and the drafts you write. Your projects, each with its title, its question and what you put in it. What you save on the site, which can be a work, a Monitor item, an actor, a country or a chart, and with each of them the note you write on it, the tags you give it, whether you have read it and the passages you mark in it. For a work you save, the abstract as the Library had it that day, so that the passages you mark have a text to sit in. For each thing you save, the reference the site itself gives for it, which is what a draft's reference list is built from. A chart you send to Write is kept as the picture the page drew that day, with that page's own source line. The events you add yourself to a chronology, each with its date, what happened and its source. The day you signed up and the day you last used it.
 
-**A guest.** A guest gives no name and no email. The work is stored like an account's and can be opened from that browser only. It is lost when you sign out, clear the browser or change device, and is deleted 30 days after your last visit. A guest keeps at most 50 saved things, 20 pages, 3 projects, 3 drafts and 3 charts sent to Write.
+**A guest.** A guest gives no name and no email. The work is stored like an account's and can be opened from that browser only. It is lost when you sign out, clear the browser or change device, and is deleted 30 days after your last visit. A guest keeps at most 50 saved things, 20 pages, 3 projects, 3 drafts, 3 charts sent to Write and 50 events of their own.
 
 **Where it is kept.** In a database the editor runs on his own account at Cloudflare, a company based in the United States. The sign-in codes are sent by Cloudflare's email service. Cloudflare keeps backups of the database for 30 days and short technical records of requests for a few days.
 
-**What the editor counts.** The editor counts accounts and how they are used: how many people sign up, from which institutions and countries, in which positions and fields.
+**What the editor counts.** The editor counts accounts and how they are used: how many people sign up, from which institutions and countries, in which positions and fields. The editor can also download the list of accounts, which holds each name, email, institution, position, field, research interests and answer on the Commentary.
 
 **Writing for the Commentary.** When you sign up you answer one question, whether you would like to write for the Commentary. If you answer Yes or Maybe Later, the editor sees your name, your email, your institution, your position, your field and your research interests together with your answer, and may write to you about writing a piece. If you answer No, the answer is counted and nothing else happens. You can change the answer on your account page whenever you like.
 
@@ -45,7 +45,7 @@ The Workspace is a place of your own on the site. Using it is up to you. You can
 
 **The newsletter box.** If you tick it when you sign up, your email and name go to Sender for the newsletter (see below). The box is never ticked for you.
 
-**Download and delete.** On your account page, Download Everything gives you one file with your account, your shelf, your notes, all your pages, your drafts, your projects and the charts you sent to Write. Delete My Account deletes the account and everything in it at once. The backups at Cloudflare are gone 30 days later. Deleting the account does not end the newsletter: use the link in any newsletter for that.
+**Download and delete.** On your account page, Download Everything gives you one file with your account, your shelf, your notes, all your pages, your drafts, your projects, the charts you sent to Write and the events you added to a chronology. Delete My Account deletes the account and everything in it at once. The backups at Cloudflare are gone 30 days later. Deleting the account does not end the newsletter: use the link in any newsletter for that.
 
 **Accounts no longer used.** An account is kept as long as it is used. After two years without a sign-in, the Workspace sends one email. If the account is still not used 30 days later, it is deleted with everything in it.
 

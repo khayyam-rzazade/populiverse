@@ -106,6 +106,10 @@
     return { best: best, covered: covered, years: years };
   }
 
+  // The years of The PopuList 4.0 and of the Global Party Survey 2019, as
+  // data/who-counts.js gives them.
+  var POPULIST_FROM = 1989, POPULIST_TO = 2026, SURVEY_YEAR = 2019;
+
   // The years a dataset speaks for, for one party or leader.
   function yearsOf(r) {
     var from = null, to = null;
@@ -116,12 +120,13 @@
     }
     (r.vp || []).forEach(function (v) { (v.el || []).forEach(function (e) { seen(e[0]); }); });
     (r.gd || []).forEach(function (t) { seen(t[1]); seen(t[2]); });
-    (r.pl || []).forEach(function (e) {
-      var s = e.sets && e.sets.p;
-      if (!s || !s.y) return;
-      if (s.y[0] > 1900) seen(s.y[0]);
-      if (s.y[1] < 2100) seen(s.y[1]);
-    });
+    // The PopuList speaks for every party it holds, for all its years, 1989 to
+    // 2026, as Who Counts as Populist? reads and draws it: populist in the
+    // years it names, not populist in the others. It writes 1900 and 2100 for
+    // "always", which is never "no years". The Global Party Survey asked once,
+    // in 2019 (Fable's check of batch 4, point 2).
+    if (r.pl && r.pl.length) { seen(POPULIST_FROM); seen(POPULIST_TO); }
+    if (r.gs) seen(SURVEY_YEAR);
     return { from: from, to: to };
   }
 
@@ -149,6 +154,10 @@
     if (!m[3]) return MONTHS[Number(m[2]) - 1] + " " + m[1];
     return Number(m[3]) + " " + MONTHS[Number(m[2]) - 1] + " " + m[1];
   }
+
+  // The date of a row: a day, a month or a year, and the last day too when a
+  // Monitor item runs over several.
+  function whenWords(r) { return dayWords(r.day) + (r.dayEnd ? " to " + dayWords(r.dayEnd) : ""); }
 
   function csvCell(v) {
     var s = v === null || v === undefined ? "" : String(v);
@@ -291,7 +300,7 @@
   function toolPage(me, title, lede) {
     var body = h("div", { class: "pv-ws-tool-page" });
     show(head(me, "tools"),
-      h("p", { class: "pv-ws-small" }, h("a", { href: PAGES.tools }, "Back to the tools")),
+      h("p", { class: "pv-ws-small pv-ws-noprint" }, h("a", { href: PAGES.tools }, "Back to the tools")),
       h("h2", { class: "pv-ws-h", text: title }),
       lede ? h("p", { class: "pv-ws-lede-s", text: lede }) : null,
       body);
@@ -313,6 +322,19 @@
     return { el: h("div", { class: "pv-ws-field" }, h("label", { for: "pv-" + id, class: "pv-wc-label" }, label), s,
       hint ? h("p", { class: "pv-ws-hint", text: hint }) : null), sel: s };
   }
+
+  // What an address may hold. A link written or cut by hand can carry a year
+  // outside the lists, a period that ends before it starts, or a word no list
+  // has; the view then opens on the nearest thing the lists do have, and the
+  // statement never names a criterion the page cannot show (Fable's check of
+  // batch 4, point 4).
+  function periodOf(state, from0) {
+    function year(v, or) { var y = Number(v); return y >= 1990 && y <= NOW_YEAR && Math.floor(y) === y ? y : or; }
+    var from = year(state.from, from0), to = year(state.to, NOW_YEAR);
+    if (from > to) to = from;
+    return { from: String(from), to: String(to) };
+  }
+  function oneOf(v, list) { return list.indexOf(v) >= 0 ? v : ""; }
 
   function yearList(from, to) {
     var out = [];
@@ -340,17 +362,18 @@
 
   function drawSelection(me, d, body, state) {
     clear(body);
+    var years = periodOf(state, 1990);
     var S = {
       cases: state.cases === "actors" ? "actors" : "countries",
-      region: state.region || "",
-      from: String(Number(state.from) || 1990),
-      to: String(Number(state.to) || NOW_YEAR),
-      place: state.place || "",
-      verdict: state.verdict || "",
-      agree: state.agree || "",
-      kind: state.kind || "",
-      monitor: state.monitor || "",
-      power: state.power || ""
+      region: oneOf(state.region, Object.keys(REGIONS)),
+      from: years.from,
+      to: years.to,
+      place: oneOf(state.place, ["any", "3", "2", "1", "0"]),
+      verdict: oneOf(state.verdict, ["pop", "not"]),
+      agree: oneOf(state.agree, ["agree", "differ", "one"]),
+      kind: oneOf(state.kind, ["party", "leader"]),
+      monitor: oneOf(state.monitor, ["yes", "no"]),
+      power: oneOf(state.power, ["yes", "no"])
     };
 
     var regions = [["", "All regions"]].concat(Object.keys(REGIONS).map(function (k) { return [k, REGIONS[k]]; }));
@@ -528,6 +551,7 @@
         ref: mon ? mon.id : r.id,
         judged: covered,
         savable: !!mon,
+        actor: mon,
         name: r.n + (r.s ? " (" + r.s + ")" : ""),
         country: r.cl || r.c,
         region: REGIONS[region] || region,
@@ -630,12 +654,12 @@
     if (S.power === "no") crit.push("holding no place in government at the last issue of the Monitor, " + d.mon.issue);
     bits.push("The criteria were " + crit.join(", ") + ".");
     bits.push("The verdicts are those of " + stamp(d).join(", ") + ", each dataset's own, and the places in government are those of Populists in Power as built on " + dayWords(d.power.built) + ".");
-    bits.push(plural(found.matched, "case matched", "cases matched") + " the criteria"
+    bits.push((found.matched ? plural(found.matched, "case matched", "cases matched") : "No case matched") + " the criteria"
       + (found.notCovered
         ? ", and " + found.notCovered + (found.notCovered === 1 ? " further case" : " further cases")
           + " could not be judged, because no dataset covers " + (found.notCovered === 1 ? "it" : "them")
           + " for these years, so " + (found.notCovered === 1 ? "it is listed apart" : "they are listed apart")
-        : ", and every one of them is covered by at least one dataset for these years") + ".");
+        : found.matched ? ", and every one of them is covered by at least one dataset for these years" : "") + ".");
     bits.push("PopuliVerse settles no disagreement between the datasets, and not covered never means none.");
     return bits.join(" ");
   }
@@ -710,9 +734,14 @@
     function next() {
       if (!queue.length) return Promise.resolve(done);
       var r = queue.shift();
+      // The very card the actor's or the country's own page saves
+      // (data/monitor-pages.js), so that a case has one name on the shelf
+      // whichever way it came there (Fable's check of batch 4, point 6).
+      var a = r.kind === "actor" ? r.actor : null;
       var card = r.kind === "country"
-        ? { kind: "country", ref: r.ref, title: r.name, extra: r.region, url: r.page, country: r.ref }
-        : { kind: "actor", ref: r.ref, title: r.name, extra: r.what + " · " + r.country, url: r.page };
+        ? { kind: "country", ref: r.ref, title: r.name, url: r.page, country: r.ref }
+        : { kind: "actor", ref: a.id, title: a.name, extra: (a.kind === "leader" ? "Leader" : "Party") + (a.c ? " \u00b7 " + a.c : ""),
+            url: SITE + "actors/" + a.id + ".html", country: a.iso || "" };
       return api("/api/keep", { method: "POST", body: card }).then(function (saved) {
         if (!saved.ok) return next();
         return api("/api/projects/" + encodeURIComponent(projectId) + "/things", {
@@ -750,17 +779,16 @@
 
   function drawChronology(me, d, projectList, body, state) {
     clear(body);
-    var S = {
-      on: state.on || "",
-      from: String(Number(state.from) || 2026),
-      to: String(Number(state.to) || NOW_YEAR)
-    };
+    var years = periodOf(state, 2026);
+    var S = { on: state.on || "", from: years.from, to: years.to };
     if (state.p) S.on = "project:" + state.p;
     var form = h("div", { class: "pv-ws-form pv-ws-select-form" });
     var out = h("div");
     add(body, form, out);
 
-    var subject = picker("on", "The chronology is of", subjectList(d, projectList), S.on);
+    var subjects0 = subjectList(d, projectList);
+    if (!subjects0.some(function (o) { return o[0] === S.on; })) S.on = "";
+    var subject = picker("on", "The chronology is of", subjects0, S.on);
     var fromPick = picker("cfrom", "From", yearList(1990, NOW_YEAR), S.from);
     var toPick = picker("cto", "To", yearList(1990, NOW_YEAR), S.to);
     add(form, subject.el, h("div", { class: "pv-ws-pair" }, fromPick.el, toPick.el));
@@ -789,7 +817,12 @@
         }
         ownEventsOf(subjects).then(function (own) {
           clear(out);
-          add(out, chronologyView(d, S, subjects, own, run));
+          // The chronology of a project is named by the project, not by the
+          // whole list of its cases (Fable's check of batch 4, point 7).
+          var project = String(S.on).indexOf("project:") === 0
+            ? (projectList || []).filter(function (p) { return "project:" + p.id === S.on; })[0] : null;
+          add(out, chronologyView(d, S, subjects, own, run,
+            project ? "the " + plural(subjects.length, "case", "cases") + " of " + project.title : ""));
         });
       });
     }
@@ -846,7 +879,12 @@
         mine: false,
         on: on,
         day: it.date,
-        what: it.title || it.s || "",
+        // An item that runs over several days keeps its last day, and a
+        // one-line entry, whose title is only the place, keeps its own
+        // sentence, both as Events in Monitor shows them (Fable's check of
+        // batch 4, point 3).
+        dayEnd: it.de || "",
+        what: it.k === "entry" && it.s ? it.title + ". " + it.s : it.title || it.s || "",
         type: it.type || "",
         reference: "PopuliVerse Monitor " + it.issue + ", item " + it.n,
         url: SITE + "monitor/" + it.folder + "/#item-" + it.n
@@ -861,7 +899,8 @@
     });
   }
 
-  function chronologyView(d, S, subjects, own, reload) {
+  function chronologyView(d, S, subjects, own, reload, named) {
+    var names = named || subjects.map(function (s) { return s.name; }).join(", ");
     var from = Number(S.from), to = Number(S.to);
     var items = monitorItems(d, subjects, from, to);
     var mine = own.filter(function (e) {
@@ -882,7 +921,7 @@
       h("p", { class: "pv-ws-count-line", text:
         plural(items.length, "item of the Monitor", "items of the Monitor") + " and "
         + plural(mine.length, "event of your own", "events of your own") + ", "
-        + from + " to " + to + ", on " + subjects.map(function (s) { return s.name; }).join(", ") + "." }),
+        + from + " to " + to + ", on " + names + "." }),
       h("p", { class: "pv-ws-small pv-ws-whatitis", text: whatItIs }));
 
     if (!rows.length) {
@@ -891,7 +930,7 @@
       var headRow = ["Date", "What happened", "Type", "Reference"];
       if (subjects.length > 1) headRow.splice(1, 0, "On");
       var tbody = h("tbody", null, rows.map(function (r) {
-        var cells = [h("span", { text: dayWords(r.day) })];
+        var cells = [h("span", { text: whenWords(r) })];
         if (subjects.length > 1) cells.push(h("span", { text: r.on ? r.on.name : "" }));
         cells.push(h("span", { text: r.what }));
         cells.push(h("span", { text: r.type }));
@@ -913,19 +952,19 @@
     add(wrap, addEventForm(subjects, reload));
 
     // Out: a Word file for an appendix, and the table as data.
-    var titleOf = "Chronology, " + subjects.map(function (s) { return s.name; }).join(", ") + ", " + from + " to " + to;
+    var titleOf = "Chronology, " + names + ", " + from + " to " + to;
     var word = h("button", { class: "pv-lib-link", type: "button", onclick: function () {
       if (!rows.length) { saying(said, "Nothing to put in a file"); return; }
       makeWord({
         title: titleOf,
-        file: "chronology-" + subjects.map(function (s) { return s.name; }).join("-"),
+        file: "chronology-" + names,
         blocks: [
           { text: whatItIs },
           { small: "Made on " + longDay() + ". The last issue of the Monitor is " + d.mon.issue + "." },
           { table: {
             head: subjects.length > 1 ? ["Date", "On", "What happened", "Type", "Reference"] : ["Date", "What happened", "Type", "Reference"],
             rows: rows.map(function (r) {
-              var line = [dayWords(r.day)];
+              var line = [whenWords(r)];
               if (subjects.length > 1) line.push(r.on ? r.on.name : "");
               line.push(r.what);
               line.push(r.type);
@@ -940,9 +979,9 @@
 
     var csv = h("button", { class: "pv-lib-link", type: "button", onclick: function () {
       if (!rows.length) { saying(said, "Nothing to download"); return; }
-      csvFile(["date", "on", "what_happened", "type", "reference", "link", "added_by", "source", "made_on"],
+      csvFile(["date", "date_end", "on", "what_happened", "type", "reference", "link", "added_by", "source", "made_on"],
         rows.map(function (r) {
-          return [r.day, r.on ? r.on.name : "", r.what, r.type, r.mine ? r.reference : r.reference, r.url,
+          return [r.day, r.dayEnd || "", r.on ? r.on.name : "", r.what, r.type, r.reference, r.url,
             r.mine ? "you" : "PopuliVerse Monitor", r.mine ? r.source : "", today()];
         }), fileName("chronology", ".csv"));
       saying(said, "Downloaded");
@@ -1013,11 +1052,13 @@
 
   function drawCaseFile(me, d, projectList, body, state) {
     clear(body);
-    var S = { on: state.on || "", from: String(Number(state.from) || 1990), to: String(Number(state.to) || NOW_YEAR) };
+    var years = periodOf(state, 1990);
+    var S = { on: state.on || "", from: years.from, to: years.to };
     var list = subjectList(d, null);
     var form = h("div", { class: "pv-ws-form pv-ws-select-form pv-ws-noprint" });
     var out = h("div");
     add(body, form, out);
+    if (!list.some(function (o) { return o[0] === S.on; })) S.on = "";
     var subject = picker("fon", "The case file is of", list, S.on);
     var fromPick = picker("ffrom", "From", yearList(1990, NOW_YEAR), S.from);
     var toPick = picker("fto", "To", yearList(1990, NOW_YEAR), S.to);
@@ -1154,7 +1195,7 @@
             h("thead", null, h("tr", null, h("th", { text: "Date" }), h("th", { text: "What happened" }), h("th", { text: "Type" }), h("th", { text: "Reference" }))),
             h("tbody", null, chrono.map(function (r) {
               return h("tr", { class: r.mine ? "is-mine" : "" },
-                h("td", { "data-label": "Date", text: dayWords(r.day) }),
+                h("td", { "data-label": "Date", text: whenWords(r) }),
                 h("td", { "data-label": "What happened", text: r.what }),
                 h("td", { "data-label": "Type", text: r.type }),
                 h("td", { "data-label": "Reference" }, r.url
@@ -1169,7 +1210,7 @@
     blocks.push({ small: chronoLine });
     if (chrono.length) {
       blocks.push({ table: { head: ["Date", "What happened", "Type", "Reference"],
-        rows: chrono.map(function (r) { return [dayWords(r.day), r.what, r.type, r.mine ? "Your own. " + r.reference : r.reference + "\n" + r.url]; }) } });
+        rows: chrono.map(function (r) { return [whenWords(r), r.what, r.type, r.mine ? "Your own. " + r.reference : r.reference + "\n" + r.url]; }) } });
     } else {
       blocks.push({ text: "There is none for these years." });
     }
