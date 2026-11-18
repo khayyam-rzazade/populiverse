@@ -14,6 +14,15 @@ $pv-commentary: #6B5060;  // Commentary cover: plum-grey
 $pv-workspace:  #5A6B50;  // Workspace board: moss. Bronze #6B5F4A is the warm one
 $pv-ws-tint:    #F1F3EE;  // the board the six tools sit on
 
+// One colour for each kind of thing in the Workspace (the tidy-up of 17
+// November 2026, Part D), taken from the charts of the Data pages. Only ever a
+// small mark beside the word, never the colour of text.
+$pv-kind-work:    #B08D57;  // works: bronze ("Office and Party" in Events in Monitor)
+$pv-kind-item:    #27485A;  // Monitor items: deep slate ("Abroad")
+$pv-kind-actor:   #9C4E6E;  // actors: plum ("Populist" in Who Counts as Populist?)
+$pv-kind-country: #6E8790;  // countries: grey-blue ("Rules")
+$pv-kind-chart:   #8A5A2B;  // charts: brown ("Justice")
+
 $pv-serif: "Libre Baskerville", Georgia, "Times New Roman", serif;
 $pv-page-width: 1280px;   // widest the masthead and the Home page get
 $pv-page-gutter: 6.25%;   // space left and right of them
@@ -5787,13 +5796,13 @@ a.pv-cite,
   height: 9px;
   margin: -4.5px 0 0 -4.5px;
   box-sizing: border-box;
-  border: 1.5px solid $pv-monitor;
+  border: 1.5px solid $pv-kind-item;
   border-radius: 50%;
   background: #fff;
 }
 
 .pv-ws-dot-m.is-mine {
-  background: $pv-monitor;
+  background: $pv-kind-item;
 }
 
 .pv-ws-dots-key {
@@ -5809,12 +5818,12 @@ a.pv-cite,
   height: 9px;
   margin-right: 0.375rem;
   box-sizing: border-box;
-  border: 1.5px solid $pv-monitor;
+  border: 1.5px solid $pv-kind-item;
   border-radius: 50%;
 }
 
 .pv-ws-key.is-mine {
-  background: $pv-monitor;
+  background: $pv-kind-item;
 }
 
 // ---- a thing's projects, and the control that adds it to one
@@ -6649,14 +6658,62 @@ main.content .pv-ws-cf-dl dt {
   white-space: pre-wrap;
 }
 
-// Part B. Home: what is new for what the reader follows, above the shelf.
+// Home: the first page of the Workspace (the tidy-up of 17 November 2026,
+// Part A). Continue on the left, What Is New on the right; one under the other
+// on a phone.
 .pv-ws-home {
-  max-width: 48rem;
-  margin: 0 0 1.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.25rem 4rem;
+  margin: 0.5rem 0 2.5rem;
+}
+
+@include media-breakpoint-up(lg) {
+  .pv-ws-home {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
+}
+
+.pv-ws-home-part {
+  padding-top: 1rem;
+  border-top: 1px solid $pv-ink;
 }
 
 .pv-ws-home p {
   margin: 0 0 0.5rem;
+}
+
+// Continue: up to three lines, each a link, with what it is and when.
+.pv-ws-cont {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pv-ws-cont li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.75rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid $pv-hairline;
+}
+
+.pv-ws-cont-k.pv-ws-label-s {
+  flex: 0 0 5.75rem;
+  margin: 0;
+  color: $pv-muted;
+}
+
+.pv-ws-cont-t {
+  flex: 1 1 8rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.pv-ws-cont-d {
+  margin-left: auto;
+  white-space: nowrap;
 }
 
 .pv-ws-home-items {
@@ -6681,11 +6738,193 @@ main.content .pv-ws-cf-dl dt {
   color: $pv-muted;
 }
 
-.pv-ws-home-left,
-.pv-ws-home-keep {
-  margin-top: 1.25rem;
+// "More" on a row of the shelf (the tidy-up of 17 November 2026, Part B): Add
+// a Tag, Add to Project and Remove, in a small box under the button.
+.pv-ws-more {
+  position: relative;
+  display: inline-flex;
 }
 
-.pv-ws-home-keep .pv-button {
-  margin-top: 0;
+.pv-ws-more-b[aria-expanded="true"] {
+  text-decoration-thickness: 2px;
+}
+
+.pv-ws-more-m {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  min-width: 11rem;
+  margin-top: 0.25rem;
+  padding: 0.25rem 0.875rem;
+  background: #fff;
+  border: 1px solid $pv-ink;
+}
+
+.pv-ws-more-m[hidden] {
+  display: none;
+}
+
+.pv-ws-more-m .pv-lib-link {
+  display: flex;
+  align-items: center;
+  min-height: 2.5rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+// Notes, the last of the kinds on the shelf (the tidy-up of 17 November 2026,
+// Part C): a thin line sets it apart, since a note is written, not saved.
+.pv-ws-kind.pv-ws-kind-notes {
+  padding-left: 2rem;
+  border-left: 1px solid $pv-hairline;
+}
+
+// The mark of a kind (Part D): a small round dot in the kind's colour, always
+// beside the word it marks. The same everywhere: the row of kinds, each row of
+// the shelf and of the notes, the things inside a project, the "@" list, and
+// What Is New.
+.pv-ws-mark {
+  display: inline-block;
+  flex: none;
+  width: 0.5625rem;
+  height: 0.5625rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: $pv-muted;
+  vertical-align: 0.0625em;
+}
+
+.pv-ws-mark.is-work    { background: $pv-kind-work; }
+.pv-ws-mark.is-item    { background: $pv-kind-item; }
+.pv-ws-mark.is-actor   { background: $pv-kind-actor; }
+.pv-ws-mark.is-country { background: $pv-kind-country; }
+.pv-ws-mark.is-chart   { background: $pv-kind-chart; }
+
+// In the row of kinds the dot sits on the line of the word, as high as its
+// small letters.
+.pv-ws-kind .pv-ws-mark {
+  margin-right: 0;
+  align-self: baseline;
+}
+
+// In the "@" list the dot leads the first line of an option.
+.pv-ed-pick-o .pv-ws-mark {
+  margin-right: 0.4375rem;
+}
+
+// A page with nothing on it yet (the tidy-up of 17 November 2026, Part E): a
+// small line drawing in the colour of its kind, one line and one button. The
+// line keeps the colour of text.
+.pv-ws-blank-draw {
+  padding: 2.25rem 1.5rem 2rem;
+}
+
+.pv-ws-blank-draw .pv-ws-blank-t {
+  margin: 0 0 1rem;
+  font-size: 1.0625rem;
+}
+
+.pv-ws-blank-do {
+  margin: 0;
+}
+
+.pv-ws-draw {
+  display: block;
+  width: 4rem;
+  height: 3rem;
+  margin: 0 auto 0.875rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: $pv-workspace;
+}
+
+.pv-ws-draw.is-work    { color: $pv-kind-work; }
+.pv-ws-draw.is-item    { color: $pv-kind-item; }
+.pv-ws-draw.is-actor   { color: $pv-kind-actor; }
+.pv-ws-draw.is-country { color: $pv-kind-country; }
+.pv-ws-draw.is-chart   { color: $pv-kind-chart; }
+.pv-ws-draw.is-space   { color: $pv-workspace; }
+
+// On Home the two empty parts are smaller, so the page stays calm.
+.pv-ws-home .pv-ws-blank-draw {
+  padding: 1.5rem 1rem 1.375rem;
+}
+
+// A colour for each project (the tidy-up of 17 November 2026, Part F): six
+// fixed colours from the site's own palette, none of them the colour of a
+// kind. A stripe on the project's card and beside its title, and a short
+// upright stripe beside its name elsewhere. The name always stands beside it.
+$pv-project-colours: (
+  moss:  #5A6B50,
+  plum:  #5E1A37,
+  slate: #4A5F66,
+  sand:  #C9B48A,
+  rose:  #D29BB1,
+  stone: #8E8B83
+);
+
+.pv-ws-pc {
+  display: inline-block;
+  flex: none;
+  width: 0.25rem;
+  height: 0.875rem;
+  margin-right: 0.375rem;
+  vertical-align: -0.0625rem;
+  background: $pv-muted;
+}
+
+.pv-ws-project.has-colour {
+  padding-left: 1rem;
+  border-left: 5px solid transparent;
+}
+
+.pv-ws-app .pv-ws-project-h.has-colour {
+  padding-left: 0.875rem;
+  border-left: 6px solid transparent;
+}
+
+@each $name, $colour in $pv-project-colours {
+  .pv-ws-pc.is-#{$name} { background: $colour; }
+  .pv-ws-project.is-#{$name},
+  .pv-ws-app .pv-ws-project-h.is-#{$name} { border-left-color: $colour; }
+}
+
+// The six to pick from: each a word with its colour beside it.
+.pv-ws-colours {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0.75rem 0 0.25rem;
+  padding: 0;
+  border: 0;
+}
+
+.pv-ws-colours legend {
+  width: 100%;
+  margin-bottom: 0.25rem;
+  padding: 0;
+}
+
+.pv-ws-colour {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4375rem;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+
+.pv-ws-colour input {
+  margin: 0;
+}
+
+.pv-ws-colour .pv-ws-pc {
+  width: 0.875rem;
+  height: 0.875rem;
+  margin: 0;
 }

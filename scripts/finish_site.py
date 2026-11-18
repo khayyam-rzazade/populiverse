@@ -45,7 +45,7 @@ OUT = os.environ.get("QUARTO_PROJECT_OUTPUT_DIR", "_site")
 # noindex tag of their own. Its front door, /workspace/, is listed since the
 # opening (the wrap-up before the opening, Part D).
 HIDE = ("/404.html", "/newsletter/thanks.html", "/newsletter/confirmed.html",
-        "/workspace/notes.html",
+        "/workspace/shelf.html", "/workspace/notes.html",
         "/workspace/notebook.html", "/workspace/write.html", "/workspace/projects.html",
         "/workspace/tools.html", "/workspace/account.html", "/workspace/desk.html")
 

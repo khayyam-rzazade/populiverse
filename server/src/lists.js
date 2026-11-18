@@ -37,6 +37,10 @@ export const OTHER = "Other";
 // Commentary? The answer is kept in these words, as the lists above are.
 export const COMMENTARY = ["Yes", "Maybe Later", "No"];
 
+// The six colours a reader can give a project (the tidy-up and colour round of
+// 17 November 2026, Part F). Only these names are kept; the page draws them.
+export const PROJECT_COLOURS = ["moss", "plum", "slate", "sand", "rose", "stone"];
+
 // The feedback card (master plan, section 18, stage 2, batch 5, Part A). What
 // a reader may tick under "What do you use it for?" and "Would you like to help
 // PopuliVerse grow?", kept in these words.

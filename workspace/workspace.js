@@ -22,12 +22,24 @@
     var p = location.pathname;
     return p.slice(0, p.lastIndexOf("/") + 1);
   })();
-  var PAGES = { home: BASE, notes: BASE + "notes.html", notebook: BASE + "notebook.html",
+  var PAGES = { home: BASE, shelf: BASE + "shelf.html", notes: BASE + "notes.html", notebook: BASE + "notebook.html",
     write: BASE + "write.html", projects: BASE + "projects.html", tools: BASE + "tools.html",
     account: BASE + "account.html", desk: BASE + "desk.html", guide: BASE + "guide.html" };
   var app = document.getElementById("ws-app");
   if (!app) return;
   var VIEW = app.getAttribute("data-view");
+
+  // The shelf has had its own page since the tidy-up of 17 November 2026; the
+  // first page is Home. An old address of the shelf (/workspace/?kind=actor
+  // and the like, saved, shared or in an email) goes on to the shelf with the
+  // same parts, so every address a reader has kept still opens what it did.
+  if (VIEW === "home") {
+    var asked = new URLSearchParams(location.search);
+    if (["kind", "addto", "project", "tag"].some(function (k) { return asked.has(k); })) {
+      location.replace(PAGES.shelf + location.search + location.hash);
+      return;
+    }
+  }
 
   var POSITIONS = ["PhD Candidate", "Postdoctoral Researcher", "Lecturer or Assistant Professor", "Associate Professor", "Professor",
     "Researcher Outside Academia", "Student", "Journalist", "Policy or NGO", "Other", "Prefer Not to Respond"];
@@ -160,6 +172,8 @@
   // browser remembers that (master plan, section 18, the open trial).
   var TRIAL_MARK = "pv-workspace-trial-note";
   (function trialNote() {
+    // On Home only, so that the other pages carry only their own work.
+    if (VIEW !== "home") return;
     try { if (window.localStorage.getItem(TRIAL_MARK) === "hidden") return; } catch (e) { /* no storage: show it */ }
     var note = h("div", { class: "pv-ws-trial", role: "note" },
       h("p", { class: "pv-ws-trial-t" },
@@ -183,7 +197,7 @@
   var params = new URLSearchParams(location.search);
 
   reachable().then(function (status) {
-    if (!status) return VIEW === "shelf" ? preview() : previewOther();
+    if (!status) return VIEW === "home" ? preview() : previewOther();
     // The library answers "no session" without an error; only then ask for more.
     return api("/api/auth/get-session").then(function (s) {
       // "Too many" is not "nobody": a network that asked too often in one
@@ -216,6 +230,7 @@
         if (window.PVWrite) return window.PVWrite(me, VIEW);
         return show(message("This page could not load. Please reload it.", "error"));
       }
+      if (VIEW === "home") return home(me);
       return shelf(me);
     });
   });
@@ -609,10 +624,12 @@
 
   // ------------------------------------------------------------ The head
 
-  // The tabs of this batch, and who is signed in. No title above them: the menu
-  // already says where the reader is (master plan, section 18, the row on the
-  // mockup, point 6). Home arrives with batch 5.
-  var TABS = [["shelf", "Shelf", "home"], ["notes", "Notes", "notes"], ["notebook", "Notebook", "notebook"],
+  // The tabs, and who is signed in. No title above them: the menu already says
+  // where the reader is (master plan, section 18, the row on the mockup, point
+  // 6). Home is the first page; the shelf has its own (the tidy-up of 17
+  // November 2026, Part A). The notes are reached from the shelf, as the last
+  // of its kinds, and the Shelf tab is lit on their page (Part C).
+  var TABS = [["home", "Home", "home"], ["shelf", "Shelf", "shelf"], ["notebook", "Notebook", "notebook"],
     ["write", "Write", "write"], ["projects", "Projects", "projects"], ["tools", "Tools", "tools"]];
 
   function head(me, here) {
@@ -752,6 +769,10 @@
     function blank() {
       shell.classList.remove("is-open");
       clear(editorEl);
+      if (!state.pages.length && !state.q && !state.project) {
+        add(editorEl, emptyState("notebook", "Your Notebook is empty.", h("button", { class: "pv-button", type: "button", onclick: newPage }, "Start a Page")));
+        return;
+      }
       add(editorEl, h("div", { class: "pv-ws-blank" },
         h("p", { class: "pv-ws-blank-t", text: state.pages.length ? "Pick a page, or start a new one." : "Your Notebook is empty." }),
         h("p", { text: "A page takes bold, italic, a heading, a quote and a list, and @ cites a work or a Monitor item." }),
@@ -1094,6 +1115,63 @@
   function plural(n, one, many) { return n + " " + (n === 1 ? one : many); }
 
   var KINDS = [["work", "Works"], ["item", "Monitor Items"], ["actor", "Actors"], ["country", "Countries"], ["chart", "Charts"]];
+  // The small dot in the colour of a kind (the tidy-up of 17 November 2026,
+  // Part D). It only ever stands beside the word it marks, so it adds nothing a
+  // screen reader needs.
+  function mark(kind) {
+    return h("span", { class: "pv-ws-mark is-" + kind, "aria-hidden": "true" });
+  }
+  // The colour a reader gave a project (Part F): a short upright stripe beside
+  // the project's name, never in place of it. Only the six names are drawn.
+  var PROJECT_COLOURS = [["moss", "Moss"], ["plum", "Plum"], ["slate", "Slate"], ["sand", "Sand"], ["rose", "Rose"], ["stone", "Stone"]];
+  function projectMark(colour) {
+    var known = PROJECT_COLOURS.some(function (c) { return c[0] === colour; });
+    return known ? h("span", { class: "pv-ws-pc is-" + colour, "aria-hidden": "true" }) : null;
+  }
+
+  // A page with nothing on it yet: a small line drawing, one short line and one
+  // button (the tidy-up of 17 November 2026, Part E). The drawings are made
+  // here, in a few strokes each: no picture file, nothing from outside. Each is
+  // in the colour of its kind; the Notebook, Write, Projects and Continue,
+  // which are no kind of saved thing, take the Workspace's own moss ("space").
+  var DRAWINGS = {
+    // an open book
+    work: [["path", "M8 13c9-4 17-3 24 1c7-4 15-5 24-1v26c-9-4-17-3-24 1c-7-4-15-5-24-1z"], ["path", "M32 14v26"],
+      ["path", "M14 20c5-1.5 9-1.5 13 0M14 26c5-1.5 9-1.5 13 0M37 20c4-1.5 8-1.5 13 0M37 26c4-1.5 8-1.5 13 0"]],
+    // a page of the Monitor
+    item: [["rect", { x: 15, y: 5, width: 34, height: 38, rx: 1 }], ["path", "M21 12h22M21 19h22M21 25h22M21 31h14M21 37h18"]],
+    // a person
+    actor: [["circle", { cx: 32, cy: 15, r: 8 }], ["path", "M16 43c0-11 7-17 16-17s16 6 16 17"]],
+    // a globe
+    country: [["circle", { cx: 32, cy: 24, r: 18 }], ["ellipse", { cx: 32, cy: 24, rx: 8, ry: 18 }], ["path", "M14 24h36M17 15h30M17 33h30"]],
+    // a bar chart
+    chart: [["path", "M12 41h40M12 41V7"], ["path", "M21 41V29M30 41V17M39 41V24M48 41V12"]],
+    // a notebook, a pen on a line, a folder, a bookmark
+    notebook: [["rect", { x: 17, y: 5, width: 32, height: 38, rx: 1 }], ["path", "M13 11h7M13 19h7M13 27h7M13 35h7M26 15h17M26 22h17M26 29h11"]],
+    write: [["path", "M10 41h44"], ["path", "M21 34l3-9L41 8l6 6-17 17z"], ["path", "M38 11l6 6"]],
+    project: [["path", "M9 13h15l4 5h27v23H9z"], ["path", "M9 23h46"]],
+    cont: [["path", "M23 6h18v35l-9-7-9 7z"]]
+  };
+  var DRAW_COLOUR = { notebook: "space", write: "space", project: "space", cont: "space" };
+  function drawing(name) {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("class", "pv-ws-draw is-" + (DRAW_COLOUR[name] || name));
+    svg.setAttribute("viewBox", "0 0 64 48");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("focusable", "false");
+    (DRAWINGS[name] || []).forEach(function (part) {
+      var el = document.createElementNS(ns, part[0]);
+      if (typeof part[1] === "string") el.setAttribute("d", part[1]);
+      else Object.keys(part[1]).forEach(function (k) { el.setAttribute(k, part[1][k]); });
+      svg.appendChild(el);
+    });
+    return svg;
+  }
+  function emptyState(name, line, action) {
+    return h("div", { class: "pv-ws-blank pv-ws-blank-draw" }, drawing(name),
+      h("p", { class: "pv-ws-blank-t", text: line }), h("p", { class: "pv-ws-blank-do" }, action));
+  }
   // The same kinds inside a sentence: "3 Monitor items", "No works yet."
   var ONE = { work: "work", item: "Monitor item", actor: "actor", country: "country", chart: "chart" };
   var MANY = { work: "works", item: "Monitor items", actor: "actors", country: "countries", chart: "charts" };
@@ -1101,6 +1179,14 @@
   var SEARCH_LABEL = { work: "Search your works", item: "Search your Monitor items", actor: "Search your actors",
     country: "Search your countries", chart: "Search your charts" };
   var READING = [["to-read", "To Read"], ["reading", "Reading"], ["read", "Read"]];
+  // Where each kind is saved from, for a shelf with none of it yet (Part E).
+  var SAVE_FROM = {
+    work: ["Save a work in the Library, and it shows here.", "../library/index.html", "Open the Library"],
+    item: ["Save an item of the Monitor, and it shows here.", "../monitor/index.html", "Open the Monitor"],
+    actor: ["Save an actor, and it shows here.", "../actors/index.html", "Actors in Monitor"],
+    country: ["Save a country, and it shows here.", "../countries/index.html", "Countries in Monitor"],
+    chart: ["Save a chart from the Data pages, and it shows here.", "../data/index.html", "Open Data"]
+  };
   var READING_NAME = { "to-read": "To Read", reading: "Reading", read: "Read" };
 
   // The frame the Library wears: search and order on top, filters on the left,
@@ -1131,6 +1217,7 @@
   }
 
   function shelf(me) {
+    noteCount = me.notes || 0;
     var askedKind = params.get("kind");
     var state = { kind: KINDS.some(function (k) { return k[0] === askedKind; }) ? askedKind : "work",
       q: "", status: "", tag: "", order: "new", from: 0, project: params.get("project") || "",
@@ -1149,29 +1236,9 @@
     });
     var kindsNav = h("nav", { class: "pv-ws-kinds", "aria-label": "Kind" });
     var adding = h("div");
-    // The first page of the Workspace, as a reader first sees it (no kind, no
-    // project, nothing being added): the feedback card when it is due (batch
-    // 5, Part A). Any other view of the shelf shows the shelf alone, so every
-    // address a reader has saved or shared opens as before.
-    var first = !params.get("kind") && !state.project && !state.addto;
-    // Home stands there too (batch 5, Part B): what is new for what the reader
-    // follows, above the shelf, under the board of the six tools.
-    var top = first ? [homeBlock(me), cardDue(me) ? feedbackCard(me) : null] : null;
-    // A new account's first arrival, straight after "Finish": one line on where
-    // to start, then the address is tidied so that a reload does not show it
-    // again. The Notebook drew this line when it was the first page; since
-    // batch 2 the shelf is, so it stands here (the wrap-up before the opening,
-    // Part A).
-    var welcome = null;
-    if (params.get("welcome")) {
-      if (!me.guest) welcome = h("div", { class: "pv-ws-note pv-ws-welcome", role: "status" },
-        "Your account is ready. Start in the ", h("a", { href: BASE + "../library/index.html" }, "Library"),
-        ", where Save keeps a work here, or read ", h("a", { href: PAGES.guide }, "How to Use Your Workspace"),
-        ". You can connect ORCID on your ", h("a", { href: PAGES.account }, "account page"),
-        ", so that next time ORCID is enough.");
-      try { history.replaceState(null, "", PAGES.home); } catch (e) { /* the line still shows */ }
-    }
-    show(head(me, "shelf"), welcome, top, adding, kindsNav, ui.bar, ui.body);
+    // The shelf alone. Home, the welcome line and the feedback card stand on
+    // the first page (the tidy-up of 17 November 2026, Part A).
+    show(head(me, "shelf"), adding, kindsNav, ui.bar, ui.body);
     projects().then(function () {
       var into = state.addto ? myProjects.filter(function (p) { return p.id === state.addto; })[0] : null;
       if (state.addto && !into) state.addto = "";
@@ -1190,7 +1257,7 @@
       KINDS.forEach(function (k) {
         var on = k[0] === state.kind;
         var n = counts[k[0]] === undefined ? "" : String(counts[k[0]]);
-        var inner = [k[1], n ? h("span", { class: "pv-ws-kind-n", text: n }) : null];
+        var inner = [mark(k[0]), k[1], n ? h("span", { class: "pv-ws-kind-n", text: n }) : null];
         row.appendChild(on
           ? h("span", { class: "pv-ws-kind is-on", "aria-current": "true" }, inner)
           : h("button", { class: "pv-ws-kind", type: "button", onclick: function () {
@@ -1200,6 +1267,7 @@
               load();
             } }, inner));
       });
+      add(row, notesKind(false, state.project));
       add(kindsNav, row);
     }
 
@@ -1362,20 +1430,22 @@
             state.q = ""; state.status = ""; state.tag = ""; state.project = ""; ui.search.value = ""; state.from = 0; load();
           } }, "Show everything again")));
       }
-      var total = Object.keys(counts).reduce(function (n, k) { return n + (counts[k] || 0); }, 0);
-      if (!total) {
-        return h("div", { class: "pv-ws-blank" },
-          h("p", { class: "pv-ws-blank-t", text: "Nothing on your shelf yet." }),
-          h("p", { text: "Press Save on a work, a Monitor item, an actor, a country or a chart, and it is kept here." }),
-          h("p", { class: "pv-ws-blank-links" },
-            h("a", { href: BASE + "../library/", text: "Open the Library" }),
-            h("a", { href: BASE + "../monitor/", text: "Open the Monitor" }),
-            h("a", { href: BASE + "../data/events.html", text: "Open Data" })));
-      }
-      var name = MANY[state.kind] || "things";
-      return h("div", { class: "pv-ws-blank" }, h("p", { class: "pv-ws-blank-t", text: "No " + name + " yet." }),
-        h("p", { text: "Press Save on one, and it is kept here." }));
+      // Nothing of this kind: one line, one button to where it is saved from.
+      var go = SAVE_FROM[state.kind] || SAVE_FROM.work;
+      return emptyState(state.kind, go[0], h("a", { class: "pv-button", href: BASE + go[1], text: go[2] }));
     }
+  }
+
+  // The last of the kinds in the row: the notes, on their own page (the
+  // tidy-up of 17 November 2026, Part C). With a project chosen, the notes of
+  // that project; the count is of all the reader's notes, so it is left out
+  // then.
+  var noteCount = 0;
+  function notesKind(here, project) {
+    var inner = ["Notes", project ? null : h("span", { class: "pv-ws-kind-n", text: String(noteCount) })];
+    return here
+      ? h("span", { class: "pv-ws-kind pv-ws-kind-notes is-on", "aria-current": "page" }, inner)
+      : h("a", { class: "pv-ws-kind pv-ws-kind-notes", href: PAGES.notes + (project ? "?project=" + encodeURIComponent(project) : "") }, inner);
   }
 
   // ------------------------------------------------------------ One thing
@@ -1400,11 +1470,11 @@
   function thingRow(t, data, reload, addto) {
     var li = h("li", { class: "pv-ws-thing" });
     var head = [];
-    if (t.kind !== "work") head.push(h("p", { class: "pv-ws-kind-label", text: kindLabel(t.kind) }));
+    if (t.kind !== "work") head.push(h("p", { class: "pv-ws-kind-label" }, mark(t.kind), kindLabel(t.kind)));
     var title = t.url
       ? h("a", { href: t.url, text: t.title || t.ref })
       : h("span", { text: t.title || t.ref });
-    head.push(h("p", { class: t.kind === "work" ? "pv-ws-cite" : "pv-ws-thing-t" }, title));
+    head.push(h("p", { class: t.kind === "work" ? "pv-ws-cite" : "pv-ws-thing-t" }, t.kind === "work" ? mark("work") : null, title));
     var below = crossLinks(t, data);
     var extra = t.kind === "work" ? "" : t.extra;
     if (extra || below.length) {
@@ -1423,10 +1493,12 @@
         h("span", { class: "pv-ws-label-s", text: "Your Note" }), h("em", { text: cut(t.note.body, 160) })));
     }
 
+    // Seen at once: the reading status of a work and its note. Add a Tag, Add
+    // to Project and Remove stand behind "More" (the tidy-up of 17 November
+    // 2026, Part B).
     var row = h("div", { class: "pv-ws-thing-row" });
     if (t.kind === "work") add(row, statusLink(t, reload));
     (t.tags || []).forEach(function (name) { add(row, tagChip(t, name, reload)); });
-    add(row, addTag(t, reload));
     var end = h("span", { class: "pv-ws-thing-end" });
     if (addto) {
       var inIt = (t.projects || []).some(function (p) { return p.id === addto; });
@@ -1445,8 +1517,7 @@
     if (t.kind === "work" && t.abstract) add(end, abstractButton(t, li, reload));
     add(end, h("button", { class: "pv-lib-link", type: "button",
       onclick: function () { noteBox(t, li, reload); } }, t.note ? "Edit Note" : "Note"));
-    add(end, addToProject(t, li, reload));
-    add(end, removeButton(t, reload));
+    add(end, moreButton(t, li, row, end, reload));
     add(row, end);
     add(li, row);
     if ((t.projects || []).length) {
@@ -1454,7 +1525,7 @@
         h("span", { class: "pv-ws-label-s", text: "In" }),
         t.projects.map(function (p, i) {
           return [i ? h("span", { class: "pv-ws-dot", "aria-hidden": "true", text: "\u00b7" }) : null,
-            h("a", { class: "pv-ws-x", href: PAGES.projects + "?p=" + encodeURIComponent(p.id), text: p.title })];
+            h("a", { class: "pv-ws-x", href: PAGES.projects + "?p=" + encodeURIComponent(p.id) }, projectMark(p.colour), p.title)];
         })));
     }
     // An abstract the reader has open stays open while passages are marked.
@@ -1524,74 +1595,120 @@
         } }, "×"));
   }
 
-  function addTag(t, reload) {
-    var btn = h("button", { class: "pv-lib-link", type: "button", onclick: function () {
-      var input = h("input", { type: "text", maxlength: "40", "aria-label": "A tag of your own", placeholder: "Your tag" });
-      var err = h("span", { class: "pv-ws-small" });
-      var form = h("form", { class: "pv-ws-tagform", onsubmit: function (e) {
-        e.preventDefault();
-        var name = input.value.trim();
-        if (!name) { form.parentNode.replaceChild(btn, form); return; }
-        api("/api/keep/tag", { method: "POST", body: { kind: t.kind, ref: t.ref, add: name } }).then(function (r) {
-          if (!r.ok) { err.textContent = " " + (r.data.error || "That tag could not be added."); return; }
-          reload();
-        });
-      } }, input, h("button", { class: "pv-lib-link", type: "submit", text: "Add" }),
-        h("button", { class: "pv-lib-link", type: "button", onclick: function () { form.parentNode.replaceChild(btn, form); } }, "Cancel"), err);
-      btn.parentNode.replaceChild(form, btn);
-      input.focus();
-    } }, "Add a Tag");
-    return btn;
-  }
-
-  // One control puts a thing into a project, or takes it out again.
-  function addToProject(t, li, reload) {
-    var btn = h("button", { class: "pv-lib-link", type: "button", onclick: function () {
-      projects().then(function (list) {
-        var box = li.querySelector(".pv-ws-projbox");
-        if (box) { box.parentNode.removeChild(box); return; }
-        box = h("div", { class: "pv-ws-projbox" });
-        if (!list.length) {
-          add(box, h("p", { class: "pv-ws-small", text: "No projects yet." }),
-            h("p", null, h("a", { class: "pv-lib-link", href: PAGES.projects, text: "Start one" })));
-        } else {
-          var inside = {};
-          (t.projects || []).forEach(function (p) { inside[p.id] = true; });
-          var err = h("p", { class: "pv-ws-field-error", "aria-live": "polite" });
-          list.forEach(function (p) {
-            var mark = h("input", { type: "checkbox", id: "pj-" + p.id + "-" + Math.random().toString(36).slice(2, 7), checked: !!inside[p.id] });
-            mark.addEventListener("change", function () {
-              var how = mark.checked ? "POST" : "DELETE";
-              api("/api/projects/" + encodeURIComponent(p.id) + "/things", { method: how, body: { kind: t.kind, ref: t.ref } })
-                .then(function (r) {
-                  if (!r.ok) { mark.checked = !mark.checked; err.textContent = r.data.error || "That could not be changed."; return; }
-                  reload();
-                });
-            });
-            add(box, h("label", { class: "pv-ws-opt", for: mark.id }, mark, h("span", { class: "pv-ws-opt-n", text: p.title })));
-          });
-          add(box, err);
-        }
-        add(box, h("p", { class: "pv-keep-row" },
-          h("button", { class: "pv-lib-link", type: "button", onclick: function () { box.parentNode.removeChild(box); } }, "Close")));
-        li.appendChild(box);
-      });
-    } }, "Add to Project");
-    return btn;
-  }
-
-  function removeButton(t, reload) {
-    var btn = h("button", { class: "pv-lib-link", type: "button", onclick: function () {
-      if (!t.note) return gone();
-      var ask = h("span", { class: "pv-ws-ask" }, h("span", { text: "Remove it and your note?" }),
-        h("button", { class: "pv-lib-link", type: "button", onclick: gone }, "Remove"),
-        h("button", { class: "pv-lib-link", type: "button", onclick: function () { ask.parentNode.replaceChild(btn, ask); } }, "Keep"));
-      btn.parentNode.replaceChild(ask, btn);
-    } }, "Remove");
-    function gone() {
-      api("/api/keep", { method: "DELETE", body: { kind: t.kind, ref: t.ref } }).then(reload);
+  // "More": one small button that opens Add a Tag, Add to Project and Remove.
+  // It opens and closes by click, by Enter or Space, and Esc closes it; a
+  // screen reader hears whether it is open (aria-expanded). It closes too when
+  // the reader clicks or moves elsewhere.
+  var mores = 0;
+  function moreButton(t, li, row, end, reload) {
+    var id = "ws-more-" + (++mores);
+    var wrap = h("span", { class: "pv-ws-more" });
+    var btn = h("button", { class: "pv-lib-link pv-ws-more-b", type: "button", "aria-expanded": "false", "aria-controls": id }, "More");
+    var menu = h("span", { class: "pv-ws-more-m", id: id, hidden: true });
+    function open() {
+      menu.hidden = false;
+      btn.setAttribute("aria-expanded", "true");
+      document.addEventListener("click", outside, true);
     }
-    return btn;
+    function shut(focus) {
+      menu.hidden = true;
+      btn.setAttribute("aria-expanded", "false");
+      document.removeEventListener("click", outside, true);
+      if (focus) btn.focus();
+    }
+    function outside(e) { if (!wrap.contains(e.target)) shut(false); }
+    btn.addEventListener("click", function () { if (menu.hidden) open(); else shut(false); });
+    wrap.addEventListener("keydown", function (e) {
+      if ((e.key === "Escape" || e.key === "Esc") && !menu.hidden) { e.preventDefault(); e.stopPropagation(); shut(true); }
+    });
+    wrap.addEventListener("focusout", function (e) {
+      if (!menu.hidden && e.relatedTarget && !wrap.contains(e.relatedTarget)) shut(false);
+    });
+    add(menu,
+      h("button", { class: "pv-lib-link", type: "button", onclick: function () { shut(false); tagForm(t, row, end, reload, btn); } }, "Add a Tag"),
+      h("button", { class: "pv-lib-link", type: "button", onclick: function () { shut(false); projectBox(t, li, reload, btn); } }, "Add to Project"),
+      h("button", { class: "pv-lib-link", type: "button", onclick: function () { shut(false); removeThing(t, wrap, reload, btn); } }, "Remove"));
+    add(wrap, btn, menu);
+    return wrap;
+  }
+
+  // A tag of the reader's own, typed in the row beside the tags it has.
+  function tagForm(t, row, end, reload, back) {
+    var old = row.querySelector(".pv-ws-tagform");
+    if (old) { old.querySelector("input").focus(); return; }
+    var input = h("input", { type: "text", maxlength: "40", "aria-label": "A tag of your own", placeholder: "Your tag" });
+    var err = h("span", { class: "pv-ws-small" });
+    function cancel() { if (form.parentNode) form.parentNode.removeChild(form); back.focus(); }
+    var form = h("form", { class: "pv-ws-tagform", onsubmit: function (e) {
+      e.preventDefault();
+      var name = input.value.trim();
+      if (!name) { cancel(); return; }
+      api("/api/keep/tag", { method: "POST", body: { kind: t.kind, ref: t.ref, add: name } }).then(function (r) {
+        if (!r.ok) { err.textContent = " " + (r.data.error || "That tag could not be added."); return; }
+        reload();
+      });
+    } }, input, h("button", { class: "pv-lib-link", type: "submit", text: "Add" }),
+      h("button", { class: "pv-lib-link", type: "button", onclick: cancel }, "Cancel"), err);
+    input.addEventListener("keydown", function (e) { if (e.key === "Escape" || e.key === "Esc") { e.preventDefault(); cancel(); } });
+    row.insertBefore(form, end);
+    input.focus();
+  }
+
+  // One box puts a thing into a project, or takes it out again.
+  function projectBox(t, li, reload, back) {
+    projects().then(function (list) {
+      var box = li.querySelector(".pv-ws-projbox");
+      if (box) { box.parentNode.removeChild(box); back.focus(); return; }
+      box = h("div", { class: "pv-ws-projbox" });
+      if (!list.length) {
+        add(box, h("p", { class: "pv-ws-small", text: "No projects yet." }),
+          h("p", null, h("a", { class: "pv-lib-link", href: PAGES.projects, text: "Start one" })));
+      } else {
+        var inside = {};
+        (t.projects || []).forEach(function (p) { inside[p.id] = true; });
+        var err = h("p", { class: "pv-ws-field-error", "aria-live": "polite" });
+        list.forEach(function (p) {
+          var mark = h("input", { type: "checkbox", id: "pj-" + p.id + "-" + Math.random().toString(36).slice(2, 7), checked: !!inside[p.id] });
+          mark.addEventListener("change", function () {
+            var how = mark.checked ? "POST" : "DELETE";
+            api("/api/projects/" + encodeURIComponent(p.id) + "/things", { method: how, body: { kind: t.kind, ref: t.ref } })
+              .then(function (r) {
+                if (!r.ok) { mark.checked = !mark.checked; err.textContent = r.data.error || "That could not be changed."; return; }
+                reload();
+              });
+          });
+          add(box, h("label", { class: "pv-ws-opt", for: mark.id }, mark, h("span", { class: "pv-ws-opt-n", text: p.title })));
+        });
+        add(box, err);
+      }
+      add(box, h("p", { class: "pv-keep-row" },
+        h("button", { class: "pv-lib-link", type: "button", onclick: function () { box.parentNode.removeChild(box); back.focus(); } }, "Close")));
+      box.addEventListener("keydown", function (e) {
+        if ((e.key === "Escape" || e.key === "Esc") && box.parentNode) { e.preventDefault(); box.parentNode.removeChild(box); back.focus(); }
+      });
+      li.appendChild(box);
+      var first = box.querySelector("input, a, button");
+      if (first) first.focus();
+    });
+  }
+
+  // Remove: at once when there is no note; with a question when there is one.
+  function removeThing(t, wrap, reload, back) {
+    function gone() {
+      api("/api/keep", { method: "DELETE", body: { kind: t.kind, ref: t.ref } }).then(function (r) {
+        if (r.ok && t.note) noteCount = Math.max(0, noteCount - 1);
+        reload();
+      });
+    }
+    if (!t.note) return gone();
+    var keep = h("button", { class: "pv-lib-link", type: "button", onclick: function () {
+      ask.parentNode.replaceChild(wrap, ask);
+      back.focus();
+    } }, "Keep");
+    var ask = h("span", { class: "pv-ws-ask", role: "group", "aria-label": "Remove it and your note?" }, h("span", { text: "Remove it and your note?" }),
+      h("button", { class: "pv-lib-link", type: "button", onclick: gone }, "Remove"), keep);
+    wrap.parentNode.replaceChild(ask, wrap);
+    keep.focus();
   }
 
   // The note, opened in place.
@@ -1609,6 +1726,9 @@
         h("button", { class: "pv-button", type: "button", onclick: function () {
           api("/api/keep/note", { method: "POST", body: { kind: t.kind, ref: t.ref, body: area.value } }).then(function (r) {
             if (!r.ok) { err.textContent = r.data.error || "That note could not be saved just now."; return; }
+            var now = !!area.value.trim();
+            if (now && !t.note) noteCount++;
+            if (!now && t.note) noteCount = Math.max(0, noteCount - 1);
             reload();
           });
         } }, "Save Note"),
@@ -1768,9 +1888,31 @@
       onSearch: function (q) { state.q = q; state.from = 0; load(); },
       onOrder: function (o) { state.order = o; state.from = 0; load(); }
     });
-    show(head(me, "notes"), ui.bar, ui.body);
+    // The notes belong to the shelf: its tab is lit, and the row of its kinds
+    // leads back to it, with Notes as the kind shown here (Part C).
+    var kindsNav = h("nav", { class: "pv-ws-kinds", "aria-label": "Kind" });
+    noteCount = me.notes || 0;
+    show(head(me, "shelf"), kindsNav, ui.bar, ui.body);
     projects().then(function () { if (myProjects.length) load(); });
     load();
+    drawKinds({});
+    // The counts of the kinds, as the shelf shows them. The list of charts is
+    // asked for because it is the shortest; only its counts are used.
+    api("/api/keep?kind=chart&order=new&from=0" + (state.project ? "&project=" + encodeURIComponent(state.project) : "")).then(function (r) {
+      if (r.ok) drawKinds(r.data.counts || {});
+    });
+
+    function drawKinds(kept) {
+      clear(kindsNav);
+      var row = h("div", { class: "pv-ws-kinds-row" });
+      KINDS.forEach(function (k) {
+        var n = kept[k[0]] === undefined ? "" : String(kept[k[0]]);
+        add(row, h("a", { class: "pv-ws-kind", href: PAGES.shelf + "?kind=" + k[0] + (state.project ? "&project=" + encodeURIComponent(state.project) : "") },
+          mark(k[0]), k[1], n ? h("span", { class: "pv-ws-kind-n", text: n }) : null));
+      });
+      add(row, notesKind(true, state.project));
+      add(kindsNav, row);
+    }
 
     function on() { return Object.keys(state.on).filter(function (k) { return state.on[k]; }); }
 
@@ -1784,6 +1926,7 @@
         if (r.status === 401 || r.status === 403) { location.href = PAGES.home; return; }
         if (!r.ok) { clear(ui.list); add(ui.list, message(r.data.error || "Your notes could not be loaded just now. Please try again.", "error")); return; }
         counts = r.data.counts || {};
+        if (!state.q && !on().length && !state.project) noteCount = r.data.total || 0;
         drawSide();
         clear(ui.head);
         add(ui.head, h("p", { class: "pv-ws-count-line", text: plural(r.data.total || 0, "note", "notes") }));
@@ -1839,7 +1982,7 @@
 
   function noteRow(n, data, reload) {
     var li = h("li", { class: "pv-ws-note-item" });
-    add(li, h("p", { class: "pv-ws-kind-label", text: "On " + (n.kind === "actor" ? "an " : "a ") + kindLabel(n.kind) }));
+    add(li, h("p", { class: "pv-ws-kind-label" }, mark(n.kind), "On " + (n.kind === "actor" ? "an " : "a ") + kindLabel(n.kind)));
     var where = [n.title || n.ref];
     if (n.extra) where.push(n.extra);
     add(li, h("p", { class: "pv-ws-note-src" }, n.url
@@ -1949,19 +2092,68 @@
   }
   function itemHeading(it) { return it.k === "entry" && it.s ? it.title + ". " + it.s : it.title; }
 
-  function homeBlock(me) {
-    var box = h("section", { class: "pv-ws-home", "aria-labelledby": "ws-home-h" });
+  // The first page holds three things and nothing else (the tidy-up of 17
+  // November 2026, Part A): the welcome line of a new account, Continue (the
+  // draft, the project and the Notebook page last changed) and What Is New.
+  // The feedback card stands here when it is due, as before (batch 5, Part A).
+  // The email switch and the newsletter are on the account page.
+  function home(me) {
+    // A new account's first arrival, straight after "Finish": one line on
+    // where to start, then the address is tidied so that a reload does not
+    // show it again (the wrap-up before the opening, Part A).
+    var welcome = null;
+    if (params.get("welcome")) {
+      if (!me.guest) welcome = h("div", { class: "pv-ws-note pv-ws-welcome", role: "status" },
+        "Your account is ready. Start in the ", h("a", { href: BASE + "../library/index.html" }, "Library"),
+        ", where Save keeps a work here, or read ", h("a", { href: PAGES.guide }, "How to Use Your Workspace"),
+        ". You can connect ORCID on your ", h("a", { href: PAGES.account }, "account page"),
+        ", so that next time ORCID is enough.");
+      try { history.replaceState(null, "", PAGES.home); } catch (e) { /* the line still shows */ }
+    }
+    var cont = h("div", { class: "pv-ws-home-cont", "aria-live": "polite" }, h("p", { class: "pv-ws-small", text: "Loading\u2026" }));
     var news = h("div", { class: "pv-ws-home-new", "aria-live": "polite" }, h("p", { class: "pv-ws-small", text: "Looking for what is new\u2026" }));
-    var rest = h("div");
-    add(box, h("h2", { id: "ws-home-h", class: "pv-ws-h", text: "What Is New" }), news, rest);
+    var parts = h("div", { class: "pv-ws-home" },
+      h("section", { class: "pv-ws-home-part", "aria-labelledby": "ws-cont-h" },
+        h("h2", { id: "ws-cont-h", class: "pv-ws-h", text: "Continue" }), cont),
+      h("section", { class: "pv-ws-home-part", "aria-labelledby": "ws-home-h" },
+        h("h2", { id: "ws-home-h", class: "pv-ws-h", text: "What Is New" }), news));
+    show(head(me, "home"), welcome, parts, cardDue(me) ? feedbackCard(me) : null);
+    // The project last changed is the first of the list, which the server
+    // orders by its last change.
+    var lastProject = api("/api/projects").then(function (r) {
+      return r.ok && r.data.projects && r.data.projects.length ? r.data.projects[0] : null;
+    });
     monitorRaw().then(function (mon) {
       return api("/api/home", { method: "POST", body: { issue: mon && mon.folder ? mon.folder : "" } }).then(function (r) {
-        if (!r.ok) { clear(news); add(news, h("p", { class: "pv-ws-small", text: "What is new could not be loaded just now." })); return; }
+        if (!r.ok) {
+          clear(news); add(news, h("p", { class: "pv-ws-small", text: "What is new could not be loaded just now." }));
+          clear(cont); add(cont, h("p", { class: "pv-ws-small", text: "This could not be loaded just now." }));
+          return;
+        }
         drawNews(news, r.data, mon);
-        add(rest, leftOff(r.data), stayInTouch(me));
+        return lastProject.then(function (p) { drawContinue(cont, r.data, p); });
       });
     });
-    return box;
+  }
+
+  // Up to three lines, each a link: the draft, the project and the Notebook
+  // page last changed.
+  function drawContinue(box, d, project) {
+    clear(box);
+    var rows = [];
+    if (d.lastDraft) rows.push(["Draft", d.lastDraft.title || "Untitled", PAGES.write + "?draft=" + encodeURIComponent(d.lastDraft.id), d.lastDraft.updated_at]);
+    if (project) rows.push(["Project", project.title, PAGES.projects + "?p=" + encodeURIComponent(project.id), project.updated_at]);
+    if (d.lastPage) rows.push(["Notebook", d.lastPage.title || "Untitled", PAGES.notebook + "?page=" + encodeURIComponent(d.lastPage.id), d.lastPage.updated_at]);
+    if (!rows.length) {
+      add(box, emptyState("cont", "Nothing started yet.", h("a", { class: "pv-button", href: PAGES.projects + "?new=1", text: "Start a Project" })));
+      return;
+    }
+    add(box, h("ul", { class: "pv-ws-cont" }, rows.map(function (r) {
+      return h("li", null,
+        h("span", { class: "pv-ws-label-s pv-ws-cont-k", text: r[0] }),
+        h("a", { class: "pv-ws-cont-t", href: r[2], text: r[1] }),
+        h("span", { class: "pv-ws-small pv-ws-cont-d", text: DATE.format(new Date(r[3])) }));
+    })));
   }
 
   function drawNews(news, d, mon) {
@@ -1970,7 +2162,8 @@
     follows.forEach(function (f) { name[f.kind + ":" + f.ref] = f.title || f.ref; });
     if (!follows.length) {
       clear(news);
-      add(news, h("p", { text: "Save an actor or a country, and what the Monitor and the Library add on it will show here." }));
+      add(news, emptyState("item", "Save an actor or a country to follow it here.",
+        h("a", { class: "pv-button", href: BASE + "../actors/index.html", text: "Actors in Monitor" })));
       return;
     }
     var since = d.since && d.since.at ? d.since : null;
@@ -1996,7 +2189,7 @@
         lines.push(h("ul", { class: "pv-ws-home-items" }, items.map(function (it) {
           var about = (it.actors || []).map(function (a) { return name["actor:" + a]; })
             .concat((it.iso || []).map(function (c) { return name["country:" + c]; })).filter(Boolean);
-          return h("li", null,
+          return h("li", null, mark("item"),
             h("a", { href: BASE + "../monitor/" + it.folder + "/#item-" + it.n, text: itemHeading(it) }),
             h("span", { class: "pv-ws-home-ref", text: "PopuliVerse Monitor " + it.issue + ", item " + it.n
               + (itemDay(it) ? " \u00b7 " + itemDay(it) : "") + (about.length ? " \u00b7 " + about.filter(function (x, i) { return about.indexOf(x) === i; }).join(", ") : "") }));
@@ -2005,7 +2198,7 @@
       var added = (countries || []).filter(function (f) { return counts && counts[places[f.ref][6]]; });
       added.forEach(function (f) {
         var tag = places[f.ref][6], n = counts[tag];
-        lines.push(h("p", { class: "pv-ws-home-works" },
+        lines.push(h("p", { class: "pv-ws-home-works" }, mark("work"),
           h("a", { href: BASE + "../library/index.html?country=" + encodeURIComponent(tag) + "&sort=added",
             text: plural(n, "work", "works") + " on " + (f.title || places[f.ref][0]) }),
           " added to the Library " + (when || "since you joined") + "."));
@@ -2037,30 +2230,8 @@
     }, function () { return null; });
   }
 
-  // Where the reader left off: the last draft and the last Notebook page.
-  function leftOff(d) {
-    var lines = [];
-    if (d.lastDraft) {
-      lines.push(h("p", null, "Your last draft ",
-        h("a", { href: PAGES.write + "?draft=" + encodeURIComponent(d.lastDraft.id), text: d.lastDraft.title || "Untitled" }),
-        ", changed " + DATE.format(new Date(d.lastDraft.updated_at)) + "."));
-    }
-    if (d.lastPage) {
-      lines.push(h("p", null, "Your last Notebook page ",
-        h("a", { href: PAGES.notebook + "?page=" + encodeURIComponent(d.lastPage.id), text: d.lastPage.title || "Untitled" }),
-        ", changed " + DATE.format(new Date(d.lastPage.updated_at)) + "."));
-    }
-    return lines.length ? h("div", { class: "pv-ws-home-left" }, h("h3", { class: "pv-ws-sub-h", text: "Where You Left Off" }), lines) : null;
-  }
-
-  // The switch of the email of what is new (batch 5, Part D), and the
-  // newsletter for a reader who is not on its list (batch 5, Part C).
-  function stayInTouch(me) {
-    var parts = [emailSwitch(me), !me.guest && me.newsletter ? null : newsletterButton(me)];
-    return parts.some(Boolean) ? h("div", { class: "pv-ws-home-keep" }, parts) : null;
-  }
-
-  // The reader's own switch, off until the reader turns it on. A guest has no
+  // The switch of the email of what is new (batch 5, Part D), on the account
+  // page. The reader's own switch, off until the reader turns it on. A guest has no
   // address, so a guest has no switch.
   var switches = 0;
   function emailSwitch(me) {
@@ -2274,6 +2445,7 @@
     api: api, h: h, add: add, clear: clear, show: show, message: message, debounce: debounce,
     countryName: countryName, DATE_LONG: DATE_LONG, head: head, when: when, plural: plural, cut: cut,
     site: site, frame: frame, KINDS: KINDS, crossLinks: crossLinks, params: params,
-    PAGES: PAGES, BASE: BASE, projects: projects, copyText: copyText
+    PAGES: PAGES, BASE: BASE, projects: projects, copyText: copyText, mark: mark, emptyState: emptyState,
+    projectMark: projectMark, PROJECT_COLOURS: PROJECT_COLOURS
   };
 })();

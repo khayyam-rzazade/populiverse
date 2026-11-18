@@ -216,7 +216,7 @@ async function dress(env, who, rows) {
     ask("SELECT kept_id, name FROM tag WHERE user_id = ? AND kept_id IN (?) ORDER BY name"),
     ask("SELECT id, kept_id, at, text FROM mark WHERE user_id = ? AND kept_id IN (?) ORDER BY at"),
     ask(
-      `SELECT pt.kept_id AS kept_id, p.id AS id, p.title AS title FROM project_thing pt
+      `SELECT pt.kept_id AS kept_id, p.id AS id, p.title AS title, p.colour AS colour FROM project_thing pt
          JOIN project p ON p.id = pt.project_id AND p.user_id = pt.user_id
         WHERE pt.user_id = ? AND pt.kept_id IN (?) ORDER BY p.title COLLATE NOCASE`
     )
@@ -233,7 +233,7 @@ async function dress(env, who, rows) {
   Object.keys(marksOf).forEach((k) => marksOf[k].sort((a, b) => a.at - b.at));
   const inProject = {};
   links.forEach((l) => {
-    (inProject[l.kept_id] = inProject[l.kept_id] || []).push({ id: l.id, title: l.title });
+    (inProject[l.kept_id] = inProject[l.kept_id] || []).push({ id: l.id, title: l.title, colour: l.colour || null });
   });
   return rows.map((r) => ({
     kind: r.kind,

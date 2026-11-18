@@ -8,7 +8,7 @@
 // works, notes, pages and the draft stay, loose.
 
 import { json, readBody, now } from "./util.js";
-import { LIMITS } from "./lists.js";
+import { LIMITS, PROJECT_COLOURS } from "./lists.js";
 import { fillSortNames } from "./keep.js";
 
 // Plain one-line text: control characters become spaces, runs of space become
@@ -18,6 +18,16 @@ function line(v, max) {
   const t = v.replace(/[\u0000-\u001F\u007F]/g, " ").replace(/\s+/g, " ").trim();
   return t.length > max ? null : t;
 }
+
+// A project's colour as it arrives: undefined when the page sends none, null
+// for "no colour" (null or an empty string), one of the six names, or false
+// for anything else, which is refused.
+function colourOf(v) {
+  if (v === undefined) return undefined;
+  if (v === null || v === "") return null;
+  return typeof v === "string" && PROJECT_COLOURS.includes(v) ? v : false;
+}
+const NO_SUCH_COLOUR = "Please pick one of the six colours.";
 
 function limitOf(who) {
   return who.guest ? LIMITS.projectsPerGuest : LIMITS.projectsPerAccount;
@@ -76,7 +86,7 @@ async function numbers(env, who) {
 export const projects = {
   async list({ env, who }) {
     const { results } = await env.DB.prepare(
-      "SELECT id, title, question, created_at, updated_at FROM project WHERE user_id = ? ORDER BY updated_at DESC"
+      "SELECT id, title, question, colour, created_at, updated_at FROM project WHERE user_id = ? ORDER BY updated_at DESC"
     )
       .bind(who.userId)
       .all();
@@ -98,15 +108,17 @@ export const projects = {
     const question = line(body.question ?? "", LIMITS.charsPerQuestion);
     if (title === null || question === null) return json({ error: "That is too long." }, 413);
     if (!title) return json({ error: "Please give the project a title.", fields: { title: "Please give the project a title." } }, 400);
+    const colour = colourOf(body.colour);
+    if (colour === false) return json({ error: NO_SUCH_COLOUR, fields: { colour: NO_SUCH_COLOUR } }, 400);
     const limit = limitOf(who);
     const id = crypto.randomUUID();
     const t = now();
     // The count stands inside the statement that writes the row (Fable's check, point 9).
     const made = await env.DB.prepare(
-      `INSERT INTO project (id, user_id, title, question, created_at, updated_at)
-       SELECT ?, ?, ?, ?, ?, ? WHERE (SELECT COUNT(*) FROM project WHERE user_id = ?) < ?`
+      `INSERT INTO project (id, user_id, title, question, colour, created_at, updated_at)
+       SELECT ?, ?, ?, ?, ?, ?, ? WHERE (SELECT COUNT(*) FROM project WHERE user_id = ?) < ?`
     )
-      .bind(id, who.userId, title, question, t, t, who.userId, limit)
+      .bind(id, who.userId, title, question, colour || null, t, t, who.userId, limit)
       .run();
     if (!made.meta.changes) {
       return json(
@@ -114,7 +126,7 @@ export const projects = {
         409
       );
     }
-    return json({ project: { id, title, question, created_at: t, updated_at: t } }, 201);
+    return json({ project: { id, title, question, colour: colour || null, created_at: t, updated_at: t } }, 201);
   },
 
   // One project as one view. Everything comes from this person's own rows; the
@@ -157,7 +169,7 @@ export const projects = {
       if (reading[s] !== undefined) reading[s]++;
     });
     return json({
-      project: { id: p.id, title: p.title, question: p.question, created_at: p.created_at, updated_at: p.updated_at },
+      project: { id: p.id, title: p.title, question: p.question, colour: p.colour || null, created_at: p.created_at, updated_at: p.updated_at },
       things: rows,
       reading,
       pages: pages.results || [],
@@ -185,6 +197,12 @@ export const projects = {
       if (question === null) return json({ error: "That question is too long." }, 413);
       sets.push("question = ?");
       args.push(question);
+    }
+    if (body.colour !== undefined) {
+      const colour = colourOf(body.colour);
+      if (colour === false) return json({ error: NO_SUCH_COLOUR, fields: { colour: NO_SUCH_COLOUR } }, 400);
+      sets.push("colour = ?");
+      args.push(colour);
     }
     if (!sets.length) return json({ error: "Nothing to change." }, 400);
     const t = now();
@@ -262,7 +280,7 @@ export const projects = {
 // Everything of this person's projects, for "Download Everything" (account.js).
 export async function allProjects(env, who) {
   const { results: list } = await env.DB.prepare(
-    "SELECT id, title, question, created_at, updated_at FROM project WHERE user_id = ? ORDER BY created_at"
+    "SELECT id, title, question, colour, created_at, updated_at FROM project WHERE user_id = ? ORDER BY created_at"
   )
     .bind(who.userId)
     .all();

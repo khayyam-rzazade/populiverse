@@ -8,7 +8,9 @@ citation: false
 description: "The PopuliVerse Workspace. Save works and Monitor items, add your notes, write drafts that cite them, follow populist actors and countries, and use tools for case studies."
 # The Researcher's Workspace (master plan, section 18, stage 2). The page talks
 # to the server at api.populiverse.com (folder server/ of the repository).
-# Signed out it shows the three doors; signed in it shows the shelf. On the
+# Signed out it shows the three doors; signed in it shows Home: Continue and
+# What Is New (the tidy-up of 17 November 2026, Part A). The shelf has its own
+# page, shelf.qmd, and an old address of the shelf comes on to it. On the
 # editor's Mac the preview shows the pages, and says that sign-in works on
 # populiverse.com. No title above the tabs (the row of 2026-11-13 on the
 # mockup, point 6).
@@ -22,8 +24,8 @@ resources:
 ---
 
 ```{=html}
-<div id="ws-app" class="pv-ws-app" data-view="shelf">
-  <p class="pv-lib-loading">Loading your shelf…</p>
+<div id="ws-app" class="pv-ws-app" data-view="home">
+  <p class="pv-lib-loading">Loading your Workspace…</p>
   <noscript>
     <div class="pv-lib-message"><p>The workspace needs JavaScript to run.</p></div>
   </noscript>

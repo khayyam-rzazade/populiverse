@@ -29,7 +29,10 @@ image-alt: "PopuliVerse: The Universe of Populism"
 # one picture and one line, with no number (the wrap-up before the opening,
 # Part C). Pictures 2 and 3 were taken again on 17 November 2026, when the
 # shelf had gained Abstract and the project its Tools panel; 1, 4 and 5 and the
-# film still matched the screens.
+# film still matched the screens. Pictures 2 and 3, the picture of What Is New
+# and the film were taken again on 17 November 2026, after the tidy-up (Home
+# first, Notes on the shelf, "More" on a row, a colour for each kind); 1, 4, 5,
+# the tools, the email and the film's still had not changed.
 resources:
   - guide/
 ---
@@ -94,14 +97,14 @@ The Workspace is your own place on Populi*Verse*.
   </li>
   <li>
     <figure>
-      <img src="guide/step-2-note.webp" width="1710" height="960" loading="lazy" decoding="async"
+      <img src="guide/step-2-note.webp" width="1686" height="928" loading="lazy" decoding="async"
            alt="A saved work on the shelf of the Workspace with its note box open. A note about the AfD and defence votes is typed in the box, with a Save Note button under it.">
       <figcaption>Add a note to it.</figcaption>
     </figure>
   </li>
   <li>
     <figure>
-      <img src="guide/step-3-project.webp" width="1800" height="2384" loading="lazy" decoding="async"
+      <img src="guide/step-3-project.webp" width="1800" height="2310" loading="lazy" decoding="async"
            alt="A project in the Workspace, under the board of the six tools. It is called Populism and Defence Policy, and its panels hold the question, three works under Literature, the four tools, three things under Monitor Items and Charts, and one note.">
       <figcaption>Put it in a project.</figcaption>
     </figure>
@@ -129,8 +132,8 @@ The Workspace is your own place on Populi*Verse*.
 <ul class="pv-guide-steps pv-guide-also" role="list">
   <li>
     <figure>
-      <img src="guide/also-new.webp" width="1200" height="583" loading="lazy" decoding="async"
-           alt="What Is New in the Workspace. Four items of PopuliVerse Monitor 2026/2 on Recep Tayyip Erdoğan and on Italy, each with its number and date.">
+      <img src="guide/also-new.webp" width="1200" height="641" loading="lazy" decoding="async"
+           alt="Home, the first page of the Workspace. On the left, Continue, with the draft and the project last changed. On the right, What Is New: four items of PopuliVerse Monitor 2026/2 on Recep Tayyip Erdoğan and on Italy, each with its number and date.">
       <figcaption>Save an actor or a country, and see what is new on it.</figcaption>
     </figure>
   </li>

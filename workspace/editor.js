@@ -385,7 +385,9 @@
               onmousedown: function (e) { e.preventDefault(); },
               onclick: function () { choose(i); }
             },
-            h("span", { text: it.label }),
+            // The dot in the colour of the kind (the tidy-up of 17 November
+            // 2026, Part D), beside the words, never in place of them.
+            h("span", null, it.kind ? h("span", { class: "pv-ws-mark is-" + it.kind, "aria-hidden": "true" }) : null, it.label),
             it.sub ? h("small", { text: it.sub }) : null
           );
           pickerState.flat.push({ el: b, item: it });

@@ -189,7 +189,7 @@ async function ensureToken(env, userId) {
 }
 
 export const digest = {
-  // The reader's own switch, on Home and on the account page. Only the
+  // The reader's own switch, on the account page. Only the
   // reader's own row is ever touched. Turning it on again starts afresh, so
   // that no issue that came while it was off arrives late.
   async set({ env, request, who }) {
@@ -274,17 +274,19 @@ export const digest = {
 // email off for a reader who asked for it (Fable's check of batch 5, F2). The
 // page holds one button, and the button stops the email and does nothing
 // else. Both pages say the same whether or not the key was a real one, so
-// they tell nobody anything about anybody.
+// they tell nobody anything about anybody. Since the tidy-up of 17 November
+// 2026 (Part A) the switch is on the account page only, so the page names
+// that page alone.
 export async function stopPage(env, key, pressed) {
   if (pressed) await env.DB.prepare("UPDATE digest SET wanted = 0 WHERE stop_token = ?").bind(key).run();
   const site = env.SITE_ORIGIN;
   const body = pressed
     ? `<p>The email of what is new will not come again. Nothing else has changed.</p>
-<p>You can turn it on again on the first page of your Workspace, or on your account page.</p>
-<p><a href="${site}/workspace/">Go to your Workspace</a></p>`
+<p>You can turn it on again on your account page in the Workspace.</p>
+<p><a href="${site}/workspace/account.html">Go to your account page</a></p>`
     : `<p>Stop the email of what is new?</p>
 <form method="post"><button type="submit">Stop the Email</button></form>
-<p>Nothing else changes. You can turn it on again on the first page of your Workspace, or on your account page.</p>`;
+<p>Nothing else changes. You can turn it on again on your account page in the Workspace.</p>`;
   const html = `<!doctype html>
 <html lang="en">
 <head>

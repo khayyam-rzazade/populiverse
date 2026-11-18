@@ -382,7 +382,7 @@ export const account = {
           `               marked passages and the note on each thing\n` +
           `notes/         one text file for each of your notes\n` +
           `notes.json     the same notes, each with the thing it is on\n` +
-          `projects.json  your projects, each with what is in it\n` +
+          `projects.json  your projects, each with its colour and what is in it\n` +
           `drafts/        one text file for each of your drafts\n` +
           `drafts.json    the same drafts as the editor stored them\n` +
           `figures/       one picture for each chart or table you sent to Write\n` +

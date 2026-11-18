@@ -22,7 +22,25 @@
   var api = W.api, h = W.h, add = W.add, clear = W.clear, show = W.show, message = W.message;
   var debounce = W.debounce, when = W.when, plural = W.plural, cut = W.cut, site = W.site;
   var head = W.head, PAGES = W.PAGES, BASE = W.BASE, DATE_LONG = W.DATE_LONG, frame = W.frame;
-  var KINDS = W.KINDS, crossLinks = W.crossLinks, params = W.params;
+  var KINDS = W.KINDS, crossLinks = W.crossLinks, params = W.params, mark = W.mark, emptyState = W.emptyState;
+  var projectMark = W.projectMark, PROJECT_COLOURS = W.PROJECT_COLOURS;
+
+  // The six colours of a project, picked when it is started or edited (the
+  // tidy-up and colour round of 17 November 2026, Part F). Each choice is a
+  // word with its colour beside it; "None" keeps the project plain.
+  function colourPicker(id, now, legend) {
+    var box = h("fieldset", { class: "pv-ws-colours" }, h("legend", { class: legend || "pv-ws-fl", text: "Colour" }));
+    [["", "None"]].concat(PROJECT_COLOURS).forEach(function (c) {
+      var rid = id + "-" + (c[0] || "none");
+      add(box, h("label", { class: "pv-ws-colour", for: rid },
+        h("input", { type: "radio", name: id, id: rid, value: c[0], checked: (now || "") === c[0] }),
+        projectMark(c[0]), c[1]));
+    });
+    return { el: box, value: function () { var on = box.querySelector("input:checked"); return on ? on.value : ""; } };
+  }
+  function colourClass(colour) {
+    return PROJECT_COLOURS.some(function (c) { return c[0] === colour; }) ? " has-colour is-" + colour : "";
+  }
 
   // ------------------------------------------------------------ small things
 
@@ -556,6 +574,7 @@
       var items = [];
       ((two[0].data && two[0].data.things) || []).slice(0, 6).forEach(function (t) {
         items.push({
+          kind: "work",
           label: t.title || t.ref,
           sub: [t.status ? ({ "to-read": "To Read", reading: "Reading", read: "Read" })[t.status] : "", t.note ? "Your note: " + cut(t.note.body, 60) : ""].filter(Boolean).join(" · "),
           value: { kind: "work", ref: t.ref, text: shortOf("work", t), url: t.url }
@@ -563,6 +582,7 @@
       });
       ((two[1].data && two[1].data.things) || []).slice(0, 4).forEach(function (t) {
         items.push({
+          kind: "item",
           label: t.title || t.ref,
           sub: [t.extra, t.note ? "Your note: " + cut(t.note.body, 60) : ""].filter(Boolean).join(" · "),
           value: { kind: "item", ref: t.ref, text: shortOf("item", t), url: t.url }
@@ -585,6 +605,7 @@
             note: "Citing a work from the Library keeps it on your shelf.",
             items: hits.map(function (w) {
               return {
+                kind: "work",
                 label: plainOf(w.citation),
                 sub: String(w.year || ""),
                 pick: function () {
@@ -623,6 +644,7 @@
             group: "Monitor",
             items: hits.map(function (it) {
               return {
+                kind: "item",
                 label: it.title,
                 sub: "Monitor " + it.issue + ", item " + it.n,
                 pick: function () {
@@ -705,13 +727,18 @@
         },
           h("span", { class: "pv-ws-item-t", text: d.title || "Untitled" }),
           h("span", { class: "pv-ws-item-d", text: plural(d.words, "word", "words") + " · " + when(d.updated_at) }),
-          d.project_title ? h("span", { class: "pv-ws-item-d", text: "in " + d.project_title }) : null)));
+          d.project_title ? h("span", { class: "pv-ws-item-d" }, projectMark(d.project_colour), "in " + d.project_title) : null)));
       });
     }
 
     function blank() {
       shell.classList.remove("is-open");
       clear(paper);
+      // Nothing written at all: the drawing, one line, one button (Part E).
+      if (!state.drafts.length) {
+        add(paper, emptyState("write", "Nothing written yet.", h("button", { class: "pv-button", type: "button", onclick: function () { newDraft(null); } }, "Start a Draft")));
+        return;
+      }
       add(paper, h("div", { class: "pv-ws-blank" },
         h("p", { class: "pv-ws-blank-t", text: state.drafts.length ? "Pick a draft, or start a new one." : "Nothing written yet." }),
         h("p", { text: "A draft cites a work or a Monitor item with @, takes in a chart you sent from a Data page, and builds its own reference list." }),
@@ -769,7 +796,7 @@
 
       var toWord = h("button", { class: "pv-button pv-ws-ghost", type: "button", onclick: function () { toWordFile(toWord); } }, "Export to Word");
       var where = data.project
-        ? h("a", { class: "pv-ws-small", href: PAGES.projects + "?p=" + encodeURIComponent(data.project.id), text: "In " + data.project.title })
+        ? h("a", { class: "pv-ws-small", href: PAGES.projects + "?p=" + encodeURIComponent(data.project.id) }, projectMark(data.project.colour), "In " + data.project.title)
         : projectPicker();
 
       add(paper,
@@ -1179,6 +1206,18 @@
         clear(body);
         if (!r.ok) { add(body, message(r.data.error || "Your projects could not be loaded.", "error")); return; }
         var list = r.data.projects || [];
+        // No project yet: the drawing, one line and one button, which opens
+        // the form (Part E). "Start a Project" on Home opens the form at once.
+        if (!list.length) {
+          var empty = emptyState("project", "No projects yet.", h("button", { class: "pv-button", type: "button", onclick: function () {
+            if (empty.parentNode) empty.parentNode.removeChild(empty);
+            startForm(true);
+            body.querySelector("#pj-t").focus();
+          } }, "Start a Project"));
+          if (params.get("new")) { startForm(true); body.querySelector("#pj-t").focus(); }
+          else add(body, empty);
+          return;
+        }
         add(body, h("div", { class: "pv-ws-head-row pv-ws-projects-head" },
           h("p", { class: "pv-ws-count-line", text: plural(list.length, "project", "projects") }),
           h("button", { class: "pv-button", type: "button", onclick: function () { startForm(true); } }, "New Project")));
@@ -1186,7 +1225,7 @@
           var ul = h("ul", { class: "pv-ws-projects" });
           list.forEach(function (p) {
             var c = p.counts;
-            add(ul, h("li", null, h("a", { class: "pv-ws-project", href: PAGES.projects + "?p=" + encodeURIComponent(p.id) },
+            add(ul, h("li", null, h("a", { class: "pv-ws-project" + colourClass(p.colour), href: PAGES.projects + "?p=" + encodeURIComponent(p.id) },
               h("span", { class: "pv-ws-project-top" },
                 h("span", { class: "pv-ws-project-t", text: p.title }),
                 h("span", { class: "pv-ws-small", text: "Edited " + when(p.updated_at) })),
@@ -1203,7 +1242,7 @@
           });
           add(body, ul);
         }
-        startForm(!list.length);
+        startForm(!!params.get("new"));
       });
     }
 
@@ -1213,15 +1252,17 @@
       if (!open) return;
       var title = h("input", { class: "pv-ws-in", type: "text", id: "pj-t", maxlength: "200", placeholder: "Title" });
       var question = h("input", { class: "pv-ws-in", type: "text", id: "pj-q", maxlength: "600", placeholder: "Your research question" });
+      var colour = colourPicker("pj-c", "");
       var err = h("p", { class: "pv-ws-field-error", "aria-live": "polite" });
       var box = h("div", { class: "pv-ws-start" },
         h("p", { class: "pv-ws-lede", text: "A project keeps your question, cases, literature, events, notes and draft in one view." }),
         h("label", { class: "pv-ws-fl", for: "pj-t", text: "Title" }), title,
         h("label", { class: "pv-ws-fl", for: "pj-q", text: "Your research question" }), question,
-        h("p", { class: "pv-ws-small", text: "You can change both later." }),
+        colour.el,
+        h("p", { class: "pv-ws-small", text: "You can change all of it later." }),
         err,
         h("button", { class: "pv-button", type: "button", onclick: function () {
-          api("/api/projects", { method: "POST", body: { title: title.value, question: question.value } }).then(function (r) {
+          api("/api/projects", { method: "POST", body: { title: title.value, question: question.value, colour: colour.value() } }).then(function (r) {
             if (!r.ok) { err.textContent = r.data.error || "That project could not be started."; return; }
             location.href = PAGES.projects + "?p=" + encodeURIComponent(r.data.project.id);
           });
@@ -1255,7 +1296,7 @@
       add(body,
         h("p", { class: "pv-ws-crumb" }, h("a", { href: PAGES.projects, text: "All Projects" }),
           h("span", { class: "pv-ws-dot", "aria-hidden": "true", text: "/" }), h("span", { text: p.title })),
-        h("h2", { class: "pv-ws-project-h", text: p.title }),
+        h("h2", { class: "pv-ws-project-h" + colourClass(p.colour), text: p.title }),
         question(p));
 
       var grid = h("div", { class: "pv-ws-panels" });
@@ -1267,7 +1308,7 @@
       cases.forEach(function (t) {
         var row = h("div", { class: "pv-ws-prow" },
           h("span", { class: "pv-ws-prow-top" },
-            t.url ? h("a", { href: t.url, text: t.title }) : h("span", { text: t.title }),
+            h("span", null, mark(t.kind), t.url ? h("a", { href: t.url, text: t.title }) : h("span", { text: t.title })),
             h("span", { class: "pv-ws-small", text: t.kind === "country" ? "Country" : t.extra || "Actor" })));
         var links = crossLinks(t, data);
         if (links.length) {
@@ -1279,7 +1320,7 @@
       });
       // The whole shelf, on its actors, ready to add to this project (Fable's
       // check of batches 2 and 3, point 10).
-      add(casePanel.foot, h("a", { class: "pv-lib-link", href: PAGES.home + "?kind=actor&addto=" + encodeURIComponent(p.id), text: "Add a Case from Your Shelf" }));
+      add(casePanel.foot, h("a", { class: "pv-lib-link", href: PAGES.shelf + "?kind=actor&addto=" + encodeURIComponent(p.id), text: "Add a Case from Your Shelf" }));
       add(grid, casePanel.el);
 
       // Literature: one short line a work, so that the panel stays short; the
@@ -1289,11 +1330,11 @@
       add(litPanel.body, readingBar(d.reading || {}));
       works.slice(0, 5).forEach(function (t) {
         var whole = plainOf(t.cite || t.title);
-        add(litPanel.body, h("p", { class: "pv-ws-prow pv-ws-lit", title: whole, text: cut(whole, 110) }));
+        add(litPanel.body, h("p", { class: "pv-ws-prow pv-ws-lit", title: whole }, mark("work"), cut(whole, 110)));
       });
       if (works.length > 5) add(litPanel.body, h("p", { class: "pv-ws-small", text: "and " + (works.length - 5) + " more" }));
       add(litPanel.foot,
-        h("a", { class: "pv-lib-link", href: PAGES.home + "?project=" + encodeURIComponent(p.id), text: "Open on Your Shelf" }),
+        h("a", { class: "pv-lib-link", href: PAGES.shelf + "?project=" + encodeURIComponent(p.id), text: "Open on Your Shelf" }),
         h("button", { class: "pv-lib-link", type: "button", onclick: function (e) { annotated(e.currentTarget, p.id); } }, "Annotated Bibliography"));
       add(grid, litPanel.el);
 
@@ -1323,12 +1364,12 @@
         var name = cut(t.title || t.ref, 110);
         var where = t.kind === "chart" ? "Chart" : String(t.extra || "").split(" \u00b7 ")[0] || "Monitor item";
         add(savedPanel.body, h("div", { class: "pv-ws-prow" },
-          t.url ? h("a", { class: "pv-ws-prow-l", href: t.url, text: name }) : h("span", { class: "pv-ws-prow-l", text: name }),
+          h("span", { class: "pv-ws-prow-l" }, mark(t.kind), t.url ? h("a", { href: t.url, text: name }) : h("span", { text: name })),
           h("span", { class: "pv-ws-small pv-ws-prow-l", text: where })));
       });
       if (saved.length > 6) add(savedPanel.body, h("p", { class: "pv-ws-small", text: "and " + (saved.length - 6) + " more" }));
       add(savedPanel.foot, h("a", { class: "pv-lib-link",
-        href: PAGES.home + "?kind=" + (items.length || !charts.length ? "item" : "chart") + "&project=" + encodeURIComponent(p.id),
+        href: PAGES.shelf + "?kind=" + (items.length || !charts.length ? "item" : "chart") + "&project=" + encodeURIComponent(p.id),
         text: "Open on Your Shelf" }));
       add(grid, savedPanel.el);
 
@@ -1337,7 +1378,7 @@
       if (!notes.length) add(notePanel.body, h("p", { class: "pv-ws-small", text: "Your notes on what is in this project show here." }));
       notes.slice(0, 5).forEach(function (t) {
         add(notePanel.body, h("div", { class: "pv-ws-prow" },
-          h("span", { class: "pv-ws-small pv-ws-prow-l", text: "On " + cut(t.title || t.ref, 70) }),
+          h("span", { class: "pv-ws-small pv-ws-prow-l" }, mark(t.kind), "On " + cut(t.title || t.ref, 70)),
           h("span", { class: "pv-ws-prow-note", text: cut(t.note, 120) })));
       });
       add(notePanel.foot, h("a", { class: "pv-lib-link", href: PAGES.notes + "?project=" + encodeURIComponent(p.id), text: "All Notes in This Project" }));
@@ -1383,13 +1424,14 @@
       function edit() {
         var title = h("input", { class: "pv-ws-in", type: "text", maxlength: "200", value: p.title, "aria-label": "Title" });
         var words = h("input", { class: "pv-ws-in", type: "text", maxlength: "600", value: p.question, "aria-label": "Your research question" });
+        var colour = colourPicker("pj-ce", p.colour || "", "pv-ws-label-s");
         var err = h("p", { class: "pv-ws-field-error", "aria-live": "polite" });
         clear(box);
         add(box, h("p", { class: "pv-ws-label-s", text: "Title" }), title,
-          h("p", { class: "pv-ws-label-s", text: "Question" }), words, err,
+          h("p", { class: "pv-ws-label-s", text: "Question" }), words, colour.el, err,
           h("p", { class: "pv-ws-notebox-row" },
             h("button", { class: "pv-button", type: "button", onclick: function () {
-              api("/api/projects/" + encodeURIComponent(p.id), { method: "PATCH", body: { title: title.value, question: words.value } })
+              api("/api/projects/" + encodeURIComponent(p.id), { method: "PATCH", body: { title: title.value, question: words.value, colour: colour.value() } })
                 .then(function (r) {
                   if (!r.ok) { err.textContent = r.data.error || "That could not be saved."; return; }
                   location.reload();

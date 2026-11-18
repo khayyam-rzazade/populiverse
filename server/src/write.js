@@ -167,6 +167,7 @@ export const write = {
   async list({ env, who }) {
     const { results } = await env.DB.prepare(
       `SELECT d.id, d.title, d.words, d.project_id, d.created_at, d.updated_at, p.title AS project_title,
+              p.colour AS project_colour,
               (d.title = '' AND d.words = 0 AND instr(d.body, 'pvfigure') = 0) AS blank
          FROM draft d LEFT JOIN project p ON p.id = d.project_id AND p.user_id = d.user_id
         WHERE d.user_id = ? ORDER BY d.updated_at DESC LIMIT ?`
@@ -221,7 +222,7 @@ export const write = {
     const d = await myDraft(env, who, params.id);
     if (!d) return json({ error: "No such draft." }, 404);
     const project = d.project_id
-      ? await env.DB.prepare("SELECT id, title, question FROM project WHERE id = ? AND user_id = ?")
+      ? await env.DB.prepare("SELECT id, title, question, colour FROM project WHERE id = ? AND user_id = ?")
           .bind(d.project_id, who.userId)
           .first()
       : null;
